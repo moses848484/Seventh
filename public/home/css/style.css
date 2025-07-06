@@ -109,91 +109,31 @@ a:focus {
 
 .hero_area {
   position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
   min-height: 100vh;
-  /* Full viewport height */
   display: flex;
-  /* Flexbox layout */
   flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
+  justify-content: center; /* vertically center */
+  align-items: center;     /* horizontally center */
   width: 100%;
-  /* Full width of the container */
+  margin: 0;
   box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
-
+  padding: 20px;
 }
 
-/* Optional: Media queries for better responsiveness */
-@media (max-width: 1200px) {
-  .hero_area {
-  position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
-  }
-}
-
+/* Optional: Responsive tweaks only if needed */
 @media (max-width: 768px) {
   .hero_area {
-   position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
+    padding: 15px;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero_area {
-  position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
+    padding: 10px;
   }
 }
+
 
 
 .sub_page .hero_area {
