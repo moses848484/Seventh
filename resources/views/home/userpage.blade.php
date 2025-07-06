@@ -50,13 +50,13 @@
    <!-- footer end -->
 
    <!-- jQery -->
-   <script src="home/js/jquery-3.4.1.min.js"></script>
+   <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
-   <script src="home/js/popper.min.js"></script>
+   <script src="https://seventh-production.up.railway.app/home/js/popper.min.js"></script>
    <!-- bootstrap js -->
-   <script src="home/js/bootstrap.js"></script>
+   <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
    <!-- custom js -->
-   <script src="home/js/custom.js"></script>
+   <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
 
    <x-notify::notify />
    @notifyJs
