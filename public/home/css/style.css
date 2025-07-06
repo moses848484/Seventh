@@ -223,67 +223,58 @@ a:focus {
 /* Optional: Media queries for better responsiveness */
 @media (max-width: 1200px) {
   .header_section {
-  position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
+ position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
   }
 }
 
 @media (max-width: 768px) {
   .header_section {
-   position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
   }
 }
 
 @media (max-width: 480px) {
   .header_section {
-  position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 100%;
-  /* Full width of the container */
-  box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
+ position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
   }
 }
 
