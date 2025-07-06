@@ -15,13 +15,13 @@
    <title>SDA Home Page</title>
 
    <!-- Bootstrap core css -->
-   <link rel="stylesheet" href="{{ asset('..home/css/bootstrap.css') }}">
+   <link rel="stylesheet" href="{{ asset('.home/css/bootstrap.css') }}">
    <!-- Font Awesome -->
-   <link rel="stylesheet" href="{{ asset('..home/css/font-awesome.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('.home/css/font-awesome.min.css') }}">
    <!-- Custom styles -->
-   <link rel="stylesheet" href="{{ asset('..home/css/style.css') }}">
+   <link rel="stylesheet" href="{{ asset('.home/css/style.css') }}">
    <!-- Responsive styles -->
-   <link rel="stylesheet" href="{{ asset('..home/css/responsive.css') }}">
+   <link rel="stylesheet" href="{{ asset('.home/css/responsive.css') }}">
    <!-- FontAwesome 6 -->
    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}">
 
