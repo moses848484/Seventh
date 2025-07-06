@@ -14,13 +14,13 @@
    <link rel="shortcut icon" href="images/sda3.png" type="">
    <title>SDA Home Page</title>
    <!-- bootstrap core css -->
-   <link rel="stylesheet" type="text/css" href=".public/home/css/bootstrap.css" />
+   <link rel="stylesheet" type="text/css" href="..public/home/css/bootstrap.css" />
    <!-- font awesome style -->
-   <link href=".public/home/css/font-awesome.min.css" rel="stylesheet" />
+   <link href="..public/home/css/font-awesome.min.css" rel="stylesheet" />
    <!-- Custom styles for this template -->
-   <link href=".public/home/css/style.css" rel="stylesheet" />
+   <link href="..public/home/css/style.css" rel="stylesheet" />
    <!-- responsive style -->
-   <link href=".public/home/css/responsive.css" rel="stylesheet" />
+   <link href="..public/home/css/responsive.css" rel="stylesheet" />
    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css') ?>" type="text/css">
    @notifyCss
 </head>
