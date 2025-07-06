@@ -12,12 +12,15 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
-  overflow-x: hidden;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex; /* optional if you're using flex layout */
-  flex-direction: column; /* optional */
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 
