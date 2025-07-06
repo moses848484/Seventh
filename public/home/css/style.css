@@ -216,102 +216,6 @@ a:focus {
   font-family: 'Playfair Display', serif;
 }
 
-. {
-  font-size: medium !important;
-}
-
-/* Optional: Media queries for better responsiveness */
-@media (max-width: 1200px) {
-  .custom_nav-container {
-  position: fixed;
-  /* Position relative for absolute positioning of child elements if needed */
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 0;
-  /* Full width of the container */
-  box-sizing: border-box;
-  }
-}
-
-@media (max-width: 768px) {
-  .custom_nav-container {
-position: fixed;
-  /* Position relative for absolute positioning of child elements if needed */
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 0;
-  /* Full width of the container */
-  box-sizing: border-box;
-  }
-}
-
-@media (max-width: 480px) {
-  .custom_nav-container {
-position: fixed;
-  /* Position relative for absolute positioning of child elements if needed */
-  /* Full viewport height */
-  display: flex;
-  /* Flexbox layout */
-  flex-direction: column;
-  /* Vertical stacking of child elements */
-  justify-content: center;
-  /* Center content vertically (optional) */
-  align-items: center;
-  margin: 0;
-  /* Center content horizontally (optional) */
-  width: 0;
-  /* Full width of the container */
-  box-sizing: border-box;
-  }
-}
-
-/* Hide .xs class on mobile screens and small devices */
-@media (max-width: 575.98px) {
-  .xs {
-    display: none !important;
-    /* Hide the element on screens smaller than 576px */
-  }
-}
-
-/* Ensure .xs class is visible on larger screens */
-@media (min-width: 576px) {
-  .xs {
-    display: block;
-    /* Display the element on screens larger than or equal to 576px */
-    color: white !important;
-    /* Ensure text color is white */
-    font-size: 20px;
-    /* Font size for larger screens */
-    font-family: 'Playfair Display', serif;
-    /* Font family */
-    font-weight: bold;
-    /* Font weight */
-    margin-left: 0;
-    /* Reset margin */
-    text-align: center;
-    /* Center the text */
-    position: relative;
-    /* Position context */
-  }
-}
-
-
 .fa-user-circle {
   color: #e4af00 !important;
   font-size: 23px !important;
@@ -2470,23 +2374,52 @@ div.form_sub .field input[type="email"]:focus {
   /* Ensure pseudo-elements align correctly */
 }
 
-
-/* Container1 Styles */
-/* Full-width container styling */
+/* Base container3 styling */
 .container3 {
   background-color: transparent;
-  /* Background color */
   box-sizing: border-box;
-  /* Include padding and border in the width and height */
   overflow: hidden;
-  /* Hide overflow to keep the effect contained */
   margin: 0;
-  /* Remove default margin */
   width: 100%;
-  /* Full width of its parent */
   position: relative;
-  /* Ensure pseudo-elements align correctly */
+  flex: 1 1 100%;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+/* Small screens */
+@media (max-width: 575.98px) {
+  .container3 {
+    flex: 1 1 100%;
+    margin-left: -8px;
+    max-width: 100%;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container3 {
+    flex: 1 1 calc(50% - 15px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Larger medium screens */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container3 {
+    flex: 1 1 calc(50% - 15px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Large screens */
+@media (min-width: 992px) {
+  .container3 {
+    flex: 1 1 calc(33.333% - 15px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
 
 /* Container1 Styles */
 .container2 {
@@ -2556,8 +2489,7 @@ div.form_sub .field input[type="email"]:focus {
 @media (max-width: 595.98px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 100%;
     margin: 0;
     /* Reset margins to prevent overflow */
@@ -2573,8 +2505,7 @@ div.form_sub .field input[type="email"]:focus {
 @media (min-width: 476px) and (max-width: 1067.98px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 calc(50% - 15px);
     margin: 0;
     /* Reset margins to prevent overflow */
@@ -2593,25 +2524,12 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-/* Adjustments for smaller medium screens */
-@media (min-width: 406px) and (max-width: 1067.98px) {
-  .container3 {
-    flex: 1 1 calc(50% - 15px);
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    width: 100%;
-    /* Ensure full width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Default shadow */
-  }
-}
 
 /* Adjustments for large screens */
 @media (min-width: 768px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 calc(50% - 15px);
     /* Two containers per row on larger screens */
   }
@@ -2674,8 +2592,7 @@ div.form_sub .field input[type="email"]:focus {
 @media (max-width: 595.98px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 100%;
     margin: 0;
     /* Reset margins to prevent overflow */
@@ -2687,24 +2604,10 @@ div.form_sub .field input[type="email"]:focus {
 @media (min-width: 476px) and (max-width: 1067.98px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 calc(50% - 15px);
     margin: 0;
     /* Reset margins to prevent overflow */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Default shadow */
-  }
-}
-
-/* Adjustments for smaller medium screens */
-@media (min-width: 406px) and (max-width: 1067.98px) {
-  .container3 {
-    flex: 1 1 calc(50% - 15px);
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    width: 100%;
-    /* Ensure full width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     /* Default shadow */
   }
@@ -2714,8 +2617,7 @@ div.form_sub .field input[type="email"]:focus {
 @media (min-width: 768px) {
 
   .container1,
-  .container2,
-  .container3 {
+  .container2 {
     flex: 1 1 calc(50% - 15px);
     /* Two containers per row on larger screens */
   }
@@ -2778,14 +2680,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Ensure full width on mobile */
   }
 
-  .container3 {
-    flex: 1 1 100%;
-    margin-left: -8px;
-    /* Full width on mobile view */
-    max-width: 100%;
-    /* Ensure full width on mobile */
-  }
-
   .container2 {
     flex: 1 1 100%;
     margin-left: -8px;
@@ -2803,13 +2697,6 @@ div.form_sub .field input[type="email"]:focus {
 /* Adjustments for medium screens */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container1 {
-    flex: 1 1 calc(50% - 15px);
-    /* Two containers per row on medium screens */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Default shadow */
-  }
-
-  .container3 {
     flex: 1 1 calc(50% - 15px);
     /* Two containers per row on medium screens */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -2841,11 +2728,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Two containers per row on larger screens */
   }
 
-  .container3 {
-    flex: 1 1 calc(50% - 15px);
-    /* Two containers per row on larger screens */
-  }
-
   .container2 {
     flex: 1 1 calc(50% - 15px);
     /* Two containers per row on larger screens */
@@ -2869,10 +2751,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Three containers per row on extra large screens */
   }
 
-  .container3 {
-    flex: 1 1 calc(33.33% - 15px);
-    /* Three containers per row on extra large screens */
-  }
 
   .container2 {
     flex: 1 1 calc(33.33% - 15px);
@@ -2954,12 +2832,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Medium shadow on medium screens */
   }
 
-  .container3 {
-    flex: 1 1 calc(50% - 15px);
-    /* Two containers per row on medium screens */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    /* Medium shadow on medium screens */
-  }
 
   .col-md-4 {
     flex: 1 1 50%;
@@ -3009,12 +2881,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Default shadow */
   }
 
-  .container3 {
-    flex: 1 1 calc(33.333% - 15px);
-    /* Three containers per row on large screens */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Default shadow */
-  }
 
   .col-md-4 {
     flex: 1 1 33.333%;
@@ -3061,12 +2927,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Stronger shadow for extra large screens */
   }
 
-  .container3 {
-    flex: 1 1 calc(33.333% - 15px);
-    /* Three containers per row on extra large screens */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
-    /* Stronger shadow for extra large screens */
-  }
 
   .text-area {
     padding: 30px;
