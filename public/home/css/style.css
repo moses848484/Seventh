@@ -223,9 +223,8 @@ a:focus {
 /* Optional: Media queries for better responsiveness */
 @media (max-width: 1200px) {
   .custom_nav-container {
- position: relative;
+ position: fixed;
   /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
   /* Full viewport height */
   display: flex;
   /* Flexbox layout */
@@ -244,9 +243,8 @@ a:focus {
 
 @media (max-width: 768px) {
   .custom_nav-container {
-position: relative;
+position: fixed;
   /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
   /* Full viewport height */
   display: flex;
   /* Flexbox layout */
@@ -265,9 +263,8 @@ position: relative;
 
 @media (max-width: 480px) {
   .custom_nav-container {
-position: relative;
+position: fixed;
   /* Position relative for absolute positioning of child elements if needed */
-  min-height: 100vh;
   /* Full viewport height */
   display: flex;
   /* Flexbox layout */
