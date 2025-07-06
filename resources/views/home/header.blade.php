@@ -6,6 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- Include your CSS files here -->
+      <!-- Basic -->
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <!-- Site Metas -->
+   <meta name="keywords" content="" />
+   <meta name="description" content="" />
+   <meta name="author" content="" />
+   <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="">
+   <title>SDA Home Page</title>
+   <!-- bootstrap core css -->
+   <link rel="stylesheet" type="text/css" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+   <!-- font awesome style -->
+   <link href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" rel="stylesheet" />
+   <!-- Custom styles for this template -->
+   <link href="https://seventh-production.up.railway.app/home/css/style.css" rel="stylesheet" />
+   <!-- responsive style -->
+   <link href="https://seventh-production.up.railway.app/home/css/responsive.css" rel="stylesheet" />
+   <link rel="stylesheet"
+      href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+   @notifyCss
 </head>
 
 <body>
