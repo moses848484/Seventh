@@ -109,44 +109,48 @@ a:focus {
 
 .hero_area {
   position: relative;
+  /* Position relative for absolute positioning of child elements if needed */
   min-height: 100vh;
+  /* Full viewport height */
   display: flex;
+  /* Flexbox layout */
   flex-direction: column;
+  /* Vertical stacking of child elements */
   justify-content: center;
+  /* Center content vertically (optional) */
   align-items: center;
+  margin: 0;
+  /* Center content horizontally (optional) */
   width: 100%;
-  padding: 2rem;
+  /* Full width of the container */
   box-sizing: border-box;
-  text-align: center;
+  /* Ensure padding and borders are included in the element’s total width and height */
+
 }
 
-/* Sub pages override hero height and add shadow */
-.sub_page .hero_area {
-  min-height: auto;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-}
-
-/* Large tablets and small laptops */
+/* Optional: Media queries for better responsiveness */
 @media (max-width: 1200px) {
   .hero_area {
-    padding: 1.5rem;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
 }
 
-/* Tablets and landscape phones */
 @media (max-width: 768px) {
   .hero_area {
-    padding: 1.2rem;
-    text-align: center;
-  }
-
-  .sub_page .hero_area {
     padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .hero_area {
     padding: 1rem;
@@ -156,11 +160,13 @@ a:focus {
     text-align: center;
     min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
+}
 
-  .sub_page .hero_area {
-    padding: 0.8rem;
-    box-shadow: none; /* Optional: remove shadow for minimal look */
-  }
+
+.sub_page .hero_area {
+  min-height: auto;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .header_section {
