@@ -28,28 +28,27 @@
 
 <body>
 
-   <div class="hero_area">
+   <div class="wrapper">
       <!-- header section strats -->
       @include('home.header')
-       </div>
       <!-- end header section -->
       <!-- slider section -->
       @include('home.slider')
       <!-- end slider section -->
-   <!-- containers section -->
-   @include('home.containers')
-   <!-- end containers section -->
-   <!-- prayersection -->
-   @include('home.prayer')
-   <!-- end prayer section -->
-   @include('home.welcome')
-   <!-- songs section -->
-   @include('home.songs')
-   <!-- end songs section -->
-   <!-- footer start -->
-   @include('home.footer')
-   <!-- footer end -->
-
+      <!-- containers section -->
+      @include('home.containers')
+      <!-- end containers section -->
+      <!-- prayersection -->
+      @include('home.prayer')
+      <!-- end prayer section -->
+      @include('home.welcome')
+      <!-- songs section -->
+      @include('home.songs')
+      <!-- end songs section -->
+      <!-- footer start -->
+      @include('home.footer')
+      <!-- footer end -->
+   </div>
    <!-- jQery -->
    <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->

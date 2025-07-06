@@ -107,34 +107,6 @@ a:focus {
   box-shadow: none;
 }
 
-.hero_area {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* vertically center */
-  align-items: center;     /* horizontally center */
-  width: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 20px;
-}
-
-/* Optional: Responsive tweaks only if needed */
-@media (max-width: 768px) {
-  .hero_area {
-    padding: 15px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero_area {
-    padding: 10px;
-  }
-}
-
-
 
 .sub_page .hero_area {
   min-height: auto;
@@ -272,10 +244,33 @@ a:focus {
 
 /* Ensure navbar doesn't overflow screen on mobile */
 body {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
 }
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+}
+
 
 /* Fix navbar-nav spacing */
 .custom_nav-container .navbar-nav {
