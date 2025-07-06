@@ -252,6 +252,10 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  min-height: 100vh;
+  display: contents;
+  justify-content: left;
+  position: absolute;
 }
 
 /* Small screen adjustments */
