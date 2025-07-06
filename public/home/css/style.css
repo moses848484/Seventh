@@ -261,7 +261,9 @@ a:focus {
   /* Center content vertically (optional) */
   align-items: center;
   /* Center content horizontally (optional) */
+  padding: 0;
   width: 100%;
+  margin: 0;
   /* Full width of the container */
   box-sizing: border-box;
   /* Ensure padding and borders are included in the element’s total width and height */
@@ -283,7 +285,9 @@ a:focus {
   /* Center content vertically (optional) */
   align-items: center;
   /* Center content horizontally (optional) */
+   padding: 0;
   width: 100%;
+  margin: 0;
   /* Full width of the container */
   box-sizing: border-box;
   /* Ensure padding and borders are included in the element’s total width and height */
@@ -304,7 +308,9 @@ a:focus {
   /* Center content vertically (optional) */
   align-items: center;
   /* Center content horizontally (optional) */
+   padding: 0;
   width: 100%;
+  margin: 0;
   /* Full width of the container */
   box-sizing: border-box;
   /* Ensure padding and borders are included in the element’s total width and height */
@@ -325,7 +331,9 @@ a:focus {
   /* Center content vertically (optional) */
   align-items: center;
   /* Center content horizontally (optional) */
+   padding: 0;
   width: 100%;
+  margin: 0;
   /* Full width of the container */
   box-sizing: border-box;
   /* Ensure padding and borders are included in the element’s total width and height */
@@ -2414,9 +2422,11 @@ div.form_sub .field input[type="email"]:focus {
   box-sizing: border-box;
   overflow: hidden;
   margin: 0;
+  padding: 0;
+  width: 100%;
   position: relative;
   flex: 1 1 100%;
-
+  max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -2425,7 +2435,9 @@ div.form_sub .field input[type="email"]:focus {
   .container3 {
     flex: 1 1 100%;
     margin-left: -8px;
-   
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
   }
 }
 
@@ -2434,6 +2446,8 @@ div.form_sub .field input[type="email"]:focus {
   .container3 {
     flex: 1 1 calc(50% - 15px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 0;
   }
 }
 
@@ -2442,6 +2456,8 @@ div.form_sub .field input[type="email"]:focus {
   .container3 {
     flex: 1 1 calc(50% - 15px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    padding: 0;
   }
 }
 
@@ -2450,6 +2466,8 @@ div.form_sub .field input[type="email"]:focus {
   .container3 {
     flex: 1 1 calc(33.333% - 15px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    padding: 0;
   }
 }
 
