@@ -1,4 +1,4 @@
-/* CSS Custom Properties (Design Tokens) */
+/* CSS Custom Properties (Design Tokens) - Mobile-First */
 :root {
   /* Colors */
   --color-primary: #2c6448;
@@ -12,21 +12,21 @@
   --color-gray-dark: #353535;
   --color-orange: rgb(219, 106, 0);
   
-  /* Typography */
+  /* Typography - Mobile-first scaling */
   --font-primary: 'Montserrat', sans-serif;
   --font-heading: 'Playfair Display', serif;
   
-  /* Font Sizes */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  --font-size-4xl: 2.25rem;   /* 36px */
-  --font-size-5xl: 3rem;      /* 48px */
-  --font-size-6xl: 3.75rem;   /* 60px */
+  /* Font Sizes - Responsive with clamp() */
+  --font-size-xs: clamp(0.75rem, 2vw, 0.875rem);      /* 12-14px */
+  --font-size-sm: clamp(0.875rem, 2.5vw, 1rem);       /* 14-16px */
+  --font-size-base: clamp(1rem, 3vw, 1.125rem);       /* 16-18px */
+  --font-size-lg: clamp(1.125rem, 3.5vw, 1.25rem);    /* 18-20px */
+  --font-size-xl: clamp(1.25rem, 4vw, 1.5rem);        /* 20-24px */
+  --font-size-2xl: clamp(1.5rem, 5vw, 1.875rem);      /* 24-30px */
+  --font-size-3xl: clamp(1.875rem, 6vw, 2.25rem);     /* 30-36px */
+  --font-size-4xl: clamp(2.25rem, 7vw, 3rem);         /* 36-48px */
+  --font-size-5xl: clamp(2.5rem, 8vw, 3.75rem);       /* 40-60px */
+  --font-size-6xl: clamp(3rem, 10vw, 4.5rem);         /* 48-72px */
   
   /* Font Weights */
   --font-weight-light: 300;
@@ -37,29 +37,42 @@
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
   
-  /* Spacing */
+  /* Spacing - Mobile-first with better scaling */
   --spacing-xs: 0.25rem;   /* 4px */
   --spacing-sm: 0.5rem;    /* 8px */
   --spacing-md: 1rem;      /* 16px */
   --spacing-lg: 1.5rem;    /* 24px */
   --spacing-xl: 2rem;      /* 32px */
-  --spacing-2xl: 3rem;     /* 48px */
-  --spacing-3xl: 4rem;     /* 64px */
-  --spacing-4xl: 5rem;     /* 80px */
+  --spacing-2xl: 2.5rem;   /* 40px */
+  --spacing-3xl: 3rem;     /* 48px */
+  --spacing-4xl: 4rem;     /* 64px */
+  --spacing-5xl: 5rem;     /* 80px */
+  --spacing-6xl: 6rem;     /* 96px */
+  
+  /* Container widths */
+  --container-xs: 100%;
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
   
   /* Border Radius */
+  --radius-none: 0;
   --radius-sm: 0.25rem;    /* 4px */
   --radius-md: 0.5rem;     /* 8px */
   --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
   --radius-full: 9999px;   /* Full radius */
   
-  /* Shadows */
+  /* Shadows - Mobile optimized */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   
-  /* Z-index */
+  /* Z-index scale */
   --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
@@ -68,20 +81,63 @@
   --z-popover: 1060;
   --z-tooltip: 1070;
   
-  /* Breakpoints (for use in JS) */
+  /* Breakpoints (for JavaScript usage) */
+  --breakpoint-xs: 0px;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1400px;
   
-  /* Layout */
-  --container-max-width: 1200px;
-  --header-height: 70px;
+  /* Layout measurements */
+  --header-height: 60px;
+  --header-height-mobile: 56px;
   --footer-height: auto;
+  
+  /* Touch targets - Mobile optimized */
+  --touch-target: 44px;    /* Minimum touch target size */
+  --touch-target-lg: 48px; /* Large touch targets */
   
   /* Transitions */
   --transition-fast: 0.15s ease-in-out;
   --transition-base: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;
+  
+  /* Mobile-specific variables */
+  --mobile-padding: 1rem;
+  --mobile-margin: 0.75rem;
+  --mobile-gap: 1rem;
+  
+  /* Line heights for better mobile readability */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-white: #1a1a1a;
+    --color-black: #ffffff;
+    --color-gray-light: #2d2d2d;
+    --color-gray: #a0a0a0;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-base: 0s;
+    --transition-slow: 0s;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
 }

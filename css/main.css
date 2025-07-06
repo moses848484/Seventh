@@ -1,22 +1,23 @@
-/* Main CSS File - Import all modules */
+/* Main CSS File - Mobile-First Import Structure */
 
 /* 1. Variables and Custom Properties */
 @import 'variables.css';
 
-/* 2. Base styles and reset */
+/* 2. Base styles, reset, and utilities */
 @import 'base.css';
 
-/* 3. Layout system and grid */
+/* 3. Layout system and responsive grid */
 @import 'layout.css';
 
-/* 4. Components (buttons, forms, etc.) */
+/* 4. Components (buttons, forms, navigation, etc.) */
 @import 'components.css';
 
-/* 5. Page sections (hero, footer, etc.) */
+/* 5. Page sections (hero, footer, content areas, etc.) */
 @import 'sections.css';
 
-/* Legacy support styles - for backward compatibility with existing HTML */
-/* These should be gradually phased out as you update your HTML structure */
+/* ===== LEGACY SUPPORT STYLES ===== */
+/* For backward compatibility with existing HTML structure */
+/* These should be gradually phased out as you update your HTML */
 
 /* Legacy header styles */
 .header_section {
@@ -25,131 +26,659 @@
 }
 
 .header_section .container-fluid {
-  padding-right: var(--spacing-xl);
-  padding-left: var(--spacing-xl);
+  padding-right: var(--mobile-padding);
+  padding-left: var(--mobile-padding);
 }
 
+@media (min-width: 768px) {
+  .header_section .container-fluid {
+    padding-right: var(--spacing-xl);
+    padding-left: var(--spacing-xl);
+  }
+}
+
+/* Legacy navbar styles */
 .custom_nav-container {
-  /* Inherit from .navbar */
-  @extend .navbar;
+  padding: 0;
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  min-height: var(--header-height-mobile);
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .custom_nav-container {
+    min-height: var(--header-height);
+  }
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  text-decoration: none;
+  margin-left: var(--mobile-padding);
+  min-height: var(--touch-target);
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    font-size: var(--font-size-2xl);
+    margin-left: var(--spacing-lg);
+  }
 }
 
 /* Legacy hero styles */
 .hero_area {
-  /* Inherit from .hero */
-  @extend .hero;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: var(--header-height-mobile);
 }
 
-.slider_section {
-  /* Inherit from .hero-section */
-  @extend .hero-section;
+@media (min-width: 768px) {
+  .hero_area {
+    padding-top: var(--header-height);
+  }
 }
 
-/* Legacy footer styles */
-.footer_section {
-  /* Inherit from .footer */
-  @extend .footer;
+.sub_page .hero_area {
+  min-height: auto;
+  box-shadow: var(--shadow-md);
+  padding-top: var(--header-height-mobile);
+  padding-bottom: var(--spacing-2xl);
 }
 
-/* Legacy layout classes for backward compatibility */
-.layout_padding {
-  padding: var(--spacing-4xl) 0;
-}
-
-.layout_padding2 {
-  padding: var(--spacing-4xl) 0;
-}
-
-.layout_padding2-top {
-  padding-top: var(--spacing-4xl);
-}
-
-.layout_padding2-bottom {
-  padding-bottom: var(--spacing-4xl);
-}
-
-.layout_padding-top {
-  padding-top: var(--spacing-4xl);
-}
-
-.layout_padding-bottom {
-  padding-bottom: var(--spacing-4xl);
+@media (min-width: 768px) {
+  .sub_page .hero_area {
+    padding-top: var(--header-height);
+    padding-bottom: var(--spacing-3xl);
+  }
 }
 
 /* Legacy heading container */
 .heading_container {
-  @extend .section-header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .heading_container {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: var(--spacing-2xl);
+  }
 }
 
 .heading_container.heading_center {
-  @extend .section-header--center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Legacy button mappings */
-.btn1 { @extend .btn, .btn--primary; }
-.btn2 { @extend .btn, .btn--primary; }
-.btn3 { @extend .btn, .btn--primary; }
-.btn4 { @extend .btn, .btn--outline-primary; }
-.btn5 { @extend .btn, .btn--secondary; }
-.btn7 { @extend .btn, .btn--ghost; }
+.heading_container h2 {
+  position: relative;
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  line-height: var(--line-height-tight);
+  word-wrap: break-word;
+  hyphens: auto;
+}
 
-.btn-primary { @extend .btn, .btn--primary; }
-.btn-success { @extend .btn, .btn--primary; }
+@media (min-width: 768px) {
+  .heading_container h2 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+  }
+}
 
-/* Migration guide for developers */
-/* 
-MIGRATION GUIDE:
-================
+@media (min-width: 992px) {
+  .heading_container h2 {
+    font-size: var(--font-size-5xl);
+  }
+}
 
-OLD CLASS                 →  NEW CLASS
------------                   ---------
-.btn1, .btn2, .btn3       →  .btn .btn--primary
-.btn4                     →  .btn .btn--outline-primary  
-.btn5                     →  .btn .btn--secondary
-.btn7                     →  .btn .btn--ghost
+.heading_container h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--color-accent);
+  margin: var(--spacing-sm) auto;
+  border-radius: var(--radius-sm);
+}
 
-.heading_container        →  .section-header
-.heading_container.heading_center → .section-header.section-header--center
+@media (min-width: 768px) {
+  .heading_container h2::after {
+    width: 70px;
+    height: 5px;
+    margin: var(--spacing-md) 0;
+  }
+}
 
-.custom_nav-container     →  .navbar
-.hero_area               →  .hero
-.slider_section          →  .hero-section
-.footer_section          →  .footer
+.heading_container.heading_center h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.text-area, .text-area3   →  .content-area
-.container1, .container2  →  .card
-.arrival_bg_box          →  .image-section
+.heading_container h2 span {
+  color: var(--color-accent);
+}
 
-EXAMPLE USAGE:
-==============
+.heading_container p {
+  margin-top: var(--spacing-sm);
+  margin-bottom: 0;
+  color: var(--color-gray);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  max-width: 100%;
+}
 
-<!-- Old way -->
-<button class="btn1">Click me</button>
+@media (min-width: 768px) {
+  .heading_container p {
+    font-size: var(--font-size-lg);
+    max-width: 80%;
+  }
+}
 
-<!-- New way -->
-<button class="btn btn--primary">Click me</button>
+@media (min-width: 992px) {
+  .heading_container p {
+    max-width: 70%;
+  }
+}
 
-<!-- Old way -->
-<div class="heading_container heading_center">
-  <h2>Title</h2>
-</div>
+/* Legacy layout padding classes */
+.layout_padding {
+  padding: var(--spacing-xl) 0;
+}
 
-<!-- New way -->
-<div class="section-header section-header--center">
-  <h2 class="section-header__title">Title</h2>
-</div>
+@media (min-width: 768px) {
+  .layout_padding {
+    padding: var(--spacing-2xl) 0;
+  }
+}
 
-<!-- Old way -->
-<div class="custom_nav-container">
-  <nav class="navbar-nav">
-    <a href="#" class="nav-link">Home</a>
-  </nav>
-</div>
+@media (min-width: 992px) {
+  .layout_padding {
+    padding: var(--spacing-3xl) 0;
+  }
+}
 
-<!-- New way -->
-<div class="navbar">
-  <nav class="navbar__nav">
-    <a href="#" class="navbar__link">Home</a>
-  </nav>
-</div>
-*/
+.layout_padding2 {
+  padding: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 768px) {
+  .layout_padding2 {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .layout_padding2 {
+    padding: var(--spacing-4xl) 0;
+  }
+}
+
+.layout_padding2-top {
+  padding-top: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .layout_padding2-top {
+    padding-top: var(--spacing-3xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .layout_padding2-top {
+    padding-top: var(--spacing-4xl);
+  }
+}
+
+.layout_padding2-bottom {
+  padding-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .layout_padding2-bottom {
+    padding-bottom: var(--spacing-3xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .layout_padding2-bottom {
+    padding-bottom: var(--spacing-4xl);
+  }
+}
+
+.layout_padding-top {
+  padding-top: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .layout_padding-top {
+    padding-top: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .layout_padding-top {
+    padding-top: var(--spacing-3xl);
+  }
+}
+
+.layout_padding-bottom {
+  padding-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .layout_padding-bottom {
+    padding-bottom: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .layout_padding-bottom {
+    padding-bottom: var(--spacing-3xl);
+  }
+}
+
+/* Legacy link styles */
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: initial;
+}
+
+/* Legacy button reset */
+.btn,
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+/* Legacy xs class fix */
+.xs {
+  font-size: var(--font-size-base) !important;
+}
+
+/* Mobile hide class */
+@media (max-width: 575.98px) {
+  .xs {
+    display: none !important;
+  }
+}
+
+/* Legacy button styles mapping to new components */
+.btn1 {
+  @extend .btn, .btn--primary;
+}
+
+.btn2 {
+  @extend .btn, .btn--secondary;
+}
+
+.btn-1 {
+  @extend .btn, .btn--primary;
+}
+
+.btn-2 {
+  @extend .btn, .btn--secondary;
+}
+
+/* Legacy info box styles */
+.info_section {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .info_section {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 992px) {
+  .info_section {
+    padding-top: var(--spacing-4xl);
+  }
+}
+
+.info_contact,
+.info_social {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .info_contact,
+  .info_social {
+    text-align: left;
+    margin-bottom: var(--spacing-2xl);
+  }
+}
+
+.info_contact h4,
+.info_social h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-heading);
+}
+
+@media (min-width: 768px) {
+  .info_contact h4,
+  .info_social h4 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.info_contact .contact_link_box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .info_contact .contact_link_box {
+    align-items: flex-start;
+  }
+}
+
+.info_contact .contact_link_box a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+  min-height: var(--touch-target);
+  line-height: var(--line-height-relaxed);
+}
+
+.info_contact .contact_link_box a:hover,
+.info_contact .contact_link_box a:focus {
+  color: var(--color-accent);
+}
+
+.info_contact .contact_link_box a i {
+  margin-right: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  width: 20px;
+  text-align: center;
+}
+
+.info_social .social_box {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .info_social .social_box {
+    justify-content: flex-start;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+.info_social .social_box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark);
+  width: var(--touch-target);
+  height: var(--touch-target);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  font-size: var(--font-size-lg);
+  text-decoration: none;
+  transition: var(--transition-base);
+  touch-action: manipulation;
+}
+
+@media (hover: hover) {
+  .info_social .social_box a:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Legacy form styles */
+.form_container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+@media (min-width: 576px) {
+  .form_container {
+    max-width: 540px;
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .form_container {
+    max-width: 720px;
+    padding: var(--spacing-2xl);
+  }
+}
+
+/* Legacy subscription form */
+.subscribe_form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-width: 100%;
+  margin-top: var(--spacing-lg);
+}
+
+@media (min-width: 576px) {
+  .subscribe_form {
+    flex-direction: row;
+    max-width: 400px;
+  }
+}
+
+.subscribe_form input[type="email"] {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-gray);
+  font-size: var(--font-size-base);
+  min-height: var(--touch-target);
+  font-size: max(16px, var(--font-size-base));
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.subscribe_form input[type="email"]:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(247, 68, 78, 0.1);
+}
+
+.subscribe_form button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-base);
+  min-height: var(--touch-target);
+  font-size: var(--font-size-base);
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+
+.subscribe_form button:hover,
+.subscribe_form button:focus {
+  background-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Legacy copyright styles */
+.footer_section {
+  background-color: var(--color-gray-light);
+  border-top: 1px solid var(--color-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .footer_section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
+.footer_section p {
+  margin: 0;
+  color: var(--color-black);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .footer_section p {
+    margin-bottom: 0;
+  }
+}
+
+.footer_section a {
+  color: var(--color-accent);
+  text-decoration: none;
+  min-height: var(--touch-target);
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer_section a:hover,
+.footer_section a:focus {
+  text-decoration: underline;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 575.98px) {
+  /* Ensure proper spacing on mobile */
+  .container,
+  .container-fluid {
+    padding-left: var(--mobile-padding);
+    padding-right: var(--mobile-padding);
+  }
+  
+  /* Mobile navigation adjustments */
+  .navbar-brand {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Mobile button adjustments */
+  .btn {
+    min-width: 100%;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .btn:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Mobile form adjustments */
+  .form-input,
+  .form-textarea,
+  .form-select {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 3px;
+  }
+  
+  .card {
+    border: 2px solid var(--color-black);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header_section,
+  .info_section,
+  .footer_section,
+  .btn,
+  .social_box {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000 !important;
+    background: transparent !important;
+  }
+  
+  .container,
+  .container-fluid {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
