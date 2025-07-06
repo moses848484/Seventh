@@ -203,7 +203,7 @@ a:focus {
 }
 
 .header_section {
-  padding: 0px 0;
+  padding: 0;
   background-color: #ffffff;
 }
 
@@ -211,6 +211,64 @@ a:focus {
   padding-right: 25px;
   padding-left: 25px;
 }
+
+@media (max-width: 1200px) {
+  .header_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
+  }
+}
+
+@media (max-width: 768px) {
+  .header_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
+  }
+}
+
+@media (max-width: 480px) {
+  .header_section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fff; /* Add background to avoid overlap issues */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for separation */
+  }
+}
+
 
 .navbar-brand {
   font-family: 'Playfair Display', serif;
