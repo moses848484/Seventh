@@ -135,6 +135,7 @@ a:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
     text-align: center;
     min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
@@ -147,6 +148,7 @@ a:focus {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0;
     min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
 }
@@ -158,6 +160,7 @@ a:focus {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0;
     min-height: auto; /* Optional: Prevent vh issues on mobile */
   }
 }
