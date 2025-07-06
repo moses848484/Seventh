@@ -23,7 +23,7 @@
    <!-- Responsive styles -->
    <link rel="stylesheet" href="{{ asset('/home/css/responsive.css') }}">
    <!-- FontAwesome 6 -->
-   <link rel="stylesheet" href="{{ asset(/css/fontawesome-free-6.5.2-web/css/all.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}">
 
    @notifyCss
 </head>
