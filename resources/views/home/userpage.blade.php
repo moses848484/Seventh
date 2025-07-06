@@ -16,11 +16,11 @@
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
    <!-- font awesome style -->
-   <link href="/home/css/font-awesome.min.css" rel="stylesheet" />
+   <link href="//home/css/font-awesome.min.css" rel="stylesheet" />
    <!-- Custom styles for this template -->
-   <link href="/home/css/style.css" rel="stylesheet" />
+   <link href="//home/css/style.css" rel="stylesheet" />
    <!-- responsive style -->
-   <link href="/home/css/responsive.css" rel="stylesheet" />
+   <link href="//home/css/responsive.css" rel="stylesheet" />
    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css') ?>" type="text/css">
    @notifyCss
 </head>
