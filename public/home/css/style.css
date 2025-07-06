@@ -260,6 +260,36 @@ a:focus {
   font-size: 14px !important;
 }
 
+/* Hide .xs class on mobile screens and small devices */
+@media (max-width: 575.98px) {
+  .xs {
+    display: none !important;
+    /* Hide the element on screens smaller than 576px */
+  }
+}
+
+/* Ensure .xs class is visible on larger screens */
+@media (min-width: 576px) {
+  .xs {
+    display: block;
+    /* Display the element on screens larger than or equal to 576px */
+    color: white !important;
+    /* Ensure text color is white */
+    font-size: 20px;
+    /* Font size for larger screens */
+    font-family: 'Playfair Display', serif;
+    /* Font family */
+    font-weight: bold;
+    /* Font weight */
+    margin-left: 0;
+    /* Reset margin */
+    text-align: center;
+    /* Center the text */
+    position: relative;
+    /* Position context */
+  }
+}
+
 @media (max-width: 768px) {
   .hidden-xs {
     display: none;
@@ -413,32 +443,18 @@ a:focus {
   /* Hide by default */
 }
 
-
-/* Show toggler on smaller screens */
+/* Show toggler on medium and small screens */
 @media (max-width: 767.98px) {
   .navbar-toggler {
     display: block;
-    /* Show on small screens */
     position: absolute;
-    /* Absolute positioning */
-    right: 10px;
-    /* Align to the right with some spacing */
-    top: 3px !important;
-    /* Adjust top positioning */
-  }
-}
-
-/* Media Query for Extra Small Screens */
-@media (max-width: 575.98px) {
-  .navbar-toggler {
-    width: 37px;
-    /* Set width of the toggler button */
-    height: 37px;
-    /* Set height of the toggler button */
-    right: 10px;
-    /* Align to the right with some spacing */
     top: 10px;
-    /* Adjust top positioning */
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 1050; /* Ensure it's above the nav items */
+    border: none;
+    background-color: transparent;
   }
 
   /* Toggler Icon on Extra Small Screens */
