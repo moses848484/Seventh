@@ -311,28 +311,36 @@ a:focus {
 }
 
 
-/* Navbar styling */
+/* Fixed Navbar Styling */
 .custom_nav-container {
   position: fixed;
-  /* Keeps the navbar fixed at the top */
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  width: 100%;
   background: #2c6448;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 0;
+  padding: 0 15px; /* Added horizontal padding for breathing space */
   display: flex;
-  /* Use flexbox for layout */
+  flex-wrap: wrap;
   justify-content: space-between;
-  /* Space between items */
   align-items: center;
-  /* Center items vertically */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+/* Ensure navbar doesn't overflow screen on mobile */
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix navbar-nav spacing */
 .custom_nav-container .navbar-nav {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 0;
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
