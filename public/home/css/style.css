@@ -378,14 +378,37 @@ a:focus {
   color: #f7444e;
 }
 
+/* Default toggler styles */
 .custom_nav-container .navbar-toggler {
   padding: 0;
   width: 37px;
   height: 42px;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   outline: none;
-
+  border: none;
+  background-color: transparent;
+  z-index: 1050;
 }
+
+/* Responsive positioning for small screens */
+@media (max-width: 767.98px) {
+  .custom_nav-container .navbar-toggler {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+/* Smaller devices (phones) */
+@media (max-width: 575.98px) {
+  .custom_nav-container .navbar-toggler {
+    width: 32px;
+    height: 38px;
+    top: 8px;
+    right: 10px;
+  }
+}
+
 
 /* Toggler Span Styles */
 .custom_nav-container .navbar-toggler span {
