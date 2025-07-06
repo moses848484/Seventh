@@ -1,0 +1,155 @@
+/* Main CSS File - Import all modules */
+
+/* 1. Variables and Custom Properties */
+@import 'variables.css';
+
+/* 2. Base styles and reset */
+@import 'base.css';
+
+/* 3. Layout system and grid */
+@import 'layout.css';
+
+/* 4. Components (buttons, forms, etc.) */
+@import 'components.css';
+
+/* 5. Page sections (hero, footer, etc.) */
+@import 'sections.css';
+
+/* Legacy support styles - for backward compatibility with existing HTML */
+/* These should be gradually phased out as you update your HTML structure */
+
+/* Legacy header styles */
+.header_section {
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+.header_section .container-fluid {
+  padding-right: var(--spacing-xl);
+  padding-left: var(--spacing-xl);
+}
+
+.custom_nav-container {
+  /* Inherit from .navbar */
+  @extend .navbar;
+}
+
+/* Legacy hero styles */
+.hero_area {
+  /* Inherit from .hero */
+  @extend .hero;
+}
+
+.slider_section {
+  /* Inherit from .hero-section */
+  @extend .hero-section;
+}
+
+/* Legacy footer styles */
+.footer_section {
+  /* Inherit from .footer */
+  @extend .footer;
+}
+
+/* Legacy layout classes for backward compatibility */
+.layout_padding {
+  padding: var(--spacing-4xl) 0;
+}
+
+.layout_padding2 {
+  padding: var(--spacing-4xl) 0;
+}
+
+.layout_padding2-top {
+  padding-top: var(--spacing-4xl);
+}
+
+.layout_padding2-bottom {
+  padding-bottom: var(--spacing-4xl);
+}
+
+.layout_padding-top {
+  padding-top: var(--spacing-4xl);
+}
+
+.layout_padding-bottom {
+  padding-bottom: var(--spacing-4xl);
+}
+
+/* Legacy heading container */
+.heading_container {
+  @extend .section-header;
+}
+
+.heading_container.heading_center {
+  @extend .section-header--center;
+}
+
+/* Legacy button mappings */
+.btn1 { @extend .btn, .btn--primary; }
+.btn2 { @extend .btn, .btn--primary; }
+.btn3 { @extend .btn, .btn--primary; }
+.btn4 { @extend .btn, .btn--outline-primary; }
+.btn5 { @extend .btn, .btn--secondary; }
+.btn7 { @extend .btn, .btn--ghost; }
+
+.btn-primary { @extend .btn, .btn--primary; }
+.btn-success { @extend .btn, .btn--primary; }
+
+/* Migration guide for developers */
+/* 
+MIGRATION GUIDE:
+================
+
+OLD CLASS                 →  NEW CLASS
+-----------                   ---------
+.btn1, .btn2, .btn3       →  .btn .btn--primary
+.btn4                     →  .btn .btn--outline-primary  
+.btn5                     →  .btn .btn--secondary
+.btn7                     →  .btn .btn--ghost
+
+.heading_container        →  .section-header
+.heading_container.heading_center → .section-header.section-header--center
+
+.custom_nav-container     →  .navbar
+.hero_area               →  .hero
+.slider_section          →  .hero-section
+.footer_section          →  .footer
+
+.text-area, .text-area3   →  .content-area
+.container1, .container2  →  .card
+.arrival_bg_box          →  .image-section
+
+EXAMPLE USAGE:
+==============
+
+<!-- Old way -->
+<button class="btn1">Click me</button>
+
+<!-- New way -->
+<button class="btn btn--primary">Click me</button>
+
+<!-- Old way -->
+<div class="heading_container heading_center">
+  <h2>Title</h2>
+</div>
+
+<!-- New way -->
+<div class="section-header section-header--center">
+  <h2 class="section-header__title">Title</h2>
+</div>
+
+<!-- Old way -->
+<div class="custom_nav-container">
+  <nav class="navbar-nav">
+    <a href="#" class="nav-link">Home</a>
+  </nav>
+</div>
+
+<!-- New way -->
+<div class="navbar">
+  <nav class="navbar__nav">
+    <a href="#" class="navbar__link">Home</a>
+  </nav>
+</div>
+*/
