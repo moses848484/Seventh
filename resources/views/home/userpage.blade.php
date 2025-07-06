@@ -21,7 +21,7 @@
    <link href="https://seventh-production.up.railway.app/home/css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="https://seventh-production.up.railway.app/home/css/responsive.css" rel="stylesheet" />
-   <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css') ?>" type="text/css">
+   <link rel="stylesheet" href="https://seventh-production.up.railway.app/<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css') ?>" type="text/css">
    @notifyCss
 </head>
 
