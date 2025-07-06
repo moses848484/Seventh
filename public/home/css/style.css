@@ -220,47 +220,96 @@ a:focus {
   font-size: medium !important;
 }
 
-@media (max-width: 1200px), (max-width: 768px), (max-width: 480px) {
+/* Optional: Media queries for better responsiveness */
+@media (max-width: 1200px) {
   .custom_nav-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1050;
-    background-color: #fff; /* Add background to prevent content overlap */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 1rem;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping for small screens */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+  position: fixed;
+  /* Position relative for absolute positioning of child elements if needed */
+  /* Full viewport height */
+  display: flex;
+  /* Flexbox layout */
+  flex-direction: column;
+  /* Vertical stacking of child elements */
+  justify-content: center;
+  /* Center content vertically (optional) */
+  align-items: center;
+  margin: 0;
+  /* Center content horizontally (optional) */
+  width: 0;
+  /* Full width of the container */
+  box-sizing: border-box;
   }
 }
 
-/* Hide .xs class on very small screens */
+@media (max-width: 768px) {
+  .custom_nav-container {
+position: fixed;
+  /* Position relative for absolute positioning of child elements if needed */
+  /* Full viewport height */
+  display: flex;
+  /* Flexbox layout */
+  flex-direction: column;
+  /* Vertical stacking of child elements */
+  justify-content: center;
+  /* Center content vertically (optional) */
+  align-items: center;
+  margin: 0;
+  /* Center content horizontally (optional) */
+  width: 0;
+  /* Full width of the container */
+  box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom_nav-container {
+position: fixed;
+  /* Position relative for absolute positioning of child elements if needed */
+  /* Full viewport height */
+  display: flex;
+  /* Flexbox layout */
+  flex-direction: column;
+  /* Vertical stacking of child elements */
+  justify-content: center;
+  /* Center content vertically (optional) */
+  align-items: center;
+  margin: 0;
+  /* Center content horizontally (optional) */
+  width: 0;
+  /* Full width of the container */
+  box-sizing: border-box;
+  }
+}
+
+/* Hide .xs class on mobile screens and small devices */
 @media (max-width: 575.98px) {
   .xs {
     display: none !important;
+    /* Hide the element on screens smaller than 576px */
   }
 }
 
-/* Show .xs class on larger screens */
+/* Ensure .xs class is visible on larger screens */
 @media (min-width: 576px) {
   .xs {
     display: block;
+    /* Display the element on screens larger than or equal to 576px */
     color: white !important;
+    /* Ensure text color is white */
     font-size: 20px;
+    /* Font size for larger screens */
     font-family: 'Playfair Display', serif;
+    /* Font family */
     font-weight: bold;
+    /* Font weight */
+    margin-left: 0;
+    /* Reset margin */
     text-align: center;
+    /* Center the text */
     position: relative;
+    /* Position context */
   }
 }
-
 
 
 .fa-user-circle {
