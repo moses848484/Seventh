@@ -13,7 +13,13 @@ body {
   color: #0c0c0c;
   background-color: #ffffff;
   overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex; /* optional if you're using flex layout */
+  flex-direction: column; /* optional */
 }
+
 
 .layout_padding {
   padding: 70px 0;
