@@ -31,6 +31,7 @@
    <div class="hero_area">
       <!-- header section strats -->
       @include('home.header')
+       </div>
       <!-- end header section -->
       <!-- slider section -->
       @include('home.slider')
@@ -48,7 +49,7 @@
    <!-- footer start -->
    @include('home.footer')
    <!-- footer end -->
- </div>
+
    <!-- jQery -->
    <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
