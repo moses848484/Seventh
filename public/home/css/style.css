@@ -2414,10 +2414,9 @@ div.form_sub .field input[type="email"]:focus {
   box-sizing: border-box;
   overflow: hidden;
   margin: 0;
-  width: 100%;
   position: relative;
   flex: 1 1 100%;
-  max-width: 100%;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -2426,7 +2425,7 @@ div.form_sub .field input[type="email"]:focus {
   .container3 {
     flex: 1 1 100%;
     margin-left: -8px;
-    max-width: 100%;
+   
   }
 }
 
