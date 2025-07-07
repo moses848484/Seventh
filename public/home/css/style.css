@@ -1862,7 +1862,7 @@ div.form_sub .field input[type="email"]:focus {
   .d-grid.gap-4.d-sm-flex {
     display: flex !important;
     flex-direction: column !important;
-    align-items: stretch;
+    align-items: center;
   }
 
   .btn1,
