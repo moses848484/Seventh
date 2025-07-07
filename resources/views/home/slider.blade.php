@@ -23,9 +23,10 @@
                                 </p>
                                 <div class="d-grid gap-4 d-sm-flex justify-content-sm-center">
                                     <a href="{{ route('register') }}" class="btn1">Learn More</a>
-                                    <a href="https://www.facebook.com/@universityadventist/"
-                                        class="btn5">Attend Online</a>
+                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend
+                                        Online</a>
                                 </div>
+
                             </div>
                         </div>
                     </div>
