@@ -342,8 +342,9 @@ a:focus {
 .custom_nav-container .navbar-toggler {
   transition: all 0.3s;
   outline: none;
-  padding: 4px 6px;
-  width: 36px;
+  padding: 0;
+  padding: 7px 9px;
+  width: 32px;
   height: 30px;
 }
 
@@ -371,7 +372,7 @@ a:focus {
   width: 100%;
   background-color: white;
   top: -10px;
-  border-radius: 5px;
+  border-radius: 0;
   transition: all 0.3s;
 }
 
