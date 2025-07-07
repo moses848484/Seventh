@@ -1,9 +1,23 @@
-<header class="header_section">
-    <div class="container3">
-        <nav class="navbar navbar-expand-md custom_nav-container">
-            <a href="/" class="navbar-brand">
-                <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <!-- Logo (hidden on small screens) -->
+            <a class="navbar-brand brand-logo-mini d-none d-md-block" href="index.html">
+                <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
+                    style="max-height: 60px; width: auto; display: block;" alt="logo" />
             </a>
+
+            <!-- Smaller logo for mobile -->
+            <a class="navbar-brand brand-logo-mini d-block d-md-none" href="index.html">
+                <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
+                    style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
+            </a>
+
+            <!-- Toggler button -->
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
             <!-- Centered text for xs breakpoint -->
             <span class="xs d-block text-center mx-auto">UNIVERSITY SDA.CHURCH</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -70,5 +84,4 @@
                 </ul>
             </div>      
     </div>
-</header>
  </nav>
