@@ -344,6 +344,7 @@ a:focus {
   outline: none;
   padding: 0;
   width: 32px;
+  height: 0;
 }
 
 /* Toggler Span Styles */
