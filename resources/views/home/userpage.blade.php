@@ -27,8 +27,8 @@
 </head>
 
 <body>
+    <div class="container-scroller">
    <div class="hero_area">
-      <div class="container-scroller">
          <!-- header section strats -->
          @include('home.header')
          <!-- end header section -->
@@ -62,6 +62,7 @@
 
          <x-notify::notify />
          @notifyJs
+         </div>
 </body>
 
 </html>
