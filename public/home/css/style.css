@@ -340,6 +340,14 @@ a:focus {
   }
 }
 
+.container-scroller {
+  display: flex;
+  position: relative;
+}
+
+.container-scroller {
+  overflow: hidden;
+}
 
 /* Fix navbar-nav spacing */
 .custom_nav-container .navbar-nav {
