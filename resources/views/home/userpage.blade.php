@@ -29,10 +29,10 @@
 <body>
 
    <div class="container-scroller">
-      <div class="hero_area">
          <!-- header section strats -->
          @include('home.header')
          <!-- end header section -->
+          <div class="hero_area">
          <!-- slider section -->
          @include('home.slider')
          <!-- end slider section -->
