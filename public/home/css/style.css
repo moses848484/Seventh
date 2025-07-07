@@ -473,216 +473,43 @@ a:focus {
 
 /* End header section */
 .slider_section {
-  flex: 1;
-  /* Flex-grow to fill available space */
+position: relative;
+  min-height: 100vh;
   display: flex;
-  /* Flexbox layout */
   align-items: center;
-  /* Center content vertically */
-  justify-content: center;
-  /* Center content horizontally */
-  position: relative;
-  /* Allow absolute positioning of child elements */
-  box-sizing: border-box;
-  /* Include padding and borders in the element's total width and height */
-  width: 100%;
-  /* Full width of parent container */
-  height: auto;
-  /* Height adjusts based on content or parent container */
-  padding: 15px;
-  /* Default padding */
-  /* Default margin-top */
+  overflow: hidden;
 }
 
 .fa-heart {
   color: red;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 1200px) {
-  .slider_section {
-    /* Adjustments for large tablets or smaller desktops */
-    padding: 45px;
-    /* Maintain padding */
-    margin-top: 20px;
-    /* Adjust margin if necessary */
-  }
-}
-
-@media (max-width: 800px) {
-  .slider_section {
-    flex-direction: column;
-    /* Stack children vertically */
-    padding: 30px;
-    /* Reduce padding for smaller screens */
-    margin-top: 30px;
-    /* Adjust margin for smaller screens */
-  }
-}
-
-@media (min-width: 700px) {
-  .slider_section {
-    flex-direction: column;
-    /* Stack children vertically */
-    padding: 60px;
-    /* Reduce padding for smaller screens */
-    margin-top: 30px;
-    /* Adjust margin for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .slider_section {
-    padding: 35px;
-    /* Further reduce padding for very small screens */
-    margin-top: 20px;
-    /* Further adjust margin for very small screens */
-  }
-}
-
-
-/* Styling for inner elements */
-.slider_section .row {
-  align-items: center;
-  /* Center align items */
-}
-
-.slider_section #customCarousel1 {
-  width: 100%;
-  /* Full width */
-  position: static;
-  /* Reset positioning */
-}
-
-.slider_section .detail-box h1 {
-  font-size: 4.5rem;
-  /* Default font size */
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #002c3e;
-  line-height: 70px;
-  /* Line height for spacing */
-}
-
-/* Highlighted text color */
-.slider_section .detail-box h1 span {
-  color: #f7444e;
-}
-
-/* Paragraph styling */
-.slider_section .detail-box p {
-  font-size: 16px;
-  margin: 20px 0 1.5rem;
-}
-
-/* Button styling */
-.slider_section .detail-box a {
-  display: inline-block;
-  padding: 12px 45px;
-  background-color: #f7444e;
-  border: 1px solid #f7444e;
-  color: #ffffff;
-  border-radius: 0;
-  transition: all 0.3s;
-  margin-top: 60px;
-  font-weight: 700;
-}
-
-/* Button hover state */
-.slider_section .detail-box a:hover {
-  background-color: transparent;
-  color: #f7444e;
-}
-
-/* Image styling */
-.slider_section .img-box img {
-  width: 100%;
-  /* Full width of container */
-}
-
-/* Carousel indicators */
-.slider_section .carousel-indicators {
-  position: static;
-  /* Reset positioning */
-  margin: 0;
-  margin-top: 45px;
-  display: flex;
-  /* Ensure indicators align properly */
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.slider_section .carousel-indicators li {
-  background-color: #ffffff;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  opacity: 1;
-}
-
-.slider_section .carousel-indicators li.active {
-  width: 20px;
-  height: 20px;
-  background-color: #f7444e;
-}
-
-/* Background box styling */
-.slider_bg_box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  /* Hide overflow */
-}
-
 .slider_bg_box img {
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  
-  /* Full height */
   object-fit: cover;
-  /* Maintain aspect ratio */
-  object-position: top right;
-  /* Position image from the top right */
-  display: block;
-  /* Remove extra space below the image */
 }
 
-/* Media queries for responsive background box */
-@media (max-width: 1200px) {
-  .slider_bg_box {
-    /* Adjustments for large tablets or smaller desktops */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 1;
+}
+
+.detail-box {
+  position: relative;
+  z-index: 2; /* Bring above overlay */
+}
+
+@media (max-width: 768px) {
+  .slider_section h1 {
+    font-size: 1.75rem;
   }
-}
 
-@media (max-width: 868px) {
-  .slider_bg_box {
-    /* Adjustments for tablets and smaller devices */
+  .slider_section p {
+    font-size: 1rem;
   }
-}
 
-@media (max-width: 480px) {
-  .slider_bg_box {
-    margin-top: 10px;
-    /* Adjust margin for very small screens */
-  }
-}
-
-@media (min-width: 780px) {
-  .slider_bg_box {
-    margin-top: 10px;
-    /* Consistent margin for screens larger than 780px */
-  }
-}
-
-@media (min-width: 1568px) {
-  .slider_bg_box {
-    margin-top: 20px;
-    /* Adjust margin for larger screens */
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
   }
 }
 

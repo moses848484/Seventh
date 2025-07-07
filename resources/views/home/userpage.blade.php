@@ -27,14 +27,14 @@
 </head>
 
 <body>
- <div class="hero_area">
-   <div class="container-scroller">
-      <!-- header section strats -->
-      @include('home.header')
-      <!-- end header section -->
-      <!-- slider section -->
-      @include('home.slider')
-      <!-- end slider section -->
+   <div class="hero_area">
+      <div class="container-scroller">
+         <!-- header section strats -->
+         @include('home.header')
+         <!-- end header section -->
+         <!-- slider section -->
+         @include('home.slider')
+         <!-- end slider section -->
          <!-- containers section -->
          @include('home.containers')
          <!-- end containers section -->
@@ -58,6 +58,10 @@
          <!-- custom js -->
          <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+         <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-QVT0lZcT4OjvReODzq3OPOQ6T8gL+FynjV9wYOmT+RCthAPvAZhy5e9jFshbK0Yw"
+            crossorigin="anonymous"></script>
 
          <x-notify::notify />
          @notifyJs
