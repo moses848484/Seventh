@@ -29,13 +29,13 @@
 <body>
 
    <div class="container-scroller">
-         <!-- header section strats -->
-         @include('home.header')
-         <!-- end header section -->
-          <div class="hero_area">
-         <!-- slider section -->
-         @include('home.slider')
-         <!-- end slider section -->
+      <!-- header section strats -->
+      @include('home.header')
+      <!-- end header section -->
+      <!-- slider section -->
+      @include('home.slider')
+      <!-- end slider section -->
+      <div class="hero_area">
          <!-- containers section -->
          @include('home.containers')
          <!-- end containers section -->
