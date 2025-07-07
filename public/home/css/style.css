@@ -341,9 +341,6 @@ a:focus {
 
 .custom_nav-container .navbar-toggler {
   padding: 0;
-  padding: 4px 6px;
-  width: 36px;
-  height: 30px;
   transition: all 0.3s;
   outline: none;
 
@@ -353,9 +350,7 @@ a:focus {
 .custom_nav-container .navbar-toggler span {
   display: block;
   width: 100%;
-  padding: 4px 6px;
-  width: 36px;
-  height: 30px;
+ font-size: medium;
   /* Adjust width as needed */
   /* Height of the lines */
   background-color: white;
