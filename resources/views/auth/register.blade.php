@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <link rel="stylesheet" href="<?php echo asset('css/signup.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/signup.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
+
     <title>Sign Up Page</title>
     <style>
         /* Autofill input styling */
@@ -37,22 +38,22 @@
 
             <div class="input-row">
                 <div class="input-group">
-                    <input id="name" name="name" :value="old('name')" type="text" required autofocus
-                        autocomplete="name" class="input" />
+                    <input id="name" name="name" :value="old('name')" type="text" required autofocus autocomplete="name"
+                        class="input" />
                     <label for="name" value="{{ __('Name') }}" class="placeholder" data-icon="u">Name</label>
                 </div>
 
                 <div class="input-group">
-                    <input id="email" name="email" :value="old('email')" type="email" required
-                        autocomplete="email" class="input" />
+                    <input id="email" name="email" :value="old('email')" type="email" required autocomplete="email"
+                        class="input" />
                     <label for="email" value="{{ __('Email') }}" class="placeholder" data-icon="e">Email
                         Address</label>
                 </div>
 
 
                 <div class="input-group">
-                    <input id="phone" name="phone" :value="old('phone')" type="number" required
-                        autocomplete="phone" class="input" />
+                    <input id="phone" name="phone" :value="old('phone')" type="number" required autocomplete="phone"
+                        class="input" />
                     <label for="phone" value="{{ __('Phone') }}" class="placeholder" data-icon="u">Phone</label>
                 </div>
 
@@ -71,8 +72,8 @@
                 </div>
 
                 <div class="input-group">
-                    <input id="birthday" type="date" name="birthday" min="1900-01-02" required="required"
-                        class="input" autocomplete="bday">
+                    <input id="birthday" type="date" name="birthday" min="1900-01-02" required="required" class="input"
+                        autocomplete="bday">
                     <label for="birthday" class="placeholders" data-icon="u">Date Of Birth</label>
                 </div>
 
@@ -100,30 +101,30 @@
             </a>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                        <div class="mt-4">
+                            <x-label for="terms">
+                                <div class="flex items-center">
+                                    <x-checkbox name="terms" id="terms" required />
 
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                    'terms_of_service' =>
-                                        '<a target="_blank" href="' .
-                                        route('terms.show') .
-                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('Terms of Service') .
-                                        '</a>',
-                                    'privacy_policy' =>
-                                        '<a target="_blank" href="' .
-                                        route('policy.show') .
-                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('Privacy Policy') .
-                                        '</a>',
-                                ]) !!}
-                            </div>
+                                    <div class="ms-2">
+                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                    'terms_of_service' =>
+                        '<a target="_blank" href="' .
+                        route('terms.show') .
+                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                        __('Terms of Service') .
+                        '</a>',
+                    'privacy_policy' =>
+                        '<a target="_blank" href="' .
+                        route('policy.show') .
+                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                        __('Privacy Policy') .
+                        '</a>',
+                ]) !!}
+                                    </div>
+                                </div>
+                            </x-label>
                         </div>
-                    </x-label>
-                </div>
             @endif
     </div>
     </form>
