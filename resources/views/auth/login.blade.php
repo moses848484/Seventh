@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <link rel="stylesheet" href="<?php echo asset('css/login.css') ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
 
