@@ -29,38 +29,40 @@
 <body>
 
    <div class="container-scroller">
-      <!-- header section strats -->
-      @include('home.header')
-      <!-- end header section -->
-      <!-- slider section -->
-      @include('home.slider')
-      <!-- end slider section -->
-      <!-- containers section -->
-      @include('home.containers')
-      <!-- end containers section -->
-      <!-- prayersection -->
-      @include('home.prayer')
-      <!-- end prayer section -->
-      @include('home.welcome')
-      <!-- songs section -->
-      @include('home.songs')
-      <!-- end songs section -->
-      <!-- footer start -->
-      @include('home.footer')
-      <!-- footer end -->
+      <div class="hero_area">
+         <!-- header section strats -->
+         @include('home.header')
+         <!-- end header section -->
+         <!-- slider section -->
+         @include('home.slider')
+         <!-- end slider section -->
+         <!-- containers section -->
+         @include('home.containers')
+         <!-- end containers section -->
+         <!-- prayersection -->
+         @include('home.prayer')
+         <!-- end prayer section -->
+         @include('home.welcome')
+         <!-- songs section -->
+         @include('home.songs')
+         <!-- end songs section -->
+         <!-- footer start -->
+         @include('home.footer')
+         <!-- footer end -->
 
-      <!-- jQery -->
-      <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
-      <!-- popper js -->
-      <script src="https://seventh-production.up.railway.app/home/js/popper.min.js"></script>
-      <!-- bootstrap js -->
-      <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
-      <!-- custom js -->
-      <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+         <!-- jQery -->
+         <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
+         <!-- popper js -->
+         <script src="https://seventh-production.up.railway.app/home/js/popper.min.js"></script>
+         <!-- bootstrap js -->
+         <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
+         <!-- custom js -->
+         <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <x-notify::notify />
-      @notifyJs
+         <x-notify::notify />
+         @notifyJs
+      </div>
    </div>
 </body>
 
