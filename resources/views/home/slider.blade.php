@@ -22,9 +22,9 @@
                                     live it out.
                                 </p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                    <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4">Learn More</a>
+                                    <a href="{{ route('register') }}" class="btn1">Learn More</a>
                                     <a href="https://www.facebook.com/@universityadventist/"
-                                        class="btn btn-success btn-lg px-4">Attend Online</a>
+                                        class="btn5">Attend Online</a>
                                 </div>
                             </div>
                         </div>
