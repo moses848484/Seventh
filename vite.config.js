@@ -11,9 +11,6 @@ export default defineConfig({
 
   build: {
     outDir: 'public/build',   // this should be here or default
-    manifest: true,
-    rollupOptions: {
-      input: ['assets/app-Blh_SI5O.js', 'assets/app-Cr1BV_sL.css'],
-    },
+    manifest: true, 
    },  
 });
