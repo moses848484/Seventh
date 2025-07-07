@@ -7,11 +7,15 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="<?php echo asset('css/viewmember.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
+        type="text/css">
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/viewmember.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
+
     <title>Dashboard</title>
     <style>
-     /* Custom Autofill input styling */
-     input:-webkit-autofill,
+        /* Custom Autofill input styling */
+        input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
@@ -66,8 +70,8 @@
             color: #e4af00 !important;
         }
 
-                /* Responsive adjustments */
-                @media (max-width: 1200px) {
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
             .form-floating input {
                 padding: 0.7rem 0.25rem;
                 padding-top: 1rem;
@@ -103,7 +107,7 @@
             }
         }
 
-                /* Responsive adjustments */
+        /* Responsive adjustments */
         @media (max-width: 1200px) {
             .form-floating input {
                 padding: 0.7rem 0.25rem;
@@ -227,7 +231,8 @@
                                     }
                                 </script>
 
-                                <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+                                <script
+                                    src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
 
                                 <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                                     <span>
@@ -352,7 +357,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="col-md-4 grid-margin stretch-card">
                         <div class="card h-100 d-flex flex-column">
                             <div class="card-body">
@@ -363,12 +368,12 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column" style="height: 530px;">
                             <!-- Embedded Bible -->
-                            <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
-                                height="100%" startingReference="Ge1.1"></biblia:bible>
+                            <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%" height="100%"
+                                startingReference="Ge1.1"></biblia:bible>
                             <!-- Spacer to push the footer down -->
                             <div class="flex-grow-1"></div>
                             <!-- Footer -->
@@ -406,7 +411,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const ctx = document.getElementById('myChart');
 
             // Check if memberCount is defined and a number
@@ -477,7 +482,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const ctx = document.getElementById('myUsers');
 
             // Check if userCount is defined and a number
@@ -490,10 +495,10 @@
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Total Users', 'Females', 'Males', ],
+                        labels: ['Total Users', 'Females', 'Males',],
                         datasets: [{
                             label: 'Number Of Users',
-                            data: [userCount, femalesCount, malesCount, ],
+                            data: [userCount, femalesCount, malesCount,],
                             borderWidth: 1,
                             backgroundColor: [
                                 'rgba(54, 162, 235, 0.5)',
