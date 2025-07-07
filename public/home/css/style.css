@@ -341,8 +341,9 @@ a:focus {
 
 .custom_nav-container .navbar-toggler {
   padding: 0;
-  width: 37px;
-  height: 42px;
+  padding: 4px 6px;
+  width: 36px;
+  height: 30px;
   transition: all 0.3s;
   outline: none;
 
@@ -352,6 +353,9 @@ a:focus {
 .custom_nav-container .navbar-toggler span {
   display: block;
   width: 100%;
+  padding: 4px 6px;
+  width: 36px;
+  height: 30px;
   /* Adjust width as needed */
   /* Height of the lines */
   background-color: white;
@@ -404,46 +408,40 @@ a:focus {
 }
 
 
-/* Default Toggler Styling (mobile first) */
-.navbar-toggler {
-  width: 32px;
-  height: 28px;
-  padding: 4px;
-  border: none;
-  background: transparent;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  z-index: 999;
+/* Show toggler on smaller screens */
+@media (max-width: 767.98px) {
+  .navbar-toggler {
+    display: block;
+    /* Show on small screens */
+    position: absolute;
+    /* Absolute positioning */
+    right: 10px;
+    /* Align to the right with some spacing */
+    top: 3px !important;
+    /* Adjust top positioning */
+  }
 }
 
-/* Inner Icon Lines */
-.navbar-toggler span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: white;
-  margin: 4px 0;
-  border-radius: 1px;
-  transition: all 0.3s ease;
-}
-
-/* Extra Small Screens: Slightly Adjust */
+/* Media Query for Extra Small Screens */
 @media (max-width: 575.98px) {
   .navbar-toggler {
-    width: 28px;
-    height: 24px;
-    top: 6px;
-    right: 8px;
+    width: 37px;
+    /* Set width of the toggler button */
+    height: 37px;
+    /* Set height of the toggler button */
+    right: 10px;
+    /* Align to the right with some spacing */
+    top: 10px;
+    /* Adjust top positioning */
   }
 
+  /* Toggler Icon on Extra Small Screens */
   .navbar-toggler span {
-    width: 20px;
-    height: 2px;
-    margin: 3px 0;
+    width: 30px;
+    /* Width of the lines */
+    height: 3px;
+    /* Height of the lines */
   }
-}
-
 
   .navbar-toggler span::before,
   .navbar-toggler span::after {
