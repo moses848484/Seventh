@@ -355,7 +355,7 @@ a:focus {
   border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
-  height: 2px;
+  height: 3px;
   /* Space between lines */
   transition: all 0.3s ease;
   /* Smooth transition for animations */
@@ -409,6 +409,7 @@ a:focus {
     position: absolute;
     /* Absolute positioning */
     right: 10px;
+    height: 3px;
     /* Align to the right with some spacing */
     top: 3px !important;
     /* Adjust top positioning */
