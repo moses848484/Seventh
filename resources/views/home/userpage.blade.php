@@ -27,14 +27,14 @@
 </head>
 
 <body>
- <div class="hero_area">
-   <div class="container-scroller">
+ <div class="hero_area"> 
       <!-- header section strats -->
       @include('home.header')
       <!-- end header section -->
       <!-- slider section -->
       @include('home.slider')
       <!-- end slider section -->
+          </div>
          <!-- containers section -->
          @include('home.containers')
          <!-- end containers section -->
@@ -62,7 +62,6 @@
          <x-notify::notify />
          @notifyJs
       </div>
-   </div>
 </body>
 
 </html>

@@ -260,6 +260,7 @@ a:focus {
   justify-content: center;
   /* Center content vertically (optional) */
   align-items: center;
+    overflow: hidden;
   /* Center content horizontally (optional) */
   padding: 0;
   width: 100%;
