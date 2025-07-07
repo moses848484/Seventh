@@ -12,6 +12,7 @@
    <div class="container-scroller">
       <div class="hero_area">
          <!-- end header section -->
+          @include('home.header')
          <!-- slider section -->
          @include('home.slider')
          <!-- end slider section -->
