@@ -21,7 +21,7 @@
                                     No matter where you are in your journey, you're invited to discover your purpose and
                                     live it out.
                                 </p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <div class="d-grid gap-4 d-sm-flex justify-content-sm-center">
                                     <a href="{{ route('register') }}" class="btn1">Learn More</a>
                                     <a href="https://www.facebook.com/@universityadventist/"
                                         class="btn5">Attend Online</a>
