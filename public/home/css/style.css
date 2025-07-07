@@ -1857,18 +1857,15 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
-/* Responsive Behavior */
-@media (max-width: 575.98px) {
-  .d-grid.gap-4.d-sm-flex {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center;
+/* Small Devices */
+@media (max-width: 575px) {
+  .button-container {
+    flex-direction: column;
   }
 
   .btn1,
   .btn5 {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100% !important;
   }
 }
 
@@ -1877,6 +1874,12 @@ div.form_sub .field input[type="email"]:focus {
   .button-container {
     flex-direction: row;
   }
+
+  .btn1,
+  .btn5 {
+    width: auto !important;
+  }
+}
 
 
 .btn2 {
