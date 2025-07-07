@@ -351,9 +351,9 @@ a:focus {
 /* Toggler Span Styles */
 .custom_nav-container .navbar-toggler span {
   display: block;
-  width: 35px;
+  width: 15px;
   /* Adjust width as needed */
-  height: 4px;
+  height: 1px;
   /* Height of the lines */
   background-color: white;
   /* Color of the lines */
@@ -405,73 +405,47 @@ a:focus {
 }
 
 
-/* Reduce the button size */
-.navbar-toggler {
-  padding: 3px 6px;
-  font-size: 0.8rem;
-  line-height: 1;
-  border: none;
-  width: 34px;
-  height: 34px;
-  margin-right: 10px;
-}
-
-/* Customize the icon inside */
-.navbar-toggler-icon {
-  background-image: none !important; /* Remove Bootstrap's default icon */
-  display: inline-block;
-  position: relative;
-  width: 20px;
-  height: 2px;
-  background-color: #333;
-}
-
-/* Add the top and bottom bars */
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  background-color: #333;
-  left: 0;
-  transition: all 0.3s ease;
-}
-
-.navbar-toggler-icon::before {
-  top: -6px;
-}
-
-.navbar-toggler-icon::after {
-  top: 6px;
-}
-
-
-/* Small Devices */
+/* Show toggler on smaller screens */
 @media (max-width: 767.98px) {
   .navbar-toggler {
-    width: 30px;
-    height: 30px;
-    top: 4px;
+    display: block;
+    /* Show on small screens */
+    position: absolute;
+    /* Absolute positioning */
     right: 10px;
-  }
-
-  .navbar-toggler-icon,
-  .navbar-toggler-icon::before,
-  .navbar-toggler-icon::after {
-    width: 18px;
-    height: 2px;
-  }
-
-  .navbar-toggler-icon::before {
-    top: -5px;
-  }
-
-  .navbar-toggler-icon::after {
-    top: 5px;
+    /* Align to the right with some spacing */
+    top: 3px !important;
+    /* Adjust top positioning */
   }
 }
 
+/* Media Query for Extra Small Screens */
+@media (max-width: 575.98px) {
+  .navbar-toggler {
+    width: 37px;
+    /* Set width of the toggler button */
+    height: 37px;
+    /* Set height of the toggler button */
+    right: 10px;
+    /* Align to the right with some spacing */
+    top: 10px;
+    /* Adjust top positioning */
+  }
+
+  /* Toggler Icon on Extra Small Screens */
+  .navbar-toggler span {
+    width: 30px;
+    /* Width of the lines */
+    height: 3px;
+    /* Height of the lines */
+  }
+
+  .navbar-toggler span::before,
+  .navbar-toggler span::after {
+    height: 3px;
+    width: 30px;
+  }
+}
 
 
 /* Logo styling */
