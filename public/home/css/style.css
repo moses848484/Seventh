@@ -344,7 +344,7 @@ a:focus {
   outline: none;
   padding: 0;
   width: 32px;
-  height: 30px;
+  height: 42px;
 }
 
 /* Toggler Span Styles */
@@ -355,7 +355,7 @@ a:focus {
   border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
-  height: 4px;
+  height: 2px;
   /* Space between lines */
   transition: all 0.3s ease;
   /* Smooth transition for animations */
@@ -424,7 +424,6 @@ a:focus {
     /* Set height of the toggler button */
     right: 10px;
     /* Align to the right with some spacing */
-    /* Adjust top positioning */
   }
 
   /* Toggler Icon on Extra Small Screens */
