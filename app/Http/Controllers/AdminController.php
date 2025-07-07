@@ -124,7 +124,7 @@ class AdminController extends Controller
         if ($request->hasFile('document')) {
             $document = $request->file('document');
             $documentname = time() . '.' . $document->getClientOriginalExtension();
-            $document->move('Baptism Certificates', $documentname);
+            $document->move('Baptism_Certificates', $documentname);
             $data->document = $documentname;
         }
 
