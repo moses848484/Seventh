@@ -343,7 +343,6 @@ a:focus {
   transition: all 0.3s;
   outline: none;
   padding: 0;
-  padding: 7px 9px;
   width: 32px;
 }
 
