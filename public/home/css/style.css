@@ -478,6 +478,10 @@ position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+   font-size: 4.5rem;
+  font-weight: bold;
+  color: #002c3e;
+  line-height: 70px;
 }
 
 .fa-heart {
