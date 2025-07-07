@@ -35,6 +35,7 @@
          <!-- slider section -->
          @include('home.slider')
          <!-- end slider section -->
+             </div>
          <!-- containers section -->
          @include('home.containers')
          <!-- end containers section -->
@@ -61,8 +62,6 @@
 
          <x-notify::notify />
          @notifyJs
-      </div>
-   </div>
 </body>
 
 </html>
