@@ -501,6 +501,11 @@ position: relative;
 @media (max-width: 768px) {
   .slider_section h1 {
     font-size: 1.75rem;
+      color: #002c3e;
+  line-height: 70px;
+    font-size: 4.5rem;
+  /* Default font size */
+  font-weight: bold;
   }
 
   .slider_section p {
