@@ -250,52 +250,45 @@ a:focus {
 
 .hero_area {
   position: relative;
-  /* Position relative for absolute positioning of child elements if needed */
-  /* Full viewport height */
   min-height: 100vh;
   display: flex;
-  /* Flexbox layout */
   flex-direction: column;
-  /* Vertical stacking of child elements */
   justify-content: center;
-  /* Center content vertically (optional) */
   align-items: center;
-    overflow: hidden;
-  /* Center content horizontally (optional) */
-  padding: 0;
   width: 100%;
-  margin: 0;
-  /* Full width of the container */
   box-sizing: border-box;
-  /* Ensure padding and borders are included in the element’s total width and height */
-
+  overflow-x: hidden;
+  padding: 0 15px; /* helps mobile spacing */
 }
 
-/* Optional: Media queries for better responsiveness */
+/* Responsive Adjustments */
 @media (max-width: 1200px) {
   .hero_area {
+    justify-content: flex-start;
+    padding-top: 70px;
   }
 }
 
 @media (max-width: 768px) {
   .hero_area {
-
+    padding-top: 60px;
   }
 }
 
 @media (max-width: 480px) {
   .hero_area {
-
+    padding-top: 50px;
+    align-items: stretch;
+  }
 }
 
 .container-scroller {
-  display: flex;
-  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  box-sizing: border-box;
 }
 
-.container-scroller {
-  overflow: hidden;
-}
 
 /* Fix navbar-nav spacing */
 .custom_nav-container .navbar-nav {
