@@ -120,13 +120,13 @@ class AdminController extends Controller
         $data->ministry = $request->ministry;
         $data->marital = $request->marital;
 
+        // Handle the uploaded document
         if ($request->hasFile('document')) {
             $document = $request->file('document');
             $documentname = time() . '.' . $document->getClientOriginalExtension();
-            $document->move(public_path('Baptism Certificates'), $documentname);
+            $document->move('Baptism Certificates', $documentname);
             $data->document = $documentname;
         }
-
 
         // Save the member data
         $data->save();
