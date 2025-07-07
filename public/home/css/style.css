@@ -405,35 +405,37 @@ a:focus {
 }
 
 
-/* Default Toggler Button Style (Mobile First) */
+/* Reduce the button size */
 .navbar-toggler {
+  padding: 3px 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+  border: none;
   width: 34px;
   height: 34px;
-  padding: 4px;
-  position: absolute;
-  right: 10px;
-  top: 6px;
-  border: none;
-  background: transparent;
+  margin-right: 10px;
 }
 
-/* Hamburger Icon Lines */
+/* Customize the icon inside */
 .navbar-toggler-icon {
+  background-image: none !important; /* Remove Bootstrap's default icon */
+  display: inline-block;
+  position: relative;
   width: 20px;
   height: 2px;
   background-color: #333;
-  display: block;
-  position: relative;
 }
 
+/* Add the top and bottom bars */
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 2px;
   background-color: #333;
-  transition: 0.3s;
+  left: 0;
+  transition: all 0.3s ease;
 }
 
 .navbar-toggler-icon::before {
@@ -443,6 +445,7 @@ a:focus {
 .navbar-toggler-icon::after {
   top: 6px;
 }
+
 
 /* Small Devices */
 @media (max-width: 767.98px) {
