@@ -529,7 +529,7 @@ position: relative;
 
 @media (max-width: 575.98px) {
   .slider_bg_box {
-    height: 80px !important; /* Set a reasonable height for the background container */
+    height: 280px !important; /* Set a reasonable height for the background container */
   }
 
   .slider_bg_box img {
