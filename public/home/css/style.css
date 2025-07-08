@@ -191,10 +191,9 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 10px;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
   }
 }
 
@@ -316,14 +315,10 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
-  padding: 5px 7px;
-  color: white;
-  text-align: center;
-  margin-top: 5px;
-  text-transform: uppercase;
-  border-radius: 5px;
-  transition: all 0.3s;
-  font-weight: 700;
+ font-weight: 600;
+  font-size: 15px;
+  padding: 10px 15px;
+  color: #fff !important;
 
 }
 
