@@ -200,7 +200,7 @@ a:focus {
 
 .custom_nav-container.navbar-expanded,
 .custom_nav-container.navbar-expanded .navbar-collapse {
-  background-color: #2c6448 !important; /* Uniform color when expanded */
+  background-color: #2c6448d4 !important; /* Uniform color when expanded */
 }
 
 
