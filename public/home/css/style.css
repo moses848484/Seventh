@@ -187,7 +187,7 @@ a:focus {
 
 /* Ensure .xs class is visible on larger screens */
 @media (min-width: 576px) {
-  .xs {
+  .hidden-xs {
     display: block;
     /* Display the element on screens larger than or equal to 576px */
     color: white !important;
@@ -204,6 +204,7 @@ a:focus {
     /* Center the text */
     position: relative;
     /* Position context */
+    display: none !important;
   }
 }
 
