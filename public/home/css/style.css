@@ -191,6 +191,7 @@ a:focus {
     color: white !important;
     font-size: 20px;
     font-family: 'Playfair Display', serif;
+    font-weight: normal !important;
     margin-left: 0;
     text-align: center;
     position: relative;
