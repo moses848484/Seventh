@@ -191,7 +191,7 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 49px;
+    font-size: 59px;
     color: white;
     font-family: 'Montserrat', sans-serif !important;
   }
