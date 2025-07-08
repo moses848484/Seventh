@@ -175,7 +175,7 @@ a:focus {
 
 .nav-link {
   color: white !important;
-  font-size: 8px !important;
+  font-size: 20px !important;
 }
 
 .nav-link:hover {
@@ -191,8 +191,9 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 54px;
+    font-size: 20px;
     color: white;
+    font-weight: lighter;
     font-family: 'Montserrat', sans-serif !important;
   }
 }
