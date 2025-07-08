@@ -74,16 +74,11 @@
 </header>
 </nav>
 <script>
-    const toggler = document.querySelector('.navbar-toggler');
-    const navbar = document.getElementById('mainNavbar');
-    const collapse = document.getElementById('navbarSupportedContent');
+  const toggler = document.querySelector('.navbar-toggler');
+  const navbar = document.querySelector('.custom_nav-container');
 
-    toggler.addEventListener('click', () => {
-        navbar.classList.toggle('navbar-expanded');
-    });
-
-    // Optional: remove class on outside click (if user closes)
-    collapse.addEventListener('hidden.bs.collapse', () => {
-        navbar.classList.remove('navbar-expanded');
-    });
+  toggler.addEventListener('click', function () {
+    navbar.classList.toggle('navbar-expanded');
+  });
 </script>
+

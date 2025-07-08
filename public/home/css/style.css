@@ -198,16 +198,13 @@ a:focus {
   }
 }
 
-/* Default navbar background */
-.custom_nav-container {
-  background-color: #2c6448; /* example background */
+/* Default navbar and expanded menu color */
+.custom_nav-container,
+.custom_nav-container .navbar-collapse {
+  background-color: #2c6448dd !important; /* Your desired color */
   transition: background-color 0.3s ease;
 }
 
-/* Transparent when expanded on mobile */
-.custom_nav-container.navbar-expanded {
-  background-color: #2c644895 !important;
-}
 
 
 .navbar-brand span {
