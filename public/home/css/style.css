@@ -181,7 +181,7 @@ a:focus {
 
 .nav-link:hover {
   color: #e4af00 !important;
-  font-size: 8px !important;
+  font-size: 13px !important;
 }
 
 /* Hide on tablets and smaller (phones + tablets) */
@@ -192,7 +192,7 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     font-weight: normal;
     font-family: 'Montserrat', sans-serif !important;
@@ -317,7 +317,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
- font-weight: 600;
+  font-weight: 600;
   font-size: 35px;
   padding: 10px 15px;
   color: #fff !important;
