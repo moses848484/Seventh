@@ -339,13 +339,14 @@ a:focus {
   color: #f7444e;
 }
 
-.custom_nav-container .navbar-toggler {
+.custom_nav-container .navbar-toggler .navbar-toggler-icon {
   transition: all 0.3s;
   outline: none;
   padding: 0;
   width: 32px;
   height: 42px;
 }
+
 
 /* Toggler Span Styles */
 .custom_nav-container .navbar-toggler span {
