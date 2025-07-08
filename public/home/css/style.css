@@ -191,7 +191,7 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 10px;
+    font-size: 40px;
     color: white;
     font-family: 'Montserrat', sans-serif !important;
   }
@@ -316,7 +316,7 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
  font-weight: 600;
-  font-size: 15px;
+  font-size: 35px;
   padding: 10px 15px;
   color: #fff !important;
 
