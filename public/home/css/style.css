@@ -356,7 +356,7 @@ a:focus {
   border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
-  height: 2px;
+  height: 2.5px;
   /* Space between lines */
   transition: all 0.3s ease;
   /* Smooth transition for animations */
@@ -453,14 +453,14 @@ a:focus {
 @media (max-width: 768px) {
   .sda_logo8 {
     width: 50px;
-    left: 1px;
+    margin-left: 10px;
   }
 }
 
 @media (max-width: 576px) {
   .sda_logo8 {
     width: 40px;
-    left: 1px;
+    margin-left: 10px;
   }
 }
 
