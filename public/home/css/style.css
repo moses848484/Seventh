@@ -228,12 +228,12 @@ a:focus {
 /* Extra small (portrait phones) */
 @media (max-width: 575.98px) {
   .slider_section h1.display-5 {
-    font-size: 5px!important;
+    font-size: 50px!important;
     line-height: 1.3 !important;
   }
 
   .slider_section p.lead {
-    font-size: 2px !important;
+    font-size: 20px !important;
     line-height: 1.5 !important;
   }
 }
@@ -509,9 +509,30 @@ position: relative;
   color: red;
 }
 
-.slider_bg_box img {
-  object-fit: cover;
+.slider_bg_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Ensure background stays behind content */
 }
+
+.slider_bg_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 575.98px) {
+  .slider_bg_box img {
+    object-position: center top; /* Adjust crop focus for phones if needed */
+  }
+}
+
 
 .overlay {
   background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
