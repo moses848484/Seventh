@@ -199,8 +199,16 @@ a:focus {
 }
 
 .custom_nav-container.navbar-expanded,
-.custom_nav-container.navbar-expanded .navbar-collapse {
-  background-color: #2c6448d4 !important; /* Uniform color when expanded */
+.custom_nav-container.navbar-expanded .navbar-collapse,
+.custom_nav-container.navbar-expanded .navbar-collapse ul.navbar-nav {
+  background-color: rgba(44, 100, 72, 0.85) !important; /* semi-transparent */
+  backdrop-filter: blur(4px); /* optional: adds glass effect */
+  transition: background-color 0.4s ease;
+}
+
+/* Also remove default background on ul.navbar-nav just in case */
+.navbar-nav {
+  background-color: transparent !important;
 }
 
 
