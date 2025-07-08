@@ -419,6 +419,12 @@ a:focus {
     height: 2px;
     /* Height of the lines */
   }
+
+    .navbar-toggler span::before,
+  .navbar-toggler span::after {
+    height: 3px;
+    width: 25px;
+  }
 }
 
 /* Media Query for Extra Small Screens */
