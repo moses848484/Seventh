@@ -1,6 +1,6 @@
 <header class="header_section">
     <div class="container3">
-        <nav class="navbar navbar-expand-md custom_nav-container">
+        <nav id="mainNavbar" class="navbar navbar-expand-md custom_nav-container">
             <a href="/" class="navbar-brand">
                 <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
             </a>
@@ -13,7 +13,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span
+                                class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
@@ -36,7 +37,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">WORSHIP &nbsp;<span class="sr-only">(current)</span></a>
                     </li>
-                    
+
 
                     @if (Route::has('login'))
                         @auth
@@ -54,21 +55,35 @@
                                     <a class="nav-link" href="/redirect">Go To Dashboard <span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                            
+
                             </ul>
-                            
-                       
-                @else
-                    <li class="nav-item">
-                        <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                href="{{ url('/redirect') }}">Log In</a></i>
-                        <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
-                                href="{{ route('register') }}">Register</a></i>
-                    </li>
-                @endauth
-                @endif
+
+
+                        @else
+                            <li class="nav-item">
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">Log In</a></i>
+                                <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
+                                        href="{{ route('register') }}">Register</a></i>
+                            </li>
+                        @endauth
+                    @endif
                 </ul>
-            </div>      
+            </div>
     </div>
 </header>
- </nav>
+</nav>
+<script>
+    const toggler = document.querySelector('.navbar-toggler');
+    const navbar = document.getElementById('mainNavbar');
+    const collapse = document.getElementById('navbarSupportedContent');
+
+    toggler.addEventListener('click', () => {
+        navbar.classList.toggle('navbar-expanded');
+    });
+
+    // Optional: remove class on outside click (if user closes)
+    collapse.addEventListener('hidden.bs.collapse', () => {
+        navbar.classList.remove('navbar-expanded');
+    });
+</script>
