@@ -169,18 +169,18 @@ a:focus {
 
 .nav-link {
   color: white !important;
-  font-size: 14px !important;
+  font-size: 8px !important;
 }
 
 .nav-link:hover {
   color: #e4af00 !important;
-  font-size: 14px !important;
+  font-size: 8px !important;
 }
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
   .xs {
-    display: none !important;
+    
   }
 }
 
@@ -189,10 +189,11 @@ a:focus {
   .xs {
     display: block !important;
     color: white !important;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Playfair Display', serif;
     font-weight: normal !important;
     margin-left: 0;
+    font-weight: normal;
     text-align: center;
     position: relative;
   }
@@ -238,8 +239,6 @@ a:focus {
   }
 }
 
-
- 
 .navbar-brand span {
   font-weight: bold;
   font-size: 25px;
