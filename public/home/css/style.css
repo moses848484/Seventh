@@ -206,7 +206,7 @@ a:focus {
 
 /* Transparent when expanded on mobile */
 .custom_nav-container.navbar-expanded {
-  background-color: transparent !important;
+  background-color: #2c644895 !important;
 }
 
 
