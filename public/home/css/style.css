@@ -495,16 +495,18 @@ a:focus {
   }
 }
 
-.fa-heart {
-  color: red;
-}
 
+/* End header section */
 .slider_section {
 position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+}
+
+.fa-heart {
+  color: red;
 }
 
 .slider_bg_box {
@@ -527,12 +529,12 @@ position: relative;
 
 @media (max-width: 575.98px) {
   .slider_bg_box {
-    height: 300px !important; /* Set a reasonable height for the background container */
+    height: 100%; /* Set a reasonable height for the background container */
   }
 
   .slider_bg_box img {
     width: 100%;
-    height: 300px !important;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
