@@ -1,45 +1,84 @@
 <header class="header_section">
-  <div class="container3">
-    <nav id="mainNavbar" class="navbar navbar-expand-md custom_nav-container">
-      <a href="/" class="navbar-brand">
-        <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
-      </a>
+    <div class="container3">
+        <nav id="mainNavbar" class="navbar navbar-expand-md custom_nav-container">
+            <a href="/" class="navbar-brand">
+                <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
+            </a>
+            <!-- Centered text for xs breakpoint -->
+            <span class="xs d-block text-center mx-auto">SDA.CHURCH</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span
+                                class="sr-only">(current)</span></a>
+                    </li>
 
-      <span class="xs d-block text-center mx-auto">SDA.CHURCH</span>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Media <span class="sr-only">(current)</span></a>
+                    </li>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Who We Are &nbsp;<span
+                                class="sr-only">(current)</span></a>
+                    </li>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Media</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Who We Are</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Give</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Locations</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html">Worship</a></li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">GIVE &nbsp;<span class="sr-only">(current)</span></a>
+                    </li>
 
-          @if (Route::has('login'))
-            @auth
-              <!-- Desktop -->
-              <li class="nav-item d-none d-md-block">
-                <a class="nav-link" href="/redirect">Go To Dashboard</a>
-              </li>
-              <!-- Mobile -->
-              <li class="nav-item d-md-none w-100 text-center">
-                <a class="nav-link" href="/redirect">Go To Dashboard</a>
-              </li>
-            @else
-              <li class="nav-item">
-                <a class="btn btn-outline-light me-2" href="{{ url('/redirect') }}"><i class="fas fa-user-circle"></i> Log In</a>
-                <a class="btn btn-warning text-dark" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Register</a>
-              </li>
-            @endauth
-          @endif
-        </ul>
-      </div>
-    </nav>
-  </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">LOCATIONS&nbsp;<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">WORSHIP &nbsp;<span class="sr-only">(current)</span></a>
+                    </li>
+
+
+                    @if (Route::has('login'))
+                        @auth
+                            <!-- Desktop View -->
+                            <ul class="navbar-nav ml-auto d-none d-md-flex">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                            </ul>
+
+                            <!-- Mobile View -->
+                            <ul class="navbar-nav d-md-none justify-content-center w-100">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+
+                            </ul>
+
+
+                        @else
+                            <li class="nav-item">
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">Log In</a></i>
+                                <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
+                                        href="{{ route('register') }}">Register</a></i>
+                            </li>
+                        @endauth
+                    @endif
+                </ul>
+            </div>
+    </div>
 </header>
+</nav>
+<script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navbar = document.querySelector('.custom_nav-container');
+
+  toggler.addEventListener('click', function () {
+    navbar.classList.toggle('navbar-expanded');
+  });
+</script>
+

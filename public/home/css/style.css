@@ -188,25 +188,12 @@ a:focus {
   .xs {}
 }
 
-@media (max-width: 767.98px) {
-  .xs {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-  }
-}
-
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    display: block !important;
-    color: white !important;
-    margin-left: 0;
-    font-weight: normal;
-    text-align: center;
-    position: relative;
     font-size: 20px;
     font-weight: bold;
+    color: white;
     font-family: 'Montserrat', sans-serif;
   }
 }
@@ -329,16 +316,14 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 15px;
-  color: #fff !important;
+  padding: 5px 7px;
+  color: white;
   text-align: center;
   margin-top: 5px;
   text-transform: uppercase;
   border-radius: 5px;
   transition: all 0.3s;
-
+  font-weight: 700;
 
 }
 
@@ -379,7 +364,6 @@ a:focus {
   padding: 0;
   width: 32px;
   height: 42px;
-  border: none;
 }
 
 
@@ -495,7 +479,6 @@ a:focus {
 .sda_logo8 {
   width: 60px;
   height: auto;
-  max-height: 50px;
   transition: width 0.3s;
   margin-left: 10px;
 }
