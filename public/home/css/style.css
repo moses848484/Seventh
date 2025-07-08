@@ -410,7 +410,7 @@ a:focus {
     position: absolute;
     /* Absolute positioning */
     right: 10px;
-    height: 2px;
+    height: 3px;
     /* Align to the right with some spacing */
     top: 3px !important;
     /* Adjust top positioning */
