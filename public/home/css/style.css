@@ -369,7 +369,6 @@ a:focus {
   content: "";
   position: absolute;
   left: 0;
-  height: 2px;
   background-color: white;
   top: -10px;
   border-radius: 0;
@@ -421,7 +420,7 @@ a:focus {
   .navbar-toggler {
     width: 32px;
     /* Set width of the toggler button */
-    height: 2px;
+    height: 3px;
     /* Set height of the toggler button */
     right: 10px;
     /* Align to the right with some spacing */
@@ -431,7 +430,7 @@ a:focus {
   .navbar-toggler span {
     width: 25px;
     /* Width of the lines */
-    height: 2px;
+    height: 3px;
     /* Height of the lines */
   }
 
