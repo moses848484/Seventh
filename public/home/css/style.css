@@ -411,6 +411,13 @@ a:focus {
     top: 3px !important;
     /* Adjust top positioning */
   }
+
+   .navbar-toggler span {
+    width: 25px;
+    /* Width of the lines */
+    height: 2px;
+    /* Height of the lines */
+  }
 }
 
 /* Media Query for Extra Small Screens */
