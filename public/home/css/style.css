@@ -177,50 +177,27 @@ a:focus {
   font-size: 14px !important;
 }
 
-/* Hide .xs class on mobile screens and small devices */
-@media (max-width: 575.98px) {
+/* Hide on tablets and smaller (phones + tablets) */
+@media (max-width: 991.98px) {
   .xs {
     display: none !important;
-    /* Hide the element on screens smaller than 576px */
   }
 }
 
-/* Ensure .xs class is visible on larger screens */
-@media (min-width: 576px) {
+/* Show only on desktops (992px and up) */
+@media (min-width: 992px) {
   .xs {
-   display: block;
-    /* Display the element on screens larger than or equal to 576px */
+    display: block !important;
     color: white !important;
-    /* Ensure text color is white */
     font-size: 20px;
-    /* Font size for larger screens */
     font-family: 'Playfair Display', serif;
-    /* Font family */
     font-weight: bold;
-    /* Font weight */
     margin-left: 0;
-    /* Reset margin */
     text-align: center;
-    /* Center the text */
     position: relative;
-    /* Position context */
-    display: none !important;
   }
 }
 
-@media (max-width: 768px) {
-  .hidden-xs {
-    display: none;
-    /* Hide on smaller screens */
-  }
-}
-
-@media (max-width: 576px) {
-  .hidden-xs {
-    display: none;
-    /* Hide on extra small screens */
-  }
-}
 
 .navbar-brand span {
   font-weight: bold;
