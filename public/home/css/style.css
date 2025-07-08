@@ -201,7 +201,7 @@ a:focus {
 /* When navbar is toggled open */
 .custom_nav-container.navbar-expanded,
 .custom_nav-container.navbar-expanded .navbar-collapse,
-.custom_nav-container.navbar-expanded .navbar-collapse ul.navbar-nav {
+.custom_nav-container.navbar-expanded .navbar-collapse .navbar-nav {
   background-color: rgba(44, 100, 72, 0.9) !important; /* Consistent green with transparency */
   box-shadow: none !important;
   border: none !important;
