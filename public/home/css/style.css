@@ -180,9 +180,11 @@ a:focus {
 }
 
 .nav-link:hover {
-  color: #e4af00 !important;
+  color: white !important;
   font-size: 13px !important;
+  background-color: #e4af00 !important;
 }
+
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
