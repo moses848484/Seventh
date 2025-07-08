@@ -258,7 +258,6 @@ a:focus {
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
-  padding: 0 15px; /* helps mobile spacing */
 }
 
 /* Responsive Adjustments */
