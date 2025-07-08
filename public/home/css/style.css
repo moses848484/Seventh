@@ -198,12 +198,11 @@ a:focus {
   }
 }
 
-/* Default navbar and expanded menu color */
-.custom_nav-container,
-.custom_nav-container .navbar-collapse {
-  background-color: #2c6448dd !important; /* Your desired color */
-  transition: background-color 0.3s ease;
+.custom_nav-container.navbar-expanded,
+.custom_nav-container.navbar-expanded .navbar-collapse {
+  background-color: #2c6448 !important; /* Uniform color when expanded */
 }
+
 
 
 
