@@ -339,7 +339,7 @@ a:focus {
   color: #f7444e;
 }
 
-.custom_nav-container .navbar-toggler .navbar-toggler-icon {
+.custom_nav-container .navbar-toggler {
   transition: all 0.3s;
   outline: none;
   padding: 0;
