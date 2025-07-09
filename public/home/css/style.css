@@ -181,6 +181,13 @@ a:focus {
   background-color: transparent !important;
 }
 
+.nav-link:hover {
+  color: #e4af00 !important;
+  background-color: transparent !important;
+  font-size: 13px !important;
+  border: none;
+}
+
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
@@ -192,7 +199,7 @@ a:focus {
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     font-weight: normal;
     font-family: 'Montserrat', sans-serif !important;
