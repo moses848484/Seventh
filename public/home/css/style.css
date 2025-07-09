@@ -176,7 +176,7 @@ a:focus {
 }
 
 .nav-link {
-  color: rgb(213, 25, 25) !important;
+  color: white !important;
   font-size: 13px !important;
   background-color: transparent !important;
 }
@@ -187,6 +187,28 @@ a:focus {
   font-size: 13px !important;
   border: none;
 }
+
+/* Use higher specificity and include active states */
+.navbar-nav .nav-item .nav-link {
+  color: white !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px !important;
+  background-color: transparent !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus,
+.navbar-nav .nav-item .nav-link:active {
+  color: #e4af00 !important;
+  background-color: transparent !important;
+  text-decoration: none;
+}
+
+.overlay {
+  pointer-events: none;
+}
+
 
 
 /* Hide on tablets and smaller (phones + tablets) */
@@ -481,7 +503,7 @@ a:focus {
 
 /* Logo styling */
 .sda_logo8 {
-  width: 60px;
+  width: 45px;
   height: auto;
   transition: width 0.3s;
   margin-left: 10px;
