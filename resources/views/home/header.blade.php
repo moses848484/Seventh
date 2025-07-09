@@ -1,3 +1,32 @@
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+        /* Apply Montserrat site-wide (optional) */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-size: 13px !important;
+            background-color: transparent !important;
+            font-family: 'Montserrat', sans-serif !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #e4af00 !important;
+            background-color: transparent !important;
+        }
+
+        .btn-primary,
+        .btn-success {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+    </style>
+
+</head>
 <header class="header_section">
     <div class="container3">
         <nav class="navbar navbar-expand-md custom_nav-container">
