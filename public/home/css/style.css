@@ -188,25 +188,21 @@ a:focus {
   border: none;
 }
 
-/* Use higher specificity and include active states */
-.navbar-nav .nav-item .nav-link {
+.navbar-nav .nav-item .nav-link:hover {
+  color: #e4af00 !important;
+}
+
+
+.nav-link {
   color: white !important;
-  font-family: 'Montserrat', sans-serif;
   font-size: 13px !important;
   background-color: transparent !important;
-  transition: color 0.3s ease;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-.navbar-nav .nav-item .nav-link:hover,
-.navbar-nav .nav-item .nav-link:focus,
-.navbar-nav .nav-item .nav-link:active {
+.nav-link:hover {
   color: #e4af00 !important;
   background-color: transparent !important;
-  text-decoration: none;
-}
-
-.overlay {
-  pointer-events: none;
 }
 
 

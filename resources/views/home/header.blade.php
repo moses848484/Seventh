@@ -13,7 +13,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span
+                                class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
@@ -36,36 +37,34 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">WORSHIP &nbsp;<span class="sr-only">(current)</span></a>
                     </li>
-                    
+                </ul>
 
-                    @if (Route::has('login'))
-                        @auth
-                            <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
+                @if (Route::has('login'))
+                    @auth
+                        <!-- Desktop View -->
+                        <ul class="navbar-nav ml-auto d-none d-md-flex">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/redirect">Go To Dashboard <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
 
-                            <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                            
-                            </ul>
-                            
-                       
-                @else
-                    <li class="nav-item">
-                        <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                href="{{ url('/redirect') }}">Log In</a></i>
-                        <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
-                                href="{{ route('register') }}">Register</a></i>
-                    </li>
-                @endauth
+                        <!-- Mobile View -->
+                        <ul class="navbar-nav d-md-none justify-content-center w-100">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/redirect">Go To Dashboard <span class="sr-only">(current)</span></a>
+                            </li>
+
+                        </ul>
+
+
+                    @else
+                        <li class="nav-item">
+                            <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                    href="{{ url('/redirect') }}">Log In</a></i>
+                            <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
+                                    href="{{ route('register') }}">Register</a></i>
+                        </li>
+                    @endauth
                 @endif
                 </ul>
             </div>
