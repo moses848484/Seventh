@@ -176,7 +176,7 @@ a:focus {
 }
 
 .nav-link {
-  color: white !important;
+  color: rgb(213, 25, 25) !important;
   font-size: 13px !important;
   background-color: transparent !important;
 }
