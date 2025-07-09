@@ -149,7 +149,8 @@ a:focus {
   border: none;
   /* Removes the border */
   font-size: 12px !important;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
+  font-family: 'Montserrat', sans-serif !important;
   /* Sets the font size to 12px, overriding any other font size rules */
 }
 
@@ -157,9 +158,9 @@ a:focus {
   color: #e4af00 !important;
   background-color: transparent !important;
   border: none;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
   font-size: 12px !important;
-
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .btn-success {
@@ -167,7 +168,7 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
 
 }
 
@@ -176,8 +177,8 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
-  font-weight: 300 !important;
-
+  font-weight: 400 !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .nav-link {
