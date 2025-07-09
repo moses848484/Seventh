@@ -186,12 +186,15 @@ a:focus {
   color: #e4af00 !important;
   font-size: 13px !important;
   background-color: transparent !important;
+  border: none;
 }
 
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
-  .xs {}
+  .xs {
+    margin-left: 100px;
+  }
 }
 
 /* Show only on desktops (992px and up) */
