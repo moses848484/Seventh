@@ -142,15 +142,15 @@ a:focus {
 }
 
 .btn-primary {
-  color: white !important;
-  /* Sets the text color to white */
-  background-color: transparent !important;
-  /* Makes the background color transparent */
+  font-weight: 600;
+  font-size: 35px;
+  padding: 10px 15px;
+  color: #fff !important;
+  background-color: transparent;
+  transition: color 0.3s ease;
   border: none;
-  /* Removes the border */
   font-size: 12px !important;
   font-family: 'Montserrat', sans-serif !important;
-  /* Sets the font size to 12px, overriding any other font size rules */
 }
 
 .btn-primary:hover {
@@ -162,9 +162,12 @@ a:focus {
 }
 
 .btn-success {
-  color: white !important;
-  background-color: transparent !important;
-  font-size: 12px !important;
+  font-weight: 600;
+  font-size: 35px;
+  padding: 10px 15px;
+  color: #fff !important;
+  background-color: transparent;
+  transition: color 0.3s ease;
   border: none;
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -187,7 +190,7 @@ a:focus {
 
 .nav-link:hover {
   color: #e4af00 !important;
-  background-color: transparent!important;
+  background-color: transparent !important;
   font-size: 12px !important;
   border: none;
   font-family: 'Montserrat', sans-serif !important;
@@ -203,7 +206,7 @@ a:focus {
   .xs {
     font-size: 20px;
     color: white;
-    font-weight: lighter;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif !important;
   }
 }
