@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
-
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
    <title>SDA Home Page</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
@@ -49,7 +49,6 @@
          <!-- footer start -->
          @include('home.footer')
          <!-- footer end -->
-
          <!-- jQery -->
          <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
          <!-- popper js -->
@@ -58,12 +57,9 @@
          <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
          <!-- custom js -->
          <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
-
-
          <x-notify::notify />
          @notifyJs
       </div>
    </div>
 </body>
-
 </html>
