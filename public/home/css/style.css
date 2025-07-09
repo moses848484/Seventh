@@ -148,28 +148,30 @@ a:focus {
   /* Makes the background color transparent */
   border: none;
   /* Removes the border */
-  font-size: 12px !important;
-  /* Sets the font size to 12px, overriding any other font size rules */
+  font-size: 13px !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .btn-primary:hover {
   color: #e4af00 !important;
   background-color: transparent !important;
   border: none;
-  font-size: 12px !important;
+  font-size: 13px !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .btn-success {
   color: white !important;
   background-color: transparent !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
+  font-family: 'Montserrat', sans-serif !important;
   border: none;
 }
 
 .btn-success:hover {
   color: #e4af00 !important;
   background-color: transparent !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
   border: none;
 }
 
@@ -177,12 +179,14 @@ a:focus {
   color: white !important;
   font-size: 13px !important;
   font-family: 'Montserrat', sans-serif !important;
+  background-color: transparent !important;
 }
 
 .nav-link:hover {
   color: white !important;
   font-size: 13px !important;
   background-color: #e4af00 !important;
+  background-color: transparent !important;
 }
 
 
