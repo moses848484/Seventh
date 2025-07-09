@@ -13,15 +13,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">Attend Online <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Media <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">MEDIA <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Who We Are &nbsp;<span
+                        <a class="nav-link" href="index.html">WHO WE ARE &nbsp;<span
                                 class="sr-only">(current)</span></a>
                     </li>
 
@@ -43,7 +43,7 @@
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
@@ -51,7 +51,7 @@
                             <!-- Mobile View -->
                             <ul class="navbar-nav d-md-none justify-content-center w-100">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">Go To Dashboard <span
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                             
@@ -61,9 +61,9 @@
                 @else
                     <li class="nav-item">
                         <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                href="{{ url('/redirect') }}">Log In</a></i>
+                                href="{{ url('/redirect') }}">LOG IN</a></i>
                         <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
-                                href="{{ route('register') }}">Register</a></i>
+                                href="{{ route('register') }}">SIGN UP</a></i>
                     </li>
                 @endauth
                 @endif
