@@ -182,18 +182,6 @@ a:focus {
   background-color: transparent !important;
 }
 
-.nav-link:hover {
-  color: #e4af00 !important;
-  font-size: 13px !important;
-  background-color: transparent !important;
-  border: none;
-}
-
-ul.navbar-nav li.nav-item:hover {
- background-color: transparent !important;
- color: none !important;
-}
-
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
