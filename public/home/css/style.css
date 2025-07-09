@@ -149,12 +149,7 @@ a:focus {
   border: none;
   /* Removes the border */
   font-size: 12px !important;
-<<<<<<< HEAD
   font-weight: 300 !important;
-=======
-  font-weight: 600 !important;
->>>>>>> dc7423d31a1377cd45f28bea3bbb7091e6ad0dc0
-  font-family: 'Montserrat', sans-serif !important;
   /* Sets the font size to 12px, overriding any other font size rules */
 }
 
@@ -162,13 +157,9 @@ a:focus {
   color: #e4af00 !important;
   background-color: transparent !important;
   border: none;
-<<<<<<< HEAD
   font-weight: 300 !important;
-=======
-  font-weight: 600 !important;
->>>>>>> dc7423d31a1377cd45f28bea3bbb7091e6ad0dc0
   font-size: 12px !important;
-  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .btn-success {
@@ -176,12 +167,8 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
-<<<<<<< HEAD
   font-weight: 300 !important;
-=======
-  font-weight: 600 !important;
->>>>>>> dc7423d31a1377cd45f28bea3bbb7091e6ad0dc0
-  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .btn-success:hover {
@@ -189,13 +176,8 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
-<<<<<<< HEAD
-  font-weight: ;
   font-weight: 300 !important;
-=======
-  font-weight: 600 !important;
->>>>>>> dc7423d31a1377cd45f28bea3bbb7091e6ad0dc0
-  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .nav-link {
