@@ -324,8 +324,18 @@ a:focus {
   font-size: 35px;
   padding: 10px 15px;
   color: #fff !important;
-
+  background-color: transparent;
+  transition: color 0.3s ease;
+  /* Smooth hover effect */
 }
+
+.custom_nav-container .navbar-nav .nav-item .nav-link:hover {
+  color: #e4af00 !important;
+  /* Orange on hover */
+}
+
+
+
 
 .custom_nav-container .navbar-nav .nav-item .nav-link svg {
   width: 17px;
