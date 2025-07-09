@@ -17,7 +17,7 @@
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Media <span class="btn btn-success">(current)</span></a>
+                        <a class="nav-link" href="index.html">Media <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">

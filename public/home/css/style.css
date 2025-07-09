@@ -177,8 +177,10 @@ a:focus {
 
 .nav-link {
   color: white !important;
-  font-size: 13px !important;
   background-color: transparent !important;
+  font-size: 13px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  border: none;
 }
 
 .nav-link:hover {
@@ -186,23 +188,6 @@ a:focus {
   background-color: transparent !important;
   font-size: 13px !important;
   border: none;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-  color: #e4af00 !important;
-}
-
-
-.nav-link {
-  color: white !important;
-  font-size: 13px !important;
-  background-color: transparent !important;
-  font-family: 'Montserrat', sans-serif !important;
-}
-
-.nav-link:hover {
-  color: #e4af00 !important;
-  background-color: transparent !important;
 }
 
 
@@ -499,7 +484,7 @@ a:focus {
 
 /* Logo styling */
 .sda_logo8 {
-  width: 45px;
+  width: 30px !important;
   height: auto;
   transition: width 0.3s;
   margin-left: 10px;
