@@ -183,9 +183,8 @@ a:focus {
 }
 
 .nav-link:hover {
-  color: white !important;
+  color: #e4af00 !important;
   font-size: 13px !important;
-  background-color: #e4af00 !important;
   background-color: transparent !important;
 }
 
