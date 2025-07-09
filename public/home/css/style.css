@@ -148,64 +148,52 @@ a:focus {
   /* Makes the background color transparent */
   border: none;
   /* Removes the border */
-  font-size: 13px !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px !important;
+  /* Sets the font size to 12px, overriding any other font size rules */
 }
 
 .btn-primary:hover {
   color: #e4af00 !important;
   background-color: transparent !important;
   border: none;
-  font-size: 13px !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px !important;
 }
 
 .btn-success {
   color: white !important;
   background-color: transparent !important;
-  font-size: 13px !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px !important;
   border: none;
 }
 
 .btn-success:hover {
   color: #e4af00 !important;
   background-color: transparent !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   border: none;
 }
 
-.navbar-nav .nav-link {
+.nav-link {
   color: white !important;
-  font-size: 13px !important;
-  background-color: transparent !important;
-  font-family: 'Montserrat', sans-serif !important;
-  transition: color 0.3s ease;
-  font-weight: 500;
+  font-size: 8px !important;
 }
 
-.navbar-nav .nav-link:hover {
-  color: orange !important; /* Hover color */
-  background-color: transparent !important;
-  font-weight: 500;
+.nav-link:hover {
+  color: #e4af00 !important;
+  font-size: 8px !important;
 }
-
-
-
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
-  .xs {
-    margin-left: 100px;
-  }
+  .xs {}
 }
 
 /* Show only on desktops (992px and up) */
 @media (min-width: 992px) {
   .xs {
-    font-size: 15px;
+    font-size: 20px;
     color: white;
-    font-weight: normal;
+    font-weight: lighter;
     font-family: 'Montserrat', sans-serif !important;
   }
 }
@@ -328,7 +316,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
-  font-weight: 600;
+ font-weight: 600;
   font-size: 35px;
   padding: 10px 15px;
   color: #fff !important;
@@ -485,7 +473,7 @@ a:focus {
 
 /* Logo styling */
 .sda_logo8 {
-  width: 30px !important;
+  width: 60px;
   height: auto;
   transition: width 0.3s;
   margin-left: 10px;
