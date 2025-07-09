@@ -11,7 +11,9 @@
    <meta name="keywords" content="" />
    <meta name="description" content="" />
    <meta name="author" content="" />
-   <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="">
+   <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
+   <!-- Google Font: Montserrat -->
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
    <title>SDA Home Page</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
@@ -57,15 +59,7 @@
          <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
          <!-- custom js -->
          <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-         <!-- Bootstrap 5 JS Bundle (includes Popper) -->
-         <!-- Google Font: Montserrat -->
-         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
 
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-QVT0lZcT4OjvReODzq3OPOQ6T8gL+FynjV9wYOmT+RCthAPvAZhy5e9jFshbK0Yw"
-            crossorigin="anonymous"></script>
 
          <x-notify::notify />
          @notifyJs
