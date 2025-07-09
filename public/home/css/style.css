@@ -189,6 +189,11 @@ a:focus {
   border: none;
 }
 
+ul.nav-link:hover {
+  background-color: transparent !important;
+  color: none !important;
+  border: none;
+}
 
 /* Hide on tablets and smaller (phones + tablets) */
 @media (max-width: 991.98px) {
