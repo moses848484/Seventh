@@ -493,7 +493,7 @@ a:focus {
 .brand-wrapper {
   display: flex;
   align-items: center !important;
-  gap: 1px;
+  gap: 0;
 }
 
 /* Logo styling */
@@ -522,18 +522,21 @@ a:focus {
   color: white;
   font-family: sans-serif;
   font-weight: 500;
+  margin-left: 10px;
 }
 
 /* Text scaling on larger screens */
 @media (min-width: 576px) {
   .xs {
     font-size: 14px;
+    margin-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
   .xs {
     font-size: 14.5px;
+    margin-left: 10px;
   }
 }
 
@@ -542,6 +545,7 @@ a:focus {
     font-size: 15px;
     color: white;
     font-family: 'Montserrat', sans-serif !important;
+    margin-left: 10px;
   }
 }
 
