@@ -2343,7 +2343,7 @@ div.form_sub .field input[type="email"]:focus {
     flex: 0 0 auto !important;
     max-width: 100%;
     width: 100%;
-    margin: 0 auto !important;
+    margin-top: -20px !important;
     padding: 0;
   }
 }
