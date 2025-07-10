@@ -492,8 +492,8 @@ a:focus {
 /* Container for logo and SDA.CHURCH */
 .brand-wrapper {
   display: flex;
-  align-items: left;
-  gap: 10px;
+  align-items: start !important;
+  gap: 5px;
 }
 
 /* Logo styling */
