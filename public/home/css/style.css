@@ -251,25 +251,21 @@ a:focus {
 }
 
 
-/* Fixed Navbar Styling */
 .custom_nav-container {
   position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
   width: 100%;
+  z-index: 1000;
   background: #2c6448;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 15px;
-  /* Added horizontal padding for breathing space */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
+
 
 .hero_area {
   position: relative;
