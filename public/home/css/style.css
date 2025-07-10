@@ -2366,7 +2366,7 @@ div.form_sub .field input[type="email"]:focus {
   height: auto;
   border-radius: 6px;
   overflow: hidden;
-  margin: 0 auto 15px;
+  margin: 0 auto;
 }
 
 .arrival_bg_box4 img,
