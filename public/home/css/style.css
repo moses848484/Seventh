@@ -497,7 +497,7 @@ a:focus {
   width: 32px !important;
   height: auto;
   transition: width 0.3s;
-  margin-left: -30px !important;
+  margin-left: 30px !important;
 }
 
 @media (max-width: 768px) {
