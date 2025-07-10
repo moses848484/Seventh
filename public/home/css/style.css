@@ -2370,7 +2370,7 @@ div.form_sub .field input[type="email"]:focus {
   height: 250px;
   border-radius: 6px;
   overflow: hidden;
-  margin: 0 auto 15px;
+  margin-left: 25px !important;
 }
 
 .arrival_bg_box4 img,
@@ -2380,6 +2380,7 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  margin-left: 25px !important;
 }
 
 /* Optional image overlay */
