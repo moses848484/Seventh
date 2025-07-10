@@ -197,14 +197,28 @@ a:focus {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* Optional: base style for all screen sizes */
+/* Base style for all screen sizes (phones default) */
 .xs {
-  font-size: 14px;
+  font-size: 13px;
   color: black;
   font-family: sans-serif;
 }
 
-/* Enhance styling only on desktops (992px and up) */
+/* Small devices (≥576px) */
+@media (min-width: 576px) {
+  .xs {
+    font-size: 14px;
+  }
+}
+
+/* Medium devices (≥768px - tablets) */
+@media (min-width: 768px) {
+  .xs {
+    font-size: 14.5px;
+  }
+}
+
+/* Large devices (≥992px - desktops) */
 @media (min-width: 992px) {
   .xs {
     font-size: 15px;
@@ -213,6 +227,7 @@ a:focus {
     font-family: 'Montserrat', sans-serif !important;
   }
 }
+
 
 
 /* When navbar is toggled open */
