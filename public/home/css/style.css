@@ -393,7 +393,7 @@ a:focus {
   border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
-  height: 2.5px;
+  height: 2px;
   /* Space between lines */
   transition: all 0.3s ease;
   /* Smooth transition for animations */
