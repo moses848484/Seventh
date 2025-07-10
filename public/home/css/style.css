@@ -2341,9 +2341,9 @@ div.form_sub .field input[type="email"]:focus {
 @media (max-width: 575.98px) {
   .container3 {
     flex: 0 0 auto !important;
-    margin-left: -8px;
     max-width: 100%;
     width: 100%;
+    margin-top: 100px !important;
     padding: 0;
   }
 }
