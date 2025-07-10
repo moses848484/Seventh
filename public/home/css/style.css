@@ -493,7 +493,7 @@ a:focus {
 .brand-wrapper {
   display: flex;
   align-items: center !important;
-  gap: 5px;
+  gap: 1px;
 }
 
 /* Logo styling */
