@@ -514,7 +514,7 @@ a:focus {
 @media (max-width: 576px) {
   .sda_logo8 {
     width: 40px;
-    margin-left: 10px;
+    margin: 0 !important;
   }
 }
 
