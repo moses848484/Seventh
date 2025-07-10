@@ -2369,6 +2369,7 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   height: auto;
   border-radius: 6px;
+  align-items: center;
   overflow: hidden;
   margin: 0 auto 15px;
 }
@@ -2379,6 +2380,7 @@ div.form_sub .field input[type="email"]:focus {
   display: block;
   width: 100%;
   height: auto;
+  align-items: center;
   object-fit: cover;
 }
 
