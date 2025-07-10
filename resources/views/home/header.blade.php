@@ -13,7 +13,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE <span
+                                class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item active">
@@ -36,7 +37,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">WORSHIP &nbsp;<span class="sr-only">(current)</span></a>
                     </li>
-                    
+
 
                     @if (Route::has('login'))
                         @auth
@@ -54,19 +55,22 @@
                                     <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                            
+
                             </ul>
-                            
-                       
-                @else
-                    <li class="nav-item">
-                        <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                href="{{ url('/redirect') }}">LOG IN</a></i>
-                        <i class="fas fa-user-plus fa-2x"><a class="btn btn-success"
-                                href="{{ route('register') }}">SIGN UP</a></i>
-                    </li>
-                @endauth
-                @endif
+
+
+                        @else
+                            <li class="nav-item">
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">LOG IN</a></i>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </li>
+                        @endauth
+                    @endif
                 </ul>
             </div>
         </nav>
