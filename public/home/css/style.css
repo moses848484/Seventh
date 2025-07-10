@@ -446,11 +446,11 @@ a:focus {
     /* Absolute positioning */
     right: 10px;
     transform: translateX(-50%);
-    top: 15px;
+    top: 18px;
     /* Adjust vertical position */
     z-index: 1051;
     width: 32px;
-    height: auto;
+    height: 2px;
     padding: 0.25rem 0.5rem;
 
   }
@@ -464,7 +464,7 @@ a:focus {
 
   .navbar-toggler span::before,
   .navbar-toggler span::after {
-    height: 3px;
+    height: 2px;
     width: 25px;
   }
 }
@@ -478,7 +478,7 @@ a:focus {
     /* Set height of the toggler button */
     right: 10px;
     /* Align to the right with some spacing */
-    top: 15px;
+    top: 18px;
     margin-top: 3px;
     transform: translateX(-50%);
     height: auto;
@@ -495,7 +495,7 @@ a:focus {
 
   .navbar-toggler span::before,
   .navbar-toggler span::after {
-    height: 3px;
+    height: 2px;
     width: 25px;
   }
 }
