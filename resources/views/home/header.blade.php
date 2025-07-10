@@ -63,11 +63,7 @@
                             <li class="nav-item">
                                 <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
                                         href="{{ url('/redirect') }}">LOG IN</a></i>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
+                             
                             </li>
                         @endauth
                     @endif
