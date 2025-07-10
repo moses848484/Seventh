@@ -292,9 +292,7 @@ a:focus {
 }
 
 @media (max-width: 768px) {
-  .hero_area {
-  
-  }
+  .hero_area {}
 }
 
 @media (max-width: 480px) {
@@ -2240,10 +2238,13 @@ div.form_sub .field input[type="email"]:focus {
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Add alignment */
+  justify-content: flex-start;
+  /* Add alignment */
   gap: 15px;
-  margin: 25px 9px 0; /* top, left/right */
-  width: calc(100% - 18px); /* 9px + 9px */
+  margin: 25px 9px 0;
+  /* top, left/right */
+  width: calc(100% - 18px);
+  /* 9px + 9px */
   box-sizing: border-box;
 }
 
@@ -2253,7 +2254,8 @@ div.form_sub .field input[type="email"]:focus {
     flex-direction: column;
     margin: 20px 10px 0;
     gap: 15px;
-    width: calc(100% - 20px); /* 10px + 10px */
+    width: calc(100% - 20px);
+    /* 10px + 10px */
   }
 }
 
@@ -2262,7 +2264,8 @@ div.form_sub .field input[type="email"]:focus {
   .container-wrapper {
     margin: 15px 12px 0;
     gap: 10px;
-    width: calc(100% - 24px); /* 12px + 12px */
+    width: calc(100% - 24px);
+    /* 12px + 12px */
   }
 }
 
@@ -2282,7 +2285,8 @@ div.form_sub .field input[type="email"]:focus {
   overflow: visible;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  display: block; /* Remove flex behavior */
+  display: block;
+  /* Remove flex behavior */
 }
 
 
@@ -2357,26 +2361,29 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
-/* Image box shared styles */
 .arrival_bg_box4,
 .arrival_bg_box1,
 .arrival_bg_box2 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  overflow: hidden;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  /* Horizontally center */
+  align-items: center;
+  /* Vertically center if needed */
+  text-align: center;
 }
+
 
 .arrival_bg_box4 img,
 .arrival_bg_box1 img,
 .arrival_bg_box2 img {
   display: block;
+  margin: 0 auto;
+  /* Centers the image horizontally */
   width: 100%;
   height: auto;
   object-fit: cover;
 }
+
 
 /* Optional image overlay */
 .arrival_bg_box4::before,
@@ -2394,6 +2401,7 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Small phones: 1 card per row */
 @media (max-width: 575.98px) {
+
   .container1,
   .container2 {
     flex: 1 1 100%;
@@ -2404,6 +2412,7 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Tablets and small desktops: 2 cards per row */
 @media (min-width: 576px) and (max-width: 991.98px) {
+
   .container1,
   .container2 {
     flex: 1 1 calc(50% - 15px);
@@ -2413,6 +2422,7 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Large screens: 3 cards per row */
 @media (min-width: 992px) {
+
   .container1,
   .container2 {
     flex: 1 1 calc(33.333% - 15px);
