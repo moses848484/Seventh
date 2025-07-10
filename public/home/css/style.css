@@ -2352,7 +2352,7 @@ div.form_sub .field input[type="email"]:focus {
   border-radius: 8px;
   background-color: white;
   margin: 0 auto;
-  box-shadow: 0 2px 6px rgb(255, 255, 255);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease;
 }
 
@@ -2366,7 +2366,8 @@ div.form_sub .field input[type="email"]:focus {
 .arrival_bg_box2 {
   position: relative;
   width: 100%;
-  height: 250px; /* You can adjust this height */
+  height: 250px;
+  /* You can adjust this height */
   border-radius: 6px;
   overflow: hidden;
   margin: 0 auto 15px;
@@ -2378,7 +2379,8 @@ div.form_sub .field input[type="email"]:focus {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image fills without distortion */
+  object-fit: cover;
+  /* Ensures the image fills without distortion */
 }
 
 
@@ -2391,7 +2393,7 @@ div.form_sub .field input[type="email"]:focus {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0));
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
   pointer-events: none;
   z-index: 0;
 }
