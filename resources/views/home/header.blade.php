@@ -1,5 +1,5 @@
 <header class="header_section">
-    <div class="container-fluid px-0"> 
+    <div class="container3">
         <nav class="navbar navbar-expand-md custom_nav-container py-3 px-5">
               <div class="d-flex align-items-center brand-wrapper">
                 <a href="/" class="navbar-brand mb-0">
