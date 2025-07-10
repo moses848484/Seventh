@@ -2366,27 +2366,21 @@ div.form_sub .field input[type="email"]:focus {
 .arrival_bg_box2 {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 250px; /* You can adjust this height */
   border-radius: 6px;
   overflow: hidden;
-  margin-left: 25px !important;
-  /* NEW: Center contents inside the box */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin: 0 auto 15px;
 }
-
 
 .arrival_bg_box4 img,
 .arrival_bg_box1 img,
 .arrival_bg_box2 img {
   display: block;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin-left: 25px !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills without distortion */
 }
+
 
 
 
