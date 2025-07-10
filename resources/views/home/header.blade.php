@@ -1,7 +1,6 @@
 <header class="header_section">
     <div class="container3">
-       <nav class="navbar navbar-expand-md custom_nav-container py-2 px-2">
-
+        <nav class="navbar navbar-expand-md custom_nav-container">
             <a href="/" class="navbar-brand">
                 <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
             </a>
