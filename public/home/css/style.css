@@ -381,7 +381,7 @@ a:focus {
   border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
-  height: 2px;
+  height: 2px !important;
   /* Space between lines */
   transition: all 0.3s ease;
   /* Smooth transition for animations */
@@ -2236,68 +2236,36 @@ div.form_sub .field input[type="email"]:focus {
   /* Maintain aspect ratio */
 }
 
-/* Default styles for container-wrapper */
+/* Base styles for large screens and desktops */
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 9px;
-  /* Adjust left margin */
-  margin-right: 9px;
-  /* Added to balance the margin */
-  margin-top: 25px;
+  justify-content: flex-start; /* Add alignment */
   gap: 15px;
-  /* Spacing between elements inside the container */
-  width: calc(100% - 18px);
-  /* Adjust width to account for left and right margin */
+  margin: 25px 9px 0; /* top, left/right */
+  width: calc(100% - 18px); /* 9px + 9px */
   box-sizing: border-box;
-  /* Ensures padding and border are included in width */
 }
 
-
-//* Default styles for container-wrapper */
-.container-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 9px;
-  margin-right: 9px;
-  /* Ensure even margins on both sides */
-  margin-top: 25px;
-  gap: 15px;
-  width: calc(100% - 18px);
-  /* Adjust width for left and right margin */
-  box-sizing: border-box;
-  /* Include padding and borders in element size */
-}
-
-/* Adjustments for tablets and smaller desktops */
+/* Tablets and medium screens (≤768px) */
 @media (max-width: 768px) {
   .container-wrapper {
     flex-direction: column;
-    margin-left: 5px;
-    margin-right: 5px;
-    /* Balanced margin on smaller screens */
-    margin-top: 10px;
-    /* Adjusted top margin for better spacing */
+    margin: 20px 10px 0;
     gap: 15px;
-    /* Maintain gap between elements */
-    width: calc(100% - 10px);
-    /* Adjust width for smaller margins */
+    width: calc(100% - 20px); /* 10px + 10px */
   }
 }
 
-/* Adjustments for very small screens (phones) */
-@media (max-width: 480px) {
+/* Small phones (≤575.98px) */
+@media (max-width: 575.98px) {
   .container-wrapper {
-    margin-left: 12px;
-    margin-right: 12px;
-    /* Adjust left and right margins for phones */
-    margin-top: 10px;
+    margin: 15px 12px 0;
     gap: 10px;
-    /* Smaller gap for compact screens */
-    width: calc(100% - 24px);
-    /* Adjust width for margins on both sides */
+    width: calc(100% - 24px); /* 12px + 12px */
   }
 }
+
 
 
 /* Container1 Styles */
