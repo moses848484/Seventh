@@ -448,7 +448,7 @@ a:focus {
     height: 3px;
     height: auto;
     /* Align to the right with some spacing */
-    top: 3px !important;
+    top: 8px !important;
     /* Adjust top positioning */
   }
 
