@@ -448,9 +448,11 @@ a:focus {
     height: 3px;
     height: auto;
     margin-top: 3px;
-    /* Align to the right with some spacing */
-    top: 3px !important;
     /* Adjust top positioning */
+    transform: translateX(-50%);
+    top: 10px; /* Adjust as needed */
+    z-index: 1051; /* Ensure it's on top */
+    
   }
 
   .navbar-toggler span {
@@ -477,6 +479,8 @@ a:focus {
     right: 10px;
     /* Align to the right with some spacing */
     top: 20px;
+    margin-top: 3px;
+    transform: translateX(-50%);
     height: auto;
   }
 
