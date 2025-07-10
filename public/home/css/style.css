@@ -492,7 +492,7 @@ a:focus {
 /* Container for logo and SDA.CHURCH */
 .brand-wrapper {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 10px;
 }
 
@@ -520,7 +520,7 @@ a:focus {
 /* SDA.CHURCH text styling */
 .xs {
   font-size: 13px;
-  color: black;
+  color: white;
   font-family: sans-serif;
   font-weight: 500;
 }
