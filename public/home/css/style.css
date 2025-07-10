@@ -2335,7 +2335,7 @@ div.form_sub .field input[type="email"]:focus {
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; /* Changed to center content */
   gap: 20px;
   margin: 20px auto;
   padding: 0 10px;
@@ -2361,13 +2361,13 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
+/* Image containers */
 .arrival_bg_box4,
 .arrival_bg_box1,
 .arrival_bg_box2 {
   position: relative;
   width: 100%;
   height: 250px;
-  /* You can adjust this height */
   border-radius: 6px;
   overflow: hidden;
   margin: 0 auto 15px;
@@ -2380,11 +2380,7 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Ensures the image fills without distortion */
 }
-
-
-
 
 /* Optional image overlay */
 .arrival_bg_box4::before,
@@ -2400,36 +2396,52 @@ div.form_sub .field input[type="email"]:focus {
 
 /* ============ Media Queries ============ */
 
-/* Small phones: 1 card per row */
+/* Extra small devices: 1 card per row */
 @media (max-width: 575.98px) {
-
   .container1,
   .container2 {
     flex: 1 1 100%;
     max-width: 100%;
     padding: 12px;
   }
+
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 180px; /* Reduce height for small screens */
+  }
 }
 
 /* Tablets and small desktops: 2 cards per row */
 @media (min-width: 576px) and (max-width: 991.98px) {
-
   .container1,
   .container2 {
     flex: 1 1 calc(50% - 15px);
     max-width: calc(50% - 15px);
   }
+
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 220px; /* Medium height */
+  }
 }
 
 /* Large screens: 3 cards per row */
 @media (min-width: 992px) {
-
   .container1,
   .container2 {
     flex: 1 1 calc(33.333% - 15px);
     max-width: calc(33.333% - 15px);
   }
+
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 250px;
+  }
 }
+
 
 
 .section-background {
