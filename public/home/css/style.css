@@ -2360,18 +2360,19 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
-/* Image containers */
+/* 🔹 Base styles for image containers */
 .arrival_bg_box4,
 .arrival_bg_box1,
 .arrival_bg_box2 {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 250px; /* Default height for large desktops */
   border-radius: 6px;
   overflow: hidden;
-  margin-left: 25px !important;
+  margin: 0 auto 15px; /* Center horizontally and space below */
 }
 
+/* 🔹 Image styles */
 .arrival_bg_box4 img,
 .arrival_bg_box1 img,
 .arrival_bg_box2 img {
@@ -2379,8 +2380,35 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin-left: 5px !important;
 }
+
+/* 🔸 Laptops (992px to 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 220px;
+  }
+}
+
+/* 🔸 Tablets (768px to 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 200px;
+  }
+}
+
+/* 🔸 Phones (≤ 767.98px) */
+@media (max-width: 767.98px) {
+  .arrival_bg_box4,
+  .arrival_bg_box1,
+  .arrival_bg_box2 {
+    height: 180px;
+  }
+}
+
 
 /* Optional image overlay */
 .arrival_bg_box4::before,
