@@ -2352,7 +2352,7 @@ div.form_sub .field input[type="email"]:focus {
   border-radius: 8px;
   background-color: white;
   margin: 0 auto;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgb(255, 255, 255);
   transition: box-shadow 0.3s ease;
 }
 
@@ -2369,7 +2369,7 @@ div.form_sub .field input[type="email"]:focus {
   height: auto;
   border-radius: 6px;
   overflow: hidden;
-margin-left: 25px !important;
+  margin-left: 25px !important;
   /* NEW: Center contents inside the box */
   display: flex;
   justify-content: center;
@@ -2397,7 +2397,7 @@ margin-left: 25px !important;
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  background: linear-gradient(to right, rgb(255, 255, 255), rgba(0, 0, 0, 0));
   pointer-events: none;
   z-index: 0;
 }
