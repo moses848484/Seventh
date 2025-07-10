@@ -1,7 +1,7 @@
 <div class="container-wrapper">
     <!-- First Row -->
     <div class="container1">
-        <div class="row align-items-center">
+        <div class="card-content">
             <!-- Image Column -->
             <div class="arrival_bg_box4">
                 <img src="images/unisda.jpg" alt="Person praying" class="img-fluid1">
@@ -24,7 +24,7 @@
 
     <!-- Second Row -->
     <div class="container1">
-        <div class="row align-items-center">
+        <div class="card-content">
             <!-- Image Column -->
             <div class="arrival_bg_box4">
                 <img src="images/sda9.jpg" alt="Person praying" class="img-fluid1">
@@ -48,7 +48,7 @@
 
     <!-- Third Row -->
     <div class="container1">
-        <div class="row align-items-center">
+        <div class="card-content">
             <!-- Image Column -->
             <div class="arrival_bg_box4">
                 <img src="images/children.png" alt="Person praying" class="img-fluid1">
