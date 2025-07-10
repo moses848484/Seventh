@@ -1329,7 +1329,7 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-/* Styling for the text-area */
+/* ========== Base Styles (Mobile First) ========== */
 .text-area3 {
   display: flex;
   flex-direction: column;
@@ -1337,33 +1337,34 @@ div.form_sub .field input[type="email"]:focus {
   text-align: center;
   background: #f1f1f1;
   color: #000000;
-  padding: 75.8px !important;
+  padding: 20px; /* Base padding for small phones */
   max-width: 100%;
   margin-top: -20px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Adjustments for small screens */
-@media (max-width: 575.98px) {
+/* Small tablets */
+@media (min-width: 576px) {
   .text-area3 {
-    padding: 15px;
+    padding: 40px;
   }
 }
 
-/* Adjustments for medium screens */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .text-area3 {
-    padding: 55px;
-  }
-}
-
-/* Adjustments for large screens */
+/* Medium tablets and small desktops */
 @media (min-width: 768px) {
   .text-area3 {
     padding: 55px;
   }
 }
+
+/* Large desktops and up */
+@media (min-width: 992px) {
+  .text-area3 {
+    padding: 75px;
+  }
+}
+
 
 /* Styling for the text-area */
 .text-area7 {
