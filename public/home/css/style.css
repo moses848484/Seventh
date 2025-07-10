@@ -2361,7 +2361,6 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
-/* Image box shared styles */
 .arrival_bg_box4,
 .arrival_bg_box1,
 .arrival_bg_box2 {
@@ -2369,20 +2368,26 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   height: auto;
   border-radius: 6px;
-  align-items: center;
   overflow: hidden;
   margin: 0 auto 15px;
+
+  /* NEW: Center contents inside the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 
 .arrival_bg_box4 img,
 .arrival_bg_box1 img,
 .arrival_bg_box2 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  align-items: center;
   object-fit: cover;
 }
+
 
 
 /* Optional image overlay */
