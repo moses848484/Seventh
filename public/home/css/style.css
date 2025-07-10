@@ -2361,24 +2361,22 @@ div.form_sub .field input[type="email"]:focus {
   color: white;
 }
 
+/* Image box shared styles */
 .arrival_bg_box4,
 .arrival_bg_box1,
 .arrival_bg_box2 {
-  display: flex;
-  justify-content: center;
-  /* Horizontally center */
-  align-items: center;
-  /* Vertically center if needed */
-  text-align: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 auto 15px;
 }
-
 
 .arrival_bg_box4 img,
 .arrival_bg_box1 img,
 .arrival_bg_box2 img {
   display: block;
-  margin: 0 auto;
-  /* Centers the image horizontally */
   width: 100%;
   height: auto;
   object-fit: cover;
