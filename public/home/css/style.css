@@ -446,7 +446,7 @@ a:focus {
     /* Absolute positioning */
     right: 10px;
     transform: translateX(-50%);
-    top: 5px;
+    top: 15px;
     /* Adjust vertical position */
     z-index: 1051;
     width: 32px;
@@ -478,7 +478,7 @@ a:focus {
     /* Set height of the toggler button */
     right: 10px;
     /* Align to the right with some spacing */
-    top: 5px;
+    top: 15px;
     margin-top: 3px;
     transform: translateX(-50%);
     height: auto;
