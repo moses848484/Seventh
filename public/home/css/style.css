@@ -431,7 +431,7 @@ a:focus {
 
 /* Default: Hide the toggler on larger screens */
 .navbar-toggler {
-  display: none;
+ 
   /* Hide by default */
 }
 
@@ -445,6 +445,7 @@ a:focus {
     /* Absolute positioning */
     right: 10px;
     height: 3px;
+    height: auto;
     /* Align to the right with some spacing */
     top: 3px !important;
     /* Adjust top positioning */
@@ -474,6 +475,7 @@ a:focus {
     right: 10px;
     /* Align to the right with some spacing */
     top: 10px;
+    height: auto;
   }
 
   /* Toggler Icon on Extra Small Screens */
@@ -482,6 +484,7 @@ a:focus {
     /* Width of the lines */
     height: 2px;
     /* Height of the lines */
+    height: auto;
   }
 
   .navbar-toggler span::before,
@@ -494,10 +497,10 @@ a:focus {
 
 /* Logo styling */
 .sda_logo8 {
-  width: 32px !important;
+  width: 45px !important;
   height: auto;
   transition: width 0.3s;
-  margin-left: 30px !important;
+  margin-left: 35px !important;
 }
 
 @media (max-width: 768px) {
