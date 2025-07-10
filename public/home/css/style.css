@@ -253,7 +253,7 @@ a:focus {
 
 /* Fixed Navbar Styling */
 .custom_nav-container {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -273,14 +273,14 @@ a:focus {
 
 .hero_area {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 /* Responsive Adjustments */
