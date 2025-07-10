@@ -218,9 +218,6 @@ a:focus {
   /* Consistent green with transparency */
   box-shadow: none !important;
   border: none !important;
-  padding-top: 200px !important;
-  padding-bottom: 200px !important;
-  font-size: 1.5rem;
   /* Increase text size */
 }
 
