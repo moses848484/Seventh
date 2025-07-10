@@ -5,9 +5,9 @@
                   <div class="col-md-6 offset-md-3">
                      <div class="subscribe_form ">
                         <div class="heading_container heading_center">
-                           <h3>Subscribe To Get Discount Offers</h3>
+                           <h3>Subscribe To Get News and Announcements</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                        <p>Lorem</p>
                         <form action="">
                            <input type="email" placeholder="Enter your email">
                            <button>

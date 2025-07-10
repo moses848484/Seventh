@@ -522,7 +522,7 @@ a:focus {
   color: white;
   font-family: sans-serif;
   font-weight: 500;
-  margin-left: 10px;
+  margin-left: -10px;
 }
 
 /* Text scaling on larger screens */
