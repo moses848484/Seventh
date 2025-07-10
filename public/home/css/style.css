@@ -288,19 +288,17 @@ a:focus {
 @media (max-width: 1200px) {
   .hero_area {
     justify-content: flex-start;
-    padding-top: 70px;
   }
 }
 
 @media (max-width: 768px) {
   .hero_area {
-    padding-top: 60px;
+  
   }
 }
 
 @media (max-width: 480px) {
   .hero_area {
-    padding-top: 50px;
     align-items: stretch;
   }
 }
@@ -2343,7 +2341,6 @@ div.form_sub .field input[type="email"]:focus {
     flex: 0 0 auto !important;
     max-width: 100%;
     width: 100%;
-    top: -100px !important;
     padding: 0;
   }
 }
