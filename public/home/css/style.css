@@ -2369,7 +2369,6 @@ div.form_sub .field input[type="email"]:focus {
   height: auto;
   border-radius: 6px;
   overflow: hidden;
-  margin: 0 auto 15px;
 
   /* NEW: Center contents inside the box */
   display: flex;
@@ -2386,6 +2385,7 @@ div.form_sub .field input[type="email"]:focus {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+  margin-left: 15px !important;
 }
 
 
