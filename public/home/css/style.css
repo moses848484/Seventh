@@ -147,6 +147,7 @@ a:focus {
   background-color: transparent !important;
   /* Makes the background color transparent */
   border: none;
+  border-radius: 1px !important;
   /* Removes the border */
   font-size: 12px !important;
   font-weight: 500 !important;
@@ -160,6 +161,7 @@ a:focus {
   border: none;
   font-weight: 500 !important;
   font-size: 12px !important;
+  border-radius: 1px !important;
   font-family: 'Montserrat', sans-serif !important;
 }
 
@@ -168,6 +170,7 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
+  border-radius: 1px !important;
   font-weight: 500 !important;
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -177,6 +180,7 @@ a:focus {
   background-color: transparent !important;
   font-size: 12px !important;
   border: none;
+  border-radius: 1px !important;
   font-weight: 500 !important;
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -3317,7 +3321,6 @@ div.form_sub .field input[type="email"]:focus {
             background-color: #007bff;
             color: white;
             padding: 10px 20px;
-            border-radius: 4px;
             text-decoration: none;
           }
 
