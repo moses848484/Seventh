@@ -2408,63 +2408,77 @@ div.form_sub .field input[type="email"]:focus {
   /* Ensure image covers the container properly */
 }
 
-/* Responsive adjustments for small screens */
-@media (max-width: 595.98px) {
+//* 🔹 Base styles (mobile-first) */
+.container1,
+.container2 {
+  flex: 1 1 100%;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
 
+/* Optional: arrival background box base */
+.arrival_bg_box1 {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Optional: gradient overlay if needed */
+.arrival_bg_box1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.2), rgba(0,0,0,0.05));
+  z-index: 0;
+}
+
+/* 🔹 Small screens (≤595.98px) */
+@media (max-width: 595.98px) {
   .container1,
   .container2 {
     flex: 1 1 100%;
-    margin: 0;
-    /* Reset margins to prevent overflow */
+    margin: 0 0 15px;
     max-width: 100%;
   }
 
   .arrival_bg_box1::before {
-    /* Slightly stronger gradient */
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
   }
 }
 
-/* Adjustments for medium screens */
-@media (min-width: 476px) and (max-width: 1067.98px) {
-
+/* 🔹 Medium screens (596px – 1067.98px) */
+@media (min-width: 596px) and (max-width: 1067.98px) {
   .container1,
   .container2 {
     flex: 1 1 calc(50% - 15px);
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Default shadow */
+    max-width: calc(50% - 15px);
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   }
 
   .arrival_bg_box1 {
     border-radius: 6px;
-    /* Border-radius for medium screens */
   }
 
   .arrival_bg_box1::before {
-
-    /* Medium gradient */
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.08));
   }
 }
 
-
-/* Adjustments for large screens */
-@media (min-width: 768px) {
-
+/* 🔹 Large screens (≥1068px) */
+@media (min-width: 1068px) {
   .container1,
   .container2 {
     flex: 1 1 calc(50% - 15px);
-    /* Two containers per row on larger screens */
+    max-width: calc(50% - 15px);
+    margin: 0 0 25px;
   }
 
   .arrival_bg_box1 {
     border-radius: 8px;
-    /* Default border-radius for larger screens */
-  }
-
-  .arrival_bg_box1::before {
-
-    /* Default gradient */
   }
 }
 
