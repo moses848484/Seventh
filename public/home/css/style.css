@@ -2142,7 +2142,7 @@ div.form_sub .field input[type="email"]:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #f1f1f1;
+  background: #f1f0f0;
   /* Background color */
   color: #000000;
   /* Text color */
@@ -2150,7 +2150,7 @@ div.form_sub .field input[type="email"]:focus {
   /* Ensure it doesn’t exceed container width */
   width: auto;
   /* Full width of its parent */
-  margin-top: -7px;
+  margin-top: -5px;
   box-sizing: border-box;
   /* Include padding and border in the width */
   height: auto;
