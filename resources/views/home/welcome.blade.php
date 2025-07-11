@@ -6,7 +6,7 @@
         <img src="images/happy-woman1.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
         <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     
-   
+    <div class="spacer-wrapper pt-very_relaxed"></div>
     <h4 class="heading3 text-section_header mb-relaxed">
         Need A Prayer?
     </h4>
@@ -25,8 +25,7 @@
         </a>
     </div>
 </div>
-
-</div>
+<div class="spacer-wrapper pt-normal"></div>
 </div>
 </div>
 </div>
