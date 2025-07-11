@@ -2781,7 +2781,6 @@ div.form_sub .field input[type="email"]:focus {
   /* Default width on medium screens and larger */
   max-width: 100%;
   /* Limit maximum width */
-  padding: 30px;
   /* Remove padding if needed */
   display: flex;
   align-items: center;
