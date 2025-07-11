@@ -44,6 +44,7 @@
          <!-- end prayer section -->
          @include('home.welcome')
          <!-- end welcome section -->
+          @include('home.subscribe')
          <!-- songs section -->
          @include('home.songs')
          <!-- end songs section -->

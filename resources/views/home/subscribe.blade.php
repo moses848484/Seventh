@@ -1,22 +1,36 @@
-<section class="subscribe_section">
-         <div class="container-fuild">
-            <div class="box">
-               <div class="row">
-                  <div class="col-md-6 offset-md-3">
-                     <div class="subscribe_form ">
-                        <div class="heading_container heading_center">
-                           <h3>Subscribe To Get News and Announcements</h3>
-                        </div>
-                        <p>Lorem</p>
-                        <form action="">
-                           <input type="email" placeholder="Enter your email">
-                           <button>
-                           subscribe
-                           </button>
-                        </form>
-                     </div>
-                  </div>
-               </div>
+<section data-testid="dualcontentzone" class="section1">
+    <div class="row align-items-center">
+        <!-- Image Column -->
+        <div class="col-md-6">
+            <div class="arrival_bg_box">
+                <img src="images/happy-girl.jpg" alt="Person praying" class="img-fluid">
             </div>
-         </div>
-      </section>
+        </div>
+        <!-- Text Column -->
+        <div class="col-md-6">
+            <div class="text-area7 bg text-left text-black">
+                <div class="spacer-wrapper pt-very_relaxed"></div>
+                <h4 class="heading3 text-section_header3 mb-relaxed">
+                You’re Welcome Here!
+                </h4>
+                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                    <p>
+                        University SDA.Church is one church meeting in multiple locations, and we want to help you become the
+                        person God made you to be. No matter where you are in your journey, you’re invited to discover
+                        your purpose and live it out at University SDA.Church.
+                    </p>
+                </div>
+
+                <div class="btn-box">
+                    <a href="{{ route('register') }}" class="btn3">
+                       What to Expect
+                    </a>
+                    <a href="{{ route('register') }}" class="btn4">
+                    <i class="fa-solid fa-location-dot"></i>&nbsp;Find a Location
+                    </a>
+                </div>
+                <div class="spacer-wrapper pt-normal"></div>
+            </div>
+        </div>
+    </div>
+</section>
