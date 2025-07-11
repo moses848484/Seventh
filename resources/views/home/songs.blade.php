@@ -1,7 +1,8 @@
-<section data-testid="dualcontentzone" class="section1">
+<div class="container-wrapper">
+    <div class="container12">
   <div class="row align-items-stretch">
     <!-- Left Column (Image Carousel) -->
-    <div class="col-md-6">
+    <div class="col-md-6 mb-4 mb-md-0">
       <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
         <div class="carousel-inner h-100">
           <div class="carousel-item active h-100">
@@ -11,44 +12,39 @@
       </div>
     </div>
 
-
+ 
     <!-- Right Column (Flip Card) -->
     <div class="col-md-6">
       <div class="flip-container h-100" id="flipContainer">
         <div class="flipper h-100 position-relative">
           <!-- FRONT -->
-          <div class="text-area7 bg text-left text-black">
-            <div class="spacer-wrapper pt-very_relaxed"></div>
-            <h4 class="heading3 text-section_header3 mb-relaxed">
-              <h4 class="heading7">New Single from University SDA Church</h4>
-              <h5 class="heading6">"We Choose Praise"</h5>
-              <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                <p>
-                  God is our source of strength and gives us joy in any season of life.
-                  This song is an intentional declaration that no matter what life throws at us,
-                  we can choose to praise Him.
-                </p>
-              </div>
-              <div class="btn-row mb-3">
-                <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
-              </div>
+          <div class="front text-area6 h-100 overflow-auto">
+            <h4 class="heading7">New Single from University SDA Church</h4>
+            <h5 class="heading6">"We Choose Praise"</h5>
+            <p>
+              God is our source of strength and gives us joy in any season of life.
+              This song is an intentional declaration that no matter what life throws at us,
+              we can choose to praise Him.
+            </p>
 
-              <h5 id="trackTitle" class="text1">Now Playing:</h5>
-              <audio id="audioPlayer" style="width: 100%;" controls>
-                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
+            <div class="btn-row mb-3">
+              <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
+              <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+            </div>
 
-              <div class="music-controls mt-3">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-left"></i></button>
-                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
-                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-                </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-right"></i></button>
-              </div>
+            <h5 id="trackTitle" class="text1">Now Playing:</h5>
+            <audio id="audioPlayer" style="width: 100%;" controls>
+              <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+
+            <div class="music-controls mt-3">
+              <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+              <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
+                <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
+              </button>
+              <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+            </div>
           </div>
 
           <!-- BACK -->
@@ -61,9 +57,9 @@
       </div>
     </div>
   </div>
+</div>
+ </div>
   </div>
-  </div>
-</section>
 <!-- STYLES -->
 <style>
   .text-area6 {
@@ -147,8 +143,7 @@
     transform: rotateY(180deg);
   }
 
-  .front,
-  .back {
+  .front, .back {
     backface-visibility: hidden;
     position: absolute;
     width: 100%;
@@ -166,36 +161,37 @@
   }
 
   .fa-circle-play,
-  .fa-circle-pause {
-    font-size: 50px;
-    color: white;
-  }
+                    .fa-circle-pause {
+                        font-size: 50px;
+                        color: white;
+                    }
 
-  .fa-square-caret-left,
-  .fa-square-caret-right {
-    font-size: 35px;
-    color: white;
-  }
+                    .fa-square-caret-left,
+                    .fa-square-caret-right {
+                        font-size: 35px;
+                        color: white;
+                    }
 
-  .fa-circle-play {
-    font-size: 50px;
-    color: white;
-  }
+                .fa-circle-play {
+                    font-size: 50px;
+                    color: white;
+                }
 
-  .fa-square-caret-right {
-    font-size: 35px;
-    color: white;
-  }
+                .fa-square-caret-right {
+                    font-size: 35px;
+                    color: white;
+                }
 
-  .fa-circle-pause {
-    font-size: 50px;
-    color: white;
-  }
+                .fa-circle-pause {
+                    font-size: 50px;
+                    color: white;
+                }
 
-  .fa-square-caret-left {
-    font-size: 35px;
-    color: white;
-  }
+                .fa-square-caret-left {
+                    font-size: 35px;
+                    color: white;
+                }
+
 </style>
 
 <!-- SCRIPT -->
@@ -307,13 +303,23 @@
   // Auto-play next
   audio.addEventListener('ended', nextTrack);
   audio.addEventListener('play', () => {
-    updatePlayIcon(true);
-    displayAvailableTracks();
-  });
+  updatePlayIcon(true);
+  displayAvailableTracks();
+});
 
-  audio.addEventListener('pause', () => {
-    updatePlayIcon(false);
-    displayAvailableTracks();
-  });
+audio.addEventListener('pause', () => {
+  updatePlayIcon(false);
+  displayAvailableTracks();
+});
 
 </script>
+
+
+
+
+
+
+
+
+
+

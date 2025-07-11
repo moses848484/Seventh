@@ -1329,7 +1329,7 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-/* ========== Base Styles (Mobile First) ========== */
+/* Styling for the text-area */
 .text-area3 {
   display: flex;
   flex-direction: column;
@@ -1337,30 +1337,31 @@ div.form_sub .field input[type="email"]:focus {
   text-align: center;
   background: #f1f1f1;
   color: #000000;
-  padding: 0 !important;
-  max-width: 200%;
+  padding: 75.8px !important;
+  max-width: 100%;
   margin-top: -20px;
-  width: 200% !important;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Small tablets */
-@media (min-width: 576px) {
+/* Adjustments for small screens */
+@media (max-width: 575.98px) {
   .text-area3 {
-
+    padding: 15px;
   }
 }
 
-/* Medium tablets and small desktops */
+/* Adjustments for medium screens */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .text-area3 {
+    padding: 55px;
+  }
+}
+
+/* Adjustments for large screens */
 @media (min-width: 768px) {
   .text-area3 {
- 
-  }
-}
-
-/* Large desktops and up */
-@media (min-width: 992px) {
-  .text-area3 {
+    padding: 55px;
   }
 }
 
@@ -2234,38 +2235,38 @@ div.form_sub .field input[type="email"]:focus {
   /* Maintain aspect ratio */
 }
 
-/* Base styles for large screens and desktops */
+/* Default styles for container-wrapper */
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  /* Add alignment */
+  margin-left: 9px;
+  margin-right: 9px; /* Ensure even margins on both sides */
+  margin-top: 25px;
   gap: 15px;
-  margin: 25px 9px 0;
-  /* top, left/right */
-  width: calc(100% - 18px);
-  /* 9px + 9px */
-  box-sizing: border-box;
+  width: calc(100% - 18px); /* Adjust width for left and right margin */
+  box-sizing: border-box; /* Include padding and borders in element size */
 }
 
-/* Tablets and medium screens (≤768px) */
+/* Adjustments for tablets and smaller desktops */
 @media (max-width: 768px) {
   .container-wrapper {
     flex-direction: column;
-    margin: 20px 10px 0;
-    gap: 15px;
-    width: calc(100% - 20px);
-    /* 10px + 10px */
+    margin-left: 5px;
+    margin-right: 5px; /* Balanced margin on smaller screens */
+    margin-top: 10px; /* Adjusted top margin for better spacing */
+    gap: 15px; /* Maintain gap between elements */
+    width: calc(100% - 10px); /* Adjust width for smaller margins */
   }
 }
 
-/* Small phones (≤575.98px) */
-@media (max-width: 575.98px) {
+/* Adjustments for very small screens (phones) */
+@media (max-width: 480px) {
   .container-wrapper {
-    margin: 15px 12px 0;
-    gap: 10px;
-    width: calc(100% - 24px);
-    /* 12px + 12px */
+    margin-left: 12px;
+    margin-right: 12px; /* Adjust left and right margins for phones */
+    margin-top: 10px;
+    gap: 10px; /* Smaller gap for compact screens */
+    width: calc(100% - 24px); /* Adjust width for margins on both sides */
   }
 }
 
@@ -2784,7 +2785,7 @@ div.form_sub .field input[type="email"]:focus {
   /* Default width on medium screens and larger */
   max-width: 100%;
   /* Limit maximum width */
-  width: 100%;
+  padding: 0;
   /* Remove padding if needed */
   display: flex;
   align-items: center;
