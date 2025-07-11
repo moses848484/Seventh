@@ -1335,10 +1335,10 @@ div.form_sub .field input[type="email"]:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #f1f1f1;
+  background: #da0f0f;
   color: #000000;
   padding: 0 !important;
-  max-width: 100%;
+  max-width: 100% !important;
   margin-top: -20px;
   width: 100% !important;
   box-sizing: border-box;
@@ -1391,7 +1391,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 575.98px) {
   .section1 {
-    padding: 10px;
+    padding: 15px;
     /* Reduce padding for smaller screens */
   }
 
@@ -2280,7 +2280,7 @@ div.form_sub .field input[type="email"]:focus {
   padding: 15px;
   overflow: hidden;
   /* Changed from `show` (invalid) to `hidden` */
-  background-color: #2c6448;
+  background-color: #2c6448 !important;
   margin: 0 auto 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
@@ -2295,7 +2295,7 @@ div.form_sub .field input[type="email"]:focus {
     margin: 0;
     /* Reset margins to prevent overflow */
     max-width: 100%;
-    background-color: #2c6448;
+    background-color: #2c6448 !important;
   }
 }
 
@@ -2306,7 +2306,7 @@ div.form_sub .field input[type="email"]:focus {
     margin: 0;
     /* Reset margins to prevent overflow */
     max-width: 100%;
-    background-color: #2c6448;
+    background-color: #2c6448 !important;
   }
 }
 
@@ -2317,7 +2317,7 @@ div.form_sub .field input[type="email"]:focus {
     margin: 0;
     /* Reset margins to prevent overflow */
     max-width: 100%;
-    background-color: #2c6448;
+    background-color: #2c6448 !important;
   }
 }
 
