@@ -1337,10 +1337,10 @@ div.form_sub .field input[type="email"]:focus {
   text-align: center;
   background: #f1f1f1;
   color: #000000;
-  padding: 20px;
+  padding: 40px;
   /* Base padding for small phones */
   max-width: 100%;
-  margin-top: -20px;
+  margin-top: -15px;
   width: 100%;
   box-sizing: border-box;
 }
