@@ -2147,9 +2147,7 @@ div.form_sub .field input[type="email"]:focus {
   max-width: 100%;            /* Ensure it doesn’t exceed container width */
   width: auto;                /* Full width of its parent */
   box-sizing: border-box;     /* Include padding and border in the width */
-  height: auto;               /* Ensure it takes full height of the column */
-  padding-top: 41px;          /* Increased top spacing */
-  padding-bottom: 41px;       /* Increased bottom spacing */
+  height: auto;               /* Ensure it takes full height of the column */     /* Increased bottom spacing */
 }
 
 
@@ -2847,6 +2845,8 @@ div.form_sub .field input[type="email"]:focus {
   padding: 0;
   /* Remove padding if needed */
   display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
   align-items: center;
   /* Center content vertically */
   justify-content: center;
