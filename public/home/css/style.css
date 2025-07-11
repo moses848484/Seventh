@@ -1344,25 +1344,9 @@ div.form_sub .field input[type="email"]:focus {
   box-sizing: border-box;
 }
 
-/* Small tablets */
-@media (min-width: 576px) {
-  .text-area3 {
-    padding: 15px;
-  }
-}
 
-/* Medium tablets and small desktops */
-@media (min-width: 768px) {
-  .text-area3 {
-    padding: 55px;
-  }
-}
 
-/* Large desktops and up */
-@media (min-width: 992px) {
-  .text-area3 {
-  }
-}
+
 
 
 /* Styling for the text-area */
