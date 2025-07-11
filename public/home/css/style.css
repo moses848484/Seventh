@@ -2240,17 +2240,16 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 
-/* Adjustments for tablets and smaller desktops */
 @media (max-width: 768px) {
   .container-wrapper {
     flex-direction: column;
-    margin-left: 5px;
-    margin-right: 5px; /* Balanced margin on smaller screens */
-    margin-top: 10px; /* Adjusted top margin for better spacing */
-    gap: 15px; /* Maintain gap between elements */
-    width: 100%; /* Adjust width for smaller margins */
+    align-items: stretch;
+    margin: 10px 5px 0;
+    gap: 15px;
+    width: 100%;
   }
 }
+
 
 /* Adjustments for very small screens (phones) */
 @media (max-width: 575px) {
