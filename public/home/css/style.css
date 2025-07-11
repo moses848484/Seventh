@@ -2148,8 +2148,8 @@ div.form_sub .field input[type="email"]:focus {
   width: auto;                /* Full width of its parent */
   box-sizing: border-box;     /* Include padding and border in the width */
   height: auto;               /* Ensure it takes full height of the column */
-  padding-top: 40px;          /* Increased top spacing */
-  padding-bottom: 40px;       /* Increased bottom spacing */
+  padding-top: 41px;          /* Increased top spacing */
+  padding-bottom: 41px;       /* Increased bottom spacing */
 }
 
 
