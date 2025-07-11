@@ -1335,10 +1335,10 @@ div.form_sub .field input[type="email"]:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #da0f0f;
+  background: #f1f1f1;
   color: #000000;
   padding: 0 !important;
-  max-width: 100% !important;
+  max-width: 100%;
   margin-top: -20px;
   width: 100% !important;
   box-sizing: border-box;
@@ -1361,7 +1361,6 @@ div.form_sub .field input[type="email"]:focus {
 /* Large desktops and up */
 @media (min-width: 992px) {
   .text-area3 {
-    padding: 55px;
   }
 }
 
@@ -2280,7 +2279,7 @@ div.form_sub .field input[type="email"]:focus {
   padding: 15px;
   overflow: hidden;
   /* Changed from `show` (invalid) to `hidden` */
-  background-color: #2c6448 !important;
+  background-color: #eaeaea !important;
   margin: 0 auto 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
