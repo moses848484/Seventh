@@ -2150,7 +2150,7 @@ div.form_sub .field input[type="email"]:focus {
   /* Ensure it doesn’t exceed container width */
   width: auto;
   /* Full width of its parent */
-  margin-top: -20px;
+  margin-top: -7px;
   box-sizing: border-box;
   /* Include padding and border in the width */
   height: auto;
