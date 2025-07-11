@@ -1337,8 +1337,7 @@ div.form_sub .field input[type="email"]:focus {
   text-align: center;
   background: #f1f1f1;
   color: #000000;
-  padding: 40px;
-  /* Base padding for small phones */
+  padding: 75.8px !important;
   max-width: 100%;
   margin-top: -20px;
   width: 100%;
@@ -1348,7 +1347,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Small tablets */
 @media (min-width: 576px) {
   .text-area3 {
-    padding: 40px;
+    padding: 15px;
   }
 }
 
@@ -1362,7 +1361,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Large desktops and up */
 @media (min-width: 992px) {
   .text-area3 {
-    padding: 75px;
+    padding: 55px;
   }
 }
 
@@ -2318,7 +2317,7 @@ div.form_sub .field input[type="email"]:focus {
 @media (min-width: 992px) {
   .container12 {
     flex: 1 1 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
+    max-width: 100%;
   }
 }
 
