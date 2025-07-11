@@ -2787,6 +2787,8 @@ div.form_sub .field input[type="email"]:focus {
   width: 100%;
   /* Remove padding if needed */
   display: flex;
+  padding-top: 100px;
+  padding-bottom: 100px;
   align-items: center;
   /* Center content vertically */
   justify-content: center;
