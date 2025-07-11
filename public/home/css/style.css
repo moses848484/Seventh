@@ -2273,7 +2273,7 @@ div.form_sub .field input[type="email"]:focus {
 
 
 /* Container2 Styles */
-.container2 {
+.container12 {
   flex: 1 1 calc(50% - 15px);
   /* Two containers per row on medium screens */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);

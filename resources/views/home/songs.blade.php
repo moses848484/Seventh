@@ -1,5 +1,5 @@
 <div class="container-wrapper">
-    <div class="container2">
+    <div class="container12">
   <div class="row align-items-stretch">
     <!-- Left Column (Image Carousel) -->
     <div class="col-md-6 mb-4 mb-md-0">
