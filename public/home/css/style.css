@@ -2572,6 +2572,24 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 
+/* Small devices in landscape mode */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .arrival_bg_box4 {
+    width: 100vw !important; /* Full viewport width */
+    height: auto !important; /* Let it expand as needed */
+    margin-left: 0 !important; /* Remove any unwanted left margin */
+    margin-right: 0 !important;
+    border-radius: 0 !important; /* Optional: remove radius if it causes visual gaps */
+  }
+
+  .arrival_bg_box4 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+
 
 
 .section-background {
@@ -2845,8 +2863,6 @@ div.form_sub .field input[type="email"]:focus {
   padding: 0;
   /* Remove padding if needed */
   display: flex;
-  padding-top: -60px;
-  padding-bottom: -60px;
   align-items: center;
   /* Center content vertically */
   justify-content: center;
