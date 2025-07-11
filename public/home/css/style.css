@@ -2255,18 +2255,18 @@ div.form_sub .field input[type="email"]:focus {
     margin-right: 5px; /* Balanced margin on smaller screens */
     margin-top: 10px; /* Adjusted top margin for better spacing */
     gap: 15px; /* Maintain gap between elements */
-    width: calc(100% - 10px); /* Adjust width for smaller margins */
+    width: 100%; /* Adjust width for smaller margins */
   }
 }
 
 /* Adjustments for very small screens (phones) */
-@media (max-width: 480px) {
+@media (max-width: 575px) {
   .container-wrapper {
     margin-left: 12px;
     margin-right: 12px; /* Adjust left and right margins for phones */
     margin-top: 10px;
     gap: 10px; /* Smaller gap for compact screens */
-    width: calc(100% - 24px); /* Adjust width for margins on both sides */
+    width: 100%; /* Adjust width for margins on both sides */
   }
 }
 
