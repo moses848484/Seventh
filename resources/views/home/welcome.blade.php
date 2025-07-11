@@ -1,7 +1,6 @@
 <!-- Text Column -->
 <div class="col-md-7">
-    <div class="col-md-6">
-        <div class="text-area3 bg text-left text-black">
+        <div class="text-area7 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
                 Need A Prayer?
@@ -23,7 +22,6 @@
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-</div>
 </div>
 </div>
 </div>
