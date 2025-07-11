@@ -1338,23 +1338,23 @@ div.form_sub .field input[type="email"]:focus {
   background: #f1f1f1;
   color: #000000;
   padding: 0 !important;
-  max-width: 100%;
+  max-width: 200%;
   margin-top: -20px;
-  width: 100% !important;
+  width: 200% !important;
   box-sizing: border-box;
 }
 
 /* Small tablets */
 @media (min-width: 576px) {
   .text-area3 {
-    padding: 15px;
+
   }
 }
 
 /* Medium tablets and small desktops */
 @media (min-width: 768px) {
   .text-area3 {
-    padding: 55px;
+ 
   }
 }
 
@@ -2784,6 +2784,7 @@ div.form_sub .field input[type="email"]:focus {
   /* Default width on medium screens and larger */
   max-width: 100%;
   /* Limit maximum width */
+  width: 100%;
   /* Remove padding if needed */
   display: flex;
   align-items: center;
