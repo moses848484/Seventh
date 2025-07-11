@@ -2240,11 +2240,14 @@ div.form_sub .field input[type="email"]:focus {
   display: flex;
   flex-wrap: wrap;
   margin-left: 9px;
-  margin-right: 9px; /* Ensure even margins on both sides */
+  margin-right: 9px;
+  /* Ensure even margins on both sides */
   margin-top: 25px;
   gap: 15px;
-  width: calc(100% - 18px); /* Adjust width for left and right margin */
-  box-sizing: border-box; /* Include padding and borders in element size */
+  width: calc(100% - 18px);
+  /* Adjust width for left and right margin */
+  box-sizing: border-box;
+  /* Include padding and borders in element size */
 }
 
 /* Adjustments for tablets and smaller desktops */
@@ -2252,10 +2255,14 @@ div.form_sub .field input[type="email"]:focus {
   .container-wrapper {
     flex-direction: column;
     margin-left: 5px;
-    margin-right: 5px; /* Balanced margin on smaller screens */
-    margin-top: 10px; /* Adjusted top margin for better spacing */
-    gap: 15px; /* Maintain gap between elements */
-    width: calc(100% - 10px); /* Adjust width for smaller margins */
+    margin-right: 5px;
+    /* Balanced margin on smaller screens */
+    margin-top: 10px;
+    /* Adjusted top margin for better spacing */
+    gap: 15px;
+    /* Maintain gap between elements */
+    width: calc(100% - 10px);
+    /* Adjust width for smaller margins */
   }
 }
 
@@ -2263,10 +2270,13 @@ div.form_sub .field input[type="email"]:focus {
 @media (max-width: 480px) {
   .container-wrapper {
     margin-left: 12px;
-    margin-right: 12px; /* Adjust left and right margins for phones */
+    margin-right: 12px;
+    /* Adjust left and right margins for phones */
     margin-top: 10px;
-    gap: 10px; /* Smaller gap for compact screens */
-    width: calc(100% - 24px); /* Adjust width for margins on both sides */
+    gap: 10px;
+    /* Smaller gap for compact screens */
+    width: calc(100% - 24px);
+    /* Adjust width for margins on both sides */
   }
 }
 
@@ -2579,6 +2589,7 @@ div.form_sub .field input[type="email"]:focus {
     /* Two containers per row on medium screens */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
     /* Medium shadow on medium screens */
+    width: 100%;
   }
 
 
