@@ -2134,8 +2134,74 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
+/* Responsive adjustments for very small screens */
 
+/* Styling for the text-area */
+.text-area12 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #f1f1f1;
+  /* Background color */
+  color: #000000;
+  /* Text color */
+  max-width: 100%;
+  /* Ensure it doesn’t exceed container width */
+  width: auto;
+  /* Full width of its parent */
+  box-sizing: border-box;
+  /* Include padding and border in the width */
+  height: auto;
+  /* Ensure it takes full height of the column */
+}
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 575.98px) {
+  .section1 {
+    padding: 10px;
+    /* Reduce padding for smaller screens */
+  }
+
+  .text-area12 {
+    padding: 15px;
+    /* Reduce padding for smaller screens */
+  }
+}
+
+/* Responsive adjustments for medium screens */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .section1 {
+    padding: 15px;
+    /* Adjust padding for medium screens */
+  }
+
+  .text-area12 {
+    padding: 55px;
+    /* Default padding for medium screens */
+  }
+}
+
+/* Responsive adjustments for large screens */
+@media (min-width: 768px) {
+  .section1 {
+    padding: 20px;
+    /* Default padding for larger screens */
+  }
+
+  .text-area12 {
+    padding: 55px;
+    /* Increase padding for larger screens */
+  }
+}
+
+/* Additional adjustments for specific screen size */
+@media (max-width: 1268px) {
+  .text-area12 {
+    padding: 4.2px !important;
+    /* Increase padding for specific larger screens */
+  }
+}
 
 /* Ensure the image does not exceed its container's width and height */
 .img-fluid1 {
