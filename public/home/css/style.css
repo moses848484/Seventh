@@ -1047,8 +1047,6 @@ div.form_sub .field input[type="email"]:focus {
   max-width: 280px;
   text-align: center;
 }
-}
-
 
 
 /* Button Group Wrapper */
@@ -1081,12 +1079,6 @@ div.form_sub .field input[type="email"]:focus {
     /* Allow the button to size based on content */
   }
 }
-
-
-
-
-
-
 
 /* Button Styles */
 .btn-box {
@@ -1817,10 +1809,52 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-/* Button styling */
+/* Button Box */
 .btn-box3 {
-  margin-top: 1rem;
-  /* Add margin above button */
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  width: 100%;
+  /* Ensure full-width alignment within the container */
+}
+
+.btn-box3 a {
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .btn-box3 {
+    width: auto;
+    /* Allow the button to size based on content */
+  }
+}
+
+/* Button Styles */
+.btn-box3 {
+  text-align: center;
+}
+
+/* Container styling */
+.btn-box3 {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+  /* Center buttons horizontally */
+  gap: 10px;
+  /* Gap between buttons */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-box3 {
+    flex-direction: column;
+    /* Stack buttons vertically on small screens */
+    align-items: center;
+    /* Center buttons horizontally */
+  }
+
 }
 
 .btn3 {
@@ -2241,11 +2275,14 @@ div.form_sub .field input[type="email"]:focus {
   display: flex;
   flex-wrap: wrap;
   margin-left: 9px;
-  margin-right: 9px; /* Ensure even margins on both sides */
+  margin-right: 9px;
+  /* Ensure even margins on both sides */
   margin-top: 25px;
   gap: 15px;
-  width: calc(100% - 18px); /* Adjust width for left and right margin */
-  box-sizing: border-box; /* Include padding and borders in element size */
+  width: calc(100% - 18px);
+  /* Adjust width for left and right margin */
+  box-sizing: border-box;
+  /* Include padding and borders in element size */
 }
 
 /* Adjustments for tablets and smaller desktops */
@@ -2253,10 +2290,14 @@ div.form_sub .field input[type="email"]:focus {
   .container-wrapper {
     flex-direction: column;
     margin-left: 5px;
-    margin-right: 5px; /* Balanced margin on smaller screens */
-    margin-top: 10px; /* Adjusted top margin for better spacing */
-    gap: 15px; /* Maintain gap between elements */
-    width: 100%; /* Adjust width for smaller margins */
+    margin-right: 5px;
+    /* Balanced margin on smaller screens */
+    margin-top: 10px;
+    /* Adjusted top margin for better spacing */
+    gap: 15px;
+    /* Maintain gap between elements */
+    width: 100%;
+    /* Adjust width for smaller margins */
   }
 }
 
@@ -2264,10 +2305,13 @@ div.form_sub .field input[type="email"]:focus {
 @media (max-width: 575px) {
   .container-wrapper {
     margin-left: 12px;
-    margin-right: 12px; /* Adjust left and right margins for phones */
+    margin-right: 12px;
+    /* Adjust left and right margins for phones */
     margin-top: 10px;
-    gap: 10px; /* Smaller gap for compact screens */
-    width: 100%; /* Adjust width for margins on both sides */
+    gap: 10px;
+    /* Smaller gap for compact screens */
+    width: 100%;
+    /* Adjust width for margins on both sides */
   }
 }
 
