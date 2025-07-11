@@ -2507,42 +2507,7 @@ div.form_sub .field input[type="email"]:focus {
   box-sizing: border-box;
 }
 
-/* Responsive Media Queries */
 
-/* Small phones */
-@media (max-width: 575.98px) {
-  .text-area {
-    padding: 15px;
-  }
-
-  .arrival_bg_box4 {
-    height: 200px;
-  }
-}
-
-@media (max-width: 768px) {
-  .arrival_bg_box4 {
-    height: 100%;
-    width: 100%;
-  }
-}
-
-
-/* Tablets */
-@media (min-width: 576px) and (max-width: 991.98px) {
-  .container1 {
-    flex: 1 1 calc(50% - 15px);
-    max-width: calc(50% - 15px);
-  }
-
-  .card-content {
-    flex-direction: column;
-  }
-
-  .arrival_bg_box4 {
-    height: 220px;
-  }
-}
 
 /* Laptops and Desktops */
 @media (min-width: 992px) {
@@ -2568,24 +2533,6 @@ div.form_sub .field input[type="email"]:focus {
   .text-area {
     text-align: left;
     padding: 35px;
-  }
-}
-
-
-/* Small devices in landscape mode */
-@media (max-width: 767.98px) and (orientation: landscape) {
-  .arrival_bg_box4 {
-    width: 100vw !important; /* Full viewport width */
-    height: auto !important; /* Let it expand as needed */
-    margin-left: 0 !important; /* Remove any unwanted left margin */
-    margin-right: 0 !important;
-    border-radius: 0 !important; /* Optional: remove radius if it causes visual gaps */
-  }
-
-  .arrival_bg_box4 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
   }
 }
 
