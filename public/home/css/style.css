@@ -2228,17 +2228,17 @@ div.form_sub .field input[type="email"]:focus {
   /* Maintain aspect ratio */
 }
 
-/* Default styles for container-wrapper */
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 9px;
-  margin-right: 9px; /* Ensure even margins on both sides */
-  margin-top: 25px;
+  align-items: stretch; /* Ensure all items take full height */
+  justify-content: center; /* Center content on wide mobile screens */
+  margin: 25px 9px 0;
   gap: 15px;
-  width: calc(100% - 18px); /* Adjust width for left and right margin */
-  box-sizing: border-box; /* Include padding and borders in element size */
+  width: calc(100% - 18px);
+  box-sizing: border-box;
 }
+
 
 /* Adjustments for tablets and smaller desktops */
 @media (max-width: 768px) {
@@ -2255,13 +2255,17 @@ div.form_sub .field input[type="email"]:focus {
 /* Adjustments for very small screens (phones) */
 @media (max-width: 575px) {
   .container-wrapper {
-    margin-left: 12px;
-    margin-right: 12px; /* Adjust left and right margins for phones */
-    margin-top: 10px;
-    gap: 10px; /* Smaller gap for compact screens */
-    width: 100%; /* Adjust width for margins on both sides */
+    flex-direction: column;
+    margin: 10px 12px 0;
+    gap: 10px;
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll on tiny landscape screens */
   }
 }
+
 
 
 /* Base Styles */
