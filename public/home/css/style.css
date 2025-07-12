@@ -2431,28 +2431,28 @@ div.form_sub .field input[type="email"]:focus {
 /* Tablet height */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container12 {
-    min-height: 500px;
+    min-height: 400px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 500px;
+    min-height: 400px;
   }
 }
 
 /* Desktop fallback */
 @media (min-width: 768px) {
   .container12 {
-    min-height: 500px;
+    min-height: 400px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 500px;
+    min-height: 400px;
   }
 }
 
