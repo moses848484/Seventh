@@ -2402,42 +2402,42 @@ div.form_sub .field input[type="email"]:focus {
 /* 💡 Mobile-specific overrides */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 800px;
+    min-height: 500px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 800px;
+    min-height: 500px;
   }
 }
 
 /* Tablet height */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container12 {
-    min-height: 700px;
+    min-height: 500px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 700px;
+    min-height: 500px;
   }
 }
 
 /* Desktop fallback */
 @media (min-width: 768px) {
   .container12 {
-    min-height: 600px;
+    min-height: 500px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 600px;
+    min-height: 500px;
   }
 }
 
