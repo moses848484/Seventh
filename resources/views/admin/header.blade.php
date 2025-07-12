@@ -11,10 +11,11 @@
         opacity: 0;
         visibility: hidden;
     }
-    .instagram-bg {
-    background: linear-gradient(45deg, #E4405F, #F58529); /* Instagram's default gradient colors */
-}
 
+    .instagram-bg {
+        background: linear-gradient(45deg, #E4405F, #F58529);
+        /* Instagram's default gradient colors */
+    }
 </style>
 
 <div class="container-fluid page-body-wrapper">
@@ -82,7 +83,7 @@
                                 <p class="preview-subject ellipsis mb-1">Instagram Stream</p>
                             </div>
                         </a>
-                        
+
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">Visit Us</p>
                     </div>
@@ -184,11 +185,29 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-                <li class="nav-item" style="margin-top: 190px;">
-                    <x-app-layout class="bg-white">
-                   
-                    </x-app-layout>
-                </li>
+                @auth
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('profile.show') }}">
+                                {{ __('Profile') }}
+                            </a>
+
+                            <!-- Logout -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="dropdown-item" type="submit">
+                                    {{ __('Log out') }}
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                @endauth
+
         </div>
     </nav>
     <script>
@@ -197,7 +216,7 @@
         const togglerButton = document.querySelector('.navbar-toggler');
 
         // Add a click event listener to the toggler button
-        togglerButton.addEventListener('click', function() {
+        togglerButton.addEventListener('click', function () {
             // Toggle the 'hidden-logo' class on the image
             logoImg.classList.toggle('hidden-logo');
         });
