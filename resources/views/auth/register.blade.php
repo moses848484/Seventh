@@ -7,7 +7,9 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/signup.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css"
+        rel="stylesheet" />
 
     <title>Sign Up Page</title>
     <style>
@@ -48,33 +50,6 @@
                         class="input" />
                     <label for="email" value="{{ __('Email') }}" class="placeholder" data-icon="e">Email
                         Address</label>
-                </div>
-
-
-                <div class="input-group">
-                    <input id="phone" name="phone" :value="old('phone')" type="number" required autocomplete="phone"
-                        class="input" />
-                    <label for="phone" value="{{ __('Phone') }}" class="placeholder" data-icon="u">Phone</label>
-                </div>
-
-                <div class="input-group">
-                    <select class="gender-select" name="gender" id="gender" required="required" autocomplete="sex">
-                        <option value="Select Gender">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <input id="address" name="address" :value="old('address')" type="text" required
-                        autocomplete="address" class="input" />
-                    <label for="address" value="{{ __('Address') }}" class="placeholder" data-icon="u">Address</label>
-                </div>
-
-                <div class="input-group">
-                    <input id="birthday" type="date" name="birthday" min="1900-01-02" required="required" class="input"
-                        autocomplete="bday">
-                    <label for="birthday" class="placeholders" data-icon="u">Date Of Birth</label>
                 </div>
 
                 <div class="input-group">
