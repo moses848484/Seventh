@@ -186,7 +186,7 @@
                 </li>
                 <li class="nav-item" style="margin-top: 190px;">
                     <x-app-layout class="bg-white">
-                        <x-notify::notify /> <!-- Position in mobile view -->
+                   
                     </x-app-layout>
                 </li>
         </div>
