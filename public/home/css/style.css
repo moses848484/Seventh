@@ -2162,12 +2162,12 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 575.98px) {
   .section1 {
-    padding: 10px;
+    padding: 4.2px !important;
     /* Reduce padding for smaller screens */
   }
 
   .text-area12 {
-    padding: 15px;
+    padding: 4.2px !important;
     /* Reduce padding for smaller screens */
   }
 }
@@ -2175,12 +2175,12 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for medium screens */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .section1 {
-    padding: 15px;
+    padding: 4.2px !important;
     /* Adjust padding for medium screens */
   }
 
   .text-area12 {
-    padding: 55px;
+    padding: 4.2px !important;
     /* Default padding for medium screens */
   }
 }
@@ -2188,12 +2188,12 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for large screens */
 @media (min-width: 768px) {
   .section1 {
-    padding: 20px;
+    padding: 4.2px !important;
     /* Default padding for larger screens */
   }
 
   .text-area12 {
-    padding: 55px;
+    padding: 4.2px !important;
     /* Increase padding for larger screens */
   }
 }
