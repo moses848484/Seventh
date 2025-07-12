@@ -487,7 +487,6 @@
             // Check if userCount is defined and a number
             const userCount = {{ $userCount }};
 
-            const malesCount = {{ $malesCount }};
             if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
                 new Chart(ctx, {
                     type: 'bar',
