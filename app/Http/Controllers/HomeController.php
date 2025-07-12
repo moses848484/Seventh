@@ -34,19 +34,23 @@ class HomeController extends Controller
             $memberCount = members::count(); // Count the number of members
             $membersCount = members::where('registeras', 'member')->count(); // Count the number of members
             $visitorCount = members::where('registeras', 'visitor')->count(); // Count the number of visitors
-            $femaleCount = members::where('gender', 'female')->count(); // Count the number of Females
-            $maleCount = members::where('gender', 'male')->count(); // Count the number of males
-            $femalesCount = User::where('gender', 'female')->count(); // Count the number of Females
-            $malesCount = User::where('gender', 'male')->count(); // Count the number of males
             $singlesCount = members::where('marital', 'single')->count(); // Count the number of single people
             $marriedCount = members::where('marital', 'married')->count(); // Count the number of married people
             $divorcedCount = members::where('marital', 'divorced')->count(); // Count the number of divorced people
             // Pass the data and member count to the admin.home view
             $user = Auth::user();
             notify()->success('Welcome, ' . $user->name . '!');
-            return view('admin.home', ['data' => $data, 'users' => $users, 'userCount' => $userCount,'memberCount' => $memberCount, 'membersCount' => $membersCount,
-             'visitorCount'=> $visitorCount, 'femaleCount'=> $femaleCount, 'femalesCount'=> $femalesCount,'maleCount'=> $maleCount,
-              'singlesCount'=> $singlesCount, 'malesCount'=> $malesCount, 'marriedCount'=> $marriedCount, 'divorcedCount'=> $divorcedCount]);
+            return view('admin.home', [
+                'data' => $data,
+                'users' => $users,
+                'userCount' => $userCount,
+                'memberCount' => $memberCount,
+                'membersCount' => $membersCount,
+                'visitorCount' => $visitorCount,
+                'singlesCount' => $singlesCount,
+                'marriedCount' => $marriedCount,
+                'divorcedCount' => $divorcedCount
+            ]);
         } else {
             // Redirect to home.userpage view for regular users
             $user = Auth::user();
@@ -70,19 +74,23 @@ class HomeController extends Controller
             $data = members::all();
             $memberCount = members::count(); // Count the number of members
             $membersCount = members::where('registeras', 'member')->count(); // Count the number of members
-            $visitorCount = members::where('registeras', 'visitor')->count(); // Count the number of visitors
-            $femaleCount = members::where('gender', 'female')->count(); // Count the number of Females
-            $maleCount = members::where('gender', 'male')->count(); // Count the number of males
-            $femalesCount = User::where('gender', 'female')->count(); // Count the number of Females
-            $malesCount = User::where('gender', 'male')->count(); // Count the number of males
+            $visitorCount = members::where('registeras', 'visitor')->count(); // Count the number of visitors             
             $singlesCount = members::where('marital', 'single')->count(); // Count the number of single people
             $marriedCount = members::where('marital', 'married')->count(); // Count the number of married people
             $divorcedCount = members::where('marital', 'divorced')->count(); // Count the number of divorced people
             // Pass the data and member count to the admin.home view
 
-            return view('admin.home', ['data' => $data, 'users' => $users, 'userCount' => $userCount,'memberCount' => $memberCount, 'membersCount' => $membersCount,
-             'visitorCount'=> $visitorCount, 'femaleCount'=> $femaleCount, 'femalesCount'=> $femalesCount,'maleCount'=> $maleCount,
-              'singlesCount'=> $singlesCount, 'malesCount'=> $malesCount, 'marriedCount'=> $marriedCount, 'divorcedCount'=> $divorcedCount]);
+            return view('admin.home', [
+                'data' => $data,
+                'users' => $users,
+                'userCount' => $userCount,
+                'memberCount' => $memberCount,
+                'membersCount' => $membersCount,
+                'visitorCount' => $visitorCount,
+                'singlesCount' => $singlesCount,
+                'marriedCount' => $marriedCount,
+                'divorcedCount' => $divorcedCount
+            ]);
         } else {
             // Redirect to home.memberhome view for regular users
             return view('home.memberhome');
@@ -99,7 +107,7 @@ class HomeController extends Controller
         $data = Members::all(); // Fetch all members
         return view('home.update', compact('data')); // Pass data to the view
     }
-    
+
 
 
     public function member_givings()
