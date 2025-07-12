@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
         type="text/css">
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/viewmember.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css"
+        rel="stylesheet" />
 
     <title>Dashboard</title>
     <style>
@@ -418,15 +420,12 @@
             const memberCount = {{ $memberCount }};
             const membersCount = {{ $membersCount }};
             const visitorCount = {{ $visitorCount }};
-            const femaleCount = {{ $femaleCount }};
-            const maleCount = {{ $maleCount }};
             const singlesCount = {{ $singlesCount }};
             const marriedCount = {{ $marriedCount }};
             const divorcedCount = {{ $divorcedCount }};
             if (typeof memberCount !== 'undefined' && !isNaN(memberCount) &&
                 typeof visitorCount !== 'undefined' && !isNaN(visitorCount) &&
-                typeof femaleCount !== 'undefined' && !isNaN(femaleCount) &&
-                typeof maleCount !== 'undefined' && !isNaN(maleCount) &&
+
                 typeof singlesCount !== 'undefined' && !isNaN(singlesCount) &&
                 typeof marriedCount !== 'undefined' && !isNaN(marriedCount) &&
                 typeof divorcedCount !== 'undefined' && !isNaN(divorcedCount) &&
@@ -439,7 +438,7 @@
                         ],
                         datasets: [{
                             label: '# of Registered',
-                            data: [memberCount, visitorCount, membersCount, femaleCount, maleCount,
+                            data: [memberCount, visitorCount, membersCount,
                                 singlesCount, marriedCount, divorcedCount
                             ],
                             borderWidth: 1,
@@ -487,18 +486,16 @@
 
             // Check if userCount is defined and a number
             const userCount = {{ $userCount }};
-            const femalesCount = {{ $femalesCount }};
+
             const malesCount = {{ $malesCount }};
-            if (typeof femalesCount !== 'undefined' && !isNaN(femalesCount) &&
-                typeof malesCount !== 'undefined' && !isNaN(malesCount) &&
-                typeof userCount !== 'undefined' && !isNaN(userCount)) {
+            if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: ['Total Users', 'Females', 'Males',],
                         datasets: [{
                             label: 'Number Of Users',
-                            data: [userCount, femalesCount, malesCount,],
+                            data: [userCount,],
                             borderWidth: 1,
                             backgroundColor: [
                                 'rgba(54, 162, 235, 0.5)',
