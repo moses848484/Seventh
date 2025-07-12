@@ -204,7 +204,7 @@
 
 <body>
     <x-validation-errors class="mb-4" />
-    <div id="register" class="form-container">
+    <div id="register" class="container bg-white p-4 rounded shadow mt-2">
         <form method="POST" autocomplete="on" action="{{ url('/add_givings') }}">
             @csrf
 
