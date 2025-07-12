@@ -2367,47 +2367,31 @@ div.form_sub .field input[type="email"]:focus {
   color: #fff;
 }
 
-/* Small screens (phones ≤ 575px): 1 per row */
+/* Extra height for small screens */
 @media (max-width: 575.98px) {
   .container12 {
-    flex: 1 1 100%;
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    max-width: 100%;
-    background-color: #2c6448 !important;
+    min-height: 750px; /* Increase height on phones */
+  }
+
+  .flip-container,
+  .flipper,
+  .front,
+  .back {
+    min-height: 100%;
   }
 }
 
-/* Medium screens (tablets ≥576px and <768px): 2 per row */
+/* Slightly increased height for tablets */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container12 {
-    flex: 1 1 100%;
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    max-width: 100%;
-    background-color: #2c6448 !important;
+    min-height: 700px;
   }
-}
 
-/* Large screens (laptops ≥768px and <992px): 2 per row */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .container12 {
-    flex: 1 1 100%;
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    max-width: 100%;
-    background-color: #2c6448 !important;
-  }
-}
-
-/* Extra-large screens (desktops ≥992px): 3 per row */
-@media (min-width: 992px) {
-  .container12 {
-    flex: 1 1 100%;
-    margin: 0;
-    /* Reset margins to prevent overflow */
-    max-width: 100%;
-    background-color: #2c6448;
+  .flip-container,
+  .flipper,
+  .front,
+  .back {
+    min-height: 100%;
   }
 }
 
