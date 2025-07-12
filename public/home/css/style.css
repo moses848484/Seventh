@@ -1865,16 +1865,31 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-@media (max-width: 480px) {
+/* Flex container for buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  /* allows wrapping if space is tight */
+  gap: 10px;
+  /* spacing between buttons */
+  justify-content: center;
+  /* center align buttons */
+}
+
+/* Make buttons shrink nicely on small screens */
+@media (max-width: 575.98px) {
   .btn7 {
-    padding: 6px 12px;
-    /* Further adjust padding */
-    font-size: 0.9rem;
-    /* Even smaller font size */
-    border-radius: 25px !important;
-    /* Smaller border radius */
+    flex: 1 1 auto;
+    /* flexible width */
+    min-width: 45%;
+    /* ensures buttons don't get too small */
+    text-align: center;
+    /* centers text inside */
+    justify-content: center;
+    /* centers icon + text if using inline-flex */
   }
 }
+
 
 .btn7:hover {
   background-color: rgb(233, 233, 233) !important;
