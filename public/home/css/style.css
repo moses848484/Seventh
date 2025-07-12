@@ -2135,20 +2135,31 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 /* Track list */
+.music-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
 .track-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   padding: 8px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .track-info-wrapper {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1;
+  min-width: 0;
 }
 
 .download-button {
@@ -2159,11 +2170,13 @@ div.form_sub .field input[type="email"]:focus {
   text-decoration: none;
   transition: background-color 0.3s;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .download-button:hover {
   background-color: #ddd;
 }
+
 
 
 
