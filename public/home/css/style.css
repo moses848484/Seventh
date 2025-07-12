@@ -2794,7 +2794,7 @@ div.form_sub .field input[type="email"]:focus {
     max-width: 100%;
     margin-top: 40px;
     /* Limit maximum width to 100% */
-    min-height: 200px;
+    min-height: 300px;
     /* Adjust minimum height for smaller screens */
   }
 }
@@ -2802,7 +2802,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for very small screens (phones) */
 @media (max-width: 576px) {
   .col-md-6 {
-    min-height: 200px;
+    min-height: 300px;
     /* Further adjust minimum height for very small screens */
     margin-left: 15px;
   }
