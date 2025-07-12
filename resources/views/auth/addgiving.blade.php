@@ -7,12 +7,13 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="<?php echo asset('css/addmember.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
+        type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Giving</title>
     <style>
-                /* Custom Autofill input styling */
-                input:-webkit-autofill,
+        /* Custom Autofill input styling */
+        input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
@@ -67,8 +68,8 @@
             color: #e4af00 !important;
         }
 
-                /* Responsive adjustments */
-                @media (max-width: 1200px) {
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
             .form-floating input {
                 padding: 0.7rem 0.25rem;
                 padding-top: 1rem;
@@ -104,7 +105,7 @@
             }
         }
 
-                /* Responsive adjustments */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .form-floating input {
                 padding: 0.7rem 0.25rem;
@@ -212,11 +213,10 @@
             </div>
             <h2 class="form-title">Giving</h2>
 
- 
+
             <div class="row mb-3 form-floating">
                 <div class="col-md-6">
-                    <input id="fname" name="fname" type="text" required autofocus class="form-control"
-                        placeholder=" ">
+                    <input id="fname" name="fname" type="text" required autofocus class="form-control" placeholder=" ">
                     <label for="fname">First Name</label>
                 </div>
                 <div class="col-md-6">
@@ -236,53 +236,55 @@
                 </div>
             </div>
 
-     
-     
-            <div class="row mb-3 form-floating">
-            <div class="col-md-6">
-                <input id="amount" name="amount" type="number" required class="form-control" placeholder=" ">
-                <label for="amount">Amount</label>
-            </div>
-        
-            <div class="col-md-6">
-                <input id="comment" name="comment" type="text" required autocomplete="comment"
-                    class="form-control" placeholder=" ">
-                <label for="comment">Comment</label>
-            </div>
-        </div>
-    
-            <div class="row mb-3 form-floating">
-            <div class="col-md-12">
-                <select id="giving" name="giving" required class="form-select" placeholder=" ">
-                    <option value="" disabled selected>Select Giving</option>
-                    <option value="Offering">Offering</option>
-                    <option value="Tithe">Tithe</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-        </div>
 
-            <button type="submit" value="Sign up" name="submit" class="submitbtn"><i class="fa-solid fa-dollar-sign"></i>&nbsp;Give</button>
+
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
+                    <input id="amount" name="amount" type="number" required class="form-control" placeholder=" ">
+                    <label for="amount">Amount</label>
+                </div>
+
+                <div class="col-md-6">
+                    <input id="comment" name="comment" type="text" required autocomplete="comment" class="form-control"
+                        placeholder=" ">
+                    <label for="comment">Comment</label>
+                </div>
+            </div>
+
+            <div class="row mb-3 form-floating">
+                <div class="col-md-12">
+                    <select id="giving" name="giving" required class="form-select" placeholder=" ">
+                        <option value="" disabled selected>Select Giving</option>
+                        <option value="Offering">Offering</option>
+                        <option value="Tithe">Tithe</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" value="Sign up" name="submit" class="submitbtn"><i
+                    class="fa-solid fa-dollar-sign"></i>&nbsp;Give</button>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-            <div class="mt-4">
-                <x-label for="terms">
-                    <div class="flex items-center">
-                        <x-checkbox name="terms" id="terms" required />
+                        <div class="mt-4">
+                            <x-label for="terms">
+                                <div class="flex items-center">
+                                    <x-checkbox name="terms" id="terms" required />
 
-                        <div class="ms-2">
-                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                            ]) !!}
+                                    <div class="ms-2">
+                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Terms of Service') . '</a>',
+                    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Privacy Policy') . '</a>',
+                ]) !!}
+                                    </div>
+                                </div>
+                            </x-label>
                         </div>
-                    </div>
-                </x-label>
-            </div>
             @endif
     </div>
     </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
@@ -290,8 +292,7 @@
                 SDA Church 2024</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
                 Computer Science Dept
-                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                    class="text-white">
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
                     Computer Systems Engineering
                 </a> from University Of Zambia
             </span>
