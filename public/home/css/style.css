@@ -2799,7 +2799,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Responsive adjustments for very small screens (phones) */
 @media (max-width: 576px) {
   .col-md-6 {
-    min-height: 750px;
+    min-height: 200px;
     /* Further adjust minimum height for very small screens */
     margin-left: 15px;
   }
