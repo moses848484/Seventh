@@ -185,29 +185,11 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-                @auth
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
-                            </a>
-
-                            <!-- Logout -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button class="dropdown-item" type="submit">
-                                    {{ __('Log out') }}
-                                </button>
-                            </form>
-                        </div>
-                    </li>
-                @endauth
-
+                <li class="nav-item" style="margin-top: 190px;">
+                    <x-app-layout class="bg-white">
+                        <x-notify::notify /> <!-- Position in mobile view -->
+                    </x-app-layout>
+                </li>
         </div>
     </nav>
     <script>
