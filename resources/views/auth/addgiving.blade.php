@@ -262,7 +262,7 @@
                 </div>
             </div>
 
-            <button type="submit" value="Sign up" name="submit" class="submitbtn"><i
+            <button type="submit" value="Sign up" name="submit" class="btn btn-success w-100"><i
                     class="fa-solid fa-dollar-sign"></i>&nbsp;Give</button>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
