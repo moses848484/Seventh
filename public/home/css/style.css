@@ -3008,67 +3008,52 @@ div.form_sub .field input[type="email"]:focus {
             }
           }
 
-          /* Styling for the text-area */
           .text-area6 {
             display: flex;
             flex-direction: column;
-            /* Stack text elements vertically */
             align-items: center;
-            min-height: 100px;
-            /* Minimum height to ensure content fits */
-            /* Center horizontally */
+            justify-content: center;
+            /* vertical center */
             text-align: center;
-            /* Center text inside */
             background: none;
-            /* Background color */
             color: #000000;
-            /* Changed to a more readable color */
-            /* Text color */
-            padding: 20px;
-            /* Adjusted padding for better spacing */
-            /* Padding inside the block */
-            max-width: 100%;
-            /* Ensure it doesn’t exceed container width */
+            padding: 30px;
             width: 100%;
-            /* Full width of its parent */
+            max-width: 100%;
             box-sizing: border-box;
-            /* Include padding and border in the width */
-
+            flex: 1;
+            /* make it expand to fill parent if needed */
           }
 
-          /* Adjustments for small screens */
+          /* Small screens */
           @media (max-width: 575.98px) {
             .text-area6 {
-              padding: 65px;
-              /* Reduced padding for smaller screens */
-
+              padding: 30px 20px;
             }
           }
 
-          /* Adjustments for medium screens */
-          @media (min-width: 476px) and (max-width: 767.98px) {
+          /* Medium screens */
+          @media (min-width: 576px) and (max-width: 767.98px) {
             .text-area6 {
-              padding: 60px;
-              /* Default padding for medium screens */
+              padding: 40px;
             }
           }
 
-          /* Adjustments for large screens */
+          /* Large screens */
           @media (min-width: 768px) {
             .text-area6 {
               padding: 25px;
               margin-top: 30px !important;
-              /* Increase padding for larger screens */
             }
           }
 
-          /* Optional: Adjustments for extra large screens if needed */
+          /* Extra-large screens */
           @media (min-width: 992px) {
             .text-area6 {
               padding: 30px;
-              /* Further increase padding for extra large screens */
             }
           }
+
 
           .button-text {
             color: #000;
