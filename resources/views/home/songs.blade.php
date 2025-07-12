@@ -266,30 +266,32 @@
       icon.className = (index === currentTrack && !audio.paused) ? 'fa fa-pause' : 'fa fa-play';
       icon.classList.add('track-icon');
 
-      trackDiv.appendChild(titleSpan);
-      trackDiv.appendChild(icon);
+      const infoWrapper = document.createElement('div');
+      infoWrapper.className = 'track-info-wrapper';
+      infoWrapper.appendChild(titleSpan);
+      infoWrapper.appendChild(icon);
+
+      const downloadLink = document.createElement('a');
+      downloadLink.href = track.file;
+      downloadLink.download = '';
+      downloadLink.className = 'download-button';
+      downloadLink.innerHTML = '<i class="fa-solid fa-download"></i>';
+
+      trackDiv.appendChild(infoWrapper);
+      trackDiv.appendChild(downloadLink);
 
       trackDiv.onclick = () => {
         if (index === currentTrack) {
-          // If same track, toggle play/pause
           playTrack();
         } else {
-          // If different track, load and play
           loadTrack(index);
           audio.play();
           updatePlayIcon(true);
         }
       };
 
-
-      const downloadLink = document.createElement('a');
-      downloadLink.href = track.file;
-      downloadLink.download = '';
-      downloadLink.className = 'btn7 btn-sm download-button';
-      downloadLink.innerHTML = '<i class="fa-solid fa-download"></i>';
-
-      trackDiv.appendChild(downloadLink);
       trackList.appendChild(trackDiv);
+
 
     });
   }

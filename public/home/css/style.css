@@ -2134,7 +2134,38 @@ div.form_sub .field input[type="email"]:focus {
   }
 }
 
-/* Responsive adjustments for very small screens */
+/* Track list */
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.track-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.download-button {
+  background-color: #fff;
+  color: #000;
+  border-radius: 4px;
+  padding: 6px 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.download-button:hover {
+  background-color: #ddd;
+}
+
+
 
 /* Default (mobile-first) */
 .text-area12 {
@@ -2267,8 +2298,10 @@ div.form_sub .field input[type="email"]:focus {
 .container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch; /* Ensure all items take full height */
-  justify-content: center; /* Center content on wide mobile screens */
+  align-items: stretch;
+  /* Ensure all items take full height */
+  justify-content: center;
+  /* Center content on wide mobile screens */
   margin: 25px 9px 0;
   gap: 15px;
   width: calc(100% - 18px);
@@ -2297,7 +2330,8 @@ div.form_sub .field input[type="email"]:focus {
   }
 
   body {
-    overflow-x: hidden; /* Prevent horizontal scroll on tiny landscape screens */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on tiny landscape screens */
   }
 }
 
