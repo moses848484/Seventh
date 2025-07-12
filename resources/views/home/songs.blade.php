@@ -19,11 +19,11 @@
           <div class="flipper h-100 position-relative">
             <!-- FRONT -->
             <div class="front text-area6 h-100 overflow-auto">
-              <h4 class="heading7">New Single from University SDA Church</h4>
+              <h4 class="heading7">Listen to Songs Here</h4>
               <h5 class="heading6">"We Choose Praise"</h5>
               <p>
                 God is our source of strength and gives us joy in any season of life.
-                This song is an intentional declaration that no matter what life throws at us,
+                These songs are intentional declarations that no matter what life throws at us,
                 we can choose to praise Him.
               </p>
 
