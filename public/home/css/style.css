@@ -2186,7 +2186,8 @@ div.form_sub .field input[type="email"]:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #e8e8e8;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
   color: #000000;
   padding: 30px;
   max-width: 100%;
@@ -2370,7 +2371,8 @@ div.form_sub .field input[type="email"]:focus {
 /* Extra height for small screens */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 750px; /* Increase height on phones */
+    min-height: 750px;
+    /* Increase height on phones */
   }
 
   .flip-container,
