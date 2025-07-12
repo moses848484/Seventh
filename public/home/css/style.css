@@ -2360,7 +2360,6 @@ div.form_sub .field input[type="email"]:focus {
   box-sizing: border-box;
   padding: 15px;
   overflow: hidden;
-  /* Changed from `show` (invalid) to `hidden` */
   background-color: #2c6448 !important;
   margin: 0 auto 20px;
   border-radius: 8px;
@@ -2369,34 +2368,79 @@ div.form_sub .field input[type="email"]:focus {
   color: #fff;
 }
 
-/* Extra height for small screens */
+/* Flip Container Setup */
+.flip-container,
+.flipper,
+.front,
+.back {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* FRONT & BACK */
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* BACK rotated */
+.back {
+  transform: rotateY(180deg);
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+/* 💡 Mobile-specific overrides */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 400px;
-    /* Increase height on phones */
+    min-height: 800px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 400px;
+    min-height: 800px;
   }
 }
 
-/* Slightly increased height for tablets */
+/* Tablet height */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container12 {
-    min-height: 400px;
+    min-height: 700px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 400px;
+    min-height: 700px;
   }
 }
+
+/* Desktop fallback */
+@media (min-width: 768px) {
+  .container12 {
+    min-height: 600px;
+  }
+
+  .flip-container,
+  .flipper,
+  .front,
+  .back {
+    min-height: 600px;
+  }
+}
+
 
 
 
