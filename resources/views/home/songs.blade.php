@@ -5,9 +5,10 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
           <div class="carousel-inner h-100">
-            <div class="carousel-item active h-100">
-              <img src="images/gvb1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="First Image">
+            <div class="carousel-item active">
+              <img src="images/gvb1.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
             </div>
+
           </div>
         </div>
       </div>
