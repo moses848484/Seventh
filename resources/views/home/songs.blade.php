@@ -1,65 +1,75 @@
 <div class="container-wrapper">
-    <div class="container12">
-  <div class="row align-items-stretch">
-    <!-- Left Column (Image Carousel) -->
-    <div class="col-md-6 mb-4 mb-md-0">
-      <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
-        <div class="carousel-inner h-100">
-          <div class="carousel-item active h-100">
-            <img src="images/gvb1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="First Image">
+  <div class="container12">
+    <div class="row align-items-stretch">
+      <!-- Left Column (Image Carousel) -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+              <img src="images/gvb1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="First Image">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
- 
-    <!-- Right Column (Flip Card) -->
-    <div class="col-md-6">
-      <div class="flip-container h-100" id="flipContainer">
-        <div class="flipper h-100 position-relative">
-          <!-- FRONT -->
-          <div class="front text-area6 h-100 overflow-auto">
-            <h4 class="heading7">New Single from University SDA Church</h4>
-            <h5 class="heading6">"We Choose Praise"</h5>
-            <p>
-              God is our source of strength and gives us joy in any season of life.
-              This song is an intentional declaration that no matter what life throws at us,
-              we can choose to praise Him.
-            </p>
+      <!-- Right Column (Flip Card) -->
+      <div class="col-md-6">
+        <div class="flip-container h-100" id="flipContainer">
+          <div class="flipper h-100 position-relative">
+            <!-- FRONT -->
+            <div class="front text-area6 h-100 overflow-auto">
+              <h4 class="heading7">New Single from University SDA Church</h4>
+              <h5 class="heading6">"We Choose Praise"</h5>
+              <p>
+                God is our source of strength and gives us joy in any season of life.
+                This song is an intentional declaration that no matter what life throws at us,
+                we can choose to praise Him.
+              </p>
 
-            <div class="btn-row mb-3">
-              <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-              <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+              <div class="btn-row mb-3">
+                <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
+                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+              </div>
+
+              <h5 id="trackTitle" class="text1">Now Playing:</h5>
+              <audio id="audioPlayer" style="width: 100%;" controls>
+                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+
+              <div class="music-controls mt-3">
+                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
+                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+              </div>
             </div>
 
-            <h5 id="trackTitle" class="text1">Now Playing:</h5>
-            <audio id="audioPlayer" style="width: 100%;" controls>
-              <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
+            <!-- BACK -->
+            <div class="back text-area6 h-100 overflow-auto">
+              <h4 class="text1 mt-2">🎵 Available Songs</h4>
+              <div id="trackList" class="track-list"></div>
 
-            <div class="music-controls mt-3">
-              <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
-              <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
-                <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-              </button>
-              <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+              <!-- Back-side Controls -->
+              <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
+              <div class="music-controls mt-2">
+                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
+                  <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+              </div>
+
+              <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
-          </div>
-
-          <!-- BACK -->
-          <div class="back text-area6 h-100 overflow-auto">
-            <h4 class="text1 mt-2">🎵 Available Songs</h4>
-            <div id="trackList" class="track-list"></div>
-            <button class="btn7 mt-3" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
- </div>
-  </div>
+
 <!-- STYLES -->
 <style>
   .text-area6 {
@@ -69,7 +79,6 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     color: white;
   }
-
 
   .btn7 {
     background-color: #fff;
@@ -143,7 +152,8 @@
     transform: rotateY(180deg);
   }
 
-  .front, .back {
+  .front,
+  .back {
     backface-visibility: hidden;
     position: absolute;
     width: 100%;
@@ -161,37 +171,16 @@
   }
 
   .fa-circle-play,
-                    .fa-circle-pause {
-                        font-size: 50px;
-                        color: white;
-                    }
+  .fa-circle-pause {
+    font-size: 50px;
+    color: white;
+  }
 
-                    .fa-square-caret-left,
-                    .fa-square-caret-right {
-                        font-size: 35px;
-                        color: white;
-                    }
-
-                .fa-circle-play {
-                    font-size: 50px;
-                    color: white;
-                }
-
-                .fa-square-caret-right {
-                    font-size: 35px;
-                    color: white;
-                }
-
-                .fa-circle-pause {
-                    font-size: 50px;
-                    color: white;
-                }
-
-                .fa-square-caret-left {
-                    font-size: 35px;
-                    color: white;
-                }
-
+  .fa-square-caret-left,
+  .fa-square-caret-right {
+    font-size: 35px;
+    color: white;
+  }
 </style>
 
 <!-- SCRIPT -->
@@ -205,10 +194,6 @@
       title: "When I Cry",
       file: "{{ asset('music/Bill When I Cry.mp3') }}"
     },
-    {
-      title: "Count On Me",
-      file: "{{ asset('music/14 Whitney Houston - Count On Me.mp3') }}"
-    }
   ];
 
   let currentTrack = 0;
@@ -216,13 +201,18 @@
   const audio = document.getElementById('audioPlayer');
   const source = document.getElementById('audioSource');
   const trackTitle = document.getElementById('trackTitle');
+  const trackTitleBack = document.getElementById('trackTitleBack');
   const playPauseIcon = document.getElementById('playPauseIcon');
+  const playPauseIconBack = document.getElementById('playPauseIconBack');
 
   function loadTrack(index) {
     currentTrack = index;
     source.src = tracks[index].file;
     audio.load();
     trackTitle.textContent = "Now Playing: " + tracks[index].title;
+    if (trackTitleBack) {
+      trackTitleBack.textContent = "Now Playing: " + tracks[index].title;
+    }
     displayAvailableTracks();
   }
 
@@ -251,7 +241,8 @@
   }
 
   function updatePlayIcon(isPlaying) {
-    playPauseIcon.className = isPlaying ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play';
+    if (playPauseIcon) playPauseIcon.className = isPlaying ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play';
+    if (playPauseIconBack) playPauseIconBack.className = isPlaying ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play';
   }
 
   function displayAvailableTracks() {
@@ -284,7 +275,6 @@
     });
   }
 
-  // Flip Events
   document.getElementById("viewSongsBtn").addEventListener("click", () => {
     document.getElementById("flipContainer").classList.add("flip");
     displayAvailableTracks();
@@ -294,32 +284,19 @@
     document.getElementById("flipContainer").classList.remove("flip");
   });
 
-  // Init
   window.addEventListener('DOMContentLoaded', () => {
     loadTrack(currentTrack);
     updatePlayIcon(false);
   });
 
-  // Auto-play next
   audio.addEventListener('ended', nextTrack);
   audio.addEventListener('play', () => {
-  updatePlayIcon(true);
-  displayAvailableTracks();
-});
+    updatePlayIcon(true);
+    displayAvailableTracks();
+  });
 
-audio.addEventListener('pause', () => {
-  updatePlayIcon(false);
-  displayAvailableTracks();
-});
-
+  audio.addEventListener('pause', () => {
+    updatePlayIcon(false);
+    displayAvailableTracks();
+  });
 </script>
-
-
-
-
-
-
-
-
-
-
