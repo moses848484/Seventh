@@ -1,13 +1,13 @@
 body {
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    font-family: sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+    /* optional */
 }
+
 
 .container-wrapper {
     display: flex;
@@ -18,19 +18,16 @@ body {
 }
 
 
-/* Form styling */
 form {
     background-color: #ffffff;
     padding: 20px;
-    margin: 10px;
-    margin-left: 6.7px;
     width: 90%;
-    max-width: 500px; /* Adjusted max-width for responsiveness */
+    max-width: 500px;
     border-radius: 5px;
     border-left: 8px solid #2c6448;
     box-sizing: border-box;
-
 }
+
 
 /* Input focus */
 .input:focus,
@@ -54,7 +51,8 @@ form {
     width: 100%;
     padding: 10px;
     text-align: center;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
 }
 
 .submitbtn:hover {
@@ -95,7 +93,8 @@ form {
 .keeplogin input,
 .keeplogin label {
     display: inline-block;
-    font-size: 14px; /* Adjusted font size for better readability */
+    font-size: 14px;
+    /* Adjusted font size for better readability */
     color: #e4af00;
 }
 
@@ -104,7 +103,7 @@ form {
 }
 
 .forgotpass {
-    color:#04AA6D;
+    color: #04AA6D;
 }
 
 /* Input fields styling */
@@ -144,10 +143,10 @@ form {
 }
 
 
-.input_1:focus + .placeholder_1,
-.input:focus + .placeholder,
-.input_1.not-empty + .placeholder_1,
-.input.not-empty + .placeholder {
+.input_1:focus+.placeholder_1,
+.input:focus+.placeholder,
+.input_1.not-empty+.placeholder_1,
+.input.not-empty+.placeholder {
     top: -50.6px;
     font-size: 12px;
     background-color: #ffffff;
@@ -160,13 +159,15 @@ form {
     color: #e4af00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    font-size: 18px; /* Adjusted font size for better readability */
+    font-size: 18px;
+    /* Adjusted font size for better readability */
 }
 
 /* Logo styling */
 .sda_logo {
     width: 55px;
-    margin: -12px auto 10px auto; /* Centered the logo */
+    margin: -12px auto 10px auto;
+    /* Centered the logo */
     display: block;
 }
 
@@ -178,7 +179,8 @@ form {
     border-radius: 2px;
     cursor: pointer;
     border: none;
-    font-size: 14px; /* Adjusted font size for better readability */
+    font-size: 14px;
+    /* Adjusted font size for better readability */
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -186,23 +188,30 @@ form {
 
 
 .signbtn .signupbtn:hover {
-    background-color: #e4af00; /* Change background color on hover */
+    background-color: #e4af00;
+    /* Change background color on hover */
 
 }
 
 /* "Not a member yet?" text */
 .rmember {
-    display: flex; /* Display as inline block */
+    display: flex;
+    /* Display as inline block */
     margin-left: -20px;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
+    /* Remove underline */
     margin-bottom: -10px;
 }
 
 .rmember .member {
-    color: #04AA6D; /* Adjust text color */
-    font-size: 14px; /* Adjust font size */
-    margin-top: -10px; /* Adjust spacing */
-    margin-left: 20px; /* Adjust left margin to create space between button and text */
+    color: #04AA6D;
+    /* Adjust text color */
+    font-size: 14px;
+    /* Adjust font size */
+    margin-top: -10px;
+    /* Adjust spacing */
+    margin-left: 20px;
+    /* Adjust left margin to create space between button and text */
 
 }
 
