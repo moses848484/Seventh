@@ -3039,7 +3039,7 @@ div.form_sub .field input[type="email"]:focus {
           /* Adjustments for small screens */
           @media (max-width: 575.98px) {
             .text-area6 {
-              padding: 15px;
+              padding: 65px;
               /* Reduced padding for smaller screens */
 
             }
@@ -3048,7 +3048,7 @@ div.form_sub .field input[type="email"]:focus {
           /* Adjustments for medium screens */
           @media (min-width: 476px) and (max-width: 767.98px) {
             .text-area6 {
-              padding: 20px;
+              padding: 60px;
               /* Default padding for medium screens */
             }
           }
