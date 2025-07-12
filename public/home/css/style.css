@@ -2138,16 +2138,24 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Styling for the text-area */
 .text-area12 {
-  display: flex;
+   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #f1f0f0;        /* Background color */
-  color: #000000;             /* Text color */
-  max-width: 100%;            /* Ensure it doesn’t exceed container width */
-  width: auto;                /* Full width of its parent */
-  box-sizing: border-box;     /* Include padding and border in the width */
-  height: auto;               /* Ensure it takes full height of the column */     /* Increased bottom spacing */
+  background: #ffffff;
+  /* Background color */
+  color: #000000;
+  /* Text color */
+  padding: 70px !important;
+  /* Padding inside the block */
+  max-width: 100%;
+  /* Ensure it doesn’t exceed container width */
+  width: 100%;
+  /* Full width of its parent */
+  box-sizing: border-box;
+  /* Include padding and border in the width */
+  height: 100%;
+  /* Ensure it takes full height of the column */
 }
 
 
@@ -2805,11 +2813,12 @@ div.form_sub .field input[type="email"]:focus {
 .col-md-7 {
   flex: 0 0 50%;
   /* Default width on medium screens and larger */
+  max-width: 100%;
   /* Limit maximum width */
   padding: 0;
   /* Remove padding if needed */
   display: flex;
-  align-items: stretch;
+  align-items: center;
   /* Center content vertically */
   justify-content: center;
   /* Center content horizontally */
