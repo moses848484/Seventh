@@ -2372,7 +2372,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Extra height for small screens */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 200px;
+    min-height: 400px;
     /* Increase height on phones */
   }
 
@@ -2380,21 +2380,21 @@ div.form_sub .field input[type="email"]:focus {
   .flipper,
   .front,
   .back {
-    min-height: 200px;
+    min-height: 400px;
   }
 }
 
 /* Slightly increased height for tablets */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .container12 {
-    min-height: 200px;
+    min-height: 400px;
   }
 
   .flip-container,
   .flipper,
   .front,
   .back {
-    min-height: 200px;
+    min-height: 400px;
   }
 }
 
