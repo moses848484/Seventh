@@ -2372,7 +2372,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Extra height for small screens */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 750px;
+    min-height: 500px;
     /* Increase height on phones */
   }
 
