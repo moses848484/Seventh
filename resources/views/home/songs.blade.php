@@ -38,11 +38,13 @@
               </audio>
 
               <div class="music-controls mt-3">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
+                    class="fa-solid fa-square-caret-left"></i></button>
                 <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
                   <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
                 </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
+                    class="fa-solid fa-square-caret-right"></i></button>
               </div>
             </div>
 
@@ -54,11 +56,13 @@
               <!-- Back-side Controls -->
               <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
               <div class="music-controls mt-2">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
+                    class="fa-solid fa-square-caret-left"></i></button>
                 <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
                   <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
                 </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
+                    class="fa-solid fa-square-caret-right"></i></button>
               </div>
 
               <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
@@ -266,10 +270,17 @@
       trackDiv.appendChild(icon);
 
       trackDiv.onclick = () => {
-        loadTrack(index);
-        audio.play();
-        updatePlayIcon(true);
+        if (index === currentTrack) {
+          // If same track, toggle play/pause
+          playTrack();
+        } else {
+          // If different track, load and play
+          loadTrack(index);
+          audio.play();
+          updatePlayIcon(true);
+        }
       };
+
 
       trackList.appendChild(trackDiv);
     });
