@@ -282,7 +282,15 @@
       };
 
 
+      const downloadLink = document.createElement('a');
+      downloadLink.href = track.file;
+      downloadLink.download = '';
+      downloadLink.className = 'btn7 btn-sm download-button';
+      downloadLink.innerHTML = '<i class="fa-solid fa-download"></i>';
+
+      trackDiv.appendChild(downloadLink);
       trackList.appendChild(trackDiv);
+
     });
   }
 
