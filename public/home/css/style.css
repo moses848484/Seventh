@@ -2136,75 +2136,42 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Responsive adjustments for very small screens */
 
-/* Styling for the text-area */
+/* Default (mobile-first) */
 .text-area12 {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #ffffff;
-  /* Background color */
+  background: #e8e8e8;
   color: #000000;
-  /* Text color */
-  padding: 70px !important;
-  /* Padding inside the block */
+  padding: 30px;
   max-width: 100%;
-  /* Ensure it doesn’t exceed container width */
   width: 100%;
-  /* Full width of its parent */
   box-sizing: border-box;
-  /* Include padding and border in the width */
   height: 100%;
-  /* Ensure it takes full height of the column */
 }
 
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 575.98px) {
-  .section1 {
-    padding: 70px !important;
-    /* Reduce padding for smaller screens */
-  }
-
+/* Small devices (≥576px) */
+@media (min-width: 576px) {
   .text-area12 {
-    padding: 70px !important;
-    /* Reduce padding for smaller screens */
+    padding: 50px;
   }
 }
 
-/* Responsive adjustments for medium screens */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .section1 {
-    padding: 70px !important;
-    /* Adjust padding for medium screens */
-  }
-
-  .text-area12 {
-    padding: 70px !important;
-    /* Default padding for medium screens */
-  }
-}
-
-/* Responsive adjustments for large screens */
+/* Medium devices (≥768px) */
 @media (min-width: 768px) {
-  .section1 {
-    padding: 70px !important;
-    /* Default padding for larger screens */
-  }
-
   .text-area12 {
-   padding: 70px !important;
-    /* Increase padding for larger screens */
+    padding: 60px;
   }
 }
 
-/* Additional adjustments for specific screen size */
-@media (max-width: 1268px) {
+/* Large devices (≥992px) */
+@media (min-width: 992px) {
   .text-area12 {
-    padding: 70px !important;
-    /* Increase padding for specific larger screens */
+    padding: 70px;
   }
 }
+
 
 /* Ensure the image does not exceed its container's width and height */
 .img-fluid1 {
