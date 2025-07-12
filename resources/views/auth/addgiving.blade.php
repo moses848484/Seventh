@@ -208,10 +208,10 @@
         <form method="POST" autocomplete="on" action="{{ url('/add_givings') }}">
             @csrf
 
-            <div class="logo">
-                <img src="/images/sda.png" class="sda_logo">
+            <div class="text-center mb-4">
+                <img src="/images/sda.png" class="sda_logo mb-3" alt="Logo" style="width: 55px;">
+                <h2 class="text-primary">Giving</h2>
             </div>
-            <h2 class="form-title">Giving</h2>
 
 
             <div class="row mb-3 form-floating">
