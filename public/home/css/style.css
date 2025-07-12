@@ -2370,7 +2370,7 @@ div.form_sub .field input[type="email"]:focus {
 /* Extra height for small screens */
 @media (max-width: 575.98px) {
   .container12 {
-    min-height: 750px; /* Increase height on phones */
+    min-height: 450px; /* Increase height on phones */
   }
 
   .flip-container,
@@ -3036,7 +3036,7 @@ div.form_sub .field input[type="email"]:focus {
           /* Adjustments for small screens */
           @media (max-width: 575.98px) {
             .text-area6 {
-              padding: 15px;
+              padding: 55px;
               /* Reduced padding for smaller screens */
 
             }
@@ -3045,7 +3045,7 @@ div.form_sub .field input[type="email"]:focus {
           /* Adjustments for medium screens */
           @media (min-width: 476px) and (max-width: 767.98px) {
             .text-area6 {
-              padding: 20px;
+              padding: 50px;
               /* Default padding for medium screens */
             }
           }
@@ -3053,7 +3053,7 @@ div.form_sub .field input[type="email"]:focus {
           /* Adjustments for large screens */
           @media (min-width: 768px) {
             .text-area6 {
-              padding: 25px;
+              padding: 55px;
               margin-top: 30px !important;
               /* Increase padding for larger screens */
             }
