@@ -23,6 +23,8 @@
         <!-- End custom js for this page -->
         <x-notify::notify />
         @notifyJs
+        @notifyCss
+
 </body>
 
 </html>
