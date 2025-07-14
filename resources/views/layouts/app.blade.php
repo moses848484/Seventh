@@ -16,6 +16,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -38,7 +40,8 @@
 
                 <!-- Right side: Livewire Navigation Menu -->
                 <div class="flex items-center justify-end">
-                    @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
+                    <!-- NEW (for Jetstream with Livewire v2): -->
+                    <x-jet-navigation-menu />
                 </div>
             </div>
         </header>
