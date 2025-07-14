@@ -35,15 +35,14 @@
             </a>
 
             <!-- Toggler button -->
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize" aria-label="Toggle menu">
                 <span class="mdi mdi-menu"></span>
             </button>
 
-
-            <ul class="navbar-nav navbar-nav-right">
+            <ul class="navbar-nav navbar-nav-right align-items-center">
                 <li class="nav-item dropdown d-none d-lg-block">
                     <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                        data-toggle="dropdown" aria-expanded="false" href="#">Sermons</a>
+                        data-bs-toggle="dropdown" aria-expanded="false" href="#">Sermons</a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                         aria-labelledby="createbuttonDropdown">
                         <h6 class="p-3 mb-0 text-center">Watch Now</h6>
@@ -53,15 +52,13 @@
                                 <div class="preview-icon bg-primary text-white rounded-circle">
                                     <i class="fa-brands fa-facebook"></i>
                                 </div>
-
                             </div>
                             <div class="preview-item-content">
                                 <p class="preview-subject ellipsis mb-1">Facebook Stream</p>
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item"
-                            href="https://www.youtube.com/@universitysdachurchlusaka7628/">
+                        <a class="dropdown-item preview-item" href="https://www.youtube.com/@universitysdachurchlusaka7628/">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon bg-danger text-white rounded-circle">
                                     <i class="fa-brands fa-youtube"></i>
@@ -71,9 +68,8 @@
                                 <p class="preview-subject ellipsis mb-1">Youtube Stream</p>
                             </div>
                         </a>
-
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="#">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon instagram-bg rounded-circle">
                                     <i class="fa-brands fa-instagram"></i>
@@ -83,19 +79,20 @@
                                 <p class="preview-subject ellipsis mb-1">Instagram Stream</p>
                             </div>
                         </a>
-
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">Visit Us</p>
                     </div>
                 </li>
+
                 <li class="nav-item nav-settings d-none d-lg-block">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" aria-label="View grid">
                         <i class="mdi mdi-view-grid"></i>
                     </a>
                 </li>
+
                 <li class="nav-item dropdown border-left">
                     <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                        data-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="Messages">
                         <i class="mdi mdi-email"></i>
                         <span class="count bg-success"></span>
                     </a>
@@ -103,7 +100,7 @@
                         aria-labelledby="messageDropdown">
                         <h6 class="p-3 mb-0">Messages</h6>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="#">
                             <div class="preview-thumbnail">
                                 <img src="" alt="image" class="rounded-circle profile-pic">
                             </div>
@@ -112,33 +109,15 @@
                                 <p class="text-muted mb-0">..</p>
                             </div>
                         </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="" alt="image" class="rounded-circle profile-pic">
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">..</p>
-                                <p class="text-muted mb-0">..</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="" alt="image" class="rounded-circle profile-pic">
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">..</p>
-                                <p class="text-muted mb-0">..</p>
-                            </div>
-                        </a>
+                        <!-- Add more messages here -->
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">..</p>
                     </div>
                 </li>
+
                 <li class="nav-item dropdown border-left">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                        data-toggle="dropdown">
+                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
                         <i class="mdi mdi-bell"></i>
                         <span class="count bg-danger"></span>
                     </a>
@@ -146,7 +125,7 @@
                         aria-labelledby="notificationDropdown">
                         <h6 class="p-3 mb-0">Notifications</h6>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="#">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon bg-dark rounded-circle">
                                     <i class="mdi mdi-calendar text-success"></i>
@@ -157,41 +136,47 @@
                                 <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
                             </div>
                         </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-settings text-danger"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Settings</p>
-                                <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-link-variant text-warning"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Launch Admin</p>
-                                <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                            </div>
-                        </a>
+                        <!-- Add more notifications here -->
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-                <li class="nav-item" style="margin-top: 190px;">
-                    <x-app-layout class="bg-white">
-                        <x-notify::notify /> <!-- Position in mobile view -->
-                    </x-app-layout>
+
+                <!-- Profile dropdown -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User menu">
+                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                            <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="rounded-circle" style="width:32px; height:32px; object-fit:cover;">
+                        @else
+                            <span>{{ Auth::user()->name }}</span>
+                        @endif
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="min-width: 180px;">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('profile.show') }}">
+                                Profile
+                            </a>
+                        </li>
+                        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <li>
+                            <a class="dropdown-item" href="{{ route('api-tokens.index') }}">
+                                API Tokens
+                            </a>
+                        </li>
+                        @endif
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Log Out</button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
+            </ul>
         </div>
     </nav>
+
     <script>
         // Get references to the image and toggler button
         const logoImg = document.getElementById('logo-img');
@@ -203,3 +188,4 @@
             logoImg.classList.toggle('hidden-logo');
         });
     </script>
+</div>

@@ -15,7 +15,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ 
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -38,7 +38,7 @@
 
         <!-- Right side: Livewire Navigation Menu -->
         <div class="flex items-center justify-end">
-            @include('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
+            @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
         </div>
     </div>
 </header>
@@ -52,5 +52,5 @@
 
     @livewireScripts
 </body>
-
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </html>
