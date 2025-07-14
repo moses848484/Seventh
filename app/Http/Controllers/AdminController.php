@@ -600,3 +600,5 @@ class AdminController extends Controller
         return $pdf->download('scorecard.pdf');
     }
 }
+notify()->success('Profile updated successfully');
+        return redirect()->back()->with('message', 'User Updated Successfully');
