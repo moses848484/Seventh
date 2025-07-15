@@ -5,7 +5,7 @@
     "src": "resources/js/app.js",
     "isEntry": true
   },
-  "resources/sass/app.scss": {
+  "resources/css/app.css": {
     "file": "assets/app-DrKqg2nF.css",
     "src": "resources/sass/app.css",
     "isEntry": true
