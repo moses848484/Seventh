@@ -58,7 +58,7 @@
          <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
          <!-- custom js -->
          <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
-         <x-notify::notify />
+         
          @notifyJs
       </div>
    </div>
