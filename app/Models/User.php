@@ -70,7 +70,7 @@ class User extends Authenticatable
     public function getProfilePhotoUrlAttribute()
     {
         return $this->profile_photo_path
-            ? secure_asset('storage/' . $this->profile_photo_path)
+            ? secure_asset($this->profile_photo_path)
             : secure_asset('storage/profile-photos/user.jpg'); // fallback default image
     }
 }
