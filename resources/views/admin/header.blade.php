@@ -202,6 +202,3 @@
             logoImg.classList.toggle('hidden-logo');
         });
     </script>
-    <x-notify::notify />
-    @notifyJs
-    @notifyCss
