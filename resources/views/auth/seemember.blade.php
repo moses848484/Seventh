@@ -8,7 +8,7 @@
     
     <!-- Use secure_asset to ensure HTTPS -->
     <link rel="stylesheet" href="{{ secure_asset('css/viewmember.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ secure_asset('css/all.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ secure_asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css" />
 
     <title>View Church Members</title>
 
