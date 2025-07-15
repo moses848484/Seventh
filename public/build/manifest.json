@@ -7,7 +7,7 @@
   },
   "resources/css/app.css": {
     "file": "assets/app-DrKqg2nF.css",
-    "src": "resources/sass/app.css",
+    "src": "resources/css/app.css",
     "isEntry": true
   }
 }
