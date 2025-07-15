@@ -71,6 +71,7 @@ class User extends Authenticatable
     {
         return $this->profile_photo_path
             ? asset($this->profile_photo_path)
-            : 'http://127.0.0.1:8000/storage/profile-photos/user.jpg'; // Fallback URL if no profile photo
+            : asset('storage/profile-photos/user.jpg');
     }
+
 }
