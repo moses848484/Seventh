@@ -46,20 +46,18 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     protected function updateProfilePhoto(User $user, $photo): void
     {
-        // Optionally delete the old photo
         if ($user->profile_photo_path) {
-            // Remove the old file from storage
             \Storage::disk('public')->delete($user->profile_photo_path);
         }
 
-        // Store the new photo
         $path = $photo->store('profile-photos', 'public');
 
-        // Update the user's profile photo path with the public URL
+        // Save the relative path, NOT the URL
         $user->forceFill([
-            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+            'profile_photo_path' => $path,
         ])->save();
     }
+
 
     /**
      * Update the given verified user's profile information.
