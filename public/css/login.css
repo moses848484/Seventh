@@ -26,7 +26,9 @@ form {
     border-radius: 6px;
     border-left: 8px solid #2c6448;
     box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 
 /* Input focus */
@@ -258,16 +260,16 @@ input:-webkit-autofill:active {
 }
 
 
-    .placeholder,
-    .placeholder_1 {
-        font-size: 12px;
-    }
+.placeholder,
+.placeholder_1 {
+    font-size: 12px;
+}
 
-    .login_word_on_form {
-        font-size: 16px;
-    }
+.login_word_on_form {
+    font-size: 16px;
+}
 
-    p.change_link,
-    .member {
-        font-size: 12px;
-    }
+p.change_link,
+.member {
+    font-size: 12px;
+}
