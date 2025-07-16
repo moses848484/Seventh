@@ -21,10 +21,9 @@
 
 <!-- Bootstrap CSS from public/vendor -->
 <link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}">
 <!-- Shortcut icon -->
 <link rel="shortcut icon" href="{{ secure_asset('admin/assets/images/sda3.png') }}" />
 
 <!-- Custom JavaScript -->
 <script src="{{ secure_asset('images/script.js') }}"></script>
-
+<script src="{{ secure_asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
