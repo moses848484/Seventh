@@ -47,7 +47,7 @@ form {
     border-radius: 2px;
     cursor: pointer;
     border: none;
-    font-size: 14px;
+    font-size: 13px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -62,14 +62,14 @@ form {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .submitbtn {
-        font-size: 15px !important;
+        font-size: 13px !important;
         padding: 10px !important;
     }
 }
 
 @media (max-width: 576px) {
     .submitbtn {
-        font-size: 15px !important;
+        font-size: 13px !important;
         padding: 10px !important;
     }
 }
@@ -179,7 +179,7 @@ form {
     border-radius: 2px;
     cursor: pointer;
     border: none;
-    font-size: 14px;
+    font-size: 13px;
     /* Adjusted font size for better readability */
     width: 100%;
     padding: 10px;
@@ -238,7 +238,7 @@ input:-webkit-autofill:active {
 
     .submitbtn,
     .signupbtn {
-        font-size: 14px;
+        font-size: 13px;
         padding: 8px 16px;
     }
 }
@@ -271,4 +271,3 @@ input:-webkit-autofill:active {
     .member {
         font-size: 12px;
     }
-}
