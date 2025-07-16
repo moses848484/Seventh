@@ -25,7 +25,7 @@
                                         <button type="button"
                                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                             {{ Auth::user()->currentTeam->name }}
-                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="https://www.w3.org/2000/svg"
                                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                 stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -79,7 +79,7 @@
                                         <button type="button"
                                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                             {{ Auth::user()->name }}
-                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="https://www.w3.org/2000/svg"
                                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                 stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -138,7 +138,7 @@
                         <div class="text-sm text-gray-500">{{ Auth::user()->email }}</div>
                     </div>
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
+                        xmlns="https://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </div>
