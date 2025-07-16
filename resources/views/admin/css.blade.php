@@ -26,4 +26,3 @@
 
 <!-- Custom JavaScript -->
 <script src="{{ secure_asset('images/script.js') }}"></script>
-<script src="{{ secure_asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
