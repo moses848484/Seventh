@@ -65,10 +65,17 @@ class User extends Authenticatable
 
     public function getProfilePhotoUrlAttribute()
     {
-        if ($this->profile_photo_path && \Storage::disk('public')->exists($this->profile_photo_path)) {
-            return secure_asset('storage/' . $this->profile_photo_path);
+        if ($this->profile_photo_path) {
+            // Remove leading '/storage/' to check file existence on 'public' disk
+            $relativePath = ltrim($this->profile_photo_path, '/storage/');
+
+            if (\Storage::disk('public')->exists($relativePath)) {
+                // The profile_photo_path already includes '/storage/', so just return full URL
+                return secure_asset($this->profile_photo_path);
+            }
         }
 
-        return secure_asset('storage/profile-photos/user.jpg');
+        return secure_asset('/storage/profile-photos/user.jpg');
     }
+
 }
