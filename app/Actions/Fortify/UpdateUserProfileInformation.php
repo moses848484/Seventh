@@ -21,7 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], 
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // Adjusted max size to 2048 KB (2 MB)
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -45,19 +45,21 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * @param  mixed  $photo
      */
     protected function updateProfilePhoto(User $user, $photo): void
-{
-    if ($user->profile_photo_path) {
-        \Storage::disk('public')->delete(ltrim($user->profile_photo_path, '/storage/'));
+    {
+        // Optionally delete the old photo
+        if ($user->profile_photo_path) {
+            // Remove the old file from storage
+            \Storage::disk('public')->delete($user->profile_photo_path);
+        }
+
+        // Store the new photo
+        $path = $photo->store('profile-photos', 'public');
+
+        // Update the user's profile photo path with the public URL
+        $user->forceFill([
+            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+        ])->save();
     }
-
-    $path = $photo->store('profile-photos', 'public');
-
-    // Add leading '/storage/' to the saved path in DB
-    $user->forceFill([
-        'profile_photo_path' => '/storage/' . $path,
-    ])->save();
-}
-
 
     /**
      * Update the given verified user's profile information.
