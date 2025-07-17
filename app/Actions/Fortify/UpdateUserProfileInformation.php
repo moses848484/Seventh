@@ -45,18 +45,18 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * @param  mixed  $photo
      */
     protected function updateProfilePhoto(User $user, $photo): void
-    {
-        if ($user->profile_photo_path) {
-            \Storage::disk('public')->delete($user->profile_photo_path);
-        }
-
-        $path = $photo->store('profile-photos', 'public');
-
-        // Save the relative path, NOT the URL
-        $user->forceFill([
-            'profile_photo_path' => $path,
-        ])->save();
+{
+    if ($user->profile_photo_path) {
+        \Storage::disk('public')->delete(ltrim($user->profile_photo_path, '/storage/'));
     }
+
+    $path = $photo->store('profile-photos', 'public');
+
+    // Add leading '/storage/' to the saved path in DB
+    $user->forceFill([
+        'profile_photo_path' => '/storage/' . $path,
+    ])->save();
+}
 
 
     /**
