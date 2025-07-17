@@ -14,7 +14,7 @@
     "laravel/sanctum": "^4.0",
     "laravel/tinker": "^2.9",
     "laravel/ui": "^4.5",
-    "livewire/livewire": "*",
+    "livewire/livewire": "^3.6",
     "mckenziearts/laravel-notify": "^2.5",
     "stripe/stripe-php": "^15.3"
   },
