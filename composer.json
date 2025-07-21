@@ -41,14 +41,19 @@
   "scripts": {
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-      "@php artisan package:discover --ansi",
-      "@php artisan storage:link",
-      "@php -r \"if (!is_dir('storage/app/public/profile-photos')) mkdir('storage/app/public/profile-photos', 0777, true);\""
+      "@php artisan package:discover --ansi"
+    ],
+    "post-install-cmd": [
+      "@php -r \"if (!file_exists('.env') && file_exists('.env.example')) copy('.env.example', '.env');\"",
+      "@create-directories",
+      "@set-permissions",
+      "@php artisan storage:link --quiet || true"
     ],
     "post-update-cmd": [
       "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-      "@php artisan storage:link",
-      "@php -r \"if (!is_dir('storage/app/public/profile-photos')) mkdir('storage/app/public/profile-photos', 0777, true);\""
+      "@create-directories", 
+      "@set-permissions",
+      "@php artisan storage:link --quiet || true"
     ],
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -56,9 +61,32 @@
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi",
       "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-      "@php artisan migrate --graceful --ansi",
-      "@php artisan storage:link",
-      "@php -r \"if (!is_dir('storage/app/public/profile-photos')) mkdir('storage/app/public/profile-photos', 0777, true);\""
+      "@create-directories",
+      "@set-permissions",
+      "@php artisan storage:link --quiet || true",
+      "@php artisan migrate --graceful --ansi"
+    ],
+    "create-directories": [
+      "@php -r \"!is_dir('storage/logs') && mkdir('storage/logs', 0755, true);\"",
+      "@php -r \"!is_dir('storage/framework/cache') && mkdir('storage/framework/cache', 0755, true);\"",
+      "@php -r \"!is_dir('storage/framework/sessions') && mkdir('storage/framework/sessions', 0755, true);\"",
+      "@php -r \"!is_dir('storage/framework/views') && mkdir('storage/framework/views', 0755, true);\"",
+      "@php -r \"!is_dir('storage/app/public') && mkdir('storage/app/public', 0755, true);\"",
+      "@php -r \"!is_dir('storage/app/public/profile-photos') && mkdir('storage/app/public/profile-photos', 0755, true);\"",
+      "@php -r \"!is_dir('bootstrap/cache') && mkdir('bootstrap/cache', 0755, true);\""
+    ],
+    "set-permissions": [
+      "@php -r \"chmod('storage', 0755); chmod('bootstrap/cache', 0755);\"",
+      "@php -r \"is_dir('storage') && array_map(function($item) { chmod($item, 0755); }, glob('storage/*', GLOB_ONLYDIR));\"",
+      "@php -r \"is_dir('storage/framework') && array_map(function($item) { chmod($item, 0755); }, glob('storage/framework/*', GLOB_ONLYDIR));\""
+    ],
+    "railway-deploy": [
+      "@create-directories",
+      "@set-permissions",
+      "@php artisan config:cache",
+      "@php artisan route:cache", 
+      "@php artisan view:cache",
+      "@php artisan storage:link --quiet || true"
     ]
   },
   "extra": {
