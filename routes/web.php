@@ -129,10 +129,9 @@ Route::get('/clear-scorecards', [AdminController::class, 'clearScorecards'])->na
 
 Route::post('/scorecard/details', [AdminController::class, 'detail'])->name('scorecard.storeDetails');
 
-// Removed duplicate route: Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
-// This is already handled by the resource route above
-
-Route::delete('scorecard/{id}', [AdminController::class, 'destroy'])->name('scorecard.destroy');
+// Removed duplicate routes that are already handled by the resource route above:
+// Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
+// Route::delete('scorecard/{id}', [AdminController::class, 'destroy'])->name('scorecard.destroy');
 
 Route::put('/scorecard/update-detail/{id}', [AdminController::class, 'updateDetails'])->name('scorecard.updateDetail');
 
