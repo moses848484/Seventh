@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
@@ -21,7 +22,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // Adjusted max size to 2048 KB (2 MB)
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // 4MB max
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -46,18 +47,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     protected function updateProfilePhoto(User $user, $photo): void
     {
-        // Optionally delete the old photo
+        // Delete old photo if it exists
         if ($user->profile_photo_path) {
-            // Remove the old file from storage
-            \Storage::disk('public')->delete($user->profile_photo_path);
+            Storage::disk('public')->delete($user->profile_photo_path);
         }
 
-        // Store the new photo
+        // Store new photo and get relative path
         $path = $photo->store('profile-photos', 'public');
 
-        // Update the user's profile photo path with the public URL
+        // Save the relative path to DB
         $user->forceFill([
-            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+            'profile_photo_path' => $path,
         ])->save();
     }
 
