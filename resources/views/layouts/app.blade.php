@@ -13,9 +13,9 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -24,34 +24,33 @@
     <x-banner />
 
     <div class="">
-   <!-- Responsive Header with Livewire Navigation Menu -->
-<header class="bg-transparent ">
-    <!-- Navigation Menu and Header Title -->
-    <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        
-        <!-- Left side: Page Heading (if any) -->
-        @if (isset($header))
-            <div>
-                {{ $header }}
-            </div>
-        @endif
+        <!-- Responsive Header with Livewire Navigation Menu -->
+        <header class="bg-transparent ">
+            <!-- Navigation Menu and Header Title -->
+            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
-        <!-- Right side: Livewire Navigation Menu -->
-        <div class="flex items-center justify-end">
-            @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
-        </div>
-    </div>
-</header>
+                <!-- Left side: Page Heading (if any) -->
+                @if (isset($header))
+                    <div>
+                        {{ $header }}
+                    </div>
+                @endif
+
+                <!-- Right side: Livewire Navigation Menu -->
+                <div class="flex items-center justify-end">
+                    @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
+                </div>
+            </div>
+        </header>
         <!-- Page Content -->
         <main>
-            {{ $slot }}    
+            {{ $slot }}
         </main>
     </div>
 
     @stack('modals')
 
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
