@@ -15,7 +15,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * Validate and update the given user's profile information.
      *
      * @param  User  $user
-     * @param  array  $input
+     * @param  array<string, mixed>  $input
      */
     public function update(User $user, array $input): void
     {
@@ -49,20 +49,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         // Delete the old photo if it exists
         if ($user->profile_photo_path) {
-            // Extract the filename from the stored path
+            // Extract the path from the URL
             $oldPath = str_replace('/storage/', '', $user->profile_photo_path);
             if (Storage::disk('public')->exists($oldPath)) {
                 Storage::disk('public')->delete($oldPath);
             }
         }
 
-        // Generate a unique filename to prevent conflicts
-        $filename = time() . '_' . $user->id . '.' . $photo->getClientOriginalExtension();
-        
-        // Store the new photo in the specific directory
-        $path = $photo->storeAs('profile-photos', $filename, 'public');
+        // Store the new photo
+        $path = $photo->store('profile-photos', 'public');
 
-        // Update the user's profile photo path with the storage URL
+        // Update the user's profile photo path with the route URL
         $user->forceFill([
             'profile_photo_path' => '/storage/' . $path,
         ])->save();
@@ -72,7 +69,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * Update the given verified user's profile information.
      *
      * @param  User  $user
-     * @param  array  $input
+     * @param  array<string, string>  $input
      */
     protected function updateVerifiedUser(User $user, array $input): void
     {
