@@ -63,11 +63,11 @@ class User extends Authenticatable
         ];
     }
 
- public function getProfilePhotoUrlAttribute()
+    public function getProfilePhotoUrlAttribute()
     {
         return $this->profile_photo_path
-            ? asset($this->profile_photo_path)
-            : 'https://seventh-production.up.railway.app/profile-photos/user.jpg'; // Fallback URL if no profile photo
+            ? Storage::url($this->profile_photo_path)
+            : 'https://seventh-production.up.railway.app/storage/profile-photos/user.jpg';
     }
 
 }
