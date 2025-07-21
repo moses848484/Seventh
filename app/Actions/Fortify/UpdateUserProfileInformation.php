@@ -22,7 +22,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:4096'], // Use 'image' rule
+            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:4096'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -47,9 +47,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     protected function updateProfilePhoto(User $user, $photo): void
     {
-        // Optionally delete the old photo
+        // Delete the old photo if it exists
         if ($user->profile_photo_path) {
-            // Extract the relative path from the full URL if needed
+            // Extract the path from the URL
             $oldPath = str_replace('/storage/', '', $user->profile_photo_path);
             if (Storage::disk('public')->exists($oldPath)) {
                 Storage::disk('public')->delete($oldPath);
@@ -59,9 +59,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         // Store the new photo
         $path = $photo->store('profile-photos', 'public');
 
-        // Update the user's profile photo path - store relative path, not full URL
+        // Update the user's profile photo path with the route URL
         $user->forceFill([
-            'profile_photo_path' => $path, // Store just the path, not the full URL
+            'profile_photo_path' => '/storage/' . $path,
         ])->save();
     }
 

@@ -8,8 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth;
 use App\Http\Controllers\ScorecardController;
 use App\Http\Controllers\MusicController;
-
 use App\Http\Controllers\ScoreController;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\File;
 
 // Home page route
 Route::get('/', [HomeController::class, 'index']);
@@ -129,10 +130,6 @@ Route::get('/clear-scorecards', [AdminController::class, 'clearScorecards'])->na
 
 Route::post('/scorecard/details', [AdminController::class, 'detail'])->name('scorecard.storeDetails');
 
-// Removed duplicate routes that are already handled by the resource route above:
-// Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
-// Route::delete('scorecard/{id}', [AdminController::class, 'destroy'])->name('scorecard.destroy');
-
 Route::put('/scorecard/update-detail/{id}', [AdminController::class, 'updateDetails'])->name('scorecard.updateDetail');
 
 Route::resource('strategic_plan', ScoreController::class)->except(['show']);
@@ -147,10 +144,29 @@ Route::get('/clear-scorecard', [ScoreController::class, 'clearScorecard'])->name
 
 Route::post('/strategic_plan/details', [ScoreController::class, 'detail'])->name('strategic_plan.storeDetails');
 
-// Removed duplicate routes that are already handled by the strategic_plan resource route above:
-// Route::get('strategic_plan/{id}/edit', [ScoreController::class, 'edit'])->name('strategic_plan.edit');
-// Route::delete('strategic_plan/{id}', [ScoreController::class, 'destroy'])->name('strategic_plan.destroy');
-
 Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updateDetails'])->name('strategic_plan.updateDetail');
 
 Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
+
+// Storage file serving route - Add this to fix profile photo 404 errors
+Route::get('/storage/{path}', function ($path) {
+    // Build the full file path
+    $filePath = storage_path('app/public/' . $path);
+    
+    // Check if file exists
+    if (!File::exists($filePath)) {
+        abort(404);
+    }
+    
+    // Get file contents and mime type
+    $file = File::get($filePath);
+    $type = File::mimeType($filePath);
+    
+    // Return the file with proper headers
+    return Response::make($file, 200, [
+        'Content-Type' => $type,
+        'Content-Length' => File::size($filePath),
+        'Cache-Control' => 'public, max-age=31536000', // Cache for 1 year
+        'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + 31536000),
+    ]);
+})->where('path', '.*')->name('storage.file');
