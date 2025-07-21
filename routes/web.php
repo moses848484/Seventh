@@ -57,11 +57,11 @@ Route::get('/first_quoter', [AdminController::class, 'first_quoter']);
 
 Route::get('/update_schedule', [AdminController::class, 'update_schedule']);
 
-Route::get('/view_schedule/{id}', [adminController::class, 'view_schedule'])->name('view_schedule');
+Route::get('/view_schedule/{id}', [AdminController::class, 'view_schedule'])->name('view_schedule');
 
-Route::get('/view_event/{id}', [adminController::class, 'view_event'])->name('view_event');
+Route::get('/view_event/{id}', [AdminController::class, 'view_event'])->name('view_event');
 
-Route::get('/show_schedule}', [AdminController::class, 'view_schedule']);
+Route::get('/show_schedule', [AdminController::class, 'view_schedule']);
 
 Route::post('/add_schedule', [AdminController::class, 'add_schedule']);
 
@@ -129,7 +129,8 @@ Route::get('/clear-scorecards', [AdminController::class, 'clearScorecards'])->na
 
 Route::post('/scorecard/details', [AdminController::class, 'detail'])->name('scorecard.storeDetails');
 
-Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
+// Removed duplicate route: Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
+// This is already handled by the resource route above
 
 Route::delete('scorecard/{id}', [AdminController::class, 'destroy'])->name('scorecard.destroy');
 
@@ -154,10 +155,3 @@ Route::delete('strategic_plan/{id}', [ScoreController::class, 'destroy'])->name(
 Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updateDetails'])->name('strategic_plan.updateDetail');
 
 Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
-
-
-
-
-
-
-
