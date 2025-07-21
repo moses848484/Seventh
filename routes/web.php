@@ -147,9 +147,9 @@ Route::get('/clear-scorecard', [ScoreController::class, 'clearScorecard'])->name
 
 Route::post('/strategic_plan/details', [ScoreController::class, 'detail'])->name('strategic_plan.storeDetails');
 
-Route::get('strategic_plan/{id}/edit', [ScoreController::class, 'edit'])->name('strategic_plan.edit');
-
-Route::delete('strategic_plan/{id}', [ScoreController::class, 'destroy'])->name('strategic_plan.destroy');
+// Removed duplicate routes that are already handled by the strategic_plan resource route above:
+// Route::get('strategic_plan/{id}/edit', [ScoreController::class, 'edit'])->name('strategic_plan.edit');
+// Route::delete('strategic_plan/{id}', [ScoreController::class, 'destroy'])->name('strategic_plan.destroy');
 
 Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updateDetails'])->name('strategic_plan.updateDetail');
 
