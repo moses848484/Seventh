@@ -373,7 +373,6 @@
         </div>
     </div>
 </nav>
-<!-- Alpine.js for dropdown functionality -->
-<script src="//unpkg.com/alpinejs" defer></script>
-<script src="{{ asset('vendor/livewire/livewire.js') }}" data-turbo-eval="false"></script>
+
+ <script src="{{ asset('vendor/livewire/dist/livewire.js') }}" data-turbo-eval="false"></script>
 
