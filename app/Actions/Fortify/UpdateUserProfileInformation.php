@@ -4,7 +4,6 @@ namespace App\Actions\Fortify;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -15,14 +14,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * Validate and update the given user's profile information.
      *
      * @param  User  $user
-     * @param  array  $input
+     * @param  array<string, mixed>  $input
      */
     public function update(User $user, array $input): void
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:4096'],
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // Adjusted max size to 2048 KB (2 MB)
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -47,24 +46,18 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     protected function updateProfilePhoto(User $user, $photo): void
     {
-        // Delete the old photo if it exists
+        // Optionally delete the old photo
         if ($user->profile_photo_path) {
-            // Extract the path from the URL (handle both relative and absolute URLs)
-            $oldPath = str_replace(['/storage/', config('app.url') . '/storage/'], '', $user->profile_photo_path);
-            if (Storage::disk('public')->exists($oldPath)) {
-                Storage::disk('public')->delete($oldPath);
-            }
+            // Remove the old file from storage
+            \Storage::disk('public')->delete($user->profile_photo_path);
         }
 
-        // Generate a unique filename to prevent conflicts
-        $filename = time() . '_' . $user->id . '.' . $photo->getClientOriginalExtension();
-        
-        // Store the new photo in the profile-photos directory
-        $path = $photo->storeAs('profile-photos', $filename, 'public');
+        // Store the new photo
+        $path = $photo->store('profile-photos', 'public');
 
-        // Update the user's profile photo path with relative URL (recommended)
+        // Update the user's profile photo path with the public URL
         $user->forceFill([
-            'profile_photo_path' => '/storage/' . $path,
+            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
         ])->save();
     }
 
@@ -72,7 +65,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * Update the given verified user's profile information.
      *
      * @param  User  $user
-     * @param  array  $input
+     * @param  array<string, string>  $input
      */
     protected function updateVerifiedUser(User $user, array $input): void
     {
