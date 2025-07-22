@@ -51,7 +51,8 @@
     @stack('modals')
 
     @livewireScripts
-    <script src="{{ asset('vendor/livewire/dist/livewire.js') }}"></script>
+    <script src="{{ asset('vendor/livewire/livewire.js') }}"></script>
+
 
 
 
