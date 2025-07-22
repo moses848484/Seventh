@@ -8,9 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth;
 use App\Http\Controllers\ScorecardController;
 use App\Http\Controllers\MusicController;
+
 use App\Http\Controllers\ScoreController;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\File;
 
 // Home page route
 Route::get('/', [HomeController::class, 'index']);
@@ -21,11 +20,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    // Removed Livewire::routes() here since your Livewire version does not support it.
-
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
 });
 
 // Redirect route
@@ -59,11 +57,11 @@ Route::get('/first_quoter', [AdminController::class, 'first_quoter']);
 
 Route::get('/update_schedule', [AdminController::class, 'update_schedule']);
 
-Route::get('/view_schedule/{id}', [AdminController::class, 'view_schedule'])->name('view_schedule');
+Route::get('/view_schedule/{id}', [adminController::class, 'view_schedule'])->name('view_schedule');
 
-Route::get('/view_event/{id}', [AdminController::class, 'view_event'])->name('view_event');
+Route::get('/view_event/{id}', [adminController::class, 'view_event'])->name('view_event');
 
-Route::get('/show_schedule', [AdminController::class, 'view_schedule']);
+Route::get('/show_schedule}', [AdminController::class, 'view_schedule']);
 
 Route::post('/add_schedule', [AdminController::class, 'add_schedule']);
 
@@ -131,6 +129,10 @@ Route::get('/clear-scorecards', [AdminController::class, 'clearScorecards'])->na
 
 Route::post('/scorecard/details', [AdminController::class, 'detail'])->name('scorecard.storeDetails');
 
+Route::get('scorecard/{id}/edit', [AdminController::class, 'edit'])->name('scorecard.edit');
+
+Route::delete('scorecard/{id}', [AdminController::class, 'destroy'])->name('scorecard.destroy');
+
 Route::put('/scorecard/update-detail/{id}', [AdminController::class, 'updateDetails'])->name('scorecard.updateDetail');
 
 Route::resource('strategic_plan', ScoreController::class)->except(['show']);
@@ -145,7 +147,14 @@ Route::get('/clear-scorecard', [ScoreController::class, 'clearScorecard'])->name
 
 Route::post('/strategic_plan/details', [ScoreController::class, 'detail'])->name('strategic_plan.storeDetails');
 
+Route::get('strategic_plan/{id}/edit', [ScoreController::class, 'edit'])->name('strategic_plan.edit');
+
+Route::delete('strategic_plan/{id}', [ScoreController::class, 'destroy'])->name('strategic_plan.destroy');
+
 Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updateDetails'])->name('strategic_plan.updateDetail');
 
 Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
+
+
+
 
