@@ -149,25 +149,3 @@ Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updat
 
 Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
-// Storage file serving route - Add this to fix profile photo 404 errors
-Route::get('/storage/{path}', function ($path) {
-    // Build the full file path
-    $filePath = storage_path('app/public/' . $path);
-    
-    // Check if file exists
-    if (!File::exists($filePath)) {
-        abort(404);
-    }
-    
-    // Get file contents and mime type
-    $file = File::get($filePath);
-    $type = File::mimeType($filePath);
-    
-    // Return the file with proper headers
-    return Response::make($file, 200, [
-        'Content-Type' => $type,
-        'Content-Length' => File::size($filePath),
-        'Cache-Control' => 'public, max-age=31536000', // Cache for 1 year
-        'Expires' => gmdate('D, d M Y H:i:s \G\M\T', time() + 31536000),
-    ]);
-})->where('path', '.*')->name('storage.file');
