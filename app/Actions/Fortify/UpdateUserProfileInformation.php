@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
@@ -21,7 +22,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // Adjusted max size to 2048 KB (2 MB)
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // 4MB max
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -42,22 +43,20 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * Update the user's profile photo.
      *
      * @param  User  $user
-     * @param  mixed  $photo
+     * @param  \Illuminate\Http\UploadedFile  $photo
      */
     protected function updateProfilePhoto(User $user, $photo): void
     {
-        // Optionally delete the old photo
+        // Optionally delete old photo
         if ($user->profile_photo_path) {
-            // Remove the old file from storage
-            \Storage::disk('public')->delete($user->profile_photo_path);
+            Storage::disk('public')->delete($user->profile_photo_path);
         }
 
-        // Store the new photo
-        $path = $photo->store('profile-photos', 'public');
+        // Store the new photo in `storage/app/public/profile-photos`
+        $path = $photo->store('profile-photos', 'public'); // e.g. profile-photos/abc123.jpg
 
-        // Update the user's profile photo path with the public URL
         $user->forceFill([
-            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+            'profile_photo_path' => $path, // Save relative path (not full URL)
         ])->save();
     }
 
