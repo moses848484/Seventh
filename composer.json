@@ -77,7 +77,8 @@
     ],
     "setup-profile-photos": [
       "@php -r \"!is_dir('storage/app/public/profile-photos') && mkdir('storage/app/public/profile-photos', 0755, true);\"",
-      "@php -r \"file_exists('storage/profile-photos/user.jpg') && !file_exists('storage/app/public/profile-photos/user.jpg') && rename('storage/profile-photos/user.jpg', 'storage/app/public/profile-photos/user.jpg');\""
+      "@php -r \"if(file_exists('storage/profile-photos/user.jpg')) { if(!file_exists('storage/app/public/profile-photos/user.jpg')) { copy('storage/profile-photos/user.jpg', 'storage/app/public/profile-photos/user.jpg'); echo 'Moved user.jpg to new location\\n'; } } else { echo 'user.jpg not found in old location\\n'; }\"",
+      "@php -r \"if(!file_exists('storage/app/public/profile-photos/user.jpg')) { file_put_contents('storage/app/public/profile-photos/.gitkeep', ''); echo 'Created .gitkeep file\\n'; }\""
     ],
     "railway-deploy": [
       "@create-directories",
@@ -85,7 +86,8 @@
       "@php artisan config:cache",
       "@php artisan route:cache", 
       "@php artisan view:cache",
-      "@php artisan storage:link --quiet || true"
+      "@php artisan storage:link --quiet || true",
+      "@php artisan setup:profile-photos --quiet || true"
     ]
   },
   "extra": {
