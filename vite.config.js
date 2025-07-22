@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import livewire from 'livewire-vite-plugin'; // ✅ Add this line
 
 export default defineConfig({
     plugins: [
@@ -11,6 +10,5 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        livewire(), // ✅ Add this plugin
     ],
 });
