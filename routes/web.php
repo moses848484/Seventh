@@ -11,20 +11,22 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
-
+use Livewire\Livewire;
 // Home page route
 Route::get('/', [HomeController::class, 'index']);
 
-// Protected routes with middleware
+// Protect Livewire routes and dashboard with auth middleware
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    // Register Livewire routes here to protect uploads from unauthorized access
+    Livewire::routes();
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
 });
 
 // Redirect route
