@@ -16,9 +16,10 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('usertype')->default(0);
             $table->string('phone', 10)->nullable();
-            $table->string('gender')->default('unspecified');
+            $table->string('gender')->nullable();
 
-            $table->string('birthday')->default('unspecified');;
+            $table->date('birthday')->nullable();
+
             $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
