@@ -600,4 +600,3 @@ class AdminController extends Controller
         return $pdf->download('scorecard.pdf');
     }
 }
-

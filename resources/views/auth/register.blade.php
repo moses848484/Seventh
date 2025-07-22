@@ -52,6 +52,33 @@
                         Address</label>
                 </div>
 
+
+                <div class="input-group">
+                    <input id="phone" name="phone" :value="old('phone')" type="number" required autocomplete="phone"
+                        class="input" />
+                    <label for="phone" value="{{ __('Phone') }}" class="placeholder" data-icon="u">Phone</label>
+                </div>
+
+                <div class="input-group">
+                    <select class="gender-select" name="gender" id="gender" required="required" autocomplete="sex">
+                        <option value="Select Gender">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <input id="address" name="address" :value="old('address')" type="text" required
+                        autocomplete="address" class="input" />
+                    <label for="address" value="{{ __('Address') }}" class="placeholder" data-icon="u">Address</label>
+                </div>
+
+                <div class="input-group">
+                    <input id="birthday" type="date" name="birthday" min="1900-01-02" required="required" class="input"
+                        autocomplete="bday">
+                    <label for="birthday" class="placeholders" data-icon="u">Date Of Birth</label>
+                </div>
+
                 <div class="input-group">
                     <input id="password" name="password" required autocomplete="new-password" type="password"
                         class="input_1" />

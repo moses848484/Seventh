@@ -26,6 +26,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'gender',
+        'birthday',
+        'address',
         'password',
     ];
 
@@ -62,7 +66,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
     public function getProfilePhotoUrlAttribute()
     {
         return $this->profile_photo_path
