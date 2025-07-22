@@ -17,16 +17,13 @@ return new class extends Migration {
             $table->string('usertype')->default(0);
             $table->string('phone', 10)->nullable();
             $table->string('gender')->nullable();
-
             $table->date('birthday')->nullable();
-
             $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-
             $table->timestamps();
         });
 
@@ -43,6 +40,9 @@ return new class extends Migration {
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+
+            // Optional: Add foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -51,8 +51,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };
