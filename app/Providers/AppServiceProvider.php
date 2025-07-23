@@ -20,24 +20,10 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot()
-{
-    if (env('APP_ENV') === 'production') {
-        URL::forceScheme('https');
-
-        if (
-            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-            $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
-        ) {
-            Request::setTrustedProxies(
-                [$_SERVER['REMOTE_ADDR']],
-                Request::HEADER_X_FORWARDED_FOR
-                | Request::HEADER_X_FORWARDED_HOST
-                | Request::HEADER_X_FORWARDED_PROTO
-                | Request::HEADER_X_FORWARDED_PORT
-                | Request::HEADER_X_FORWARDED_PREFIX
-            );
+    {
+        if (env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
         }
     }
-}
 
 }
