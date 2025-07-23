@@ -8,7 +8,9 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/login.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css"
+        rel="stylesheet" />
 
     <!----Name of page---->
 
@@ -84,7 +86,8 @@
         </form>
     </div>
     <script src="/images/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-pvN3bI9a/Xt1iZKGrzGH2jUP5bxlZYP3n3fwh0E+vHE=" crossorigin="anonymous"></script>
 
 </body>
 
