@@ -86,8 +86,7 @@
         </form>
     </div>
     <script src="/images/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-pvN3bI9a/Xt1iZKGrzGH2jUP5bxlZYP3n3fwh0E+vHE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </body>
 
