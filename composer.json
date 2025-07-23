@@ -12,6 +12,7 @@
     "barryvdh/laravel-dompdf": "^3.0",
     "djunehor/laravel-bible": "^1.0",
     "dompdf/dompdf": "^3.0",
+    "inertiajs/inertia-laravel": "^2.0",
     "laravel/framework": "^11.9",
     "laravel/jetstream": "^5.1",
     "laravel/sanctum": "^4.0",
