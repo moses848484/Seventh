@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
