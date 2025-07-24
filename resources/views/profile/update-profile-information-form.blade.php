@@ -93,5 +93,3 @@
         </x-button>
     </x-slot>
 </x-form-section>
-<!-- Alpine.js for dropdown functionality -->
-<script src="//unpkg.com/alpinejs" defer></script>
