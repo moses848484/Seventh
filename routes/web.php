@@ -155,6 +155,12 @@ Route::put('/strategic_plan/update-detail/{id}', [ScoreController::class, 'updat
 
 Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
+// web.php
+Route::get('/notifications', function () {
+    return view('notify-layout'); // blade file above
+})->middleware(['auth'])->name('notifications');
+
+
 
 
 

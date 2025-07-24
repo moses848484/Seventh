@@ -21,8 +21,9 @@
         <!-- plugins:js -->
         @include('admin.script')
         <!-- End custom js for this page -->
+        <x-notify::notify />
         @notifyJs
-
+        @notifyCss
 
 </body>
 

@@ -26,9 +26,7 @@ form {
     border-radius: 5px;
     border-left: 8px solid #2c6448;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 
 /* Input focus */
@@ -49,7 +47,7 @@ form {
     border-radius: 2px;
     cursor: pointer;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -64,14 +62,14 @@ form {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .submitbtn {
-        font-size: 13px !important;
+        font-size: 15px !important;
         padding: 10px !important;
     }
 }
 
 @media (max-width: 576px) {
     .submitbtn {
-        font-size: 13px !important;
+        font-size: 15px !important;
         padding: 10px !important;
     }
 }
@@ -181,7 +179,7 @@ form {
     border-radius: 2px;
     cursor: pointer;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
     /* Adjusted font size for better readability */
     width: 100%;
     padding: 10px;
@@ -240,7 +238,7 @@ input:-webkit-autofill:active {
 
     .submitbtn,
     .signupbtn {
-        font-size: 13px;
+        font-size: 14px;
         padding: 8px 16px;
     }
 }
@@ -260,16 +258,17 @@ input:-webkit-autofill:active {
 }
 
 
-.placeholder,
-.placeholder_1 {
-    font-size: 12px;
-}
+    .placeholder,
+    .placeholder_1 {
+        font-size: 12px;
+    }
 
-.login_word_on_form {
-    font-size: 16px;
-}
+    .login_word_on_form {
+        font-size: 16px;
+    }
 
-p.change_link,
-.member {
-    font-size: 12px;
+    p.change_link,
+    .member {
+        font-size: 12px;
+    }
 }

@@ -6,26 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-
-    <!-- Fixed secure stylesheets -->
-    <link rel="stylesheet" href="{{ secure_asset('css/viewmember.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" />
-
-    <!-- Bootstrap bundle (JS not CSS, use script tag instead of link) -->
-    <script src="{{ secure_asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Chart.js from CDN (already uses HTTPS) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Livewire fix -->
-    @livewireStyles
-    @livewireScripts
-
-    <!-- Optional notify.js if needed -->
-    <script src="{{ secure_asset('vendor/mckenziearts/laravel-notify/js/notify.js') }}"></script>
-
-    <!-- Optional custom app scripts -->
-    <script src="{{ secure_asset('js/app.js') }}"></script>
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/viewmember.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css"
+        rel="stylesheet" />
 
     <title>Dashboard</title>
     <style>
