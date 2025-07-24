@@ -51,8 +51,6 @@
     @stack('modals')
 
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@livewire/alpine@v3.x.x/dist/livewire-alpine.min.js" defer></script>
 
 </body>
 
