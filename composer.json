@@ -57,7 +57,7 @@
         "post-install-cmd": [
             "@php artisan storage:link",
             "@php -r \"mkdir('/app/storage/app/public/profile-photos', 0775, true);\"",
-            "@php -r \"if (file_exists('/app/storage/profile-photos/user.jpg')) rename('/app/storage/profile-photos/user.jpg', '/app/storage/app/public/profile-photos/user.jpg');\""
+            "@php -r \"if (file_exists('/app/storage/profile-photos/user.jpg')) copy('/app/storage/profile-photos/user.jpg', '/app/storage/app/public/profile-photos/user.jpg');\""
         ]
     },
     "extra": {
