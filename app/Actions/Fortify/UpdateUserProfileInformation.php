@@ -56,9 +56,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $path = $photo->store('profile-photos', 'public');
 
         // Update the user's profile photo path with the public URL
+        // ✅ Just store the path (not the URL)
         $user->forceFill([
-            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+            'profile_photo_path' => $path,
         ])->save();
+
     }
 
     /**
