@@ -26,10 +26,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phone',
-        'gender',
-        'birthday',
-        'address',
         'password',
     ];
 
@@ -71,6 +67,6 @@ class User extends Authenticatable
     {
         return $this->profile_photo_path
             ? asset($this->profile_photo_path)
-            : 'http://127.0.0.1:8000/storage/profile-photos/user.jpg'; // Fallback URL if no profile photo
+            : 'https://seventh-production.up.railway.app/storage/profile-photos/user.jpg'; // Fallback URL if no profile photo
     }
 }
