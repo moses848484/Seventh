@@ -27,7 +27,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'remember_token',
+        'profile_photo_path',
+        'current_team_id',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+        'two_factor_confirmed_at',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
