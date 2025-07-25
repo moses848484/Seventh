@@ -1,15 +1,8 @@
 <!-- Hamburger Button -->
 <style>
-    /* Show only on mobile landscape */
-    @media (max-width: 576px) and (orientation: landscape) {
-        .mobile-landscape-toggle {
-            display: block !important;
-        }
-    }
-
-    @media (min-width: 768px),
-    (orientation: portrait) {
-        .mobile-landscape-toggle {
+    /* Extra safety: Hide on tablet and desktop sizes */
+    @media (min-width: 768px) {
+        .mobile-only-toggle {
             display: none !important;
         }
     }
@@ -20,8 +13,9 @@
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
 
-                <!-- Hamburger Button (mobile landscape only) -->
-                <div class="mobile-landscape-toggle ms-3 position-relative" style="right: -170px; top: -95px;">
+                <!-- Hamburger Button: visible on all mobile sizes (portrait & landscape), hidden on tablets/desktops -->
+                <div class="mobile-only-toggle ms-3 position-relative d-block d-sm-block"
+                    style="right: -170px; top: -95px;">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
