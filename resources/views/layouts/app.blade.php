@@ -17,7 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Styles -->
-    @livewireStyles
+
 </head>
 
 <body class="font-sans antialiased">
@@ -50,7 +50,7 @@
 
     @stack('modals')
     <script src="//unpkg.com/alpinejs" defer></script>
-    @livewireScripts
+
 
 </body>
 
