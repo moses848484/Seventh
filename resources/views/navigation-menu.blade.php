@@ -4,7 +4,7 @@
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
                 <!-- Hamburger Button -->
-                <div class="ms-3 relative d-block d-sm-none" style="top: -95px;">
+                <div class="ms-3 relative d-block d-sm-none" style="right: -10px; top: -95px;">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
                     @endif
 
                     <!-- Settings Dropdown -->
-                    <div class="ms-3 relative" style="top: -95px;">
+                    <div class="ms-3 relative" style=" right: 20px; top: -95px;">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
