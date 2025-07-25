@@ -7,11 +7,11 @@
     <h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
     <p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
 
-    {{-- Main Profile Update Form --}}
     <form method="POST" action="{{ route('user-profile-information.update') }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
+        {{-- Profile Photo --}}
         <div class="mb-3">
             <label for="photo" class="form-label">Profile Photo</label><br>
             <div class="mb-2">
@@ -24,6 +24,7 @@
             @enderror
         </div>
 
+        {{-- Name --}}
         <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
             <input type="text" name="name" id="name" class="form-control"
@@ -33,6 +34,7 @@
             @enderror
         </div>
 
+        {{-- Email --}}
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
             <input type="email" name="email" id="email" class="form-control"
@@ -41,24 +43,25 @@
                 <div class="text-danger small mt-1">{{ $message }}</div>
             @enderror
         </div>
-        <x-secondary-button type="submit">
-            {{ __('Save Changes') }}
-        </x-secondary-button>
-      
-    </form>
 
-    {{-- Separate Remove Photo Form --}}
-    @if (auth()->user()->profile_photo_path)
-        <form method="POST" action="{{ route('profile-photo.remove') }}" class="mt-3"
-            onsubmit="return confirm('Are you sure you want to remove your profile photo?');">
-            @csrf
-            @method('DELETE')
+        {{-- Action Buttons --}}
+        <div class="d-flex gap-2">
             <x-secondary-button type="submit">
-                {{ __('Remove Photo') }}
+                {{ __('Save Changes') }}
             </x-secondary-button>
-        </form>
-    @endif
 
+            @if (auth()->user()->profile_photo_path)
+                <form method="POST" action="{{ route('profile-photo.remove') }}"
+                    onsubmit="return confirm('Are you sure you want to remove your profile photo?');">
+                    @csrf
+                    @method('DELETE')
+                    <x-secondary-button type="submit">
+                        {{ __('Remove Photo') }}
+                    </x-secondary-button>
+                </form>
+            @endif
+        </div>
+    </form>
 </div>
 
 <script>
