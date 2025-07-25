@@ -41,23 +41,30 @@
                 <div class="text-danger small mt-1">{{ $message }}</div>
             @enderror
         </div>
-        <x-secondary-button type="submit">
-            {{ __('Save Changes') }}
-        </x-secondary-button>
-      
-    </form>
+        <div class="d-flex align-items-center gap-3 mt-3">
+            {{-- Save Changes Button --}}
+            <form method="POST" action="{{ route('user-profile-information.update') }}" enctype="multipart/form-data"
+                class="m-0">
+                @csrf
+                @method('PUT')
+                <x-secondary-button type="submit">
+                    {{ __('Save Changes') }}
+                </x-secondary-button>
+            </form>
 
-    {{-- Separate Remove Photo Form --}}
-    @if (auth()->user()->profile_photo_path)
-        <form method="POST" action="{{ route('profile-photo.remove') }}" class="mt-3"
-            onsubmit="return confirm('Are you sure you want to remove your profile photo?');">
-            @csrf
-            @method('DELETE')
-            <x-secondary-button type="submit">
-                {{ __('Remove Photo') }}
-            </x-secondary-button>
-        </form>
-    @endif
+            {{-- Remove Photo Button --}}
+            @if (auth()->user()->profile_photo_path)
+                <form method="POST" action="{{ route('profile-photo.remove') }}" class="m-0"
+                    onsubmit="return confirm('Are you sure you want to remove your profile photo?');">
+                    @csrf
+                    @method('DELETE')
+                    <x-secondary-button type="submit" class="btn-danger">
+                        {{ __('Remove Photo') }}
+                    </x-secondary-button>
+                </form>
+            @endif
+        </div>
+
 
 </div>
 
