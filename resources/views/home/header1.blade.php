@@ -29,10 +29,12 @@
                     style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
             </a>
 
-            <!-- Toggler button -->
-            <button class="navbar-toggler navbar-toggler align-self-center"  style="max-height: 40px; margin-top: 10px; width: auto; display: block;" type="button" data-toggle="minimize">
-                <span class="mdi mdi-menu"></span>
+            <button class="navbar-toggler custom-toggler d-block d-md-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span></span>
             </button>
+
 
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
@@ -70,7 +72,7 @@
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon rounded-circle" style="background-color: #f39c12;">
-                                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i> 
+                                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
                                 </div>
                             </div>
                             <div class="preview-item-content">
@@ -187,14 +189,13 @@
                 </li>
         </div>
     </nav>
-<script>
-    const logoImg = document.getElementById('logo-img');
-    const logoImgSmall = document.getElementById('logo-img-small');
-    const togglerButton = document.querySelector('.navbar-toggler');
+    <script>
+        const logoImg = document.getElementById('logo-img');
+        const logoImgSmall = document.getElementById('logo-img-small');
+        const togglerButton = document.querySelector('.navbar-toggler');
 
-    togglerButton.addEventListener('click', function () {
-        logoImg.classList.toggle('hidden-logo');
-        logoImgSmall.classList.toggle('hidden-logo');
-    });
-</script>
-
+        togglerButton.addEventListener('click', function () {
+            logoImg.classList.toggle('hidden-logo');
+            logoImgSmall.classList.toggle('hidden-logo');
+        });
+    </script>
