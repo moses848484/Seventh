@@ -30,7 +30,7 @@
             </a>
 
             <!-- Toggler button -->
-            <button class="navbar-toggler navbar-toggler align-self-right" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-right"  style="max-height: 40px; margin-top: 10px; width: auto; display: block;" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
 
