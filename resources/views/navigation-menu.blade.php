@@ -1,16 +1,16 @@
 <!-- Hamburger Button -->
 <style>
     /* Show only on mobile landscape */
-    @media (min-width: 576px) and (orientation: landscape) {
+    @media (max-width: 576px) and (orientation: landscape) {
         .mobile-landscape-toggle {
             display: block !important;
         }
     }
 
-    @media (min-width: 768px),
+    @media (max-width: 768px),
     (orientation: portrait) {
         .mobile-landscape-toggle {
-            display: none !important;
+            display: block !important;
         }
     }
 </style>
