@@ -2,47 +2,36 @@
     @csrf
     @method('PUT')
 
-    <div class="mb-4">
-        <label for="photo" class="block text-sm font-medium text-gray-700">Profile Photo</label>
+    <h4 class="mb-3">Update Profile Information</h4>
 
-        @if ($user->profile_photo_path)
-            <div class="mt-2">
-                <img src="{{ $user->profile_photo_url }}" alt="Current photo" class="rounded-full h-20 w-20 object-cover">
+    <div class="mb-3">
+        <label for="photo" class="form-label">Profile Photo</label>
+        @if (Auth::user()->profile_photo_path)
+            <div class="mb-2">
+                <img src="{{ Auth::user()->profile_photo_url }}" alt="Current photo" class="rounded-circle" style="height: 80px; width: 80px;">
             </div>
         @endif
-
-        <input type="file" name="photo" id="photo" class="mt-2 block w-full text-sm text-gray-500
-            file:me-4 file:py-2 file:px-4
-            file:rounded-full file:border-0
-            file:text-sm file:font-semibold
-            file:bg-indigo-50 file:text-indigo-700
-            hover:file:bg-indigo-100
-        ">
-
+        <input type="file" name="photo" id="photo" class="form-control">
         @error('photo')
-            <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+            <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
 
-    <div class="mb-4">
-        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-        <input type="text" name="name" id="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" value="{{ old('name', $user->name) }}" required>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name" class="form-control" value="{{ old('name', Auth::user()->name) }}" required>
         @error('name')
-            <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+            <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
 
-    <div class="mb-4">
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" name="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" value="{{ old('email', $user->email) }}" required>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control" value="{{ old('email', Auth::user()->email) }}" required>
         @error('email')
-            <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+            <div class="text-danger">{{ $message }}</div>
         @enderror
     </div>
 
-    <div class="flex items-center gap-4">
-        <button type="submit" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
-            Save
-        </button>
-    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>

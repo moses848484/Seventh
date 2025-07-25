@@ -1,51 +1,27 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-1"> <!-- Adjust margin-bottom -->
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Profile') }}
             </h2>
-            <!-- Adjust the margin-left here for more space -->
-            <div class="nav-item active ml-3 mt-400"> <!-- Added margin-top -->
-                <a class="nav-link text-blue-500 hover:text-blue-700" href="/redirect">Go To Dashboard</a>
-            </div>
+            <a class="btn btn-outline-primary" href="/redirect">Go To Dashboard</a>
         </div>
     </x-slot>
-    
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
 
-                <x-section-border />
-            @endif
+    <div class="container py-5">
+        @include('profile.update-profile-information-form')
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
-                </div>
+        <x-section-border />
 
-                <x-section-border />
-            @endif
+        @include('profile.update-password-form')
 
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
+        <x-section-border />
 
-                <x-section-border />
-            @endif
+        @include('profile.logout-other-browser-sessions-form')
 
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            @endif
-        </div>
+        @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
+            <x-section-border />
+            @include('profile.delete-user-form')
+        @endif
     </div>
 </x-app-layout>
