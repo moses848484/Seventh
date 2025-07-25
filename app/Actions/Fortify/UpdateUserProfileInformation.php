@@ -1,40 +1,80 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Actions\Fortify;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
-use Illuminate\Routing\Controller as BaseController; // Import the base Controller
 
-/**
- * @mixin \Illuminate\Routing\MiddlewareChecks // Add this line
- */
-class UpdateUserProfileInformationController extends BaseController // Extend BaseController
+class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
-    public function __construct()
+    /**
+     * Validate and update the given user's profile information.
+     *
+     * @param  User  $user
+     * @param  array<string, mixed>  $input
+     */
+    public function update(User $user, array $input): void
     {
-        $this->middleware(['auth:sanctum', 'verified']);
+        Validator::make($input, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:4096'], // Adjusted max size to 2048 KB (2 MB)
+        ])->validateWithBag('updateProfileInformation');
+
+        if (isset($input['photo'])) {
+            $this->updateProfilePhoto($user, $input['photo']);
+        }
+
+        if ($input['email'] !== $user->email && $user instanceof MustVerifyEmail) {
+            $this->updateVerifiedUser($user, $input);
+        } else {
+            $user->forceFill([
+                'name' => $input['name'],
+                'email' => $input['email'],
+            ])->save();
+        }
     }
 
-    public function update(Request $request)
+    /**
+     * Update the user's profile photo.
+     *
+     * @param  User  $user
+     * @param  mixed  $photo
+     */
+    protected function updateProfilePhoto(User $user, $photo): void
     {
-        try {
-            $updater = app(UpdatesUserProfileInformation::class);
-
-            $updater->update(
-                $request->user(),
-                $request->all()
-            );
-
-            return redirect()->back()->with([
-                'status' => 'profile-updated',
-                'message' => 'Profile updated successfully!'
-            ]);
-
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors([
-                'error' => 'Failed to update profile: ' . $e->getMessage()
-            ]);
+        // Optionally delete the old photo
+        if ($user->profile_photo_path) {
+            // Remove the old file from storage
+            \Storage::disk('public')->delete($user->profile_photo_path);
         }
+
+        // Store the new photo
+        $path = $photo->store('profile-photos', 'public');
+
+        $user->forceFill([
+            'profile_photo_path' => $path, // ✅ only the relative path like 'profile-photos/xyz.jpg'
+        ])->save();
+
+    }
+
+    /**
+     * Update the given verified user's profile information.
+     *
+     * @param  User  $user
+     * @param  array<string, string>  $input
+     */
+    protected function updateVerifiedUser(User $user, array $input): void
+    {
+        $user->forceFill([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'email_verified_at' => null,
+        ])->save();
+
+        $user->sendEmailVerificationNotification();
     }
 }
