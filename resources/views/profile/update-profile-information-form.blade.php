@@ -41,8 +41,10 @@
                 <div class="text-danger small mt-1">{{ $message }}</div>
             @enderror
         </div>
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <x-secondary-button type="submit">
+            {{ __('Save Changes') }}
+        </x-secondary-button>
+      
     </form>
 
     {{-- Separate Remove Photo Form --}}
