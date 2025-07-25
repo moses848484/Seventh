@@ -14,7 +14,7 @@
             <label for="photo" class="form-label">Profile Photo</label><br>
             <div class="mb-2">
                 <img id="preview" src="{{ auth()->user()->profile_photo_url }}" alt="Current Photo"
-                    class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+                    class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
             </div>
             <input type="file" name="photo" id="photo" class="form-control" onchange="previewImage(event)">
             @error('photo')
