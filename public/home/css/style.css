@@ -362,74 +362,108 @@ a:focus {
   color: #f7444e;
 }
 
-/* Toggler Button Base */
 .custom_nav-container .navbar-toggler {
   transition: all 0.3s;
   outline: none;
-  padding: 0.25rem;
+  padding: 0;
   width: 32px;
   height: 42px;
-  display: none; /* Hidden by default */
-  background: transparent;
-  border: none;
-  z-index: 1051;
-  position: absolute;
-  top: 18px;
-  right: 10px;
 }
 
-/* Toggler Bars */
+
+/* Toggler Span Styles */
 .custom_nav-container .navbar-toggler span {
   display: block;
   background-color: white;
-  height: 2px;
-  width: 25px;
-  position: relative;
+  /* Color of the lines */
+  border-radius: 0;
+  /* Rounded corners for lines */
+  margin: 0;
+  height: 2px !important;
+  /* Space between lines */
   transition: all 0.3s ease;
+  /* Smooth transition for animations */
+  position: relative;
+  /* Position relative for pseudo-elements */
 }
 
-/* Top & Bottom Bars */
 .custom_nav-container .navbar-toggler span::before,
 .custom_nav-container .navbar-toggler span::after {
   content: "";
   position: absolute;
   left: 0;
   background-color: white;
-  height: 2px;
-  width: 25px;
-  transition: all 0.3s ease;
-}
-
-.custom_nav-container .navbar-toggler span::before {
-  top: -8px;
+  top: -10px;
+  border-radius: 0;
+  transition: all 0.3s;
 }
 
 .custom_nav-container .navbar-toggler span::after {
-  top: 8px;
+  top: 10px;
 }
 
-/* Toggler Animation: Active State */
+.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+  transform: rotate(360deg);
+}
+
 .custom_nav-container .navbar-toggler[aria-expanded="true"] span {
   transform: rotate(45deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before {
-  transform: rotate(90deg);
-  top: 0;
-}
-
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
 .custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
   transform: rotate(90deg);
   top: 0;
 }
 
-/* Show toggler on mobile screens only (portrait & landscape) */
+/* Default: Hide the toggler on larger screens */
+.navbar-toggler {
+  display: none;
+  /* Hide by default */
+}
+
+
+/* Show toggler on smaller screens */
 @media (max-width: 767.98px) {
-  .custom_nav-container .navbar-toggler {
+ .custom_nav-container .navbar-toggler {
     display: block;
+  }
+
+  .navbar-toggler span {
+    width: 25px;
+    /* Width of the lines */
+    height: 2px;
+    /* Height of the lines */
+  }
+
+  .navbar-toggler span::before,
+  .navbar-toggler span::after {
+    height: 2px;
+    width: 25px;
   }
 }
 
+/* Media Query for Extra Small Screens */
+@media (max-width: 575.98px) {
+ .custom_nav-container .navbar-toggler {
+    display: block;
+  }
+
+  /* Toggler Icon on Extra Small Screens */
+  .navbar-toggler span {
+    width: 25px;
+    /* Width of the lines */
+    height: 2px;
+    /* Height of the lines */
+    height: auto;
+  }
+
+  .navbar-toggler span::before,
+  .navbar-toggler span::after {
+    height: 2px;
+    width: 25px;
+  }
+}
 
 /* Container for logo and SDA.CHURCH */
 .brand-wrapper {
