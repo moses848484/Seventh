@@ -3,8 +3,8 @@
         <div class="flex justify-between h-16 items-center">
             <!-- Logo -->
             <div class="flex-shrink-0 flex items-center">
-                <a href="/" class="navbar-brand mb-0">
-                     <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
+                <a href="/">
+                    <img src="{{ asset('logo.png') }}" class="h-8 w-auto" alt="Logo">
                 </a>
             </div>
 
