@@ -71,11 +71,18 @@ class User extends Authenticatable
         ];
     }
 
-   public function getProfilePhotoUrlAttribute()
+    public function getProfilePhotoUrlAttribute()
     {
-        return $this->profile_photo_path
-            ? asset('storage/' . $this->profile_photo_path)  // ✅ Prepend correctly
-            : 'https://seventh-production.up.railway.app/storage/profile-photos/user.jpg';
+        $path = $this->profile_photo_path;
+
+        // Check if file exists in public storage
+        if ($path && Storage::disk('public')->exists($path)) {
+            return asset('storage/' . $path);
+        }
+
+        // Fall back to default image
+        return asset('storage/profile-photos/user.jpg');
     }
+
 
 }
