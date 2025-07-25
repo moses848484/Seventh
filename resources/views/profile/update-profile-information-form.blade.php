@@ -12,10 +12,10 @@
 
         <div class="mb-3">
             <label for="photo" class="form-label">Profile Photo</label><br>
-              <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
-                </div>
+            <div class="mb-2">
+                <img id="preview" src="{{ auth()->user()->profile_photo_url }}" alt="Current Photo"
+                    class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+            </div>
             <input type="file" name="photo" id="photo" class="form-control" onchange="previewImage(event)">
             @error('photo')
                 <div class="text-danger small mt-1">{{ $message }}</div>
