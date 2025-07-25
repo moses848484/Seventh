@@ -7,10 +7,10 @@
         }
     }
 
-    @media (max-width: 768px),
+    @media (min-width: 768px),
     (orientation: portrait) {
         .mobile-landscape-toggle {
-            display: block !important;
+            display: none !important;
         }
     }
 </style>
