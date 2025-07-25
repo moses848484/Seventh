@@ -74,8 +74,8 @@ class User extends Authenticatable
     public function getProfilePhotoUrlAttribute()
     {
         return $this->profile_photo_path
-            ? $this->profile_photo_path
-            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
+            ? asset('storage/' . $this->profile_photo_path)  // ✅ Prepend correctly
+            : 'https://seventh-production.up.railway.app/storage/profile-photos/user.jpg';
     }
 
 }
