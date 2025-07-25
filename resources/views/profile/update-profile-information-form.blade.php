@@ -1,5 +1,7 @@
 <div class="container py-5">
-    <div class="mx-auto p-4 p-md-5 bg-white shadow rounded-4" style="max-width: 700px;">
+    <div class="mx-auto bg-white rounded-4 shadow p-4 p-md-5" style="max-width: 700px;">
+        <h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
+        <p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
 
         @if (session('status'))
             <div class="alert alert-success">{{ session('status') }}</div>
@@ -9,37 +11,48 @@
             @csrf
             @method('PUT')
 
-            <div class="mb-4">
-                <label for="photo" class="form-label">Profile Photo</label><br>
-                <div class="mb-2">
-                    <img id="preview" src="{{ auth()->user()->profile_photo_url }}" alt="Current Photo"
-                         class="rounded-circle shadow-sm border" style="width: 80px; height: 80px; object-fit: cover;">
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label for="photo" class="form-label">{{ __('Profile Photo') }}</label><br>
+                    <div class="mb-2">
+                        <img id="preview" src="{{ auth()->user()->profile_photo_url }}" alt="Current Photo"
+                             class="rounded-circle shadow-sm border" style="width: 80px; height: 80px; object-fit: cover;">
+                    </div>
+                    <input type="file" name="photo" id="photo" class="form-control" onchange="previewImage(event)">
+                    @error('photo')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
-                <input type="file" name="photo" id="photo" class="form-control" onchange="previewImage(event)">
-                @error('photo')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                @enderror
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">{{ __('Full Name') }}</label>
+                    <input type="text" name="name" id="name" class="form-control"
+                           value="{{ old('name', auth()->user()->name) }}" required>
+                    @error('name')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="col-12">
+                    <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                    <input type="email" name="email" id="email" class="form-control"
+                           value="{{ old('email', auth()->user()->email) }}" required>
+                    @error('email')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" name="name" id="name" class="form-control"
-                       value="{{ old('name', auth()->user()->name) }}" required>
-                @error('name')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                @enderror
-            </div>
+            <div class="d-flex align-items-center justify-content-between mt-4">
+                @if (session('status'))
+                    <span class="text-success small">{{ __('Saved.') }}</span>
+                @endif
 
-            <div class="mb-4">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" name="email" id="email" class="form-control"
-                       value="{{ old('email', auth()->user()->email) }}" required>
-                @error('email')
-                    <div class="text-danger small mt-1">{{ $message }}</div>
-                @enderror
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Save Changes') }}
+                </button>
             </div>
-
-            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
         </form>
     </div>
 </div>
