@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary; // Make sure this is at the top
+
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
     /**
@@ -44,25 +44,22 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      * @param  User  $user
      * @param  mixed  $photo
      */
+    protected function updateProfilePhoto(User $user, $photo): void
+    {
+        // Optionally delete the old photo
+        if ($user->profile_photo_path) {
+            // Remove the old file from storage
+            \Storage::disk('public')->delete($user->profile_photo_path);
+        }
 
-protected function updateProfilePhoto(User $user, $photo): void
-{
-    // Optionally delete old Cloudinary image (requires storing public_id)
-    // Skipped for simplicity here
+        // Store the new photo
+        $path = $photo->store('profile-photos', 'public');
 
-    // Upload new photo to Cloudinary
-    $uploaded = Cloudinary::upload($photo->getRealPath(), [
-        'folder' => 'profile-photos', // Optional folder name on Cloudinary
-    ]);
-
-    $secureUrl = $uploaded->getSecurePath(); // Get the hosted image URL
-
-    // Store the Cloudinary image URL in the database
-    $user->forceFill([
-        'profile_photo_path' => $secureUrl,
-    ])->save();
-}
-
+        // Update the user's profile photo path with the public URL
+        $user->forceFill([
+            'profile_photo_path' => \Storage::url($path), // Generate the URL for public access
+        ])->save();
+    }
 
     /**
      * Update the given verified user's profile information.
