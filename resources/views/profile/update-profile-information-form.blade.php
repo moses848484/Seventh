@@ -1,5 +1,7 @@
-<h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
-<p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
+<div class="container py-5">
+    <h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
+    <p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
+</div>
 <div class="container py-5">
 
     @if (session('status'))
