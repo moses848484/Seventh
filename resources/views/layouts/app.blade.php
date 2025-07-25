@@ -49,14 +49,9 @@
     </div>
 
     @stack('modals')
-
+    <script src="//unpkg.com/alpinejs" defer></script>
     @livewireScripts
-    <!-- Alpine Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-    @livewire('profile.update-profile-information-form')
 
-    <!-- Alpine Core -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
