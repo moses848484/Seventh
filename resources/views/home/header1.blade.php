@@ -369,9 +369,9 @@
                 </li>
 
                 <!-- Mobile notification area -->
-                <li class="nav-item d-lg-none" style="margin-top: 10px;">
+                <li class="nav-item" style="margin-top: 190px;">
                     <x-app-layout class="bg-white">
-                        <x-notify::notify />
+                        <x-notify::notify /> <!-- Position in mobile view -->
                     </x-app-layout>
                 </li>
             </ul>
