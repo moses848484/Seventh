@@ -4,7 +4,7 @@
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
                 <!-- Hamburger Button -->
-                <div class="ms-3 relative d-block d-sm-none" style="width: auto; top: -95px;">
+                <div class="ms-3 relative d-block d-sm-none" style="width: -60px; display: block; top: -95px;">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
