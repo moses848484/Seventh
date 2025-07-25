@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
+use Illuminate\Routing\Controller as BaseController; // Import the base Controller
 
-class UpdateUserProfileInformationController extends Controller
+/**
+ * @mixin \Illuminate\Routing\MiddlewareChecks // Add this line
+ */
+class UpdateUserProfileInformationController extends BaseController // Extend BaseController
 {
     public function __construct()
     {
@@ -16,7 +20,7 @@ class UpdateUserProfileInformationController extends Controller
     {
         try {
             $updater = app(UpdatesUserProfileInformation::class);
-            
+
             $updater->update(
                 $request->user(),
                 $request->all()
@@ -26,7 +30,7 @@ class UpdateUserProfileInformationController extends Controller
                 'status' => 'profile-updated',
                 'message' => 'Profile updated successfully!'
             ]);
-            
+
         } catch (\Exception $e) {
             return redirect()->back()->withErrors([
                 'error' => 'Failed to update profile: ' . $e->getMessage()
