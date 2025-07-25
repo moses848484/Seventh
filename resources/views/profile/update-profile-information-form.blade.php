@@ -1,11 +1,10 @@
 <div class="container py-5">
 
-    <h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
-    <p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
-
     @if (session('status'))
         <div class="alert alert-success">{{ session('status') }}</div>
     @endif
+    <h2 class="h5 mb-1">{{ __('Update Profile Information') }}</h2>
+    <p class="text-muted mb-4">{{ __('Update your account’s profile information and email address.') }}</p>
 
     <form method="POST" action="{{ route('user-profile-information.update') }}" enctype="multipart/form-data">
         @csrf
