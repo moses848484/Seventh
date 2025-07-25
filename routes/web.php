@@ -31,6 +31,8 @@ Route::middleware([
     // Traditional form route for profile update
     // routes/web.php
     Route::put('/user/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('user-profile-information.update');
+    Route::delete('/user/profile-photo', [App\Http\Controllers\ProfilePhotoController::class, 'destroy'])->name('profile-photo.remove')->middleware(['auth']);
+
 
     // All your existing routes (now properly protected)
     Route::get('/redirect', [HomeController::class, 'redirect']);
