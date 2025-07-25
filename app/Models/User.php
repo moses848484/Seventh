@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Storage; // Add this at the top of your model
+
 
 class User extends Authenticatable
 {
@@ -73,16 +75,22 @@ class User extends Authenticatable
 
     public function getProfilePhotoUrlAttribute()
     {
-        $path = $this->profile_photo_path;
+        try {
+            $path = $this->profile_photo_path;
 
-        // Check if file exists in public storage
-        if ($path && Storage::disk('public')->exists($path)) {
-            return asset('storage/' . $path);
+            // Check if file exists in public storage
+            if ($path && Storage::disk('public')->exists($path)) {
+                return asset('storage/' . $path);
+            }
+        } catch (\Throwable $e) {
+            // Prevent 500 by catching storage issues
+            \Log::error('Error checking profile photo path: ' . $e->getMessage());
         }
 
-        // Fall back to default image
+        // Fallback to default image
         return asset('storage/profile-photos/user.jpg');
     }
+
 
 
 }
