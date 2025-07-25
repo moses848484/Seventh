@@ -4,15 +4,18 @@
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
                 <!-- Hamburger Button -->
-                <div class="ms-3 relative d-block d-sm-none" style="right: -60px; top: -95px;">
+                <!-- Show only on mobile, landscape, and tablet view -->
+                <div class="d-block d-lg-none position-absolute end-0 top-0 mt-2 me-3">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
+                            style="width: 24px; height: 24px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
+
 
                 <!-- Navigation Links -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
