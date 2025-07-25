@@ -425,8 +425,20 @@ a:focus {
 
 /* Show toggler on smaller screens */
 @media (max-width: 767.98px) {
-  .custom_nav-container .navbar-toggler {
+  .navbar-toggler {
     display: block;
+    /* Show on small screens */
+    position: absolute;
+    /* Absolute positioning */
+    right: 10px;
+    transform: translateX(-50%);
+    top: 18px;
+    /* Adjust vertical position */
+    z-index: 1051;
+    width: 32px;
+    height: 2px;
+    padding: 0.25rem 0.5rem;
+
   }
 
   .navbar-toggler span {
@@ -445,8 +457,17 @@ a:focus {
 
 /* Media Query for Extra Small Screens */
 @media (max-width: 575.98px) {
-  .custom_nav-container .navbar-toggler {
-    display: block;
+  .navbar-toggler {
+    width: 25px;
+    /* Set width of the toggler button */
+    height: 2px;
+    /* Set height of the toggler button */
+    right: 10px;
+    /* Align to the right with some spacing */
+    top: 18px;
+    margin-top: 3px;
+    transform: translateX(-50%);
+    height: auto;
   }
 
   /* Toggler Icon on Extra Small Screens */
