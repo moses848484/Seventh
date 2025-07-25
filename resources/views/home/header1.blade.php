@@ -187,14 +187,14 @@
                 </li>
         </div>
     </nav>
-    <script>
-        // Get references to the image and toggler button
-        const logoImg = document.getElementById('logo-img');
-        const togglerButton = document.querySelector('.navbar-toggler');
+<script>
+    const logoImg = document.getElementById('logo-img');
+    const logoImgSmall = document.getElementById('logo-img-small');
+    const togglerButton = document.querySelector('.navbar-toggler');
 
-        // Add a click event listener to the toggler button
-        togglerButton.addEventListener('click', function() {
-            // Toggle the 'hidden-logo' class on the image
-            logoImg.classList.toggle('hidden-logo');
-        });
-    </script>
+    togglerButton.addEventListener('click', function () {
+        logoImg.classList.toggle('hidden-logo');
+        logoImgSmall.classList.toggle('hidden-logo');
+    });
+</script>
+
