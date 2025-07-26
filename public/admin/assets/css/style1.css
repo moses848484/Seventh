@@ -29824,7 +29824,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar-toggler:hover {
-
+  background-color: none;
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
