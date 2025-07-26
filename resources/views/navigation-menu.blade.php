@@ -119,10 +119,10 @@
     <!-- Offcanvas element - Enhanced with better structure -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"
         style="width: 320px;">
-        <div class="offcanvas-header border-bottom">
+        <div class="offcanvas-header border-0">
             <h5 id="offcanvasMenuLabel" class="fw-bold">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
-            <button type="button" class="btn btn-sm btn-outline-light" data-bs-dismiss="offcanvas"
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="offcanvas"
                 aria-label="Close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
