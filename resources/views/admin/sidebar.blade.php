@@ -33,7 +33,8 @@
         border: none !important;
         background: transparent !important;
         font-size: 1.2rem !important;
-        color: #333 !important;
+       border-radius: none !important;
+    
     }
 
     .navbar-toggler:hover {
