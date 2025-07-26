@@ -26,9 +26,7 @@
 
     /* Navbar styling */
     .navbar {
-        background-color: #fff !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-        padding: 0.5rem 1rem !important;
+    
     }
 
     .navbar-toggler {
