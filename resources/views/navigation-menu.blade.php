@@ -123,6 +123,7 @@
             <h5 id="offcanvasMenuLabel" class="fw-bold">Menu</h5>
             <!-- Close button (X) -->
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <i class="fa-solid fa-xmark"></i>
         </div>
 
         <div class="offcanvas-body p-0">
@@ -144,11 +145,6 @@
                             <div class="small text-muted">{{ Auth::user()->email }}</div>
                         </div>
                     </div>
-                    <!-- Additional close button in profile section (optional) -->
-                    <button type="button" class="btn btn-sm btn-outline-secondary ms-2" data-bs-dismiss="offcanvas"
-                        aria-label="Close">
-                        <i class="fa-solid fa-times"></i>
-                    </button>
                 </div>
             </div>
 
