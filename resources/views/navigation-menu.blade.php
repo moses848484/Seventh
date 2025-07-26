@@ -426,6 +426,14 @@ document.addEventListener('DOMContentLoaded', function() {
         offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
             hamburgerButton.style.display = 'block';
         });
+        
+        // Hide hamburger when Profile link is clicked
+        const profileLink = document.querySelector('a[href*="profile.show"]');
+        if (profileLink) {
+            profileLink.addEventListener('click', function() {
+                hamburgerButton.style.display = 'none';
+            });
+        }
     }
 });
 </script>
