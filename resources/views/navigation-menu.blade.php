@@ -64,8 +64,8 @@
                     @endif
 
                     <!-- Settings Dropdown (Desktop only) - Hide on profile page -->
-                    <div class="d-none d-lg-block position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
-                        style="right: 35px; top: 13px; z-index: 1050;">
+                    <div class="d-none d-lg-block position-fixed"
+                        style="right: 35px; top: 13px; z-index: 1050; {{ request()->routeIs('profile.show') ? 'display: none !important;' : '' }}">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
