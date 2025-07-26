@@ -1,252 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Navbar and Sidebar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    .fa-file {
-        color: blueviolet !important;
+    /* Logo styling */
+    .navbar-brand img {
+        max-height: 40px !important;
+        width: auto !important;
+        display: block !important;
+        transition: opacity 0.3s ease !important;
     }
 
-    .fa-book {
-        color: green !important;
+    .navbar-brand img.small {
+        max-height: 35px !important;
+    }
+
+    .hidden-logo {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* Navbar styling */
+    .navbar {
+        background-color: #fff !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+        background: transparent !important;
+        font-size: 1.2rem !important;
+        color: #333 !important;
+    }
+
+    .navbar-toggler:hover {
+        color: #007bff !important;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 250px !important;
+        height: 100vh !important;
+        background-color: #2c3e50 !important;
+        color: white !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+        z-index: 1000 !important;
+    }
+
+    .sidebar.active {
+        transform: translateX(0) !important;
+    }
+
+    .sidebar-brand-wrapper {
+        padding: 1rem !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+    .sidebar-brand img {
+        max-height: 50px !important;
+        width: auto !important;
+    }
+
+    .sidebar-brand.brand-logo-mini img {
+        max-height: 35px !important;
+    }
+
+    /* Content wrapper */
+    .page-body-wrapper {
+        margin-left: 0 !important;
+        transition: margin-left 0.3s ease !important;
+    }
+
+    .page-body-wrapper.sidebar-open {
+        margin-left: 250px !important;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .page-body-wrapper.sidebar-open {
+            margin-left: 0 !important;
+        }
+
+        .sidebar {
+            width: 280px !important;
+        }
+    }
+
+    /* Demo content styling */
+    .demo-content {
+        padding: 2rem !important;
+        min-height: 100vh !important;
+        background-color: #f8f9fa !important;
+    }
+
+    /* Overlay for mobile */
+    .sidebar-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: rgba(0,0,0,0.5) !important;
+        z-index: 999 !important;
+        display: none !important;
+    }
+
+    .sidebar-overlay.active {
+        display: block !important;
     }
 </style>
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
-                alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
-                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
+
+</head>
+<body>
+    <!-- Sidebar Overlay (for mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand-wrapper">
+            <!-- Main logo for larger screens -->
+            <a class="sidebar-brand brand-logo d-none d-lg-block" href="#home">
+                <img src="https://via.placeholder.com/150x50/2c3e50/ffffff?text=LOGO" alt="logo" />
+            </a>
+            <!-- Mini logo for smaller screens -->
+            <a class="sidebar-brand brand-logo-mini d-lg-none" href="#home">
+                <img src="https://via.placeholder.com/50x50/2c3e50/ffffff?text=L" alt="logo" />
+            </a>
+        </div>
+        
+        <!-- Sidebar content would go here -->
+        <div class="sidebar-content p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#dashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#users">
+                        <i class="fas fa-users me-2"></i> Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#settings">
+                        <i class="fas fa-cog me-2"></i> Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container-fluid page-body-wrapper" id="pageBodyWrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <!-- Sidebar Toggle Button -->
+                <button class="navbar-toggler me-3" type="button" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Logo for medium and large screens -->
+                <a class="navbar-brand d-none d-md-flex align-items-center" href="#home">
+                    <img id="logo-img" src="https://via.placeholder.com/150x40/007bff/ffffff?text=BRAND" 
+                         class="img-fluid" alt="logo" />
+                </a>
+
+                <!-- Smaller logo for mobile -->
+                <a class="navbar-brand d-flex d-md-none align-items-center" href="#home">
+                    <img id="logo-img-small" src="https://via.placeholder.com/120x35/007bff/ffffff?text=BRAND" 
+                         class="img-fluid small" alt="logo" />
+                </a>
+
+                <!-- Navbar content (search, user menu, etc.) -->
+                <div class="navbar-nav ms-auto">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="#logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="demo-content" style="margin-top: 80px;">
+            <h1>Main Content Area</h1>
+            <p>This is where your main content would go. The sidebar can be toggled using the hamburger menu button in the navbar.</p>
+            <p>The layout is responsive and works well on both desktop and mobile devices.</p>
+        </div>
     </div>
-    <ul class="nav">
 
-        <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-        </li>
-        <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('/redirected') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const pageBodyWrapper = document.getElementById('pageBodyWrapper');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-        <li
-            class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
-                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
-                aria-controls="ui-basic">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-users fa-3x"></i>
-                </span>
-                <span class="menu-title">Manage Members</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
-                id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('view_members') }}">
-                            <i class="fa-solid fa-user"></i>&nbsp;Register Members
-                        </a>
-                    </li>
-
-                    <li
-                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('see_members') }}">
-                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-
-        <li
-            class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#auth"
-                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
-                aria-controls="auth">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-warehouse"></i>
-                </span>
-                <span class="menu-title">Inventory</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
-                id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('view_inventory') }}">
-                            <i class="fa-solid fa-wrench"></i>&nbsp; Add Inventory
-                        </a>
-                    </li>
-
-                    <li
-                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('show_inventory') }}">
-                            <i class="fa-solid fa-eye"></i>&nbsp;Show Inventory
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </li>
-
-        <li
-            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
-                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
-                aria-controls="strategicPlanning">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                </span>
-                <span class="menu-title">Strategic Planning</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
-                id="strategicPlanning">
-                <ul class="nav flex-column sub-menu">
-                    <li
-                        class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('scorecard') }}">
-                            <i class="fa-solid fa-book"></i>&nbsp;Create Scorecard
-                        </a>
-                    </li>
-                    <li
-                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('strategic_plan') }}">
-                            <i class="fa-solid fa-file"></i>&nbsp;Create Work Plan
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('time_management') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-clock fa-10x"></i>
-                </span>
-                <span class="menu-title">Time Management</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('departments') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-book fa-10x"></i>
-                </span>
-                <span class="menu-title">Departments</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('view_givings') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-sack-dollar"></i>
-                </span>
-                <span class="menu-title">Givings</span>
-            </a>
-        </li>
-
-        <li
-            class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('see_users') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-user"></i>
-                </span>
-                <span class="menu-title">Users</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('#') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-user-tie"></i>
-                </span>
-                <span class="menu-title">Human Resource</span>
-            </a>
-        </li>
-    </ul>
-</nav>
-<script>
-    // Sidebar toggle functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const sidebarToggle = document.querySelector('.navbar-toggler');
-        const sidebar = document.querySelector('.sidebar-offcanvas');
-        const body = document.body;
-        const mainPanel = document.querySelector('.main-panel');
-
-        // Create overlay element if it doesn't exist
-        let overlay = document.querySelector('.sidebar-overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'sidebar-overlay';
-            document.body.appendChild(overlay);
-        }
-
-        // Toggle sidebar function
-        function toggleSidebar() {
-            const isActive = sidebar.classList.contains('active');
-
-            if (isActive) {
-                // Close sidebar
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('sidebar-open');
-                sidebarToggle.classList.remove('active');
-                if (mainPanel) mainPanel.classList.remove('sidebar-open');
-            } else {
-                // Open sidebar
-                sidebar.classList.add('active');
-                overlay.classList.add('active');
-                body.classList.add('sidebar-open');
-                sidebarToggle.classList.add('active');
-                if (mainPanel) mainPanel.classList.add('sidebar-open');
-            }
-        }
-
-        // Event listeners
-        if (sidebarToggle) {
-            sidebarToggle.addEventListener('click', function (e) {
-                e.preventDefault();
-                toggleSidebar();
-            });
-        }
-
-        // Close sidebar when clicking overlay
-        overlay.addEventListener('click', function () {
-            if (sidebar.classList.contains('active')) {
-                toggleSidebar();
-            }
-        });
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function (e) {
-            if (window.innerWidth <= 991) {
-                const isClickInsideSidebar = sidebar.contains(e.target);
-                const isClickOnToggle = sidebarToggle.contains(e.target);
-
-                if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
-                    toggleSidebar();
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+                
+                // Only add margin on larger screens
+                if (window.innerWidth >= 768) {
+                    pageBodyWrapper.classList.toggle('sidebar-open');
+                } else {
+                    sidebarOverlay.classList.toggle('active');
                 }
-            }
-        });
+            });
 
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 991) {
-                // Reset mobile-specific classes on desktop
+            // Close sidebar when clicking overlay (mobile)
+            sidebarOverlay.addEventListener('click', function() {
                 sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('sidebar-open');
-                sidebarToggle.classList.remove('active');
-                if (mainPanel) mainPanel.classList.remove('sidebar-open');
-            }
-        });
+                sidebarOverlay.classList.remove('active');
+            });
 
-        // Keyboard accessibility - close sidebar with Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-                toggleSidebar();
-            }
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebarOverlay.classList.remove('active');
+                } else {
+                    pageBodyWrapper.classList.remove('sidebar-open');
+                }
+            });
         });
-    });
-</script>
+    </script>
+</body>
+</html>
