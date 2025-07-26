@@ -109,7 +109,8 @@
                             <i class="fa-solid fa-book"></i>&nbsp;Create Scorecard
                         </a>
                     </li>
-                    <li class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                    <li
+                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('strategic_plan') }}">
                             <i class="fa-solid fa-file"></i>&nbsp;Create Work Plan
                         </a>
@@ -165,3 +166,87 @@
         </li>
     </ul>
 </nav>
+<script>
+    // Sidebar toggle functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const sidebarToggle = document.querySelector('.navbar-toggler');
+        const sidebar = document.querySelector('.sidebar-offcanvas');
+        const body = document.body;
+        const mainPanel = document.querySelector('.main-panel');
+
+        // Create overlay element if it doesn't exist
+        let overlay = document.querySelector('.sidebar-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay';
+            document.body.appendChild(overlay);
+        }
+
+        // Toggle sidebar function
+        function toggleSidebar() {
+            const isActive = sidebar.classList.contains('active');
+
+            if (isActive) {
+                // Close sidebar
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('sidebar-open');
+                sidebarToggle.classList.remove('active');
+                if (mainPanel) mainPanel.classList.remove('sidebar-open');
+            } else {
+                // Open sidebar
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                body.classList.add('sidebar-open');
+                sidebarToggle.classList.add('active');
+                if (mainPanel) mainPanel.classList.add('sidebar-open');
+            }
+        }
+
+        // Event listeners
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                toggleSidebar();
+            });
+        }
+
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', function () {
+            if (sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function (e) {
+            if (window.innerWidth <= 991) {
+                const isClickInsideSidebar = sidebar.contains(e.target);
+                const isClickOnToggle = sidebarToggle.contains(e.target);
+
+                if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 991) {
+                // Reset mobile-specific classes on desktop
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('sidebar-open');
+                sidebarToggle.classList.remove('active');
+                if (mainPanel) mainPanel.classList.remove('sidebar-open');
+            }
+        });
+
+        // Keyboard accessibility - close sidebar with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
+        });
+    });
+</script>

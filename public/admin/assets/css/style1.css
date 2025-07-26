@@ -30650,7 +30650,7 @@ div.tagsinput span.tag a {
   color: #fc424a;
 }
 
-/* style for off-canvas menu*/
+/* Fixed sidebar positioning - slides from LEFT side */
 @media screen and (max-width: 991px) {
   .sidebar-offcanvas {
     position: fixed;
@@ -30658,19 +30658,106 @@ div.tagsinput span.tag a {
     top: 70px;
     bottom: 0;
     overflow: auto;
-    right: -244px;
+    left: -244px; /* Changed from right: -244px */
+    width: 244px; /* Added explicit width */
+    -webkit-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    z-index: 1000; /* Added z-index for proper layering */
+  }
+
+  .sidebar-offcanvas.active {
+    left: 0; /* Changed from right: 0 */
+  }
+
+  /* Add overlay for mobile when sidebar is open */
+  .sidebar-overlay {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
 
-  .sidebar-offcanvas.active {
-    right: 0;
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Prevent body scroll when sidebar is open */
+  body.sidebar-open {
+    overflow: hidden;
+  }
+
+  /* Push main content when sidebar is open (optional) */
+  .main-panel {
+    -webkit-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .main-panel.sidebar-open {
+    transform: translateX(244px);
   }
 }
 
+/* Desktop sidebar styling remains the same */
+@media screen and (min-width: 992px) {
+  .sidebar-offcanvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 244px;
+    height: 100vh;
+    z-index: 999;
+  }
+}
+
+/* Sidebar tinted theme */
 .sidebar-tinted .sidebar {
   background: #fa424a;
+}
+
+/* Additional improvements for better UX */
+.sidebar {
+  /* Ensure sidebar has proper background and styling */
+  background: #2c3e50;
+  color: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+/* Hamburger menu animation */
+.navbar-toggler {
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler.active {
+  transform: rotate(90deg);
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar-offcanvas::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-offcanvas::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+}
+
+.sidebar-offcanvas::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+}
+
+.sidebar-offcanvas::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.5);
 }
 
 .sidebar-tinted .sidebar .sidebar-brand-wrapper {
