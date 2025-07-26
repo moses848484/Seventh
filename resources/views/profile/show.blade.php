@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <h2 class="font-semibold text-xl text-gray-400 leading-tight mb-1"> <!-- Adjust margin-bottom -->
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-0"> <!-- Adjust margin-bottom -->
                 {{ __('Profile') }}
             </h2>
             <!-- Adjust the margin-left here for more space -->
-            <div class="nav-item active ml-3 mt-400"> <!-- Added margin-top -->
+            <div class="nav-item active ml-3 mt-2"> <!-- Added margin-top -->
                 <a class="nav-link text-blue-500 hover:text-blue-700" href="/redirect">Go To Dashboard</a>
             </div>
         </div>
