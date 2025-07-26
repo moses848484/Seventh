@@ -150,6 +150,8 @@
     @media (max-width: 991px) {
         .navbar-nav .nav-item {
             margin-bottom: 0.5rem;
+            margin-top: 190px;
+            right: 20px;
         }
         
         .dropdown-menu {
@@ -369,7 +371,7 @@
                 </li>
 
                 <!-- Mobile notification area -->
-                <li class="nav-item d-lg-none" style="margin-top: 10px;">
+                <li class="nav-item" >
                     <x-app-layout class="bg-white">
                         <x-notify::notify />
                     </x-app-layout>
