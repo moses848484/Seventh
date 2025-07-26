@@ -122,7 +122,8 @@
         <div class="offcanvas-header border-bottom">
             <h5 id="offcanvasMenuLabel" class="fw-bold">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
-            <button type="button" class="btn btn-sm" data-bs-dismiss="offcanvas" aria-label="Close">
+            <button type="button" class="btn btn-sm" data-bs-dismiss="offcanvas" aria-label="Close"
+                style="border: none; background: transparent;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
