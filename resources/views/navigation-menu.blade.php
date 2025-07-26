@@ -63,7 +63,7 @@
                     @endif
 
                     <!-- Settings Dropdown (Desktop only) - Fixed positioning -->
-                    <div class="d-none d-lg-block position-fixed" style="right: 35px; height: 48px; z-index: 1050;">
+                    <div class="d-none d-lg-block position-fixed" style="right: 35px; top: 13px; z-index: 1050;">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -374,6 +374,9 @@
         </div>
     </div>
 </nav>
+
+<!-- Alpine.js for dropdown functionality -->
+<script src="//unpkg.com/alpinejs" defer></script>
 
 <style>
     /* Additional styles for better mobile navigation */
