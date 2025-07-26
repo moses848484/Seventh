@@ -403,6 +403,7 @@
 
     .nav-link:hover {
         transform: translateX(5px);
+        background-color: none;
     }
 
     .offcanvas-body {
