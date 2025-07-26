@@ -3,8 +3,9 @@
     <div class="">
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
-                <!-- Hamburger Button - Fixed positioning and responsiveness -->
-                <div class="d-block d-sm-none position-fixed" style="right: 20px; top: 20px; z-index: 1050;">
+                <!-- Hamburger Button - Hide on profile page -->
+                <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
+                    style="right: 20px; top: 20px; z-index: 1050;">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
@@ -412,28 +413,36 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const offcanvasElement = document.getElementById('offcanvasMenu');
-    const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
-    
-    if (offcanvasElement && hamburgerButton) {
-        // Hide hamburger when offcanvas is shown
-        offcanvasElement.addEventListener('show.bs.offcanvas', function () {
-            hamburgerButton.style.display = 'none';
-        });
-        
-        // Show hamburger when offcanvas is hidden
-        offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
-            hamburgerButton.style.display = 'block';
-        });
-        
-        // Hide hamburger when Profile link is clicked
-        const profileLink = document.querySelector('a[href*="profile.show"]');
-        if (profileLink) {
-            profileLink.addEventListener('click', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        const offcanvasElement = document.getElementById('offcanvasMenu');
+        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
+
+        if (offcanvasElement && hamburgerButton) {
+            // Hide hamburger when offcanvas is shown
+            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
                 hamburgerButton.style.display = 'none';
             });
+
+            // Show hamburger when offcanvas is hidden (unless we're on profile page)
+            offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
+                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
+                if (!isProfilePage) {
+                    hamburgerButton.style.display = 'block';
+                }
+            });
+
+            // Hide hamburger when Profile link is clicked
+            const profileLink = document.querySelector('a[href="{{ route("profile.show") }}"]');
+            if (profileLink) {
+                profileLink.addEventListener('click', function () {
+                    hamburgerButton.style.display = 'none';
+                    // Also close the offcanvas
+                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                    if (offcanvas) {
+                        offcanvas.hide();
+                    }
+                });
+            }
         }
-    }
-});
+    });
 </script>
