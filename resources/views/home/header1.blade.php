@@ -150,8 +150,6 @@
     @media (max-width: 991px) {
         .navbar-nav .nav-item {
             margin-bottom: 0.5rem;
-            margin-top: 190px;
-            right: 520px;
         }
         
         .dropdown-menu {
