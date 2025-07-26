@@ -23,7 +23,25 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-  
+    <div class="">
+        <!-- Responsive Header with Livewire Navigation Menu -->
+        <header class="bg-transparent ">
+            <!-- Navigation Menu and Header Title -->
+            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+
+                <!-- Left side: Page Heading (if any) -->
+                @if (isset($header))
+                    <div>
+                        {{ $header }}
+                    </div>
+                @endif
+
+                <!-- Right side: Livewire Navigation Menu -->
+                <div class="flex items-center justify-end">
+                    @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
+                </div>
+            </div>
+        </header>
         <!-- Page Content -->
         <main>
             {{ $slot }}
