@@ -4,17 +4,19 @@
         <div class="relative">
             <div class="flex justify-between items-center px-4 py-2">
                 <!-- Hamburger Button - Hide on profile page -->
-                <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
-                    style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
-                            style="width: 20px; height: 20px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+                @unless(request()->routeIs('profile.show'))
+                    <div class="d-block d-sm-none position-fixed" id="hamburgerButton"
+                        style="right: 20px; top: 20px; z-index: 1050;">
+                        <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
+                                style="width: 20px; height: 20px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                @endunless
 
                 <!-- Navigation Links for Desktop -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -92,7 +94,7 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Manage Account') }}
                                     </div>
-                                    <x-dropdown-link href="{{ route('profile.show') }}">
+                                    <x-dropdown-link href="{{ route('profile.show') }}" class="desktop-profile-link">
                                         {{ __('Profile') }}
                                     </x-dropdown-link>
                                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -162,6 +164,7 @@
                         <span>Dashboard</span>
                     </a>
                 </div>
+
                 @if (auth()->user()->usertype == 1)
                     <!-- Admin-only sections -->
 
@@ -265,7 +268,7 @@
 
                     <!-- Givings Section -->
                     <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_givings') ? 'bg-success text-white' : 'text-dark' }}"
+                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_givings') ? 'bg-success text-white' : -dark' }}"
                             href="{{ url('view_givings') }}">
                             <span class="me-3">
                                 <i class="fa-solid fa-sack-dollar text-success"></i>
@@ -350,7 +353,7 @@
                 <!-- Account Section -->
                 <div class="border-top mt-3 pt-3 px-3">
                     <div class="nav-category small text-muted fw-bold mb-2">Account</div>
-                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('profile.show') ? 'bg-light' : '' }}"
+                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('profile.show') ? 'bg-light' : '' }} mobile-profile-link"
                         href="{{ route('profile.show') }}">
                         <span class="me-3">
                             <i class="fa-solid fa-user"></i>
@@ -421,7 +424,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
+        const hamburgerButton = document.getElementById('hamburgerButton');
 
         if (offcanvasElement && hamburgerButton) {
             // Hide hamburger when offcanvas is shown
@@ -438,15 +441,23 @@
             });
 
             // Hide hamburger when mobile Profile link is clicked
-            const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
-            if (profileLink) {
-                profileLink.addEventListener('click', function () {
+            const mobileProfileLink = document.querySelector('.mobile-profile-link');
+            if (mobileProfileLink) {
+                mobileProfileLink.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
                     // Also close the offcanvas
                     const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
                     if (offcanvas) {
                         offcanvas.hide();
                     }
+                });
+            }
+
+            // Hide hamburger when desktop profile link is clicked
+            const desktopProfileLink = document.querySelector('.desktop-profile-link');
+            if (desktopProfileLink) {
+                desktopProfileLink.addEventListener('click', function () {
+                    hamburgerButton.style.display = 'none';
                 });
             }
 
@@ -458,20 +469,12 @@
                 });
             }
 
-            // Hide hamburger when desktop profile dropdown links are clicked
-            const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
-            desktopProfileLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                });
-            });
-
             // Show hamburger when clicking outside (but not on profile page)
             document.addEventListener('click', function (event) {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
                 const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
+                const clickedHamburger = event.target.closest('#hamburgerButton');
 
                 if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
                     hamburgerButton.style.display = 'block';
