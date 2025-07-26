@@ -23,16 +23,7 @@
       <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <!-- Logo (responsive visibility) -->
-            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
-                <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 40px; width: auto; display: block;" alt="logo" />
-            </a>
-
-            <!-- Smaller logo for mobile -->
-            <a class="navbar-brand brand-logo-mini d-flex d-md-none align-items-center" href="index.html">
-                <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 35px; width: auto; display: block;" alt="logo" />
-            </a>
+ 
 
             <!-- Toggler button -->
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
