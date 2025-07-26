@@ -15387,6 +15387,7 @@ input[type="button"].btn-block {
   font-size: 1.25rem;
   line-height: 1;
   background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 0.25rem;
 }
 
@@ -29815,10 +29816,9 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
-  border: 0;
-  
+  color: white;
   height: auto;
-  margin-left: 100px;
+  margin-left: 200px;
 }
 
 .navbar-toggler:hover {
