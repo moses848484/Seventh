@@ -121,30 +121,38 @@
         style="width: 320px;">
         <div class="offcanvas-header border-bottom">
             <h5 id="offcanvasMenuLabel" class="fw-bold">Menu</h5>
+            <!-- Close button (X) -->
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
         <div class="offcanvas-body p-0">
             <!-- User Profile Section -->
             <div class="p-3 border-bottom bg-light">
-                <div class="d-flex align-items-center">
-                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                        <img class="rounded-circle me-3" src="{{ Auth::user()->profile_photo_url }}"
-                            alt="{{ Auth::user()->name }}" style="width: 50px; height: 50px; object-fit: cover;" />
-                    @else
-                        <div class="rounded-circle me-3 bg-success d-flex align-items-center justify-content-center text-white fw-bold"
-                            style="width: 50px; height: 50px;">
-                            {{ substr(Auth::user()->name, 0, 1) }}
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center flex-grow-1">
+                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                            <img class="rounded-circle me-3" src="{{ Auth::user()->profile_photo_url }}"
+                                alt="{{ Auth::user()->name }}" style="width: 50px; height: 50px; object-fit: cover;" />
+                        @else
+                            <div class="rounded-circle me-3 bg-success d-flex align-items-center justify-content-center text-white fw-bold"
+                                style="width: 50px; height: 50px;">
+                                {{ substr(Auth::user()->name, 0, 1) }}
+                            </div>
+                        @endif
+                        <div>
+                            <div class="fw-semibold text-dark">{{ Auth::user()->name }}</div>
+                            <div class="small text-muted">{{ Auth::user()->email }}</div>
                         </div>
-                    @endif
-                    <div>
-                        <div class="fw-semibold text-dark">{{ Auth::user()->name }}</div>
-                        <div class="small text-muted">{{ Auth::user()->email }}</div>
                     </div>
+                    <!-- Additional close button in profile section (optional) -->
+                    <button type="button" class="btn btn-sm btn-outline-secondary ms-2" data-bs-dismiss="offcanvas"
+                        aria-label="Close">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Navigation Menu -->
+            <!-- Rest of your navigation menu code remains the same -->
             <div class="p-0">
                 <!-- Dashboard Link -->
                 <div class="px-3 py-2">
@@ -157,7 +165,6 @@
                         <span>Dashboard</span>
                     </a>
                 </div>
-
                 @if (auth()->user()->usertype == 1)
                     <!-- Admin-only sections -->
 
@@ -434,7 +441,7 @@
             });
 
             // Hide hamburger when mobile Profile link is clicked
-            const profileLink = document.querySelector('a[href="{{ route("profile.show") }}"]');
+            const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
             if (profileLink) {
                 profileLink.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
@@ -447,7 +454,7 @@
             }
 
             // Hide hamburger when desktop profile dropdown is clicked
-            const desktopProfileButton = document.querySelector('.d-none.d-lg-block button');
+            const desktopProfileButton = document.querySelector('.d-none.d-sm-block button');
             if (desktopProfileButton) {
                 desktopProfileButton.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
@@ -455,7 +462,7 @@
             }
 
             // Hide hamburger when desktop profile dropdown links are clicked
-            const desktopProfileLinks = document.querySelectorAll('.d-none.d-lg-block x-dropdown-link a, .d-none.d-lg-block a[href*="profile.show"], .d-none.d-lg-block a[href*="api-tokens"], .d-none.d-lg-block a[href*="logout"]');
+            const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
             desktopProfileLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
@@ -465,7 +472,7 @@
             // Show hamburger when clicking outside (but not on profile page)
             document.addEventListener('click', function (event) {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-lg-block');
+                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
                 const clickedInsideOffcanvas = event.target.closest('.offcanvas');
                 const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
 
