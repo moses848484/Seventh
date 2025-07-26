@@ -63,13 +63,13 @@
                     @endif
 
                     <!-- Settings Dropdown (Desktop only) - Fixed positioning -->
-                    <div class="d-none d-lg-block position-fixed" style="right: 20px; top: 20px; z-index: 1050;">
+                    <div class="d-none d-lg-block position-fixed" style="right: 5px; top: 20px; z-index: 1050;">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button
                                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover"
+                                        <img class="h-10 w-10 rounded-full object-cover"
                                             src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
                                 @else
