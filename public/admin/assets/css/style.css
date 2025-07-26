@@ -15358,9 +15358,6 @@ input[type="button"].btn-block {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
 }
 
 
@@ -29750,11 +29747,10 @@ div.tagsinput span.tag a {
   border: 0;
   color: white;
   height: auto;
-  border-radius: 3px solid #e4af00;
 }
 
 .navbar-toggler:hover {
-  background-color: #e4af00;
+  background-color: none;
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
