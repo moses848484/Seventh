@@ -410,3 +410,22 @@
         }
     }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const offcanvasElement = document.getElementById('offcanvasMenu');
+    const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
+    
+    if (offcanvasElement && hamburgerButton) {
+        // Hide hamburger when offcanvas is shown
+        offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+            hamburgerButton.style.display = 'none';
+        });
+        
+        // Show hamburger when offcanvas is hidden
+        offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
+            hamburgerButton.style.display = 'block';
+        });
+    }
+});
+</script>
