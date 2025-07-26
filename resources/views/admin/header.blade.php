@@ -20,18 +20,18 @@
 
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar p-0 fixed-top d-flex flex-row">
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <!-- Logo (hidden on small screens) -->
-            <a class="navbar-brand brand-logo-mini d-none d-md-block" href="index.html">
+            <!-- Logo (responsive visibility) -->
+            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
                 <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 60px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Smaller logo for mobile -->
-            <a class="navbar-brand brand-logo-mini d-block d-md-none" href="index.html">
+            <a class="navbar-brand brand-logo-mini d-flex d-md-none align-items-center" href="index.html">
                 <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 35px; margin-top: 8px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Toggler button -->
