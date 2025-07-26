@@ -25,13 +25,13 @@
             <!-- Logo (hidden on small screens) -->
             <a class="navbar-brand brand-logo-mini d-none d-md-block" href="index.html">
                 <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 60px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 20px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Smaller logo for mobile -->
             <a class="navbar-brand brand-logo-mini d-block d-md-none" href="index.html">
                 <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 10px; margin-top: 10px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Toggler button -->
