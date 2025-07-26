@@ -8,7 +8,12 @@
     }
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
+                alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
+                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
+    </div>
     <ul class="nav">
 
         <li class="nav-item nav-category">
