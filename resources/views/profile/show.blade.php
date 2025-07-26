@@ -6,11 +6,11 @@
             </h2>
             <!-- Adjust the margin-left here for more space -->
             <div class="nav-item active ml-3 mt-400"> <!-- Added margin-top -->
-                <a class="nav-link text-blue-500 hover:text-blue-700" href="/redirect">Go To Dashboard</a>
+                <a class="nav-link text-blue-500 hover:text-transparent" href="/redirect">Go To Dashboard</a>
             </div>
         </div>
     </x-slot>
-    
+
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
