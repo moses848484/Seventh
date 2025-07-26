@@ -63,7 +63,7 @@
 
                     <!-- Settings Dropdown (Desktop only) - Fixed positioning -->
                        <!-- Settings Dropdown -->
-                    <div class="ms-3 relative" style=" right: 20px; ">
+                    <div class="ms-3 relative" style=" right: 20px; top: -95px;">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
