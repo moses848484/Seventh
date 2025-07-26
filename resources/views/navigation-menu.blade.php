@@ -377,7 +377,19 @@
 
 <!-- Alpine.js for dropdown functionality -->
 <script src="//unpkg.com/alpinejs" defer></script>
+<!-- Script to Hide Navbar Toggler when Offcanvas is Open -->
+    <script>
+        const togglerWrapper = document.getElementById('toggler-wrapper');
+        const offcanvasMenu = document.getElementById('mobileMenu');
 
+        offcanvasMenu.addEventListener('show.bs.offcanvas', () => {
+            togglerWrapper.style.display = 'none';
+        });
+
+        offcanvasMenu.addEventListener('hidden.bs.offcanvas', () => {
+            togglerWrapper.style.display = 'block';
+        });
+    </script>
 <style>
     /* Additional styles for better mobile navigation */
     .nav-category {

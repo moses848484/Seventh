@@ -3,7 +3,6 @@
         max-height: 50px;
         width: auto;
         display: block;
-        object-fit: cover;
         transition: opacity 0.3s ease;
         /* Smooth hide/show effect */
     }
