@@ -187,7 +187,6 @@
                 </li>
                 <li class="nav-item" style="margin-top: 190px;">
                     <x-app-layout class="bg-white">
-                          <x-notify::notify />
                     </x-app-layout>
                 </li>
         </div>
@@ -203,6 +202,6 @@
             logoImg.classList.toggle('hidden-logo');
         });
     </script>
-  
+  <x-notify::notify />
     @notifyJs
     @notifyCss

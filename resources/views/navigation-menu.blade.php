@@ -375,6 +375,8 @@
     </div>
 </nav>
 
+<!-- Alpine.js for dropdown functionality -->
+<script src="//unpkg.com/alpinejs" defer></script>
 
 <style>
     /* Additional styles for better mobile navigation */
