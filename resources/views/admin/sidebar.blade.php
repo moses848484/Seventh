@@ -126,17 +126,7 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-brand-wrapper">
-            <!-- Main logo for larger screens -->
-            <a class="sidebar-brand brand-logo d-none d-lg-block" href="#home">
-                <img src="https://via.placeholder.com/150x50/2c3e50/ffffff?text=LOGO" alt="logo" />
-            </a>
-            <!-- Mini logo for smaller screens -->
-            <a class="sidebar-brand brand-logo-mini d-lg-none" href="#home">
-                <img src="https://via.placeholder.com/50x50/2c3e50/ffffff?text=L" alt="logo" />
-            </a>
-        </div>
+
         
         <!-- Sidebar content would go here -->
         <div class="sidebar-content p-3">
