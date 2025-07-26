@@ -374,9 +374,9 @@ a:focus {
 /* Toggler Span Styles */
 .custom_nav-container .navbar-toggler span {
   display: block;
-  background-color: none;
+  background-color: white;
   /* Color of the lines */
-  border-radius: none;
+  border-radius: 0;
   /* Rounded corners for lines */
   margin: 0;
   height: 2px !important;
@@ -392,9 +392,9 @@ a:focus {
   content: "";
   position: absolute;
   left: 0;
-  background-color: none;
+  background-color: white;
   top: -10px;
-  border-radius: none;
+  border-radius: 0;
   transition: all 0.3s;
 }
 

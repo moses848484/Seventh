@@ -402,8 +402,8 @@
     }
 
     .nav-link:hover {
+        background-color: #f8f9fa;
         transform: translateX(5px);
-        background-color: none;
     }
 
     .offcanvas-body {

@@ -29816,13 +29816,15 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler {
+  border: 0;
   color: white;
   height: auto;
-  margin-left: 200px;
+  margin-left: 100px;
+  border-radius: 3px solid #e4af00;
 }
 
 .navbar-toggler:hover {
-  background-color: transparent;
+  background-color: #e4af00;
 }
 
 .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
@@ -30511,7 +30513,9 @@ div.tagsinput span.tag a {
 }
 
 .mdi-dots-vertical:hover {
-  
+  background-color: #e5e5e5;
+  border-radius: 3px;
+  padding-top: 6.5px;
 }
 
 .sidebar .nav .nav-item.profile .profile-desc .dropdown-menu {
