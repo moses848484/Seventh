@@ -5,7 +5,7 @@
                 {{ __('Profile') }}
             </h2>
             <!-- Adjust the margin-left here for more space -->
-            <div class="nav-item active ml-3 mt-400"> <!-- Added margin-top -->
+            <div class="nav-item active ml-3 mt-100"> <!-- Added margin-top -->
                 <a class="nav-link text-transparent hover:text-transparent" href="/redirect">Go To Dashboard</a>
             </div>
         </div>
