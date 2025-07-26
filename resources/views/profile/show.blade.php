@@ -6,7 +6,7 @@
             </h2>
             <!-- Adjust the margin-left here for more space -->
             <div class="nav-item active ml-3 mt-400"> <!-- Added margin-top -->
-                <a class="nav-link text-blue-500 hover:text-transparent" href="/redirect">Go To Dashboard</a>
+                <a class="nav-link text-transparent hover:text-transparent" href="/redirect">Go To Dashboard</a>
             </div>
         </div>
     </x-slot>
