@@ -18033,7 +18033,7 @@ button.bg-dark:focus {
 }
 
 .border-left {
-  border-left: 1px solid #2c2e33 !important;
+  border-left: 1px solid #fff !important;
 }
 
 .border-0 {
@@ -22728,19 +22728,19 @@ code {
 
 @media (min-width: 576px) {
   .border-left-sm {
-    border-left: 1px solid #2c2e33;
+    border-left: 1px solid #fff;
   }
 }
 
 @media (min-width: 768px) {
   .border-left-md {
-    border-left: 1px solid #2c2e33;
+    border-left: 1px solid #fff;
   }
 }
 
 @media (min-width: 992px) {
   .border-left-lg {
-    border-left: 1px solid #2c2e33;
+    border-left: 1px solid #fff;
   }
 }
 
