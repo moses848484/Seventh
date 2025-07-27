@@ -24,7 +24,7 @@
     .notify-container {
         position: fixed;
         top: 5px;
-        right: 15px;
+        right: 5px;
         z-index: 9999;
         max-width: 400px;
     }
