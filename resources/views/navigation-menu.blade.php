@@ -402,7 +402,6 @@
     }
 
     .nav-link:hover {
-        background-color: #f8f9fa;
         transform: translateX(5px);
     }
 
