@@ -30101,7 +30101,7 @@ div.tagsinput span.tag a {
 
 /* Sidebar */
 .sidebar {
-
+  min-height: calc(100vh - 70px);
   background: #ffffff;
   font-weight: normal;
   padding: 0;
@@ -30121,7 +30121,7 @@ div.tagsinput span.tag a {
   background: #2c6448;
   border-bottom: 3px solid #e4af00;
   width: 244px;
-  height: 72.7px;
+
 }
 
 @media (max-width: 991px) {
