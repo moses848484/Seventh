@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap 5 Navigation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Additional styles for better mobile navigation */
-        .nav-category {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-link {
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .offcanvas-body {
-            overflow-y: auto;
-        }
-
-        .collapse-arrow {
-            transition: transform 0.2s ease;
-        }
-
-        /* Responsive hamburger button */
-        @media (max-width: 576px) {
-            .position-fixed {
-                right: 15px !important;
-                top: 15px !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav x-data="{ open: false }" class="">
+ <nav x-data="{ open: false }" class="">
         <!-- Primary Navigation Menu -->
         <div class="">
             <div class="relative">
