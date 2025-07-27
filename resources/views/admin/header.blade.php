@@ -23,8 +23,8 @@
     /* Notification styles - properly positioned */
     .notify-container {
         position: fixed;
-        top: 10px;
-        right: 20px;
+        top: 5px;
+        right: 15px;
         z-index: 9999;
         max-width: 400px;
     }
@@ -295,21 +295,21 @@
 
             alertDiv.innerHTML = `
                 <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
             `;
 
             notifyContainer.appendChild(alertDiv);
 
-            // Auto-remove after 5 seconds
+            // Auto-remove after 4 seconds
             setTimeout(() => {
                 if (alertDiv.parentNode) {
                     const bsAlert = new bootstrap.Alert(alertDiv);
                     bsAlert.close();
                 }
-            }, 5000);
+            }, 4000);
         }
 
-        // Auto-dismiss existing notifications after 5 seconds
+        // Auto-dismiss existing notifications after 4 seconds
         document.addEventListener('DOMContentLoaded', function () {
             const existingAlerts = document.querySelectorAll('.alert-notification');
             existingAlerts.forEach(alert => {
@@ -318,7 +318,7 @@
                         const bsAlert = new bootstrap.Alert(alert);
                         bsAlert.close();
                     }
-                }, 5000);
+                }, 4000);
             });
         });
     </script>
