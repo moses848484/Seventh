@@ -30,7 +30,7 @@
 
         <li
             class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic"
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
                 aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
                 aria-controls="ui-basic">
                 <span class="menu-icon">
@@ -60,7 +60,7 @@
 
         <li
             class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth"
+            <a class="nav-link" data-toggle="collapse" href="#auth"
                 aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
                 aria-controls="auth">
                 <span class="menu-icon">
@@ -91,7 +91,7 @@
 
         <li
             class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
-            <a class="nav-link" data-bs-toggle="collapse" href="#strategicPlanning"
+            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                 aria-controls="strategicPlanning">
                 <span class="menu-icon">
@@ -165,4 +165,3 @@
         </li>
     </ul>
 </nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
