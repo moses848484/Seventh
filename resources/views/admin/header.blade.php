@@ -38,7 +38,7 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
-           
+
 
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
@@ -186,9 +186,11 @@
                     </div>
                 </li>
                 <li class="nav-item" style="margin-top: 190px;">
-                    <x-app-layout class="bg-white">                    
+                    <x-notify::notify />
+                </li>
+                <li>
+                    <x-app-layout>
                     </x-app-layout>
-                       <x-notify::notify />
                 </li>
         </div>
     </nav>
