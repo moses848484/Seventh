@@ -29895,7 +29895,7 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .count-indicator .count-number {
   position: absolute;
   border-radius: 100%;
-  border: 2px solid #191c24;
+  border: 2px solid #fff;
 }
 
 .navbar .navbar-menu-wrapper .count-indicator .count-symbol {
@@ -30464,7 +30464,7 @@ div.tagsinput span.tag a {
 .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-number {
   position: absolute;
   border-radius: 100%;
-  border: 2px solid #191c24;
+  border: 2px solid #fff;
 }
 
 .sidebar .nav .nav-item.profile .profile-desc .profile-pic .count-indicator .count-symbol {
