@@ -38,7 +38,9 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
-
+            <x-notify::notify />
+            @notifyJs
+            @notifyCss
 
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
@@ -185,9 +187,8 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-               <li class="nav-item" style="margin-top: 190px;">
+                <li class="nav-item" style="margin-top: 190px;">
                     <x-app-layout class="bg-white">
-                        <x-notify::notify /> <!-- Position in mobile view -->
                     </x-app-layout>
                 </li>
         </div>
@@ -203,5 +204,6 @@
             logoImg.classList.toggle('hidden-logo');
         });
     </script>
+    <x-notify::notify />
     @notifyJs
     @notifyCss
