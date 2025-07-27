@@ -13091,7 +13091,7 @@ input[type="button"].btn-block {
 }
 
 .collapse:not(.show) {
-  display: none;
+  display: none !important;
 }
 
 .collapsing {
@@ -30817,7 +30817,7 @@ div.tagsinput span.tag a {
   }
 
   .sidebar-icon-only .sidebar .nav .nav-item .collapse {
-    display: none;
+    display: none !important;
   }
 
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
