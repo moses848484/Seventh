@@ -23,10 +23,6 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    // Dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     // routes/web.php
     Route::put('/user/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('user-profile-information.update');
