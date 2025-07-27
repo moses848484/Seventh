@@ -401,10 +401,6 @@
         text-decoration: none;
     }
 
-    .nav-link:hover {
-        transform: translateX(5px);
-    }
-
     .offcanvas-body {
         overflow-y: auto;
     }

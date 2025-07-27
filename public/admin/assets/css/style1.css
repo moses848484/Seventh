@@ -29823,10 +29823,6 @@ div.tagsinput span.tag a {
   border-radius: 3px solid #e4af00;
 }
 
-.navbar-toggler:hover {
-  background-color: #e4af00;
-}
-
 .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
   font-size: 1.175rem;
 }
