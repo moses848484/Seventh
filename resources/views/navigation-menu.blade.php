@@ -228,14 +228,15 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#strategicPlanning" role="button"
+                                data-bs-toggle="collapse" href="#strategicPlanning" role="button"
                                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                                 aria-controls="strategicPlanning">
                                 <span class="me-3">
                                     <i class="fa-solid fa-briefcase" style="color: orange;"></i>
                                 </span>
                                 <span class="flex-grow-1">Strategic Planning</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                                <i class="fa-solid fa-chevron-down small collapse-arrow"
+                                    style="transition: transform 0.2s;"></i>
                             </a>
                             <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
                                 id="strategicPlanning">
