@@ -6,3 +6,12 @@
     display: none;
 }
 
+/* ✅ Override unwanted visibility setting */
+.collapse {
+    visibility: visible !important;
+    display: none !important;
+}
+
+.collapse.show {
+    display: block !important;
+}
