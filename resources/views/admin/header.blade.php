@@ -230,7 +230,7 @@
                     </div>
                 </li>  
                          <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ms-3">
                     @livewire('navigation-menu')
                 </li>
             </ul>           
