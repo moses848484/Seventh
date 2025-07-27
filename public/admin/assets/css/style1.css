@@ -30171,7 +30171,7 @@ div.tagsinput span.tag a {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 70px);
+
   background: white;
   font-weight: normal;
   padding: 0;
@@ -30183,6 +30183,57 @@ div.tagsinput span.tag a {
   -ms-transition: width 0.25s ease, background 0.25s ease;
 }
 
+.sidebar .sidebar-brand-wrapper {
+  transition: width 0.25s ease, background 0.25s ease;
+  -webkit-transition: width 0.25s ease, background 0.25s ease;
+  -moz-transition: width 0.25s ease, background 0.25s ease;
+  -ms-transition: width 0.25s ease, background 0.25s ease;
+  background: #2c6448;
+  border-bottom: 3px solid #e4af00;
+  width: 244px;
+  height: 72.7px;
+}
+
+@media (max-width: 991px) {
+  .sidebar .sidebar-brand-wrapper {
+    width: 55px;
+  }
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand {
+  color: #38425e;
+  font-size: 1.5rem;
+  line-height: 48px;
+  margin-right: 0;
+  padding: 0rem 0rem 0rem 1.3rem;
+  width: 100%;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand:active,
+.sidebar .sidebar-brand-wrapper .sidebar-brand:focus,
+.sidebar .sidebar-brand-wrapper .sidebar-brand:hover {
+  color: #252b3e;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand img {
+  width: calc(214px - 160px);
+  max-width: 100%;
+  height: auto;
+  margin-left: 75px;
+  vertical-align: middle;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini {
+  display: none;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini img {
+  width: calc(100px - 50px);
+  max-width: 100%;
+  margin-left: -10px !important;
+  height: 50px;
+  margin: auto;
+}
 
 .sidebar .nav {
   overflow: hidden;
