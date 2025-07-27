@@ -1,207 +1,404 @@
-<style>
-    .navbar-brand img {
-        max-height: 50px;
-        width: auto;
-        display: block;
-        transition: opacity 0.3s ease;
-        /* Smooth hide/show effect */
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Header with Notifications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+    <style>
+        .navbar-brand img {
+            max-height: 50px;
+            width: auto;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
 
-    .hidden-logo {
-        opacity: 0;
-        visibility: hidden;
-    }
+        .hidden-logo {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-    .instagram-bg {
-        background: linear-gradient(45deg, #E4405F, #F58529);
-        /* Instagram's default gradient colors */
-    }
-</style>
+        .instagram-bg {
+            background: linear-gradient(45deg, #E4405F, #F58529);
+        }
 
-<div class="container-fluid page-body-wrapper">
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar p-0 fixed-top d-flex flex-row">
-        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <!-- Logo (responsive visibility) -->
-            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
-                <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 40px; width: auto; display: block;" alt="logo" />
-            </a>
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-            <!-- Smaller logo for mobile -->
-            <a class="navbar-brand brand-logo-mini d-flex d-md-none align-items-center" href="index.html">
-                <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 35px; width: auto; display: block;" alt="logo" />
-            </a>
+        .count-indicator {
+            position: relative;
+        }
 
-            <!-- Toggler button -->
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                <span class="mdi mdi-menu"></span>
-            </button>
-           
+        .count {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            line-height: 18px;
+            text-align: center;
+            color: white;
+        }
 
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown d-none d-lg-block">
-                    <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                        data-toggle="dropdown" aria-expanded="false" href="#">Sermons</a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                        aria-labelledby="createbuttonDropdown">
-                        <h6 class="p-3 mb-0 text-center">Watch Now</h6>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item" href="https://www.facebook.com/@universityadventist/">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-primary text-white rounded-circle">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </div>
+        .preview-list {
+            min-width: 300px;
+        }
 
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">Facebook Stream</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item"
-                            href="https://www.youtube.com/@universitysdachurchlusaka7628/">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-danger text-white rounded-circle">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">Youtube Stream</p>
-                            </div>
-                        </a>
+        .preview-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
 
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon instagram-bg rounded-circle">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">Instagram Stream</p>
-                            </div>
-                        </a>
+        .preview-item:hover {
+            background-color: #f8f9fa;
+        }
 
-                        <div class="dropdown-divider"></div>
-                        <p class="p-3 mb-0 text-center">Visit Us</p>
-                    </div>
-                </li>
-                <li class="nav-item nav-settings d-none d-lg-block">
-                    <a class="nav-link" href="#">
-                        <i class="mdi mdi-view-grid"></i>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
-                        data-toggle="dropdown" aria-expanded="false">
-                        <i class="mdi mdi-email"></i>
-                        <span class="count bg-success"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                        aria-labelledby="messageDropdown">
-                        <h6 class="p-3 mb-0">Messages</h6>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="" alt="image" class="rounded-circle profile-pic">
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">..</p>
-                                <p class="text-muted mb-0">..</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="" alt="image" class="rounded-circle profile-pic">
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">..</p>
-                                <p class="text-muted mb-0">..</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="" alt="image" class="rounded-circle profile-pic">
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">..</p>
-                                <p class="text-muted mb-0">..</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <p class="p-3 mb-0 text-center">..</p>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
-                        data-toggle="dropdown">
-                        <i class="mdi mdi-bell"></i>
-                        <span class="count bg-danger"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                        aria-labelledby="notificationDropdown">
-                        <h6 class="p-3 mb-0">Notifications</h6>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-calendar text-success"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Event today</p>
-                                <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-settings text-danger"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Settings</p>
-                                <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-dark rounded-circle">
-                                    <i class="mdi mdi-link-variant text-warning"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject mb-1">Launch Admin</p>
-                                <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <p class="p-3 mb-0 text-center">See all notifications</p>
-                    </div>
-                </li>
-                <li class="nav-item" style="margin-top: 230px;">
-                    <x-app-layout class="bg-white">
-                         <x-notify::notify />
-                    </x-app-layout>
-                </li>
+        .preview-thumbnail {
+            margin-right: 15px;
+        }
+
+        .preview-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Notification styles - properly positioned */
+        .notify-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 400px;
+        }
+
+        .alert-notification {
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid page-body-wrapper">
+        <!-- Notification Container - Properly positioned -->
+        <div class="notify-container">
+            <!-- Sample notifications - These would be generated by your notify package -->
+            <div class="alert alert-success alert-notification alert-dismissible fade show" role="alert">
+                <strong><i class="fas fa-check-circle me-2"></i>Success!</strong> Your action was completed successfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
-    </nav>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+            <div class="navbar-menu-wrapper flex-grow-1 d-flex align-items-stretch">
+                <!-- Logo (responsive visibility) -->
+                <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
+                    <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
+                        style="max-height: 40px; width: auto; display: block;" alt="logo" />
+                </a>
+
+                <!-- Smaller logo for mobile -->
+                <a class="navbar-brand brand-logo-mini d-flex d-md-none align-items-center" href="index.html">
+                    <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
+                        style="max-height: 35px; width: auto; display: block;" alt="logo" />
+                </a>
+
+                <!-- Toggler button -->
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+
+                <ul class="navbar-nav navbar-nav-right ms-auto">
+                    <!-- Sermons Dropdown -->
+                    <li class="nav-item dropdown d-none d-lg-block">
+                        <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false" href="#" role="button">Sermons</a>
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list"
+                            aria-labelledby="createbuttonDropdown">
+                            <h6 class="p-3 mb-0 text-center">Watch Now</h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="https://www.facebook.com/@universityadventist/">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-primary text-white rounded-circle">
+                                        <i class="fa-brands fa-facebook"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1">Facebook Stream</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex"
+                                href="https://www.youtube.com/@universitysdachurchlusaka7628/">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-danger text-white rounded-circle">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1">Youtube Stream</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon instagram-bg text-white rounded-circle">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1">Instagram Stream</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0 text-center">Visit Us</p>
+                        </div>
+                    </li>
+
+                    <!-- Settings -->
+                    <li class="nav-item nav-settings d-none d-lg-block">
+                        <a class="nav-link" href="#">
+                            <i class="mdi mdi-view-grid"></i>
+                        </a>
+                    </li>
+
+                    <!-- Messages Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
+                            data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <i class="mdi mdi-email"></i>
+                            <span class="count bg-success">3</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list"
+                            aria-labelledby="messageDropdown">
+                            <h6 class="p-3 mb-0">Messages</h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <img src="https://via.placeholder.com/40" alt="image" class="rounded-circle profile-pic">
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1">New message from John</p>
+                                    <p class="text-muted mb-0">5 minutes ago</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <img src="https://via.placeholder.com/40" alt="image" class="rounded-circle profile-pic">
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1">Meeting reminder</p>
+                                    <p class="text-muted mb-0">1 hour ago</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0 text-center">
+                                <a href="#" class="text-decoration-none">View all messages</a>
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Notifications Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                            <i class="mdi mdi-bell"></i>
+                            <span class="count bg-danger">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0">Notifications</h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-calendar text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject mb-1">Event today</p>
+                                    <p class="text-muted ellipsis mb-0">Just a reminder that you have an event today</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-settings text-danger"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject mb-1">Settings</p>
+                                    <p class="text-muted ellipsis mb-0">Update dashboard</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item d-flex" href="#">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-link-variant text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject mb-1">Launch Admin</p>
+                                    <p class="text-muted ellipsis mb-0">New admin wow!</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0 text-center">
+                                <a href="#" class="text-decoration-none">See all notifications</a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content" style="margin-top: 80px; padding: 20px;">
+            <h2>Main Content</h2>
+            <p>Your page content goes here...</p>
+            
+            <!-- Button to test notifications -->
+            <button class="btn btn-primary" onclick="showNotification('success', 'Success! Action completed successfully.')">
+                Test Success Notification
+            </button>
+            <button class="btn btn-danger" onclick="showNotification('danger', 'Error! Something went wrong.')">
+                Test Error Notification
+            </button>
+            <button class="btn btn-warning" onclick="showNotification('warning', 'Warning! Please check your input.')">
+                Test Warning Notification
+            </button>
+            <button class="btn btn-info" onclick="showNotification('info', 'Info! Here is some information.')">
+                Test Info Notification
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Get references to the image and toggler button
+        // Logo toggle functionality
         const logoImg = document.getElementById('logo-img');
+        const logoImgSmall = document.getElementById('logo-img-small');
         const togglerButton = document.querySelector('.navbar-toggler');
 
-        // Add a click event listener to the toggler button
-        togglerButton.addEventListener('click', function () {
-            // Toggle the 'hidden-logo' class on the image
-            logoImg.classList.toggle('hidden-logo');
+        if (togglerButton) {
+            togglerButton.addEventListener('click', function () {
+                if (logoImg) logoImg.classList.toggle('hidden-logo');
+                if (logoImgSmall) logoImgSmall.classList.toggle('hidden-logo');
+            });
+        }
+
+        // Notification system
+        function showNotification(type, message) {
+            const notifyContainer = document.querySelector('.notify-container');
+            const alertDiv = document.createElement('div');
+            
+            alertDiv.className = `alert alert-${type} alert-notification alert-dismissible fade show`;
+            alertDiv.setAttribute('role', 'alert');
+            
+            let icon = '';
+            switch(type) {
+                case 'success':
+                    icon = 'fas fa-check-circle';
+                    break;
+                case 'danger':
+                    icon = 'fas fa-exclamation-triangle';
+                    break;
+                case 'warning':
+                    icon = 'fas fa-exclamation-circle';
+                    break;
+                case 'info':
+                    icon = 'fas fa-info-circle';
+                    break;
+                default:
+                    icon = 'fas fa-bell';
+            }
+            
+            alertDiv.innerHTML = `
+                <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            
+            notifyContainer.appendChild(alertDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    const bsAlert = new bootstrap.Alert(alertDiv);
+                    bsAlert.close();
+                }
+            }, 5000);
+        }
+
+        // Auto-dismiss existing notifications after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const existingAlerts = document.querySelectorAll('.alert-notification');
+            existingAlerts.forEach(alert => {
+                setTimeout(() => {
+                    if (alert.parentNode) {
+                        const bsAlert = new bootstrap.Alert(alert);
+                        bsAlert.close();
+                    }
+                }, 5000);
+            });
         });
     </script>
-    @notifyJs
-    @notifyCss
+</body>
+</html>
