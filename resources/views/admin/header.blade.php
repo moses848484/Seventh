@@ -295,7 +295,7 @@
 
             alertDiv.innerHTML = `
                 <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             `;
 
             notifyContainer.appendChild(alertDiv);
