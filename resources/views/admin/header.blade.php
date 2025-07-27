@@ -23,7 +23,7 @@
     /* Notification styles - properly positioned */
     .notify-container {
         position: fixed;
-        top: 20px;
+        top: 35px;
         right: 20px;
         z-index: 9999;
         max-width: 400px;
@@ -248,11 +248,6 @@
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
-                </li>
-                <li class="nav-item" style="margin-top: 230px;">
-                    <x-app-layout class="bg-white">
-                        <x-notify::notify />
-                    </x-app-layout>
                 </li>
         </div>
     </nav>
