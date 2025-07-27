@@ -268,120 +268,57 @@
     </script>
     <script>
         // Notification system
-function showNotification(type, message) {
-    const notifyContainer = document.querySelector('.notify-container');
-    
-    // Create alert element
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-notification alert-dismissible fade show`;
-    alertDiv.setAttribute('role', 'alert');
+        function showNotification(type, message) {
+            const notifyContainer = document.querySelector('.notify-container');
+            const alertDiv = document.createElement('div');
 
-    let icon = '';
-    switch (type) {
-        case 'success':
-            icon = 'fas fa-check-circle';
-            break;
-        case 'danger':
-            icon = 'fas fa-exclamation-triangle';
-            break;
-        case 'warning':
-            icon = 'fas fa-exclamation-circle';
-            break;
-        case 'info':
-            icon = 'fas fa-info-circle';
-            break;
-        default:
-            icon = 'fas fa-bell';
-    }
+            alertDiv.className = `alert alert-${type} alert-notification alert-dismissible fade show`;
+            alertDiv.setAttribute('role', 'alert');
 
-    alertDiv.innerHTML = `
-        <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-
-    notifyContainer.appendChild(alertDiv);
-
-    // Store timeout ID so we can clear it if user closes manually
-    const timeoutId = setTimeout(() => {
-        // Check if alert still exists and hasn't been manually closed
-        if (alertDiv && alertDiv.parentNode && !alertDiv.classList.contains('d-none')) {
-            try {
-                const bsAlert = new bootstrap.Alert(alertDiv);
-                bsAlert.close();
-            } catch (error) {
-                // Fallback if Bootstrap Alert fails
-                alertDiv.classList.remove('show');
-                setTimeout(() => {
-                    if (alertDiv.parentNode) {
-                        alertDiv.remove();
-                    }
-                }, 150);
+            let icon = '';
+            switch (type) {
+                case 'success':
+                    icon = 'fas fa-check-circle';
+                    break;
+                case 'danger':
+                    icon = 'fas fa-exclamation-triangle';
+                    break;
+                case 'warning':
+                    icon = 'fas fa-exclamation-circle';
+                    break;
+                case 'info':
+                    icon = 'fas fa-info-circle';
+                    break;
+                default:
+                    icon = 'fas fa-bell';
             }
-        }
-    }, 4000);
 
-    // Listen for manual close to clear the timeout
-    alertDiv.addEventListener('closed.bs.alert', function() {
-        clearTimeout(timeoutId);
-    });
+            alertDiv.innerHTML = `
+                <strong><i class="${icon} me-2"></i>${type.charAt(0).toUpperCase() + type.slice(1)}!</strong> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
 
-    // Also listen for the close button click to clear timeout immediately
-    const closeBtn = alertDiv.querySelector('.btn-close');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            clearTimeout(timeoutId);
-        });
-    }
-}
+            notifyContainer.appendChild(alertDiv);
 
-// Auto-dismiss existing notifications after 4 seconds
-document.addEventListener('DOMContentLoaded', function () {
-    const existingAlerts = document.querySelectorAll('.alert-notification');
-    existingAlerts.forEach(alert => {
-        // Add a small delay to prevent immediate dismissal
-        const timeoutId = setTimeout(() => {
-            if (alert && alert.parentNode && !alert.classList.contains('d-none')) {
-                try {
-                    const bsAlert = new bootstrap.Alert(alert);
+            // Auto-remove after 4 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    const bsAlert = new bootstrap.Alert(alertDiv);
                     bsAlert.close();
-                } catch (error) {
-                    // Fallback if Bootstrap Alert fails
-                    alert.classList.remove('show');
-                    setTimeout(() => {
-                        if (alert.parentNode) {
-                            alert.remove();
-                        }
-                    }, 150);
                 }
-            }
-        }, 4000);
+            }, 4000);
+        }
 
-        // Listen for manual close to clear the timeout
-        alert.addEventListener('closed.bs.alert', function() {
-            clearTimeout(timeoutId);
-        });
-
-        // Also listen for the close button click
-        const closeBtn = alert.querySelector('.btn-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function() {
-                clearTimeout(timeoutId);
+        // Auto-dismiss existing notifications after 4 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            const existingAlerts = document.querySelectorAll('.alert-notification');
+            existingAlerts.forEach(alert => {
+                setTimeout(() => {
+                    if (alert.parentNode) {
+                        const bsAlert = new bootstrap.Alert(alert);
+                        bsAlert.close();
+                    }
+                }, 4000);
             });
-        }
-    });
-});
-
-// Optional: Function to remove all notifications
-function clearAllNotifications() {
-    const alerts = document.querySelectorAll('.alert-notification');
-    alerts.forEach(alert => {
-        if (alert.parentNode) {
-            try {
-                const bsAlert = new bootstrap.Alert(alert);
-                bsAlert.close();
-            } catch (error) {
-                alert.remove();
-            }
-        }
-    });
-}
+        });
+    </script>
