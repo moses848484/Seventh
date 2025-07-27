@@ -151,7 +151,7 @@
                     <i class="fa-solid fa-users"></i>
                 </span>
                 <span class="menu-title">Manage Members</span>
-                <i class="mdi mdi-chevron-right menu-arrow"></i>
+                <i class="mdi mdi-chevron-left menu-arrow"></i>
             </a>
             <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                 id="ui-basic">
