@@ -166,36 +166,3 @@
     </ul>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Add smooth arrow rotation animation
-        document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(element) {
-            element.addEventListener('click', function() {
-                const arrow = this.querySelector('.menu-arrow');
-                if (arrow) {
-                    setTimeout(() => {
-                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                        arrow.style.transform = isExpanded ? 'rotate(90deg)' : 'rotate(0deg)';
-                    }, 10);
-                }
-            });
-        });
-
-        // Handle collapse events for proper arrow animation
-        document.querySelectorAll('.collapse').forEach(function(collapseElement) {
-            collapseElement.addEventListener('show.bs.collapse', function() {
-                const trigger = document.querySelector(`[data-bs-toggle="collapse"][href="#${this.id}"]`);
-                if (trigger) {
-                    const arrow = trigger.querySelector('.menu-arrow');
-                    if (arrow) arrow.style.transform = 'rotate(90deg)';
-                }
-            });
-
-            collapseElement.addEventListener('hide.bs.collapse', function() {
-                const trigger = document.querySelector(`[data-bs-toggle="collapse"][href="#${this.id}"]`);
-                if (trigger) {
-                    const arrow = trigger.querySelector('.menu-arrow');
-                    if (arrow) arrow.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
-    </script>
