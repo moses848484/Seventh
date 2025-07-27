@@ -39,7 +39,7 @@ class HomeController extends Controller
             $divorcedCount = members::where('marital', 'divorced')->count(); // Count the number of divorced people
             // Pass the data and member count to the admin.home view
             $user = Auth::user();
-            notify()->success('Welcome, ' . $user->name . '!');
+          
             return view('admin.home', [
                 'data' => $data,
                 'users' => $users,
@@ -54,7 +54,7 @@ class HomeController extends Controller
         } else {
             // Redirect to home.userpage view for regular users
             $user = Auth::user();
-            notify()->success('Welcome, ' . $user->name . '!');
+       
             return view('home.memberhome');
         }
     }
