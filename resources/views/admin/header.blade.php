@@ -20,7 +20,8 @@
     /* Notification positioning for admin layout */
     .notification-container {
         position: fixed;
-        top: 80px; /* Adjust based on navbar height */
+        top: 80px;
+        /* Adjust based on navbar height */
         right: 20px;
         z-index: 9999;
         max-width: 400px;
@@ -40,6 +41,7 @@
             transform: translateX(100%);
             opacity: 0;
         }
+
         to {
             transform: translateX(0);
             opacity: 1;
@@ -228,12 +230,12 @@
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
-                </li>  
-                         <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown ms-3">
+                </li>
+                <!-- User Profile/Authentication Dropdown -->
+                <li class="nav-item dropdown ms-4">
                     @livewire('navigation-menu')
                 </li>
-            </ul>           
+            </ul>
         </div>
     </nav>
     <script>
