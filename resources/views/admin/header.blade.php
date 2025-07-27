@@ -20,7 +20,7 @@
 
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_navbar.html -->
-      <nav class="navbar p-0 fixed-top d-flex flex-row">
+    <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <!-- Logo (responsive visibility) -->
             <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
@@ -93,7 +93,7 @@
                         <i class="mdi mdi-view-grid"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown border-left">
+                <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
                         data-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-email"></i>
@@ -136,7 +136,7 @@
                         <p class="p-3 mb-0 text-center">..</p>
                     </div>
                 </li>
-                <li class="nav-item dropdown border-left">
+                <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                         data-toggle="dropdown">
                         <i class="mdi mdi-bell"></i>
@@ -202,6 +202,6 @@
             logoImg.classList.toggle('hidden-logo');
         });
     </script>
-  <x-notify::notify />
+    <x-notify::notify />
     @notifyJs
     @notifyCss
