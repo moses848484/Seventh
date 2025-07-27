@@ -83,6 +83,7 @@
                 <span class="mdi mdi-menu"></span>
             </button>
 
+
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
                     <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
@@ -96,6 +97,7 @@
                                 <div class="preview-icon bg-primary text-white rounded-circle">
                                     <i class="fa-brands fa-facebook"></i>
                                 </div>
+
                             </div>
                             <div class="preview-item-content">
                                 <p class="preview-subject ellipsis mb-1">Facebook Stream</p>
@@ -226,35 +228,17 @@
                         <div class="dropdown-divider"></div>
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
-                </li>
-                
-                <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown">
-                    @livewire('navigation-menu')
-                </li>
-            </ul>
+                </li>             
         </div>
     </nav>
+    <script>
+        // Get references to the image and toggler button
+        const logoImg = document.getElementById('logo-img');
+        const togglerButton = document.querySelector('.navbar-toggler');
 
-    <!-- Main Content Area -->
-    <div class="main-panel">
-        <div class="content-wrapper">
-            {{ $slot ?? '' }}
-        </div>
-    </div>
-</div>
-
-<script>
-    // Get references to the image and toggler button
-    const logoImg = document.getElementById('logo-img');
-    const togglerButton = document.querySelector('.navbar-toggler');
-
-    // Add a click event listener to the toggler button
-    togglerButton.addEventListener('click', function () {
-        // Toggle the 'hidden-logo' class on the image
-        logoImg.classList.toggle('hidden-logo');
-    });
-</script>
-
-@notifyJs
-@notifyCss
+        // Add a click event listener to the toggler button
+        togglerButton.addEventListener('click', function () {
+            // Toggle the 'hidden-logo' class on the image
+            logoImg.classList.toggle('hidden-logo');
+        });
+    </script>
