@@ -16,7 +16,51 @@
         background: linear-gradient(45deg, #E4405F, #F58529);
         /* Instagram's default gradient colors */
     }
+
+    /* Notification positioning for admin layout */
+    .notification-container {
+        position: fixed;
+        top: 80px; /* Adjust based on navbar height */
+        right: 20px;
+        z-index: 9999;
+        max-width: 400px;
+        pointer-events: none;
+    }
+
+    .notification-container .alert {
+        pointer-events: auto;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .notification-container {
+            top: 70px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
 </style>
+
+<!-- Notification Container - Position at top -->
+<div class="notification-container">
+    <x-notify::notify />
+</div>
 
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_navbar.html -->
@@ -39,7 +83,6 @@
                 <span class="mdi mdi-menu"></span>
             </button>
 
-
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
                     <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
@@ -53,7 +96,6 @@
                                 <div class="preview-icon bg-primary text-white rounded-circle">
                                     <i class="fa-brands fa-facebook"></i>
                                 </div>
-
                             </div>
                             <div class="preview-item-content">
                                 <p class="preview-subject ellipsis mb-1">Facebook Stream</p>
@@ -185,26 +227,34 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-                <li class="nav-item" style="margin-top: 190px;">
-                    <x-notify::notify />
+                
+                <!-- User Profile/Authentication Dropdown -->
+                <li class="nav-item dropdown">
+                    @livewire('navigation-menu')
                 </li>
-                <li>
-                    <x-app-layout>
-                    </x-app-layout>
-                </li>
+            </ul>
         </div>
     </nav>
-    <script>
-        // Get references to the image and toggler button
-        const logoImg = document.getElementById('logo-img');
-        const togglerButton = document.querySelector('.navbar-toggler');
 
-        // Add a click event listener to the toggler button
-        togglerButton.addEventListener('click', function () {
-            // Toggle the 'hidden-logo' class on the image
-            logoImg.classList.toggle('hidden-logo');
-        });
-    </script>
-    <x-notify::notify />
-    @notifyJs
-    @notifyCss
+    <!-- Main Content Area -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            {{ $slot ?? '' }}
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get references to the image and toggler button
+    const logoImg = document.getElementById('logo-img');
+    const togglerButton = document.querySelector('.navbar-toggler');
+
+    // Add a click event listener to the toggler button
+    togglerButton.addEventListener('click', function () {
+        // Toggle the 'hidden-logo' class on the image
+        logoImg.classList.toggle('hidden-logo');
+    });
+</script>
+
+@notifyJs
+@notifyCss
