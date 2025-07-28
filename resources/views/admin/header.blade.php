@@ -232,11 +232,12 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown ms-5">
-                    @livewire('navigation-menu')
+                       <li class="nav-item dropdown ms-5">
+                    <x-app-layout class="bg-white">
+                    </x-app-layout>
                 </li>
+            </ul>
         </div>
-
     </nav>
     <script>
         // Get references to the image and toggler button
