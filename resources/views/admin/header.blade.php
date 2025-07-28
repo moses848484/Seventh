@@ -232,7 +232,9 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-              
+                <li class="nav-item dropdown ms-5">
+                    @livewire('navigation-menu')
+                </li>
             </ul>
         </div>
     </nav>
