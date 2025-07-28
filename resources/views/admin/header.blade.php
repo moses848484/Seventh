@@ -235,9 +235,8 @@
                 <li class="nav-item dropdown ms-5">
                     @livewire('navigation-menu')
                 </li>
-            </ul>
         </div>
- 
+        </ul>
     </nav>
     <script>
         // Get references to the image and toggler button
