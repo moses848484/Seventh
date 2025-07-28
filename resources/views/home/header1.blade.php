@@ -11,28 +11,80 @@
         opacity: 0;
         visibility: hidden;
     }
+
+    .instagram-bg {
+        background: linear-gradient(45deg, #E4405F, #F58529);
+        /* Instagram's default gradient colors */
+    }
+
+    /* Notification positioning for admin layout */
+    .notification-container {
+        position: fixed;
+        top: 80px;
+        /* Adjust based on navbar height */
+        right: 20px;
+        z-index: 9999;
+        max-width: 400px;
+        pointer-events: none;
+    }
+
+    .notification-container .alert {
+        pointer-events: auto;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .notification-container {
+            top: 70px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
 </style>
+
+<!-- Notification Container - Position at top -->
+<div class="notification-container">
+    <x-notify::notify />
+</div>
 
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <!-- Logo (hidden on small screens) -->
-            <a class="navbar-brand brand-logo-mini d-none d-md-block" href="index.html">
+            <!-- Logo (responsive visibility) -->
+            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
                 <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 60px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 40px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Smaller logo for mobile -->
-            <a class="navbar-brand brand-logo-mini d-block d-md-none" href="index.html">
+            <a class="navbar-brand brand-logo-mini d-flex d-md-none align-items-center" href="index.html">
                 <img id="logo-img-small" src="admin/assets/images/faces/sda3.png" class="img-fluid"
-                    style="max-height: 40px; margin-top: 10px; width: auto; display: block;" alt="logo" />
+                    style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
             <!-- Toggler button -->
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
+
 
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
@@ -69,8 +121,8 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <div class="preview-icon rounded-circle" style="background-color: #f39c12;">
-                                    <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                                <div class="preview-icon instagram-bg rounded-circle">
+                                    <i class="fa-brands fa-instagram"></i>
                                 </div>
                             </div>
                             <div class="preview-item-content">
@@ -82,13 +134,12 @@
                         <p class="p-3 mb-0 text-center">Visit Us</p>
                     </div>
                 </li>
-
                 <li class="nav-item nav-settings d-none d-lg-block">
                     <a class="nav-link" href="#">
                         <i class="mdi mdi-view-grid"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown border-left">
+                <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
                         data-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-email"></i>
@@ -131,7 +182,7 @@
                         <p class="p-3 mb-0 text-center">..</p>
                     </div>
                 </li>
-                <li class="nav-item dropdown border-left">
+                <li class="nav-item dropdown">
                     <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                         data-toggle="dropdown">
                         <i class="mdi mdi-bell"></i>
@@ -180,9 +231,11 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
+                <!-- User Profile/Authentication Dropdown -->
                 <li class="nav-item dropdown ms-5">
                     @livewire('navigation-menu')
                 </li>
+            </ul>
         </div>
     </nav>
     <script>
