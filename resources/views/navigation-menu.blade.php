@@ -119,7 +119,7 @@
     <!-- Offcanvas element - Enhanced with better structure -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"
         style="width: 320px;">
-        <!-- Fixed Offcanvas Header -->
+           <!-- Fixed Offcanvas Header -->
         <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
             <h5 id="offcanvasMenuLabel" class="fw-bold mb-0">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
@@ -182,12 +182,11 @@
                             </a>
                             <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                 id="ui-basic">
-                                <div class="ps-4 mt-1 {{ request()->is('view_members') ? 'active' : '' }}">
+                                <div class="ps-4 mt-1">
                                     <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_members') ? 'bg-light' : '' }}"
                                         href="{{ url('view_members') }}">
                                         <i class="fa-solid fa-user me-2"></i>Register Members
                                     </a>
-                            
                                     <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : '' }}"
                                         href="{{ url('see_members') }}">
                                         <i class="fa-solid fa-eye me-2"></i>View Members
