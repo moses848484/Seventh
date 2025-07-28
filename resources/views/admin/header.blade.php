@@ -236,7 +236,7 @@
                     @livewire('navigation-menu')
                 </li>
         </div>
-        </ul>
+
     </nav>
     <script>
         // Get references to the image and toggler button
