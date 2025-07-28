@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Styles -->
+    @livewireStyles
+
+    <style>
+    .notification-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        max-width: 400px;
+        pointer-events: none; /* Allow clicks to pass through empty space */
+    }
+
+    .notification-container .alert {
+        pointer-events: auto; /* Re-enable clicks on actual notifications */
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .notification-container {
+            top: 10px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
+
+    /* Ensure notifications appear above navigation */
+    .notification-container {
+        z-index: 10000;
+    }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <x-banner />
+
+    <!-- Notification Container - Always on top -->
+    <div class="notification-container">
+        <x-notify::notify />
+    </div>
+
+    <div class="">
+        <!-- Responsive Header with Livewire Navigation Menu -->
+        <header class="bg-transparent ">
+            <!-- Navigation Menu and Header Title -->
+            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+
+                <!-- Left side: Page Heading (if any) -->
+                @if (isset($header))
+                    <div>
+                        {{ $header }}
+                    </div>
+                @endif
+
+                <!-- Right side: Livewire Navigation Menu -->
+                
+            </div>
+        </header>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
+
+    @stack('modals')
+    @livewireScripts
+    <script src="//unpkg.com/alpinejs" defer></script>
+   
+</body>
+
+</html>
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="">
