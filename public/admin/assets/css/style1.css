@@ -30991,7 +30991,7 @@ div.tagsinput span.tag a {
 /* For screens 1200px and below */
 @media (max-width: 1200px) {
   .content-wrapper {
-      padding: 1rem; /* Reduce padding */
+      width: 100%; /* Ensure full width */
       margin-left: 0; /* Remove left margin */
   }
 }
@@ -30999,7 +30999,7 @@ div.tagsinput span.tag a {
 /* For screens 768px and below */
 @media (max-width: 768px) {
   .content-wrapper {
-      padding: 0.75rem; /* Further reduce padding */
+      width: 100%; /* Ensure full width */
       margin: 0; /* Remove margin */
   }
 }
@@ -31008,7 +31008,7 @@ div.tagsinput span.tag a {
 @media (max-width: 480px) {
   .content-wrapper {
       margin: 0; /* Remove margin */
-      padding: 0.5rem; /* Reduce padding further */
+      width: 100%; /* Ensure full width */
   }
 }
 
