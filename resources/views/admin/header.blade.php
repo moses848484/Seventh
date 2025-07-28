@@ -237,6 +237,10 @@
                 </li>
             </ul>
         </div>
+         <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
     </nav>
     <script>
         // Get references to the image and toggler button
