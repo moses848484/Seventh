@@ -298,7 +298,6 @@ a:focus {
 @media (max-width: 480px) {
   .hero_area {
     align-items: stretch;
-    width: 100%;
   }
 }
 
