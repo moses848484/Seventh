@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="">
@@ -121,7 +122,7 @@
     <!-- Offcanvas element - Enhanced with better structure -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"
         style="width: 320px;">
-           <!-- Fixed Offcanvas Header -->
+        <!-- Fixed Offcanvas Header -->
         <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
             <h5 id="offcanvasMenuLabel" class="fw-bold mb-0">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
@@ -426,6 +427,9 @@
             // Hide hamburger when offcanvas is shown
             offcanvasElement.addEventListener('show.bs.offcanvas', function () {
                 hamburgerButton.style.display = 'none';
+                // Alternative method if display doesn't work:
+                // hamburgerButton.style.visibility = 'hidden';
+                // hamburgerButton.style.opacity = '0';
             });
 
             // Show hamburger when offcanvas is hidden (unless we're on profile page)
@@ -433,7 +437,18 @@
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 if (!isProfilePage) {
                     hamburgerButton.style.display = 'block';
+                    // If using alternative method above:
+                    // hamburgerButton.style.visibility = 'visible';
+                    // hamburgerButton.style.opacity = '1';
                 }
+            });
+
+            // Additional event listener for immediate hiding when hamburger is clicked
+            hamburgerButton.addEventListener('click', function () {
+                // Small delay to ensure offcanvas starts opening
+                setTimeout(() => {
+                    hamburgerButton.style.display = 'none';
+                }, 50);
             });
 
             // Hide hamburger when mobile Profile link is clicked
@@ -467,7 +482,7 @@
 
             // Show hamburger when clicking outside (but not on profile page)
             document.addEventListener('click', function (event) {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
+                const isProfilePage = {{ json_encode(request()->routeIs('profile.show')) }};
                 const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
                 const clickedInsideOffcanvas = event.target.closest('.offcanvas');
                 const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
