@@ -6,8 +6,8 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-toggle="offcanvas"
-                        data-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -171,14 +171,14 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#ui-basic" role="button"
+                                data-bs-toggle="collapse" href="#ui-basic" role="button"
                                 aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
                                 aria-controls="ui-basic">
                                 <span class="me-3">
                                     <i class="fa-solid fa-users text-success"></i>
                                 </span>
                                 <span class="flex-grow-1">Manage Members</span>
-                                <i class="mdi mdi-chevron-left menu-arrow"></i>
+                                <i class="fa-solid fa-chevron-down small"></i>
                             </a>
                             <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                 id="ui-basic">
@@ -200,14 +200,14 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#auth" role="button"
+                                data-bs-toggle="collapse" href="#auth" role="button"
                                 aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
                                 aria-controls="auth">
                                 <span class="me-3">
                                     <i class="fa-solid fa-warehouse text-danger"></i>
                                 </span>
                                 <span class="flex-grow-1">Inventory</span>
-                                 <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                <i class="fa-solid fa-chevron-down small"></i>
                             </a>
                             <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
                                 id="auth">
@@ -229,14 +229,14 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#strategicPlanning" role="button"
+                                data-bs-toggle="collapse" href="#strategicPlanning" role="button"
                                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                                 aria-controls="strategicPlanning">
                                 <span class="me-3">
                                     <i class="fa-solid fa-briefcase" style="color: orange;"></i>
                                 </span>
                                 <span class="flex-grow-1">Strategic Planning</span>
-                                <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                <i class="fa-solid fa-chevron-down small"></i>
                             </a>
                             <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
                                 id="strategicPlanning">
