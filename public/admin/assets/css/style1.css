@@ -30987,7 +30987,7 @@ div.tagsinput span.tag a {
 }
 
  /* Container that might be causing issues */
-        .main-panel, .container-fluid, .container {
+        .content-wrapper {
             padding: 0 !important;
             margin: 0 !important;
             width: 100% !important;
