@@ -6,8 +6,8 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <button class="btn btn-success" type="button" data-toggle="offcanvas"
+                        data-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -123,7 +123,7 @@
         <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
             <h5 id="offcanvasMenuLabel" class="fw-bold mb-0">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
-            <button type="button" class="btn btn-sm" data-bs-dismiss="offcanvas" aria-label="Close"
+            <button type="button" class="btn btn-sm" data-dismiss="offcanvas" aria-label="Close"
                 style="border: none; background: transparent;">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -171,7 +171,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#ui-basic" role="button"
+                                data-toggle="collapse" href="#ui-basic" role="button"
                                 aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
                                 aria-controls="ui-basic">
                                 <span class="me-3">
@@ -200,7 +200,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#auth" role="button"
+                                data-toggle="collapse" href="#auth" role="button"
                                 aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
                                 aria-controls="auth">
                                 <span class="me-3">
@@ -229,7 +229,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#strategicPlanning" role="button"
+                                data-toggle="collapse" href="#strategicPlanning" role="button"
                                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                                 aria-controls="strategicPlanning">
                                 <span class="me-3">
@@ -418,16 +418,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
+        const hamburgerButton = document.querySelector('[data-target="#offcanvasMenu"]');
 
         if (offcanvasElement && hamburgerButton) {
             // Hide hamburger when offcanvas is shown
-            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+            offcanvasElement.addEventListener('show.offcanvas', function () {
                 hamburgerButton.style.display = 'none';
             });
 
             // Show hamburger when offcanvas is hidden (unless we're on profile page)
-            offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
+            offcanvasElement.addEventListener('hidden.offcanvas', function () {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 if (!isProfilePage) {
                     hamburgerButton.style.display = 'block';
@@ -468,7 +468,7 @@
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
                 const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
+                const clickedHamburger = event.target.closest('[data-target="#offcanvasMenu"]');
 
                 if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
                     hamburgerButton.style.display = 'block';
