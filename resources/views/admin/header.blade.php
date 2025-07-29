@@ -81,9 +81,11 @@
             </a>
 
             <!-- Toggler button -->
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler align-self-center" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                 <span class="mdi mdi-menu"></span>
             </button>
+
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -232,7 +234,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                       <li class="nav-item dropdown ms-2">
+                <li class="nav-item dropdown ms-2">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
