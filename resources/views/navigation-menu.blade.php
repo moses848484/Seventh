@@ -387,33 +387,6 @@
 <!-- Alpine.js for dropdown functionality -->
 <script src="//unpkg.com/alpinejs" defer></script>
 
-<style>
-    /* Additional styles for better mobile navigation */
-    .nav-category {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .nav-link {
-        transition: all 0.2s ease;
-        text-decoration: none;
-    }
-
-    .offcanvas-body {
-        overflow-y: auto;
-    }
-
-    /* Responsive hamburger button */
-    @media (max-width: 576px) {
-        .position-fixed {
-            right: 15px !important;
-            top: 15px !important;
-        }
-    }
-</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
