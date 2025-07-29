@@ -15775,7 +15775,7 @@ input[type="button"].btn-block {
 }
 
 .fa-eye {
- color: #8f5fe8 !important;
+  color: #8f5fe8 !important;
 }
 
 .fa-wrench {
@@ -21930,7 +21930,7 @@ a.text-dark:focus {
   }
 
   abbr[title]::after {
-    content: " (" attr(title) ")";
+    content: " ("attr(title) ")";
   }
 
   pre {
@@ -30297,7 +30297,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item .nav-link i.menu-icon:before {
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .sidebar .nav .nav-item .nav-link i.menu-arrow {
@@ -30592,7 +30592,7 @@ div.tagsinput span.tag a {
   padding: 0.5rem 0.35rem;
   position: relative;
   width: 94%;
-  background-color:  #e6e5e5;
+  background-color: #e6e5e5;
   margin-top: 10px;
   margin-left: -10px;
   font-size: 0.855rem;
@@ -30977,13 +30977,32 @@ div.tagsinput span.tag a {
 
 .content-wrapper {
   background: url(./maps/dash.jpg) no-repeat center center fixed;
-  background-size: cover !important; /* Ensure the background covers the whole area */
-  padding: 1.875rem 1.75rem; /* Default padding */
-  width: 100%; /* Set width to 100% to fill the available space */
-  flex-grow: 1; /* Flex-grow for flexible layouts */
-  margin-left: 12px; /* Default left margin */
-  box-sizing: border-box; /* Ensure padding is included in width */
-  position: relative; /* Allows for absolute positioning of any inner elements */
+  background-size: cover !important;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 1.875rem 1.75rem;
+  /* Default padding */
+  width: 100vw;
+  /* Use viewport width instead of 100% */
+  min-height: 100vh;
+  /* Full viewport height */
+  flex-grow: 1;
+  margin: 0;
+  /* Remove all margins by default */
+  box-sizing: border-box;
+  position: relative;
+
+  /* CRITICAL: Override any parent container padding/margins */
+  left: 0;
+  right: 0;
+}
+
+/* Container that might be causing issues */
+.main-panel, .container-fluid, .container {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
 /* Responsive adjustments for various screen sizes */
@@ -30991,26 +31010,62 @@ div.tagsinput span.tag a {
 /* For screens 1200px and below */
 @media (max-width: 1200px) {
   .content-wrapper {
-      padding: 1rem; /* Reduce padding */
-      margin-left: 0; /* Remove left margin */
+    padding: 1rem;
+    margin: 0;
+    /* Ensure no margin */
+    width: 100vw;
+    /* Full viewport width */
   }
 }
 
 /* For screens 768px and below */
 @media (max-width: 768px) {
   .content-wrapper {
-      padding: 0.75rem; /* Further reduce padding */
-      margin: 0; /* Remove margin */
+    padding: 0.75rem 0.5rem;
+    /* Reduce horizontal padding more */
+    margin: 0;
+    width: 100vw;
+    left: 0;
+    /* Ensure it starts from the edge */
+  }
+
+  /* Fix common parent containers on mobile */
+  .main-panel {
+    margin-left: 0 !important;
+    width: 100% !important;
   }
 }
 
 /* For screens 480px and below */
 @media (max-width: 480px) {
   .content-wrapper {
-      margin: 0; /* Remove margin */
-      padding: 0.5rem; /* Reduce padding further */
+    margin: 0;
+    padding: 0.5rem 0.25rem;
+    /* Minimal horizontal padding */
+    width: 100vw;
+    left: 0;
+    right: 0;
+  }
+
+  /* Ensure body has no padding on small screens */
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
+
+/* Additional mobile fixes */
+@media (max-width: 576px) {
+  .content-wrapper {
+    /* Force full width edge-to-edge */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
 
 
 /*# sourceMappingURL=maps/style.css.map */
@@ -31111,136 +31166,136 @@ a {
   }
 }
 
-        /* Autofill input styling */
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 30px white inset !important;
-            box-shadow: 0 0 0 30px white inset !important;
-            -webkit-text-fill-color: #04AA6D !important;
-        }
+/* Autofill input styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #04AA6D !important;
+}
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .card-body {
-            flex: 1;
-        }
+.card-body {
+  flex: 1;
+}
 
-        .footer1 {
-            padding: 10px;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
+.footer1 {
+  padding: 10px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
 
-        .btn-custom {
-            text-decoration: none;
-            color: #fff;
-            background-color: #04AA6D;
-            padding: 10px;
-            border-radius: 5px;
-        }
+.btn-custom {
+  text-decoration: none;
+  color: #fff;
+  background-color: #04AA6D;
+  padding: 10px;
+  border-radius: 5px;
+}
 
-        .row {
-            margin-left: 0;
-            margin-right: 0;
-        }
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-        .card-body {
-            flex: 1;
-        }
+.card-body {
+  flex: 1;
+}
 
-        .card-footer {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-        }
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+}
 
-        /* Ensure cards have same height */
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+/* Ensure cards have same height */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-        .footlink {
-          color: #e4af00 !important;
-        }
+.footlink {
+  color: #e4af00 !important;
+}
 
-             /* Autofill input styling */
-             input:-webkit-autofill,
-             input:-webkit-autofill:hover,
-             input:-webkit-autofill:focus,
-             input:-webkit-autofill:active {
-                 -webkit-box-shadow: 0 0 0 30px white inset !important;
-                 /* Changes background color */
-                 box-shadow: 0 0 0 30px white inset !important;
-                 -webkit-text-fill-color: #04AA6D !important;
-                 /* Changes text color */
-             }
-     
-             /* Notification styling */
-             .notification {
-                 display: none;
-                 padding: 10px;
-                 background-color: #4CAF50;
-                 color: white;
-                 position: fixed;
-                 top: 10px;
-                 right: 10px;
-                 border-radius: 5px;
-                 z-index: 1000;
-             }
-     
-             /* Countdown timer styling */
-             .countdown {
-                 font-size: 24px;
-                 font-weight: bold;
-                 margin: 20px 0;
-             }
+/* Autofill input styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  /* Changes background color */
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #04AA6D !important;
+  /* Changes text color */
+}
 
-           .currentdocument {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1px;
-            border: 1px solid #e4af00;
-            border-radius: 2px;
-            background-color: white;
-            box-sizing: border-box;
-            font-size: 1em;
-            color: #04AA6D;
-           }
+/* Notification styling */
+.notification {
+  display: none;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
 
-           .view {
-            color: #e4af00;
-           }
+/* Countdown timer styling */
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
 
-           .view:hover {
-            color: #e4af00 !important;
-           }
+.currentdocument {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1px;
+  border: 1px solid #e4af00;
+  border-radius: 2px;
+  background-color: white;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: #04AA6D;
+}
 
-           .fa-money-bill-1-wave {
-            color: green;
-           }
-      
-           .first {
-            color: black !important;
-           }
+.view {
+  color: #e4af00;
+}
 
-           .textcolor {
-            color: #04AA6D;
-        }
+.view:hover {
+  color: #e4af00 !important;
+}
+
+.fa-money-bill-1-wave {
+  color: green;
+}
+
+.first {
+  color: black !important;
+}
+
+.textcolor {
+  color: #04AA6D;
+}
