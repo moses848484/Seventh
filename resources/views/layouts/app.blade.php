@@ -24,12 +24,6 @@
 
 <body class="font-sans antialiased">
     <x-banner />
-
-    <!-- Notification Container - Always on top -->
-    <div class="notification-container">
-        <x-notify::notify />
-    </div>
-
     <div class="">
         <!-- Responsive Header with Livewire Navigation Menu -->
         <header class="bg-transparent ">
