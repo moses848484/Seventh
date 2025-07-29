@@ -6,7 +6,7 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
+                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
@@ -171,7 +171,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#ui-basic" role="button"
+                                data-bs-toggle="collapse" href="#ui-basic" role="button"
                                 aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
                                 aria-controls="ui-basic">
                                 <span class="me-3">
@@ -200,7 +200,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#auth" role="button"
+                                data-bs-toggle="collapse" href="#auth" role="button"
                                 aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
                                 aria-controls="auth">
                                 <span class="me-3">
@@ -229,7 +229,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#strategicPlanning" role="button"
+                                data-bs-toggle="collapse" href="#strategicPlanning" role="button"
                                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                                 aria-controls="strategicPlanning">
                                 <span class="me-3">
@@ -416,55 +416,29 @@
 </style>
 
 <script>
+    // Simplified JavaScript - no complex visibility logic needed
     document.addEventListener('DOMContentLoaded', function () {
         const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
-
-        if (offcanvasElement && hamburgerButton) {
-            // Hide hamburger when offcanvas is shown
-            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
-                hamburgerButton.style.display = 'none';
+        
+        // Optional: Add any specific behavior when offcanvas opens/closes
+        if (offcanvasElement) {
+            offcanvasElement.addEventListener('shown.bs.offcanvas', function () {
+                console.log('Offcanvas opened');
             });
 
-            // Show hamburger when offcanvas is hidden (unless we're on profile page)
             offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                if (!isProfilePage) {
-                    hamburgerButton.style.display = 'block';
-                }
+                console.log('Offcanvas closed');
+                // Ensure body scrolling is restored (Bootstrap should handle this)
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
             });
-
-            // Hide hamburger when mobile Profile link is clicked
-            const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
-            if (profileLink) {
-                profileLink.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                    // Also close the offcanvas
-                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-                    if (offcanvas) {
-                        offcanvas.hide();
-                    }
-                });
-            }
-
-            // Hide hamburger when desktop profile dropdown is clicked
-            const desktopProfileButton = document.querySelector('.d-none.d-sm-block button');
-            if (desktopProfileButton) {
-                desktopProfileButton.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                });
-            }
-
-            // Hide hamburger when desktop profile dropdown links are clicked
-            const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
-            desktopProfileLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                });
-            });
-
-            // Show hamburger when clicking outside (but not on profile page)
-       
         }
     });
+
+    // Simulate profile page navigation
+    function simulateProfilePage() {
+        alert('Navigating to profile page...');
+        // In real implementation, this would be handled by your Laravel routing
+        // You can add logic here to hide the hamburger button if needed
+    }
 </script>
