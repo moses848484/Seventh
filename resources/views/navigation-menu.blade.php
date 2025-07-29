@@ -6,7 +6,7 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-toggle="offcanvas" data-target="#offcanvasMenu"
+                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-target="#offcanvasMenu"
                         aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
@@ -418,7 +418,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-target="#offcanvasMenu"]');
+        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
 
         if (offcanvasElement && hamburgerButton) {
             // Hide hamburger when offcanvas is shown
