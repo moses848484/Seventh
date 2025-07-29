@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+<!-- Bootstrap 5.3 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-..." crossorigin="anonymous">
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="">
@@ -427,9 +427,6 @@
             // Hide hamburger when offcanvas is shown
             offcanvasElement.addEventListener('show.bs.offcanvas', function () {
                 hamburgerButton.style.display = 'none';
-                // Alternative method if display doesn't work:
-                // hamburgerButton.style.visibility = 'hidden';
-                // hamburgerButton.style.opacity = '0';
             });
 
             // Show hamburger when offcanvas is hidden (unless we're on profile page)
@@ -437,18 +434,7 @@
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 if (!isProfilePage) {
                     hamburgerButton.style.display = 'block';
-                    // If using alternative method above:
-                    // hamburgerButton.style.visibility = 'visible';
-                    // hamburgerButton.style.opacity = '1';
                 }
-            });
-
-            // Additional event listener for immediate hiding when hamburger is clicked
-            hamburgerButton.addEventListener('click', function () {
-                // Small delay to ensure offcanvas starts opening
-                setTimeout(() => {
-                    hamburgerButton.style.display = 'none';
-                }, 50);
             });
 
             // Hide hamburger when mobile Profile link is clicked
@@ -482,7 +468,7 @@
 
             // Show hamburger when clicking outside (but not on profile page)
             document.addEventListener('click', function (event) {
-                const isProfilePage = {{ json_encode(request()->routeIs('profile.show')) }};
+                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
                 const clickedInsideOffcanvas = event.target.closest('.offcanvas');
                 const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
@@ -494,3 +480,8 @@
         }
     });
 </script>
+
+
+<!-- Bootstrap 5.3 JS Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
+    crossorigin="anonymous"></script>
