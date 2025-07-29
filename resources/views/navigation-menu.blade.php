@@ -419,69 +419,108 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
+document.addEventListener('DOMContentLoaded', function () {
+    const offcanvasElement = document.getElementById('offcanvasMenu');
+    const hamburgerButton = document.querySelector('[data-bs-target="#offcanvasMenu"]');
 
-        if (offcanvasElement && hamburgerButton) {
-            // Hide hamburger when offcanvas is shown
-            offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+    if (offcanvasElement && hamburgerButton) {
+        let isOffcanvasOpen = false;
+
+        // Initialize offcanvas with backdrop disabled to prevent conflicts
+        const offcanvasInstance = new bootstrap.Offcanvas(offcanvasElement, {
+            backdrop: false, // Disable Bootstrap's default backdrop
+            keyboard: true   // Keep keyboard support (Escape key)
+        });
+
+        // Hide hamburger when offcanvas is shown
+        offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+            hamburgerButton.style.display = 'none';
+            isOffcanvasOpen = true;
+        });
+
+        // Show hamburger when offcanvas is hidden (unless we're on profile page)
+        offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
+            const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
+            isOffcanvasOpen = false;
+            if (!isProfilePage) {
+                hamburgerButton.style.display = 'block';
+            }
+        });
+
+        // Handle hamburger button clicks
+        hamburgerButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (isOffcanvasOpen) {
+                // If offcanvas is open, close it
+                offcanvasInstance.hide();
+            } else {
+                // If offcanvas is closed, open it
+                offcanvasInstance.show();
+            }
+        });
+
+        // Hide hamburger when mobile Profile link is clicked
+        const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
+        if (profileLink) {
+            profileLink.addEventListener('click', function () {
                 hamburgerButton.style.display = 'none';
-            });
-
-            // Show hamburger when offcanvas is hidden (unless we're on profile page)
-            offcanvasElement.addEventListener('hidden.bs.offcanvas', function () {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                if (!isProfilePage) {
-                    hamburgerButton.style.display = 'block';
-                }
-            });
-
-            // Hide hamburger when mobile Profile link is clicked
-            const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
-            if (profileLink) {
-                profileLink.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                    // Also close the offcanvas
-                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-                    if (offcanvas) {
-                        offcanvas.hide();
-                    }
-                });
-            }
-
-            // Hide hamburger when desktop profile dropdown is clicked
-            const desktopProfileButton = document.querySelector('.d-none.d-sm-block button');
-            if (desktopProfileButton) {
-                desktopProfileButton.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                });
-            }
-
-            // Hide hamburger when desktop profile dropdown links are clicked
-            const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
-            desktopProfileLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
-                });
-            });
-
-            // Show hamburger when clicking outside (but not on profile page)
-            document.addEventListener('click', function (event) {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
-                const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
-
-                if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
-                    hamburgerButton.style.display = 'block';
-                }
+                offcanvasInstance.hide();
             });
         }
-    });
+
+        // Hide hamburger when desktop profile dropdown is clicked
+        const desktopProfileButton = document.querySelector('.d-none.d-sm-block button');
+        if (desktopProfileButton) {
+            desktopProfileButton.addEventListener('click', function () {
+                hamburgerButton.style.display = 'none';
+            });
+        }
+
+        // Hide hamburger when desktop profile dropdown links are clicked
+        const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
+        desktopProfileLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburgerButton.style.display = 'none';
+            });
+        });
+
+        // Close offcanvas when clicking/touching outside
+        function handleOutsideClick(event) {
+            const isProfilePage = {{ json_encode(request()->routeIs('profile.show')) }};
+            const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
+            const clickedInsideOffcanvas = event.target.closest('.offcanvas');
+            const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
+
+            if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger) {
+                if (isOffcanvasOpen) {
+                    // Close the offcanvas
+                    offcanvasInstance.hide();
+                } else if (!isProfilePage) {
+                    // Show hamburger if offcanvas is closed and not on profile page
+                    hamburgerButton.style.display = 'block';
+                }
+            }
+        }
+
+        // Add event listeners for outside clicks
+        document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('touchstart', handleOutsideClick);
+
+        // Close offcanvas when pressing Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && isOffcanvasOpen) {
+                offcanvasInstance.hide();
+            }
+        });
+
+        // Prevent clicks inside offcanvas from closing it
+        offcanvasElement.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    }
+});
 </script>
 
 
-<!-- Bootstrap 5.3 JS Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
-    crossorigin="anonymous"></script>
