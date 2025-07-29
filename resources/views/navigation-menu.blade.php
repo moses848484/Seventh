@@ -5,14 +5,9 @@
             <div class="flex justify-between items-center px-4 py-2">
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
-                    style="right: 20px; top: 20px; z-index: 1050;">
+                    style="right: 20px; top: 20px;">
                     <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
-                            style="width: 20px; height: 20px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
                     </button>
                 </div>
 
