@@ -1,3 +1,69 @@
+<style>
+    .navbar-brand img {
+        max-height: 50px;
+        width: auto;
+        display: block;
+        transition: opacity 0.3s ease;
+        /* Smooth hide/show effect */
+    }
+
+    .hidden-logo {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .instagram-bg {
+        background: linear-gradient(45deg, #E4405F, #F58529);
+        /* Instagram's default gradient colors */
+    }
+
+    /* Notification positioning for admin layout */
+    .notification-container {
+        position: fixed;
+        top: 80px;
+        /* Adjust based on navbar height */
+        right: 20px;
+        z-index: 9999;
+        max-width: 400px;
+        pointer-events: none;
+    }
+
+    .notification-container .alert {
+        pointer-events: auto;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+        .notification-container {
+            top: 70px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
+        }
+    }
+</style>
+
+<!-- Notification Container - Position at top -->
+<div class="notification-container">
+    <x-notify::notify />
+</div>
+
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar p-0 fixed-top d-flex flex-row">
