@@ -231,9 +231,10 @@
                         <p class="p-3 mb-0 text-center">See all notifications</p>
                     </div>
                 </li>
-                      <div class="flex items-center justify-end">
-                    @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
-                </div>
+                <!-- User Profile/Authentication Dropdown -->
+                       <li class="nav-item dropdown ms-2">
+                    <x-app-layout>
+                    </x-app-layout>
                 </li>
             </ul>
         </div>
