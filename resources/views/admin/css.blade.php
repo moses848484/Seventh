@@ -35,7 +35,7 @@
   defer></script>
 
 
-
+<script src="/images/script.js"></script>
 
 <!-- Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
