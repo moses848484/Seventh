@@ -31013,11 +31013,6 @@ div.tagsinput span.tag a {
                 left: 0; /* Ensure it starts from the edge */
             }
             
-            /* Fix common parent containers on mobile */
-            .main-panel {
-                margin-left: 0 !important;
-                width: 100% !important;
-            }
         }
 
         /* For screens 480px and below */
@@ -31030,11 +31025,6 @@ div.tagsinput span.tag a {
                 right: 0;
             }
 
-            /* Ensure body has no padding on small screens */
-            body {
-                padding: 0 !important;
-                margin: 0 !important;
-            }
         }
 
         /* Additional mobile fixes */
