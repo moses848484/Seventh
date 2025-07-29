@@ -18,90 +18,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Styles -->
     @livewireStyles
-
-    <style>
-    .notification-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-        max-width: 400px;
-        pointer-events: none; /* Allow clicks to pass through empty space */
-    }
-
-    .notification-container .alert {
-        pointer-events: auto; /* Re-enable clicks on actual notifications */
-        margin-bottom: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        animation: slideInRight 0.3s ease-out;
-    }
-
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-        .notification-container {
-            top: 10px;
-            right: 10px;
-            left: 10px;
-            max-width: none;
-        }
-    }
-
-    /* Ensure notifications appear above navigation */
-    .notification-container {
-        z-index: 10000;
-    }
-    </style>
 </head>
 
 <body class="font-sans antialiased">
     <x-banner />
 
-    <!-- Notification Container - Always on top -->
-    <div class="notification-container">
-        <x-notify::notify />
-    </div>
-
     <div class="">
-        <!-- Responsive Header with Livewire Navigation Menu -->
-        <header class="bg-transparent ">
-            <!-- Navigation Menu and Header Title -->
-            <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-
-                <!-- Left side: Page Heading (if any) -->
-                @if (isset($header))
-                    <div>
-                        {{ $header }}
-                    </div>
-                @endif
-
-                <!-- Right side: Livewire Navigation Menu -->
-                <div class="flex items-center justify-end">
-                    @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
-                </div>
+   <!-- Responsive Header with Livewire Navigation Menu -->
+<header class="bg-transparent ">
+    <!-- Navigation Menu and Header Title -->
+    <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        
+        <!-- Left side: Page Heading (if any) -->
+        @if (isset($header))
+            <div>
+                {{ $header }}
             </div>
-        </header>
+        @endif
+
+        <!-- Right side: Livewire Navigation Menu -->
+        <div class="flex items-center justify-end">
+            @livewire('navigation-menu') <!-- Livewire Navigation Menu positioned on the right -->
+        </div>
+    </div>
+</header>
         <!-- Page Content -->
         <main>
-            {{ $slot }}
+            {{ $slot }}    
         </main>
     </div>
 
     @stack('modals')
+
     @livewireScripts
-    <script src="//unpkg.com/alpinejs" defer></script>
-   
 </body>
 
 </html>
