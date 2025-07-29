@@ -20,35 +20,6 @@
       </a>
     </li>
 
-    <li
-      class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic"
-        aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
-        aria-controls="ui-basic">
-        <span class="menu-icon">
-          <i class="fa-solid fa-users"></i>
-        </span>
-        <span class="menu-title">Manage Members</span>
-        <i class="mdi mdi-chevron-left menu-arrow"></i>
-      </a>
-      <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
-        id="ui-basic">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('view_members') }}">
-              <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
-            </a>
-          </li>
-
-          <li class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('see_members') }}">
-              <i class="fa-solid fa-eye"></i>&nbsp;View Members
-            </a>
-          </li>
-        </ul>
-      </div>
-    </li>
-
     <li class="nav-item menu-items {{ request()->is('member_givings') ? 'active' : '' }}">
       <a class="nav-link" href="{{ url('member_givings') }}">
         <span class="menu-icon">
