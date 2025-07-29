@@ -15,9 +15,8 @@
             </a>
 
             <!-- Toggler button -->
-            <!-- Toggler button: OUTSIDE the offcanvas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
             </button>
 
 
@@ -167,7 +166,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown ms-2">
+                       <li class="nav-item dropdown ms-2">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
