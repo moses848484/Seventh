@@ -1,462 +1,379 @@
-<nav x-data="{ open: false }" class="">
+<nav class="bg-white border-gray-200">
     <!-- Primary Navigation Menu -->
-    <div class="">
-        <div class="relative">
-            <div class="flex justify-between items-center px-4 py-2">
-                <!-- Hamburger Button - Hide on profile page -->
-                <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
-                    style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-toggle="offcanvas"
-                        data-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
-                            style="width: 20px; height: 20px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <!-- Hamburger Button - Hide on profile page -->
+        <div class="{{ request()->routeIs('profile.show') ? 'hidden' : 'block' }} sm:hidden fixed right-5 top-5 z-50">
+            <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation" 
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
 
-                <!-- Navigation Links for Desktop -->
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <!-- Teams Dropdown -->
-                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                        <div class="ml-3 relative">
-                            <x-dropdown align="right" width="48">
-                                <x-slot name="trigger">
-                                    <span class="inline-flex rounded-md">
-                                        <button type="button"
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                            {{ Auth::user()->currentTeam->name }}
-                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                            </svg>
-                                        </button>
-                                    </span>
-                                </x-slot>
-                                <x-slot name="content">
-                                    <div class="w-60">
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            {{ __('Manage Team') }}
-                                        </div>
-                                        <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                            {{ __('Team Settings') }}
-                                        </x-dropdown-link>
-                                        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                            <x-dropdown-link href="{{ route('teams.create') }}">
-                                                {{ __('Create New Team') }}
-                                            </x-dropdown-link>
-                                        @endcan
-                                        @if (Auth::user()->allTeams()->count() > 1)
-                                            <div class="border-t border-gray-200"></div>
-                                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                                {{ __('Switch Teams') }}
-                                            </div>
-                                            @foreach (Auth::user()->allTeams() as $team)
-                                                <x-switchable-team :team="$team" />
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                </x-slot>
-                            </x-dropdown>
+        <!-- Navigation Links for Desktop -->
+        <div class="hidden w-full md:block md:w-auto">
+            <div class="flex items-center space-x-3">
+                <!-- Teams Dropdown -->
+                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                    <div class="relative">
+                        <button id="teamsDropdownButton" data-dropdown-toggle="teamsDropdown" 
+                                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center">
+                            {{ Auth::user()->currentTeam->name }}
+                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <!-- Teams dropdown menu -->
+                        <div id="teamsDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60">
+                            <div class="px-4 py-3 text-sm text-gray-900">
+                                <div class="text-xs text-gray-400 uppercase tracking-wide">{{ __('Manage Team') }}</div>
+                            </div>
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="teamsDropdownButton">
+                                <li>
+                                    <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="block px-4 py-2 hover:bg-gray-100">{{ __('Team Settings') }}</a>
+                                </li>
+                                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                                    <li>
+                                        <a href="{{ route('teams.create') }}" class="block px-4 py-2 hover:bg-gray-100">{{ __('Create New Team') }}</a>
+                                    </li>
+                                @endcan
+                                @if (Auth::user()->allTeams()->count() > 1)
+                                    <li><hr class="my-1 border-gray-200"></li>
+                                    <li class="px-4 py-2 text-xs text-gray-400 uppercase tracking-wide">{{ __('Switch Teams') }}</li>
+                                    @foreach (Auth::user()->allTeams() as $team)
+                                        <li>
+                                            <x-switchable-team :team="$team" />
+                                        </li>
+                                    @endforeach
+                                @endif
+                            </ul>
                         </div>
-                    @endif
+                    </div>
+                @endif
 
-                    <!-- Settings Dropdown (Mobile landscape and Desktop) - Hide on profile page -->
-                    @unless(request()->routeIs('profile.show'))
-                        <div class="d-none d-sm-block position-fixed" style="right: 35px; top: 13px; z-index: 1050;">
-                            <x-dropdown align="right" width="48">
-                                <x-slot name="trigger">
-                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                        <button
-                                            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                            <img class="h-10 w-10 rounded-full object-cover"
-                                                src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                        </button>
-                                    @else
-                                        <span class="inline-flex rounded-md">
-                                            <button type="button"
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                                {{ Auth::user()->name }}
-                                                <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                                </svg>
-                                            </button>
-                                        </span>
-                                    @endif
-                                </x-slot>
-                                <x-slot name="content">
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Manage Account') }}
-                                    </div>
-                                    <x-dropdown-link href="{{ route('profile.show') }}">
-                                        {{ __('Profile') }}
-                                    </x-dropdown-link>
-                                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                        <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                            {{ __('API Tokens') }}
-                                        </x-dropdown-link>
-                                    @endif
-                                    <div class="border-t border-gray-200"></div>
-                                    <form method="POST" action="{{ route('logout') }}" x-data>
+                <!-- Settings Dropdown (Desktop) - Hide on profile page -->
+                @unless(request()->routeIs('profile.show'))
+                    <div class="relative">
+                        <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                            <span class="sr-only">Open user menu</span>
+                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                <img class="w-8 h-8 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                            @else
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                                    {{ substr(Auth::user()->name, 0, 1) }}
+                                </div>
+                            @endif
+                        </button>
+                        <!-- User dropdown menu -->
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
+                            <div class="px-4 py-3">
+                                <span class="block text-sm text-gray-900">{{ Auth::user()->name }}</span>
+                                <span class="block text-sm text-gray-500 truncate">{{ Auth::user()->email }}</span>
+                            </div>
+                            <ul class="py-2" aria-labelledby="user-menu-button">
+                                <li>
+                                    <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('Profile') }}</a>
+                                </li>
+                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                    <li>
+                                        <a href="{{ route('api-tokens.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('API Tokens') }}</a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                        <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                            {{ __('Log Out') }}
-                                        </x-dropdown-link>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ __('Log Out') }}</a>
                                     </form>
-                                </x-slot>
-                            </x-dropdown>
+                                </li>
+                            </ul>
                         </div>
-                    @endunless
-                </div>
+                    </div>
+                @endunless
             </div>
         </div>
     </div>
 
-    <!-- Offcanvas element - Enhanced with better structure -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"
-        style="width: 320px;">
-           <!-- Fixed Offcanvas Header -->
-        <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
-            <h5 id="offcanvasMenuLabel" class="fw-bold mb-0">Menu</h5>
-            <!-- Custom close button with Font Awesome icon -->
-            <button type="button" class="btn btn-sm" data-dismiss="offcanvas" aria-label="Close"
-                style="border: none; background: transparent;">
-                <i class="fa-solid fa-xmark"></i>
+    <!-- Flowbite Drawer (Offcanvas) -->
+    <div id="drawer-navigation" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 border-r border-gray-200" tabindex="-1" aria-labelledby="drawer-navigation-label">
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+            <h5 id="drawer-navigation-label" class="text-lg font-semibold text-gray-900 uppercase">Menu</h5>
+            <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+                <span class="sr-only">Close menu</span>
             </button>
         </div>
 
-        <div class="offcanvas-body p-0">
-            <!-- User Profile Section -->
-            <div class="p-3 border-bottom bg-light">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center flex-grow-1">
-                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                            <img class="rounded-circle me-3" src="{{ Auth::user()->profile_photo_url }}"
-                                alt="{{ Auth::user()->name }}" style="width: 50px; height: 50px; object-fit: cover;" />
-                        @else
-                            <div class="rounded-circle me-3 bg-success d-flex align-items-center justify-content-center text-white fw-bold"
-                                style="width: 50px; height: 50px;">
-                                {{ substr(Auth::user()->name, 0, 1) }}
-                            </div>
-                        @endif
-                        <div>
-                            <div class="fw-semibold text-dark">{{ Auth::user()->name }}</div>
-                            <div class="small text-muted">{{ Auth::user()->email }}</div>
-                        </div>
+        <!-- User Profile Section -->
+        <div class="py-4 border-b border-gray-200 bg-gray-50 -mx-4 px-4 mb-4">
+            <div class="flex items-center space-x-4">
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                    <img class="w-12 h-12 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                @else
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                        {{ substr(Auth::user()->name, 0, 1) }}
                     </div>
+                @endif
+                <div class="font-medium">
+                    <div class="text-sm font-semibold text-gray-900">{{ Auth::user()->name }}</div>
+                    <div class="text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Rest of your navigation menu code remains the same -->
-            <div class="p-0">
-                <!-- Dashboard Link -->
-                <div class="px-3 py-2">
-                    <div class="nav-category small text-muted fw-bold mb-2">Navigation</div>
-                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('/redirect') ? 'bg-success text-white' : 'text-dark' }}"
-                        href="{{ url('/redirected') }}">
-                        <span class="me-3">
-                            <i class="fa-solid fa-gauge-high text-success"></i>
-                        </span>
-                        <span>Dashboard</span>
-                    </a>
+        <!-- Navigation Menu -->
+        <div class="py-4 overflow-y-auto">
+            <!-- Dashboard Link -->
+            <div class="mb-4">
+                <p class="mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">Navigation</p>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="{{ url('/redirected') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('/redirect') ? 'bg-green-100 text-green-700' : '' }}">
+                            <i class="fa-solid fa-gauge-high text-green-500"></i>
+                            <span class="ms-3">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            @if (auth()->user()->usertype == 1)
+                <!-- Admin-only sections -->
+
+                <!-- Manage Members Section -->
+                <div class="mb-4">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-members" data-collapse-toggle="dropdown-members">
+                        <i class="fa-solid fa-users text-green-500"></i>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Manage Members</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-members" class="{{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? '' : 'hidden' }} py-2 space-y-2">
+                        <li>
+                            <a href="{{ url('view_members') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('view_members') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-user text-sm"></i>
+                                <span class="ms-2">Register Members</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('see_members') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-eye text-sm"></i>
+                                <span class="ms-2">View Members</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                @if (auth()->user()->usertype == 1)
-                    <!-- Admin-only sections -->
 
-                    <!-- Manage Members Section -->
-                    <div class="px-3 py-1">
-                        <div class="nav-item">
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#ui-basic" role="button"
-                                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
-                                aria-controls="ui-basic">
-                                <span class="me-3">
-                                    <i class="fa-solid fa-users text-success"></i>
-                                </span>
-                                <span class="flex-grow-1">Manage Members</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                <!-- Inventory Section -->
+                <div class="mb-4">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-inventory" data-collapse-toggle="dropdown-inventory">
+                        <i class="fa-solid fa-warehouse text-red-500"></i>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Inventory</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-inventory" class="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? '' : 'hidden' }} py-2 space-y-2">
+                        <li>
+                            <a href="{{ url('view_inventory') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('view_inventory') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-wrench text-sm"></i>
+                                <span class="ms-2">Add Inventory</span>
                             </a>
-                            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
-                                id="ui-basic">
-                                <div class="ps-4 mt-1">
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_members') ? 'bg-light' : '' }}"
-                                        href="{{ url('view_members') }}">
-                                        <i class="fa-solid fa-user me-2"></i>Register Members
-                                    </a>
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : '' }}"
-                                        href="{{ url('see_members') }}">
-                                        <i class="fa-solid fa-eye me-2"></i>View Members
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Inventory Section -->
-                    <div class="px-3 py-1">
-                        <div class="nav-item">
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#auth" role="button"
-                                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
-                                aria-controls="auth">
-                                <span class="me-3">
-                                    <i class="fa-solid fa-warehouse text-danger"></i>
-                                </span>
-                                <span class="flex-grow-1">Inventory</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                        </li>
+                        <li>
+                            <a href="{{ url('show_inventory') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-eye text-sm"></i>
+                                <span class="ms-2">Show Inventory</span>
                             </a>
-                            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
-                                id="auth">
-                                <div class="ps-4 mt-1">
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_inventory') ? 'bg-light' : '' }}"
-                                        href="{{ url('view_inventory') }}">
-                                        <i class="fa-solid fa-wrench me-2"></i>Add Inventory
-                                    </a>
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-light' : '' }}"
-                                        href="{{ url('show_inventory') }}">
-                                        <i class="fa-solid fa-eye me-2"></i>Show Inventory
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
+                </div>
 
-                    <!-- Strategic Planning Section -->
-                    <div class="px-3 py-1">
-                        <div class="nav-item">
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-toggle="collapse" href="#strategicPlanning" role="button"
-                                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
-                                aria-controls="strategicPlanning">
-                                <span class="me-3">
-                                    <i class="fa-solid fa-briefcase" style="color: orange;"></i>
-                                </span>
-                                <span class="flex-grow-1">Strategic Planning</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                <!-- Strategic Planning Section -->
+                <div class="mb-4">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-strategic" data-collapse-toggle="dropdown-strategic">
+                        <i class="fa-solid fa-briefcase text-orange-500"></i>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Strategic Planning</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-strategic" class="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? '' : 'hidden' }} py-2 space-y-2">
+                        <li>
+                            <a href="{{ url('scorecard') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-book text-sm"></i>
+                                <span class="ms-2">Strategic Plan</span>
                             </a>
-                            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
-                                id="strategicPlanning">
-                                <div class="ps-4 mt-1">
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-light' : '' }}"
-                                        href="{{ url('scorecard') }}">
-                                        <i class="fa-solid fa-book me-2"></i>Strategic Plan
-                                    </a>
-                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-light' : '' }}"
-                                        href="{{ url('strategic_plan') }}">
-                                        <i class="fa-solid fa-file me-2"></i>Strategic Details
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                        <li>
+                            <a href="{{ url('strategic_plan') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-file text-sm"></i>
+                                <span class="ms-2">Strategic Details</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-                    <!-- Users Section -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('see_users') || request()->is('update_user/*') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('see_users') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-user text-success"></i>
-                            </span>
-                            <span>Users</span>
-                        </a>
-                    </div>
-
-                    <!-- Givings Section -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_givings') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('view_givings') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-sack-dollar text-success"></i>
-                            </span>
-                            <span>Givings</span>
-                        </a>
-                    </div>
-
-                    <!-- Departments Section -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('departments') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('departments') }}">
-                            <span class="me-3">
+                <!-- Single Menu Items -->
+                <div class="mb-4">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="{{ url('see_users') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('see_users') || request()->is('update_user/*') ? 'bg-green-100 text-green-700' : '' }}">
+                                <i class="fa-solid fa-user text-green-500"></i>
+                                <span class="ms-3">Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('view_givings') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('view_givings') ? 'bg-green-100 text-green-700' : '' }}">
+                                <i class="fa-solid fa-sack-dollar text-green-500"></i>
+                                <span class="ms-3">Givings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('departments') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('departments') ? 'bg-green-100 text-green-700' : '' }}">
                                 <i class="fa-solid fa-book"></i>
-                            </span>
-                            <span>Departments</span>
-                        </a>
-                    </div>
-
-                    <!-- Human Resource -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('#') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-user-tie" style="color: orange;"></i>
-                            </span>
-                            <span>Human Resource</span>
-                        </a>
-                    </div>
-                @endif
-
-                @if (auth()->user()->usertype == 0)
-                    <!-- Normal user-only sections -->
-
-                    <!-- Member Registration -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('member_registration') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('member_registration') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-user"></i>
-                            </span>
-                            <span>Member Registration</span>
-                        </a>
-                    </div>
-
-                    <!-- Givings Section -->
-                    <div class="px-3 py-1">
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('member_givings') ? 'bg-success text-white' : 'text-dark' }}"
-                            href="{{ url('member_givings') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-sack-dollar" style="color: #f39c12;"></i>
-                            </span>
-                            <span>Givings</span>
-                        </a>
-                    </div>
-                @endif
-
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-top mt-3 pt-3 px-3">
-                        <div class="nav-category small text-muted fw-bold mb-2">{{ __('Manage Team') }}</div>
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('teams.show') ? 'bg-light' : '' }}"
-                            href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                            <span>{{ __('Team Settings') }}</span>
-                        </a>
-                        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('teams.create') ? 'bg-light' : '' }}"
-                                href="{{ route('teams.create') }}">
-                                <span>{{ __('Create New Team') }}</span>
+                                <span class="ms-3">Departments</span>
                             </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('#') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('view') ? 'bg-green-100 text-green-700' : '' }}">
+                                <i class="fa-solid fa-user-tie text-orange-500"></i>
+                                <span class="ms-3">Human Resource</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            @endif
+
+            @if (auth()->user()->usertype == 0)
+                <!-- Normal user-only sections -->
+                <div class="mb-4">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="{{ url('member_registration') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('member_registration') ? 'bg-green-100 text-green-700' : '' }}">
+                                <i class="fa-solid fa-user"></i>
+                                <span class="ms-3">Member Registration</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('member_givings') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('member_givings') ? 'bg-green-100 text-green-700' : '' }}">
+                                <i class="fa-solid fa-sack-dollar text-yellow-500"></i>
+                                <span class="ms-3">Givings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            @endif
+
+            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                <!-- Team Management Section -->
+                <div class="mb-4 pt-4 border-t border-gray-200">
+                    <p class="mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">{{ __('Manage Team') }}</p>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('teams.show') ? 'bg-gray-100' : '' }}">
+                                <span>{{ __('Team Settings') }}</span>
+                            </a>
+                        </li>
+                        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+                            <li>
+                                <a href="{{ route('teams.create') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('teams.create') ? 'bg-gray-100' : '' }}">
+                                    <span>{{ __('Create New Team') }}</span>
+                                </a>
+                            </li>
                         @endcan
                         @if (Auth::user()->allTeams()->count() > 1)
-                            <div class="border-top mt-2 pt-2">
-                                <div class="nav-category small text-muted fw-bold mb-2">{{ __('Switch Teams') }}</div>
+                            <li class="pt-2 border-t border-gray-100">
+                                <p class="mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">{{ __('Switch Teams') }}</p>
                                 @foreach (Auth::user()->allTeams() as $team)
                                     <x-switchable-team :team="$team" />
                                 @endforeach
-                            </div>
+                            </li>
                         @endif
-                    </div>
-                @endif
-
-                <!-- Account Section -->
-                <div class="border-top mt-3 pt-3 px-3">
-                    <div class="nav-category small text-muted fw-bold mb-2">Account</div>
-                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('profile.show') ? 'bg-light' : '' }}"
-                        href="{{ route('profile.show') }}">
-                        <span class="me-3">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                        <span>{{ __('Profile') }}</span>
-                    </a>
-                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('api-tokens.index') ? 'bg-light' : '' }}"
-                            href="{{ route('api-tokens.index') }}">
-                            <span class="me-3">
-                                <i class="fa-solid fa-key"></i>
-                            </span>
-                            <span>{{ __('API Tokens') }}</span>
-                        </a>
-                    @endif
-                    <form method="POST" action="{{ route('logout') }}" x-data>
-                        @csrf
-                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded text-danger"
-                            href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            <span class="me-3">
-                                <i class="fa-solid fa-sign-out-alt"></i>
-                            </span>
-                            <span>{{ __('Log Out') }}</span>
-                        </a>
-                    </form>
+                    </ul>
                 </div>
+            @endif
+
+            <!-- Account Section -->
+            <div class="pt-4 border-t border-gray-200">
+                <p class="mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">Account</p>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="{{ route('profile.show') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('profile.show') ? 'bg-gray-100' : '' }}">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="ms-3">{{ __('Profile') }}</span>
+                        </a>
+                    </li>
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <li>
+                            <a href="{{ route('api-tokens.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('api-tokens.index') ? 'bg-gray-100' : '' }}">
+                                <i class="fa-solid fa-key"></i>
+                                <span class="ms-3">{{ __('API Tokens') }}</span>
+                            </a>
+                        </li>
+                    @endif
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="flex items-center p-2 text-red-600 rounded-lg hover:bg-red-50 group">
+                                <i class="fa-solid fa-sign-out-alt"></i>
+                                <span class="ms-3">{{ __('Log Out') }}</span>
+                            </a>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Alpine.js for dropdown functionality -->
-<script src="//unpkg.com/alpinejs" defer></script>
-
-<style>
-    /* Additional styles for better mobile navigation */
-    .nav-category {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .nav-link {
-        transition: all 0.2s ease;
-        text-decoration: none;
-    }
-
-    .offcanvas-body {
-        overflow-y: auto;
-    }
-
-    /* Responsive hamburger button */
-    @media (max-width: 576px) {
-        .position-fixed {
-            right: 15px !important;
-            top: 15px !important;
-        }
-    }
-</style>
+<!-- Include Flowbite JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const offcanvasElement = document.getElementById('offcanvasMenu');
-        const hamburgerButton = document.querySelector('[data-target="#offcanvasMenu"]');
+        const drawerElement = document.getElementById('drawer-navigation');
+        const hamburgerButton = document.querySelector('[data-drawer-show="drawer-navigation"]');
+        
+        if (drawerElement && hamburgerButton) {
+            // Initialize Flowbite drawer
+            const drawer = new Drawer(drawerElement, {
+                placement: 'left',
+                backdrop: true,
+                bodyScrolling: false,
+                edge: false,
+                edgeOffset: '',
+                backdropClasses: 'bg-gray-900/50 fixed inset-0 z-30'
+            });
 
-        if (offcanvasElement && hamburgerButton) {
-            // Hide hamburger when offcanvas is shown
-            offcanvasElement.addEventListener('show.offcanvas', function () {
+            // Hide hamburger when drawer is shown
+            drawerElement.addEventListener('show', function () {
                 hamburgerButton.style.display = 'none';
             });
 
-            // Show hamburger when offcanvas is hidden (unless we're on profile page)
-            offcanvasElement.addEventListener('hidden.offcanvas', function () {
+            // Show hamburger when drawer is hidden (unless we're on profile page)
+            drawerElement.addEventListener('hide', function () {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 if (!isProfilePage) {
                     hamburgerButton.style.display = 'block';
                 }
             });
 
-            // Hide hamburger when mobile Profile link is clicked
-            const profileLink = document.querySelector('#offcanvasMenu a[href="{{ route("profile.show") }}"]');
+            // Hide hamburger when Profile link is clicked
+            const profileLink = document.querySelector('#drawer-navigation a[href="{{ route("profile.show") }}"]');
             if (profileLink) {
                 profileLink.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
-                    // Also close the offcanvas
-                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-                    if (offcanvas) {
-                        offcanvas.hide();
-                    }
-                });
-            }
-
-            // Hide hamburger when desktop profile dropdown is clicked
-            const desktopProfileButton = document.querySelector('.d-none.d-sm-block button');
-            if (desktopProfileButton) {
-                desktopProfileButton.addEventListener('click', function () {
-                    hamburgerButton.style.display = 'none';
+                    drawer.hide();
                 });
             }
 
             // Hide hamburger when desktop profile dropdown links are clicked
-            const desktopProfileLinks = document.querySelectorAll('.d-none.d-sm-block a[href*="profile.show"], .d-none.d-sm-block a[href*="api-tokens"], .d-none.d-sm-block a[href*="logout"]');
+            const desktopProfileLinks = document.querySelectorAll('#user-dropdown a[href*="profile.show"], #user-dropdown a[href*="api-tokens"], #user-dropdown a[onclick*="logout"]');
             desktopProfileLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
@@ -466,14 +383,39 @@
             // Show hamburger when clicking outside (but not on profile page)
             document.addEventListener('click', function (event) {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
-                const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-target="#offcanvasMenu"]');
+                const clickedInsideDesktopProfile = event.target.closest('#user-dropdown') || event.target.closest('[data-dropdown-toggle="user-dropdown"]');
+                const clickedInsideDrawer = event.target.closest('#drawer-navigation');
+                const clickedHamburger = event.target.closest('[data-drawer-show="drawer-navigation"]');
+                const clickedBackdrop = event.target.classList.contains('drawer-backdrop');
 
-                if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
+                if (!clickedInsideDesktopProfile && !clickedInsideDrawer && !clickedHamburger && !clickedBackdrop && !isProfilePage) {
                     hamburgerButton.style.display = 'block';
                 }
             });
         }
     });
 </script>
+
+<style>
+    /* Custom styles for better mobile navigation */
+    @media (max-width: 640px) {
+        #drawer-navigation {
+            width: 320px;
+        }
+    }
+
+    /* Fix for drawer positioning */
+    #drawer-navigation {
+        right: 0;
+        left: auto;
+        transform: translateX(100%);
+    }
+
+    #drawer-navigation.translate-x-0 {
+        transform: translateX(0);
+    }
+
+    #drawer-navigation.-translate-x-full {
+        transform: translateX(100%);
+    }
+</style>
