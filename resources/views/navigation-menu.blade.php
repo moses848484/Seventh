@@ -171,7 +171,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#ui-basic" role="button"
+                                data-toggle="collapse" href="#ui-basic" role="button"
                                 aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
                                 aria-controls="ui-basic">
                                 <span class="me-3">
@@ -200,7 +200,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#auth" role="button"
+                                data-toggle="collapse" href="#auth" role="button"
                                 aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
                                 aria-controls="auth">
                                 <span class="me-3">
@@ -229,7 +229,7 @@
                     <div class="px-3 py-1">
                         <div class="nav-item">
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                data-bs-toggle="collapse" href="#strategicPlanning" role="button"
+                                data-toggle="collapse" href="#strategicPlanning" role="button"
                                 aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
                                 aria-controls="strategicPlanning">
                                 <span class="me-3">
@@ -464,16 +464,7 @@
             });
 
             // Show hamburger when clicking outside (but not on profile page)
-            document.addEventListener('click', function (event) {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
-                const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-bs-target="#offcanvasMenu"]');
-
-                if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
-                    hamburgerButton.style.display = 'block';
-                }
-            });
+       
         }
     });
 </script>
