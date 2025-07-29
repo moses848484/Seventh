@@ -178,7 +178,7 @@
                                     <i class="fa-solid fa-users text-success"></i>
                                 </span>
                                 <span class="flex-grow-1">Manage Members</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                                 <i class="mdi mdi-chevron-left menu-arrow"></i>
                             </a>
                             <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                 id="ui-basic">
@@ -207,7 +207,7 @@
                                     <i class="fa-solid fa-warehouse text-danger"></i>
                                 </span>
                                 <span class="flex-grow-1">Inventory</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                                <i class="mdi mdi-chevron-right menu-arrow"></i>
                             </a>
                             <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
                                 id="auth">
@@ -236,7 +236,7 @@
                                     <i class="fa-solid fa-briefcase" style="color: orange;"></i>
                                 </span>
                                 <span class="flex-grow-1">Strategic Planning</span>
-                                <i class="fa-solid fa-chevron-down small"></i>
+                                 <i class="mdi mdi-chevron-right menu-arrow"></i>
                             </a>
                             <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
                                 id="strategicPlanning">
