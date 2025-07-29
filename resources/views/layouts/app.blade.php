@@ -19,50 +19,7 @@
     <!-- Styles -->
     @livewireStyles
 
-    <style>
-    .notification-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-        max-width: 400px;
-        pointer-events: none; /* Allow clicks to pass through empty space */
-    }
 
-    .notification-container .alert {
-        pointer-events: auto; /* Re-enable clicks on actual notifications */
-        margin-bottom: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
-        animation: slideInRight 0.3s ease-out;
-    }
-
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-        .notification-container {
-            top: 10px;
-            right: 10px;
-            left: 10px;
-            max-width: none;
-        }
-    }
-
-    /* Ensure notifications appear above navigation */
-    .notification-container {
-        z-index: 10000;
-    }
-    </style>
 </head>
 
 <body class="font-sans antialiased">
