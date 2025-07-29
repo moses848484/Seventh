@@ -6,8 +6,8 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-toggle="offcanvas"
-                        data-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <button class="btn btn-success" type="button" data-toggle="offcanvas" data-target="#offcanvasMenu"
+                        aria-controls="offcanvasMenu">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -119,7 +119,7 @@
     <!-- Offcanvas element - Enhanced with better structure -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel"
         style="width: 320px;">
-           <!-- Fixed Offcanvas Header -->
+        <!-- Fixed Offcanvas Header -->
         <div class="offcanvas-header border-bottom d-flex justify-content-between align-items-center">
             <h5 id="offcanvasMenuLabel" class="fw-bold mb-0">Menu</h5>
             <!-- Custom close button with Font Awesome icon -->
@@ -178,7 +178,7 @@
                                     <i class="fa-solid fa-users text-success"></i>
                                 </span>
                                 <span class="flex-grow-1">Manage Members</span>
-                                 <i class="mdi mdi-chevron-left menu-arrow"></i>
+                                <i class="mdi mdi-chevron-left menu-arrow"></i>
                             </a>
                             <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                 id="ui-basic">
@@ -236,7 +236,7 @@
                                     <i class="fa-solid fa-briefcase" style="color: orange;"></i>
                                 </span>
                                 <span class="flex-grow-1">Strategic Planning</span>
-                                 <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                <i class="mdi mdi-chevron-right menu-arrow"></i>
                             </a>
                             <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
                                 id="strategicPlanning">
@@ -461,19 +461,5 @@
                 link.addEventListener('click', function () {
                     hamburgerButton.style.display = 'none';
                 });
-            });
-
-            // Show hamburger when clicking outside (but not on profile page)
-            document.addEventListener('click', function (event) {
-                const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
-                const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
-                const clickedInsideOffcanvas = event.target.closest('.offcanvas');
-                const clickedHamburger = event.target.closest('[data-target="#offcanvasMenu"]');
-
-                if (!clickedInsideDesktopProfile && !clickedInsideOffcanvas && !clickedHamburger && !isProfilePage) {
-                    hamburgerButton.style.display = 'block';
-                }
-            });
-        }
-    });
+            });          
 </script>
