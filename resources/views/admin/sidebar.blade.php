@@ -37,7 +37,7 @@
     }
 
     /* Active state styling */
-    .nav-item.menu-items.active > .nav-link {
+    .nav-item.menu-items.active>.nav-link {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
@@ -79,7 +79,7 @@
     }
 
     /* Pulse animation for active items */
-    .nav-item.menu-items.active > .nav-link .menu-icon {
+    .nav-item.menu-items.active>.nav-link .menu-icon {
         animation: pulse 2s infinite;
     }
 
@@ -87,9 +87,11 @@
         0% {
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
         }
+
         70% {
             box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
         }
+
         100% {
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
         }
@@ -105,6 +107,7 @@
             opacity: 0;
             transform: translateY(-10px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -130,9 +133,15 @@
     </div>
     <ul class="nav">
 
-        <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
+            <span class="nav-link mb-0">Navigation</span>
+
+            <!-- Toggler button -->
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
         </li>
+
         <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('/redirected') }}">
                 <span class="menu-icon">
@@ -223,7 +232,8 @@
                             <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
                         </a>
                     </li>
-                    <li class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                    <li
+                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('strategic_plan') }}">
                             <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
                         </a>
