@@ -6,7 +6,7 @@
                 <!-- Hamburger Button - Hide on profile page -->
                 <div class="d-block d-sm-none position-fixed {{ request()->routeIs('profile.show') ? 'd-none' : '' }}"
                     style="right: 20px; top: 20px; z-index: 1050;">
-                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#navigationModal">
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#navigationModal" data-backdrop="false">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"
                             style="width: 20px; height: 20px;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -116,7 +116,7 @@
     </div>
 
     <!-- Bootstrap 4 Modal -->
-    <div class="modal fade" id="navigationModal" tabindex="-1" role="dialog" aria-labelledby="navigationModalLabel" aria-hidden="true">
+    <div class="modal fade" id="navigationModal" tabindex="-1" role="dialog" aria-labelledby="navigationModalLabel" aria-hidden="true" data-backdrop="false" data-keyboard="true">
         <div class="modal-dialog modal-dialog-slideout" role="document" style="max-width: 320px; margin-left: auto; margin-right: 0; height: 100vh; margin-top: 0; margin-bottom: 0;">
             <div class="modal-content" style="height: 100vh; border-radius: 0; border: none;">
                 <!-- Modal Header -->
@@ -416,7 +416,12 @@
 }
 
 .modal-backdrop {
-    opacity: 0.5;
+    display: none !important;
+}
+
+/* Optional: Add a subtle shadow to the modal for depth */
+.modal-dialog-slideout .modal-content {
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 }
 </style>
 
@@ -465,14 +470,18 @@
                 });
             });
 
-            // Show hamburger when clicking outside (but not on profile page)
+            // Show hamburger when clicking outside the modal (but not on profile page)
             document.addEventListener('click', function (event) {
                 const isProfilePage = {{ request()->routeIs('profile.show') ? 'true' : 'false' }};
                 const clickedInsideDesktopProfile = event.target.closest('.d-none.d-sm-block');
-                const clickedInsideModal = event.target.closest('.modal');
+                const clickedInsideModal = event.target.closest('#navigationModal');
                 const clickedHamburger = event.target.closest('[data-target="#navigationModal"]');
 
                 if (!clickedInsideDesktopProfile && !clickedInsideModal && !clickedHamburger && !isProfilePage) {
+                    // Close modal if it's open and clicked outside
+                    if ($(modal).hasClass('show')) {
+                        $(modal).modal('hide');
+                    }
                     hamburgerButton.style.display = 'block';
                 }
             });
