@@ -171,12 +171,12 @@
         width: auto;
     }
 
-    /* Mobile sidebar toggle button */
+    /* Sidebar toggle button - works on all screen sizes */
     .sidebar-toggle {
         position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 1050;
+        z-index: 1060;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border: none;
         border-radius: 8px;
@@ -189,17 +189,32 @@
     .sidebar-toggle:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        color: white;
     }
 
     .sidebar-toggle:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        color: white;
     }
 
-    /* Hide toggle on desktop */
+    .sidebar-toggle:active {
+        color: white;
+    }
+
+    /* Show toggle on mobile always, on desktop when sidebar is closed */
     @media (min-width: 992px) {
         .sidebar-toggle {
             display: none;
+        }
+        
+        .sidebar-toggle.desktop-toggle {
+            display: block;
+        }
+        
+        .sidebar-desktop.hidden {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
     }
 
@@ -226,17 +241,28 @@
     }
 </style>
 
-<!-- Mobile Sidebar Toggle Button -->
+<!-- Sidebar Toggle Button - Works on all screen sizes -->
 <button class="btn sidebar-toggle d-lg-none" type="button" data-toggle="modal" data-target="#sidebarModal" data-backdrop="false">
     <i class="mdi mdi-menu"></i>
 </button>
 
+<!-- Desktop Sidebar Toggle Button -->
+<button class="btn sidebar-toggle desktop-toggle d-none d-lg-block" type="button" onclick="toggleDesktopSidebar()">
+    <i class="mdi mdi-menu" id="desktopToggleIcon"></i>
+</button>
+
 <!-- Desktop Sidebar -->
-<div class="sidebar-desktop d-none d-lg-block">
+<div class="sidebar-desktop d-none d-lg-block" id="desktopSidebar">
     <div class="sidebar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}">
             <img src="admin/assets/images/faces/sda3.png" alt="logo" />
         </a>
+        <!-- Close button for desktop sidebar -->
+        <button type="button" class="btn btn-sm text-light position-absolute" 
+                style="right: 15px; border: none; background: transparent; font-size: 1.2rem;"
+                onclick="closeDesktopSidebar()">
+            <i class="mdi mdi-close"></i>
+        </button>
     </div>
     
     <ul class="nav flex-column p-3">
@@ -542,28 +568,74 @@
 </div>
 
 <script>
+    // Desktop sidebar toggle functionality
+    let desktopSidebarOpen = true;
+
+    function toggleDesktopSidebar() {
+        const sidebar = document.getElementById('desktopSidebar');
+        const toggleBtn = document.querySelector('.desktop-toggle');
+        const toggleIcon = document.getElementById('desktopToggleIcon');
+        
+        if (desktopSidebarOpen) {
+            closeDesktopSidebar();
+        } else {
+            openDesktopSidebar();
+        }
+    }
+
+    function closeDesktopSidebar() {
+        const sidebar = document.getElementById('desktopSidebar');
+        const toggleBtn = document.querySelector('.desktop-toggle');
+        const toggleIcon = document.getElementById('desktopToggleIcon');
+        
+        sidebar.classList.add('hidden');
+        toggleBtn.style.left = '20px';
+        toggleIcon.className = 'mdi mdi-menu';
+        desktopSidebarOpen = false;
+    }
+
+    function openDesktopSidebar() {
+        const sidebar = document.getElementById('desktopSidebar');
+        const toggleBtn = document.querySelector('.desktop-toggle');
+        const toggleIcon = document.getElementById('desktopToggleIcon');
+        
+        sidebar.classList.remove('hidden');
+        toggleBtn.style.left = '290px';
+        toggleIcon.className = 'mdi mdi-close';
+        desktopSidebarOpen = true;
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('sidebarModal');
-        const toggleButton = document.querySelector('[data-target="#sidebarModal"]');
+        const mobileToggleButton = document.querySelector('.d-lg-none[data-target="#sidebarModal"]');
 
-        if (modal && toggleButton) {
-            // Hide toggle when modal is shown
+        // Initialize desktop sidebar position
+        const desktopToggleBtn = document.querySelector('.desktop-toggle');
+        if (desktopToggleBtn) {
+            desktopToggleBtn.style.left = '290px';
+            document.getElementById('desktopToggleIcon').className = 'mdi mdi-close';
+        }
+
+        // Mobile modal functionality
+        if (modal && mobileToggleButton) {
+            // Hide mobile toggle when modal is shown
             $(modal).on('show.bs.modal', function () {
-                toggleButton.style.display = 'none';
+                mobileToggleButton.style.display = 'none';
             });
 
-            // Show toggle when modal is hidden
+            // Show mobile toggle when modal is hidden
             $(modal).on('hidden.bs.modal', function () {
-                toggleButton.style.display = 'block';
+                mobileToggleButton.style.display = 'block';
             });
 
             // Close modal when clicking outside
             document.addEventListener('click', function (event) {
                 const clickedInsideModal = event.target.closest('#sidebarModal');
-                const clickedToggle = event.target.closest('[data-target="#sidebarModal"]');
+                const clickedMobileToggle = event.target.closest('.d-lg-none[data-target="#sidebarModal"]');
+                const clickedDesktopArea = event.target.closest('#desktopSidebar, .desktop-toggle');
 
-                if (!clickedInsideModal && !clickedToggle) {
-                    // Close modal if it's open and clicked outside
+                // Only handle mobile modal closing
+                if (!clickedInsideModal && !clickedMobileToggle && !clickedDesktopArea) {
                     if ($(modal).hasClass('show')) {
                         $(modal).modal('hide');
                     }
@@ -578,5 +650,17 @@
                 });
             });
         }
+
+        // Close desktop sidebar when clicking outside
+        document.addEventListener('click', function (event) {
+            const clickedInsideDesktopSidebar = event.target.closest('#desktopSidebar');
+            const clickedDesktopToggle = event.target.closest('.desktop-toggle');
+            const clickedInsideModal = event.target.closest('#sidebarModal');
+            
+            // Only close desktop sidebar if clicking outside and it's open
+            if (!clickedInsideDesktopSidebar && !clickedDesktopToggle && !clickedInsideModal && desktopSidebarOpen && window.innerWidth >= 992) {
+                closeDesktopSidebar();
+            }
+        });
     });
 </script>
