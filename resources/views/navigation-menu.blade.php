@@ -183,11 +183,11 @@
                                     <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                         id="ui-basic">
                                         <div class="ps-4 mt-1">
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_members') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_members') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('view_members') }}">
                                                 <i class="fa-solid fa-user me-2"></i>Register Members
                                             </a>
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('see_members') }}">
                                                 <i class="fa-solid fa-eye me-2"></i>View Members
                                             </a>
@@ -212,11 +212,11 @@
                                     <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
                                         id="auth">
                                         <div class="ps-4 mt-1">
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_inventory') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_inventory') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('view_inventory') }}">
                                                 <i class="fa-solid fa-wrench me-2"></i>Add Inventory
                                             </a>
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('show_inventory') }}">
                                                 <i class="fa-solid fa-eye me-2"></i>Show Inventory
                                             </a>
@@ -241,11 +241,11 @@
                                     <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
                                         id="strategicPlanning">
                                         <div class="ps-4 mt-1">
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('scorecard') }}">
                                                 <i class="fa-solid fa-book me-2"></i>Strategic Plan
                                             </a>
-                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-light' : '' }}"
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
                                                 href="{{ url('strategic_plan') }}">
                                                 <i class="fa-solid fa-file me-2"></i>Strategic Details
                                             </a>
