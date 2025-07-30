@@ -352,7 +352,7 @@
                         <!-- Account Section -->
                         <div class="border-top mt-3 pt-3 px-3">
                             <div class="nav-category small text-muted fw-bold mb-2">Account</div>
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('profile.show') ? 'bg-light' : '' }}"
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('profile.show') ? 'bg-light' : 'text-dark' }}"
                                 href="{{ route('profile.show') }}">
                                 <span class="me-3">
                                     <i class="fa-solid fa-user"></i>
@@ -360,7 +360,7 @@
                                 <span>{{ __('Profile') }}</span>
                             </a>
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('api-tokens.index') ? 'bg-light' : '' }}"
+                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->routeIs('api-tokens.index') ? 'bg-light' : 'text-dark' }}"
                                     href="{{ route('api-tokens.index') }}">
                                     <span class="me-3">
                                         <i class="fa-solid fa-key"></i>
