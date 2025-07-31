@@ -178,7 +178,7 @@
                                             <i class="fa-solid fa-users text-success"></i>
                                         </span>
                                         <span class="flex-grow-1">Manage Members</span>
-                                        <i class="mdi mdi-chevron-left menu-arrow"></i>
+                                        <i class="mdi mdi-chevron-right menu-arrow"></i>
                                     </a>
                                     <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
                                         id="ui-basic">
