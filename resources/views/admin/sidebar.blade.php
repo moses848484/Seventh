@@ -1,145 +1,291 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bootstrap 4 Sidebar Layout</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap 4 CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <!-- Material Design Icons -->
-  <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
-
-  <style>
-    body {
-      overflow-x: hidden;
+<style>
+    .fa-file {
+        color: blueviolet !important;
     }
 
-    /* Sidebar */
-    #sidebar {
-      width: 250px;
-      min-height: 100vh;
-      background-color: #343a40;
-      transition: all 0.3s;
-      color: #fff;
+    .fa-book {
+        color: green !important;
     }
 
-    #sidebar.collapsed {
-      width: 70px !important;
+    /* Arrow Animation Styles */
+    .menu-arrow {
+        transition: transform 0.3s ease-in-out;
+        font-size: 12px;
+        margin-left: auto;
     }
 
-    #sidebar .nav-link {
-      color: #adb5bd;
-      transition: all 0.3s;
+    /* Rotate arrow when menu is expanded */
+    .nav-link[aria-expanded="true"] .menu-arrow {
+        transform: rotate(90deg);
     }
 
-    #sidebar .nav-link:hover {
-      background-color: #495057;
-      color: #fff;
+    /* Smooth collapse transitions */
+    .collapse {
+        transition: all 0.35s ease;
     }
 
-    #sidebar .nav-link span {
-      transition: opacity 0.3s;
+    /* Add hover effects */
+    .nav-item.menu-items .nav-link {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 2px 8px;
     }
 
-    #sidebar.collapsed .nav-link span {
-      opacity: 0;
+    .nav-item.menu-items .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
     }
 
-    #sidebar .mdi {
-      font-size: 20px;
+    /* Active state styling */
+    .nav-item.menu-items.active>.nav-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
 
-    #sidebar .nav-category {
-      font-size: 0.85rem;
-      padding-left: 1rem;
-      color: #ced4da;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1rem;
-      padding-bottom: 0.5rem;
+    /* Sub-menu styling */
+    .sub-menu .nav-item .nav-link {
+        padding-left: 50px;
+        font-size: 14px;
+        transition: all 0.3s ease;
     }
 
-    /* Main content */
-    #main-content {
-      margin-left: 250px;
-      padding: 2rem;
-      transition: all 0.3s;
-      width: 100%;
+    .sub-menu .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding-left: 55px;
     }
 
-    #main-content.collapsed {
-      margin-left: 70px;
+    .sub-menu .nav-item.active .nav-link {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-radius: 6px;
     }
 
-    .navbar-toggler {
-      border: none;
-      background: none;
-      padding: 0;
-      margin-right: 0.75rem;
+    /* Icon animations */
+    .menu-icon {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        margin-right: 15px;
     }
 
-    .mdi-menu {
-      font-size: 24px;
-      color: #ffffff;
+    .nav-link:hover .menu-icon {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
     }
-  </style>
-</head>
-<body>
 
-  <div class="d-flex">
-    <!-- Sidebar -->
-    <nav id="sidebar" class="bg-dark">
-      <ul class="nav flex-column">
-        <li class="nav-item nav-category px-3">
-          <span class="mb-0">Dashboard</span>
-          <!-- Sidebar toggler button -->
-          <button class="navbar-toggler" type="button" id="sidebarToggle">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="mdi mdi-view-dashboard-outline mr-2"></i>
-            <span>Overview</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="mdi mdi-account-outline mr-2"></i>
-            <span>Users</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="mdi mdi-settings-outline mr-2"></i>
-            <span>Settings</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    /* Pulse animation for active items */
+    .nav-item.menu-items.active>.nav-link .menu-icon {
+        animation: pulse 2s infinite;
+    }
 
-    <!-- Main Content -->
-    <div id="main-content">
-      <h2>Welcome</h2>
-      <p>This is the main content area. Use the menu button to toggle the sidebar.</p>
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+    }
+
+    /* Smooth fade in for collapsed content */
+    .collapse.show {
+        animation: fadeInDown 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Menu title animations */
+    .menu-title {
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .menu-title {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+</style>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
+                alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
+                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
     </div>
-  </div>
+    <ul class="nav">
 
-  <!-- JS Dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
+            <span class="nav-link mb-0">Navigation</span>
 
-  <script>
-    // Toggle sidebar
-    document.getElementById('sidebarToggle').addEventListener('click', function () {
-      document.getElementById('sidebar').classList.toggle('collapsed');
-      document.getElementById('main-content').classList.toggle('collapsed');
-    });
-  </script>
+            <!-- Toggler button -->
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </li>
 
-</body>
-</html>
+        <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('/redirected') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
+                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
+                aria-controls="ui-basic">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <span class="menu-title">Manage Members</span>
+                <i class="mdi mdi-chevron-left menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
+                id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_members') }}">
+                            <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
+                        </a>
+                    </li>
+
+                    <li
+                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('see_members') }}">
+                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#auth"
+                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
+                aria-controls="auth">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-warehouse"></i>
+                </span>
+                <span class="menu-title">Inventory</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
+                id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_inventory') }}">
+                            <i class="fa-solid fa-plus"></i>&nbsp; Add Inventory
+                        </a>
+                    </li>
+
+                    <li
+                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('show_inventory') }}">
+                            <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
+                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
+                aria-controls="strategicPlanning">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                <span class="menu-title">Strategic Planning</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
+                id="strategicPlanning">
+                <ul class="nav flex-column sub-menu">
+                    <li
+                        class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('scorecard') }}">
+                            <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('strategic_plan') }}">
+                            <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('time_management') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </span>
+                <span class="menu-title">Time Management</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('departments') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-building"></i>
+                </span>
+                <span class="menu-title">Departments</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('view_givings') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span class="menu-title">Givings</span>
+            </a>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('see_users') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users-cog"></i>
+                </span>
+                <span class="menu-title">Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('#') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </span>
+                <span class="menu-title">Human Resource</span>
+            </a>
+        </li>
+    </ul>
+</nav>
