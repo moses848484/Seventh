@@ -30563,8 +30563,8 @@ div.tagsinput span.tag a {
   font-size: 0.8125rem;
   line-height: 1;
   background: rgba(108, 114, 147, 0.2);
-  width: 34px;
-  height: 34px;
+  width: 5cqb;
+  height: 54px;
   border-radius: 10%;
   display: flex;
   align-items: center;
@@ -30591,7 +30591,7 @@ div.tagsinput span.tag a {
   color: var(--gray);
   padding: 0.5rem 0.35rem;
   position: relative;
-  width: 94%;
+  width: 100%;
   background-color:  #e6e5e5;
   margin-top: 10px;
   margin-left: -10px;
@@ -30654,7 +30654,7 @@ div.tagsinput span.tag a {
     top: 70px;
     bottom: 0;
     overflow: auto;
-    right: -244px;
+    right: 274px;
     -webkit-transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
