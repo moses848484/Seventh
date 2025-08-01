@@ -1,291 +1,55 @@
-<style>
-    .fa-file {
-        color: blueviolet !important;
-    }
-
-    .fa-book {
-        color: green !important;
-    }
-
-    /* Arrow Animation Styles */
-    .menu-arrow {
-        transition: transform 0.3s ease-in-out;
-        font-size: 12px;
-        margin-left: auto;
-    }
-
-    /* Rotate arrow when menu is expanded */
-    .nav-link[aria-expanded="true"] .menu-arrow {
-        transform: rotate(90deg);
-    }
-
-    /* Smooth collapse transitions */
-    .collapse {
-        transition: all 0.35s ease;
-    }
-
-    /* Add hover effects */
-    .nav-item.menu-items .nav-link {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        margin: 2px 8px;
-    }
-
-    .nav-item.menu-items .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: translateX(5px);
-    }
-
-    /* Active state styling */
-    .nav-item.menu-items.active>.nav-link {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    }
-
-    /* Sub-menu styling */
-    .sub-menu .nav-item .nav-link {
-        padding-left: 50px;
-        font-size: 14px;
-        transition: all 0.3s ease;
-    }
-
-    .sub-menu .nav-item .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-        padding-left: 55px;
-    }
-
-    .sub-menu .nav-item.active .nav-link {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        color: white;
-        border-radius: 6px;
-    }
-
-    /* Icon animations */
-    .menu-icon {
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
-        border-radius: 8px;
-        margin-right: 15px;
-    }
-
-    .nav-link:hover .menu-icon {
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: scale(1.1);
-    }
-
-    /* Pulse animation for active items */
-    .nav-item.menu-items.active>.nav-link .menu-icon {
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-        }
-
-        70% {
-            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-        }
-
-        100% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-        }
-    }
-
-    /* Smooth fade in for collapsed content */
-    .collapse.show {
-        animation: fadeInDown 0.5s ease-in-out;
-    }
-
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Menu title animations */
-    .menu-title {
-        transition: all 0.3s ease;
-    }
-
-    .nav-link:hover .menu-title {
-        color: #fff;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-</style>
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
-                alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
-                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
+<!-- Tailwind Sidebar Replacement -->
+<aside class="fixed top-0 left-0 h-full w-72 bg-gray-900 text-white shadow-lg z-40">
+    <!-- Brand section -->
+    <div class="flex items-center justify-center h-16 border-b border-gray-700">
+        <a href="{{ url('/redirect') }}">
+            <img src="admin/assets/images/faces/sda3.png" alt="Logo" class="h-8 hidden lg:block">
+            <img src="admin/assets/images/faces/sda4.png" alt="Logo Mini" class="h-8 block lg:hidden">
+        </a>
     </div>
-    <ul class="nav">
 
-        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
-            <span class="nav-link mb-0">Navigation</span>
-
-            <!-- Toggler button -->
-            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
-                <span class="mdi mdi-menu"></span>
+    <!-- Navigation -->
+    <nav class="mt-4 px-4 overflow-y-auto">
+        <!-- Header with toggler -->
+        <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-semibold uppercase text-gray-400">Navigation</span>
+            <button class="text-gray-400 hover:text-white focus:outline-none">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
-        </li>
+        </div>
 
-        <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('/redirected') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
+        <!-- Dashboard -->
+        <a href="{{ url('/redirected') }}" class="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-gray-800 {{ request()->is('/redirect') ? 'bg-indigo-600 text-white' : 'text-gray-300' }}">
+            <i class="mdi mdi-speedometer text-xl"></i>
+            <span class="text-sm">Dashboard</span>
+        </a>
 
-        <li
-            class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
-                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
-                aria-controls="ui-basic">
-                <span class="menu-icon">
+        <!-- Example Collapsible Menu -->
+        <div x-data="{ open: {{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }} }" class="mt-2">
+            <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-300 hover:bg-gray-800">
+                <div class="flex items-center space-x-3">
                     <i class="fa-solid fa-users"></i>
-                </span>
-                <span class="menu-title">Manage Members</span>
-                <i class="mdi mdi-chevron-left menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
-                id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('view_members') }}">
-                            <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
-                        </a>
-                    </li>
-
-                    <li
-                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('see_members') }}">
-                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
-                        </a>
-                    </li>
-                </ul>
+                    <span class="text-sm">Manage Members</span>
+                </div>
+                <svg class="w-4 h-4 transform transition-transform duration-200" :class="{ 'rotate-90': open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            <div x-show="open" class="ml-6 mt-1 space-y-1 text-sm text-gray-400">
+                <a href="{{ url('view_members') }}" class="block px-3 py-1 rounded hover:bg-gray-800 {{ request()->is('view_members') ? 'text-white' : '' }}">
+                    <i class="fa-solid fa-user-plus"></i> Register Members
+                </a>
+                <a href="{{ url('see_members') }}" class="block px-3 py-1 rounded hover:bg-gray-800 {{ request()->is('see_members') ? 'text-white' : '' }}">
+                    <i class="fa-solid fa-eye"></i> View Members
+                </a>
             </div>
-        </li>
+        </div>
 
-        <li
-            class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#auth"
-                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
-                aria-controls="auth">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-warehouse"></i>
-                </span>
-                <span class="menu-title">Inventory</span>
-                <i class="mdi mdi-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
-                id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('view_inventory') }}">
-                            <i class="fa-solid fa-plus"></i>&nbsp; Add Inventory
-                        </a>
-                    </li>
+        <!-- Add other nav items in similar pattern -->
+    </nav>
+</aside>
 
-                    <li
-                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('show_inventory') }}">
-                            <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </li>
-
-        <li
-            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
-            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
-                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
-                aria-controls="strategicPlanning">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                </span>
-                <span class="menu-title">Strategic Planning</span>
-                <i class="mdi mdi-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
-                id="strategicPlanning">
-                <ul class="nav flex-column sub-menu">
-                    <li
-                        class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('scorecard') }}">
-                            <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
-                        </a>
-                    </li>
-                    <li
-                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('strategic_plan') }}">
-                            <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('time_management') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-clock"></i>
-                </span>
-                <span class="menu-title">Time Management</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('departments') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-building"></i>
-                </span>
-                <span class="menu-title">Departments</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('view_givings') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </span>
-                <span class="menu-title">Givings</span>
-            </a>
-        </li>
-
-        <li
-            class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('see_users') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-users-cog"></i>
-                </span>
-                <span class="menu-title">Users</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ url('#') }}">
-                <span class="menu-icon">
-                    <i class="fa-solid fa-user-tie"></i>
-                </span>
-                <span class="menu-title">Human Resource</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+<!-- Alpine.js for toggle functionality -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
