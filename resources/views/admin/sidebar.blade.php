@@ -136,7 +136,10 @@
         <li class="nav-item nav-category d-flex justify-content-between align-items-center">
             <span class="nav-link mb-0">Navigation</span>
 
-            
+            <!-- Toggler button -->
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
         </li>
 
         <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
@@ -146,10 +149,6 @@
                 </span>
                 <span class="menu-title">Dashboard</span>
             </a>
-            <!-- Toggler button -->
-            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
-                <span class="mdi mdi-menu"></span>
-            </button>
         </li>
 
         <li
