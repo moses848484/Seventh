@@ -1,162 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sidebar Dashboard</title>
-    <!-- Bootstrap 4 CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Icons -->
-    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
-    <style>
-        /* Sidebar and Menu Item Styling */
-        .sidebar {
-            width: 260px;
-            background-color: #2d2d2d;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            overflow-y: auto;
-            padding-top: 60px;
-            z-index: 1000;
-        }
+  <meta charset="UTF-8">
+  <title>Bootstrap 4 Sidebar Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        .sidebar .nav-link {
-            color: #cfd8dc !important;
-            padding: 12px 20px !important;
-            display: flex !important;
-            align-items: center !important;
-            transition: all 0.3s ease !important;
-        }
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-        .sidebar .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            transform: translateX(5px) !important;
-        }
+  <!-- Material Design Icons -->
+  <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
 
-        .sidebar .nav-item.menu-items.active > .nav-link {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-            color: white !important;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
-        }
+  <style>
+    body {
+      overflow-x: hidden;
+    }
 
-        .menu-icon {
-            transition: all 0.3s ease !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 35px !important;
-            height: 35px !important;
-            border-radius: 8px !important;
-            margin-right: 15px !important;
-        }
+    /* Sidebar */
+    #sidebar {
+      width: 250px;
+      min-height: 100vh;
+      background-color: #343a40;
+      transition: all 0.3s;
+      color: #fff;
+    }
 
-        .nav-link:hover .menu-icon {
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            transform: scale(1.1) !important;
-        }
+    #sidebar.collapsed {
+      width: 70px !important;
+    }
 
-        .nav-item.menu-items.active > .nav-link .menu-icon {
-            animation: pulse 2s infinite !important;
-        }
+    #sidebar .nav-link {
+      color: #adb5bd;
+      transition: all 0.3s;
+    }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
-        }
+    #sidebar .nav-link:hover {
+      background-color: #495057;
+      color: #fff;
+    }
 
-        .sidebar-brand-wrapper {
-            height: 60px;
-            background-color: #1e1e1e;
-            padding: 0 15px;
-        }
+    #sidebar .nav-link span {
+      transition: opacity 0.3s;
+    }
 
-        .sidebar-brand img {
-            height: 40px;
-        }
+    #sidebar.collapsed .nav-link span {
+      opacity: 0;
+    }
 
-        body {
-            margin-left: 260px;
-            background-color: #f4f4f4;
-        }
+    #sidebar .mdi {
+      font-size: 20px;
+    }
 
-        .navbar-toggler {
-            border: none !important;
-            background: transparent !important;
-            color: #fff !important;
-        }
+    #sidebar .nav-category {
+      font-size: 0.85rem;
+      padding-left: 1rem;
+      color: #ced4da;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+    }
 
-        .nav-category {
-            padding: 0.75rem 1.25rem;
-            color: #aaa;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-    </style>
+    /* Main content */
+    #main-content {
+      margin-left: 250px;
+      padding: 2rem;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    #main-content.collapsed {
+      margin-left: 70px;
+    }
+
+    .navbar-toggler {
+      border: none;
+      background: none;
+      padding: 0;
+      margin-right: 0.75rem;
+    }
+
+    .mdi-menu {
+      font-size: 24px;
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Sidebar -->
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-flex align-items-center justify-content-between fixed-top px-3">
-        <a class="sidebar-brand brand-logo" href="/redirect">
-            <img src="admin/assets/images/faces/sda3.png" alt="logo" />
-        </a>
-        <a class="sidebar-brand brand-logo-mini" href="/redirect">
-            <img src="admin/assets/images/faces/sda4.png" alt="logo" />
-        </a>
-        <button class="navbar-toggler btn btn-sm ml-auto" type="button" data-toggle="minimize" aria-label="Toggle Sidebar">
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-dark">
+      <ul class="nav flex-column">
+        <li class="nav-item nav-category px-3">
+          <span class="mb-0">Dashboard</span>
+          <!-- Sidebar toggler button -->
+          <button class="navbar-toggler" type="button" id="sidebarToggle">
             <span class="mdi mdi-menu"></span>
-        </button>
+          </button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="mdi mdi-view-dashboard-outline mr-2"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="mdi mdi-account-outline mr-2"></i>
+            <span>Users</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="mdi mdi-settings-outline mr-2"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+      <h2>Welcome</h2>
+      <p>This is the main content area. Use the menu button to toggle the sidebar.</p>
     </div>
+  </div>
 
-    <ul class="nav mt-5 pt-3">
-        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
-            <span class="nav-link mb-0">Navigation</span>
-            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
-                <span class="mdi mdi-menu"></span>
-            </button>
-        </li>
+  <!-- JS Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <li class="nav-item menu-items active">
-            <a class="nav-link" href="/redirected">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
-
-        <!-- More nav items -->
-        <!-- <li class="nav-item menu-items">...</li> -->
-    </ul>
-</nav>
-
-<!-- Main Content Placeholder -->
-<div class="container-fluid">
-    <h1 class="mt-5">Main Content</h1>
-    <p>This is the main dashboard area.</p>
-</div>
-
-<!-- Bootstrap 4 JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Optional Sidebar Toggle Script -->
-<script>
-    document.querySelectorAll('[data-toggle="minimize"]').forEach(button => {
-        button.addEventListener('click', function () {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-        });
+  <script>
+    // Toggle sidebar
+    document.getElementById('sidebarToggle').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+      document.getElementById('main-content').classList.toggle('collapsed');
     });
-</script>
+  </script>
 
 </body>
 </html>
