@@ -1,55 +1,151 @@
-<!-- Tailwind Sidebar Replacement -->
-<aside class="fixed top-0 left-0 h-full w-72 bg-gray-900 text-white shadow-lg z-40">
-    <!-- Brand section -->
-    <div class="flex items-center justify-center h-16 border-b border-gray-700">
-        <a href="{{ url('/redirect') }}">
-            <img src="admin/assets/images/faces/sda3.png" alt="Logo" class="h-8 hidden lg:block">
-            <img src="admin/assets/images/faces/sda4.png" alt="Logo Mini" class="h-8 block lg:hidden">
-        </a>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 5 Sidebar</title>
 
-    <!-- Navigation -->
-    <nav class="mt-4 px-4 overflow-y-auto">
-        <!-- Header with toggler -->
-        <div class="flex items-center justify-between mb-4">
-            <span class="text-sm font-semibold uppercase text-gray-400">Navigation</span>
-            <button class="text-gray-400 hover:text-white focus:outline-none">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Dashboard -->
-        <a href="{{ url('/redirected') }}" class="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-gray-800 {{ request()->is('/redirect') ? 'bg-indigo-600 text-white' : 'text-gray-300' }}">
-            <i class="mdi mdi-speedometer text-xl"></i>
-            <span class="text-sm">Dashboard</span>
-        </a>
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
 
-        <!-- Example Collapsible Menu -->
-        <div x-data="{ open: {{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }} }" class="mt-2">
-            <button @click="open = !open" class="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-300 hover:bg-gray-800">
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="text-sm">Manage Members</span>
-                </div>
-                <svg class="w-4 h-4 transform transition-transform duration-200" :class="{ 'rotate-90': open }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-            <div x-show="open" class="ml-6 mt-1 space-y-1 text-sm text-gray-400">
-                <a href="{{ url('view_members') }}" class="block px-3 py-1 rounded hover:bg-gray-800 {{ request()->is('view_members') ? 'text-white' : '' }}">
-                    <i class="fa-solid fa-user-plus"></i> Register Members
-                </a>
-                <a href="{{ url('see_members') }}" class="block px-3 py-1 rounded hover:bg-gray-800 {{ request()->is('see_members') ? 'text-white' : '' }}">
-                    <i class="fa-solid fa-eye"></i> View Members
-                </a>
+    <!-- Font Awesome (Optional, for custom icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+        display: flex !important;
+        min-height: 100vh !important;
+        overflow-x: hidden !important;
+    }
+
+    .sidebar {
+        width: 260px !important;
+        min-height: 100vh !important;
+        background-color: #343a40 !important;
+    }
+
+    .sidebar .nav-link,
+    .sidebar .nav-link:hover {
+        color: #ffffff !important;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #495057 !important;
+    }
+
+    .nav-item.nav-category {
+        padding: 1rem !important;
+        border-bottom: 1px solid #495057 !important;
+        color: #adb5bd !important;
+    }
+
+    .menu-icon {
+        width: 35px !important;
+        height: 35px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 6px !important;
+        margin-right: 10px !important;
+    }
+
+    .menu-arrow {
+        margin-left: auto !important;
+        font-size: 14px !important;
+        transition: transform 0.3s !important;
+    }
+
+    .nav-link[aria-expanded="true"] .menu-arrow {
+        transform: rotate(90deg) !important;
+    }
+
+    .sub-menu {
+        padding-left: 2rem !important;
+    }
+
+    .sub-menu .nav-link {
+        font-size: 14px !important;
+    }
+
+    .sidebar .navbar-toggler {
+        color: white !important;
+        background: none !important;
+        border: none !important;
+        font-size: 1.2rem !important;
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar d-flex flex-column p-0">
+        <ul class="nav flex-column">
+
+            <!-- Category + Toggler -->
+            <li class="nav-item nav-category d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Navigation</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </li>
+
+            <div class="collapse show" id="sidebarMenu">
+                <!-- Dashboard -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link d-flex align-items-center active" href="/dashboard">
+                        <div class="menu-icon bg-primary text-white">
+                            <i class="mdi mdi-view-dashboard"></i>
+                        </div>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+                <!-- Inventory with submenu -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link d-flex align-items-center" data-bs-toggle="collapse" href="#inventoryMenu" role="button"
+                       aria-expanded="false" aria-controls="inventoryMenu">
+                        <div class="menu-icon bg-info text-white">
+                            <i class="mdi mdi-archive"></i>
+                        </div>
+                        <span class="menu-title">Inventory</span>
+                        <i class="mdi mdi-chevron-right menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="inventoryMenu">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/items">All Items</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/items/create">Add New Item</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Reports -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link d-flex align-items-center" href="/reports">
+                        <div class="menu-icon bg-warning text-white">
+                            <i class="mdi mdi-chart-bar"></i>
+                        </div>
+                        <span class="menu-title">Reports</span>
+                    </a>
+                </li>
             </div>
-        </div>
-
-        <!-- Add other nav items in similar pattern -->
+        </ul>
     </nav>
-</aside>
 
-<!-- Alpine.js for toggle functionality -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- Page Content -->
+    <main class="flex-grow-1 p-4">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is your main content area.</p>
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
