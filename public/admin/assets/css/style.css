@@ -30546,11 +30546,11 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: red;
+  background: transparent;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-  background-color: #f0f0f0;
+  background-color: red;
   color: #333;
   border-radius: 4px;
 }
