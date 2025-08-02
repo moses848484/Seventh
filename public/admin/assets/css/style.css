@@ -30747,60 +30747,7 @@ div.tagsinput span.tag a {
     display: none;
   }
 
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    background: #0f1015;
-    padding: 0.5rem 1.4rem;
-    left: 70px;
-    position: absolute;
-    text-align: left;
-    top: 0;
-    bottom: 0;
-    width: 190px;
-    z-index: 1;
-    line-height: 1.8;
-  }
-
-  .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-    background: #0f1015;
-  }
-
-  .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title {
-    left: auto;
-    right: 70px;
-    text-align: left;
-  }
-
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link .menu-title:after {
-    display: none;
-  }
-
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
-  .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    display: block;
-    padding: .5rem 0;
-    background: #0f1015;
-    border-radius: 0 0 5px 0;
-    position: absolute;
-    left: 70px;
-    width: 190px;
-  }
-
-  .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
-  .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    background: #191c24;
-  }
-
-  .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
-  .rtl.sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
-    left: auto;
-    right: 70px;
-    border-radius: 0 0 0 5px;
-  }
-
+  
   .sidebar-icon-only .sidebar .nav.sub-menu {
     padding: 0 0 0 1.5rem;
   }
