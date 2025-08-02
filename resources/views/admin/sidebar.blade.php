@@ -1,583 +1,484 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Navigation</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            margin: 0;
+<style>
+    .fa-file {
+        color: blueviolet !important;
+    }
+
+    .fa-book {
+        color: green !important;
+    }
+
+    /* Arrow Animation Styles */
+    .menu-arrow {
+        transition: transform 0.3s ease-in-out;
+        font-size: 12px;
+        margin-left: auto;
+    }
+
+    /* Rotate arrow when menu is expanded */
+    .nav-link[aria-expanded="true"] .menu-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Smooth collapse transitions */
+    .collapse {
+        transition: all 0.35s ease;
+    }
+
+    /* Add hover effects */
+    .nav-item.menu-items .nav-link {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 2px 8px;
+    }
+
+    .nav-item.menu-items .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    /* Active state styling */
+    .nav-item.menu-items.active>.nav-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Sub-menu styling */
+    .sub-menu .nav-item .nav-link {
+        padding-left: 50px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .sub-menu .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding-left: 55px;
+    }
+
+    .sub-menu .nav-item.active .nav-link {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-radius: 6px;
+    }
+
+    /* Icon animations */
+    .menu-icon {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+
+    .nav-link:hover .menu-icon {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+    }
+
+    /* Pulse animation for active items */
+    .nav-item.menu-items.active>.nav-link .menu-icon {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
         }
 
-        .fa-file {
-            color: blueviolet !important;
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
         }
 
-        .fa-book {
-            color: green !important;
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
         }
+    }
 
-        /* Arrow Animation Styles */
-        .menu-arrow {
-            transition: transform 0.3s ease-in-out;
-            font-size: 12px;
-            margin-left: auto;
-        }
+    /* Smooth fade in for collapsed content */
+    .collapse.show {
+        animation: fadeInDown 0.5s ease-in-out;
+    }
 
-        /* Rotate arrow when menu is expanded */
-        .nav-link[aria-expanded="true"] .menu-arrow {
-            transform: rotate(90deg);
-        }
-
-        /* Smooth collapse transitions */
-        .collapse {
-            transition: all 0.35s ease;
-        }
-
-        /* Add hover effects */
-        .nav-item.menu-items .nav-link {
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            margin: 2px 8px;
-        }
-
-        .nav-item.menu-items .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        /* Active state styling */
-        .nav-item.menu-items.active>.nav-link {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Sub-menu styling */
-        .sub-menu .nav-item .nav-link {
-            padding-left: 50px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .sub-menu .nav-item .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding-left: 55px;
-        }
-
-        .sub-menu .nav-item.active .nav-link {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            border-radius: 6px;
-        }
-
-        /* Icon animations */
-        .menu-icon {
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
-            margin-right: 15px;
-        }
-
-        .nav-link:hover .menu-icon {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        /* Pulse animation for active items */
-        .nav-item.menu-items.active>.nav-link .menu-icon {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
-        }
-
-        /* Smooth fade in for collapsed content */
-        .collapse.show {
-            animation: fadeInDown 0.5s ease-in-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Menu title animations */
-        .menu-title {
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover .menu-title {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        /* Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 260px;
-            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        /* Off-canvas behavior - sidebar moves completely out of view */
-        .sidebar-offcanvas {
-            transform: translateX(-100%);
-        }
-
-        .sidebar-offcanvas.show {
-            transform: translateX(0);
-        }
-
-        /* Fixed positioning for toggler within sidebar */
-        .navbar-toggler {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
-            padding: 8px 12px !important;
-            font-size: 16px !important;
-            border-radius: 6px !important;
-            transition: all 0.3s ease !important;
-            position: relative !important;
-            z-index: 1001 !important;
-        }
-
-        .navbar-toggler:hover {
-            background: rgba(255, 255, 255, 0.2) !important;
-            transform: scale(1.05) !important;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
-        }
-
-        /* Ensure toggler icon visibility */
-        .navbar-toggler .mdi {
-            font-size: 18px;
-            line-height: 1;
-        }
-
-        /* Brand wrapper */
-        .sidebar-brand-wrapper {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 10px;
-        }
-
-        .brand-logo img,
-        .brand-logo-mini img {
-            max-height: 40px;
-            transition: all 0.3s ease;
-        }
-
-        /* Navigation category styling */
-        .nav-category {
-            padding: 10px 8px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 10px;
-        }
-
-        .nav-category .nav-link {
-            color: rgba(255, 255, 255, 0.6) !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        /* Main navigation items */
-        .nav-item.menu-items .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            padding: 12px 8px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        /* Overlay for mobile */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none;
+    @keyframes fadeInDown {
+        from {
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: translateY(-10px);
         }
 
-        .sidebar-overlay.show {
-            display: block;
+        to {
             opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        /* Main content area */
-        .main-content {
-            margin-left: 260px;
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-            min-height: 100vh;
+    /* Menu title animations */
+    .menu-title {
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .menu-title {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Fixed navbar toggler button positioning and behavior */
+    .navbar-toggler {
+        position: fixed !important;
+        top: 20px !important;
+        left: 20px !important;
+        z-index: 1100 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: white !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .navbar-toggler:hover {
+        background: rgba(0, 0, 0, 0.9) !important;
+        transform: scale(1.05) !important;
+        color: #fff !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* When sidebar is open (not off-canvas), position toggler inside sidebar */
+    .sidebar:not(.sidebar-offcanvas) .navbar-toggler,
+    .sidebar.show .navbar-toggler {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        left: auto !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        z-index: 1001 !important;
+    }
+
+    /* Mobile specific - when sidebar is closed (off-canvas), hide the internal toggler */
+    @media (max-width: 991px) {
+        .sidebar-offcanvas:not(.show) .navbar-toggler {
+            display: none !important;
         }
-
-        /* Responsive behavior */
-        @media (max-width: 991px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .sidebar.show {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
+        
+        /* Show fixed toggler when sidebar is closed on mobile */
+        .sidebar-offcanvas:not(.show) ~ .mobile-sidebar-toggler {
+            display: block !important;
         }
+    }
 
-        @media (min-width: 992px) {
-            .sidebar-overlay {
-                display: none !important;
-            }
-        }
+    /* Mobile toggler - only visible when sidebar is completely closed */
+    .mobile-sidebar-toggler {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1100;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
 
-        /* Custom styles for navigation */
-        .nav {
-            padding: 0;
-        }
+    .mobile-sidebar-toggler:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.05);
+        color: #fff;
+    }
 
-        .nav-item {
-            width: 100%;
-        }
+    /* Sidebar overlay */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
 
-        /* Ensure proper spacing and alignment */
-        .d-flex.justify-content-between.align-items-center {
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <!-- Sidebar Overlay for mobile -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    .sidebar-overlay.show {
+        display: block;
+        opacity: 1;
+    }
+</style>
 
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
-                    alt="logo" /></a>
-            <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
-                    src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
-        </div>
-        <ul class="nav">
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-            <li class="nav-item nav-category d-flex justify-content-between align-items-center">
-                <span class="nav-link mb-0">Navigation</span>
+<!-- Mobile Toggler - Only visible when sidebar is closed on mobile -->
+<button class="btn mobile-sidebar-toggler" type="button" id="mobileSidebarToggler">
+    <span class="mdi mdi-menu"></span>
+</button>
 
-                <!-- Toggler button -->
-                <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize" id="sidebarToggler">
-                    <span class="mdi mdi-menu"></span>
-                </button>
-            </li>
-
-            <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/redirected') }}">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-speedometer"></i>
-                    </span>
-                    <span class="menu-title">Dashboard</span>
-                </a>
-            </li>
-
-            <li
-                class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic"
-                    aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
-                    aria-controls="ui-basic">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-users"></i>
-                    </span>
-                    <span class="menu-title">Manage Members</span>
-                    <i class="mdi mdi-chevron-left menu-arrow"></i>
-                </a>
-                <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
-                    id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('view_members') }}">
-                                <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
-                            </a>
-                        </li>
-
-                        <li
-                            class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('see_members') }}">
-                                <i class="fa-solid fa-eye"></i>&nbsp;View Members
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li
-                class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-                <a class="nav-link" data-toggle="collapse" href="#auth"
-                    aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
-                    aria-controls="auth">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-warehouse"></i>
-                    </span>
-                    <span class="menu-title">Inventory</span>
-                    <i class="mdi mdi-chevron-right menu-arrow"></i>
-                </a>
-                <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
-                    id="auth">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('view_inventory') }}">
-                                <i class="fa-solid fa-plus"></i>&nbsp; Add Inventory
-                            </a>
-                        </li>
-
-                        <li
-                            class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('show_inventory') }}">
-                                <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-
-            <li
-                class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
-                <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
-                    aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
-                    aria-controls="strategicPlanning">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </span>
-                    <span class="menu-title">Strategic Planning</span>
-                    <i class="mdi mdi-chevron-right menu-arrow"></i>
-                </a>
-                <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
-                    id="strategicPlanning">
-                    <ul class="nav flex-column sub-menu">
-                        <li
-                            class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('scorecard') }}">
-                                <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
-                            </a>
-                        </li>
-                        <li
-                            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url('strategic_plan') }}">
-                                <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('time_management') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-clock"></i>
-                    </span>
-                    <span class="menu-title">Time Management</span>
-                </a>
-            </li>
-
-            <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('departments') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-building"></i>
-                    </span>
-                    <span class="menu-title">Departments</span>
-                </a>
-            </li>
-
-            <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('view_givings') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </span>
-                    <span class="menu-title">Givings</span>
-                </a>
-            </li>
-
-            <li
-                class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('see_users') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-users-cog"></i>
-                    </span>
-                    <span class="menu-title">Users</span>
-                </a>
-            </li>
-
-            <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('#') }}">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </span>
-                    <span class="menu-title">Human Resource</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Main content area for demonstration -->
-    <div class="main-content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card" style="background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                        <div class="card-body">
-                            <h1 class="text-center text-dark mb-4">Dashboard Content</h1>
-                            <p class="text-center text-muted">Your main content goes here. The sidebar toggler is now properly fixed within the sidebar.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
+                alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
+                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
     </div>
+    <ul class="nav">
 
-    <!-- Mobile menu button for when sidebar is completely hidden -->
-    <button class="btn btn-primary d-lg-none" id="mobileSidebarToggler" 
-            style="position: fixed; top: 15px; left: 15px; z-index: 1100; border-radius: 8px; padding: 10px 12px;">
-        <i class="mdi mdi-menu"></i>
-    </button>
+        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
+            <span class="nav-link mb-0">Navigation</span>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.getElementById('sidebar');
-            const sidebarToggler = document.getElementById('sidebarToggler');
-            const mobileSidebarToggler = document.getElementById('mobileSidebarToggler');
-            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            <!-- Toggler button -->
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize" id="sidebarToggler">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </li>
 
-            // Function to toggle sidebar
-            function toggleSidebar() {
-                sidebar.classList.toggle('show');
-                sidebarOverlay.classList.toggle('show');
-            }
+        <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('/redirected') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
 
-            // Function to close sidebar
-            function closeSidebar() {
-                sidebar.classList.remove('show');
-                sidebarOverlay.classList.remove('show');
-            }
+        <li
+            class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
+                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
+                aria-controls="ui-basic">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <span class="menu-title">Manage Members</span>
+                <i class="mdi mdi-chevron-left menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
+                id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_members') }}">
+                            <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
+                        </a>
+                    </li>
 
-            // Event listeners for both togglers
-            if (sidebarToggler) {
-                sidebarToggler.addEventListener('click', toggleSidebar);
-            }
-            
-            if (mobileSidebarToggler) {
-                mobileSidebarToggler.addEventListener('click', toggleSidebar);
-            }
+                    <li
+                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('see_members') }}">
+                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
 
-            // Close sidebar when clicking overlay
-            if (sidebarOverlay) {
-                sidebarOverlay.addEventListener('click', closeSidebar);
-            }
+        <li
+            class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#auth"
+                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
+                aria-controls="auth">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-warehouse"></i>
+                </span>
+                <span class="menu-title">Inventory</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
+                id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_inventory') }}">
+                            <i class="fa-solid fa-plus"></i>&nbsp; Add Inventory
+                        </a>
+                    </li>
 
-            // Handle sub-menu collapse functionality
-            const collapseTogglers = document.querySelectorAll('[data-toggle="collapse"]');
-            collapseTogglers.forEach(toggler => {
-                if (!toggler.id || toggler.id !== 'sidebarToggler') { // Skip the sidebar toggler
-                    toggler.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const target = document.querySelector(targetId);
-                        
-                        if (target) {
-                            const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
-                            
-                            // Close all other collapse menus
-                            collapseTogglers.forEach(other => {
-                                if (other !== this && other.id !== 'sidebarToggler') {
-                                    const otherTargetId = other.getAttribute('href');
-                                    const otherTarget = document.querySelector(otherTargetId);
-                                    if (otherTarget && otherTarget.classList.contains('show')) {
-                                        otherTarget.classList.remove('show');
-                                        other.setAttribute('aria-expanded', 'false');
-                                    }
-                                }
-                            });
-                            
-                            // Toggle current menu
-                            if (isCurrentlyExpanded) {
-                                target.classList.remove('show');
-                                this.setAttribute('aria-expanded', 'false');
-                            } else {
-                                target.classList.add('show');
-                                this.setAttribute('aria-expanded', 'true');
+                    <li
+                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('show_inventory') }}">
+                            <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
+                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
+                aria-controls="strategicPlanning">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                <span class="menu-title">Strategic Planning</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
+            </a>
+            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
+                id="strategicPlanning">
+                <ul class="nav flex-column sub-menu">
+                    <li
+                        class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('scorecard') }}">
+                            <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('strategic_plan') }}">
+                            <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('time_management') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </span>
+                <span class="menu-title">Time Management</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('departments') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-building"></i>
+                </span>
+                <span class="menu-title">Departments</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('view_givings') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span class="menu-title">Givings</span>
+            </a>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('see_users') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users-cog"></i>
+                </span>
+                <span class="menu-title">Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('#') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </span>
+                <span class="menu-title">Human Resource</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggler = document.getElementById('sidebarToggler');
+    const mobileSidebarToggler = document.getElementById('mobileSidebarToggler');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    // Function to toggle sidebar
+    function toggleSidebar() {
+        sidebar.classList.toggle('show');
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.toggle('show');
+        }
+    }
+
+    // Function to close sidebar
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        if (sidebarOverlay) {
+            sidebarOverlay.classList.remove('show');
+        }
+    }
+
+    // Event listeners
+    if (sidebarToggler) {
+        sidebarToggler.addEventListener('click', toggleSidebar);
+    }
+    
+    if (mobileSidebarToggler) {
+        mobileSidebarToggler.addEventListener('click', toggleSidebar);
+    }
+
+    // Close sidebar when clicking overlay
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // Handle sub-menu collapse functionality
+    const collapseTogglers = document.querySelectorAll('[data-toggle="collapse"]');
+    collapseTogglers.forEach(toggler => {
+        if (!toggler.getAttribute('data-toggle') || toggler.getAttribute('data-toggle') !== 'minimize') {
+            toggler.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other collapse menus
+                    collapseTogglers.forEach(other => {
+                        if (other !== this && other.getAttribute('data-toggle') !== 'minimize') {
+                            const otherTargetId = other.getAttribute('href');
+                            const otherTarget = document.querySelector(otherTargetId);
+                            if (otherTarget && otherTarget.classList.contains('show')) {
+                                otherTarget.classList.remove('show');
+                                other.setAttribute('aria-expanded', 'false');
                             }
                         }
                     });
-                }
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 992) {
-                    closeSidebar();
-                }
-            });
-
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth < 992) {
-                    if (!sidebar.contains(e.target) && 
-                        !mobileSidebarToggler.contains(e.target) && 
-                        sidebar.classList.contains('show')) {
-                        closeSidebar();
+                    
+                    // Toggle current menu
+                    if (isCurrentlyExpanded) {
+                        target.classList.remove('show');
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        target.classList.add('show');
+                        this.setAttribute('aria-expanded', 'true');
                     }
                 }
             });
-        });
-    </script>
-</body>
-</html>
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            closeSidebar();
+        }
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth < 992) {
+            if (!sidebar.contains(e.target) && 
+                (!mobileSidebarToggler || !mobileSidebarToggler.contains(e.target)) && 
+                sidebar.classList.contains('show')) {
+                closeSidebar();
+            }
+        }
+    });
+});
+</script>
