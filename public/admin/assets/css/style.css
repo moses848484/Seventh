@@ -30592,10 +30592,14 @@ div.tagsinput span.tag a {
   }
 }
 
-/* Hide dropdowns when sidebar is collapsed (not active) */
-.sidebar-offcanvas:not(.active) .collapse {
+/* Prevent dropdowns from displaying at all when sidebar is not active */
+.sidebar-offcanvas:not(.active) .collapse,
+.sidebar-offcanvas:not(.active) .collapsing {
   display: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
+
 
 .sidebar-tinted .sidebar {
   background: #fa424a;
