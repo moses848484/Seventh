@@ -297,35 +297,35 @@
     var sidebarMinimized = false;
     var openDropdowns = [];
 
-    // Detect desktop view
     function isDesktop() {
       return window.innerWidth > 991;
     }
 
-    // Sidebar minimize toggler
+    function collapseAllDropdowns() {
+      $('.sidebar-offcanvas .collapse.show').each(function () {
+        var collapseId = this.id;
+        var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
+
+        $(this).collapse('hide');
+        $toggle.attr('aria-expanded', 'false');
+        $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
+      });
+    }
+
+    // Toggle sidebar minimize
     $('[data-toggle="minimize"]').on('click', function () {
       if (!isDesktop()) return;
 
       sidebarMinimized = !sidebarMinimized;
 
       if (sidebarMinimized) {
-        // Store all currently open dropdowns
         openDropdowns = [];
         $('.sidebar-offcanvas .collapse.show').each(function () {
           openDropdowns.push(this.id);
         });
 
-        // Hide dropdowns and reset icons
-        $('.sidebar-offcanvas .collapse.show').each(function () {
-          var collapseId = this.id;
-          var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-
-          $(this).collapse('hide');
-          $toggle.attr('aria-expanded', 'false');
-          $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
-        });
+        collapseAllDropdowns(); // Hide all open dropdowns
       } else {
-        // Restore dropdowns and icons
         openDropdowns.forEach(function (collapseId) {
           var $collapse = $('#' + collapseId);
           var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
@@ -337,13 +337,21 @@
       }
     });
 
-    // Disable dropdown toggle clicks when minimized
+    // Prevent opening collapsed menus when minimized
     $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
       if (sidebarMinimized && isDesktop()) {
         e.preventDefault();
         e.stopPropagation();
       }
     });
+
+    // Additional safeguard: force hide on window resize
+    $(window).on('resize', function () {
+      if (isDesktop() && sidebarMinimized) {
+        collapseAllDropdowns();
+      }
+    });
   });
 })(jQuery);
 </script>
+
