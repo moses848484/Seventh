@@ -123,83 +123,7 @@
         color: #fff;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
-
-    /* Sidebar off-canvas behavior */
-    .sidebar-offcanvas {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-    }
-
-    .sidebar-offcanvas.show {
-        transform: translateX(0);
-    }
-
-    /* Mobile toggler - only visible when sidebar is completely closed */
-    .mobile-sidebar-toggler {
-        display: none;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1100;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .mobile-sidebar-toggler:hover {
-        background: rgba(0, 0, 0, 0.9);
-        transform: scale(1.05);
-        color: #fff;
-    }
-
-    /* Show mobile toggler when sidebar is closed */
-    @media (max-width: 991px) {
-        .sidebar-offcanvas:not(.show) ~ .mobile-sidebar-toggler {
-            display: block !important;
-        }
-    }
-
-    @media (min-width: 992px) {
-        .mobile-sidebar-toggler {
-            display: none !important;
-        }
-        .sidebar-offcanvas {
-            transform: translateX(0);
-        }
-    }
-
-    /* Sidebar overlay */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .sidebar-overlay.show {
-        display: block;
-        opacity: 1;
-    }
 </style>
-
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Mobile Toggler - Only visible when sidebar is closed on mobile -->
-<button class="btn mobile-sidebar-toggler" type="button" id="mobileSidebarToggler">
-    <span class="mdi mdi-menu"></span>
-</button>
-
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
@@ -213,7 +137,7 @@
             <span class="nav-link mb-0">Navigation</span>
 
             <!-- Toggler button -->
-            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize" id="sidebarToggler">
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
         </li>
@@ -365,102 +289,3 @@
         </li>
     </ul>
 </nav>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggler = document.getElementById('sidebarToggler');
-    const mobileSidebarToggler = document.getElementById('mobileSidebarToggler');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-    // Function to toggle sidebar
-    function toggleSidebar(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        sidebar.classList.toggle('show');
-        if (sidebarOverlay) {
-            sidebarOverlay.classList.toggle('show');
-        }
-        
-        console.log('Sidebar toggled, classes:', sidebar.className);
-    }
-
-    // Function to close sidebar
-    function closeSidebar() {
-        sidebar.classList.remove('show');
-        if (sidebarOverlay) {
-            sidebarOverlay.classList.remove('show');
-        }
-    }
-
-    // Event listeners for sidebar togglers
-    if (sidebarToggler) {
-        sidebarToggler.addEventListener('click', toggleSidebar);
-        sidebarToggler.addEventListener('touchstart', toggleSidebar);
-    }
-    
-    if (mobileSidebarToggler) {
-        mobileSidebarToggler.addEventListener('click', toggleSidebar);
-        mobileSidebarToggler.addEventListener('touchstart', toggleSidebar);
-    }
-
-    // Close sidebar when clicking overlay
-    if (sidebarOverlay) {
-        sidebarOverlay.addEventListener('click', closeSidebar);
-    }
-
-    // Handle sub-menu collapse functionality
-    const collapseTogglers = document.querySelectorAll('[data-toggle="collapse"]');
-    collapseTogglers.forEach(toggler => {
-        toggler.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
-            
-            if (target) {
-                const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                // Close all other collapse menus
-                collapseTogglers.forEach(other => {
-                    if (other !== this) {
-                        const otherTargetId = other.getAttribute('href');
-                        const otherTarget = document.querySelector(otherTargetId);
-                        if (otherTarget && otherTarget.classList.contains('show')) {
-                            otherTarget.classList.remove('show');
-                            other.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-                
-                // Toggle current menu
-                if (isCurrentlyExpanded) {
-                    target.classList.remove('show');
-                    this.setAttribute('aria-expanded', 'false');
-                } else {
-                    target.classList.add('show');
-                    this.setAttribute('aria-expanded', 'true');
-                }
-            }
-        });
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992) {
-            closeSidebar();
-        }
-    });
-
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth < 992) {
-            if (!sidebar.contains(e.target) && 
-                (!mobileSidebarToggler || !mobileSidebarToggler.contains(e.target)) && 
-                sidebar.classList.contains('show')) {
-                closeSidebar();
-            }
-        }
-    });
-});
-</script>
