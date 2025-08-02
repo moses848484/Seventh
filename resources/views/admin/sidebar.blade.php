@@ -40,11 +40,6 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Mobile Menu Button -->
-    <button id="mobileMenuBtn" class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-lg">
-        <span class="mdi mdi-menu text-xl"></span>
-    </button>
 
     <!-- Overlay for mobile -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden opacity-0 pointer-events-none overlay"></div>
@@ -298,5 +293,5 @@
             }
         });
     </script>
-</body>
+
 </html>
