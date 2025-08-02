@@ -30647,7 +30647,7 @@ div.tagsinput span.tag a {
 }
 
 /* Collapsible sidebar (collapsed to 60px instead of hidden) */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1200px) {
   .sidebar-offcanvas {
     position: fixed !important;
     top: 70px !important;
