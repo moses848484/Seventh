@@ -294,19 +294,31 @@
   'use strict';
 
   $(function () {
-    // Detect if screen is desktop
-    function isDesktopView() {
-      return window.innerWidth > 991;
-    }
+    var sidebarMinimized = false;
 
-    // Sidebar minimize button
+    // Toggle sidebar minimize (button with data-toggle="minimize")
     $('[data-toggle="minimize"]').on('click', function () {
-      if (isDesktopView()) {
-        // Collapse all open dropdowns inside the sidebar
+      sidebarMinimized = !sidebarMinimized;
+
+      // If sidebar is minimized, hide any open dropdowns
+      if (sidebarMinimized) {
+        // Hide dropdown content
         $('.sidebar-offcanvas .collapse.show').collapse('hide');
+        
+        // Reset dropdown toggle buttons to collapsed state
+        $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').each(function() {
+          $(this).addClass('collapsed').attr('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Prevent dropdown toggle if sidebar is minimized
+    $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
+      if (sidebarMinimized) {
+        e.preventDefault(); // Block toggle
+        e.stopPropagation();
       }
     });
   });
 })(jQuery);
 </script>
-
