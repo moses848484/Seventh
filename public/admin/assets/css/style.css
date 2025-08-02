@@ -30522,37 +30522,39 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #6c7293;
-  padding: 0.5rem 0.35rem;
+  color: #333; /* darker, more neutral text color */
+  padding: 0.5rem 1rem;
   position: relative;
-  width: 94%;
-  margin-top: 10px;
-  font-size: 0.855rem;
-  line-height: 1;
+  width: 100%;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  line-height: 1.4;
   height: auto;
-  border-top: 0;
-  border-radius: 3px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: white;
-  background: #2c6448;
+  color: #fff;
+  background-color: #2c6448;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: white;
-  background-color: white !important;
+  color: #fff;
+  background-color: #5e9d72; /* softer hover background */
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: transparent !important;
+  background: transparent;
 }
 
-.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
-  background: white;
-  color: #ffffff;
-  border-radius: 3px;
+.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 4px;
 }
+
 
 .sidebar .nav .menu-items:nth-child(6n+5) .nav-link .menu-icon i {
   color: #0090e7;
