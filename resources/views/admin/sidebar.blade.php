@@ -289,3 +289,32 @@
         </li>
     </ul>
 </nav>
+<script>
+(function ($) {
+  'use strict';
+
+  $(function () {
+    const $sidebar = $('.sidebar-offcanvas');
+    const $dropdownToggles = $sidebar.find('.nav-link[data-toggle="collapse"]');
+
+    // Toggle sidebar visibility
+    $('[data-toggle="offcanvas"]').on('click', function () {
+      $sidebar.toggleClass('active');
+
+      if (!$sidebar.hasClass('active')) {
+        // Sidebar is closing: collapse any open dropdowns
+        $sidebar.find('.collapse.show').collapse('hide');
+        $sidebar.find('[aria-expanded="true"]').attr('aria-expanded', 'false');
+      }
+    });
+
+    // Prevent dropdowns from opening if sidebar is closed
+    $dropdownToggles.on('click', function (e) {
+      if (!$sidebar.hasClass('active')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
+  });
+})(jQuery);
+</script>
