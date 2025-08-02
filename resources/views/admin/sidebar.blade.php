@@ -4,7 +4,7 @@
     height: 100vh !important;
     position: fixed !important;
     top: 0 !important;
-    left: -250px !important;
+    left: 250px !important;
     z-index: 1040 !important;
     background-color: #343a40 !important;
     transition: left 0.3s ease !important;
