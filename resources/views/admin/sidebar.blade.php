@@ -40,6 +40,7 @@
     .nav-item.menu-items.active>.nav-link {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
+        width: 100%;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
 
