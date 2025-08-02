@@ -30663,6 +30663,10 @@ div.tagsinput span.tag a {
     right: 0;
   }
 }
+/* Optional: hide overflow text on minimized */
+.sidebar.sidebar-offcanvas.minimized .nav .menu-title {
+  display: none !important;
+}
 
 
 
