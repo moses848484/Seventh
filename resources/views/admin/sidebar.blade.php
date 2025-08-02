@@ -144,12 +144,12 @@
         @media screen and (max-width: 991px) {
             .sidebar-offcanvas {
                 position: fixed;
-                max-height: calc(100vh - 70px);
+                max-height: 100vh;
                 margin-top: 0 !important;
                 top: 0;
                 bottom: 0;
                 overflow: auto;
-                right: -244px;
+                left: -244px;
                 -webkit-transition: all 0.25s ease-out;
                 -o-transition: all 0.25s ease-out;
                 transition: all 0.25s ease-out;
@@ -157,7 +157,7 @@
             }
 
             .sidebar-offcanvas.active {
-                right: 0;
+                left: 0;
             }
 
             .sidebar-brand-wrapper {
@@ -200,7 +200,7 @@
             display: none;
             position: fixed;
             top: 15px;
-            right: 15px;
+            left: 15px;
             z-index: 1001;
             background: #667eea;
             color: white;
@@ -425,6 +425,7 @@
 
             // Toggle sidebar
             function toggleSidebar() {
+                console.log('Toggle sidebar clicked'); // Debug log
                 const isCurrentlyOpen = isSidebarOpen();
                 
                 if (isCurrentlyOpen) {
@@ -436,6 +437,7 @@
 
             // Open sidebar
             function openSidebar() {
+                console.log('Opening sidebar'); // Debug log
                 sidebar.classList.add('active');
                 overlay.classList.add('active');
                 enableDropdowns();
@@ -443,6 +445,7 @@
 
             // Close sidebar
             function closeSidebar() {
+                console.log('Closing sidebar'); // Debug log
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
                 
@@ -473,10 +476,7 @@
             function closeAllDropdowns() {
                 const openDropdowns = document.querySelectorAll('.collapse.show');
                 openDropdowns.forEach(dropdown => {
-                    const bsCollapse = new bootstrap.Collapse(dropdown, {
-                        toggle: false
-                    });
-                    bsCollapse.hide();
+                    dropdown.classList.remove('show');
                 });
 
                 // Reset all aria-expanded attributes
@@ -495,27 +495,38 @@
                 }
 
                 const target = event.currentTarget;
-                const targetCollapse = document.querySelector(target.getAttribute('href'));
+                const targetId = target.getAttribute('href').substring(1);
+                const targetCollapse = document.getElementById(targetId);
                 const isExpanded = target.getAttribute('aria-expanded') === 'true';
                 
                 // Toggle the collapse
-                const bsCollapse = new bootstrap.Collapse(targetCollapse, {
-                    toggle: false
-                });
-                
                 if (isExpanded) {
-                    bsCollapse.hide();
+                    targetCollapse.classList.remove('show');
                     target.setAttribute('aria-expanded', 'false');
                 } else {
-                    bsCollapse.show();
+                    targetCollapse.classList.add('show');
                     target.setAttribute('aria-expanded', 'true');
                 }
             }
 
             // Event listeners
-            mobileMenuToggle.addEventListener('click', toggleSidebar);
-            sidebarToggle.addEventListener('click', toggleSidebar);
-            overlay.addEventListener('click', closeSidebar);
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleSidebar();
+                });
+            }
+
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleSidebar();
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', closeSidebar);
+            }
 
             // Add custom click handlers to dropdown links
             dropdownLinks.forEach(link => {
@@ -538,6 +549,7 @@
             // Initialize based on screen size
             if (isMobile()) {
                 disableDropdowns();
+                closeSidebar();
             } else {
                 enableDropdowns();
             }
