@@ -119,17 +119,9 @@
         transition: all 0.3s ease;
     }
 
-    .nav-link:hover .sidebar-minimized .menu-title {
+    .nav-link:hover .menu-title {
         color: #fff;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        transform: scale(1.05) !important;
-        border-radius: 8px !important;
-        width: 40px !important;
-        height: 40px !important;
-        margin: 4px auto !important;
-        padding: 8px !important;
-        background: linear-gradient(135deg, #e4af00 0%, #f2c74e 100%) !important;
-        box-shadow: 0 4px 12px rgba(228, 175, 0, 0.3) !important;
     }
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -298,93 +290,93 @@
     </ul>
 </nav>
 <script>
-    (function ($) {
-        'use strict';
+(function ($) {
+  'use strict';
 
-        $(function () {
-            var sidebarMinimized = false;
-            var openDropdowns = []; // Store which dropdowns were open
+  $(function () {
+    var sidebarMinimized = false;
+    var openDropdowns = []; // Store which dropdowns were open
 
-            // Toggle sidebar minimize (button with data-toggle="minimize")
-            $('[data-toggle="minimize"]').on('click', function () {
-                sidebarMinimized = !sidebarMinimized;
+    // Toggle sidebar minimize (button with data-toggle="minimize")
+    $('[data-toggle="minimize"]').on('click', function () {
+      sidebarMinimized = !sidebarMinimized;
 
-                if (sidebarMinimized) {
-                    // Store currently open dropdowns before hiding them
-                    openDropdowns = [];
-                    $('.sidebar-offcanvas .collapse.show').each(function () {
-                        openDropdowns.push(this.id);
-                    });
-
-                    // Force close all open dropdowns immediately
-                    $('.sidebar-offcanvas .collapse.show').each(function () {
-                        var collapseId = this.id;
-                        var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-
-                        // Immediately hide the dropdown without animation for instant effect
-                        $(this).removeClass('show').css('height', '');
-
-                        // Reset the toggle button state
-                        $toggle.attr('aria-expanded', 'false').removeClass('collapsed');
-                        $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
-                    });
-
-                    // Add a class to prevent dropdown functionality when minimized
-                    $('.sidebar-offcanvas').addClass('sidebar-minimized');
-
-                } else {
-                    // Remove the minimized class first
-                    $('.sidebar-offcanvas').removeClass('sidebar-minimized');
-
-                    // Small delay to ensure sidebar is expanded before showing dropdowns
-                    setTimeout(function () {
-                        // Restore previously open dropdowns when expanding sidebar
-                        openDropdowns.forEach(function (collapseId) {
-                            var $collapse = $('#' + collapseId);
-                            var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-
-                            if ($collapse.length && $toggle.length) {
-                                $collapse.addClass('show');
-                                $toggle.attr('aria-expanded', 'true').removeClass('collapsed');
-                                $toggle.find('.menu-arrow').css('transform', 'rotate(90deg)');
-                            }
-                        });
-                    }, 100);
-                }
-            });
-
-            // Prevent dropdown toggle if sidebar is minimized
-            $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
-                if (sidebarMinimized || $('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                }
-            });
-
-            // Additional safety: Monitor for any dropdowns trying to open when minimized
-            $('.sidebar-offcanvas .collapse').on('show.bs.collapse', function (e) {
-                if (sidebarMinimized || $('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                }
-            });
-
-            // Handle arrow rotation for dropdown toggles
-            $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function () {
-                if (!sidebarMinimized && !$('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
-                    var $arrow = $(this).find('.menu-arrow');
-                    var isExpanded = $(this).attr('aria-expanded') === 'true';
-
-                    // Toggle arrow rotation
-                    if (isExpanded) {
-                        $arrow.css('transform', 'rotate(0deg)');
-                    } else {
-                        $arrow.css('transform', 'rotate(90deg)');
-                    }
-                }
-            });
+      if (sidebarMinimized) {
+        // Store currently open dropdowns before hiding them
+        openDropdowns = [];
+        $('.sidebar-offcanvas .collapse.show').each(function() {
+          openDropdowns.push(this.id);
         });
-    })(jQuery);
+
+        // Force close all open dropdowns immediately
+        $('.sidebar-offcanvas .collapse.show').each(function() {
+          var collapseId = this.id;
+          var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
+          
+          // Immediately hide the dropdown without animation for instant effect
+          $(this).removeClass('show').css('height', '');
+          
+          // Reset the toggle button state
+          $toggle.attr('aria-expanded', 'false').removeClass('collapsed');
+          $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
+        });
+
+        // Add a class to prevent dropdown functionality when minimized
+        $('.sidebar-offcanvas').addClass('sidebar-minimized');
+        
+      } else {
+        // Remove the minimized class first
+        $('.sidebar-offcanvas').removeClass('sidebar-minimized');
+        
+        // Small delay to ensure sidebar is expanded before showing dropdowns
+        setTimeout(function() {
+          // Restore previously open dropdowns when expanding sidebar
+          openDropdowns.forEach(function(collapseId) {
+            var $collapse = $('#' + collapseId);
+            var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
+            
+            if ($collapse.length && $toggle.length) {
+              $collapse.addClass('show');
+              $toggle.attr('aria-expanded', 'true').removeClass('collapsed');
+              $toggle.find('.menu-arrow').css('transform', 'rotate(90deg)');
+            }
+          });
+        }, 100);
+      }
+    });
+
+    // Prevent dropdown toggle if sidebar is minimized
+    $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
+      if (sidebarMinimized || $('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+
+    // Additional safety: Monitor for any dropdowns trying to open when minimized
+    $('.sidebar-offcanvas .collapse').on('show.bs.collapse', function (e) {
+      if (sidebarMinimized || $('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    });
+
+    // Handle arrow rotation for dropdown toggles
+    $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function() {
+      if (!sidebarMinimized && !$('.sidebar-offcanvas').hasClass('sidebar-minimized')) {
+        var $arrow = $(this).find('.menu-arrow');
+        var isExpanded = $(this).attr('aria-expanded') === 'true';
+        
+        // Toggle arrow rotation
+        if (isExpanded) {
+          $arrow.css('transform', 'rotate(0deg)');
+        } else {
+          $arrow.css('transform', 'rotate(90deg)');
+        }
+      }
+    });
+  });
+})(jQuery);
 </script>
