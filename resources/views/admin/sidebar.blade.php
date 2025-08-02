@@ -295,37 +295,41 @@
 
   $(function () {
     var sidebarMinimized = false;
-    var openDropdowns = []; // Store which dropdowns were open
+    var openDropdowns = [];
 
-    // Toggle sidebar minimize (button with data-toggle="minimize")
+    // Detect desktop view
+    function isDesktop() {
+      return window.innerWidth > 991;
+    }
+
+    // Sidebar minimize toggler
     $('[data-toggle="minimize"]').on('click', function () {
+      if (!isDesktop()) return;
+
       sidebarMinimized = !sidebarMinimized;
 
       if (sidebarMinimized) {
-        // Store currently open dropdowns before hiding them
+        // Store all currently open dropdowns
         openDropdowns = [];
-        $('.sidebar-offcanvas .collapse.show').each(function() {
+        $('.sidebar-offcanvas .collapse.show').each(function () {
           openDropdowns.push(this.id);
         });
 
-        // Hide all open dropdowns and reset their toggle states
-        $('.sidebar-offcanvas .collapse.show').each(function() {
+        // Hide dropdowns and reset icons
+        $('.sidebar-offcanvas .collapse.show').each(function () {
           var collapseId = this.id;
           var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-          
-          // Hide the dropdown
+
           $(this).collapse('hide');
-          
-          // Reset the toggle button state
           $toggle.attr('aria-expanded', 'false');
           $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
         });
       } else {
-        // Restore previously open dropdowns when expanding sidebar
-        openDropdowns.forEach(function(collapseId) {
+        // Restore dropdowns and icons
+        openDropdowns.forEach(function (collapseId) {
           var $collapse = $('#' + collapseId);
           var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-          
+
           $collapse.collapse('show');
           $toggle.attr('aria-expanded', 'true');
           $toggle.find('.menu-arrow').css('transform', 'rotate(90deg)');
@@ -333,9 +337,9 @@
       }
     });
 
-    // Prevent dropdown toggle if sidebar is minimized
+    // Disable dropdown toggle clicks when minimized
     $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
-      if (sidebarMinimized) {
+      if (sidebarMinimized && isDesktop()) {
         e.preventDefault();
         e.stopPropagation();
       }
