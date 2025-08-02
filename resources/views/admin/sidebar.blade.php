@@ -1,4 +1,129 @@
+<style>
+    .fa-file {
+        color: blueviolet !important;
+    }
 
+    .fa-book {
+        color: green !important;
+    }
+
+    /* Arrow Animation Styles */
+    .menu-arrow {
+        transition: transform 0.3s ease-in-out;
+        font-size: 12px;
+        margin-left: auto;
+    }
+
+    /* Rotate arrow when menu is expanded */
+    .nav-link[aria-expanded="true"] .menu-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Smooth collapse transitions */
+    .collapse {
+        transition: all 0.35s ease;
+    }
+
+    /* Add hover effects */
+    .nav-item.menu-items .nav-link {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 2px 8px;
+    }
+
+    .nav-item.menu-items .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    /* Active state styling */
+    .nav-item.menu-items.active>.nav-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Sub-menu styling */
+    .sub-menu .nav-item .nav-link {
+        padding-left: 50px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .sub-menu .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding-left: 55px;
+    }
+
+    .sub-menu .nav-item.active .nav-link {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-radius: 6px;
+    }
+
+    /* Icon animations */
+    .menu-icon {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+
+    .nav-link:hover .menu-icon {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+    }
+
+    /* Pulse animation for active items */
+    .nav-item.menu-items.active>.nav-link .menu-icon {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+    }
+
+    /* Smooth fade in for collapsed content */
+    .collapse.show {
+        animation: fadeInDown 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Menu title animations */
+    .menu-title {
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .menu-title {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+</style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
