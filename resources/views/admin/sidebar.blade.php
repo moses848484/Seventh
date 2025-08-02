@@ -295,41 +295,37 @@
 
   $(function () {
     var sidebarMinimized = false;
-    var openDropdowns = [];
+    var openDropdowns = []; // Store which dropdowns were open
 
-    function isDesktop() {
-      return window.innerWidth > 991;
-    }
-
-    function collapseAllDropdowns() {
-      $('.sidebar-offcanvas .collapse.show').each(function () {
-        var collapseId = this.id;
-        var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-
-        $(this).collapse('hide');
-        $toggle.attr('aria-expanded', 'false');
-        $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
-      });
-    }
-
-    // Toggle sidebar minimize
+    // Toggle sidebar minimize (button with data-toggle="minimize")
     $('[data-toggle="minimize"]').on('click', function () {
-      if (!isDesktop()) return;
-
       sidebarMinimized = !sidebarMinimized;
 
       if (sidebarMinimized) {
+        // Store currently open dropdowns before hiding them
         openDropdowns = [];
-        $('.sidebar-offcanvas .collapse.show').each(function () {
+        $('.sidebar-offcanvas .collapse.show').each(function() {
           openDropdowns.push(this.id);
         });
 
-        collapseAllDropdowns(); // Hide all open dropdowns
+        // Hide all open dropdowns and reset their toggle states
+        $('.sidebar-offcanvas .collapse.show').each(function() {
+          var collapseId = this.id;
+          var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
+          
+          // Hide the dropdown
+          $(this).collapse('hide');
+          
+          // Reset the toggle button state
+          $toggle.attr('aria-expanded', 'false');
+          $toggle.find('.menu-arrow').css('transform', 'rotate(0deg)');
+        });
       } else {
-        openDropdowns.forEach(function (collapseId) {
+        // Restore previously open dropdowns when expanding sidebar
+        openDropdowns.forEach(function(collapseId) {
           var $collapse = $('#' + collapseId);
           var $toggle = $('.sidebar-offcanvas .nav-link[href="#' + collapseId + '"], .sidebar-offcanvas .nav-link[data-target="#' + collapseId + '"]');
-
+          
           $collapse.collapse('show');
           $toggle.attr('aria-expanded', 'true');
           $toggle.find('.menu-arrow').css('transform', 'rotate(90deg)');
@@ -337,21 +333,13 @@
       }
     });
 
-    // Prevent opening collapsed menus when minimized
+    // Prevent dropdown toggle if sidebar is minimized
     $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
-      if (sidebarMinimized && isDesktop()) {
+      if (sidebarMinimized) {
         e.preventDefault();
         e.stopPropagation();
-      }
-    });
-
-    // Additional safeguard: force hide on window resize
-    $(window).on('resize', function () {
-      if (isDesktop() && sidebarMinimized) {
-        collapseAllDropdowns();
       }
     });
   });
 })(jQuery);
 </script>
-
