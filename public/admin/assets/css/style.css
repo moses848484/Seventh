@@ -30573,24 +30573,41 @@ div.tagsinput span.tag a {
   color: #fc424a;
 }
 
-/* style for off-canvas menu*/
+/* Collapsible sidebar (collapsed to 60px instead of hidden) */
 @media screen and (max-width: 991px) {
   .sidebar-offcanvas {
-    position: fixed;
-    max-height: calc(100vh - 70px);
-    top: 70px;
-    bottom: 0;
-    overflow: auto;
-    right: 244px;
-    -webkit-transition: all 0.25s ease-out;
-    -o-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
+    position: fixed !important;
+    top: 70px !important;
+    bottom: 0 !important;
+    width: 60px !important; /* collapsed width */
+    max-height: calc(100vh - 70px) !important;
+    overflow-x: hidden !important;
+    background-color: #343a40 !important;
+    right: 0 !important; /* keep it on screen */
+    -webkit-transition: width 0.25s ease-out !important;
+    -o-transition: width 0.25s ease-out !important;
+    transition: width 0.25s ease-out !important;
+    z-index: 1040 !important;
   }
 
   .sidebar-offcanvas.active {
-    right: 0;
+    width: 244px !important; /* expanded width */
+  }
+
+  /* Optionally hide text in collapsed state */
+  .sidebar-offcanvas:not(.active) .nav-link span,
+  .sidebar-offcanvas:not(.active) .nav-item span {
+    display: none !important;
+  }
+
+  /* Center icons when collapsed */
+  .sidebar-offcanvas .nav-link i {
+    margin-right: 0 !important;
+    text-align: center !important;
+    display: block !important;
   }
 }
+
 
 .sidebar-tinted .sidebar {
   background: #fa424a;
