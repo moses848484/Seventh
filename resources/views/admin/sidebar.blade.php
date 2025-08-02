@@ -1,297 +1,415 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Sidebar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
-    <style>
-        .sidebar-transition {
-            transition: transform 0.3s ease-in-out;
+import React, { useState, useEffect } from 'react';
+
+const Sidebar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [openSubmenus, setOpenSubmenus] = useState({
+    manageMembersSubmenu: false,
+    inventorySubmenu: false,
+    strategicSubmenu: false
+  });
+
+  // Mock function to simulate Laravel's request()->is() helper
+  const isActive = (route) => {
+    // In a real React app, you'd use React Router's useLocation
+    // For demo purposes, you can modify this to test active states
+    return route === 'view_members'; // Example: make "Register Members" active for demo
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const toggleSubmenu = (submenuId) => {
+    setOpenSubmenus(prev => ({
+      ...prev,
+      [submenuId]: !prev[submenuId]
+    }));
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsSidebarOpen(true);
+      } else {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Auto-expand submenus if they contain active items
+  useEffect(() => {
+    const shouldExpandMembers = isActive('view_members') || isActive('see_members') || isActive('update_member/*');
+    const shouldExpandInventory = isActive('view_inventory') || isActive('show_inventory') || isActive('update_inventory/*');
+    const shouldExpandStrategic = isActive('strategic_plan') || isActive('strategic_details');
+
+    setOpenSubmenus({
+      manageMembersSubmenu: shouldExpandMembers,
+      inventorySubmenu: shouldExpandInventory,
+      strategicSubmenu: shouldExpandStrategic
+    });
+  }, []);
+
+  return (
+    <>
+      <style>{`
+        .fa-file {
+          color: blueviolet !important;
         }
-        
-        .sidebar-hidden {
-            transform: translateX(-100%);
+
+        .fa-book {
+          color: green !important;
         }
-        
-        .sidebar-visible {
-            transform: translateX(0);
+
+        /* Arrow Animation Styles */
+        .menu-arrow {
+          transition: transform 0.3s ease-in-out;
+          font-size: 12px;
+          margin-left: auto;
         }
-        
-        .overlay {
-            transition: opacity 0.3s ease-in-out;
+
+        /* Rotate arrow when menu is expanded */
+        .nav-link[aria-expanded="true"] .menu-arrow {
+          transform: rotate(90deg);
         }
-        
-        .submenu-transition {
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
+
+        /* Smooth collapse transitions */
+        .collapse {
+          transition: all 0.35s ease;
         }
-        
-        .submenu-hidden {
-            max-height: 0;
+
+        /* Add hover effects */
+        .nav-item.menu-items .nav-link {
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          margin: 2px 8px;
+        }
+
+        .nav-item.menu-items .nav-link:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translateX(5px);
+        }
+
+        /* Active state styling */
+        .nav-item.menu-items.active > .nav-link {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Sub-menu styling */
+        .sub-menu .nav-item .nav-link {
+          padding-left: 50px;
+          font-size: 14px;
+          transition: all 0.3s ease;
+        }
+
+        .sub-menu .nav-item .nav-link:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+          padding-left: 55px;
+        }
+
+        .sub-menu .nav-item.active .nav-link {
+          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+          color: white;
+          border-radius: 6px;
+        }
+
+        /* Icon animations */
+        .menu-icon {
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 35px;
+          height: 35px;
+          border-radius: 8px;
+          margin-right: 15px;
+        }
+
+        .nav-link:hover .menu-icon {
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: scale(1.1);
+        }
+
+        /* Pulse animation for active items */
+        .nav-item.menu-items.active > .nav-link .menu-icon {
+          animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          }
+        }
+
+        /* Smooth fade in for collapsed content */
+        .collapse.show {
+          animation: fadeInDown 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+          from {
             opacity: 0;
-        }
-        
-        .submenu-visible {
-            max-height: 500px;
+            transform: translateY(-10px);
+          }
+          to {
             opacity: 1;
+            transform: translateY(0);
+          }
         }
-    </style>
-</head>
 
-    <!-- Overlay for mobile -->
-    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden opacity-0 pointer-events-none overlay"></div>
+        /* Menu title animations */
+        .menu-title {
+          transition: all 0.3s ease;
+        }
 
-    <!-- Sidebar -->
-    <nav id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 sidebar-transition sidebar-hidden lg:sidebar-visible">
-        <!-- Brand -->
-        <div class="p-4 border-b border-gray-200">
-            <div class="flex items-center justify-center">
-                <a href="{{ url('/redirect') }}" class="flex items-center">
-                    <img src="admin/assets/images/faces/sda3.png" alt="logo" class="h-10 w-auto">
-                </a>
-                <a href="{{ url('/redirect') }}" class="ml-2 lg:hidden">
-                    <img src="admin/assets/images/faces/sda4.png" alt="logo" class="h-8 w-auto">
-                </a>
-            </div>
+        .nav-link:hover .menu-title {
+          color: #fff;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Sidebar background */
+        .sidebar {
+          background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+        }
+
+        /* Override text colors for dark background */
+        .sidebar .nav-link {
+          color: #ecf0f1;
+        }
+
+        .sidebar .nav-category {
+          color: #bdc3c7;
+        }
+      `}</style>
+
+      {/* Mobile Menu Button */}
+      <button 
+        onClick={toggleSidebar}
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-lg"
+      >
+        <span className="text-xl">☰</span>
+      </button>
+
+      {/* Overlay for mobile */}
+      <div 
+        className={`fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden transition-opacity duration-300 ${
+          isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={closeSidebar}
+      />
+
+      {/* Sidebar */}
+      <nav className={`sidebar fixed top-0 left-0 h-full w-64 shadow-lg z-40 transition-transform duration-300 ease-in-out ${
+        isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+      } lg:translate-x-0`}>
+        
+        {/* Brand */}
+        <div className="flex items-center justify-center p-4 border-b border-gray-600">
+          <a href="{{ url('/redirect') }}" className="flex items-center">
+            <img src="admin/assets/images/faces/sda3.png" alt="logo" className="h-10 w-auto" />
+          </a>
+          <a href="{{ url('/redirect') }}" className="ml-2 lg:hidden">
+            <img src="admin/assets/images/faces/sda4.png" alt="logo" className="h-8 w-auto" />
+          </a>
         </div>
 
-        <!-- Navigation -->
-        <div class="flex-1 overflow-y-auto">
-            <ul class="p-4 space-y-2">
-                <!-- Navigation Header -->
-                <li class="flex items-center justify-between text-gray-500 text-sm font-medium mb-4">
-                    <span>Navigation</span>
-                    <button id="sidebarToggler" class="p-1 hover:bg-gray-100 rounded">
-                        <span class="mdi mdi-menu text-lg"></span>
-                    </button>
-                </li>
+        {/* Navigation */}
+        <div className="flex-1 overflow-y-auto">
+          <ul className="p-0">
+            
+            {/* Navigation Header */}
+            <li className="nav-item nav-category flex items-center justify-between px-4 py-3">
+              <span className="text-sm font-medium">Navigation</span>
+              <button 
+                onClick={toggleSidebar}
+                className="p-1 hover:bg-gray-600 rounded"
+              >
+                <span className="text-lg">☰</span>
+              </button>
+            </li>
 
-                <!-- Dashboard -->
-                <li>
-                    <a href="{{ url('/redirected') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('/redirect') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="mdi mdi-speedometer text-xl"></i>
-                        </span>
-                        <span class="font-medium">Dashboard</span>
+            {/* Dashboard */}
+            <li className={`nav-item menu-items ${isActive('/redirect') ? 'active' : ''}`}>
+              <a 
+                href="{{ url('/redirected') }}" 
+                className="nav-link flex items-center p-3"
+              >
+                <span className="menu-icon">
+                  <i className="fas fa-tachometer-alt"></i>
+                </span>
+                <span className="menu-title">Dashboard</span>
+              </a>
+            </li>
+
+            {/* Manage Members */}
+            <li className={`nav-item menu-items ${
+              isActive('view_members') || isActive('see_members') || isActive('update_member/*') ? 'active' : ''
+            }`}>
+              <button 
+                className="nav-link w-full flex items-center p-3"
+                aria-expanded={openSubmenus.manageMembersSubmenu}
+                onClick={() => toggleSubmenu('manageMembersSubmenu')}
+              >
+                <span className="menu-icon">
+                  <i className="fa-solid fa-users"></i>
+                </span>
+                <span className="menu-title flex-1 text-left">Manage Members</span>
+                <i className="fas fa-chevron-left menu-arrow"></i>
+              </button>
+              <div className={`collapse ${openSubmenus.manageMembersSubmenu ? 'show' : ''}`}>
+                <ul className="sub-menu flex flex-col">
+                  <li className={`nav-item ${isActive('view_members') ? 'active' : ''}`}>
+                    <a href="{{ url('view_members') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-user-plus mr-2"></i>
+                      Register Members
                     </a>
-                </li>
-
-                <!-- Manage Members -->
-                <li>
-                    <button class="w-full flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-blue-50 text-blue-600' : '' }}" 
-                            onclick="toggleSubmenu('manageMembersSubmenu')">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-users text-lg"></i>
-                        </span>
-                        <span class="font-medium flex-1 text-left">Manage Members</span>
-                        <i class="mdi mdi-chevron-down transition-transform duration-200" id="manageMembersArrow"></i>
-                    </button>
-                    <div id="manageMembersSubmenu" class="submenu-transition submenu-hidden ml-6 mt-2">
-                        <ul class="space-y-1">
-                            <li>
-                                <a href="{{ url('view_members') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('view_members') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-user-plus text-sm mr-2"></i>
-                                    Register Members
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('see_members') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-eye text-sm mr-2"></i>
-                                    View Members
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Inventory -->
-                <li>
-                    <button class="w-full flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-blue-50 text-blue-600' : '' }}" 
-                            onclick="toggleSubmenu('inventorySubmenu')">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-warehouse text-lg"></i>
-                        </span>
-                        <span class="font-medium flex-1 text-left">Inventory</span>
-                        <i class="mdi mdi-chevron-down transition-transform duration-200" id="inventoryArrow"></i>
-                    </button>
-                    <div id="inventorySubmenu" class="submenu-transition submenu-hidden ml-6 mt-2">
-                        <ul class="space-y-1">
-                            <li>
-                                <a href="{{ url('view_inventory') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('view_inventory') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-plus text-sm mr-2"></i>
-                                    Add Inventory
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('show_inventory') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-list text-sm mr-2"></i>
-                                    Show Inventory
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Strategic Planning -->
-                <li>
-                    <button class="w-full flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-blue-50 text-blue-600' : '' }}" 
-                            onclick="toggleSubmenu('strategicSubmenu')">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-briefcase text-lg"></i>
-                        </span>
-                        <span class="font-medium flex-1 text-left">Strategic Planning</span>
-                        <i class="mdi mdi-chevron-down transition-transform duration-200" id="strategicArrow"></i>
-                    </button>
-                    <div id="strategicSubmenu" class="submenu-transition submenu-hidden ml-6 mt-2">
-                        <ul class="space-y-1">
-                            <li>
-                                <a href="{{ url('scorecard') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-chart-line text-sm mr-2"></i>
-                                    Create Scorecard
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('strategic_plan') }}" class="flex items-center p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200 {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                    <i class="fa-solid fa-tasks text-sm mr-2"></i>
-                                    Create Work Plan
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Time Management -->
-                <li>
-                    <a href="{{ url('time_management') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('time_management') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-clock text-lg"></i>
-                        </span>
-                        <span class="font-medium">Time Management</span>
+                  </li>
+                  <li className={`nav-item ${isActive('see_members') || isActive('update_member/*') ? 'active' : ''}`}>
+                    <a href="{{ url('see_members') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-eye mr-2"></i>
+                      View Members
                     </a>
-                </li>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-                <!-- Departments -->
-                <li>
-                    <a href="{{ url('departments') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('departments') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-building text-lg"></i>
-                        </span>
-                        <span class="font-medium">Departments</span>
+            {/* Inventory */}
+            <li className={`nav-item menu-items ${
+              isActive('view_inventory') || isActive('show_inventory') || isActive('update_inventory/*') ? 'active' : ''
+            }`}>
+              <button 
+                className="nav-link w-full flex items-center p-3"
+                aria-expanded={openSubmenus.inventorySubmenu}
+                onClick={() => toggleSubmenu('inventorySubmenu')}
+              >
+                <span className="menu-icon">
+                  <i className="fa-solid fa-warehouse"></i>
+                </span>
+                <span className="menu-title flex-1 text-left">Inventory</span>
+                <i className="fas fa-chevron-right menu-arrow"></i>
+              </button>
+              <div className={`collapse ${openSubmenus.inventorySubmenu ? 'show' : ''}`}>
+                <ul className="sub-menu flex flex-col">
+                  <li className={`nav-item ${isActive('view_inventory') ? 'active' : ''}`}>
+                    <a href="{{ url('view_inventory') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-plus mr-2"></i>
+                      Add Inventory
                     </a>
-                </li>
+                  </li>
+                  <li className={`nav-item ${isActive('show_inventory') || isActive('update_inventory/*') ? 'active' : ''}`}>
+                    <a href="{{ url('show_inventory') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-list mr-2"></i>
+                      Show Inventory
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-                <!-- Givings -->
-                <li>
-                    <a href="{{ url('view_givings') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('view_givings') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-hand-holding-heart text-lg"></i>
-                        </span>
-                        <span class="font-medium">Givings</span>
+            {/* Strategic Planning */}
+            <li className={`nav-item menu-items ${
+              isActive('strategic_plan') || isActive('strategic_details') ? 'active' : ''
+            }`}>
+              <button 
+                className="nav-link w-full flex items-center p-3"
+                aria-expanded={openSubmenus.strategicSubmenu}
+                onClick={() => toggleSubmenu('strategicSubmenu')}
+              >
+                <span className="menu-icon">
+                  <i className="fa-solid fa-briefcase"></i>
+                </span>
+                <span className="menu-title flex-1 text-left">Strategic Planning</span>
+                <i className="fas fa-chevron-right menu-arrow"></i>
+              </button>
+              <div className={`collapse ${openSubmenus.strategicSubmenu ? 'show' : ''}`}>
+                <ul className="sub-menu flex flex-col">
+                  <li className={`nav-item ${isActive('scorecard') || isActive('update_scorecard/*') ? 'active' : ''}`}>
+                    <a href="{{ url('scorecard') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-chart-line mr-2"></i>
+                      Create Scorecard
                     </a>
-                </li>
+                  </li>
+                  <li className={`nav-item ${isActive('strategic_plan') || isActive('update_scorecard/*') ? 'active' : ''}`}>
+                    <a href="{{ url('strategic_plan') }}" className="nav-link flex items-center">
+                      <i className="fa-solid fa-tasks mr-2"></i>
+                      Create Work Plan
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
 
-                <!-- Users -->
-                <li>
-                    <a href="{{ url('see_users') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('see_users') || request()->is('update_user/*') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-users-cog text-lg"></i>
-                        </span>
-                        <span class="font-medium">Users</span>
-                    </a>
-                </li>
+            {/* Time Management */}
+            <li className={`nav-item menu-items ${isActive('time_management') ? 'active' : ''}`}>
+              <a href="{{ url('time_management') }}" className="nav-link flex items-center p-3">
+                <span className="menu-icon">
+                  <i className="fa-solid fa-clock"></i>
+                </span>
+                <span className="menu-title">Time Management</span>
+              </a>
+            </li>
 
-                <!-- Human Resource -->
-                <li>
-                    <a href="{{ url('#') }}" class="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 {{ request()->is('view') ? 'bg-blue-50 text-blue-600' : '' }}">
-                        <span class="w-6 h-6 flex items-center justify-center mr-3">
-                            <i class="fa-solid fa-user-tie text-lg"></i>
-                        </span>
-                        <span class="font-medium">Human Resource</span>
-                    </a>
-                </li>
-            </ul>
+            {/* Departments */}
+            <li className={`nav-item menu-items ${isActive('departments') ? 'active' : ''}`}>
+              <a href="{{ url('departments') }}" className="nav-link flex items-center p-3">
+                <span className="menu-icon">
+                  <i className="fa-solid fa-building"></i>
+                </span>
+                <span className="menu-title">Departments</span>
+              </a>
+            </li>
+
+            {/* Givings */}
+            <li className={`nav-item menu-items ${isActive('view_givings') ? 'active' : ''}`}>
+              <a href="{{ url('view_givings') }}" className="nav-link flex items-center p-3">
+                <span className="menu-icon">
+                  <i className="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span className="menu-title">Givings</span>
+              </a>
+            </li>
+
+            {/* Users */}
+            <li className={`nav-item menu-items ${isActive('see_users') || isActive('update_user/*') ? 'active' : ''}`}>
+              <a href="{{ url('see_users') }}" className="nav-link flex items-center p-3">
+                <span className="menu-icon">
+                  <i className="fa-solid fa-users-cog"></i>
+                </span>
+                <span className="menu-title">Users</span>
+              </a>
+            </li>
+
+            {/* Human Resource */}
+            <li className={`nav-item menu-items ${isActive('view') ? 'active' : ''}`}>
+              <a href="{{ url('#') }}" className="nav-link flex items-center p-3">
+                <span className="menu-icon">
+                  <i className="fa-solid fa-user-tie"></i>
+                </span>
+                <span className="menu-title">Human Resource</span>
+              </a>
+            </li>
+          </ul>
         </div>
-    </nav>
+      </nav>
+    </>
+  );
+};
 
-    <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-        const sidebarToggler = document.getElementById('sidebarToggler');
-
-        function toggleSidebar() {
-            const isHidden = sidebar.classList.contains('sidebar-hidden');
-            
-            if (isHidden) {
-                sidebar.classList.remove('sidebar-hidden');
-                sidebar.classList.add('sidebar-visible');
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-                overlay.classList.add('opacity-100');
-            } else {
-                sidebar.classList.remove('sidebar-visible');
-                sidebar.classList.add('sidebar-hidden');
-                overlay.classList.remove('opacity-100');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        // Event listeners
-        mobileMenuBtn.addEventListener('click', toggleSidebar);
-        sidebarToggler.addEventListener('click', toggleSidebar);
-        overlay.addEventListener('click', toggleSidebar);
-
-        // Submenu functionality
-        function toggleSubmenu(submenuId) {
-            const submenu = document.getElementById(submenuId);
-            const arrow = document.getElementById(submenuId.replace('Submenu', 'Arrow'));
-            
-            const isHidden = submenu.classList.contains('submenu-hidden');
-            
-            if (isHidden) {
-                submenu.classList.remove('submenu-hidden');
-                submenu.classList.add('submenu-visible');
-                arrow.classList.add('rotate-180');
-            } else {
-                submenu.classList.remove('submenu-visible');
-                submenu.classList.add('submenu-hidden');
-                arrow.classList.remove('rotate-180');
-            }
-        }
-
-        // Initialize submenus based on active state (you can customize this logic)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Auto-expand submenus if they contain active items
-            const activeSubmenuTriggers = document.querySelectorAll('button[class*="bg-blue-50"]');
-            activeSubmenuTriggers.forEach(trigger => {
-                const submenuId = trigger.getAttribute('onclick')?.match(/toggleSubmenu\('(\w+)'\)/)?.[1];
-                if (submenuId) {
-                    const submenu = document.getElementById(submenuId);
-                    const arrow = document.getElementById(submenuId.replace('Submenu', 'Arrow'));
-                    if (submenu) {
-                        submenu.classList.remove('submenu-hidden');
-                        submenu.classList.add('submenu-visible');
-                        arrow?.classList.add('rotate-180');
-                    }
-                }
-            });
-        });
-
-        // Close sidebar when window is resized to desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('sidebar-hidden');
-                sidebar.classList.add('sidebar-visible');
-                overlay.classList.remove('opacity-100');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            } else {
-                sidebar.classList.remove('sidebar-visible');
-                sidebar.classList.add('sidebar-hidden');
-            }
-        });
-    </script>
-
-</html>
+export default Sidebar;

@@ -80,9 +80,7 @@
                     style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
-            <button id="sidebarToggler" class="p-1 hover:bg-gray-100 rounded">
-                <span class="mdi mdi-menu text-lg"></span>
-            </button>
+      
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -231,7 +229,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown">
+                       <li class="nav-item dropdown">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
