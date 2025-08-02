@@ -30549,10 +30549,18 @@ div.tagsinput span.tag a {
   background: transparent;
 }
 
-.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-  background-color: red;
-  color: #333;
-  border-radius: 4px;
+/* Minimized sidebar main menu hover - more subtle */
+.sidebar.sidebar-minimized .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
+  background: rgba(240, 240, 240, 0.4) !important;
+  color: #555 !important;
+  border-radius: 8px !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 4px auto !important;
+  padding: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: scale(1.05) !important;
+  transition: all 0.2s ease !important;
 }
 
 
