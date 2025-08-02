@@ -1,6 +1,3 @@
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
 <style>
     .fa-file {
         color: blueviolet !important;
@@ -292,32 +289,3 @@
         </li>
     </ul>
 </nav>
-<script>
-(function ($) {
-  'use strict';
-
-  $(function () {
-    const $sidebar = $('.sidebar-offcanvas');
-    const $dropdownToggles = $sidebar.find('.nav-link[data-toggle="collapse"]');
-
-    // Toggle sidebar visibility
-    $('[data-toggle="offcanvas"]').on('click', function () {
-      $sidebar.toggleClass('active');
-
-      if (!$sidebar.hasClass('active')) {
-        // Sidebar is closing: collapse any open dropdowns
-        $sidebar.find('.collapse.show').collapse('hide');
-        $sidebar.find('[aria-expanded="true"]').attr('aria-expanded', 'false');
-      }
-    });
-
-    // Prevent dropdowns from opening if sidebar is closed
-    $dropdownToggles.on('click', function (e) {
-      if (!$sidebar.hasClass('active')) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    });
-  });
-})(jQuery);
-</script>
