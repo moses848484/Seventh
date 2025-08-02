@@ -30542,7 +30542,7 @@ div.tagsinput span.tag a {
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
   color: #fff;
-  background-color: #5e9d72; /* softer hover background */
+  background-color: red; /* softer hover background */
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
