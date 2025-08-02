@@ -30534,169 +30534,24 @@ div.tagsinput span.tag a {
   border-radius: 3px;
 }
 
-/* Enhanced Sub-menu Active State */
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: white !important;
-  background: linear-gradient(135deg, #2c6448 0%, #34754f 100%) !important;
-  border-radius: 8px !important;
-  margin: 4px 8px !important;
-  box-shadow: 0 4px 12px rgba(44, 100, 72, 0.3) !important;
-  transform: translateX(8px) !important;
-  border-left: 4px solid #4a9d62 !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: white;
+  background: #2c6448;
 }
 
-/* Enhanced Sub-menu Hover Effect */
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: white !important;
-  background: linear-gradient(135deg, #e4af00 0%, #f2c74e 100%) !important;
-  border-radius: 8px !important;
-  margin: 4px 8px !important;
-  transform: translateX(12px) scale(1.02) !important;
-  box-shadow: 0 6px 20px rgba(228, 175, 0, 0.4) !important;
-  border-left: 4px solid #ffd700 !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: white;
+  background-color: white;
 }
 
-/* Sub-menu Hover Animation */
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: transparent !important;
+  background: transparent;
 }
 
-.sidebar .nav.sub-menu .nav-item .nav-link {
-  position: relative !important;
-  overflow: hidden !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* Add subtle shine effect on hover */
-.sidebar .nav.sub-menu .nav-item .nav-link:hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: shine 0.6s ease-in-out;
-}
-
-@keyframes shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Enhanced Main Menu Hover Effect */
-.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-  background: linear-gradient(135deg, #e4af00 0%, #f2c74e 100%) !important;
-  color: #ffffff !important;
-  border-radius: 12px !important;
-  margin: 4px 12px !important;
-  transform: translateX(8px) scale(1.02) !important;
-  box-shadow: 0 8px 25px rgba(228, 175, 0, 0.4) !important;
-  border-left: 5px solid #ffd700 !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* Icon glow effect on hover */
-.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link .menu-icon {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6) !important;
-  transform: scale(1.1) rotate(5deg) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-/* Text glow effect */
-.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link .menu-title {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
-  letter-spacing: 0.5px !important;
-  transition: all 0.3s ease !important;
-}
-
-/* Smooth transitions for all nav items */
-.sidebar .nav .nav-item .nav-link {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  position: relative !important;
-}
-
-/* Active state for main menu items */
-.sidebar .nav:not(.sub-menu) > .nav-item.active > .nav-link {
-  background: linear-gradient(135deg, #2c6448 0%, #34754f 100%) !important;
-  color: white !important;
-  border-radius: 12px !important;
-  margin: 4px 12px !important;
-  transform: translateX(5px) !important;
-  box-shadow: 0 6px 20px rgba(44, 100, 72, 0.4) !important;
-  border-left: 5px solid #4a9d62 !important;
-}
-
-/* Pulse effect for active main menu icons */
-.sidebar .nav:not(.sub-menu) > .nav-item.active > .nav-link .menu-icon {
-  animation: activePulse 2s infinite !important;
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 50% !important;
-}
-
-@keyframes activePulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(74, 157, 98, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(74, 157, 98, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(74, 157, 98, 0);
-  }
-}
-
-/* Smooth entrance animation for menu items */
-.sidebar .nav .nav-item {
-  animation: slideInLeft 0.5s ease-out;
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Add staggered animation delay for menu items */
-.sidebar .nav .nav-item:nth-child(1) { animation-delay: 0.1s; }
-.sidebar .nav .nav-item:nth-child(2) { animation-delay: 0.2s; }
-.sidebar .nav .nav-item:nth-child(3) { animation-delay: 0.3s; }
-.sidebar .nav .nav-item:nth-child(4) { animation-delay: 0.4s; }
-.sidebar .nav .nav-item:nth-child(5) { animation-delay: 0.5s; }
-.sidebar .nav .nav-item:nth-child(6) { animation-delay: 0.6s; }
-.sidebar .nav .nav-item:nth-child(7) { animation-delay: 0.7s; }
-.sidebar .nav .nav-item:nth-child(8) { animation-delay: 0.8s; }
-.sidebar .nav .nav-item:nth-child(9) { animation-delay: 0.9s; }
-
-/* Minimized sidebar hover effects */
-.sidebar.sidebar-minimized .nav .nav-item .nav-link:hover {
-  transform: scale(1.1) !important;
-  border-radius: 50% !important;
-  width: 50px !important;
-  height: 50px !important;
-  margin: 8px auto !important;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
-    transform: translateX(4px) scale(1.01) !important;
-    margin: 2px 8px !important;
-  }
-  
-  .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-    transform: translateX(8px) scale(1.01) !important;
-    margin: 2px 4px !important;
-  }
+.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
+  background: white;
+  color: #ffffff;
+  border-radius: 3px;
 }
 
 .sidebar .nav .menu-items:nth-child(6n+5) .nav-link .menu-icon i {
