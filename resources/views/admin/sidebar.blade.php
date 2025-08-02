@@ -1,153 +1,291 @@
 <style>
-    /* CoreUI-friendly styling (custom enhancements) */
+    .fa-file {
+        color: blueviolet !important;
+    }
+
+    .fa-book {
+        color: green !important;
+    }
+
+    /* Arrow Animation Styles */
     .menu-arrow {
         transition: transform 0.3s ease-in-out;
         font-size: 12px;
         margin-left: auto;
     }
 
+    /* Rotate arrow when menu is expanded */
     .nav-link[aria-expanded="true"] .menu-arrow {
         transform: rotate(90deg);
     }
 
-    .nav-group-toggle::after {
-        font-family: "Material Design Icons";
-        content: "\F140"; /* mdi-chevron-right */
-        margin-left: auto;
-        transition: transform 0.3s ease;
+    /* Smooth collapse transitions */
+    .collapse {
+        transition: all 0.35s ease;
     }
 
-    .nav-group.show > .nav-group-toggle::after {
-        transform: rotate(90deg);
+    /* Add hover effects */
+    .nav-item.menu-items .nav-link {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 2px 8px;
     }
 
-    .nav-icon {
-        margin-right: 10px;
-    }
-
-    .nav-item .nav-link:hover {
+    .nav-item.menu-items .nav-link:hover {
         background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    /* Active state styling */
+    .nav-item.menu-items.active>.nav-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Sub-menu styling */
+    .sub-menu .nav-item .nav-link {
+        padding-left: 50px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .sub-menu .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding-left: 55px;
+    }
+
+    .sub-menu .nav-item.active .nav-link {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
         border-radius: 6px;
     }
 
-    .nav-link.active {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-        color: white !important;
-        border-radius: 6px;
-        font-weight: bold;
+    /* Icon animations */
+    .menu-icon {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        margin-right: 15px;
+    }
+
+    .nav-link:hover .menu-icon {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+    }
+
+    /* Pulse animation for active items */
+    .nav-item.menu-items.active>.nav-link .menu-icon {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+    }
+
+    /* Smooth fade in for collapsed content */
+    .collapse.show {
+        animation: fadeInDown 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Menu title animations */
+    .menu-title {
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .menu-title {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0/dist/css/coreui.min.css" rel="stylesheet">
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-    <div class="sidebar-brand d-none d-md-flex">
-        <a href="{{ url('/redirect') }}">
-            <img src="{{ asset('admin/assets/images/faces/sda3.png') }}" height="50" alt="logo" />
-        </a>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="{{ url('/redirect') }}"><img src="admin/assets/images/faces/sda3.png"
+                alt="logo" /></a>
+        <a class="sidebar-brand brand-logo-mini" href="{{ url('/redirect') }}"><img
+                src="admin/assets/images/faces/sda4.png" alt="logo" /></a>
     </div>
+    <ul class="nav">
 
-    <ul class="sidebar-nav" data-coreui="navigation" role="navigation">
-        <li class="nav-title d-flex justify-content-between align-items-center">
-            <span>Navigation</span>
-            <button class="btn btn-sm text-white" type="button" onclick="coreui.Sidebar.getInstance(document.getElementById('sidebar')).toggle()">
-                <i class="mdi mdi-menu"></i>
+        <li class="nav-item nav-category d-flex justify-content-between align-items-center">
+            <span class="nav-link mb-0">Navigation</span>
+
+            <!-- Toggler button -->
+            <button class="navbar-toggler btn btn-sm" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
             </button>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('/redirected') ? 'active' : '' }}" href="{{ url('/redirected') }}">
-                <i class="nav-icon fas fa-tachometer-alt"></i> Dashboard
+        <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('/redirected') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Dashboard</span>
             </a>
         </li>
 
-        <li class="nav-group {{ request()->is('view_members*') || request()->is('see_members') ? 'show' : '' }}">
-            <a class="nav-link nav-group-toggle {{ request()->is('view_members*') || request()->is('see_members') ? 'active' : '' }}" href="#">
-                <i class="nav-icon fas fa-users"></i> Manage Members
+        <li
+            class="nav-item menu-items {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic"
+                aria-expanded="{{ request()->is('view_members') || request()->is('see_members') ? 'true' : 'false' }}"
+                aria-controls="ui-basic">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <span class="menu-title">Manage Members</span>
+                <i class="mdi mdi-chevron-left menu-arrow"></i>
             </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('view_members') ? 'active' : '' }}" href="{{ url('view_members') }}">
-                        <i class="fas fa-user-plus nav-icon"></i> Register Members
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}" href="{{ url('see_members') }}">
-                        <i class="fas fa-eye nav-icon"></i> View Members
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse {{ request()->is('view_members') || request()->is('see_members') ? 'show' : '' }}"
+                id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_members') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_members') }}">
+                            <i class="fa-solid fa-user-plus"></i>&nbsp;Register Members
+                        </a>
+                    </li>
+
+                    <li
+                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('see_members') }}">
+                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
-        <li class="nav-group {{ request()->is('view_inventory*') || request()->is('show_inventory') ? 'show' : '' }}">
-            <a class="nav-link nav-group-toggle {{ request()->is('view_inventory*') || request()->is('show_inventory') ? 'active' : '' }}" href="#">
-                <i class="nav-icon fas fa-warehouse"></i> Inventory
+        <li
+            class="nav-item menu-items {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#auth"
+                aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
+                aria-controls="auth">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-warehouse"></i>
+                </span>
+                <span class="menu-title">Inventory</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
             </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('view_inventory') ? 'active' : '' }}" href="{{ url('view_inventory') }}">
-                        <i class="fas fa-plus nav-icon"></i> Add Inventory
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}" href="{{ url('show_inventory') }}">
-                        <i class="fas fa-list nav-icon"></i> Show Inventory
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
+                id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item {{ request()->is('view_inventory') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('view_inventory') }}">
+                            <i class="fa-solid fa-plus"></i>&nbsp; Add Inventory
+                        </a>
+                    </li>
+
+                    <li
+                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('show_inventory') }}">
+                            <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </li>
 
-        <li class="nav-group {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}">
-            <a class="nav-link nav-group-toggle {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}" href="#">
-                <i class="nav-icon fas fa-briefcase"></i> Strategic Planning
+        <li
+            class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#strategicPlanning"
+                aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
+                aria-controls="strategicPlanning">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                <span class="menu-title">Strategic Planning</span>
+                <i class="mdi mdi-chevron-right menu-arrow"></i>
             </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('scorecard') ? 'active' : '' }}" href="{{ url('scorecard') }}">
-                        <i class="fas fa-chart-line nav-icon"></i> Create Scorecard
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('strategic_plan') ? 'active' : '' }}" href="{{ url('strategic_plan') }}">
-                        <i class="fas fa-tasks nav-icon"></i> Create Work Plan
-                    </a>
-                </li>
-            </ul>
+            <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
+                id="strategicPlanning">
+                <ul class="nav flex-column sub-menu">
+                    <li
+                        class="nav-item menu-items {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('scorecard') }}">
+                            <i class="fa-solid fa-chart-line"></i>&nbsp;Create Scorecard
+                        </a>
+                    </li>
+                    <li
+                        class="nav-item menu-items {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('strategic_plan') }}">
+                            <i class="fa-solid fa-tasks"></i>&nbsp;Create Work Plan
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('time_management') ? 'active' : '' }}" href="{{ url('time_management') }}">
-                <i class="nav-icon fas fa-clock"></i> Time Management
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('departments') ? 'active' : '' }}" href="{{ url('departments') }}">
-                <i class="nav-icon fas fa-building"></i> Departments
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('view_givings') ? 'active' : '' }}" href="{{ url('view_givings') }}">
-                <i class="nav-icon fas fa-hand-holding-heart"></i> Givings
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('see_users') ? 'active' : '' }}" href="{{ url('see_users') }}">
-                <i class="nav-icon fas fa-users-cog"></i> Users
+        <li class="nav-item menu-items {{ request()->is('time_management') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('time_management') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </span>
+                <span class="menu-title">Time Management</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('view') ? 'active' : '' }}" href="{{ url('#') }}">
-                <i class="nav-icon fas fa-user-tie"></i> Human Resource
+        <li class="nav-item menu-items {{ request()->is('departments') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('departments') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-building"></i>
+                </span>
+                <span class="menu-title">Departments</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view_givings') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('view_givings') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span class="menu-title">Givings</span>
+            </a>
+        </li>
+
+        <li
+            class="nav-item menu-items {{ request()->is('see_users') || request()->is('update_user/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('see_users') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-users-cog"></i>
+                </span>
+                <span class="menu-title">Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items {{ request()->is('view') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ url('#') }}">
+                <span class="menu-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </span>
+                <span class="menu-title">Human Resource</span>
             </a>
         </li>
     </ul>
-</div>
-<!-- CoreUI CSS -->
-
-
-<!-- CoreUI JS -->
-<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0/dist/js/coreui.bundle.min.js"></script>
+</nav>
