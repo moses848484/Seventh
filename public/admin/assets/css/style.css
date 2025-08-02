@@ -30578,7 +30578,6 @@ div.tagsinput span.tag a {
   .sidebar-offcanvas {
     position: fixed;
     max-height: calc(100vh - 70px);
-    margin-top: -170px !important;
     bottom: 0;
     overflow: auto;
     right: -244px;
