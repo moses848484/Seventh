@@ -289,3 +289,30 @@
         </li>
     </ul>
 </nav>
+<script>
+(function ($) {
+  'use strict';
+
+  $(function () {
+    var sidebarMinimized = false;
+
+    // Toggle sidebar minimize (button with data-toggle="minimize")
+    $('[data-toggle="minimize"]').on('click', function () {
+      sidebarMinimized = !sidebarMinimized;
+
+      // If sidebar is minimized, hide any open dropdowns
+      if (sidebarMinimized) {
+        $('.sidebar-offcanvas .collapse.show').collapse('hide');
+      }
+    });
+
+    // Prevent dropdown toggle if sidebar is minimized
+    $('.sidebar-offcanvas .nav-link[data-toggle="collapse"]').on('click', function (e) {
+      if (sidebarMinimized) {
+        e.preventDefault(); // Block toggle
+        e.stopPropagation();
+      }
+    });
+  });
+})(jQuery);
+</script>
