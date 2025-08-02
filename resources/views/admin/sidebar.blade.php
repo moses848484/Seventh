@@ -124,53 +124,14 @@
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
-    /* Fixed navbar toggler button positioning and behavior */
-    .navbar-toggler {
-        position: fixed !important;
-        top: 20px !important;
-        left: 20px !important;
-        z-index: 1100 !important;
-        background: rgba(0, 0, 0, 0.7) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        color: white !important;
-        padding: 8px 12px !important;
-        border-radius: 6px !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    /* Sidebar off-canvas behavior */
+    .sidebar-offcanvas {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
     }
 
-    .navbar-toggler:hover {
-        background: rgba(0, 0, 0, 0.9) !important;
-        transform: scale(1.05) !important;
-        color: #fff !important;
-    }
-
-    .navbar-toggler:focus {
-        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
-    }
-
-    /* When sidebar is open (not off-canvas), position toggler inside sidebar */
-    .sidebar:not(.sidebar-offcanvas) .navbar-toggler,
-    .sidebar.show .navbar-toggler {
-        position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
-        left: auto !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        z-index: 1001 !important;
-    }
-
-    /* Mobile specific - when sidebar is closed (off-canvas), hide the internal toggler */
-    @media (max-width: 991px) {
-        .sidebar-offcanvas:not(.show) .navbar-toggler {
-            display: none !important;
-        }
-        
-        /* Show fixed toggler when sidebar is closed on mobile */
-        .sidebar-offcanvas:not(.show) ~ .mobile-sidebar-toggler {
-            display: block !important;
-        }
+    .sidebar-offcanvas.show {
+        transform: translateX(0);
     }
 
     /* Mobile toggler - only visible when sidebar is completely closed */
@@ -193,6 +154,22 @@
         background: rgba(0, 0, 0, 0.9);
         transform: scale(1.05);
         color: #fff;
+    }
+
+    /* Show mobile toggler when sidebar is closed */
+    @media (max-width: 991px) {
+        .sidebar-offcanvas:not(.show) ~ .mobile-sidebar-toggler {
+            display: block !important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .mobile-sidebar-toggler {
+            display: none !important;
+        }
+        .sidebar-offcanvas {
+            transform: translateX(0);
+        }
     }
 
     /* Sidebar overlay */
@@ -397,11 +374,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebarOverlay = document.getElementById('sidebarOverlay');
 
     // Function to toggle sidebar
-    function toggleSidebar() {
+    function toggleSidebar(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         sidebar.classList.toggle('show');
         if (sidebarOverlay) {
             sidebarOverlay.classList.toggle('show');
         }
+        
+        console.log('Sidebar toggled, classes:', sidebar.className);
     }
 
     // Function to close sidebar
@@ -412,13 +394,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listeners
+    // Event listeners for sidebar togglers
     if (sidebarToggler) {
         sidebarToggler.addEventListener('click', toggleSidebar);
+        sidebarToggler.addEventListener('touchstart', toggleSidebar);
     }
     
     if (mobileSidebarToggler) {
         mobileSidebarToggler.addEventListener('click', toggleSidebar);
+        mobileSidebarToggler.addEventListener('touchstart', toggleSidebar);
     }
 
     // Close sidebar when clicking overlay
@@ -429,38 +413,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle sub-menu collapse functionality
     const collapseTogglers = document.querySelectorAll('[data-toggle="collapse"]');
     collapseTogglers.forEach(toggler => {
-        if (!toggler.getAttribute('data-toggle') || toggler.getAttribute('data-toggle') !== 'minimize') {
-            toggler.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
+        toggler.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
                 
-                if (target) {
-                    const isCurrentlyExpanded = this.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close all other collapse menus
-                    collapseTogglers.forEach(other => {
-                        if (other !== this && other.getAttribute('data-toggle') !== 'minimize') {
-                            const otherTargetId = other.getAttribute('href');
-                            const otherTarget = document.querySelector(otherTargetId);
-                            if (otherTarget && otherTarget.classList.contains('show')) {
-                                otherTarget.classList.remove('show');
-                                other.setAttribute('aria-expanded', 'false');
-                            }
+                // Close all other collapse menus
+                collapseTogglers.forEach(other => {
+                    if (other !== this) {
+                        const otherTargetId = other.getAttribute('href');
+                        const otherTarget = document.querySelector(otherTargetId);
+                        if (otherTarget && otherTarget.classList.contains('show')) {
+                            otherTarget.classList.remove('show');
+                            other.setAttribute('aria-expanded', 'false');
                         }
-                    });
-                    
-                    // Toggle current menu
-                    if (isCurrentlyExpanded) {
-                        target.classList.remove('show');
-                        this.setAttribute('aria-expanded', 'false');
-                    } else {
-                        target.classList.add('show');
-                        this.setAttribute('aria-expanded', 'true');
                     }
+                });
+                
+                // Toggle current menu
+                if (isCurrentlyExpanded) {
+                    target.classList.remove('show');
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    target.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
                 }
-            });
-        }
+            }
+        });
     });
 
     // Handle window resize
