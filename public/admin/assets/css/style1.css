@@ -30597,7 +30597,7 @@ div.tagsinput span.tag a {
   line-height: 1.4;
   height: auto;
   border-radius: 4px;
-  background: transparent;
+  background: blue;
   transition: background-color 0.2s, color 0.2s;
 }
 
@@ -30608,7 +30608,7 @@ div.tagsinput span.tag a {
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
   color: #fff;
-  background-color: red; /* softer hover background */
+  background-color: var(--gray-lighter); /* softer hover background */
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
@@ -30620,7 +30620,7 @@ div.tagsinput span.tag a {
   background-color: #f0f0f0;
   color: #333;
   border-radius: 4px;
-  width: 62px !important;
+  width: 100% !important;
 }
 
 
