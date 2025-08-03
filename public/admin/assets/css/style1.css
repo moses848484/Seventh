@@ -30612,7 +30612,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: transparent;
+  background: red;
 }
 
 /* Minimized sidebar main menu hover - more subtle */
