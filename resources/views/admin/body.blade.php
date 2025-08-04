@@ -368,162 +368,162 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column" style="height: 530px;">
-                            <!-- Embedded Bible -->
-                            <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%" height="100%"
-                                startingReference="Ge1.1"></biblia:bible>
-                            <!-- Spacer to push the footer down -->
-                            <div class="flex-grow-1"></div>
-                            <!-- Footer -->
-                            <div class="footer1">
-                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
+                    <div class="row">
+                        <div class="col-md-4 grid-margin stretch-card">
+                            <div class="card h-100 d-flex flex-column">
+                                <div class="card-body">
+                                    <!-- Embedded Bible -->
+                                    <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
+                                        height="100%" startingReference="Ge1.1"></biblia:bible>
+                                </div>
+                                <!-- Footer -->
+                                <div class="footer1 mt-auto">
+                                    <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- content-wrapper ends -->
+
+                        <!-- partial:partials/_footer.html -->
+                        <footer class="footer">
+                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                                    University
+                                    SDA Church 2024</span>
+                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                                    Computer Science Dept
+                                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                                        class="text-white">
+                                        Computer Systems Engineering
+                                    </a> from University Of Zambia
+                                </span>
+                            </div>
+                        </footer>
+                        <!-- partial -->
                     </div>
+                    <!-- main-panel ends -->
                 </div>
+                <!-- page-body-wrapper ends -->
             </div>
-            <!-- content-wrapper ends -->
 
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                        University
-                        SDA Church 2024</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                        Computer Science Dept
-                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                            class="text-white">
-                            Computer Systems Engineering
-                        </a> from University Of Zambia
-                    </span>
-                </div>
-            </footer>
-            <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-    </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const ctx = document.getElementById('myChart');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('myChart');
+                    // Check if memberCount is defined and a number
+                    const memberCount = {{ $memberCount }};
+                    const membersCount = {{ $membersCount }};
+                    const visitorCount = {{ $visitorCount }};
+                    const singlesCount = {{ $singlesCount }};
+                    const marriedCount = {{ $marriedCount }};
+                    const divorcedCount = {{ $divorcedCount }};
+                    if (typeof memberCount !== 'undefined' && !isNaN(memberCount) &&
+                        typeof visitorCount !== 'undefined' && !isNaN(visitorCount) &&
 
-            // Check if memberCount is defined and a number
-            const memberCount = {{ $memberCount }};
-            const membersCount = {{ $membersCount }};
-            const visitorCount = {{ $visitorCount }};
-            const singlesCount = {{ $singlesCount }};
-            const marriedCount = {{ $marriedCount }};
-            const divorcedCount = {{ $divorcedCount }};
-            if (typeof memberCount !== 'undefined' && !isNaN(memberCount) &&
-                typeof visitorCount !== 'undefined' && !isNaN(visitorCount) &&
-
-                typeof singlesCount !== 'undefined' && !isNaN(singlesCount) &&
-                typeof marriedCount !== 'undefined' && !isNaN(marriedCount) &&
-                typeof divorcedCount !== 'undefined' && !isNaN(divorcedCount) &&
-                typeof membersCount !== 'undefined' && !isNaN(membersCount)) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Total Members', 'Visitors', 'Members', 'Females', 'Males', 'Singles',
-                            'Married', 'Divorced'
-                        ],
-                        datasets: [{
-                            label: '# of Registered',
-                            data: [memberCount, visitorCount, membersCount,
-                                singlesCount, marriedCount, divorcedCount
-                            ],
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                        typeof singlesCount !== 'undefined' && !isNaN(singlesCount) &&
+                        typeof marriedCount !== 'undefined' && !isNaN(marriedCount) &&
+                        typeof divorcedCount !== 'undefined' && !isNaN(divorcedCount) &&
+                        typeof membersCount !== 'undefined' && !isNaN(membersCount)) {
+                        new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Total Members', 'Visitors', 'Members', 'Females', 'Males', 'Singles',
+                                    'Married', 'Divorced'
+                                ],
+                                datasets: [{
+                                    label: '# of Registered',
+                                    data: [memberCount, visitorCount, membersCount,
+                                        singlesCount, marriedCount, divorcedCount
+                                    ],
+                                    borderWidth: 1,
+                                    backgroundColor: [
+                                        'rgba(54, 162, 235, 0.5)',
+                                        'rgba(255, 99, 132, 0.5)',
+                                        'rgba(255, 206, 86, 0.5)',
+                                        'rgba(75, 192, 192, 0.5)',
+                                        'rgba(153, 102, 255, 0.5)',
+                                        'rgba(255, 159, 64, 0.5)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255,99,132,1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
                             }
-                        }
+                        });
+                    } else {
+                        console.error('Error: memberCount is undefined or not a number.');
                     }
                 });
-            } else {
-                console.error('Error: memberCount is undefined or not a number.');
-            }
-        });
-    </script>
+            </script>
 
-    <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
-    <script src="//biblia.com/api/logos.biblia.js"></script>
-    <script>
-        logos.biblia.init();
-    </script>
+            <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
+            <script src="//biblia.com/api/logos.biblia.js"></script>
+            <script>
+                logos.biblia.init();
+            </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('myUsers');
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const ctx = document.getElementById('myUsers');
 
-            // Check if userCount is defined and a number
-            const userCount = {{ $userCount }};
+                    // Check if userCount is defined and a number
+                    const userCount = {{ $userCount }};
 
-            if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Total Users', 'Females', 'Males',],
-                        datasets: [{
-                            label: 'Number Of Users',
-                            data: [userCount,],
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                    if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Total Users', 'Females', 'Males',],
+                                datasets: [{
+                                    label: 'Number Of Users',
+                                    data: [userCount,],
+                                    borderWidth: 1,
+                                    backgroundColor: [
+                                        'rgba(54, 162, 235, 0.5)',
+                                        'rgba(255, 99, 132, 0.5)',
+                                        'rgba(255, 206, 86, 0.5)',
+                                        'rgba(75, 192, 192, 0.5)',
+                                        'rgba(153, 102, 255, 0.5)',
+                                        'rgba(255, 159, 64, 0.5)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255,99,132,1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
                             }
-                        }
+                        });
+                    } else {
+                        console.error('Error: userCount is undefined or not a number.');
                     }
                 });
-            } else {
-                console.error('Error: userCount is undefined or not a number.');
-            }
-        });
-    </script>
+            </script>
 
 </body>
 
