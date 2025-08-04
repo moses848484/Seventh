@@ -30493,76 +30493,159 @@ div.tagsinput span.tag a {
   padding-left: 0;
 }
 
+/* Base sidebar menu icon styles */
 .sidebar .nav .nav-item .menu-icon {
-  margin-right: 0.5rem;
-  font-size: 0.8125rem;
-  line-height: 1;
-  background: rgba(108, 114, 147, 0.2);
-  width: 34px;
-  height: 34px;
-  border-radius: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
+  margin-right: 0.5rem !important;
+  font-size: 0.8125rem !important;
+  line-height: 1 !important;
+  background: rgba(108, 114, 147, 0.2) !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 10% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
 }
 
 .sidebar .nav .nav-item .menu-icon i {
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
 }
 
+/* Sub-menu base styles */
 .sidebar .nav.sub-menu {
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0 0 0 3.25rem;
-  list-style: none;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 0 0 3.25rem !important;
+  list-style: none !important;
 }
 
 .sidebar .nav.sub-menu .nav-item {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #333;
-  /* darker, more neutral text color */
-  padding: 0.5rem 1rem;
-  position: relative;
-  width: 100%;
-  margin-top: 6px;
-  font-size: 0.875rem;
-  line-height: 1.4;
-  height: auto;
-  border-radius: 4px;
-  background-color: #e6e5e5;
-  transition: background-color 0.2s, color 0.2s;
+  color: var(--gray) !important;
+  padding: 0.5rem 1rem !important;
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 6px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  border-radius: 4px !important;
+  background-color: #e6e5e5 !important;
+  transition: all 0.3s ease !important;
 }
 
+/* Sub-menu active state */
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: #fff;
-  background-color: #2c6448;
+  color: #fff !important;
+  background-color: #2c6448 !important;
+  box-shadow: 0 2px 8px rgba(44, 100, 72, 0.3) !important;
 }
 
+/* Sub-menu hover state */
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: #fff;
-  background-color: #5e9d72;
-  /* softer hover background */
+  color: #fff !important;
+  background-color: #5e9d72 !important;
+  transform: translateX(8px) !important;
+  box-shadow: 0 2px 8px rgba(94, 157, 114, 0.3) !important;
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: transparent;
+  background: transparent !important;
 }
 
-.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
-  color: black;
-  border-radius: 3px;
-  background-color: var(--gray-light);
-  width: 40px;
-  height: 40px;
+/* MAIN MENU HOVER - EXPANDED SIDEBAR (Full Width) */
+.sidebar:not(.sidebar-minimized) .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
+  color: black !important;
+  border-radius: 8px !important;
+  background-color: var(--gray-light) !important;
+  width: calc(100% - 20px) !important;
+  margin: 4px 10px !important;
+  padding: 12px 16px !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
 }
 
+/* MAIN MENU HOVER - MINIMIZED SIDEBAR (Contained Width) */
+.sidebar.sidebar-minimized .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
+  color: black !important;
+  border-radius: 8px !important;
+  background-color: var(--gray-light) !important;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 4px auto !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  overflow: hidden !important;
+}
+
+/* Hide menu title when minimized */
+.sidebar.sidebar-minimized .nav .nav-item .nav-link .menu-title {
+  display: none !important;
+}
+
+/* Adjust icon positioning in minimized state */
+.sidebar.sidebar-minimized .nav .nav-item .nav-link .menu-icon {
+  margin-right: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Active state for expanded sidebar */
+.sidebar:not(.sidebar-minimized) .nav:not(.sub-menu) > .nav-item.active > .nav-link {
+  background-color: #2c6448 !important;
+  color: white !important;
+  width: calc(100% - 20px) !important;
+  margin: 4px 10px !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(44, 100, 72, 0.3) !important;
+}
+
+/* Active state for minimized sidebar */
+.sidebar.sidebar-minimized .nav:not(.sub-menu) > .nav-item.active > .nav-link {
+  background-color: #2c6448 !important;
+  color: white !important;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 4px auto !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 8px rgba(44, 100, 72, 0.3) !important;
+}
+
+/* Ensure proper icon styling in active states */
+.sidebar .nav:not(.sub-menu) > .nav-item.active > .nav-link .menu-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+/* Smooth transitions for sidebar state changes */
+.sidebar {
+  transition: width 0.3s ease !important;
+}
+
+.sidebar .nav .nav-item .nav-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Remove any conflicting hover rules */
 .sidebar-minimized:hover {
-  width: 40px;
-  height: 40px;
+  width: auto !important;
+  height: auto !important;
 }
 
 .sidebar .nav .menu-items:nth-child(6n+5) .nav-link .menu-icon i {
