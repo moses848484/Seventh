@@ -30553,7 +30553,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
-  background: green;
+  background: #2c644855;
   width: auto;
   height: auto;
   color: #ffffff;
@@ -30562,7 +30562,7 @@ div.tagsinput span.tag a {
 
 .sidebar-minimized:hover {
   width: 60px;
-  height: 60px;
+  height: 40px;
   background-color: white;
 }
 
