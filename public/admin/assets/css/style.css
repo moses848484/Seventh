@@ -30969,3 +30969,72 @@ div.tagsinput span.tag a {
     border: 2px solid #e4af00 !important;
   }
 }
+
+/* Make the card and its body fill available space */
+.biblia-card-container {
+  height: 100% !important;
+  min-height: 500px; /* Set minimum height as needed */
+}
+
+.biblia-card-container .card {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.biblia-card-container .card-body {
+  flex: 1 !important;
+  padding: 0 !important; /* Remove padding to let biblia fill completely */
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* Style the biblia component to fill the card body */
+.biblia-card-container biblia\\:bible,
+.biblia-card-container .biblia-bible {
+  width: 100% !important;
+  height: 100% !important;
+  flex: 1 !important;
+  border: none !important;
+  display: block !important;
+}
+
+/* If biblia creates an iframe, ensure it fills the space */
+.biblia-card-container biblia\\:bible iframe,
+.biblia-card-container .biblia-bible iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
+}
+
+/* Ensure the footer stays at bottom */
+.biblia-card-container .footer1 {
+  flex-shrink: 0 !important;
+  padding: 15px !important;
+  background-color: #f8f9fa !important;
+  border-top: 1px solid #dee2e6 !important;
+}
+
+/* Alternative approach - if you want some padding around biblia */
+.biblia-card-container.with-padding .card-body {
+  padding: 15px !important;
+}
+
+.biblia-card-container.with-padding biblia\\:bible,
+.biblia-card-container.with-padding .biblia-bible {
+  width: calc(100% - 0px) !important;
+  height: calc(100% - 0px) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .biblia-card-container {
+    min-height: 400px;
+  }
+  
+  .biblia-card-container .footer1 {
+    padding: 10px !important;
+  }
+}

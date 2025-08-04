@@ -372,7 +372,8 @@
                         <div class="card h-100 d-flex flex-column">
                             <div class="card-body">
                                 <!-- Embedded Bible -->
-                                <biblia:bible class="member-chart1"></biblia:bible>
+                                <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
+                                    height="100%" startingReference="Ge1.1"></biblia:bible>
                             </div>
                             <!-- Footer -->
                             <div class="footer1 mt-auto">
