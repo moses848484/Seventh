@@ -30552,16 +30552,10 @@ div.tagsinput span.tag a {
   background: transparent;
 }
 
-.nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
+.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
   background: green;
-  width: 60px;
-  height: 60px;
-  color: #ffffff;
-  border-radius: 3px;
-}
-
-.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link .menu-arrow {
-  background: white;
+  width: auto;
+  height: auto;
   color: #ffffff;
   border-radius: 3px;
 }
