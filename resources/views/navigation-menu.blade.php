@@ -155,7 +155,7 @@
                     <div class="p-0">
                         <!-- Dashboard Link -->
                         <div class="px-3 py-2">
-                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('/redirect') ? 'bg-success text-white' : 'text-dark' }}"
+                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('/redirect') ? 'active' : 'text-dark' }}"
                                 href="{{ url('/redirected') }}">
                                 <span class="me-3">
                                     <i class="fa-solid fa-house"></i>
