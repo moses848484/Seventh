@@ -168,7 +168,6 @@
                                 <span>Home</span>
                             </a>
                         </div>
-                    </div>
 
                     @if (auth()->user()->usertype == 1)
                         <!-- Admin-only sections -->
