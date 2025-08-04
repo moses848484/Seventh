@@ -30549,7 +30549,7 @@ div.tagsinput span.tag a {
   background: transparent;
 }
 
-.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link .menu-arrow {
+.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
   color: #ffffff;
   border-radius: 3px;
 }
