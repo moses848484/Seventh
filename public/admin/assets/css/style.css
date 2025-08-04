@@ -30533,7 +30533,7 @@ div.tagsinput span.tag a {
   line-height: 1.4;
   height: auto;
   border-radius: 4px;
-  background: transparent;
+  background-color: red;
   transition: background-color 0.2s, color 0.2s;
 }
 
@@ -30544,22 +30544,18 @@ div.tagsinput span.tag a {
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
   color: #fff;
-  background-color: #5e9d72;
+  background-color: blue;
   /* softer hover background */
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
-  background: var(--gray);
+  background: transparent;
 }
 
 .sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
   color: black;
   border-radius: 3px;
-}
-
-.sidebar-minimized:hover {
-  width: 40px;
-  height: 40px;
+  background-color: orange;
 }
 
 .sidebar .nav .menu-items:nth-child(6n+5) .nav-link .menu-icon i {
