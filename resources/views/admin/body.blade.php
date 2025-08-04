@@ -380,8 +380,6 @@
                                 <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
                             </div>
                         </div>
-                    </div>
-                </div>
                 <!-- content-wrapper ends -->
 
                 <!-- partial:partials/_footer.html -->
