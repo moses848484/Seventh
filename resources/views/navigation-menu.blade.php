@@ -159,7 +159,7 @@
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('/redirect') ? 'bg-success text-white' : 'text-dark' }}"
                                 href="{{ url('/redirected') }}">
                                 <span class="me-3">
-                                    <i class="fa-solid fa-gauge-high text-success"></i>
+                                    <i class="fa-solid fa-house-high text-success"></i>
                                 </span>
                                 <span>Dashboard</span>
                             </a>

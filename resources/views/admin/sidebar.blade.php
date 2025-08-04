@@ -145,7 +145,7 @@
         <li class="nav-item menu-items {{ request()->is('/redirect') ? 'active' : '' }}">
             <a class="nav-link" href="{{ url('/redirected') }}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="fa-solid fa-house"></i>
                 </span>
                 <span class="menu-title">Dashboard</span>
             </a>
