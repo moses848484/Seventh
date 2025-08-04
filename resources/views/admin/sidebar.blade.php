@@ -147,7 +147,7 @@
                 <span class="menu-icon">
                     <i class="fa-solid fa-house"></i>
                 </span>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Home</span>
             </a>
         </li>
 

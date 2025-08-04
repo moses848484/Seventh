@@ -155,13 +155,12 @@
                     <div class="p-0">
                         <!-- Dashboard Link -->
                         <div class="px-3 py-2">
-                            <div class="nav-category small text-muted fw-bold mb-2">Navigation</div>
                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('/redirect') ? 'bg-success text-white' : 'text-dark' }}"
                                 href="{{ url('/redirected') }}">
                                 <span class="me-3">
                                     <i class="fa-solid fa-house-high text-success"></i>
                                 </span>
-                                <span>Dashboard</span>
+                                <span>Home</span>
                             </a>
                         </div>
                         @if (auth()->user()->usertype == 1)
