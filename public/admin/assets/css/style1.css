@@ -30616,7 +30616,7 @@ div.tagsinput span.tag a {
   background: transparent;
 }
 
-.sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
+.nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
   background: green;
   width: 60px;
   height: 60px;
