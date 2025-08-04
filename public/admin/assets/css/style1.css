@@ -30618,11 +30618,13 @@ div.tagsinput span.tag a {
 
 .sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
   background: green;
+  width: 60px;
+  height: 60px;
   color: #ffffff;
   border-radius: 3px;
 }
 
-.sidebar .sidebar-minimized .nav .nav-item .nav-link .menu-items:hover  {
+.sidebar .sidebar-minimized .nav .nav-item .nav-link .menu-items:hover {
   width: 60px;
   height: 60px;
   background-color: #000;

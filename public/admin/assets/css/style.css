@@ -30108,6 +30108,7 @@ div.tagsinput span.tag a {
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
 }
+
 /* Optional: hide overflow text on minimized */
 .sidebar.sidebar-offcanvas.minimized .nav .menu-title {
   display: none !important;
@@ -30522,7 +30523,8 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #333; /* darker, more neutral text color */
+  color: #333;
+  /* darker, more neutral text color */
   padding: 0.5rem 1rem;
   position: relative;
   width: 100%;
@@ -30542,7 +30544,8 @@ div.tagsinput span.tag a {
 
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
   color: #fff;
-  background-color: #5e9d72; /* softer hover background */
+  background-color: #5e9d72;
+  /* softer hover background */
 }
 
 .sidebar .nav.sub-menu .nav-item:hover {
@@ -30550,11 +30553,14 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
+  background: green;
+  width: 60px;
+  height: 60px;
   color: #ffffff;
   border-radius: 3px;
 }
 
-.sidebar .sidebar-minimized .nav .nav-item .nav-link .menu-items:hover  {
+.sidebar .sidebar-minimized .nav .nav-item .nav-link .menu-items:hover {
   width: 60px;
   height: 60px;
   background-color: #000;
@@ -30760,7 +30766,7 @@ div.tagsinput span.tag a {
     display: none;
   }
 
-  
+
   .sidebar-icon-only .sidebar .nav.sub-menu {
     padding: 0 0 0 1.5rem;
   }
