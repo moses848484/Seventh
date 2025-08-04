@@ -30553,9 +30553,6 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu)>.nav-item:hover:not(.nav-category):not(.account-dropdown)>.nav-link {
-  background: #2c644855;
-  width: auto;
-  height: auto;
   color: #ffffff;
   border-radius: 3px;
 }
