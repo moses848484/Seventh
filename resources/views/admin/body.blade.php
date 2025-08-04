@@ -369,7 +369,7 @@
                     </div>
 
                     <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card h-100 d-flex flex-column">
+                        <div class="card h-100 d-flex flex-column" style="height: 530px;">
                             <div class="card-body">
                                 <!-- Embedded Bible -->
                                 <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
