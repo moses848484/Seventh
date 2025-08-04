@@ -30627,7 +30627,6 @@ div.tagsinput span.tag a {
 .sidebar-minimized:hover {
   width: 60px;
   height: 40px;
-  background-color: white;
 }
 
 .sidebar .nav .menu-items:nth-child(6n+5) .nav-link .menu-icon i {
