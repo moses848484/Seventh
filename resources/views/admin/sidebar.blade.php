@@ -172,9 +172,9 @@
                     </li>
 
                     <li
-                        class="nav-item {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('show_inventory') }}">
-                            <i class="fa-solid fa-list"></i>&nbsp;Show Inventory
+                        class="nav-item {{ request()->is('see_members') || request()->is('update_member/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('see_members') }}">
+                            <i class="fa-solid fa-eye"></i>&nbsp;View Members
                         </a>
                     </li>
                 </ul>
