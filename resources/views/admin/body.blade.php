@@ -236,8 +236,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
     <div class="card1">
         <div class="row">
