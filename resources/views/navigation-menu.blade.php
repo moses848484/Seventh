@@ -177,8 +177,9 @@
                                                 <div class="nav-item">
                                                     <!-- Parent Link -->
                                                     <a class="nav-link d-flex align-items-center py-2 px-3 rounded 
-                                {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*')
-                            ? 'bg-light text-black' : 'text-dark' }}" data-toggle="collapse" href="#ui-basic" role="button"
+                                                    {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*')
+                            ? 'bg-light text-black' : 'text-dark' }}" data-toggle="collapse" href="#ui-basic"
+                                                        role="button"
                                                         aria-expanded="{{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'true' : 'false' }}"
                                                         aria-controls="ui-basic">
                                                         <span class="me-3">
@@ -195,14 +196,14 @@
                                                         <div class="ps-4 mt-1">
                                                             <!-- Sub Link 1 -->
                                                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
-                                        {{ request()->is('view_members') ? 'bg-light text-black' : 'text-dark' }}"
+                                                            {{ request()->is('view_members') ? 'bg-secondary text-black' : 'text-dark' }}"
                                                                 href="{{ url('view_members') }}">
                                                                 <i class="fa-solid fa-user me-2"></i>Register Members
                                                             </a>
 
                                                             <!-- Sub Link 2 -->
                                                             <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
-                                        {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light text-black' : 'text-dark' }}"
+                                                            {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light text-black' : 'text-dark' }}"
                                                                 href="{{ url('see_members') }}">
                                                                 <i class="fa-solid fa-eye me-2"></i>View Members
                                                             </a>
