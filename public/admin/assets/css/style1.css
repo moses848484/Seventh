@@ -24337,7 +24337,7 @@ code {
   }
 
   .card.corona-gradient-card .gradient-corona-img {
-    height: 60px !important;
+    height: 30px !important;
     border-radius: 6px !important;
   }
 
@@ -24372,7 +24372,7 @@ code {
 /* Ultra small screens (400px and below) */
 @media (max-width: 400px) {
   .card.corona-gradient-card .gradient-corona-img {
-    height: 50px !important;
+    height: 20px !important;
   }
 
   .card.corona-gradient-card #verse-of-the-day {
