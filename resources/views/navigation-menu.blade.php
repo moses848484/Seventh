@@ -175,7 +175,7 @@
                                         <div class="px-3 py-1">
                                             <div class="nav-item">
                                                 <a class="nav-link d-flex align-items-center py-2 px-3 rounded 
-                            {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
+                            {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-dark' : 'text-dark' }}"
                                                     data-toggle="collapse" href="#members" role="button"
                                                     aria-expanded="{{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'true' : 'false' }}"
                                                     aria-controls="members">
@@ -195,7 +195,7 @@
                                                             <i class="fa-solid fa-user me-2"></i>Register Members
                                                         </a>
                                                         <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
-                                    {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : 'text-dark' }}"
+                                    {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light text-dark' : 'text-dark' }}"
                                                             href="{{ url('see_members') }}">
                                                             <i class="fa-solid fa-eye me-2"></i>View Members
                                                         </a>
