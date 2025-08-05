@@ -7,10 +7,9 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="<?php echo asset('css/viewmember.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
-        type="text/css">
-    <title>View Church Members</title>
+    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>View Church Members</title>        
     <style>
         /* Custom Autofill input styling */
         input:-webkit-autofill,
@@ -213,12 +212,7 @@
         .content-wrapper {
             margin: 5px;
             margin-top: 2px;
-            width: 100%;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-            width: 100%;
+            width: 101%;
         }
     </style>
 </head>
@@ -249,64 +243,61 @@
             <form method="POST" autocomplete="on" action="{{ url('/add_members') }}">
                 @csrf
 
-                <div class="container-fluid mt-3">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered" id="example">
-                            <thead>
+                <div class="table-wrapper">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
+                        <thead>
+                            <tr>
+                                <th class="t1">id</th>
+                                <th class="t4">First Name</th>
+                                <th class="t4">Middle Name</th>
+                                <th class="t4">Last Name</th>
+                                <th class="t4">Gender</th>
+                                <th class="t4">Address</th>
+                                <th class="t4">Marital Status</th>
+                                <th class="t4">Birthday</th>
+                                <th class="t4">Ministry</th>
+                                <th class="t4">Mobile Number</th>
+                                <th class="t4">Register As</th>
+                                <th class="t4">Date Of Registration</th>
+                                <th class="t4">Email Address</th>
+                                <th class="t4">Baptism Certificate</th>
+                                <th class="t4">Delete</th>
+                                <th class="t2">Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $member)
                                 <tr>
-                                    <th>id</th>
-                                    <th>First Name</th>
-                                    <th>Middle Name</th>
-                                    <th>Last Name</th>
-                                    <th>Gender</th>
-                                    <th>Address</th>
-                                    <th>Marital Status</th>
-                                    <th>Birthday</th>
-                                    <th>Ministry</th>
-                                    <th>Mobile Number</th>
-                                    <th>Register As</th>
-                                    <th>Date Of Registration</th>
-                                    <th>Email Address</th>
-                                    <th>Baptism Certificate</th>
-                                    <th>Delete</th>
-                                    <th>Edit</th>
+                                    <td>{{ $member->id }}</td>
+                                    <td>{{ $member->fname }}</td>
+                                    <td>{{ $member->mname }}</td>
+                                    <td>{{ $member->lname }}</td>
+                                    <td>{{ $member->gender }}</td>
+                                    <td>{{ $member->address }}</td>
+                                    <td>{{ $member->marital }}</td>
+                                    <td>{{ $member->birthday }}</td>
+                                    <td>{{ $member->ministry }}</td>
+                                    <td>{{ $member->mobile }}</td>
+                                    <td>{{ $member->registeras }}</td>
+                                    <td>{{ $member->registrationdate }}</td>
+                                    <td>{{ $member->email }}</td>
+                                    <td>{{ $member->document }}</td>
+                                    <td>
+                                        <a onclick="return confirm('Are You Sure You Want To Delete This Member')"
+                                            class="btn btn-danger" href="{{ url('delete_members', $member->id) }}">
+                                            <i class="fa-solid fa-trash icon-medium"></i>Delete
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success" href="{{ url('/update_member', $member->id) }}">
+                                            <i class="fa-solid fa-pen-to-square icon-medium"></i> Edit
+                                        </a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data as $member)
-                                    <tr>
-                                        <td>{{ $member->id }}</td>
-                                        <td>{{ $member->fname }}</td>
-                                        <td>{{ $member->mname }}</td>
-                                        <td>{{ $member->lname }}</td>
-                                        <td>{{ $member->gender }}</td>
-                                        <td>{{ $member->address }}</td>
-                                        <td>{{ $member->marital }}</td>
-                                        <td>{{ $member->birthday }}</td>
-                                        <td>{{ $member->ministry }}</td>
-                                        <td>{{ $member->mobile }}</td>
-                                        <td>{{ $member->registeras }}</td>
-                                        <td>{{ $member->registrationdate }}</td>
-                                        <td>{{ $member->email }}</td>
-                                        <td>{{ $member->document }}</td>
-                                        <td>
-                                            <a onclick="return confirm('Are You Sure You Want To Delete This Member')"
-                                                class="btn btn-danger" href="{{ url('delete_members', $member->id) }}">
-                                                <i class="fa-solid fa-trash icon-medium"></i> Delete
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-success" href="{{ url('/update_member', $member->id) }}">
-                                                <i class="fa-solid fa-pen-to-square icon-medium"></i> Edit
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-
             </form>
         </div>
     </div>
