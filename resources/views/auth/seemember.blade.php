@@ -38,7 +38,7 @@
         </div>
 
         <div class="search-container">
-            <input type="text" id="search-input" class="form-control" placeholder="Search Equipment"
+            <input type="text" id="search-input" class="form-control" placeholder="Search Church Members"
                 onkeyup="searchTable()">
         </div>
 
