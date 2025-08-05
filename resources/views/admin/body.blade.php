@@ -200,6 +200,20 @@
                 font-size: 0.75rem;
             }
         }
+
+        biblia:bible {
+    -webkit-overflow-scrolling: touch !important;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
+}
+
+@media (max-width: 768px) {
+    biblia:bible {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-y: scroll !important;
+        touch-action: manipulation !important;
+    }
+}
     </style>
 </head>
 
@@ -357,18 +371,7 @@
                                 <h6 class="text-muted2 font-weight-normal">User Chart</h6>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card h-100 d-flex flex-column">
-                            <div class="card-body">
-                                <canvas id="myUsers" class="member-chart1"></canvas>
-                            </div>
-                            <div class="footer1 mt-auto">
-                                <h6 class="text-muted2 font-weight-normal">User Chart</h6>
-                            </div>
-                        </div>
-                    </div>
+                    </div>          
                 
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column" style="height: 530px;">
