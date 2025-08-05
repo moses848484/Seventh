@@ -170,150 +170,141 @@
                         </div>
 
                         @if (auth()->user()->usertype == 1)
-                                            <!-- Admin-only sections -->
+                                        <!-- Admin-only sections -->
+                                        <!-- Manage Members Section -->
+                                        <div class="px-3 py-1">
+                                            <div class="nav-item">
+                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded 
+                            {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'bg-success text-white' : 'text-dark' }}"
+                                                    data-toggle="collapse" href="#members" role="button"
+                                                    aria-expanded="{{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'true' : 'false' }}"
+                                                    aria-controls="members">
 
-                                            <!-- Manage Members Section -->
-                                            <div class="px-3 py-1">
-                                                <div class="nav-item">
-                                                    <!-- Parent Link -->
-                                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded 
-                                                    {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*')
-                            ? 'bg-light text-black' : 'text-dark' }}" data-toggle="collapse" href="#ui-basic"
-                                                        role="button"
-                                                        aria-expanded="{{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'true' : 'false' }}"
-                                                        aria-controls="ui-basic">
-                                                        <span class="me-3">
-                                                            <i
-                                                                class="fa-solid fa-users {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'text-black' : 'text-success' }}"></i>
-                                                        </span>
-                                                        <span class="flex-grow-1">Manage Members</span>
-                                                        <i class="mdi mdi-chevron-right menu-arrow"></i>
-                                                    </a>
+                                                    <span class="me-3">
+                                                        <i class="fa-solid fa-users text-primary"></i>
+                                                    </span>
+                                                    <span class="flex-grow-1">Manage Members</span>
+                                                    <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                                </a>
 
-                                                    <!-- Collapsible Content -->
-                                                    <div class="collapse {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'show' : '' }}"
-                                                        id="ui-basic">
-                                                        <div class="ps-4 mt-1">
-                                                            <!-- Sub Link 1 -->
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
-                                                            {{ request()->is('view_members') ? 'bg-secondary text-black' : 'text-dark' }}"
-                                                                href="{{ url('view_members') }}">
-                                                                <i class="fa-solid fa-user me-2"></i>Register Members
-                                                            </a>
-
-                                                            <!-- Sub Link 2 -->
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
-                                                            {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light text-black' : 'text-dark' }}"
-                                                                href="{{ url('see_members') }}">
-                                                                <i class="fa-solid fa-eye me-2"></i>View Members
-                                                            </a>
-                                                        </div>
+                                                <div class="collapse {{ request()->is('view_members') || request()->is('see_members') || request()->is('update_member/*') ? 'show' : '' }}"
+                                                    id="members">
+                                                    <div class="ps-4 mt-1">
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
+                                    {{ request()->is('view_members') ? 'bg-light' : 'text-dark' }}" href="{{ url('view_members') }}">
+                                                            <i class="fa-solid fa-user me-2"></i>Register Members
+                                                        </a>
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small 
+                                    {{ request()->is('see_members') || request()->is('update_member/*') ? 'bg-light' : 'text-dark' }}"
+                                                            href="{{ url('see_members') }}">
+                                                            <i class="fa-solid fa-eye me-2"></i>View Members
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-
-                                            <!-- Inventory Section -->
-                                            <div class="px-3 py-1">
-                                                <div class="nav-item">
-                                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                                        data-toggle="collapse" href="#auth" role="button"
-                                                        aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
-                                                        aria-controls="auth">
-                                                        <span class="me-3">
-                                                            <i class="fa-solid fa-warehouse text-danger"></i>
-                                                        </span>
-                                                        <span class="flex-grow-1">Inventory</span>
-                                                        <i class="mdi mdi-chevron-right menu-arrow"></i>
-                                                    </a>
-                                                    <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
-                                                        id="auth">
-                                                        <div class="ps-4 mt-1">
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_inventory') ? 'bg-light' : 'text-dark' }}"
-                                                                href="{{ url('view_inventory') }}">
-                                                                <i class="fa-solid fa-wrench me-2"></i>Add Inventory
-                                                            </a>
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-light' : 'text-dark' }}"
-                                                                href="{{ url('show_inventory') }}">
-                                                                <i class="fa-solid fa-eye me-2"></i>Show Inventory
-                                                            </a>
-                                                        </div>
+                                        <!-- Inventory Section -->
+                                        <div class="px-3 py-1">
+                                            <div class="nav-item">
+                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-success text-white' : 'text-dark' }}"
+                                                    data-toggle="collapse" href="#auth" role="button"
+                                                    aria-expanded="{{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'true' : 'false' }}"
+                                                    aria-controls="auth">
+                                                    <span class="me-3">
+                                                        <i class="fa-solid fa-warehouse text-danger"></i>
+                                                    </span>
+                                                    <span class="flex-grow-1">Inventory</span>
+                                                    <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                                </a>
+                                                <div class="collapse {{ request()->is('view_inventory') || request()->is('show_inventory') || request()->is('update_inventory/*') ? 'show' : '' }}"
+                                                    id="auth">
+                                                    <div class="ps-4 mt-1">
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('view_inventory') ? 'bg-light' : 'text-dark' }}"
+                                                            href="{{ url('view_inventory') }}">
+                                                            <i class="fa-solid fa-wrench me-2"></i>Add Inventory
+                                                        </a>
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('show_inventory') || request()->is('update_inventory/*') ? 'bg-light' : 'text-dark' }}"
+                                                            href="{{ url('show_inventory') }}">
+                                                            <i class="fa-solid fa-eye me-2"></i>Show Inventory
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Strategic Planning Section -->
-                                            <div class="px-3 py-1">
-                                                <div class="nav-item">
-                                                    <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
-                                                        data-toggle="collapse" href="#strategicPlanning" role="button"
-                                                        aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
-                                                        aria-controls="strategicPlanning">
-                                                        <span class="me-3">
-                                                            <i class="fa-solid fa-briefcase" style="color: orange;"></i>
-                                                        </span>
-                                                        <span class="flex-grow-1">Strategic Planning</span>
-                                                        <i class="mdi mdi-chevron-right menu-arrow"></i>
-                                                    </a>
-                                                    <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
-                                                        id="strategicPlanning">
-                                                        <div class="ps-4 mt-1">
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
-                                                                href="{{ url('scorecard') }}">
-                                                                <i class="fa-solid fa-book me-2"></i>Strategic Plan
-                                                            </a>
-                                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
-                                                                href="{{ url('strategic_plan') }}">
-                                                                <i class="fa-solid fa-file me-2"></i>Strategic Details
-                                                            </a>
-                                                        </div>
+                                        <!-- Strategic Planning Section -->
+                                        <div class="px-3 py-1">
+                                            <div class="nav-item">
+                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'bg-success text-white' : 'text-dark' }}"
+                                                    data-toggle="collapse" href="#strategicPlanning" role="button"
+                                                    aria-expanded="{{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'true' : 'false' }}"
+                                                    aria-controls="strategicPlanning">
+                                                    <span class="me-3">
+                                                        <i class="fa-solid fa-briefcase" style="color: orange;"></i>
+                                                    </span>
+                                                    <span class="flex-grow-1">Strategic Planning</span>
+                                                    <i class="mdi mdi-chevron-right menu-arrow"></i>
+                                                </a>
+                                                <div class="collapse {{ request()->is('strategic_plan') || request()->is('strategic_details') ? 'show' : '' }}"
+                                                    id="strategicPlanning">
+                                                    <div class="ps-4 mt-1">
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('scorecard') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
+                                                            href="{{ url('scorecard') }}">
+                                                            <i class="fa-solid fa-book me-2"></i>Strategic Plan
+                                                        </a>
+                                                        <a class="nav-link d-flex align-items-center py-2 px-3 rounded small {{ request()->is('strategic_plan') || request()->is('update_scorecard/*') ? 'bg-light' : 'text-dark' }}"
+                                                            href="{{ url('strategic_plan') }}">
+                                                            <i class="fa-solid fa-file me-2"></i>Strategic Details
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!-- Users Section -->
-                                            <div class="px-3 py-1">
-                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('see_users') || request()->is('update_user/*') ? 'bg-success text-white' : 'text-dark' }}"
-                                                    href="{{ url('see_users') }}">
-                                                    <span class="me-3">
-                                                        <i class="fa-solid fa-user text-success"></i>
-                                                    </span>
-                                                    <span>Users</span>
-                                                </a>
-                                            </div>
+                                        <!-- Users Section -->
+                                        <div class="px-3 py-1">
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('see_users') || request()->is('update_user/*') ? 'bg-success text-white' : 'text-dark' }}"
+                                                href="{{ url('see_users') }}">
+                                                <span class="me-3">
+                                                    <i class="fa-solid fa-user text-success"></i>
+                                                </span>
+                                                <span>Users</span>
+                                            </a>
+                                        </div>
 
-                                            <!-- Givings Section -->
-                                            <div class="px-3 py-1">
-                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_givings') ? 'bg-success text-white' : 'text-dark' }}"
-                                                    href="{{ url('view_givings') }}">
-                                                    <span class="me-3">
-                                                        <i class="fa-solid fa-sack-dollar text-success"></i>
-                                                    </span>
-                                                    <span>Givings</span>
-                                                </a>
-                                            </div>
+                                        <!-- Givings Section -->
+                                        <div class="px-3 py-1">
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view_givings') ? 'bg-success text-white' : 'text-dark' }}"
+                                                href="{{ url('view_givings') }}">
+                                                <span class="me-3">
+                                                    <i class="fa-solid fa-sack-dollar text-success"></i>
+                                                </span>
+                                                <span>Givings</span>
+                                            </a>
+                                        </div>
 
-                                            <!-- Departments Section -->
-                                            <div class="px-3 py-1">
-                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('departments') ? 'bg-success text-white' : 'text-dark' }}"
-                                                    href="{{ url('departments') }}">
-                                                    <span class="me-3">
-                                                        <i class="fa-solid fa-book"></i>
-                                                    </span>
-                                                    <span>Departments</span>
-                                                </a>
-                                            </div>
+                                        <!-- Departments Section -->
+                                        <div class="px-3 py-1">
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('departments') ? 'bg-success text-white' : 'text-dark' }}"
+                                                href="{{ url('departments') }}">
+                                                <span class="me-3">
+                                                    <i class="fa-solid fa-book"></i>
+                                                </span>
+                                                <span>Departments</span>
+                                            </a>
+                                        </div>
 
-                                            <!-- Human Resource -->
-                                            <div class="px-3 py-1">
-                                                <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view') ? 'bg-success text-white' : 'text-dark' }}"
-                                                    href="{{ url('#') }}">
-                                                    <span class="me-3">
-                                                        <i class="fa-solid fa-user-tie" style="color: orange;"></i>
-                                                    </span>
-                                                    <span>Human Resource</span>
-                                                </a>
-                                            </div>
+                                        <!-- Human Resource -->
+                                        <div class="px-3 py-1">
+                                            <a class="nav-link d-flex align-items-center py-2 px-3 rounded {{ request()->is('view') ? 'bg-success text-white' : 'text-dark' }}"
+                                                href="{{ url('#') }}">
+                                                <span class="me-3">
+                                                    <i class="fa-solid fa-user-tie" style="color: orange;"></i>
+                                                </span>
+                                                <span>Human Resource</span>
+                                            </a>
+                                        </div>
                         @endif
 
                         @if (auth()->user()->usertype == 0)
