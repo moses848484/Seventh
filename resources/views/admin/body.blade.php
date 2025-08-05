@@ -361,8 +361,9 @@
 
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column" style="height: 530px;">
-                            <!-- Scrollable container for Bible -->
-                            <div style="flex-grow: 1; overflow-y: auto;">
+
+                            <!-- Scrollable wrapper -->
+                            <div style="flex-grow: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;">
                                 <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
                                     height="100%" startingReference="Ge1.1">
                                 </biblia:bible>
@@ -374,6 +375,7 @@
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
