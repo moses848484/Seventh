@@ -360,14 +360,25 @@
                     </div>
 
                     <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card h-100 d-flex flex-column" style="height: 530px;">
+                        <div class="card h-100 d-flex flex-column">
                             <div class="card-body">
-                                <!-- Embedded Bible -->
-                                <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
-                                    height="100%" startingReference="Ge1.1"></biblia:bible>
+                                <canvas id="myUsers" class="member-chart1"></canvas>
                             </div>
-                            <!-- Footer -->
                             <div class="footer1 mt-auto">
+                                <h6 class="text-muted2 font-weight-normal">User Chart</h6>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                        <div class="card d-flex flex-column" style="height: 530px;">
+                            <!-- Embedded Bible -->
+                            <biblia:bible class="biblia-bible" layout="normal" resource="leb" width="100%"
+                                height="100%" startingReference="Ge1.1"></biblia:bible>
+                            <!-- Spacer to push the footer down -->
+                            <div class="flex-grow-1"></div>
+                            <!-- Footer -->
+                            <div class="footer1">
                                 <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
                             </div>
                         </div>
