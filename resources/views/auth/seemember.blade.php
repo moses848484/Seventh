@@ -7,8 +7,10 @@
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <link rel="stylesheet" href="<?php echo asset('css/viewmember.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
+        type="text/css">
     <title>View Church Members</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Custom Autofill input styling */
         input:-webkit-autofill,
