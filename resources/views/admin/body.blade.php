@@ -201,18 +201,140 @@
             }
         }
 
-        biblia:bible {
-    -webkit-overflow-scrolling: touch !important;
-    overflow-y: auto !important;
-    touch-action: pan-y !important;
+              /* Fix for mobile Bible display issues */
+        
+        /* Force the biblia component to stay embedded on mobile */
+        biblia\:bible {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+            overflow: hidden !important;
+        }
+
+        /* Mobile-specific fixes */
+        @media (max-width: 768px) {
+            /* Ensure proper mobile display */
+            biblia\:bible {
+                min-height: 400px !important;
+                max-height: calc(100vh - 200px) !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                touch-action: pan-y !important;
+            }
+            
+            /* Fix card height on mobile */
+            .mobile-bible-card {
+                height: auto !important;
+                min-height: 500px !important;
+                max-height: calc(100vh - 100px) !important;
+            }
+        }
+
+        /* Prevent mobile redirect issues */
+        .bible-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bible-container biblia\:bible {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* Demo styling */
+        .demo-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .footer1 {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+            background: #62c2a4;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .text-muted2 {
+            color: white;
+        }
+        
+        .font-weight-normal {
+            font-weight: normal;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+
+
+        /* Force biblia component to stay embedded */
+biblia:bible {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    overflow: hidden !important;
 }
 
+/* Mobile-specific fixes */
 @media (max-width: 768px) {
     biblia:bible {
+        min-height: 400px !important;
+        max-height: calc(100vh - 200px) !important;
+        overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
-        overflow-y: scroll !important;
-        touch-action: manipulation !important;
+        touch-action: pan-y !important;
     }
+    
+    .card {
+        height: auto !important;
+        min-height: 500px !important;
+        max-height: calc(100vh - 100px) !important;
+    }
+}
+
+/* Prevent mobile redirect container */
+.bible-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.bible-container biblia:bible {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
     </style>
 </head>
@@ -570,6 +692,22 @@
     </script>
 
     <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+    <script>
+        // Demo script for mobile detection
+        document.addEventListener('DOMContentLoaded', function() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                const bibleElements = document.querySelectorAll('biblia\\:bible');
+                
+                bibleElements.forEach(function(element) {
+                    element.style.webkitOverflowScrolling = 'touch';
+                    element.style.overflowY = 'auto';
+                    element.style.touchAction = 'pan-y';
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
