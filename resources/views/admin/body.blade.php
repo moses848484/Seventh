@@ -201,11 +201,10 @@
             }
         }
 
-        /* Increase height on mobile screens */
         @media (max-width: 767px) {
-            .card {
+            .bible-card {
                 height: 700px;
-                /* increase as needed */
+                /* adjust as needed */
             }
         }
     </style>
@@ -370,7 +369,7 @@
                     </div>
 
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column">
+                        <div class="card d-flex flex-column bible-card">
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
