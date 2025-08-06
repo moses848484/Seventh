@@ -31282,6 +31282,7 @@ div.tagsinput span.tag a {
 @media (max-width: 991px) {
   .main-panel {
     margin-left: 0px;
+    margin-right: 0px;
     width: 100%;
   }
 }
@@ -31296,7 +31297,7 @@ div.tagsinput span.tag a {
   /* Set width to 100% to fill the available space */
   flex-grow: 1;
   /* Flex-grow for flexible layouts */
-  margin-left: 12px;
+  margin: 0;
   /* Default left margin */
   box-sizing: border-box;
   /* Ensure padding is included in width */
