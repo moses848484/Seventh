@@ -338,7 +338,7 @@
                 @if (!empty($data->document))
                      <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
-                        <a href="{{ asset('Baptism Certificates/' . $data->document) }}" class="form-control"
+                        <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
                             target="_blank">View Baptism Certificate</a>
                     </div>
                 @endif
