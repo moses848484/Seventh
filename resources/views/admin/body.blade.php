@@ -360,17 +360,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 grid-margin stretch-card">
+                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card h-100 d-flex flex-column" style="height: 530px;">
                             <!-- Embedded Bible -->
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
-                            <div class="footer1 mt-auto">
-                                <h6 class="text-muted2 font-weight-normal">User Chart</h6>
+                                <!-- Spacer to push the footer down -->
+                            <div class="flex-grow-1"></div>
+                            <!-- Footer -->
+                            <div class="footer1">
+                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
                     <!-- content-wrapper ends -->
 
