@@ -367,13 +367,14 @@
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>                                       
                            <!-- Footer -->
-                            <div class="footer1">
-                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
+             <div class="footer1">
+                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
+                            </div>
             <!-- content-wrapper ends -->
 
             <!-- partial:partials/_footer.html -->
