@@ -223,7 +223,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
-        
+
         <!-- Display success message -->
         @if (session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -240,75 +240,51 @@
                 <h2 class="text-primary">Registration</h2>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="form-floating">
-                        <input id="fname" name="fname" type="text" required autofocus 
-                               class="form-control @error('fname') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('fname') }}">
-                        <label for="fname">First Name</label>
-                        @error('fname')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
+                    <input id="fname" name="fname" type="text" required autofocus class="form-control" placeholder=" ">
+                    <label for="fname">First Name</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-floating">
-                        <input id="mname" name="mname" type="text" 
-                               class="form-control @error('mname') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('mname') }}">
-                        <label for="mname">Middle Name</label>
-                        @error('mname')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    <input id="mname" name="mname" type="text" class="form-control" placeholder=" ">
+                    <label for="mname">Middle Name</label>
+                </div>
+            </div>
+
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
+                    <input id="lname" name="lname" type="text" required class="form-control" placeholder=" ">
+                    <label for="lname">Last Name</label>
+                </div>
+
+                <div class="col-md-6">
+                    <input id="mobile" name="mobile" type="number" required class="form-control" placeholder=" ">
+                    <label for="mobile">Mobile Number</label>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="form-floating">
-                        <input id="lname" name="lname" type="text" required 
-                               class="form-control @error('lname') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('lname') }}">
-                        <label for="lname">Last Name</label>
-                        @error('lname')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input id="mobile" name="mobile" type="tel" required 
-                               class="form-control @error('mobile') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('mobile') }}">
-                        <label for="mobile">Mobile Number</label>
-                        @error('mobile')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="ministry" name="ministry" required 
-                            class="form-select @error('ministry') is-invalid @enderror">
+                    <select id="ministry" name="ministry" required
+                        class="form-select @error('ministry') is-invalid @enderror">
                         <option value="" disabled {{ old('ministry') ? '' : 'selected' }}>Select Ministry</option>
                         <option value="None" {{ old('ministry') == 'None' ? 'selected' : '' }}>None</option>
                         <option value="Choir" {{ old('ministry') == 'Choir' ? 'selected' : '' }}>Choir</option>
                         <option value="Ushering" {{ old('ministry') == 'Ushering' ? 'selected' : '' }}>Ushering</option>
-                        <option value="Prayer Band" {{ old('ministry') == 'Prayer Band' ? 'selected' : '' }}>Prayer Band</option>
-                        <option value="Technical" {{ old('ministry') == 'Technical' ? 'selected' : '' }}>Technical</option>
-                        <option value="Prayer Warrior" {{ old('ministry') == 'Prayer Warrior' ? 'selected' : '' }}>Prayer Warrior</option>
+                        <option value="Prayer Band" {{ old('ministry') == 'Prayer Band' ? 'selected' : '' }}>Prayer Band
+                        </option>
+                        <option value="Technical" {{ old('ministry') == 'Technical' ? 'selected' : '' }}>Technical
+                        </option>
+                        <option value="Prayer Warrior" {{ old('ministry') == 'Prayer Warrior' ? 'selected' : '' }}>Prayer
+                            Warrior</option>
                     </select>
                     @error('ministry')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6">
-                    <select id="registeras" name="registeras" required 
-                            class="form-select @error('registeras') is-invalid @enderror">
+                    <select id="registeras" name="registeras" required
+                        class="form-select @error('registeras') is-invalid @enderror">
                         <option value="" disabled {{ old('registeras') ? '' : 'selected' }}>Register As</option>
                         <option value="Visitor" {{ old('registeras') == 'Visitor' ? 'selected' : '' }}>Visitor</option>
                         <option value="Member" {{ old('registeras') == 'Member' ? 'selected' : '' }}>Member</option>
@@ -319,44 +295,25 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-12">
-                    <div class="form-floating">
-                        <input id="address" name="address" type="text" required autocomplete="address" 
-                               class="form-control @error('address') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('address') }}">
-                        <label for="address">Address</label>
-                        @error('address')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+            <div class="row mb-3 form-floating">
+                <div class="col-md-12">
+                    <input id="address" name="address" type="text" required autocomplete="address" class="form-control"
+                        placeholder=" ">
+                    <label for="address">Address</label>
                 </div>
             </div>
 
             <div id="map"></div>
 
-            <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="form-floating">
-                        <input id="occupation" name="occupation" type="text" required 
-                               class="form-control @error('occupation') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('occupation') }}">
-                        <label for="occupation">Occupation</label>
-                        @error('occupation')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
+                    <input id="occupation" name="occupation" type="text" required autofocus class="form-control"
+                        placeholder=" ">
+                    <label for="occupation">Occupation</label>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-floating">
-                        <input id="email" name="email" type="email" required 
-                               class="form-control @error('email') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('email') }}">
-                        <label for="email">Email Address</label>
-                        @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    <input id="email" name="email" type="text" class="form-control" placeholder=" ">
+                    <label for="email">Email Address</label>
                 </div>
             </div>
 
@@ -364,9 +321,8 @@
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Upload Baptism Certificate</label>
                     <div class="file-input-wrapper">
-                        <input id="document" name="document" type="file" required 
-                               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                               class="@error('document') is-invalid @enderror">
+                        <input id="document" name="document" type="file" required
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
                         <div class="file-input-display" onclick="document.getElementById('document').click();">
                             <div class="file-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -386,9 +342,8 @@
 
                 <div class="col-md-6">
                     <label class="textcolor form-label fw-bold" for="birthday">Date Of Birth</label>
-                    <input id="birthday" type="date" name="birthday" required 
-                           class="form-control @error('birthday') is-invalid @enderror"
-                           value="{{ old('birthday') }}">
+                    <input id="birthday" type="date" name="birthday" required
+                        class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}">
                     @error('birthday')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -397,8 +352,8 @@
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="marital" name="marital" required 
-                            class="form-select @error('marital') is-invalid @enderror">
+                    <select id="marital" name="marital" required
+                        class="form-select @error('marital') is-invalid @enderror">
                         <option value="" disabled {{ old('marital') ? '' : 'selected' }}>Marital Status</option>
                         <option value="Single" {{ old('marital') == 'Single' ? 'selected' : '' }}>Single</option>
                         <option value="Married" {{ old('marital') == 'Married' ? 'selected' : '' }}>Married</option>
@@ -410,8 +365,8 @@
                     @enderror
                 </div>
                 <div class="col-md-6">
-                    <select id="gender" name="gender" required 
-                            class="form-select @error('gender') is-invalid @enderror">
+                    <select id="gender" name="gender" required
+                        class="form-select @error('gender') is-invalid @enderror">
                         <option value="" disabled {{ old('gender') ? '' : 'selected' }}>Select Gender</option>
                         <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
                         <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
@@ -425,9 +380,9 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <label class="textcolor form-label fw-bold" for="registrationdate">Date Of Registration</label>
-                    <input id="registrationdate" type="datetime-local" name="registrationdate" required 
-                           class="form-control @error('registrationdate') is-invalid @enderror"
-                           value="{{ old('registrationdate') }}">
+                    <input id="registrationdate" type="datetime-local" name="registrationdate" required
+                        class="form-control @error('registrationdate') is-invalid @enderror"
+                        value="{{ old('registrationdate') }}">
                     @error('registrationdate')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -439,23 +394,23 @@
             </button>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                        <label class="form-check-label" for="terms">
-                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                'terms_of_service' =>
-                                    '<a target="_blank" href="' .
-                                    route('terms.show') .
-                                    '" class="text-decoration-none">terms of service</a>',
-                                'privacy_policy' =>
-                                    '<a target="_blank" href="' .
-                                    route('policy.show') .
-                                    '" class="text-decoration-none">privacy policy</a>',
-                            ]) !!}
-                        </label>
-                    </div>
-                </div>
+                        <div class="mt-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                    'terms_of_service' =>
+                        '<a target="_blank" href="' .
+                        route('terms.show') .
+                        '" class="text-decoration-none">terms of service</a>',
+                    'privacy_policy' =>
+                        '<a target="_blank" href="' .
+                        route('policy.show') .
+                        '" class="text-decoration-none">privacy policy</a>',
+                ]) !!}
+                                </label>
+                            </div>
+                        </div>
             @endif
         </form>
     </div>
@@ -474,11 +429,12 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places"></script>
-    
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places"></script>
+
     <script>
         // CSRF Token setup for AJAX requests
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const csrfToken = document.querySelector('meta[name="csrf-token"]');
             if (csrfToken) {
                 window.Laravel = {
@@ -510,11 +466,11 @@
         resetSessionTimer();
 
         // File upload handling
-        document.getElementById('document').addEventListener('change', function(e) {
+        document.getElementById('document').addEventListener('change', function (e) {
             const file = e.target.files[0];
             const display = document.querySelector('.file-input-display');
             const fileName = document.getElementById('file-name');
-            
+
             if (file) {
                 // Check file size (2MB = 2 * 1024 * 1024 bytes)
                 if (file.size > 2 * 1024 * 1024) {
@@ -524,11 +480,11 @@
                     fileName.style.display = 'none';
                     return;
                 }
-                
+
                 // Check file type
                 const allowedTypes = ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'];
                 const fileExtension = file.name.split('.').pop().toLowerCase();
-                
+
                 if (!allowedTypes.includes(fileExtension)) {
                     alert('Invalid file type. Please upload PDF, DOC, DOCX, JPG, JPEG, or PNG files only.');
                     e.target.value = '';
@@ -536,7 +492,7 @@
                     fileName.style.display = 'none';
                     return;
                 }
-                
+
                 display.classList.add('has-file');
                 fileName.textContent = file.name;
                 fileName.style.display = 'block';
@@ -548,15 +504,15 @@
 
         // Form submission handling with double-submit prevention
         let isSubmitting = false;
-        
-        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
             if (isSubmitting) {
                 e.preventDefault();
                 return false;
             }
 
             const fileInput = document.getElementById('document');
-            
+
             if (!fileInput.files.length) {
                 e.preventDefault();
                 alert('Please select a baptism certificate file to upload.');
@@ -566,7 +522,7 @@
             // Validate required fields
             const requiredFields = this.querySelectorAll('[required]');
             let isValid = true;
-            
+
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
                     field.classList.add('is-invalid');
@@ -581,14 +537,14 @@
                 alert('Please fill in all required fields.');
                 return false;
             }
-            
+
             // Show loading state
             isSubmitting = true;
             const submitBtn = document.getElementById('submitBtn');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp;Adding Member...';
-            
+
             // Re-enable button after 15 seconds (failsafe for network issues)
             setTimeout(() => {
                 if (isSubmitting) {
@@ -600,7 +556,7 @@
         });
 
         // Re-enable form submission when page becomes visible again (handles back button)
-        document.addEventListener('visibilitychange', function() {
+        document.addEventListener('visibilitychange', function () {
             if (!document.hidden) {
                 isSubmitting = false;
                 const submitBtn = document.getElementById('submitBtn');
@@ -615,7 +571,7 @@
 
         function initMap() {
             const defaultLocation = { lat: -15.3875, lng: 28.3228 }; // Lusaka, Zambia
-            
+
             map = new google.maps.Map(document.getElementById("map"), {
                 center: defaultLocation,
                 zoom: 12,
@@ -632,7 +588,7 @@
 
             autocomplete.bindTo('bounds', map);
 
-            autocomplete.addListener('place_changed', function() {
+            autocomplete.addListener('place_changed', function () {
                 const place = autocomplete.getPlace();
                 if (place.geometry) {
                     map.setCenter(place.geometry.location);
@@ -641,12 +597,12 @@
                 }
             });
 
-            marker.addListener('dragend', function(event) {
+            marker.addListener('dragend', function (event) {
                 const lat = event.latLng.lat();
                 const lng = event.latLng.lng();
-                
+
                 const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ location: { lat, lng } }, function(results, status) {
+                geocoder.geocode({ location: { lat, lng } }, function (results, status) {
                     if (status === 'OK' && results[0]) {
                         input.value = results[0].formatted_address;
                     }
@@ -658,7 +614,7 @@
         window.addEventListener('load', initMap);
 
         // Set current datetime for registration date if not already set
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const registrationDateInput = document.getElementById('registrationdate');
             if (!registrationDateInput.value) {
                 const now = new Date();
