@@ -218,20 +218,29 @@
                                         alt="Bible Image" loading="lazy">
                                 </div>
 
-                                <!-- Verse Content Column -->
-                                <div class="col-6 col-sm-7 col-xl-8 p-0">
+                                <div class="col-5 col-sm-7 col-xl-8 p-0">
+                                    <!-- Verse of the day with white text -->
                                     <div id="verse-of-the-day" style="color: white;"></div>
                                 </div>
 
-                                <!-- Button Column -->
-                                <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                                    <a href="https://www.bible.com/verse-of-the-day" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="btn btn-outline-light btn-rounded get-started-btn">
-                                        <span class="d-none d-md-inline">Bible Verse Of The Day</span>
-                                        <span class="d-md-none">VOTD</span>
-                                    </a>
+                                <script>
+                                    function myVotdCallback(data) {
+                                        var votdContainer = document.getElementById('verse-of-the-day');
+                                        if (votdContainer) {
+                                            votdContainer.innerHTML = data.votd.text + ' - ' + data.votd.reference;
+                                        }
+                                    }
+                                </script>
 
+                                <script
+                                    src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+
+                                <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                                    <span>
+                                        <a href="https://www.biblegateway.com/" target="_blank"
+                                            class="btn btn-outline-light btn-rounded get-started-btn">Bible Verse Of The
+                                            Day</a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -378,26 +387,28 @@
                             </div>
                         </div>
                     </div>
-         
-    <!-- content-wrapper ends -->
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
 
-    <!-- partial:partials/_footer.html -->
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                University
-                SDA Church 2024</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                Computer Science Dept
-                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
-                    Computer Systems Engineering
-                </a> from University Of Zambia
-            </span>
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                        University
+                        SDA Church 2024</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                        Computer Science Dept
+                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                            class="text-white">
+                            Computer Systems Engineering
+                        </a> from University Of Zambia
+                    </span>
+                </div>
+            </footer>
+            <!-- partial -->
         </div>
-    </footer>
-    <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
