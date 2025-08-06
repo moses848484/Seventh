@@ -48,13 +48,16 @@
         }
     }
 
-    /* Responsive adjustments */
     @media (max-width: 640px) {
         .notification-container {
             top: 70px;
-            right: 10px;
-            left: 10px;
-            max-width: none;
+            right: 0;
+            left: 0;
+            max-width: 100%;
+            margin: 0 auto;
+            width: auto;
+            pointer-events: none;
+            padding: 0 10px;
         }
     }
 </style>
@@ -80,7 +83,7 @@
                     style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
-      
+
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -229,7 +232,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                       <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
