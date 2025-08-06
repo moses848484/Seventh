@@ -45,14 +45,14 @@
 
     /* Sub-menu styling */
     .sub-menu .nav-item .nav-link {
-        padding-left: 50px;
+        left: -30px !important;
         font-size: 14px;
         transition: all 0.3s ease;
     }
 
     .sub-menu .nav-item .nav-link:hover {
         background-color: rgba(255, 255, 255, 0.05);
-        padding-left: 55px;
+        left: -30px !important;
     }
 
     .sub-menu .nav-item.active .nav-link {
