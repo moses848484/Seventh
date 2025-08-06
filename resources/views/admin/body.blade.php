@@ -360,204 +360,200 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column" style="height: 530px;">
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card h-100 d-flex flex-column" style="height: 530px;">
                             <!-- Embedded Bible -->
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
-                            <!-- Footer -->
-
+                            <div class="footer1 mt-auto">
+                                <h6 class="text-muted2 font-weight-normal">User Chart</h6>
+                            </div>
                         </div>
                     </div>
-                    <div class="footer1">
-                        <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
-                    </div>
+
+                    <!-- content-wrapper ends -->
+
+                    <!-- partial:partials/_footer.html -->
+                    <footer class="footer">
+                        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                                University
+                                SDA Church 2024</span>
+                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                                Computer Science Dept
+                                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                                    class="text-white">
+                                    Computer Systems Engineering
+                                </a> from University Of Zambia
+                            </span>
+                        </div>
+                    </footer>
+                    <!-- partial -->
                 </div>
+                <!-- main-panel ends -->
             </div>
-
-            <!-- content-wrapper ends -->
-
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                        University
-                        SDA Church 2024</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                        Computer Science Dept
-                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                            class="text-white">
-                            Computer Systems Engineering
-                        </a> from University Of Zambia
-                    </span>
-                </div>
-            </footer>
-            <!-- partial -->
+            <!-- page-body-wrapper ends -->
         </div>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('myChart');
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ctx = document.getElementById('myChart');
 
-            // Check if memberCount is defined and a number
-            const memberCount = {{ $memberCount }};
-            const membersCount = {{ $membersCount }};
-            const visitorCount = {{ $visitorCount }};
-            const singlesCount = {{ $singlesCount }};
-            const marriedCount = {{ $marriedCount }};
-            const divorcedCount = {{ $divorcedCount }};
-            if (typeof memberCount !== 'undefined' && !isNaN(memberCount) &&
-                typeof visitorCount !== 'undefined' && !isNaN(visitorCount) &&
+                // Check if memberCount is defined and a number
+                const memberCount = {{ $memberCount }};
+                const membersCount = {{ $membersCount }};
+                const visitorCount = {{ $visitorCount }};
+                const singlesCount = {{ $singlesCount }};
+                const marriedCount = {{ $marriedCount }};
+                const divorcedCount = {{ $divorcedCount }};
+                if (typeof memberCount !== 'undefined' && !isNaN(memberCount) &&
+                    typeof visitorCount !== 'undefined' && !isNaN(visitorCount) &&
 
-                typeof singlesCount !== 'undefined' && !isNaN(singlesCount) &&
-                typeof marriedCount !== 'undefined' && !isNaN(marriedCount) &&
-                typeof divorcedCount !== 'undefined' && !isNaN(divorcedCount) &&
-                typeof membersCount !== 'undefined' && !isNaN(membersCount)) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Total Members', 'Visitors', 'Members', 'Females', 'Males', 'Singles',
-                            'Married', 'Divorced'
-                        ],
-                        datasets: [{
-                            label: '# of Registered',
-                            data: [memberCount, visitorCount, membersCount,
-                                singlesCount, marriedCount, divorcedCount
+                    typeof singlesCount !== 'undefined' && !isNaN(singlesCount) &&
+                    typeof marriedCount !== 'undefined' && !isNaN(marriedCount) &&
+                    typeof divorcedCount !== 'undefined' && !isNaN(divorcedCount) &&
+                    typeof membersCount !== 'undefined' && !isNaN(membersCount)) {
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Total Members', 'Visitors', 'Members', 'Females', 'Males', 'Singles',
+                                'Married', 'Divorced'
                             ],
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                            datasets: [{
+                                label: '# of Registered',
+                                data: [memberCount, visitorCount, membersCount,
+                                    singlesCount, marriedCount, divorcedCount
+                                ],
+                                borderWidth: 1,
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.5)',
+                                    'rgba(255, 99, 132, 0.5)',
+                                    'rgba(255, 206, 86, 0.5)',
+                                    'rgba(75, 192, 192, 0.5)',
+                                    'rgba(153, 102, 255, 0.5)',
+                                    'rgba(255, 159, 64, 0.5)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255,99,132,1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
                             }
                         }
-                    }
-                });
-            } else {
-                console.error('Error: memberCount is undefined or not a number.');
-            }
-        });
-    </script>
-
-    <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
-    <script src="//biblia.com/api/logos.biblia.js"></script>
-    <script>
-        logos.biblia.init();
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('myUsers');
-
-            // Check if userCount is defined and a number
-            const userCount = {{ $userCount }};
-
-            if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Total Users', 'Females', 'Males',],
-                        datasets: [{
-                            label: 'Number Of Users',
-                            data: [userCount,],
-                            borderWidth: 1,
-                            backgroundColor: [
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            } else {
-                console.error('Error: userCount is undefined or not a number.');
-            }
-        });
-    </script>
-    <!-- Verse of the Day Script -->
-    <script>
-        function myVotdCallback(data) {
-            var votdContainer = document.getElementById('verse-of-the-day');
-            if (votdContainer && data && data.votd) {
-                // Clean the verse text by removing extra quotes
-                var cleanText = data.votd.text;
-
-                // Remove surrounding quotes if they exist
-                if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
-                    cleanText = cleanText.slice(1, -1);
+                    });
+                } else {
+                    console.error('Error: memberCount is undefined or not a number.');
                 }
+            });
+        </script>
 
-                // Remove any double quotes at the beginning or end
-                cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+        <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
+        <script src="//biblia.com/api/logos.biblia.js"></script>
+        <script>
+            logos.biblia.init();
+        </script>
 
-                // Create a more formatted display without adding extra quotes
-                var verseHTML = `
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ctx = document.getElementById('myUsers');
+
+                // Check if userCount is defined and a number
+                const userCount = {{ $userCount }};
+
+                if (typeof userCount !== 'undefined' && !isNaN(userCount)) {
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Total Users', 'Females', 'Males',],
+                            datasets: [{
+                                label: 'Number Of Users',
+                                data: [userCount,],
+                                borderWidth: 1,
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.5)',
+                                    'rgba(255, 99, 132, 0.5)',
+                                    'rgba(255, 206, 86, 0.5)',
+                                    'rgba(75, 192, 192, 0.5)',
+                                    'rgba(153, 102, 255, 0.5)',
+                                    'rgba(255, 159, 64, 0.5)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255,99,132,1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Error: userCount is undefined or not a number.');
+                }
+            });
+        </script>
+        <!-- Verse of the Day Script -->
+        <script>
+            function myVotdCallback(data) {
+                var votdContainer = document.getElementById('verse-of-the-day');
+                if (votdContainer && data && data.votd) {
+                    // Clean the verse text by removing extra quotes
+                    var cleanText = data.votd.text;
+
+                    // Remove surrounding quotes if they exist
+                    if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
+                        cleanText = cleanText.slice(1, -1);
+                    }
+
+                    // Remove any double quotes at the beginning or end
+                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+
+                    // Create a more formatted display without adding extra quotes
+                    var verseHTML = `
                 <div class="verse-content">
                     <p class="mb-1">"${cleanText}"</p>
                     <small class="verse-reference">- ${data.votd.reference}</small>
                 </div>
             `;
-                votdContainer.innerHTML = verseHTML;
-            } else if (votdContainer) {
-                votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
-            }
-        }
-
-        // Error handling for failed script loading
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                var votdContainer = document.getElementById('verse-of-the-day');
-                if (votdContainer && votdContainer.innerHTML.trim() === '') {
-                    votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                    votdContainer.innerHTML = verseHTML;
+                } else if (votdContainer) {
+                    votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
                 }
-            }, 5000); // Wait 5 seconds for the script to load
-        });
-    </script>
+            }
 
-    <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+            // Error handling for failed script loading
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    var votdContainer = document.getElementById('verse-of-the-day');
+                    if (votdContainer && votdContainer.innerHTML.trim() === '') {
+                        votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                    }
+                }, 5000); // Wait 5 seconds for the script to load
+            });
+        </script>
+
+        <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
 </body>
 
 </html>
