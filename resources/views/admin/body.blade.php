@@ -200,6 +200,14 @@
                 font-size: 0.75rem;
             }
         }
+
+        /* Increase height on mobile screens */
+        @media (max-width: 767px) {
+            .card {
+                height: 700px;
+                /* increase as needed */
+            }
+        }
     </style>
 </head>
 
