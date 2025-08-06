@@ -205,6 +205,10 @@
             color: white;
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
 </head>
 
 <body>
@@ -433,8 +437,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places"></script>
 
     <script>
         // CSRF Token setup for AJAX requests
@@ -570,52 +572,64 @@
         });
 
         // Google Maps functionality
-        let map;
-        let marker;
+        let map, marker;
 
-        function initMap() {
-            const defaultLocation = { lat: -15.3875, lng: 28.3228 }; // Lusaka, Zambia
+        function initLeafletMap() {
+            const defaultCoords = [-15.3875, 28.3228]; // Lusaka
 
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: defaultLocation,
-                zoom: 12,
+            map = L.map('map').setView(defaultCoords, 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+
+            marker = L.marker(defaultCoords, { draggable: true }).addTo(map);
+
+            // Reverse geocode on marker drag
+            marker.on('dragend', function (e) {
+                const { lat, lng } = e.target.getLatLng();
+                fetch(
+                    `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data && data.display_name) {
+                            document.getElementById('address').value =
+                                data.display_name;
+                        }
+                    })
+                    .catch((err) => {
+                        console.error('Reverse geocode failed:', err);
+                    });
             });
 
-            marker = new google.maps.Marker({
-                position: defaultLocation,
-                map: map,
-                draggable: true
-            });
-
-            const input = document.getElementById('address');
-            const autocomplete = new google.maps.places.Autocomplete(input);
-
-            autocomplete.bindTo('bounds', map);
-
-            autocomplete.addListener('place_changed', function () {
-                const place = autocomplete.getPlace();
-                if (place.geometry) {
-                    map.setCenter(place.geometry.location);
-                    marker.setPosition(place.geometry.location);
-                    map.setZoom(15);
-                }
-            });
-
-            marker.addListener('dragend', function (event) {
-                const lat = event.latLng.lat();
-                const lng = event.latLng.lng();
-
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ location: { lat, lng } }, function (results, status) {
-                    if (status === 'OK' && results[0]) {
-                        input.value = results[0].formatted_address;
-                    }
-                });
+            // Autocomplete with Nominatim (basic)
+            const addressInput = document.getElementById('address');
+            addressInput.addEventListener('change', function () {
+                const query = addressInput.value;
+                fetch(
+                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+                        query
+                    )}`
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data && data.length > 0) {
+                            const lat = parseFloat(data[0].lat);
+                            const lon = parseFloat(data[0].lon);
+                            map.setView([lat, lon], 15);
+                            marker.setLatLng([lat, lon]);
+                        }
+                    })
+                    .catch((err) => {
+                        console.error('Geocode failed:', err);
+                    });
             });
         }
 
-        // Initialize map when page loads
-        window.addEventListener('load', initMap);
+        window.addEventListener('load', initLeafletMap);
+
 
         // Set current datetime for registration date if not already set
         document.addEventListener('DOMContentLoaded', function () {
