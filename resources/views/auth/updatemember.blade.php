@@ -181,9 +181,9 @@
 
 <body>
     <x-validation-errors class="mb-4" />
+
     <div id="register" class="form-container">
-        <form method="POST" autocomplete="on" action="{{ url('/update_registered', $data->id) }}"
-            enctype="multipart/form-data">
+        <form method="POST" action="{{ url('/update_registered', $data->id) }}" enctype="multipart/form-data">
             @csrf
 
             <div class="logo">
@@ -191,11 +191,10 @@
             </div>
             <h2 class="form-title">Update Member</h2>
 
-
             <div class="row mb-3 form-floating">
                 <div class="col-md-6">
-                    <input id="fname" name="fname" value="{{ $data->fname }}" type="text" required autofocus
-                        class="form-control" placeholder=" ">
+                    <input id="fname" name="fname" value="{{ $data->fname }}" type="text" required class="form-control"
+                        placeholder=" ">
                     <label for="fname">First Name</label>
                 </div>
                 <div class="col-md-6">
@@ -221,34 +220,28 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="textcolor" for="ministry">Ministry</label>
-                    <select id="ministry" name="ministry" required class="form-select" placeholder=" ">
-                        <option value="None" {{ $data->ministry == 'None' ? 'selected' : '' }}>None</option>
-                        <option value="Choir" {{ $data->ministry == 'Choir' ? 'selected' : '' }}>Choir</option>
-                        <option value="Ushering" {{ $data->ministry == 'Ushering' ? 'selected' : '' }}>Ushering</option>
-                        <option value="Prayer Band" {{ $data->ministry == 'Prayer Band' ? 'selected' : '' }}>Prayer Band
-                        </option>
-                        <option value="Technical" {{ $data->ministry == 'Technical' ? 'selected' : '' }}>Technical
-                        </option>
-                        <option value="Prayer Warrior" {{ $data->ministry == 'Prayer Warrior' ? 'selected' : '' }}>Prayer
-                            Warrior</option>
+                    <select id="ministry" name="ministry" class="form-select" required>
+                        @foreach (['None', 'Choir', 'Ushering', 'Prayer Band', 'Technical', 'Prayer Warrior'] as $option)
+                            <option value="{{ $option }}" {{ $data->ministry == $option ? 'selected' : '' }}>{{ $option }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
-
                 <div class="col-md-6">
                     <label class="textcolor" for="registeras">Register As</label>
-                    <select id="registeras" name="registeras" required class="form-select" placeholder=" ">
-                        <option value="None" {{ $data->registeras == 'None' ? 'selected' : '' }}>None</option>
-                        <option value="Visitor" {{ $data->registeras == 'Visitor' ? 'selected' : '' }}>Visitor</option>
-                        <option value="Member" {{ $data->registeras == 'Member' ? 'selected' : '' }}>Member</option>
+                    <select id="registeras" name="registeras" class="form-select" required>
+                        @foreach (['None', 'Visitor', 'Member'] as $option)
+                            <option value="{{ $option }}" {{ $data->registeras == $option ? 'selected' : '' }}>{{ $option }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
 
-
             <div class="row mb-3 form-floating">
                 <div class="col-md-12">
                     <input id="address" name="address" type="text" value="{{ $data->address }}" required
-                        autocomplete="address" class="form-control" placeholder=" ">
+                        class="form-control" placeholder=" ">
                     <label for="address">Address</label>
                 </div>
             </div>
@@ -258,89 +251,76 @@
             <div class="row mb-3 form-floating">
                 <div class="col-md-6">
                     <input id="occupation" name="occupation" type="text" value="{{ $data->occupation }}" required
-                        autofocus class="form-control" placeholder=" ">
+                        class="form-control" placeholder=" ">
                     <label for="occupation">Occupation</label>
                 </div>
                 <div class="col-md-6">
-                    <input id="email" name="email" type="text" value="{{ $data->email }}" class="form-control"
+                    <input id="email" name="email" type="email" value="{{ $data->email }}" class="form-control"
                         placeholder=" ">
                     <label for="email">Email Address</label>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-6">
                     <label class="textcolor" for="gender">Gender</label>
-                    <select id="gender" name="gender" required class="form-select" placeholder=" ">
-                        <option value="" disabled {{ !$data->gender ? 'selected' : '' }}>Gender</option>
-                        <option value="Male" {{ $data->gender == 'Male' ? 'selected' : '' }}>Male</option>
-                        <option value="Female" {{ $data->gender == 'Female' ? 'selected' : '' }}>Female</option>
+                    <select id="gender" name="gender" class="form-select" required>
+                        <option disabled {{ !$data->gender ? 'selected' : '' }}>Select</option>
+                        @foreach (['Male', 'Female'] as $gender)
+                            <option value="{{ $gender }}" {{ $data->gender == $gender ? 'selected' : '' }}>{{ $gender }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
-
-
-
                 <div class="col-md-6">
                     <label class="textcolor" for="marital">Marital Status</label>
-                    <select id="marital" name="marital" required class="form-select" placeholder=" ">
-                        <option value="" disabled {{ !$data->marital ? 'selected' : '' }}>Marital Status</option>
-                        <option value="Divorced" {{ $data->marital == 'Divorced' ? 'selected' : '' }}>Divorced</option>
-                        <option value="Single" {{ $data->marital == 'Single' ? 'selected' : '' }}>Single</option>
-                        <option value="Married" {{ $data->marital == 'Married' ? 'selected' : '' }}>Married</option>
+                    <select id="marital" name="marital" class="form-select" required>
+                        <option disabled {{ !$data->marital ? 'selected' : '' }}>Select</option>
+                        @foreach (['Single', 'Married', 'Divorced'] as $status)
+                            <option value="{{ $status }}" {{ $data->marital == $status ? 'selected' : '' }}>{{ $status }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
             </div>
-
 
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="textcolor" for="document">Change Baptism Certificate</label>
                     <input id="document" name="document" type="file" class="form-control" />
                 </div>
-
-
                 @if (!empty($data->document))
-                        <div class="col-md-6">
-                            <label class="textcolor" for="document">Current Baptism Certificate</label>
-                            <a href="{{ asset('Baptism Certificates/' . $data->document) }}" class="form-control"
-                                target="_blank">
-                                View Baptism Certificate
-                            </a>
-                        </div>
+                    <div class="col-md-6">
+                        <label class="textcolor" for="document">Current Baptism Certificate</label>
+                        <a href="{{ asset('Baptism Certificates/' . $data->document) }}" class="form-control"
+                            target="_blank">View Baptism Certificate</a>
                     </div>
-                @else
-                <p>No document available.</p>
-            @endif
+                @endif
+            </div>
 
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <label class="textcolor" for="date">Date Of Birth</label>
-                    <input id="date" name="birthday" value="{{ $data->birthday }}" type="date" step="1" required
-                        class="form-control" placeholder=" ">
+                    <label class="textcolor" for="birthday">Date Of Birth</label>
+                    <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
+                        required>
                 </div>
-
-
                 <div class="col-md-6">
                     <label class="textcolor" for="registrationdate">Date Of Registration</label>
-                    <input id="registrationdate" name="registrationdate" value="{{ $data->registrationdate }}"
-                        type="datetime-local" step="1" required class="form-control" placeholder=" ">
+                    <input id="registrationdate" name="registrationdate" type="datetime-local"
+                        value="{{ $data->registrationdate }}" class="form-control" required>
                 </div>
             </div>
 
-
-
-            <button type="submit" value="Sign up" name="submit" class="submitbtn"><i
-                    class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member</button><br>
+            <button type="submit" class="submitbtn">
+                <i class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member
+            </button>
 
             @if (session('message'))
-                <div class="alert alert-success">
+                <div class="alert alert-success mt-3">
                     {{ session('message') }}
-
                     @if (session('document'))
-                        <p>
-                            <a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View
-                                Uploaded Document</a>
-                        </p>
+                        <p><a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View Uploaded
+                                Document</a></p>
                     @endif
                 </div>
             @endif
@@ -352,18 +332,8 @@
                                     <x-checkbox name="terms" id="terms" required />
                                     <div class="ms-2">
                                         {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                    'terms_of_service' =>
-                        '<a target="_blank" href="' .
-                        route('terms.show') .
-                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                        __('Terms of Service') .
-                        '</a>',
-                    'privacy_policy' =>
-                        '<a target="_blank" href="' .
-                        route('policy.show') .
-                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                        __('Privacy Policy') .
-                        '</a>',
+                    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a>',
+                    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>',
                 ]) !!}
                                     </div>
                                 </div>
@@ -391,7 +361,6 @@
     <script src="/images/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places">
     </script>
     <script>
         let map;
