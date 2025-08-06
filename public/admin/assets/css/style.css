@@ -30945,6 +30945,7 @@ div.tagsinput span.tag a {
 @media (max-width: 991px) {
   .main-panel {
     margin-left: 0px;
+    margin-right: 0px;
     width: 100%;
   }
 }
