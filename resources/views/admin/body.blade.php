@@ -378,9 +378,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-     
+         
     <!-- content-wrapper ends -->
 
     <!-- partial:partials/_footer.html -->
@@ -468,6 +466,12 @@
         });
     </script>
 
+    <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
+    <script src="//biblia.com/api/logos.biblia.js"></script>
+    <script>
+        logos.biblia.init();
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const ctx = document.getElementById('myUsers');
@@ -515,8 +519,47 @@
             }
         });
     </script>
+    <!-- Verse of the Day Script -->
+    <script>
+        function myVotdCallback(data) {
+            var votdContainer = document.getElementById('verse-of-the-day');
+            if (votdContainer && data && data.votd) {
+                // Clean the verse text by removing extra quotes
+                var cleanText = data.votd.text;
 
+                // Remove surrounding quotes if they exist
+                if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
+                    cleanText = cleanText.slice(1, -1);
+                }
 
+                // Remove any double quotes at the beginning or end
+                cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+
+                // Create a more formatted display without adding extra quotes
+                var verseHTML = `
+                <div class="verse-content">
+                    <p class="mb-1">"${cleanText}"</p>
+                    <small class="verse-reference">- ${data.votd.reference}</small>
+                </div>
+            `;
+                votdContainer.innerHTML = verseHTML;
+            } else if (votdContainer) {
+                votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
+            }
+        }
+
+        // Error handling for failed script loading
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var votdContainer = document.getElementById('verse-of-the-day');
+                if (votdContainer && votdContainer.innerHTML.trim() === '') {
+                    votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                }
+            }, 5000); // Wait 5 seconds for the script to load
+        });
+    </script>
+
+    <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
 </body>
 
 </html>
