@@ -59,7 +59,7 @@
         background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         color: white;
         border-radius: 6px;
-        left: 100px !important;
+        left: -30px !important;
     }
 
     /* Icon animations */
