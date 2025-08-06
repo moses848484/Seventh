@@ -200,6 +200,10 @@
                 font-size: 0.9rem;
             }
         }
+
+        .fa-user-plus {
+            color: white;
+        }
     </style>
 </head>
 
