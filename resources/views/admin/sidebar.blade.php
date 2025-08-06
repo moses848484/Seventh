@@ -52,6 +52,7 @@
 
     .sub-menu .nav-item .nav-link:hover {
         background-color: rgba(255, 255, 255, 0.05);
+        left: -40px !important;
     }
 
     .sub-menu .nav-item.active .nav-link {
