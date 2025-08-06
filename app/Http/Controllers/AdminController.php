@@ -189,7 +189,7 @@ class AdminController extends Controller
         \Log::info('Starting database insert');
         
         // Check if members model exists and is accessible
-        if (!class_exists('App\\Models\\members')) {
+        if (!class_exists('App\\Models\\Members')) {
             \Log::error('Members model not found');
             return redirect()->back()->withErrors(['error' => 'System configuration error.'])->withInput();
         }
