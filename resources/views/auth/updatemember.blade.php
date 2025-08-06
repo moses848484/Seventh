@@ -27,10 +27,6 @@
             position: relative;
         }
 
-        .form-select {
-            color: #04AA6D;
-        }
-
         .form-floating input {
             padding: 1rem 0.75rem;
             padding-top: 1.5rem;
@@ -53,6 +49,7 @@
             font-size: 0.80rem;
             color: #04AA6D;
             background: white;
+            padding: 0 5px;
         }
 
         /* Adjustments for input border */
@@ -63,117 +60,149 @@
         }
 
         .form-control:focus {
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
+            border: 2px solid #04AA6D;
+            box-shadow: 0 0 0 0.2rem rgba(4, 170, 109, 0.25);
             color: #04AA6D;
         }
 
-        .textcolor {
+        .form-select {
             color: #04AA6D;
+            border: 1px solid #ced4da;
+        }
+
+        .form-select:focus {
+            border: 2px solid #04AA6D;
+            box-shadow: 0 0 0 0.2rem rgba(4, 170, 109, 0.25);
         }
 
         .text-primary {
             color: #e4af00 !important;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .form-floating input {
-                padding: 0.7rem 0.25rem;
-                padding-top: 1rem;
-                margin-bottom: 18px;
-            }
-
-            .form-floating label {
-                font-size: 0.75rem;
-                margin-top: -5px;
-                margin-left: 7px;
-            }
-
-            .form-floating label:focus {
-                font-size: 0.9rem;
-                padding: 0.75rem 1rem;
-            }
-
-            .btn {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 2rem;
-            }
-
-            .footer span {
-                font-size: 0.85rem;
-            }
+        .textcolor {
+            color: #04AA6D;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .form-floating input {
-                padding: 0.7rem 0.25rem;
-                padding-top: 1rem;
-                margin-bottom: 18px;
-            }
-
-            .form-floating label {
-                font-size: 0.75rem;
-                margin-top: -5px;
-                margin-left: 7px;
-            }
-
-            .form-floating label:focus {
-                font-size: 0.9rem;
-                padding: 0.75rem 1rem;
-            }
-
-            .btn {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 2rem;
-            }
-
-            .footer span {
-                font-size: 0.85rem;
-            }
+        .btn-success {
+            background-color: #04AA6D;
+            border-color: #04AA6D;
         }
 
-        @media (max-width: 576px) {
-            .form-floating input {
-                padding: 0.7rem 0.25rem;
-                padding-top: 2rem;
-                margin-bottom: 18px;
-            }
+        .btn-success:hover {
+            background-color: #038a5a;
+            border-color: #038a5a;
+        }
 
-            .form-floating label {
-                font-size: 1rem;
-                margin-top: -5px;
-                margin-left: 7px;
-            }
+        /* File input styling */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
 
-            .form-floating label:focus {
-                font-size: 0.9rem;
-                padding: 0.75rem 1rem;
-            }
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
 
-            .container {
-                padding: 1rem;
-            }
+        .file-input-display {
+            border: 2px dashed #04AA6D;
+            border-radius: 0.375rem;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-            .footer span {
-                font-size: 0.75rem;
-            }
+        .file-input-display:hover {
+            background-color: #e9ecef;
+            border-color: #038a5a;
+        }
+
+        .file-input-display.has-file {
+            border-color: #28a745;
+            background-color: #d4edda;
+        }
+
+        .file-icon {
+            font-size: 2rem;
+            color: #04AA6D;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-text {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+
+        .file-name {
+            color: #28a745;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .alert {
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Map styles */
         #map {
             height: 400px;
-            /* Set the desired height */
             width: 100%;
-            /* Full width */
-            margin-bottom: 15px;
+            margin: 20px 0;
+            border-radius: 0.375rem;
+            border: 1px solid #dee2e6;
+        }
+
+        /* Session timeout warning */
+        .session-warning {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-floating input {
+                padding: 0.8rem 0.5rem;
+                padding-top: 1.2rem;
+            }
+
+            .form-floating label {
+                font-size: 0.85rem;
+                left: 2%;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            #map {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .form-floating input {
+                padding-top: 1.5rem;
+            }
+
+            .form-floating label {
+                font-size: 0.9rem;
+            }
+        }
+
+        .fa-user-plus {
+            color: white;
         }
     </style>
 
