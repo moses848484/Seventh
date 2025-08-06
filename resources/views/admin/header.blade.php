@@ -17,23 +17,17 @@
         /* Instagram's default gradient colors */
     }
 
+    /* Notification positioning for admin layout */
     .notification-container {
         position: fixed;
         top: 80px;
-        /* fixed near top on all devices */
+        /* Adjust based on navbar height */
         right: 20px;
         z-index: 9999;
         max-width: 400px;
         pointer-events: none;
-        left: auto;
-        /* Ensure it's not pushed from left */
-        width: auto;
-        /* No forced full width */
-        margin: 0;
-        /* No margin to shift position */
     }
 
-    /* Alert inside */
     .notification-container .alert {
         pointer-events: auto;
         margin-bottom: 10px;
@@ -41,8 +35,6 @@
         border-radius: 8px;
         animation: slideInRight 0.3s ease-out;
     }
-
-    /* Remove any media queries that move it to bottom */
 
     @keyframes slideInRight {
         from {
@@ -56,16 +48,13 @@
         }
     }
 
+    /* Responsive adjustments */
     @media (max-width: 640px) {
         .notification-container {
             top: 70px;
-            right: 0;
-            left: 0;
-            max-width: 100%;
-            margin: 0 auto;
-            width: auto;
-            pointer-events: none;
-            padding: 0 10px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
         }
     }
 </style>
@@ -91,7 +80,7 @@
                     style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
-
+      
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -240,7 +229,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown">
+                       <li class="nav-item dropdown">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
