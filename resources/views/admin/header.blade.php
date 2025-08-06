@@ -51,13 +51,10 @@
     /* Responsive adjustments */
     @media (max-width: 640px) {
         .notification-container {
-            position: fixed;
-            top: 80px;
-            /* Adjust based on navbar height */
-            right: 20px;
-            z-index: 9999;
-            max-width: 400px;
-            pointer-events: none;
+            top: 70px;
+            right: 10px;
+            left: 10px;
+            max-width: none;
         }
     }
 </style>
@@ -83,7 +80,7 @@
                     style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
-
+      
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -232,7 +229,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                <li class="nav-item dropdown">
+                       <li class="nav-item dropdown">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
