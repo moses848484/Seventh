@@ -137,7 +137,11 @@ class AdminController extends Controller
                     $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
 
                     // Move file to destination
-                    $document->move($uploadPath, $documentname);
+                    $moved = $document->move($uploadPath, $documentname);
+
+                    if (!$moved) {
+                        return redirect()->back()->withErrors(['document' => 'Failed to upload file.'])->withInput();
+                    }
                     $data->document = $documentname;
                 } else {
                     return redirect()->back()->withErrors(['document' => 'Invalid file uploaded.'])->withInput();

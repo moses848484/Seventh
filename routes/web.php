@@ -13,8 +13,10 @@ use App\Http\Controllers\UpdateUserProfileInformationController;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
 // use Illuminate\Foundation\Auth;
 
-// Public routes
+// Public routes (no authentication required)
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/member_registration', [HomeController::class, 'member_registration'])->name('member_registration');
+Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_members');
 
 // Protected routes with middleware
 Route::middleware([
@@ -40,7 +42,7 @@ Route::middleware([
     Route::get('scorecard/export-pdf', [AdminController::class, 'exportPDF'])->name('scorecard.export-pdf');
     Route::get('/see_scorecard', [AdminController::class, 'see_scorecard']);
 
-    Route::post('/add_members', [AdminController::class, 'add_members']);
+    Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_members');
     Route::post('/add_givings', [AdminController::class, 'add_givings']);
 
     Route::get('/time_management', [AdminController::class, 'time_management']);
