@@ -17,17 +17,23 @@
         /* Instagram's default gradient colors */
     }
 
-    /* Notification positioning for admin layout */
     .notification-container {
         position: fixed;
         top: 80px;
-        /* Adjust based on navbar height */
+        /* fixed near top on all devices */
         right: 20px;
         z-index: 9999;
         max-width: 400px;
         pointer-events: none;
+        left: auto;
+        /* Ensure it's not pushed from left */
+        width: auto;
+        /* No forced full width */
+        margin: 0;
+        /* No margin to shift position */
     }
 
+    /* Alert inside */
     .notification-container .alert {
         pointer-events: auto;
         margin-bottom: 10px;
@@ -35,6 +41,8 @@
         border-radius: 8px;
         animation: slideInRight 0.3s ease-out;
     }
+
+    /* Remove any media queries that move it to bottom */
 
     @keyframes slideInRight {
         from {
