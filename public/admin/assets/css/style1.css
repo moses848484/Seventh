@@ -31022,24 +31022,6 @@ div.tagsinput span.tag a {
   }
 }
 
-.nav-link.dropdown-toggle {
-  position: relative !important; /* Make parent relative */
-}
-
-.dropdown-menu {
-  position: absolute !important;
-  left: 100% !important;  /* Position submenu right next to parent */
-  top: 0 !important; 
-  min-width: 180px !important; /* or sidebar width */
-  white-space: nowrap !important; /* prevent line wrapping */
-  background: #f8f9fa !important;; /* match sidebar bg */
-  background: #f8f9fa !important;; /* match sidebar bg */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;;
-  border-radius: 0 4px 4px 0 !important;;
-  z-index: 1050 !important;; /* on top */
-}
-
-
 /* Optional: hide overflow text on minimized */
 .sidebar.sidebar-offcanvas.minimized .nav .menu-title {
   display: none !important;
