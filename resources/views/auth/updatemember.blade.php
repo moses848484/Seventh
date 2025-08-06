@@ -218,8 +218,8 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="textcolor" for="ministry">Ministry</label>
+                <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Ministry</label>
                     <select id="ministry" name="ministry" class="form-select" required>
                         @foreach (['None', 'Choir', 'Ushering', 'Prayer Band', 'Technical', 'Prayer Warrior'] as $option)
                             <option value="{{ $option }}" {{ $data->ministry == $option ? 'selected' : '' }}>{{ $option }}
@@ -227,8 +227,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6">
-                    <label class="textcolor" for="registeras">Register As</label>
+                <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Register As</label>
                     <select id="registeras" name="registeras" class="form-select" required>
                         @foreach (['None', 'Visitor', 'Member'] as $option)
                             <option value="{{ $option }}" {{ $data->registeras == $option ? 'selected' : '' }}>{{ $option }}
@@ -262,8 +262,8 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="textcolor" for="gender">Gender</label>
+                <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Gender</label>
                     <select id="gender" name="gender" class="form-select" required>
                         <option disabled {{ !$data->gender ? 'selected' : '' }}>Select</option>
                         @foreach (['Male', 'Female'] as $gender)
@@ -272,8 +272,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6">
-                    <label class="textcolor" for="marital">Marital Status</label>
+                <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Marital Status</label>
                     <select id="marital" name="marital" class="form-select" required>
                         <option disabled {{ !$data->marital ? 'selected' : '' }}>Select</option>
                         @foreach (['Single', 'Married', 'Divorced'] as $status)
@@ -284,14 +284,31 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="textcolor" for="document">Change Baptism Certificate</label>
-                    <input id="document" name="document" type="file" class="form-control" />
+           <div class="row mb-3">
+                <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Change Baptism Certificate</label>
+                    <div class="file-input-wrapper">
+                        <input id="document" name="document" type="file" required
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
+                        <div class="file-input-display" onclick="document.getElementById('document').click();">
+                            <div class="file-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="file-text">
+                                Click to select file or drag and drop
+                                <br>
+                                <small>Supported: PDF, DOC, DOCX, JPG, JPEG, PNG (Max: 2MB)</small>
+                            </div>
+                            <div class="file-name" id="file-name" style="display: none;"></div>
+                        </div>
+                    </div>
+                    @error('document')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
                 @if (!empty($data->document))
-                    <div class="col-md-6">
-                        <label class="textcolor" for="document">Current Baptism Certificate</label>
+                     <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
                         <a href="{{ asset('Baptism Certificates/' . $data->document) }}" class="form-control"
                             target="_blank">View Baptism Certificate</a>
                     </div>
@@ -299,13 +316,13 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="textcolor" for="birthday">Date Of Birth</label>
+               <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Date of Birth</label>
                     <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
                         required>
                 </div>
-                <div class="col-md-6">
-                    <label class="textcolor" for="registrationdate">Date Of Registration</label>
+               <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Date of Registration Update</label>
                     <input id="registrationdate" name="registrationdate" type="datetime-local"
                         value="{{ $data->registrationdate }}" class="form-control" required>
                 </div>
