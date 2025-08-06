@@ -377,7 +377,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     <!-- content-wrapper ends -->
 
