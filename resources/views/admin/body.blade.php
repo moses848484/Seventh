@@ -200,11 +200,6 @@
                 font-size: 0.75rem;
             }
         }
-        .biblia-bible {
-    height: auto !important;
-    min-height: 100%;
-}
-
     </style>
 </head>
 
@@ -364,8 +359,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column" style="height: 530px;">
+             
 
                             <!-- Scrollable wrapper for Bible embed -->
                             <div
@@ -375,17 +369,11 @@
                                 </biblia:bible>
                             </div>
 
-                            <!-- Footer stays at the bottom -->
-                            <div class="footer1">
-                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
-                            </div>
-                        </div>
-                    </div>
+                    
 
 
 
-                </div>
-            </div>
+             
             <!-- content-wrapper ends -->
 
             <!-- partial:partials/_footer.html -->
