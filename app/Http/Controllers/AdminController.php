@@ -101,38 +101,64 @@ class AdminController extends Controller
             'birthday' => 'required|date',
             'ministry' => 'required|string|max:255',
             'marital' => 'required|string|max:255',
-            'document' => 'required|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048', // Document validation
+            'document' => 'required|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
         ]);
 
-        // Create a new member instance
-        $data = new members;
-        $data->fname = $request->fname;
-        $data->mname = $request->mname;
-        $data->lname = $request->lname;
-        $data->email = $request->email;
-        $data->address = $request->address;
-        $data->mobile = $request->mobile;
-        $data->occupation = $request->occupation;
-        $data->registeras = $request->registeras;
-        $data->registrationdate = $request->registrationdate;
-        $data->gender = $request->gender;
-        $data->birthday = $request->birthday;
-        $data->ministry = $request->ministry;
-        $data->marital = $request->marital;
+        try {
+            // Create a new member instance
+            $data = new members;
+            $data->fname = $request->fname;
+            $data->mname = $request->mname;
+            $data->lname = $request->lname;
+            $data->email = $request->email;
+            $data->address = $request->address;
+            $data->mobile = $request->mobile;
+            $data->occupation = $request->occupation;
+            $data->registeras = $request->registeras;
+            $data->registrationdate = $request->registrationdate;
+            $data->gender = $request->gender;
+            $data->birthday = $request->birthday;
+            $data->ministry = $request->ministry;
+            $data->marital = $request->marital;
 
-        // Handle the uploaded document
-        if ($request->hasFile('document')) {
-            $document = $request->file('document');
-            $documentname = time() . '.' . $document->getClientOriginalExtension();
-            $document->move('Baptism Certificates', $documentname);
-            $data->document = $documentname;
+            // Handle the uploaded document
+            if ($request->hasFile('document')) {
+                $document = $request->file('document');
+
+                // Check if file is valid
+                if ($document->isValid()) {
+                    // Create directory if it doesn't exist
+                    $uploadPath = public_path('Baptism_Certificates');
+                    if (!file_exists($uploadPath)) {
+                        mkdir($uploadPath, 0755, true);
+                    }
+
+                    // Generate unique filename
+                    $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
+
+                    // Move file to destination
+                    $document->move($uploadPath, $documentname);
+                    $data->document = $documentname;
+                } else {
+                    return redirect()->back()->withErrors(['document' => 'Invalid file uploaded.'])->withInput();
+                }
+            } else {
+                return redirect()->back()->withErrors(['document' => 'No file was uploaded.'])->withInput();
+            }
+
+            // Save the member data
+            $data->save();
+
+            // Redirect with a success message
+            return redirect()->back()->with('message', 'Member Added Successfully');
+
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Member registration failed: ' . $e->getMessage());
+
+            // Return with error message
+            return redirect()->back()->withErrors(['error' => 'Registration failed. Please try again.'])->withInput();
         }
-
-        // Save the member data
-        $data->save();
-
-        // Redirect with a success message
-        return redirect()->back()->with('message', 'Member Added Successfully');
     }
 
     public function add_givings(Request $request)
