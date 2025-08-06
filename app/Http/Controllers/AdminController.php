@@ -451,38 +451,103 @@ class AdminController extends Controller
         return view('admin.updatemember', compact('data'));
     }
     public function update_registered(Request $request, $id)
-    {
-        $data = Members::find($id);
+{
+    \Log::info('Update member attempt started', [
+        'member_id' => $id,
+        'request_data' => $request->except(['document', '_token']),
+    ]);
 
-        // Update member details
-        $data->fname = $request->fname;
-        $data->mname = $request->mname;
-        $data->lname = $request->lname;
-        $data->email = $request->email;
-        $data->address = $request->address;
-        $data->mobile = $request->mobile;
-        $data->ministry = $request->ministry;
-        $data->registeras = $request->registeras;
-        $data->registrationdate = $request->registrationdate;
-        $data->gender = $request->gender;
-        $data->birthday = $request->birthday;
-        $data->marital = $request->marital;
+    try {
+        // Step 1: Validate the request
+        $validatedData = $request->validate([
+            'fname' => 'required|string|max:255',
+            'mname' => 'nullable|string|max:255',
+            'lname' => 'required|string|max:255',
+            'email' => 'required|email|unique:members,email,' . $id,
+            'address' => 'required|string|max:255',
+            'mobile' => 'required|string|max:15',
+            'occupation' => 'required|string|max:255',
+            'registeras' => 'required|string|max:255',
+            'registrationdate' => 'required|date',
+            'gender' => 'required|string|max:10',
+            'birthday' => 'required|date',
+            'ministry' => 'required|string|max:255',
+            'marital' => 'required|string|max:255',
+            'document' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
+        ]);
 
-        // Handle the uploaded document
+        \Log::info('Validation passed');
+
+        // Step 2: Fetch existing member
+        $data = \App\Models\Members::findOrFail($id);
+
+        // Step 3: Handle file upload (if any)
         if ($request->hasFile('document')) {
+            \Log::info('New document uploaded');
+
             $document = $request->file('document');
-            $documentname = time() . '.' . $document->getClientOriginalExtension();
-            $document->move('Baptism Certificates', $documentname);
+
+            if (!$document->isValid()) {
+                \Log::error('Invalid document upload');
+                return redirect()->back()->withErrors(['document' => 'Invalid file uploaded.'])->withInput();
+            }
+
+            $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
+
+            // Laravel Storage recommended
+            $stored = $document->storeAs('public/baptism_certificates', $documentname);
+
+            if (!$stored) {
+                \Log::error('Document failed to store');
+                return redirect()->back()->withErrors(['document' => 'Failed to upload file.'])->withInput();
+            }
+
+            \Log::info('Document stored successfully', ['filename' => $documentname]);
             $data->document = $documentname;
         }
 
-        $data->save();
+        // Step 4: Update all other fields
+        $data->fname = $validatedData['fname'];
+        $data->mname = $validatedData['mname'];
+        $data->lname = $validatedData['lname'];
+        $data->email = $validatedData['email'];
+        $data->address = $validatedData['address'];
+        $data->mobile = $validatedData['mobile'];
+        $data->occupation = $validatedData['occupation'];
+        $data->registeras = $validatedData['registeras'];
+        $data->registrationdate = $validatedData['registrationdate'];
+        $data->gender = $validatedData['gender'];
+        $data->birthday = $validatedData['birthday'];
+        $data->ministry = $validatedData['ministry'];
+        $data->marital = $validatedData['marital'];
+
+        $saved = $data->save();
+
+        if (!$saved) {
+            \Log::error('Member update failed to save');
+            return redirect()->back()->withErrors(['error' => 'Failed to update member data.'])->withInput();
+        }
+
+        \Log::info('Member updated successfully', ['member_id' => $data->id]);
 
         return redirect()->back()->with([
             'message' => 'Member Updated Successfully',
             'document' => $data->document
         ]);
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        \Log::error('Validation error on update', ['errors' => $e->errors()]);
+        return redirect()->back()->withErrors($e->errors())->withInput();
+
+    } catch (\Exception $e) {
+        \Log::error('Unexpected update error', [
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+        return redirect()->back()->withErrors(['error' => 'An unexpected error occurred.'])->withInput();
     }
+}
+
 
 
     public function update_user($id)
