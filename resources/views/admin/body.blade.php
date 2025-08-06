@@ -362,34 +362,35 @@
                     </div>
 
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column" style="height: 530px;">
+                        <div class="card d-flex flex-column">
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
                         </div>
                     </div>
                 </div>
-   
+            </div>
 
-    <!-- content-wrapper ends -->
+            <!-- content-wrapper ends -->
 
-    <!-- partial:partials/_footer.html -->
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                University
-                SDA Church 2024</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                Computer Science Dept
-                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
-                    Computer Systems Engineering
-                </a> from University Of Zambia
-            </span>
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                        University
+                        SDA Church 2024</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                        Computer Science Dept
+                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                            class="text-white">
+                            Computer Systems Engineering
+                        </a> from University Of Zambia
+                    </span>
+                </div>
+            </footer>
+            <!-- partial -->
         </div>
-    </footer>
-    <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
