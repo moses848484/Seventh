@@ -41,7 +41,7 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        left: -7px !important;
+        left: -8px !important;
     }
 
     /* Sub-menu styling */
