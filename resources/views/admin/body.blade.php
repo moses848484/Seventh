@@ -225,11 +225,13 @@
 
                                 <!-- Button Column -->
                                 <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
-                                    <a href="https://www.biblegateway.com/" target="_blank" rel="noopener noreferrer"
+                                    <a href="https://www.bible.com/verse-of-the-day" target="_blank"
+                                        rel="noopener noreferrer"
                                         class="btn btn-outline-light btn-rounded get-started-btn">
                                         <span class="d-none d-md-inline">Bible Verse Of The Day</span>
                                         <span class="d-md-none">VOTD</span>
                                     </a>
+
                                 </div>
                             </div>
                         </div>
