@@ -367,15 +367,17 @@
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
                         </div>
-                        <div class="flex-grow-1"></div>
-                        <!-- Footer -->
-                        <div class="footer1">
+                          <div class="footer1">
                             <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
                         </div>
+                        <div class="flex-grow-1"></div>
+                        <!-- Footer -->
+                      
                     </div>
                 </div>
+            </div>
+        </div>
 
- 
 
 
     <!-- content-wrapper ends -->
