@@ -31085,7 +31085,7 @@ div.tagsinput span.tag a {
 
 @media (min-width: 992px) {
   .sidebar-icon-only .navbar {
-    left: 70px;
+    left: 40px;
   }
 
   .sidebar-icon-only .navbar .navbar-menu-wrapper {
@@ -31093,11 +31093,11 @@ div.tagsinput span.tag a {
   }
 
   .sidebar-icon-only .sidebar {
-    width: 70px;
+    left: 40px;
   }
 
   .sidebar-icon-only .sidebar .sidebar-brand-wrapper {
-    width: 70px;
+    left: 40px;
   }
 
   .sidebar-icon-only .sidebar .sidebar-brand-wrapper .brand-logo {
