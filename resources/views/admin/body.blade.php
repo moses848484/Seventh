@@ -363,18 +363,19 @@
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column" style="height: 530px;">
                             <!-- Embedded Bible -->
-                      <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
+                            <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
                                 style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
-                            </iframe>                                       
-                           <!-- Footer -->
-                           
+                            </iframe>
+                            <!-- Footer -->
+
                         </div>
+                    </div>
+                    <div class="footer1">
+                        <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
                     </div>
                 </div>
             </div>
-             <div class="footer1">
-                                <h6 class="text-muted2 font-weight-normal">Holy Bible</h6>
-                            </div>
+
             <!-- content-wrapper ends -->
 
             <!-- partial:partials/_footer.html -->
