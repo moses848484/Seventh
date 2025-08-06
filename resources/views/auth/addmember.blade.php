@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <title>Registration</title>
     <style>
         /* Custom Autofill input styling */
@@ -205,9 +206,6 @@
             color: white;
         }
     </style>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
 
 </head>
 
@@ -437,7 +435,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
     <script>
         // CSRF Token setup for AJAX requests
         document.addEventListener('DOMContentLoaded', function () {
@@ -571,7 +570,7 @@
             }
         });
 
-        // Google Maps functionality
+        // Leaflet Maps functionality
         let map, marker;
 
         function initLeafletMap() {
@@ -581,49 +580,35 @@
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution:
-                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             }).addTo(map);
 
             marker = L.marker(defaultCoords, { draggable: true }).addTo(map);
 
-            // Reverse geocode on marker drag
+            // Reverse geocode on drag end
             marker.on('dragend', function (e) {
                 const { lat, lng } = e.target.getLatLng();
-                fetch(
-                    `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`
-                )
-                    .then((res) => res.json())
-                    .then((data) => {
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
+                    .then(res => res.json())
+                    .then(data => {
                         if (data && data.display_name) {
-                            document.getElementById('address').value =
-                                data.display_name;
+                            document.getElementById('address').value = data.display_name;
                         }
-                    })
-                    .catch((err) => {
-                        console.error('Reverse geocode failed:', err);
                     });
             });
 
-            // Autocomplete with Nominatim (basic)
-            const addressInput = document.getElementById('address');
-            addressInput.addEventListener('change', function () {
-                const query = addressInput.value;
-                fetch(
-                    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-                        query
-                    )}`
-                )
-                    .then((res) => res.json())
-                    .then((data) => {
+            // Geocode on address change
+            document.getElementById('address').addEventListener('change', function () {
+                const query = this.value;
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
+                    .then(res => res.json())
+                    .then(data => {
                         if (data && data.length > 0) {
                             const lat = parseFloat(data[0].lat);
                             const lon = parseFloat(data[0].lon);
                             map.setView([lat, lon], 15);
                             marker.setLatLng([lat, lon]);
                         }
-                    })
-                    .catch((err) => {
-                        console.error('Geocode failed:', err);
                     });
             });
         }
