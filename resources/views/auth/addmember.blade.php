@@ -230,14 +230,6 @@
             </div>
         @endif
 
-        <!-- Display success message -->
-        @if (session('message'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <i class="fas fa-check-circle"></i> {{ session('message') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
-
         <form method="POST" action="{{ url('/add_members') }}" enctype="multipart/form-data" id="registrationForm">
             @csrf
 
@@ -421,16 +413,17 @@
         </form>
     </div>
 
-    <footer class="footer mt-5 py-3">
-        <div class="container">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
-                    Copyright © University SDA Church 2024
-                </span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                    Computer Science Dept - Computer Systems Engineering from University Of Zambia
-                </span>
-            </div>
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                University
+                SDA Church 2024</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                Computer Science Dept
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
+                    Computer Systems Engineering
+                </a> from University Of Zambia
+            </span>
         </div>
     </footer>
 
@@ -626,16 +619,6 @@
             }
         });
 
-        // Auto-dismiss alerts after 5 seconds
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                if (alert.classList.contains('alert-success')) {
-                    const bsAlert = new bootstrap.Alert(alert);
-                    bsAlert.close();
-                }
-            });
-        }, 5000);
     </script>
 </body>
 
