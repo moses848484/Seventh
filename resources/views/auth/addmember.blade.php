@@ -12,17 +12,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Registration</title>
     <style>
-        /* Custom Autofill input styling */
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-            -webkit-box-shadow: none !important;
+    input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
-    background-image: none !important;
-            -webkit-text-fill-color: #04AA6D !important;
-        }
+    -webkit-text-fill-color: #04AA6D !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
         /* Floating Label Styles */
         .form-floating {
