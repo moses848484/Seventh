@@ -148,15 +148,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Map styles */
-        #map {
-            height: 400px;
-            width: 100%;
-            margin: 20px 0;
-            border-radius: 0.375rem;
-            border: 1px solid #dee2e6;
-        }
-
         /* Session timeout warning */
         .session-warning {
             position: fixed;
@@ -182,9 +173,6 @@
                 padding: 1.5rem;
             }
 
-            #map {
-                height: 300px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -274,8 +262,6 @@
                     <label for="address">Address</label>
                 </div>
             </div>
-
-            <div id="map"></div>
 
             <div class="row mb-3 form-floating">
                 <div class="col-md-6">
@@ -407,66 +393,6 @@
     <script src="/images/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    </script>
-    <script>
-        let map;
-        let marker;
-
-        function initMap() {
-            const defaultAddress = "{{ $data->address }}"; // Existing address
-            const geocoder = new google.maps.Geocoder();
-
-            // Geocode the existing address to get lat/lng
-            geocoder.geocode({
-                address: defaultAddress
-            }, (results, status) => {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    const location = results[0].geometry.location;
-
-                    map = new google.maps.Map(document.getElementById("map"), {
-                        center: location,
-                        zoom: 15,
-                    });
-
-                    marker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                        draggable: true, // Allow marker dragging
-                    });
-
-                    const input = document.getElementById('address');
-                    const autocomplete = new google.maps.places.Autocomplete(input);
-
-                    autocomplete.addListener('place_changed', function () {
-                        const place = autocomplete.getPlace();
-                        if (place.geometry) {
-                            map.setCenter(place.geometry.location);
-                            marker.setPosition(place.geometry.location);
-                        }
-                    });
-
-                    marker.addListener('dragend', function (event) {
-                        const lat = event.latLng.lat();
-                        const lng = event.latLng.lng();
-                        // Get the address from lat/lng and update the input
-                        geocoder.geocode({
-                            location: {
-                                lat,
-                                lng
-                            }
-                        }, function (results, status) {
-                            if (status === google.maps.GeocoderStatus.OK && results[0]) {
-                                input.value = results[0].formatted_address;
-                            }
-                        });
-                    });
-                } else {
-                    console.error("Geocode was not successful for the following reason: " + status);
-                }
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initMap);
     </script>
 </body>
 
