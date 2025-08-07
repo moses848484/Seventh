@@ -454,16 +454,6 @@
                 <i class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member
             </button>
 
-            @if (session('message'))
-                <div class="alert alert-success mt-3">
-                    {{ session('message') }}
-                    @if (session('document'))
-                        <p><a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View Uploaded
-                                Document</a></p>
-                    @endif
-                </div>
-            @endif
-
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                         <div class="mt-4">
                             <x-label for="terms">
