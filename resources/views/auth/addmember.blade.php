@@ -48,7 +48,7 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-        
+            background-color: white;
         }
 
         /* Adjustments for input border */
