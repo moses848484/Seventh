@@ -48,7 +48,7 @@
             font-size: 15px;
             color: #04AA6D;
             width: auto !important;
-            height: auto !important;
+            height: 10% !important;
             background-color: white !important;
         }
 
