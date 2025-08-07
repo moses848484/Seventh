@@ -193,81 +193,57 @@
             color: white;
         }
 
-        <style>.file-input-wrapper {
+        
+        /* File input styling */
+        .file-input-wrapper {
             position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
         }
 
-        .file-input-wrapper input[type="file"] {
+        .file-input-wrapper input[type=file] {
             position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
+            left: -9999px;
         }
 
         .file-input-display {
-            border: 2px dashed #dee2e6;
+            border: 2px dashed #04AA6D;
             border-radius: 0.375rem;
-            padding: 2rem 1rem;
+            padding: 1.5rem;
             text-align: center;
+            background-color: #f8f9fa;
             cursor: pointer;
             transition: all 0.3s ease;
-            background-color: #fafafa;
         }
 
         .file-input-display:hover {
-            border-color: #007bff;
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
+            border-color: #038a5a;
         }
 
-        .file-icon i {
-            font-size: 3rem;
-            color: #6c757d;
-            margin-bottom: 1rem;
+        .file-input-display.has-file {
+            border-color: #28a745;
+            background-color: #d4edda;
+        }
+
+        .file-icon {
+            font-size: 2rem;
+            color: #04AA6D;
+            margin-bottom: 0.5rem;
         }
 
         .file-text {
             color: #6c757d;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
         }
 
-        .file-text small {
-            color: #adb5bd;
-            font-size: 0.8rem;
-        }
-
-        .selected-file {
-            background: #e7f3ff;
-            border: 1px solid #b3d9ff;
-            border-radius: 0.25rem;
-            padding: 0.75rem;
+        .file-name {
+            color: #28a745;
+            font-weight: 500;
             margin-top: 0.5rem;
         }
 
-        .file-name-text {
-            font-weight: 500;
-            color: #0066cc;
-        }
-
-        .current-certificate-wrapper {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .certificate-info {
-            flex-grow: 1;
-            border: 1px solid #dee2e6;
-        }
-
-        .certificate-info:hover {
-            border-color: #007bff;
-        }
-
-        .img-thumbnail:hover {
-            transform: scale(1.05);
-            transition: transform 0.2s ease;
-        }
     </style>
 
 </head>
