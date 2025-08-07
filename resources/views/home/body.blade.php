@@ -217,10 +217,11 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card corona-gradient-card">
                         <div class="card-body py-0 px-0 px-sm-3">
-                            <div class="row align-items-center">
-                                <div class="col-4 col-sm-3 col-xl-2">
+                            <div class="row align-items-center g-0">
+                                <!-- Image Column - Properly positioned to left -->
+                                <div class="col-3 col-sm-3 col-xl-2">
                                     <img src="admin/assets/images/bible4.jpg" class="gradient-corona-img img-fluid"
-                                        alt="">
+                                        alt="Bible Image" loading="lazy">
                                 </div>
 
                                 <!-- Verse Content Column -->
