@@ -17,8 +17,10 @@
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
-            -webkit-box-shadow: 0 0 0 30px white inset !important;
-            box-shadow: 0 0 0 30px white inset !important;
+            -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
             -webkit-text-fill-color: #04AA6D !important;
         }
 
@@ -40,7 +42,6 @@
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
-            background-color: transparent !important; /* Ensure label background is transparent */
         }
 
         .form-floating input:focus+label,
@@ -49,8 +50,8 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
+            background: white;
             padding: 0 5px;
-            background-color: transparent !important; /* Ensure label background is transparent */
         }
 
         /* Adjustments for input border */
