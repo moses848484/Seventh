@@ -36,12 +36,12 @@
             position: absolute;
             top: 45%;
             left: 3%;
-            width: 100%;
+            width: 100% !important;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
-            background-color: #ffffff !important;
+            background-color: none !important;
         }
 
         .form-floating input:focus+label,
@@ -50,8 +50,8 @@
             transform: translateY(-100%);
             font-size: 15px;
             color: #04AA6D;
-            width: 100%;
-            background-color: #ffffff !important;
+            width: 100% !important;
+            background-color: none !important;
         }
 
         /* Adjustments for input border */
