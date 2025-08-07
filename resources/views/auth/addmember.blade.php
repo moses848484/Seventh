@@ -36,6 +36,7 @@
             position: absolute;
             top: 45%;
             left: 3%;
+            width: 100%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
@@ -49,6 +50,7 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
+            width: 100%;
             background-color: #ffffff !important;
         }
 
