@@ -34,11 +34,12 @@
 
         .form-floating label {
             position: absolute;
-            top: 45%;
+            top: 75%;
             left: 3%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
+            background-color: none !important;
             pointer-events: none;
         }
 
@@ -49,6 +50,7 @@
             font-size: 0.80rem;
             color: #04AA6D;
             padding: 0 5px;
+            background-color: none !important;
         }
 
         /* Adjustments for input border */
