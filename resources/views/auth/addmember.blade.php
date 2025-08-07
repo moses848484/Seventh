@@ -44,11 +44,11 @@
 
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
-            top: 50%;
+            top: 25%;
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-            background: transparent !important;
+            background: white;
             padding: 0 5px;
         }
 
