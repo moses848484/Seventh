@@ -424,11 +424,8 @@
             <button type="submit" class="btn btn-success w-100 py-2" id="submitBtn">
                 <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
             </button>
-        </form>
-    </div>
-   </div>
 
-   @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
@@ -448,6 +445,10 @@
                 </div>
             @endif
             
+        </form>
+    </div>
+   </div>
+
    <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
