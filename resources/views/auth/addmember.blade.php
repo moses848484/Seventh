@@ -34,7 +34,6 @@
         .form-floating label {
             position: absolute;
             top: 45%;
-            left: 3%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
