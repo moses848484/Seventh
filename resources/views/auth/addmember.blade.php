@@ -444,7 +444,7 @@
                     </div>
                 </div>
             @endif
-            
+
         </form>
     </div>
    </div>
@@ -608,16 +608,6 @@
             }
         });
 
-        // Auto-dismiss alerts after 5 seconds
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                if (alert.classList.contains('alert-success')) {
-                    const bsAlert = new bootstrap.Alert(alert);
-                    bsAlert.close();
-                }
-            });
-        }, 5000);
     </script>
 </body>
 
