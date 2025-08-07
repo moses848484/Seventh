@@ -50,6 +50,7 @@
             font-size: 0.80rem;
             color: #04AA6D;
             padding: 0 5px;
+            background-color: transparent !important; /* Ensure label background is transparent */
         }
 
         /* Adjustments for input border */
