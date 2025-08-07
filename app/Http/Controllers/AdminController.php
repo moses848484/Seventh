@@ -551,38 +551,284 @@ class AdminController extends Controller
     }
     public function update_registered(Request $request, $id)
     {
-        $data = Members::find($id);
-
-        // Update member details
-        $data->fname = $request->fname;
-        $data->mname = $request->mname;
-        $data->lname = $request->lname;
-        $data->email = $request->email;
-        $data->address = $request->address;
-        $data->mobile = $request->mobile;
-        $data->ministry = $request->ministry;
-        $data->registeras = $request->registeras;
-        $data->registrationdate = $request->registrationdate;
-        $data->gender = $request->gender;
-        $data->birthday = $request->birthday;
-        $data->marital = $request->marital;
-
-        // Handle the uploaded document
-        if ($request->hasFile('document')) {
-            $document = $request->file('document');
-            $documentname = time() . '.' . $document->getClientOriginalExtension();
-            $document->move('Baptism Certificates', $documentname);
-            $data->document = $documentname;
-        }
-
-        $data->save();
-
-        return redirect()->back()->with([
-            'message' => 'Member Updated Successfully',
-            'document' => $data->document
+        // Step 1: Debug - Check if request is received
+        \Log::info('Member update attempt started', [
+            'member_id' => $id,
+            'request_data' => $request->except(['document', '_token']),
+            'has_document' => $request->hasFile('document')
         ]);
-    }
 
+        try {
+            // Step 2: Find the member
+            $data = Members::find($id);
+
+            if (!$data) {
+                \Log::error('Member not found', ['member_id' => $id]);
+                return redirect()->back()->withErrors(['error' => 'Member not found.']);
+            }
+
+            // Step 3: Validate the incoming request data
+            $validatedData = $request->validate([
+                'fname' => 'required|string|max:255',
+                'mname' => 'nullable|string|max:255',
+                'lname' => 'required|string|max:255',
+                'email' => 'required|email|unique:members,email,' . $id,  // Exclude current member from unique check
+                'address' => 'required|string|max:255',
+                'mobile' => 'required|string|max:15',
+                'occupation' => 'nullable|string|max:255',
+                'registeras' => 'required|string|max:255',
+                'registrationdate' => 'required|date',
+                'gender' => 'required|string|max:10',
+                'birthday' => 'required|date',
+                'ministry' => 'required|string|max:255',
+                'marital' => 'required|string|max:255',
+                'document' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',  // Make document optional for updates
+            ]);
+
+            \Log::info('Validation passed successfully');
+
+            // Step 4: Update member details
+            $data->fname = $validatedData['fname'];
+            $data->mname = $validatedData['mname'];
+            $data->lname = $validatedData['lname'];
+            $data->email = $validatedData['email'];
+            $data->address = $validatedData['address'];
+            $data->mobile = $validatedData['mobile'];
+            $data->occupation = $validatedData['occupation'] ?? $data->occupation;
+            $data->ministry = $validatedData['ministry'];
+            $data->registeras = $validatedData['registeras'];
+            $data->registrationdate = $validatedData['registrationdate'];
+            $data->gender = $validatedData['gender'];
+            $data->birthday = $validatedData['birthday'];
+            $data->marital = $validatedData['marital'];
+
+            // Step 5: Handle the uploaded document (if provided)
+            if ($request->hasFile('document')) {
+                \Log::info('New document file found, processing upload');
+
+                $document = $request->file('document');
+
+                if (!$document->isValid()) {
+                    \Log::error('Invalid file uploaded', [
+                        'error' => $document->getError(),
+                        'error_message' => $document->getErrorMessage()
+                    ]);
+                    return redirect()->back()->withErrors(['document' => 'Invalid file uploaded: ' . $document->getErrorMessage()])->withInput();
+                }
+
+                \Log::info('File validation passed', [
+                    'original_name' => $document->getClientOriginalName(),
+                    'size' => $document->getSize(),
+                    'mime_type' => $document->getMimeType(),
+                    'extension' => $document->getClientOriginalExtension()
+                ]);
+
+                // Delete old document if it exists
+                if ($data->document) {
+                    $oldDocumentPath = public_path('storage/baptism-certificates/' . $data->document);
+                    if (file_exists($oldDocumentPath)) {
+                        $deleted = unlink($oldDocumentPath);
+                        \Log::info('Old document deletion attempt', [
+                            'old_document' => $data->document,
+                            'path' => $oldDocumentPath,
+                            'deleted' => $deleted
+                        ]);
+                    } else {
+                        \Log::warning('Old document file not found', [
+                            'old_document' => $data->document,
+                            'path' => $oldDocumentPath
+                        ]);
+                    }
+                }
+
+                try {
+                    // Check if Str helper is available
+                    if (!class_exists('Illuminate\Support\Str')) {
+                        \Log::error('Str class not found');
+                        return redirect()->back()->withErrors(['document' => 'System configuration error.'])->withInput();
+                    }
+
+                    // Generate unique filename like profile photos
+                    $documentname = \Illuminate\Support\Str::random(40) . '.' . $document->getClientOriginalExtension();
+
+                    \Log::info('Generated filename for update', ['filename' => $documentname]);
+
+                    // Store directly in public/storage/baptism-certificates (matches profile-photos structure)
+                    $stored = $document->storeAs('baptism-certificates', $documentname, 'public');
+
+                    if (!$stored) {
+                        throw new \Exception('Failed to store file using Laravel Storage');
+                    }
+
+                    \Log::info('File stored successfully using Laravel Storage', [
+                        'storage_path' => $stored,
+                        'filename' => $documentname,
+                        'public_path' => 'storage/baptism-certificates/' . $documentname,
+                        'full_path' => storage_path('app/public/baptism-certificates/' . $documentname),
+                        'accessible_url' => asset('storage/baptism-certificates/' . $documentname)
+                    ]);
+
+                    // Update the document name in the model
+                    $data->document = $documentname;
+
+                } catch (\Exception $storageException) {
+                    \Log::error('Laravel Storage failed, trying direct upload', [
+                        'error' => $storageException->getMessage(),
+                        'trace' => $storageException->getTraceAsString()
+                    ]);
+
+                    // Fallback method: Direct file system upload to public/storage
+                    try {
+                        $uploadPath = public_path('storage/baptism-certificates');
+
+                        \Log::info('Attempting direct upload for update', [
+                            'upload_path' => $uploadPath,
+                            'path_exists' => file_exists($uploadPath),
+                            'parent_exists' => file_exists(dirname($uploadPath)),
+                            'parent_writable' => is_writable(dirname($uploadPath))
+                        ]);
+
+                        // Create directory if it doesn't exist
+                        if (!file_exists($uploadPath)) {
+                            $created = mkdir($uploadPath, 0755, true);
+                            \Log::info('Directory creation attempt for update', [
+                                'path' => $uploadPath,
+                                'success' => $created,
+                                'exists_after' => file_exists($uploadPath)
+                            ]);
+
+                            if (!$created) {
+                                throw new \Exception('Failed to create upload directory');
+                            }
+                        }
+
+                        // Check if directory is writable
+                        if (!is_writable($uploadPath)) {
+                            $chmodResult = chmod($uploadPath, 0755);
+                            \Log::info('Chmod attempt for update', [
+                                'path' => $uploadPath,
+                                'success' => $chmodResult,
+                                'writable_after' => is_writable($uploadPath)
+                            ]);
+                        }
+
+                        // Generate filename if not already done
+                        if (!isset($documentname)) {
+                            $documentname = \Illuminate\Support\Str::random(40) . '.' . $document->getClientOriginalExtension();
+                        }
+
+                        $targetPath = $uploadPath . DIRECTORY_SEPARATOR . $documentname;
+                        \Log::info('Moving file for update', [
+                            'from' => $document->getRealPath(),
+                            'to' => $targetPath,
+                            'filename' => $documentname
+                        ]);
+
+                        $moved = $document->move($uploadPath, $documentname);
+
+                        if (!$moved) {
+                            throw new \Exception('Failed to move uploaded file to: ' . $targetPath);
+                        }
+
+                        // Verify file was moved
+                        if (!file_exists($targetPath)) {
+                            throw new \Exception('File move reported success but file not found at: ' . $targetPath);
+                        }
+
+                        \Log::info('File uploaded successfully using direct method for update', [
+                            'filename' => $documentname,
+                            'path' => $targetPath,
+                            'file_size' => filesize($targetPath),
+                            'public_url' => 'storage/baptism-certificates/' . $documentname
+                        ]);
+
+                        // Update the document name in the model
+                        $data->document = $documentname;
+
+                    } catch (\Exception $directException) {
+                        \Log::error('Both upload methods failed for update', [
+                            'storage_error' => $storageException->getMessage(),
+                            'direct_error' => $directException->getMessage(),
+                            'upload_path' => isset($uploadPath) ? $uploadPath : 'not_set',
+                            'upload_path_exists' => isset($uploadPath) ? file_exists($uploadPath) : false,
+                            'upload_path_writable' => isset($uploadPath) ? is_writable($uploadPath) : false
+                        ]);
+                        return redirect()->back()->withErrors(['document' => 'Failed to upload file. Error: ' . $directException->getMessage()])->withInput();
+                    }
+                }
+            } else {
+                \Log::info('No new document uploaded, keeping existing document', [
+                    'existing_document' => $data->document
+                ]);
+            }
+
+            // Step 6: Save the updated member data
+            \Log::info('Attempting to save updated member data', [
+                'member_id' => $id,
+                'document_name' => $data->document
+            ]);
+
+            $saved = $data->save();
+
+            if (!$saved) {
+                \Log::error('Failed to save updated member to database');
+                return redirect()->back()->withErrors(['error' => 'Failed to update member data.'])->withInput();
+            }
+
+            \Log::info('Member updated successfully', [
+                'member_id' => $data->id,
+                'document_filename' => $data->document
+            ]);
+
+            // Step 7: Success response
+            return redirect()->back()->with([
+                'message' => 'Member Updated Successfully',
+                'document' => $data->document
+            ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation failed for update', [
+                'member_id' => $id,
+                'errors' => $e->errors(),
+                'input' => $request->except(['document', '_token'])
+            ]);
+            return redirect()->back()->withErrors($e->errors())->withInput();
+
+        } catch (\Exception $e) {
+            // Enhanced error logging for debugging
+            \Log::error('Member update failed with exception', [
+                'member_id' => $id,
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString(),
+                'request_data' => $request->except(['document', '_token']),
+                'has_file' => $request->hasFile('document'),
+                'app_env' => config('app.env'),
+                'storage_path' => storage_path('app/public'),
+                'storage_writable' => is_writable(storage_path('app/public')),
+                'public_storage_path' => public_path('storage'),
+                'public_storage_exists' => file_exists(public_path('storage'))
+            ]);
+
+            // Return user-friendly error with specific issue if possible
+            $errorMessage = 'Update failed: ';
+
+            if (str_contains($e->getMessage(), 'SQLSTATE') || str_contains($e->getMessage(), 'database')) {
+                $errorMessage .= 'Database connection issue.';
+            } elseif (str_contains($e->getMessage(), 'file') || str_contains($e->getMessage(), 'upload') || str_contains($e->getMessage(), 'storage')) {
+                $errorMessage .= 'File upload issue - ' . $e->getMessage();
+            } elseif (str_contains($e->getMessage(), 'permission')) {
+                $errorMessage .= 'Permission issue - ' . $e->getMessage();
+            } elseif (str_contains($e->getMessage(), 'Class') && str_contains($e->getMessage(), 'not found')) {
+                $errorMessage .= 'System configuration error - ' . $e->getMessage();
+            } else {
+                $errorMessage .= $e->getMessage();
+            }
+
+            return redirect()->back()->withErrors(['error' => $errorMessage])->withInput();
+        }
+    }
 
     public function update_user($id)
     {
