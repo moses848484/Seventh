@@ -39,6 +39,7 @@
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
+              background-color: #038a5a !important;
         }
 
         .form-floating input:focus+label,
