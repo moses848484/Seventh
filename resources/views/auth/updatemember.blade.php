@@ -450,7 +450,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="submitbtn">
+            <button type="submit" class="btn btn-success w-100 py-2">
                 <i class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member
             </button>
 
