@@ -22,6 +22,190 @@
             -webkit-text-fill-color: #04AA6D !important;
             /* Changes text color */
         }
+        /* Floating Label Styles */
+        .form-floating {
+            position: relative;
+        }
+
+        .form-floating input {
+            padding: 1rem 0.75rem;
+            padding-top: 1.5rem;
+        }
+
+        .form-floating label {
+            position: absolute;
+            top: 45%;
+            left: 3%;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            color: #04AA6D;
+            pointer-events: none;
+        }
+
+        .form-floating input:focus+label,
+        .form-floating input:not(:placeholder-shown)+label {
+            top: 25%;
+            transform: translateY(-100%);
+            font-size: 0.80rem;
+            color: #04AA6D;
+            background: white;
+        }
+
+        /* Adjustments for input border */
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            color: #04AA6D;
+        }
+
+        .form-control:focus {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            color: #04AA6D;
+        }
+
+        .text-primary {
+            color: #e4af00 !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .form-floating input {
+                padding: 0.7rem 0.25rem;
+                padding-top: 1rem;
+                margin-bottom: 18px;
+            }
+
+            .form-floating label {
+                font-size: 0.75rem;
+                margin-top: -5px;
+                margin-left: 7px;
+            }
+
+            .form-select {
+                color: #04AA6D;
+                border-color: #04AA6D;
+            }
+
+            .form-floating label:focus {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+
+            .footer span {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .form-floating input {
+                padding: 0.7rem 0.25rem;
+                padding-top: 1rem;
+                margin-bottom: 18px;
+            }
+
+            .form-floating label {
+                font-size: 0.75rem;
+                margin-top: -5px;
+                margin-left: 7px;
+            }
+
+            .form-floating label:focus {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+
+            .footer span {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-floating input {
+                padding: 0.7rem 0.25rem;
+                padding-top: 1rem;
+                margin-bottom: 18px;
+            }
+
+            .form-floating label {
+                font-size: 0.75rem;
+                margin-top: -5px;
+                margin-left: 7px;
+            }
+
+            .form-floating label:focus {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem;
+            }
+
+            .footer span {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-floating input {
+                padding: 0.7rem 0.25rem;
+                padding-top: 2rem;
+                margin-bottom: 18px;
+            }
+
+            .form-floating label {
+                font-size: 1rem;
+                margin-top: -5px;
+                margin-left: 7px;
+            }
+
+            .form-floating label:focus {
+                font-size: 0.9rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .textcolor {
+                color: #04AA6D;
+            }
+
+            .footer span {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .bible-card {
+                height: 700px;
+                /* adjust as needed */
+            }
+        }
     </style>
 </head>
 
