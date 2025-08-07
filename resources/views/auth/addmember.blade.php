@@ -33,7 +33,7 @@
 
         .form-floating label {
             position: absolute;
-            top: 45%;
+            top: 30%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
@@ -43,7 +43,7 @@
 
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
-            top: -25%;
+            top: -30%;
             transform: translateY(-100%);
             font-size: 15px !important;;
             color: #04AA6D !important;;
