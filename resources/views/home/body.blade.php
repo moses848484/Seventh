@@ -197,7 +197,7 @@
                                 </iframe>
                             </div>
                             <div class="footer1 text-center">
-                                <h6 class="text-muted2 fw-normal">User Chart</h6>
+                                <h6 class="text-muted2 fw-normal">Welcome</h6>
                             </div>
                         </div>
                     </div>
