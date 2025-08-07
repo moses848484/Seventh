@@ -48,7 +48,6 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-            background: white;
             padding: 0 5px;
         }
 
@@ -111,6 +110,7 @@
             border-radius: 0.375rem;
             padding: 1.5rem;
             text-align: center;
+            background-color: #f8f9fa;
             cursor: pointer;
             transition: all 0.3s ease;
         }
