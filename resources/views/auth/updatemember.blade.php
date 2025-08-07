@@ -35,26 +35,28 @@
         .form-floating label {
             position: absolute;
             top: 45%;
-            left: 3%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
+            background-color: transparent !important;
         }
 
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
-            top: 25%;
+            top: -10%;
             transform: translateY(-100%);
-            font-size: 0.80rem;
-            color: #04AA6D;
-            background: white;
-            padding: 0 5px;
+            font-size: 15px !important;
+            ;
+            color: #04AA6D !important;
+            ;
+            width: auto !important;
+            background-color: transparent !important;
         }
 
         /* Adjustments for input border */
         .form-control {
-            border: 1px solid #ced4da;
+            border: 1px solid #ffffffff;
             border-radius: 0.25rem;
             color: #04AA6D;
         }
@@ -172,7 +174,6 @@
             .container {
                 padding: 1.5rem;
             }
-
         }
 
         @media (max-width: 576px) {
@@ -190,60 +191,8 @@
         }
 
         .fa-user-plus {
-            color: white;
+            color: #ffffffff;
         }
-
-        
-        /* File input styling */
-        .file-input-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .file-input-display {
-            border: 2px dashed #04AA6D;
-            border-radius: 0.375rem;
-            padding: 1.5rem;
-            text-align: center;
-            background-color: #f8f9fa;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .file-input-display:hover {
-            background-color: #e9ecef;
-            border-color: #038a5a;
-        }
-
-        .file-input-display.has-file {
-            border-color: #28a745;
-            background-color: #d4edda;
-        }
-
-        .file-icon {
-            font-size: 2rem;
-            color: #04AA6D;
-            margin-bottom: 0.5rem;
-        }
-
-        .file-text {
-            color: #6c757d;
-            font-size: 0.875rem;
-        }
-
-        .file-name {
-            color: #28a745;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
     </style>
 
 </head>
@@ -260,29 +209,54 @@
             </div>
             <h2 class="form-title">Update Member</h2>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="fname" name="fname" value="{{ $data->fname }}" type="text" required class="form-control"
-                        placeholder=" ">
-                    <label for="fname">First Name</label>
+      <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-floating">
+                        <input id="fname" name="fname" type="text" required autofocus 
+                               class="form-control @error('fname') is-invalid @enderror" 
+                               placeholder=" " value="{{ $data->fname }}">
+                        <label for="fname">First Name</label>
+                        @error('fname')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input id="mname" name="mname" value="{{ $data->mname }}" type="text" class="form-control"
-                        placeholder=" ">
-                    <label for="mname">Middle Name</label>
+                    <div class="form-floating">
+                        <input id="mname" name="mname" type="text" 
+                               class="form-control @error('mname') is-invalid @enderror" 
+                               placeholder=" " value="{{ $data->mname }}">
+                        <label for="mname">Middle Name</label>
+                        @error('mname')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="lname" name="lname" value="{{ $data->lname }}" type="text" required class="form-control"
-                        placeholder=" ">
-                    <label for="lname">Last Name</label>
+
+           <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-floating">
+                        <input id="lname" name="lname" type="text" required 
+                               class="form-control @error('lname') is-invalid @enderror" 
+                               placeholder=" " value="{{ $data->lname }}">
+                        <label for="lname">Last Name</label>
+                        @error('lname')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input id="mobile" name="mobile" value="{{ $data->mobile }}" type="number" required
-                        class="form-control" placeholder=" ">
-                    <label for="mobile">Mobile Number</label>
+                    <div class="form-floating">
+                        <input id="mobile" name="mobile" type="tel" required 
+                               class="form-control @error('mobile') is-invalid @enderror" 
+                               placeholder=" " value="{{ $data->mobile }}">
+                        <label for="mobile">Mobile Number</label>
+                        @error('mobile')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
@@ -307,24 +281,42 @@
                 </div>
             </div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-12">
-                    <input id="address" name="address" type="text" value="{{ $data->address }}" required
-                        class="form-control" placeholder=" ">
-                    <label for="address">Address</label>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input id="address" name="address" type="text" required autocomplete="address"
+                            class="form-control @error('address') is-invalid @enderror" placeholder=" "
+                            value="{{ $data->address }}">
+                        <label for="address">Address</label>
+                        @error('address')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="occupation" name="occupation" type="text" value="{{ $data->occupation }}" required
-                        class="form-control" placeholder=" ">
-                    <label for="occupation">Occupation</label>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-floating">
+                        <input id="occupation" name="occupation" type="text" required
+                            class="form-control @error('occupation') is-invalid @enderror" placeholder=" "
+                            value="{{ $data->occupation }}">
+                        <label for="occupation">Occupation</label>
+                        @error('occupation')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input id="email" name="email" type="email" value="{{ $data->email }}" class="form-control"
-                        placeholder=" ">
-                    <label for="email">Email Address</label>
+                    <div class="form-floating">
+                        <input id="email" name="email" type="email" required
+                            class="form-control @error('email') is-invalid @enderror" placeholder=" "
+                            value="{{ $data->email }}">
+                        <label for="email">Email Address</label>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
