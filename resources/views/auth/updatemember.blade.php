@@ -299,7 +299,7 @@
                 </div>
             </div>
 
-           <div class="row mb-3">
+            <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Change Baptism Certificate</label>
                     <div class="file-input-wrapper">
@@ -322,21 +322,23 @@
                     @enderror
                 </div>
                 @if (!empty($data->document))
-                     <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
-                        <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
+                    <div class="col-md-6 mb-3">
+                        <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
+                        <a href="{{ asset('storage/baptism-certificates/' . $member->document) }}" class="form-control"
                             target="_blank">View Baptism Certificate</a>
+                        <img src="{{ asset('storage/baptism-certificates/' . $member->document) }}"
+                            alt="Baptism Certificate">
                     </div>
                 @endif
             </div>
 
             <div class="row mb-3">
-               <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Birth</label>
                     <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
                         required>
                 </div>
-               <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Registration Update</label>
                     <input id="registrationdate" name="registrationdate" type="datetime-local"
                         value="{{ $data->registrationdate }}" class="form-control" required>
