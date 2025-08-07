@@ -42,21 +42,13 @@
             pointer-events: none;
         }
 
-        .form-floating > label {
-    background-color: transparent !important;
-    padding: 0 0.25rem;
-    z-index: 5;
-}
-
-
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
             top: 25%;
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-            background: white;
-            padding: 0 5px;
+        
         }
 
         /* Adjustments for input border */
