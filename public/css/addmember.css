@@ -63,7 +63,16 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #04AA6D !important;
 }
 
-
+/* Move placeholder on focus */
+.input_1:focus + .placeholder_1,
+.input:focus + .placeholder,
+.input_1.not-empty + .placeholder_1,
+.input.not-empty + .placeholder {
+    top: -10px;
+    color: #04AA6D;
+    background-color: #ffffff;
+    font-size: 15px;
+}
 
 /* Member link */
 .member {
