@@ -9,83 +9,68 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Registration</title>
     <style>
-        /* Custom Autofill input styling */
-        input:-webkit-autofill,
+         /* Custom Autofill input styling */
+         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            background-color: transparent !important;
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            box-shadow: 0 0 0 30px white inset !important;
             -webkit-text-fill-color: #04AA6D !important;
-            transition: background-color 5000s ease-in-out 0s;
         }
 
-        /* Custom Floating Label Styles for Bootstrap 4 */
+        /* Floating Label Styles */
         .form-floating {
             position: relative;
         }
 
-        .form-floating input,
-        .form-floating select {
+        .form-floating input {
             padding: 1rem 0.75rem;
             padding-top: 1.5rem;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
-            color: #04AA6D;
-            background-color: white;
         }
 
         .form-floating label {
             position: absolute;
             top: 45%;
-            left: 12px;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
             background-color: transparent !important;
-            z-index: 2;
         }
 
-        .form-floating input:focus + label,
-        .form-floating input:not(:placeholder-shown) + label,
-        .form-floating select:focus + label,
-        .form-floating .has-value + label {
-            top: 0px;
-            left: 8px;
-            transform: translateY(0);
-            font-size: 12px !important;
-            color: #04AA6D !important;
-            background-color: white !important;
-            padding: 0 4px;
+        .form-floating input:focus+label,
+        .form-floating input:not(:placeholder-shown)+label {
+            top: -30%;
+            transform: translateY(-100%);
+            font-size: 15px !important;;
+            color: #04AA6D !important;;
+            width: auto !important;
+            background-color: transparent !important;
         }
 
-        /* Form control adjustments */
+        /* Adjustments for input border */
         .form-control {
-            border: 1px solid #ced4da;
+            border: 1px solid #ffffffff;
             border-radius: 0.25rem;
             color: #04AA6D;
-            background-color: white;
         }
 
         .form-control:focus {
             border: 2px solid #04AA6D;
             box-shadow: 0 0 0 0.2rem rgba(4, 170, 109, 0.25);
             color: #04AA6D;
-            background-color: white;
         }
 
-        .custom-select {
+        .form-select {
             color: #04AA6D;
             border: 1px solid #ced4da;
-            background-color: white;
         }
 
-        .custom-select:focus {
+        .form-select:focus {
             border: 2px solid #04AA6D;
             box-shadow: 0 0 0 0.2rem rgba(4, 170, 109, 0.25);
         }
@@ -162,7 +147,6 @@
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
         }
-
         /* Session timeout warning */
         .session-warning {
             position: fixed;
@@ -172,48 +156,16 @@
             display: none;
         }
 
-        /* Invalid feedback styling for Bootstrap 4 */
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: 0.25rem;
-            font-size: 0.875em;
-            color: #dc3545;
-        }
-
-        .form-control.is-invalid,
-        .custom-select.is-invalid {
-            border-color: #dc3545;
-        }
-
-        .form-control.is-invalid:focus,
-        .custom-select.is-invalid:focus {
-            border-color: #dc3545;
-            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-        }
-
-        /* Footer styling */
-        .footer {
-            margin-top: 3rem;
-            padding: 1rem 0;
-            background-color: #f8f9fa;
-        }
-
-        .text-muted1 {
-            color: #6c757d !important;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .form-floating input,
-            .form-floating select {
+            .form-floating input {
                 padding: 0.8rem 0.5rem;
                 padding-top: 1.2rem;
             }
 
             .form-floating label {
                 font-size: 0.85rem;
-                left: 8px;
+                left: 2%;
             }
 
             .container {
@@ -226,8 +178,7 @@
                 padding: 1rem;
             }
 
-            .form-floating input,
-            .form-floating select {
+            .form-floating input {
                 padding-top: 1.5rem;
             }
 
@@ -242,9 +193,7 @@
     <!-- Session timeout warning -->
     <div class="alert alert-warning alert-dismissible session-warning" role="alert">
         <strong>Session Warning:</strong> Your session will expire soon. Please save your work.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
 
     <div class="container bg-white p-4 rounded shadow mt-2">
@@ -257,9 +206,7 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
         
@@ -267,9 +214,7 @@
         @if (session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <i class="fas fa-check-circle"></i> {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
 
@@ -334,7 +279,7 @@
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <select id="ministry" name="ministry" required 
-                            class="custom-select @error('ministry') is-invalid @enderror">
+                            class="form-select @error('ministry') is-invalid @enderror">
                         <option value="" disabled {{ old('ministry') ? '' : 'selected' }}>Select Ministry</option>
                         <option value="None" {{ old('ministry') == 'None' ? 'selected' : '' }}>None</option>
                         <option value="Choir" {{ old('ministry') == 'Choir' ? 'selected' : '' }}>Choir</option>
@@ -349,7 +294,7 @@
                 </div>
                 <div class="col-md-6">
                     <select id="registeras" name="registeras" required 
-                            class="custom-select @error('registeras') is-invalid @enderror">
+                            class="form-select @error('registeras') is-invalid @enderror">
                         <option value="" disabled {{ old('registeras') ? '' : 'selected' }}>Register As</option>
                         <option value="Visitor" {{ old('registeras') == 'Visitor' ? 'selected' : '' }}>Visitor</option>
                         <option value="Member" {{ old('registeras') == 'Member' ? 'selected' : '' }}>Member</option>
@@ -401,7 +346,7 @@
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label font-weight-bold">Upload Baptism Certificate</label>
+                    <label class="textcolor form-label fw-bold">Upload Baptism Certificate</label>
                     <div class="file-input-wrapper">
                         <input id="document" name="document" type="file" required 
                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
@@ -424,7 +369,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label class="textcolor form-label font-weight-bold" for="birthday">Date Of Birth</label>
+                    <label class="textcolor form-label fw-bold" for="birthday">Date Of Birth</label>
                     <input id="birthday" type="date" name="birthday" required 
                            class="form-control @error('birthday') is-invalid @enderror"
                            value="{{ old('birthday') }}">
@@ -437,7 +382,7 @@
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <select id="marital" name="marital" required 
-                            class="custom-select @error('marital') is-invalid @enderror">
+                            class="form-select @error('marital') is-invalid @enderror">
                         <option value="" disabled {{ old('marital') ? '' : 'selected' }}>Marital Status</option>
                         <option value="Single" {{ old('marital') == 'Single' ? 'selected' : '' }}>Single</option>
                         <option value="Married" {{ old('marital') == 'Married' ? 'selected' : '' }}>Married</option>
@@ -450,7 +395,7 @@
                 </div>
                 <div class="col-md-6">
                     <select id="gender" name="gender" required 
-                            class="custom-select @error('gender') is-invalid @enderror">
+                            class="form-select @error('gender') is-invalid @enderror">
                         <option value="" disabled {{ old('gender') ? '' : 'selected' }}>Select Gender</option>
                         <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
                         <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
@@ -463,7 +408,7 @@
 
             <div class="row mb-4">
                 <div class="col-12">
-                    <label class="textcolor form-label font-weight-bold" for="registrationdate">Date Of Registration</label>
+                    <label class="textcolor form-label fw-bold" for="registrationdate">Date Of Registration</label>
                     <input id="registrationdate" type="datetime-local" name="registrationdate" required 
                            class="form-control @error('registrationdate') is-invalid @enderror"
                            value="{{ old('registrationdate') }}">
@@ -473,15 +418,15 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success btn-block py-2" id="submitBtn">
+            <button type="submit" class="btn btn-success w-100 py-2" id="submitBtn">
                 <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
             </button>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="terms" id="terms" required>
-                        <label class="custom-control-label" for="terms">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
+                        <label class="form-check-label" for="terms">
                             {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                 'terms_of_service' =>
                                     '<a target="_blank" href="' .
@@ -498,24 +443,23 @@
             @endif
         </form>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">
-                    Copyright © University SDA Church 2024
-                </span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                    Computer Science Dept - Computer Systems Engineering from University Of Zambia
-                </span>
-            </div>
+   </div>
+   <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                University
+                SDA Church 2024</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                Computer Science Dept
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                    class="text-white">
+                    Computer Systems Engineering
+                </a> from University Of Zambia
+            </span>
         </div>
     </footer>
 
-    <!-- Bootstrap 4 JS Bundle -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
     <script>
         // CSRF Token setup for AJAX requests
         document.addEventListener('DOMContentLoaded', function() {
@@ -584,25 +528,6 @@
                 display.classList.remove('has-file');
                 fileName.style.display = 'none';
             }
-        });
-
-        // Custom floating label functionality for Bootstrap 4
-        document.querySelectorAll('.form-floating select').forEach(select => {
-            const updateLabel = () => {
-                const label = select.nextElementSibling;
-                if (select.value && select.value !== '') {
-                    label.classList.add('has-value');
-                } else {
-                    label.classList.remove('has-value');
-                }
-            };
-            
-            select.addEventListener('change', updateLabel);
-            select.addEventListener('focus', updateLabel);
-            select.addEventListener('blur', updateLabel);
-            
-            // Initialize on page load
-            updateLabel();
         });
 
         // Form submission handling with double-submit prevention
@@ -683,7 +608,8 @@
             const alerts = document.querySelectorAll('.alert');
             alerts.forEach(alert => {
                 if (alert.classList.contains('alert-success')) {
-                    $(alert).alert('close');
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
                 }
             });
         }, 5000);
