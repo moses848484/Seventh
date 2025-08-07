@@ -48,13 +48,13 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-            background: white;
+            background: transparent !important;
             padding: 0 5px;
         }
 
         /* Adjustments for input border */
         .form-control {
-            
+            border: 1px solid #ced4da;
             border-radius: 0.25rem;
             color: #04AA6D;
         }
