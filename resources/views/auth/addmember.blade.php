@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Registration</title>
     <style>
         /* Custom Autofill input styling */
@@ -158,15 +155,6 @@
             border: 1px solid #dee2e6;
         }
 
-        /* Session timeout warning */
-        .session-warning {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            display: none;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .form-floating input {
@@ -201,117 +189,99 @@
                 font-size: 0.9rem;
             }
         }
-
-        .fa-user-plus {
-            color: white;
-        }
     </style>
-
 </head>
 
 <body>
-    <!-- Session timeout warning -->
-    <div class="alert alert-warning alert-dismissible session-warning" role="alert">
-        <strong>Session Warning:</strong> Your session will expire soon. Please save your work.
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-
     <div class="container bg-white p-4 rounded shadow mt-2">
         <!-- Display validation errors -->
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Please fix the following errors:</strong>
-                <ul class="mb-0 mt-2">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
+        <div id="error-messages"></div>
+        
+        <!-- Display success message -->
+        <div id="success-message"></div>
 
-        <form method="POST" action="{{ url('/add_members') }}" enctype="multipart/form-data" id="registrationForm">
-            @csrf
+        <form method="POST" action="/add_members" enctype="multipart/form-data" id="registrationForm">
+            <input type="hidden" name="_token" value="csrf_token_placeholder">
 
             <div class="text-center mb-4">
-                <img src="{{ asset('images/sda.png') }}" class="sda_logo mb-3" alt="Logo" style="width: 55px;">
+                <img src="/images/sda.png" class="sda_logo mb-3" alt="Logo" style="width: 55px;">
                 <h2 class="text-primary">Registration</h2>
             </div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="fname" name="fname" type="text" required autofocus class="form-control" placeholder=" ">
-                    <label for="fname">First Name</label>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-floating">
+                        <input id="fname" name="fname" type="text" required autofocus class="form-control" placeholder=" ">
+                        <label for="fname">First Name</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input id="mname" name="mname" type="text" class="form-control" placeholder=" ">
-                    <label for="mname">Middle Name</label>
-                </div>
-            </div>
-
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="lname" name="lname" type="text" required class="form-control" placeholder=" ">
-                    <label for="lname">Last Name</label>
-                </div>
-
-                <div class="col-md-6">
-                    <input id="mobile" name="mobile" type="number" required class="form-control" placeholder=" ">
-                    <label for="mobile">Mobile Number</label>
+                    <div class="form-floating">
+                        <input id="mname" name="mname" type="text" class="form-control" placeholder=" ">
+                        <label for="mname">Middle Name</label>
+                    </div>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="ministry" name="ministry" required
-                        class="form-select @error('ministry') is-invalid @enderror">
-                        <option value="" disabled {{ old('ministry') ? '' : 'selected' }}>Select Ministry</option>
-                        <option value="None" {{ old('ministry') == 'None' ? 'selected' : '' }}>None</option>
-                        <option value="Choir" {{ old('ministry') == 'Choir' ? 'selected' : '' }}>Choir</option>
-                        <option value="Ushering" {{ old('ministry') == 'Ushering' ? 'selected' : '' }}>Ushering</option>
-                        <option value="Prayer Band" {{ old('ministry') == 'Prayer Band' ? 'selected' : '' }}>Prayer Band
-                        </option>
-                        <option value="Technical" {{ old('ministry') == 'Technical' ? 'selected' : '' }}>Technical
-                        </option>
-                        <option value="Prayer Warrior" {{ old('ministry') == 'Prayer Warrior' ? 'selected' : '' }}>Prayer
-                            Warrior</option>
-                    </select>
-                    @error('ministry')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <div class="form-floating">
+                        <input id="lname" name="lname" type="text" required class="form-control" placeholder=" ">
+                        <label for="lname">Last Name</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <select id="registeras" name="registeras" required
-                        class="form-select @error('registeras') is-invalid @enderror">
-                        <option value="" disabled {{ old('registeras') ? '' : 'selected' }}>Register As</option>
-                        <option value="Visitor" {{ old('registeras') == 'Visitor' ? 'selected' : '' }}>Visitor</option>
-                        <option value="Member" {{ old('registeras') == 'Member' ? 'selected' : '' }}>Member</option>
-                    </select>
-                    @error('registeras')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <div class="form-floating">
+                        <input id="mobile" name="mobile" type="tel" required class="form-control" placeholder=" ">
+                        <label for="mobile">Mobile Number</label>
+                    </div>
                 </div>
             </div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-12">
-                    <input id="address" name="address" type="text" required autocomplete="address" class="form-control"
-                        placeholder=" ">
-                    <label for="address">Address</label>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <select id="ministry" name="ministry" required class="form-select">
+                        <option value="" disabled selected>Select Ministry</option>
+                        <option value="None">None</option>
+                        <option value="Choir">Choir</option>
+                        <option value="Ushering">Ushering</option>
+                        <option value="Prayer Band">Prayer Band</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Prayer Warrior">Prayer Warrior</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select id="registeras" name="registeras" required class="form-select">
+                        <option value="" disabled selected>Register As</option>
+                        <option value="Visitor">Visitor</option>
+                        <option value="Member">Member</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <input id="address" name="address" type="text" required autocomplete="address" class="form-control" placeholder=" ">
+                        <label for="address">Address</label>
+                    </div>
                 </div>
             </div>
 
             <div id="map"></div>
 
-            <div class="row mb-3 form-floating">
-                <div class="col-md-6">
-                    <input id="occupation" name="occupation" type="text" required autofocus class="form-control"
-                        placeholder=" ">
-                    <label for="occupation">Occupation</label>
+            <div class="row mb-3">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="form-floating">
+                        <input id="occupation" name="occupation" type="text" required class="form-control" placeholder=" ">
+                        <label for="occupation">Occupation</label>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <input id="email" name="email" type="text" class="form-control" placeholder=" ">
-                    <label for="email">Email Address</label>
+                    <div class="form-floating">
+                        <input id="email" name="email" type="email" required class="form-control" placeholder=" ">
+                        <label for="email">Email Address</label>
+                    </div>
                 </div>
             </div>
 
@@ -319,8 +289,7 @@
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Upload Baptism Certificate</label>
                     <div class="file-input-wrapper">
-                        <input id="document" name="document" type="file" required
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
+                        <input id="document" name="document" type="file" required accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
                         <div class="file-input-display" onclick="document.getElementById('document').click();">
                             <div class="file-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -333,164 +302,87 @@
                             <div class="file-name" id="file-name" style="display: none;"></div>
                         </div>
                     </div>
-                    @error('document')
-                        <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="textcolor form-label fw-bold" for="birthday">Date Of Birth</label>
-                    <input id="birthday" type="date" name="birthday" required
-                        class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}">
-                    @error('birthday')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <input id="birthday" type="date" name="birthday" required class="form-control">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="marital" name="marital" required
-                        class="form-select @error('marital') is-invalid @enderror">
-                        <option value="" disabled {{ old('marital') ? '' : 'selected' }}>Marital Status</option>
-                        <option value="Single" {{ old('marital') == 'Single' ? 'selected' : '' }}>Single</option>
-                        <option value="Married" {{ old('marital') == 'Married' ? 'selected' : '' }}>Married</option>
-                        <option value="Divorced" {{ old('marital') == 'Divorced' ? 'selected' : '' }}>Divorced</option>
-                        <option value="Widowed" {{ old('marital') == 'Widowed' ? 'selected' : '' }}>Widowed</option>
+                    <select id="marital" name="marital" required class="form-select">
+                        <option value="" disabled selected>Marital Status</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
                     </select>
-                    @error('marital')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <select id="gender" name="gender" required
-                        class="form-select @error('gender') is-invalid @enderror">
-                        <option value="" disabled {{ old('gender') ? '' : 'selected' }}>Select Gender</option>
-                        <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                        <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                    <select id="gender" name="gender" required class="form-select">
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
-                    @error('gender')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
             </div>
 
             <div class="row mb-4">
                 <div class="col-12">
                     <label class="textcolor form-label fw-bold" for="registrationdate">Date Of Registration</label>
-                    <input id="registrationdate" type="datetime-local" name="registrationdate" required
-                        class="form-control @error('registrationdate') is-invalid @enderror"
-                        value="{{ old('registrationdate') }}">
-                    @error('registrationdate')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <input id="registrationdate" type="datetime-local" name="registrationdate" required class="form-control">
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success w-100 py-2" id="submitBtn">
+            <button type="submit" class="btn btn-success w-100 py-2">
                 <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
             </button>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                        <div class="mt-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                                <label class="form-check-label" for="terms">
-                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                    'terms_of_service' =>
-                        '<a target="_blank" href="' .
-                        route('terms.show') .
-                        '" class="text-decoration-none">terms of service</a>',
-                    'privacy_policy' =>
-                        '<a target="_blank" href="' .
-                        route('policy.show') .
-                        '" class="text-decoration-none">privacy policy</a>',
-                ]) !!}
-                                </label>
-                            </div>
-                        </div>
-            @endif
         </form>
     </div>
 
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                University
-                SDA Church 2024</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                Computer Science Dept
-                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
-                    Computer Systems Engineering
-                </a> from University Of Zambia
-            </span>
+    <footer class="footer mt-5 py-3">
+        <div class="container">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
+                    Copyright © University SDA Church 2024
+                </span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                    Computer Science Dept - Computer Systems Engineering from University Of Zambia
+                </span>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places"></script>
+    
     <script>
-        // CSRF Token setup for AJAX requests
-        document.addEventListener('DOMContentLoaded', function () {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]');
-            if (csrfToken) {
-                window.Laravel = {
-                    csrfToken: csrfToken.getAttribute('content')
-                };
-            }
-        });
-
-        // Session timeout warning (25 minutes for 30-minute session)
-        let sessionWarningTimer;
-        let sessionTimeout = 25 * 60 * 1000; // 25 minutes in milliseconds
-
-        function showSessionWarning() {
-            document.querySelector('.session-warning').style.display = 'block';
-        }
-
-        function resetSessionTimer() {
-            clearTimeout(sessionWarningTimer);
-            sessionWarningTimer = setTimeout(showSessionWarning, sessionTimeout);
-            document.querySelector('.session-warning').style.display = 'none';
-        }
-
-        // Reset timer on user activity
-        ['click', 'keypress', 'scroll', 'mousemove'].forEach(event => {
-            document.addEventListener(event, resetSessionTimer, true);
-        });
-
-        // Initial timer setup
-        resetSessionTimer();
-
         // File upload handling
-        document.getElementById('document').addEventListener('change', function (e) {
+        document.getElementById('document').addEventListener('change', function(e) {
             const file = e.target.files[0];
             const display = document.querySelector('.file-input-display');
             const fileName = document.getElementById('file-name');
-
+            
             if (file) {
                 // Check file size (2MB = 2 * 1024 * 1024 bytes)
                 if (file.size > 2 * 1024 * 1024) {
                     alert('File size exceeds 2MB. Please choose a smaller file.');
                     e.target.value = '';
-                    display.classList.remove('has-file');
-                    fileName.style.display = 'none';
                     return;
                 }
-
+                
                 // Check file type
-                const allowedTypes = ['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'];
-                const fileExtension = file.name.split('.').pop().toLowerCase();
-
+                const allowedTypes = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
+                const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+                
                 if (!allowedTypes.includes(fileExtension)) {
                     alert('Invalid file type. Please upload PDF, DOC, DOCX, JPG, JPEG, or PNG files only.');
                     e.target.value = '';
-                    display.classList.remove('has-file');
-                    fileName.style.display = 'none';
                     return;
                 }
-
+                
                 display.classList.add('has-file');
                 fileName.textContent = file.name;
                 fileName.style.display = 'block';
@@ -500,125 +392,83 @@
             }
         });
 
-        // Form submission handling with double-submit prevention
-        let isSubmitting = false;
-
-        document.getElementById('registrationForm').addEventListener('submit', function (e) {
-            if (isSubmitting) {
-                e.preventDefault();
-                return false;
-            }
-
+        // Form submission handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
             const fileInput = document.getElementById('document');
-
+            
             if (!fileInput.files.length) {
                 e.preventDefault();
                 alert('Please select a baptism certificate file to upload.');
                 return false;
             }
-
-            // Validate required fields
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    field.classList.add('is-invalid');
-                    isValid = false;
-                } else {
-                    field.classList.remove('is-invalid');
-                }
-            });
-
-            if (!isValid) {
-                e.preventDefault();
-                alert('Please fill in all required fields.');
-                return false;
-            }
-
+            
             // Show loading state
-            isSubmitting = true;
-            const submitBtn = document.getElementById('submitBtn');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp;Adding Member...';
-
-            // Re-enable button after 15 seconds (failsafe for network issues)
+            
+            // Re-enable button after 10 seconds (failsafe)
             setTimeout(() => {
-                if (isSubmitting) {
-                    isSubmitting = false;
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                }
-            }, 15000);
-        });
-
-        // Re-enable form submission when page becomes visible again (handles back button)
-        document.addEventListener('visibilitychange', function () {
-            if (!document.hidden) {
-                isSubmitting = false;
-                const submitBtn = document.getElementById('submitBtn');
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i>&nbsp;Add Member';
-            }
+                submitBtn.innerHTML = originalText;
+            }, 10000);
         });
 
-        // Leaflet Maps functionality
-        let map, marker;
+        // Google Maps functionality
+        let map;
+        let marker;
 
-        function initLeafletMap() {
-            const defaultCoords = [-15.3875, 28.3228]; // Lusaka
-
-            map = L.map('map').setView(defaultCoords, 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution:
-                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            }).addTo(map);
-
-            marker = L.marker(defaultCoords, { draggable: true }).addTo(map);
-
-            // Reverse geocode on drag end
-            marker.on('dragend', function (e) {
-                const { lat, lng } = e.target.getLatLng();
-                fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.display_name) {
-                            document.getElementById('address').value = data.display_name;
-                        }
-                    });
+        function initMap() {
+            const defaultLocation = { lat: -15.3875, lng: 28.3228 }; // Lusaka, Zambia
+            
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: defaultLocation,
+                zoom: 12,
             });
 
-            // Geocode on address change
-            document.getElementById('address').addEventListener('change', function () {
-                const query = this.value;
-                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.length > 0) {
-                            const lat = parseFloat(data[0].lat);
-                            const lon = parseFloat(data[0].lon);
-                            map.setView([lat, lon], 15);
-                            marker.setLatLng([lat, lon]);
-                        }
-                    });
+            marker = new google.maps.Marker({
+                position: defaultLocation,
+                map: map,
+                draggable: true
+            });
+
+            const input = document.getElementById('address');
+            const autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.bindTo('bounds', map);
+
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                if (place.geometry) {
+                    map.setCenter(place.geometry.location);
+                    marker.setPosition(place.geometry.location);
+                    map.setZoom(15);
+                }
+            });
+
+            marker.addListener('dragend', function(event) {
+                const lat = event.latLng.lat();
+                const lng = event.latLng.lng();
+                
+                const geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ location: { lat, lng } }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        input.value = results[0].formatted_address;
+                    }
+                });
             });
         }
 
-        window.addEventListener('load', initLeafletMap);
+        // Initialize map when page loads
+        window.addEventListener('load', initMap);
 
-
-        // Set current datetime for registration date if not already set
-        document.addEventListener('DOMContentLoaded', function () {
-            const registrationDateInput = document.getElementById('registrationdate');
-            if (!registrationDateInput.value) {
-                const now = new Date();
-                const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
-                registrationDateInput.value = localDateTime;
-            }
+        // Set current datetime for registration date
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            document.getElementById('registrationdate').value = localDateTime;
         });
-
     </script>
 </body>
 
