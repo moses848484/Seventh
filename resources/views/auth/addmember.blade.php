@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <meta name="csrf-token" content="your-csrf-token-here">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <title>Registration</title>
@@ -166,25 +167,6 @@
             display: none;
         }
 
-        /* Footer styles */
-        .footer {
-            background-color: #04AA6D;
-            color: white;
-            padding: 20px 0;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .text-muted1 {
-            color: white !important;
-        }
-
-        /* Logo styles */
-        .sda_logo {
-            width: 55px;
-            height: auto;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .form-floating input {
@@ -223,12 +205,6 @@
         .fa-user-plus {
             color: white;
         }
-
-        /* Body styles */
-        body {
-            background-color: #f8f9fa;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
     </style>
 
 </head>
@@ -241,69 +217,84 @@
     </div>
 
     <div class="container bg-white p-4 rounded shadow mt-2">
-        <!-- Display validation errors (will work when integrated with Laravel) -->
-        <div class="alert alert-danger alert-dismissible fade show d-none" role="alert" id="errorAlert">
-            <strong>Please fix the following errors:</strong>
-            <ul class="mb-0 mt-2" id="errorList">
-            </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
+        <!-- Display validation errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Please fix the following errors:</strong>
+                <ul class="mb-0 mt-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
 
-        <form method="POST" action="/add_members" enctype="multipart/form-data" id="registrationForm">
-            <input type="hidden" name="_token" value="your-csrf-token-here">
+        <form method="POST" action="{{ url('/add_members') }}" enctype="multipart/form-data" id="registrationForm">
+            @csrf
 
             <div class="text-center mb-4">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTUiIGhlaWdodD0iNTUiIHZpZXdCb3g9IjAgMCA1NSA1NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjcuNSIgY3k9IjI3LjUiIHI9IjI3LjUiIGZpbGw9IiMwNEFBNkQiLz4KPHN2ZyB4PSIxNSIgeT0iMTUiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz4KPC9zdmc+Cjwvc3ZnPgo=" 
-                     class="sda_logo mb-3" alt="SDA Logo">
+                <img src="{{ asset('images/sda.png') }}" class="sda_logo mb-3" alt="Logo" style="width: 55px;">
                 <h2 class="text-primary">Registration</h2>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6 form-floating mb-3 mb-md-0">
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
                     <input id="fname" name="fname" type="text" required autofocus class="form-control" placeholder=" ">
                     <label for="fname">First Name</label>
                 </div>
-                <div class="col-md-6 form-floating">
+                <div class="col-md-6">
                     <input id="mname" name="mname" type="text" class="form-control" placeholder=" ">
                     <label for="mname">Middle Name</label>
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6 form-floating mb-3 mb-md-0">
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
                     <input id="lname" name="lname" type="text" required class="form-control" placeholder=" ">
                     <label for="lname">Last Name</label>
                 </div>
 
-                <div class="col-md-6 form-floating">
-                    <input id="mobile" name="mobile" type="tel" required class="form-control" placeholder=" ">
+                <div class="col-md-6">
+                    <input id="mobile" name="mobile" type="number" required class="form-control" placeholder=" ">
                     <label for="mobile">Mobile Number</label>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="ministry" name="ministry" required class="form-select">
-                        <option value="" disabled selected>Select Ministry</option>
-                        <option value="None">None</option>
-                        <option value="Choir">Choir</option>
-                        <option value="Ushering">Ushering</option>
-                        <option value="Prayer Band">Prayer Band</option>
-                        <option value="Technical">Technical</option>
-                        <option value="Prayer Warrior">Prayer Warrior</option>
+                    <select id="ministry" name="ministry" required
+                        class="form-select @error('ministry') is-invalid @enderror">
+                        <option value="" disabled {{ old('ministry') ? '' : 'selected' }}>Select Ministry</option>
+                        <option value="None" {{ old('ministry') == 'None' ? 'selected' : '' }}>None</option>
+                        <option value="Choir" {{ old('ministry') == 'Choir' ? 'selected' : '' }}>Choir</option>
+                        <option value="Ushering" {{ old('ministry') == 'Ushering' ? 'selected' : '' }}>Ushering</option>
+                        <option value="Prayer Band" {{ old('ministry') == 'Prayer Band' ? 'selected' : '' }}>Prayer Band
+                        </option>
+                        <option value="Technical" {{ old('ministry') == 'Technical' ? 'selected' : '' }}>Technical
+                        </option>
+                        <option value="Prayer Warrior" {{ old('ministry') == 'Prayer Warrior' ? 'selected' : '' }}>Prayer
+                            Warrior</option>
                     </select>
+                    @error('ministry')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <select id="registeras" name="registeras" required class="form-select">
-                        <option value="" disabled selected>Register As</option>
-                        <option value="Visitor">Visitor</option>
-                        <option value="Member">Member</option>
+                    <select id="registeras" name="registeras" required
+                        class="form-select @error('registeras') is-invalid @enderror">
+                        <option value="" disabled {{ old('registeras') ? '' : 'selected' }}>Register As</option>
+                        <option value="Visitor" {{ old('registeras') == 'Visitor' ? 'selected' : '' }}>Visitor</option>
+                        <option value="Member" {{ old('registeras') == 'Member' ? 'selected' : '' }}>Member</option>
                     </select>
+                    @error('registeras')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-12 form-floating">
+            <div class="row mb-3 form-floating">
+                <div class="col-md-12">
                     <input id="address" name="address" type="text" required autocomplete="address" class="form-control"
                         placeholder=" ">
                     <label for="address">Address</label>
@@ -312,14 +303,14 @@
 
             <div id="map"></div>
 
-            <div class="row mb-3">
-                <div class="col-md-6 form-floating mb-3 mb-md-0">
-                    <input id="occupation" name="occupation" type="text" required class="form-control"
+            <div class="row mb-3 form-floating">
+                <div class="col-md-6">
+                    <input id="occupation" name="occupation" type="text" required autofocus class="form-control"
                         placeholder=" ">
                     <label for="occupation">Occupation</label>
                 </div>
-                <div class="col-md-6 form-floating">
-                    <input id="email" name="email" type="email" class="form-control" placeholder=" ">
+                <div class="col-md-6">
+                    <input id="email" name="email" type="text" class="form-control" placeholder=" ">
                     <label for="email">Email Address</label>
                 </div>
             </div>
@@ -329,7 +320,7 @@
                     <label class="textcolor form-label fw-bold">Upload Baptism Certificate</label>
                     <div class="file-input-wrapper">
                         <input id="document" name="document" type="file" required
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
                         <div class="file-input-display" onclick="document.getElementById('document').click();">
                             <div class="file-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -342,30 +333,45 @@
                             <div class="file-name" id="file-name" style="display: none;"></div>
                         </div>
                     </div>
+                    @error('document')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="col-md-6">
                     <label class="textcolor form-label fw-bold" for="birthday">Date Of Birth</label>
-                    <input id="birthday" type="date" name="birthday" required class="form-control">
+                    <input id="birthday" type="date" name="birthday" required
+                        class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}">
+                    @error('birthday')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <select id="marital" name="marital" required class="form-select">
-                        <option value="" disabled selected>Marital Status</option>
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Divorced">Divorced</option>
-                        <option value="Widowed">Widowed</option>
+                    <select id="marital" name="marital" required
+                        class="form-select @error('marital') is-invalid @enderror">
+                        <option value="" disabled {{ old('marital') ? '' : 'selected' }}>Marital Status</option>
+                        <option value="Single" {{ old('marital') == 'Single' ? 'selected' : '' }}>Single</option>
+                        <option value="Married" {{ old('marital') == 'Married' ? 'selected' : '' }}>Married</option>
+                        <option value="Divorced" {{ old('marital') == 'Divorced' ? 'selected' : '' }}>Divorced</option>
+                        <option value="Widowed" {{ old('marital') == 'Widowed' ? 'selected' : '' }}>Widowed</option>
                     </select>
+                    @error('marital')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <select id="gender" name="gender" required class="form-select">
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                    <select id="gender" name="gender" required
+                        class="form-select @error('gender') is-invalid @enderror">
+                        <option value="" disabled {{ old('gender') ? '' : 'selected' }}>Select Gender</option>
+                        <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                        <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
                     </select>
+                    @error('gender')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -373,7 +379,11 @@
                 <div class="col-12">
                     <label class="textcolor form-label fw-bold" for="registrationdate">Date Of Registration</label>
                     <input id="registrationdate" type="datetime-local" name="registrationdate" required
-                        class="form-control">
+                        class="form-control @error('registrationdate') is-invalid @enderror"
+                        value="{{ old('registrationdate') }}">
+                    @error('registrationdate')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 
@@ -381,34 +391,45 @@
                 <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
             </button>
 
-            <div class="mt-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                    <label class="form-check-label" for="terms">
-                        I agree to the <a href="#" target="_blank" class="text-decoration-none">terms of service</a> and <a href="#" target="_blank" class="text-decoration-none">privacy policy</a>
-                    </label>
-                </div>
-            </div>
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                        <div class="mt-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                    'terms_of_service' =>
+                        '<a target="_blank" href="' .
+                        route('terms.show') .
+                        '" class="text-decoration-none">terms of service</a>',
+                    'privacy_policy' =>
+                        '<a target="_blank" href="' .
+                        route('policy.show') .
+                        '" class="text-decoration-none">privacy policy</a>',
+                ]) !!}
+                                </label>
+                            </div>
+                        </div>
+            @endif
         </form>
     </div>
-
+  </div>
     <footer class="footer">
-        <div class="container">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                    University SDA Church 2024</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                    Computer Science Dept
-                    <a href="https://www.unza.zm" target="_blank" class="text-white">
-                        Computer Systems Engineering
-                    </a> from University Of Zambia
-                </span>
-            </div>
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                University
+                SDA Church 2024</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                Computer Science Dept
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
+                    Computer Systems Engineering
+                </a> from University Of Zambia
+            </span>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
     <script>
         // CSRF Token setup for AJAX requests
         document.addEventListener('DOMContentLoaded', function () {
@@ -566,17 +587,12 @@
                         if (data && data.display_name) {
                             document.getElementById('address').value = data.display_name;
                         }
-                    })
-                    .catch(err => {
-                        console.log('Geocoding error:', err);
                     });
             });
 
             // Geocode on address change
             document.getElementById('address').addEventListener('change', function () {
                 const query = this.value;
-                if (query.trim() === '') return;
-
                 fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
                     .then(res => res.json())
                     .then(data => {
@@ -586,14 +602,12 @@
                             map.setView([lat, lon], 15);
                             marker.setLatLng([lat, lon]);
                         }
-                    })
-                    .catch(err => {
-                        console.log('Geocoding error:', err);
                     });
             });
         }
 
         window.addEventListener('load', initLeafletMap);
+
 
         // Set current datetime for registration date if not already set
         document.addEventListener('DOMContentLoaded', function () {
