@@ -55,12 +55,12 @@
         .form-floating input:not(:placeholder-shown) + label,
         .form-floating select:focus + label,
         .form-floating .has-value + label {
-            top: -5px;
+            top: 0px;
             left: 8px;
             transform: translateY(0);
             font-size: 12px !important;
             color: #04AA6D !important;
-            background-color: white;
+            background-color: white !important;
             padding: 0 4px;
         }
 
