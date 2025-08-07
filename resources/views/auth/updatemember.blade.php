@@ -299,12 +299,12 @@
                 </div>
             </div>
 
-           <div class="row mb-3">
+            <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Change Baptism Certificate</label>
                     <div class="file-input-wrapper">
-                        <input id="document" name="document" type="file" required
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
+                        <input id="document" name="document" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                            class="@error('document') is-invalid @enderror" onchange="updateFileName(this)">
                         <div class="file-input-display" onclick="document.getElementById('document').click();">
                             <div class="file-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -321,58 +321,82 @@
                         <div class="text-danger small mt-1">{{ $message }}</div>
                     @enderror
                 </div>
+
                 @if (!empty($data->document))
-                     <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
-                        <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
-                            target="_blank">View Baptism Certificate</a>
+                    <div class="col-md-6 mb-3">
+                        <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
+                        <div class="d-flex align-items-center">
+                            <a href="{{ asset('baptism_certificates/' . $data->document) }}"
+                                class="btn btn-outline-success me-2" target="_blank">
+                                View
+                            </a>
+                            <form method="POST" action="{{ url('/delete_certificate/' . $data->id) }}"
+                                onsubmit="return confirm('Delete this certificate?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 @endif
             </div>
 
-            <div class="row mb-3">
-               <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label fw-bold">Date of Birth</label>
-                    <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
-                        required>
-                </div>
-               <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label fw-bold">Date of Registration Update</label>
-                    <input id="registrationdate" name="registrationdate" type="datetime-local"
-                        value="{{ $data->registrationdate }}" class="form-control" required>
-                </div>
-            </div>
+            @error('document')
+                <div class="text-danger small mt-1">{{ $message }}</div>
+            @enderror
+    </div>
+    @if (!empty($data->document))
+        <div class="col-md-6 mb-3">
+            <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
+            <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control" target="_blank">View
+                Baptism Certificate</a>
+        </div>
+    @endif
+    </div>
 
-            <button type="submit" class="submitbtn">
-                <i class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member
-            </button>
+    <div class="row mb-3">
+        <div class="col-md-6 mb-3">
+            <label class="textcolor form-label fw-bold">Date of Birth</label>
+            <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
+                required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="textcolor form-label fw-bold">Date of Registration Update</label>
+            <input id="registrationdate" name="registrationdate" type="datetime-local"
+                value="{{ $data->registrationdate }}" class="form-control" required>
+        </div>
+    </div>
 
-            @if (session('message'))
-                <div class="alert alert-success mt-3">
-                    {{ session('message') }}
-                    @if (session('document'))
-                        <p><a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View Uploaded
-                                Document</a></p>
-                    @endif
-                </div>
+    <button type="submit" class="submitbtn">
+        <i class="fa-solid fa-pen-to-square"></i>&nbsp;Update Member
+    </button>
+
+    @if (session('message'))
+        <div class="alert alert-success mt-3">
+            {{ session('message') }}
+            @if (session('document'))
+                <p><a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View Uploaded
+                        Document</a></p>
             @endif
+        </div>
+    @endif
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                        <div class="mt-4">
-                            <x-label for="terms">
-                                <div class="flex items-center">
-                                    <x-checkbox name="terms" id="terms" required />
-                                    <div class="ms-2">
-                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a>',
-                    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>',
-                ]) !!}
-                                    </div>
-                                </div>
-                            </x-label>
-                        </div>
-            @endif
-        </form>
+    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+        <div class="mt-4">
+            <x-label for="terms">
+                <div class="flex items-center">
+                    <x-checkbox name="terms" id="terms" required />
+                    <div class="ms-2">
+                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
+            'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a>',
+            'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>',
+        ]) !!}
+                    </div>
+                </div>
+            </x-label>
+        </div>
+    @endif
+    </form>
     </div>
     </div>
 
@@ -394,6 +418,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     </script>
+    <script>
+    function updateFileName(input) {
+        const fileName = input.files[0]?.name;
+        const fileNameDisplay = document.getElementById('file-name');
+        if (fileName) {
+            fileNameDisplay.textContent = "Selected: " + fileName;
+            fileNameDisplay.style.display = 'block';
+            input.closest('.file-input-display').classList.add('has-file');
+        } else {
+            fileNameDisplay.style.display = 'none';
+        }
+    }
+</script>
+
 </body>
 
 </html>

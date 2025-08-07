@@ -87,70 +87,70 @@ class AdminController extends Controller
         return view('admin.seeusers', compact('users', 'userCount'));
     }
 
-   public function add_members(Request $request)
-{
-    try {
-        // Validate request
-        $request->validate([
-            'fname' => 'required|string|max:255',
-            'mname' => 'nullable|string|max:255',
-            'lname' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email',
-            'address' => 'required|string|max:255',
-            'mobile' => 'required|string|max:20',
-            'occupation' => 'required|string|max:100',
-            'registeras' => 'required|string|max:100',
-            'registrationdate' => 'required|date',
-            'gender' => 'required|string|max:10',
-            'birthday' => 'required|date',
-            'ministry' => 'required|string|max:100',
-            'marital' => 'required|string|max:50',
-            'document' => 'nullable|file|mimes:pdf,jpeg,png,jpg|max:2048',
-        ]);
+    public function add_members(Request $request)
+    {
+        try {
+            // Validate request
+            $request->validate([
+                'fname' => 'required|string|max:255',
+                'mname' => 'nullable|string|max:255',
+                'lname' => 'required|string|max:255',
+                'email' => 'required|email|unique:members,email',
+                'address' => 'required|string|max:255',
+                'mobile' => 'required|string|max:20',
+                'occupation' => 'required|string|max:100',
+                'registeras' => 'required|string|max:100',
+                'registrationdate' => 'required|date',
+                'gender' => 'required|string|max:10',
+                'birthday' => 'required|date',
+                'ministry' => 'required|string|max:100',
+                'marital' => 'required|string|max:50',
+                'document' => 'nullable|file|mimes:pdf,jpeg,png,jpg|max:2048',
+            ]);
 
-        // Handle file upload
-        $documentName = null;
+            // Handle file upload
+            $documentName = null;
 
-        if ($request->hasFile('document')) {
-            $document = $request->file('document');
-            $documentName = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
+            if ($request->hasFile('document')) {
+                $document = $request->file('document');
+                $documentName = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
 
-            // Store in storage/app/public/baptism_certificates
-            $document->storeAs('public/baptism_certificates', $documentName);
+                // Store in storage/app/public/baptism_certificates
+                $document->storeAs('public/baptism_certificates', $documentName);
+            }
+
+            // Save to database
+            $members = new Members();
+            $members->fname = $request->fname;
+            $members->mname = $request->mname;
+            $members->lname = $request->lname;
+            $members->email = $request->email;
+            $members->address = $request->address;
+            $members->mobile = $request->mobile;
+            $members->occupation = $request->occupation;
+            $members->registeras = $request->registeras;
+            $members->registrationdate = $request->registrationdate;
+            $members->gender = $request->gender;
+            $members->birthday = $request->birthday;
+            $members->ministry = $request->ministry;
+            $members->marital = $request->marital;
+            $members->document = $documentName;
+            $members->save();
+
+            // Log action
+            LogActivity::create([
+                'user_id' => auth()->user()->id,
+                'activity' => 'Added a new member: ' . $request->fname . ' ' . $request->lname,
+            ]);
+
+            return redirect()->route('view.members')->with('success', 'Member added successfully.');
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error adding member: ' . $e->getMessage());
+
+            return redirect()->back()->withInput()->with('error', 'An error occurred while adding the member.');
         }
-
-        // Save to database
-        $members = new Members();
-        $members->fname = $request->fname;
-        $members->mname = $request->mname;
-        $members->lname = $request->lname;
-        $members->email = $request->email;
-        $members->address = $request->address;
-        $members->mobile = $request->mobile;
-        $members->occupation = $request->occupation;
-        $members->registeras = $request->registeras;
-        $members->registrationdate = $request->registrationdate;
-        $members->gender = $request->gender;
-        $members->birthday = $request->birthday;
-        $members->ministry = $request->ministry;
-        $members->marital = $request->marital;
-        $members->document = $documentName;
-        $members->save();
-
-        // Log action
-        LogActivity::create([
-            'user_id' => auth()->user()->id,
-            'activity' => 'Added a new member: ' . $request->fname . ' ' . $request->lname,
-        ]);
-
-        return redirect()->route('view.members')->with('success', 'Member added successfully.');
-    } catch (\Exception $e) {
-        // Log the error for debugging
-        \Log::error('Error adding member: ' . $e->getMessage());
-
-        return redirect()->back()->withInput()->with('error', 'An error occurred while adding the member.');
     }
-}
 
 
     public function add_givings(Request $request)
@@ -346,103 +346,114 @@ class AdminController extends Controller
         return view('admin.updatemember', compact('data'));
     }
     public function update_registered(Request $request, $id)
-{
-    \Log::info('Update member attempt started', [
-        'member_id' => $id,
-        'request_data' => $request->except(['document', '_token']),
-    ]);
-
-    try {
-        // Step 1: Validate the request
-        $validatedData = $request->validate([
-            'fname' => 'required|string|max:255',
-            'mname' => 'nullable|string|max:255',
-            'lname' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email,' . $id,
-            'address' => 'required|string|max:255',
-            'mobile' => 'required|string|max:15',
-            'occupation' => 'required|string|max:255',
-            'registeras' => 'required|string|max:255',
-            'registrationdate' => 'required|date',
-            'gender' => 'required|string|max:10',
-            'birthday' => 'required|date',
-            'ministry' => 'required|string|max:255',
-            'marital' => 'required|string|max:255',
-            'document' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
+    {
+        \Log::info('Update member attempt started', [
+            'member_id' => $id,
+            'request_data' => $request->except(['document', '_token']),
         ]);
 
-        \Log::info('Validation passed');
+        try {
+            // Step 1: Validate the request
+            $validatedData = $request->validate([
+                'fname' => 'required|string|max:255',
+                'mname' => 'nullable|string|max:255',
+                'lname' => 'required|string|max:255',
+                'email' => 'required|email|unique:members,email,' . $id,
+                'address' => 'required|string|max:255',
+                'mobile' => 'required|string|max:15',
+                'occupation' => 'required|string|max:255',
+                'registeras' => 'required|string|max:255',
+                'registrationdate' => 'required|date',
+                'gender' => 'required|string|max:10',
+                'birthday' => 'required|date',
+                'ministry' => 'required|string|max:255',
+                'marital' => 'required|string|max:255',
+                'document' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
+            ]);
 
-        // Step 2: Fetch existing member
-        $data = \App\Models\Members::findOrFail($id);
+            \Log::info('Validation passed');
 
-        // Step 3: Handle file upload (if any)
-        if ($request->hasFile('document')) {
-            \Log::info('New document uploaded');
+            // Step 2: Fetch existing member
+            $data = \App\Models\Members::findOrFail($id);
 
-            $document = $request->file('document');
+            // Step 3: Handle file upload (if any)
+            if ($request->hasFile('document')) {
+                \Log::info('New document uploaded');
 
-            if (!$document->isValid()) {
-                \Log::error('Invalid document upload');
-                return redirect()->back()->withErrors(['document' => 'Invalid file uploaded.'])->withInput();
+                $document = $request->file('document');
+
+                if (!$document->isValid()) {
+                    \Log::error('Invalid document upload');
+                    return redirect()->back()->withErrors(['document' => 'Invalid file uploaded.'])->withInput();
+                }
+
+                $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
+
+                // Store in storage/app/public/baptism_certificates
+                $stored = $document->storeAs('baptism_certificates', $documentname, 'public');
+
+                if (!$stored) {
+                    \Log::error('Document failed to store');
+                    return redirect()->back()->withErrors(['document' => 'Failed to upload file.'])->withInput();
+                }
+
+                \Log::info('Document stored successfully', ['filename' => $documentname]);
+                $data->document = $documentname;
             }
 
-            $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
+            // Step 4: Update all other fields
+            $data->fname = $validatedData['fname'];
+            $data->mname = $validatedData['mname'];
+            $data->lname = $validatedData['lname'];
+            $data->email = $validatedData['email'];
+            $data->address = $validatedData['address'];
+            $data->mobile = $validatedData['mobile'];
+            $data->occupation = $validatedData['occupation'];
+            $data->registeras = $validatedData['registeras'];
+            $data->registrationdate = $validatedData['registrationdate'];
+            $data->gender = $validatedData['gender'];
+            $data->birthday = $validatedData['birthday'];
+            $data->ministry = $validatedData['ministry'];
+            $data->marital = $validatedData['marital'];
 
-            // Store in storage/app/public/baptism_certificates
-            $stored = $document->storeAs('baptism_certificates', $documentname, 'public');
+            $saved = $data->save();
 
-            if (!$stored) {
-                \Log::error('Document failed to store');
-                return redirect()->back()->withErrors(['document' => 'Failed to upload file.'])->withInput();
+            if (!$saved) {
+                \Log::error('Member update failed to save');
+                return redirect()->back()->withErrors(['error' => 'Failed to update member data.'])->withInput();
             }
 
-            \Log::info('Document stored successfully', ['filename' => $documentname]);
-            $data->document = $documentname;
+            \Log::info('Member updated successfully', ['member_id' => $data->id]);
+
+            return redirect()->back()->with([
+                'message' => 'Member Updated Successfully',
+                'document' => $data->document
+            ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation error on update', ['errors' => $e->errors()]);
+            return redirect()->back()->withErrors($e->errors())->withInput();
+
+        } catch (\Exception $e) {
+            \Log::error('Unexpected update error', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return redirect()->back()->withErrors(['error' => 'An unexpected error occurred.'])->withInput();
         }
-
-        // Step 4: Update all other fields
-        $data->fname = $validatedData['fname'];
-        $data->mname = $validatedData['mname'];
-        $data->lname = $validatedData['lname'];
-        $data->email = $validatedData['email'];
-        $data->address = $validatedData['address'];
-        $data->mobile = $validatedData['mobile'];
-        $data->occupation = $validatedData['occupation'];
-        $data->registeras = $validatedData['registeras'];
-        $data->registrationdate = $validatedData['registrationdate'];
-        $data->gender = $validatedData['gender'];
-        $data->birthday = $validatedData['birthday'];
-        $data->ministry = $validatedData['ministry'];
-        $data->marital = $validatedData['marital'];
-
-        $saved = $data->save();
-
-        if (!$saved) {
-            \Log::error('Member update failed to save');
-            return redirect()->back()->withErrors(['error' => 'Failed to update member data.'])->withInput();
-        }
-
-        \Log::info('Member updated successfully', ['member_id' => $data->id]);
-
-        return redirect()->back()->with([
-            'message' => 'Member Updated Successfully',
-            'document' => $data->document
-        ]);
-
-    } catch (\Illuminate\Validation\ValidationException $e) {
-        \Log::error('Validation error on update', ['errors' => $e->errors()]);
-        return redirect()->back()->withErrors($e->errors())->withInput();
-
-    } catch (\Exception $e) {
-        \Log::error('Unexpected update error', [
-            'error' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
-        ]);
-        return redirect()->back()->withErrors(['error' => 'An unexpected error occurred.'])->withInput();
     }
-}
 
+    public function deleteCertificate($id)
+    {
+        $member = Member::findOrFail($id);
+        if ($member->document && Storage::exists("public/public/baptism_certificates/{$member->document}")) {
+            Storage::delete("public/public/baptism_certificates/{$member->document}");
+        }
+        $member->document = null;
+        $member->save();
+
+        return redirect()->back()->with('message', 'Certificate deleted successfully.');
+    }
 
 
     public function update_user($id)

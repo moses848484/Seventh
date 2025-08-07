@@ -81,6 +81,7 @@ Route::middleware([
 
     Route::get('/update_member/{id}', [AdminController::class, 'update_member']);
     Route::post('/update_registered/{id}', [AdminController::class, 'update_registered']);
+    Route::delete('/delete_certificate/{id}', [AdminController::class, 'deleteCertificate']);
     Route::get('/update_account', [HomeController::class, 'update_account']);
     Route::post('/update_account/{id}', [HomeController::class, 'save_account']);
     Route::post('/update_users/{id}', [AdminController::class, 'update_users']);
