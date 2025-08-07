@@ -48,7 +48,7 @@
             font-size: 15px !important;;
             color: #04AA6D !important;;
             width: auto !important;
-  
+  background-color: #038a5a !important;
         }
 
         /* Adjustments for input border */
