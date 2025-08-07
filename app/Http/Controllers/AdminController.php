@@ -389,8 +389,8 @@ class AdminController extends Controller
 
             $documentname = time() . '_' . uniqid() . '.' . $document->getClientOriginalExtension();
 
-            // Laravel Storage recommended
-            $stored = $document->storeAs('public/baptism_certificates', $documentname);
+            // Store in storage/app/public/baptism_certificates
+            $stored = $document->storeAs('baptism_certificates', $documentname, 'public');
 
             if (!$stored) {
                 \Log::error('Document failed to store');

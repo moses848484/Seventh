@@ -299,7 +299,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+           <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Change Baptism Certificate</label>
                     <div class="file-input-wrapper">
@@ -322,8 +322,8 @@
                     @enderror
                 </div>
                 @if (!empty($data->document))
-                    <div class="col-md-6 mb-3">
-                        <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
+                     <div class="col-md-6 mb-3">
+                    <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
                         <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
                             target="_blank">View Baptism Certificate</a>
                     </div>
@@ -331,12 +331,12 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6 mb-3">
+               <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Birth</label>
                     <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
                         required>
                 </div>
-                <div class="col-md-6 mb-3">
+               <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Registration Update</label>
                     <input id="registrationdate" name="registrationdate" type="datetime-local"
                         value="{{ $data->registrationdate }}" class="form-control" required>
@@ -350,14 +350,10 @@
             @if (session('message'))
                 <div class="alert alert-success mt-3">
                     {{ session('message') }}
-                    @if ($member->document)
-                        <a href="{{ asset('storage/baptism_certificates/' . $member->document) }}" target="_blank">
-                            View Certificate
-                        </a>
-                    @else
-                        <p>No certificate uploaded</p>
+                    @if (session('document'))
+                        <p><a href="{{ asset('Baptism Certificates/' . session('document')) }}" target="_blank">View Uploaded
+                                Document</a></p>
                     @endif
-
                 </div>
             @endif
 
