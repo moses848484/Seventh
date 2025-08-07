@@ -443,17 +443,19 @@
             @endif
         </form>
     </div>
-
-    <footer class="footer mt-5 py-3">
-        <div class="container">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
-                    Copyright © University SDA Church 2024
-                </span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                    Computer Science Dept - Computer Systems Engineering from University Of Zambia
-                </span>
-            </div>
+   </div>
+   <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                University
+                SDA Church 2024</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                Computer Science Dept
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                    class="text-white">
+                    Computer Systems Engineering
+                </a> from University Of Zambia
+            </span>
         </div>
     </footer>
 
