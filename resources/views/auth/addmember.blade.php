@@ -46,7 +46,7 @@
 
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
-            top: -25%;
+            top: -30%;
             transform: translateY(-100%);
             font-size: 15px;
             color: #04AA6D;
@@ -56,9 +56,10 @@
 
         /* Adjustments for input border */
         .form-control {
-            border: 1px solid #ced4da;
+            border: 1px solid #ffffffff;
             border-radius: 0.25rem;
             color: #04AA6D;
+            width: 100% !important;
         }
 
         .form-control:focus {
