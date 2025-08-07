@@ -338,7 +338,7 @@ class AdminController extends Controller
                 'laravel_version' => app()->version()
             ]);
 
-            // Return user-friendly error with specific issue if possible
+            // Return user-friendly error 
             $errorMessage = 'Registration failed: ';
 
             if (str_contains($e->getMessage(), 'SQLSTATE') || str_contains($e->getMessage(), 'database')) {
