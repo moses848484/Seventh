@@ -35,12 +35,12 @@
             position: absolute;
             top: 45%;
             left: 3%;
-            width: 100% !important;
+            width: 10% !important;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
-            background-color: #ffffffff !important;
+            background-color: transparent !important;
         }
 
         .form-floating input:focus+label,
@@ -49,8 +49,8 @@
             transform: translateY(-100%);
             font-size: 15px;
             color: #04AA6D;
-            width: 100% !important;
-            background-color: #ffffffff !important;
+            width: 10% !important;
+            background-color: transparent !important;
         }
 
         /* Adjustments for input border */
@@ -58,7 +58,6 @@
             border: 1px solid #ffffffff;
             border-radius: 0.25rem;
             color: #04AA6D;
-            width: 100% !important;
         }
 
         .form-control:focus {
