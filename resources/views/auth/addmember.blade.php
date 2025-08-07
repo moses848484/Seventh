@@ -186,6 +186,9 @@
                 font-size: 0.9rem;
             }
         }
+        .fa-user-plus {
+            color: #ffffffff;
+        }
     </style>
 </head>
 
@@ -417,12 +420,7 @@
                     @enderror
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-success w-100 py-2" id="submitBtn">
-                <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
-            </button>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
@@ -441,6 +439,9 @@
                     </div>
                 </div>
             @endif
+            <button type="submit" class="btn btn-success w-100 py-2" id="submitBtn">
+                <i class="fa-solid fa-user-plus"></i>&nbsp;Add Member
+            </button>
         </form>
     </div>
    </div>
