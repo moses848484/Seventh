@@ -18,88 +18,9 @@
     color: #e4af00;
 }
 
-/* Input row for adjacent inputs */
-.input-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Input group */
-.input-group {
-    flex: 1 1 100%;
-    position: relative;
-    margin-top: 48px;
-
-}
-
-@media (min-width: 600px) {
-    .input-group {
-        flex: 1 1 calc(50% - 10px);
-    }
-}
 
 
-.input,
-.input_1 {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 1px;
-    border: 1px solid #e4af00;
-    border-radius: 2px;
-    background-color: white;
-    box-sizing: border-box;
-    font-size: 1em;
-    color: #04AA6D;
-}
 
-/* Input and select elements */
-.input,
-.gender-select,
-.input_1 {
-    width: 100%;
-    padding: 10px;
-    color: #04AA6D;
-    border: 1px solid #e4af00;
-    border-radius: 2px;
-    box-sizing: border-box;
-    font-size: 1em;
-    background-color: white;
-}
-
-/* Input focus */
-.input:focus,
-.gender-select:focus,
-.input_1:focus {
-    border-color: #04AA6D !important;
-    outline: none;
-    box-shadow: none !important;
-    color: #04AA6D !important;
-}
-
-/* Placeholder labels */
-.placeholder,
-.placeholder_1 {
-    position: absolute;
-    top: 12px;
-    left: 10px;
-    font-size: 15px;
-    color: #04AA6D;
-    pointer-events: none;
-    transition: 0.3s ease-in-out;
-}
-
-/* Move placeholder on focus */
-.input_1:focus+.placeholder_1,
-.input:focus+.placeholder,
-.input_1.not-empty+.placeholder_1,
-.input.not-empty+.placeholder {
-    top: -9px;
-    color: #04AA6D !important;
-    background-color: #ffffff;
-    font-size: 12px;
-}
 
 /* Submit button */
 .submitbtn,
@@ -142,13 +63,7 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #04AA6D !important;
 }
 
-.placeholders {
-    position: absolute;
-    top: -25px;
-    left: 1px;
-    color: #04AA6D;
 
-}
 
 /* Member link */
 .member {
