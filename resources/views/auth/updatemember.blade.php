@@ -192,6 +192,82 @@
         .fa-user-plus {
             color: white;
         }
+
+        <style>.file-input-wrapper {
+            position: relative;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-display {
+            border: 2px dashed #dee2e6;
+            border-radius: 0.375rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        .file-input-display:hover {
+            border-color: #007bff;
+            background-color: #f8f9fa;
+        }
+
+        .file-icon i {
+            font-size: 3rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .file-text {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .file-text small {
+            color: #adb5bd;
+            font-size: 0.8rem;
+        }
+
+        .selected-file {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 0.25rem;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .file-name-text {
+            font-weight: 500;
+            color: #0066cc;
+        }
+
+        .current-certificate-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-info {
+            flex-grow: 1;
+            border: 1px solid #dee2e6;
+        }
+
+        .certificate-info:hover {
+            border-color: #007bff;
+        }
+
+        .img-thumbnail:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease;
+        }
     </style>
 
 </head>
@@ -299,12 +375,13 @@
                 </div>
             </div>
 
-           <div class="row mb-3">
+
+            <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Change Baptism Certificate</label>
                     <div class="file-input-wrapper">
-                        <input id="document" name="document" type="file" required
-                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="@error('document') is-invalid @enderror">
+                        <input id="document" name="document" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                            class="@error('document') is-invalid @enderror">
                         <div class="file-input-display" onclick="document.getElementById('document').click();">
                             <div class="file-icon">
                                 <i class="fas fa-cloud-upload-alt"></i>
@@ -321,23 +398,84 @@
                         <div class="text-danger small mt-1">{{ $message }}</div>
                     @enderror
                 </div>
+
                 @if (!empty($data->document))
-                     <div class="col-md-6 mb-3">
-                    <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
-                        <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
-                            target="_blank">View Baptism Certificate</a>
-                            <img src="{{ asset('storage/baptism-certificates/' . $member->document) }}" alt="Baptism Certificate">
+                    <div class="col-md-6 mb-3">
+                        <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
+                        <div class="current-certificate-wrapper">
+                            <!-- View Certificate Button -->
+                            <a href="{{ asset('storage/baptism-certificates/' . $data->document) }}"
+                                class="btn btn-outline-primary btn-sm mb-2 d-block" target="_blank">
+                                <i class="fas fa-eye me-1"></i> View Current Certificate
+                            </a>
+
+                            <!-- Certificate Info -->
+                            <div class="certificate-info p-3 bg-light rounded">
+                                <div class="d-flex align-items-center mb-2">
+                                    @php
+                                        $extension = strtolower(pathinfo($data->document, PATHINFO_EXTENSION));
+                                        $isPdf = in_array($extension, ['pdf']);
+                                        $isImage = in_array($extension, ['jpg', 'jpeg', 'png']);
+                                        $isDoc = in_array($extension, ['doc', 'docx']);
+                                    @endphp
+
+                                    <!-- File Type Icon -->
+                                    @if($isPdf)
+                                        <i class="fas fa-file-pdf text-danger me-2 fs-4"></i>
+                                    @elseif($isImage)
+                                        <i class="fas fa-file-image text-success me-2 fs-4"></i>
+                                    @elseif($isDoc)
+                                        <i class="fas fa-file-word text-primary me-2 fs-4"></i>
+                                    @else
+                                        <i class="fas fa-file text-secondary me-2 fs-4"></i>
+                                    @endif
+
+                                    <div>
+                                        <div class="fw-bold text-muted small">Current File</div>
+                                        <div class="text-truncate" style="max-width: 200px;" title="{{ $data->document }}">
+                                            {{ $data->document }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Preview for images -->
+                                @if($isImage)
+                                    <div class="mt-2">
+                                        <img src="{{ asset('storage/baptism-certificates/' . $data->document) }}"
+                                            alt="Certificate Preview" class="img-thumbnail"
+                                            style="max-width: 150px; max-height: 150px; cursor: pointer;"
+                                            onclick="window.open('{{ asset('storage/baptism-certificates/' . $data->document) }}', '_blank')">
+                                    </div>
+                                @endif
+
+                                <!-- PDF Embed Preview (optional) -->
+                                @if($isPdf)
+                                    <div class="mt-2">
+                                        <small class="text-muted">
+                                            <i class="fas fa-info-circle me-1"></i>
+                                            Click "View Current Certificate" to open PDF
+                                        </small>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <!-- Download Link -->
+                            <a href="{{ asset('storage/baptism-certificates/' . $data->document) }}"
+                                class="btn btn-outline-secondary btn-sm mt-2" download>
+                                <i class="fas fa-download me-1"></i> Download
+                            </a>
+                        </div>
                     </div>
                 @endif
             </div>
 
             <div class="row mb-3">
-               <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Birth</label>
                     <input id="birthday" name="birthday" type="date" value="{{ $data->birthday }}" class="form-control"
                         required>
                 </div>
-               <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label class="textcolor form-label fw-bold">Date of Registration Update</label>
                     <input id="registrationdate" name="registrationdate" type="datetime-local"
                         value="{{ $data->registrationdate }}" class="form-control" required>
@@ -394,6 +532,36 @@
     <script src="/images/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    </script>
+
+    <script>
+        // Handle file input display
+        document.getElementById('document').addEventListener('change', function (e) {
+            const fileNameDiv = document.getElementById('file-name');
+            const fileInputDisplay = document.querySelector('.file-input-display');
+
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                const fileSize = (e.target.files[0].size / (1024 * 1024)).toFixed(2); // Convert to MB
+
+                fileNameDiv.innerHTML = `
+            <div class="selected-file">
+                <i class="fas fa-file me-2"></i>
+                <span class="file-name-text">${fileName}</span>
+                <small class="text-muted d-block">${fileSize} MB</small>
+            </div>
+        `;
+                fileNameDiv.style.display = 'block';
+
+                // Change the display style to show selected file
+                fileInputDisplay.style.borderColor = '#28a745';
+                fileInputDisplay.style.backgroundColor = '#f8f9fa';
+            } else {
+                fileNameDiv.style.display = 'none';
+                fileInputDisplay.style.borderColor = '';
+                fileInputDisplay.style.backgroundColor = '';
+            }
+        });
     </script>
 </body>
 
