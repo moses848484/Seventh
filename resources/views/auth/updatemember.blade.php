@@ -326,6 +326,7 @@
                     <label class="textcolor form-label fw-bold">Current Baptism Certificate</label>
                         <a href="{{ asset('baptism_certificates/' . $data->document) }}" class="form-control"
                             target="_blank">View Baptism Certificate</a>
+                            <img src="{{ asset('storage/baptism-certificates/' . $member->document) }}" alt="Baptism Certificate">
                     </div>
                 @endif
             </div>
