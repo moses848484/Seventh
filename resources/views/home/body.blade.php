@@ -38,21 +38,6 @@
                                     <img src="admin/assets/images/bible4.jpg" class="gradient-corona-img img-fluid"
                                         alt="">
                                 </div>
-                                <div class="col-5 col-sm-7 col-xl-8 p-0">
-                                    <div id="verse-of-the-day" style="color: white;"></div>
-                                </div>
-
-                                <script>
-                                    function myVotdCallback(data) {
-                                        var votdContainer = document.getElementById('verse-of-the-day');
-                                        if (votdContainer) {
-                                            votdContainer.innerHTML = data.votd.text + ' - ' + data.votd.reference;
-                                        }
-                                    }
-                                </script>
-
-                                <script
-                                    src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
 
                                 <!-- Verse Content Column -->
                                 <div class="col-6 col-sm-7 col-xl-8 p-0">
@@ -241,32 +226,48 @@
 
     <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
     <script src="//biblia.com/api/logos.biblia.js"></script>
+        <!-- Verse of the Day Script -->
     <script>
-        logos.biblia.init();
-    </script>
+        function myVotdCallback(data) {
+            var votdContainer = document.getElementById('verse-of-the-day');
+            if (votdContainer && data && data.votd) {
+                // Clean the verse text by removing extra quotes
+                var cleanText = data.votd.text;
 
-    <script>
-        const ctx = document.getElementById('myChart');
-        // Check if userCount is defined and a number
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                datasets: [{
-                    label: '# of givings',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                // Remove surrounding quotes if they exist
+                if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
+                    cleanText = cleanText.slice(1, -1);
                 }
+
+                // Remove any double quotes at the beginning or end
+                cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+
+                // Create a more formatted display without adding extra quotes
+                var verseHTML = `
+                <div class="verse-content">
+                    <p class="mb-1">"${cleanText}"</p>
+                    <small class="verse-reference">- ${data.votd.reference}</small>
+                </div>
+            `;
+                votdContainer.innerHTML = verseHTML;
+            } else if (votdContainer) {
+                votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
             }
+        }
+
+        // Error handling for failed script loading
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var votdContainer = document.getElementById('verse-of-the-day');
+                if (votdContainer && votdContainer.innerHTML.trim() === '') {
+                    votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                }
+            }, 5000); // Wait 5 seconds for the script to load
         });
     </script>
+
+    <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+    
 </body>
 
 </html>
