@@ -111,7 +111,6 @@
             border-radius: 0.375rem;
             padding: 1.5rem;
             text-align: center;
-            background-color: #f8f9fa;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -147,16 +146,6 @@
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
         }
-
-        /* Map styles */
-        #map {
-            height: 400px;
-            width: 100%;
-            margin: 20px 0;
-            border-radius: 0.375rem;
-            border: 1px solid #dee2e6;
-        }
-
         /* Session timeout warning */
         .session-warning {
             position: fixed;
@@ -180,10 +169,6 @@
 
             .container {
                 padding: 1.5rem;
-            }
-
-            #map {
-                height: 300px;
             }
         }
 
@@ -333,8 +318,6 @@
                 </div>
             </div>
 
-            <div id="map"></div>
-
             <div class="row mb-3">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <div class="form-floating">
@@ -473,9 +456,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGq_U4H3gTYCoglVeSGbYo8NZkmMWn7kc&libraries=places"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
     <script>
         // CSRF Token setup for AJAX requests
         document.addEventListener('DOMContentLoaded', function() {
@@ -608,55 +589,6 @@
                 submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i>&nbsp;Add Member';
             }
         });
-
-        // Google Maps functionality
-        let map;
-        let marker;
-
-        function initMap() {
-            const defaultLocation = { lat: -15.3875, lng: 28.3228 }; // Lusaka, Zambia
-            
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: defaultLocation,
-                zoom: 12,
-            });
-
-            marker = new google.maps.Marker({
-                position: defaultLocation,
-                map: map,
-                draggable: true
-            });
-
-            const input = document.getElementById('address');
-            const autocomplete = new google.maps.places.Autocomplete(input);
-
-            autocomplete.bindTo('bounds', map);
-
-            autocomplete.addListener('place_changed', function() {
-                const place = autocomplete.getPlace();
-                if (place.geometry) {
-                    map.setCenter(place.geometry.location);
-                    marker.setPosition(place.geometry.location);
-                    map.setZoom(15);
-                }
-            });
-
-            marker.addListener('dragend', function(event) {
-                const lat = event.latLng.lat();
-                const lng = event.latLng.lng();
-                
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ location: { lat, lng } }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        input.value = results[0].formatted_address;
-                    }
-                });
-            });
-        }
-
-        // Initialize map when page loads
-        window.addEventListener('load', initMap);
-
         // Set current datetime for registration date if not already set
         document.addEventListener('DOMContentLoaded', function() {
             const registrationDateInput = document.getElementById('registrationdate');
