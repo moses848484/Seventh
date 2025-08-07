@@ -40,7 +40,7 @@
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
             pointer-events: none;
-            background-color: white !important;
+            background-color: #ffffff !important;
         }
 
         .form-floating input:focus+label,
@@ -49,7 +49,7 @@
             transform: translateY(-100%);
             font-size: 0.80rem;
             color: #04AA6D;
-            background-color: white !important;
+            background-color: #ffffff !important;
         }
 
         /* Adjustments for input border */
