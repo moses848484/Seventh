@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Registration</title>
@@ -33,7 +34,7 @@
 
         .form-floating label {
             position: absolute;
-            top: 30%;
+            top: 45%;
             transform: translateY(-50%);
             transition: all 0.2s ease-in-out;
             color: #04AA6D;
@@ -43,7 +44,7 @@
 
         .form-floating input:focus+label,
         .form-floating input:not(:placeholder-shown)+label {
-            top: -30%;
+            top: -10%;
             transform: translateY(-100%);
             font-size: 15px !important;;
             color: #04AA6D !important;;
