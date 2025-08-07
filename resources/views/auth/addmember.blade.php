@@ -22,37 +22,35 @@
             -webkit-text-fill-color: #04AA6D !important;
         }
 
-       .form-floating {
-    position: relative;
-}
+        /* Floating Label Styles */
+        .form-floating {
+            position: relative;
+        }
 
-.form-floating input {
-    padding: 1.5rem 0.75rem 0.5rem 0.75rem;
-    height: auto;
-}
+        .form-floating input {
+            padding: 1rem 0.75rem;
+            padding-top: 1.5rem;
+        }
 
-.form-floating label {
-    position: absolute;
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
-    background-color: transparent;
-    transition: 0.2s ease all;
-    padding: 0 0.25rem;
-    color: #04AA6D;
-    pointer-events: none;
-    z-index: 2;
-}
+        .form-floating label {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            color: #04AA6D;
+            pointer-events: none;
+        background-color: transparent !important;
+        }
 
-/* When input is focused or has text */
-.form-floating input:focus + label,
-.form-floating input:not(:placeholder-shown) + label {
-    top: 0;
-    left: 0.5rem;
-    font-size: 0.8rem;
-    background-color: transparent;
-    z-index: 3;
-}
+        .form-floating input:focus+label,
+        .form-floating input:not(:placeholder-shown)+label {
+            top: -30%;
+            transform: translateY(-100%);
+            font-size: 15px !important;;
+            color: #04AA6D !important;;
+            width: auto !important;
+  background-color: transparent !important;
+        }
 
         /* Adjustments for input border */
         .form-control {
