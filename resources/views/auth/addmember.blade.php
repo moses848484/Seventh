@@ -229,17 +229,11 @@
                 <h2 class="text-primary">Registration</h2>
             </div>
 
-            <div class="row mb-3">
+             <div class="row mb-3 form-floating">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <div class="form-floating">
-                        <input id="fname" name="fname" type="text" required autofocus 
-                               class="form-control @error('fname') is-invalid @enderror" 
-                               placeholder=" " value="{{ old('fname') }}">
-                        <label for="fname">First Name</label>
-                        @error('fname')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+               <input id="fname" name="fname" value="{{ $data->fname }}" type="text" required class="form-control"
+                        placeholder=" ">
+                    <label for="fname">First Name</label>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
