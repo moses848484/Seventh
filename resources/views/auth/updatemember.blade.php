@@ -198,9 +198,33 @@
 </head>
 
 <body>
-    <x-validation-errors class="mb-4" />
+       <!-- Session timeout warning -->
+    <div class="alert alert-warning alert-dismissible session-warning" role="alert">
+        <strong>Session Warning:</strong> Your session will expire soon. Please save your work.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
 
-    <div id="register" class="form-container">
+    <div class="container bg-white p-4 rounded shadow mt-2">
+        <!-- Display validation errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Please fix the following errors:</strong>
+                <ul class="mb-0 mt-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
+        
+        <!-- Display success message -->
+        @if (session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle"></i> {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
         <form method="POST" action="{{ url('/update_registered', $data->id) }}" enctype="multipart/form-data">
             @csrf
 
