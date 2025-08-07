@@ -45,8 +45,8 @@
         .form-floating input:not(:placeholder-shown)+label {
             top: -30%;
             transform: translateY(-100%);
-            font-size: 15px;
-            color: #04AA6D;
+            font-size: 15px !important;;
+            color: #04AA6D !important;;
             width: auto !important;
   
         }
