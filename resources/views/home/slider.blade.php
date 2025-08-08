@@ -5,43 +5,7 @@
         <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
-    <!-- Carousel -->
-    <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container py-5">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
-                            <div class="detail-box px-3 px-md-0">
-                                <h1 class="hero-title mb-4">
-                                    Everyone's<br>
-                                    Invited
-                                </h1>
-                                <p class="hero-subtitle mb-5">
-                                    Wherever you are on your journey, there's a place for 
-                                    you at University SDA Church. Here you'll find a welcoming 
-                                    community ready to walk through life with you.
-                                </p>
-                                
-                                <!-- Location Dropdown -->
-                                <div class="location-selector mb-4">
-                                    <select class="form-select location-dropdown" aria-label="Choose a Location">
-                                        <option selected>Choose a Location</option>
-                                        <option value="main">Main Campus</option>
-                                        <option value="north">North Campus</option>
-                                        <option value="south">South Campus</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end carousel-item -->
-        </div>
-    </div>
+   
 </section>
 
 <style>
