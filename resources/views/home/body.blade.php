@@ -396,7 +396,7 @@
                                     <a href="https://www.bible.com/verse-of-the-day" target="_blank"
                                         rel="noopener noreferrer"
                                         class="btn btn-outline-light btn-rounded get-started-btn">
-                                        <span class="d-none d-md-inline">Verse Of The Day</span>
+                                        <span class="d-none d-md-inline">Bible Verse Of The Day</span>
                                         <span class="d-md-none">VOTD</span>
                                     </a>
                                 </div>
