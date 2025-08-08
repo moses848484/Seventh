@@ -12,14 +12,14 @@
 <body>
 
     <section class="slider_section position-relative text-white">
-        <!-- Background image with light overlay -->
-        <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-            <img src="images/dorcas.jpg" alt="church" class="w-100 h-100 object-fit-cover">
-            <div class="position-absolute top-0 left-0 w-100 h-100 bg-dark" style="opacity: 0.5;"></div>
+        <!-- Background image with Bootstrap 4 overlay -->
+        <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
+            <img src="images/dorcas.jpg" alt="church" class="w-100 h-100" style="object-fit: cover;">
+            <div class="position-absolute w-100 h-100 bg-dark" style="top: 0; left: 0; opacity: 0.6; z-index: 1;"></div>
         </div>
 
         <!-- Carousel -->
-        <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+        <div id="customCarousel1" class="carousel slide position-relative" data-bs-ride="carousel" style="z-index: 2;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container py-5">
@@ -70,13 +70,7 @@
     </section>
 
     <style>
-        /* Light overlay like the reference image */
-        .overlay {
-            background: linear-gradient(135deg,
-                    rgba(0, 0, 0, 0.25) 0%,
-                    rgba(0, 0, 0, 0.15) 50%,
-                    rgba(0, 0, 0, 0.3) 100%);
-        }
+        
 
         /* Hero Section Fonts and Styling - matching reference image */
         .hero-title {
