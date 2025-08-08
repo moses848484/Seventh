@@ -12,15 +12,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
                             <div class="detail-box px-3 px-md-0">
-                                <h1 class="title-e mb-4">
-                                    Everyone's<br>
-                                    Invited
-                                </h1>
-                                <p class="subtitle-s mb-5">
-                                    Wherever you are on your journey, there's a place for 
-                                    you at University SDA Church. Here you'll find a welcoming 
-                                    community ready to walk through life with you.
-                                </p>
+                                
 
                                  <div class="button-container">
                                     <a href="{{ route('register') }}" class="btn1">Learn More</a>
