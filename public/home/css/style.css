@@ -2548,7 +2548,7 @@ div.form_sub .field input[type="email"]:focus {
 
 .arrival_bg_box4 img {
   width: 100%;
-  height: 100%;
+  height: 50%;
   object-fit: cover;
   display: block;
 }
