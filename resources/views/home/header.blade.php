@@ -5,7 +5,7 @@
                 <a href="/" class="navbar-brand mb-0">
                     <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
                 </a>
-                <span class="xs">UNISDA.CHURCH</span>
+                <span class="xs">SDA.CHURCH</span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

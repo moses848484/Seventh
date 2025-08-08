@@ -1,8 +1,7 @@
 <section class="slider_section position-relative text-white">
     <!-- Background image with dark overlay -->
     <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-        <img src="images/dorcas.jpg" alt="dorca" class="w-100 h-100 object-fit-cover">
-        <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+        <img src="images/dorcas.jpg" alt="" class="w-100 h-100 object-fit-cover">
     </div>
 
     <!-- Carousel -->
@@ -172,7 +171,4 @@
             text-align: center;
         }
     }
-
-    /* Import Inter font */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 </style>
