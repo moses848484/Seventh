@@ -136,26 +136,7 @@
     /* Remove outline on focus */
   }
 
-  /* Remove focus and active states that might show borders */
-  .navbar-toggler.btn:focus,
-  .navbar-toggler.btn:active,
-  .navbar-toggler.btn:hover {
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-    background-color: white !important;
-  }
 
-  /* If using Bootstrap, this removes the default navbar-toggler border */
-  .navbar-toggler {
-    border: none !important;
-    padding: 0.25rem 0.5rem;
-  }
-
-  /* Remove any potential border from the icon itself */
-  .navbar-toggler .mdi-menu {
-    border: none !important;
-  }
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
