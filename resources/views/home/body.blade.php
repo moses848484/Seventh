@@ -295,8 +295,10 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            /* Better space distribution */
+            justify-content: center;
+            /* Center content vertically */
+            align-items: center;
+            /* Center content horizontally */
         }
 
         .corona-gradient-card .card-body {
@@ -305,7 +307,12 @@
             /* Allow body to take available space */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            /* Center content vertically within card body */
+            align-items: center;
+            /* Center content horizontally */
+            text-align: center;
+            /* Center text alignment */
         }
 
         .corona-gradient-card .gradient-corona-img {
@@ -336,8 +343,8 @@
             min-height: auto;
             /* Remove default button min-height */
             line-height: 1.2;
-            margin-top: auto;
-            /* Push button to bottom */
+            margin-top: 0.25rem;
+            /* Small margin instead of pushing to bottom */
         }
 
         /* Additional improvements for better compact layout */
