@@ -2858,18 +2858,14 @@ div.form_sub .field input[type="email"]:focus {
 
 
 .col-md-7 {
-  flex: 0 0 50%;
-  /* Default width on medium screens and larger */
-  max-width: 100%;
-  /* Limit maximum width */
-  padding: 0;
-  /* Remove padding if needed */
-  display: flex;
-  align-items: center;
-  /* Center content vertically */
-  justify-content: center;
-  /* Center content horizontally */
+    flex: 0 0 100% !important; /* Take full width */
+    max-width: 100% !important; /* Ensure no limit */
+    padding: 0; /* Remove padding if needed */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
+
 
 /* Default styles for .col-md-4 */
 .col-md-4 {
