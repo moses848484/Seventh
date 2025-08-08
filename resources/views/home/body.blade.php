@@ -420,104 +420,105 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <!-- Notes Card -->
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card d-flex flex-column notes-card">
-                                <div class="notes-header d-flex justify-content-between align-items-center p-3">
-                                    <h5 class="mb-0">
-                                        <i class="fas fa-sticky-note me-2"></i>My Notes
-                                    </h5>
-                                    <span class="notes-counter" id="notesCounter">0 notes</span>
-                                </div>
-
-                                <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
-                                    <!-- Search Box -->
-                                    <div class="search-box p-3 pb-0">
-                                        <input type="text" class="form-control" id="searchNotes"
-                                            placeholder="Search notes...">
-                                    </div>
-
-                                    <!-- Notes List -->
-                                    <div class="notes-content p-3 flex-grow-1" id="notesList">
-                                        <div class="empty-state" id="emptyState">
-                                            <i class="fas fa-clipboard-list fa-3x mb-3"></i>
-                                            <p>No notes yet. Add your first note below!</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Add Note Form -->
-                                    <div class="add-note-form p-3">
-                                        <form id="addNoteForm">
-                                            <div class="mb-3">
-                                                <textarea class="form-control" id="noteText" rows="3"
-                                                    placeholder="Write your note here..." required></textarea>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <small class="text-muted">
-                                                    <i class="fas fa-save me-1"></i>Notes are saved automatically
-                                                </small>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fas fa-plus me-1"></i>Add Note
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <div class="footer1 text-center">
-                                    <h6 class="text-muted2 font-weight-normal mb-0">Personal Notes</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <iframe width="100%" height="315"
-                                        src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                    </iframe>
-                                </div>
-                                <div class="footer1 text-center">
-                                    <h6 class="text-muted2 fw-normal">Welcome</h6>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                            <div class="card d-flex flex-column bible-card">
-                                <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                                    style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <iframe width="100%" height="315"
+                                    src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                                 </iframe>
                             </div>
+                        </div>
+                        <div class="footer1">
+                            <h6 class="text-muted2 font-weight-normal">Prayer Requests</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Notes Card -->
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card d-flex flex-column notes-card">
+                            <div class="notes-header d-flex justify-content-between align-items-center p-3">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-sticky-note me-2"></i>My Notes
+                                </h5>
+                                <span class="notes-counter" id="notesCounter">0 notes</span>
+                            </div>
+
+                            <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
+                                <!-- Search Box -->
+                                <div class="search-box p-3 pb-0">
+                                    <input type="text" class="form-control" id="searchNotes"
+                                        placeholder="Search notes...">
+                                </div>
+
+                                <!-- Notes List -->
+                                <div class="notes-content p-3 flex-grow-1" id="notesList">
+                                    <div class="empty-state" id="emptyState">
+                                        <i class="fas fa-clipboard-list fa-3x mb-3"></i>
+                                        <p>No notes yet. Add your first note below!</p>
+                                    </div>
+                                </div>
+
+                                <!-- Add Note Form -->
+                                <div class="add-note-form p-3">
+                                    <form id="addNoteForm">
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="noteText" rows="3"
+                                                placeholder="Write your note here..." required></textarea>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-save me-1"></i>Notes are saved automatically
+                                            </small>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-plus me-1"></i>Add Note
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="footer1 text-center">
+                                <h6 class="text-muted2 font-weight-normal mb-0">Personal Notes</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                        <div class="card d-flex flex-column bible-card">
+                            <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
+                                style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                            </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- content-wrapper ends -->
-
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                        University
-                        SDA Church 2024</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                        Computer Science Dept
-                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                            class="text-white">
-                            Computer Systems Engineering
-                        </a> from University Of Zambia
-                    </span>
-                </div>
-            </footer>
-            <!-- partial -->
         </div>
-        <!-- main-panel ends -->
+
+        <!-- content-wrapper ends -->
+
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                    University
+                    SDA Church 2024</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                    Computer Science Dept
+                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                        class="text-white">
+                        Computer Systems Engineering
+                    </a> from University Of Zambia
+                </span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
