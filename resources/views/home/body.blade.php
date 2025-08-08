@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?php echo asset('css/viewmember.css'); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
         type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <title>View Church Members</title>
     <style>
         /* Autofill input styling */
@@ -17,10 +19,8 @@
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
-            /* Changes background color */
             box-shadow: 0 0 0 30px white inset !important;
             -webkit-text-fill-color: #04AA6D !important;
-            /* Changes text color */
         }
 
         /* Floating Label Styles */
@@ -69,6 +69,128 @@
             color: #e4af00 !important;
         }
 
+        .grid-margin {
+            margin-bottom: 30px;
+        }
+        
+        .stretch-card .card {
+            height: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .bible-card {
+                height: 700px;
+            }
+        }
+
+        /* Notes Card Styles */
+        .notes-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notes-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .notes-content {
+            max-height: 300px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .note-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .note-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .note-meta {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .note-text {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .note-actions {
+            text-align: right;
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .add-note-form {
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .notes-card .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+
+        .footer1 {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 0 0 10px 10px;
+            border-top: 1px solid #dee2e6;
+            flex-shrink: 0;
+        }
+
+        .text-muted2 {
+            color: #6c757d;
+        }
+
+        .search-box {
+            margin-bottom: 15px;
+        }
+
+        .notes-counter {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 1200px) {
             .form-floating input {
@@ -106,39 +228,6 @@
             }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .form-floating input {
-                padding: 0.7rem 0.25rem;
-                padding-top: 1rem;
-                margin-bottom: 18px;
-            }
-
-            .form-floating label {
-                font-size: 0.75rem;
-                margin-top: -5px;
-                margin-left: 7px;
-            }
-
-            .form-floating label:focus {
-                font-size: 0.9rem;
-                padding: 0.75rem 1rem;
-            }
-
-            .btn {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 2rem;
-            }
-
-            .footer span {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .form-floating input {
                 padding: 0.7rem 0.25rem;
@@ -200,118 +289,10 @@
                 font-size: 0.75rem;
             }
         }
-
-        @media (max-width: 767px) {
-            .bible-card {
-                height: 700px;
-                /* adjust as needed */
-            }
-        }
-
-        .notes-card {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            border: none;
-        }
-
-        .notes-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px 10px 0 0;
-            padding: 15px;
-        }
-
-        .notes-content {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .note-item {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 0 8px 8px 0;
-            transition: all 0.3s ease;
-        }
-
-        .note-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .note-meta {
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-bottom: 5px;
-        }
-
-        .note-text {
-            color: #495057;
-            margin-bottom: 8px;
-        }
-
-        .note-actions {
-            text-align: right;
-        }
-
-        .btn-sm {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        .add-note-form {
-            background: #fff;
-            border-top: 1px solid #dee2e6;
-            padding: 15px;
-        }
-
-        .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6c757d;
-        }
-
-        .footer1 {
-            background: #f8f9fa;
-            padding: 10px 15px;
-            border-radius: 0 0 10px 10px;
-            border-top: 1px solid #dee2e6;
-        }
-
-        .text-muted2 {
-            color: #6c757d;
-        }
-
-        .search-box {
-            margin-bottom: 15px;
-        }
-
-        .notes-counter {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-        }
     </style>
 </head>
 
 <body>
-
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -446,8 +427,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mx-auto">
-                        <div class="card notes-card">
+                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                        <div class="card d-flex flex-column notes-card">
                             <div class="notes-header d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="mb-0">
@@ -457,7 +438,7 @@
                                 <span class="notes-counter" id="notesCounter">0 notes</span>
                             </div>
 
-                            <div class="card-body p-0">
+                            <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
                                 <!-- Search Box -->
                                 <div class="search-box p-3 pb-0">
                                     <input type="text" class="form-control" id="searchNotes"
@@ -465,7 +446,7 @@
                                 </div>
 
                                 <!-- Notes List -->
-                                <div class="notes-content p-3" id="notesList">
+                                <div class="notes-content p-3" id="notesList" style="flex: 1;">
                                     <div class="empty-state" id="emptyState">
                                         <i class="fas fa-clipboard-list fa-3x mb-3"></i>
                                         <p>No notes yet. Add your first note below!</p>
@@ -496,35 +477,33 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <iframe width="100%" height="315"
-                            src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                        </iframe>
+                    <div class="col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <iframe width="100%" height="315"
+                                    src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="footer1 text-center">
+                                <h6 class="text-muted2 fw-normal">Welcome</h6>
+                            </div>
+                        </div>
                     </div>
-                    <div class="footer1 text-center">
-                        <h6 class="text-muted2 fw-normal">Welcome</h6>
+
+                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                        <div class="card d-flex flex-column bible-card">
+                            <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
+                                style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                            </iframe>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                <div class="card d-flex flex-column bible-card">
-                    <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                        style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
-                    </iframe>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- content-wrapper ends -->
@@ -544,15 +523,10 @@
         </div>
     </footer>
     <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
+    <!-- If you're including multiple Biblia widgets, you only need this script tag once -->
     <script src="//biblia.com/api/logos.biblia.js"></script>
     <!-- Verse of the Day Script -->
     <script>
@@ -611,19 +585,28 @@
 
             bindEvents() {
                 // Add note form submission
-                document.getElementById('addNoteForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.addNote();
-                });
+                const addForm = document.getElementById('addNoteForm');
+                if (addForm) {
+                    addForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.addNote();
+                    });
+                }
 
                 // Search functionality
-                document.getElementById('searchNotes').addEventListener('input', (e) => {
-                    this.searchNotes(e.target.value);
-                });
+                const searchInput = document.getElementById('searchNotes');
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        this.searchNotes(e.target.value);
+                    });
+                }
             }
 
             addNote() {
-                const noteText = document.getElementById('noteText').value.trim();
+                const noteTextElement = document.getElementById('noteText');
+                if (!noteTextElement) return;
+                
+                const noteText = noteTextElement.value.trim();
                 if (!noteText) return;
 
                 const note = {
@@ -639,7 +622,7 @@
                 this.updateCounter();
 
                 // Clear form
-                document.getElementById('noteText').value = '';
+                noteTextElement.value = '';
 
                 // Show success feedback
                 this.showFeedback('Note added successfully!', 'success');
@@ -672,6 +655,8 @@
             renderNotes(notesToRender = this.notes) {
                 const notesList = document.getElementById('notesList');
                 const emptyState = document.getElementById('emptyState');
+                
+                if (!notesList || !emptyState) return;
 
                 if (notesToRender.length === 0) {
                     notesList.innerHTML = '';
@@ -712,14 +697,19 @@
 
             updateCounter() {
                 const counter = document.getElementById('notesCounter');
+                if (!counter) return;
+                
                 const count = this.notes.length;
                 counter.textContent = `${count} note${count !== 1 ? 's' : ''}`;
             }
 
             loadNotes() {
                 try {
-                    const saved = localStorage.getItem('userNotes');
-                    return saved ? JSON.parse(saved) : [];
+                    // Using variable storage instead of localStorage to comply with restrictions
+                    if (window.userNotesStorage) {
+                        return window.userNotesStorage;
+                    }
+                    return [];
                 } catch (error) {
                     console.error('Error loading notes:', error);
                     return [];
@@ -728,7 +718,8 @@
 
             saveNotes() {
                 try {
-                    localStorage.setItem('userNotes', JSON.stringify(this.notes));
+                    // Using variable storage instead of localStorage
+                    window.userNotesStorage = this.notes;
                 } catch (error) {
                     console.error('Error saving notes:', error);
                     this.showFeedback('Error saving notes!', 'danger');
@@ -759,52 +750,25 @@
                 div.textContent = text;
                 return div.innerHTML;
             }
-
-            // Export notes as JSON
-            exportNotes() {
-                const dataStr = JSON.stringify(this.notes, null, 2);
-                const dataBlob = new Blob([dataStr], { type: 'application/json' });
-                const url = URL.createObjectURL(dataBlob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'my-notes.json';
-                link.click();
-                URL.revokeObjectURL(url);
-            }
-
-            // Import notes from JSON
-            importNotes(file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const importedNotes = JSON.parse(e.target.result);
-                        if (Array.isArray(importedNotes)) {
-                            this.notes = [...importedNotes, ...this.notes];
-                            this.saveNotes();
-                            this.renderNotes();
-                            this.updateCounter();
-                            this.showFeedback('Notes imported successfully!', 'success');
-                        }
-                    } catch (error) {
-                        this.showFeedback('Error importing notes!', 'danger');
-                    }
-                };
-                reader.readAsText(file);
-            }
         }
 
-        // Initialize the notes plugin
-        const notesPlugin = new NotesPlugin();
-
-        // Add keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Ctrl/Cmd + Enter to add note quickly
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                const noteText = document.getElementById('noteText');
-                if (document.activeElement === noteText && noteText.value.trim()) {
-                    document.getElementById('addNoteForm').dispatchEvent(new Event('submit'));
+        // Initialize the notes plugin when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.notesPlugin = new NotesPlugin();
+            
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Ctrl/Cmd + Enter to add note quickly
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    const noteText = document.getElementById('noteText');
+                    if (noteText && document.activeElement === noteText && noteText.value.trim()) {
+                        const form = document.getElementById('addNoteForm');
+                        if (form) {
+                            form.dispatchEvent(new Event('submit'));
+                        }
+                    }
                 }
-            }
+            });
         });
     </script>
 </body>
