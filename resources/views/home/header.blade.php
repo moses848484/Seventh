@@ -1,3 +1,31 @@
+<style>
+    #logincss {
+    background-color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Hover, focus, active states */
+#logincss:focus,
+#logincss:active,
+#logincss:hover {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: none !important;
+    color: #000 !important;
+}
+
+/* Remove any spacing from the icon wrapper if needed */
+.fas.fa-user-circle {
+    margin-right: 0.25rem;
+}
+
+</style>
 <header class="header_section">
     <div class="container3">
         <nav class="navbar navbar-expand-md custom_nav-container py-3 px-5">
