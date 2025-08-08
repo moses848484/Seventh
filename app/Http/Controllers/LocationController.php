@@ -64,7 +64,7 @@ class LocationController extends Controller
 
     public function index()
     {
-        return view('locations.index', ['locations' => $this->locations]);
+        return view('home.locations', ['locations' => $this->locations]);
     }
 
     public function show($slug)
@@ -75,7 +75,16 @@ class LocationController extends Controller
             abort(404, 'Location not found');
         }
 
-        return view('locations.show', ['location' => $location]);
+        // Route to specific blade files in home folder
+        $viewMap = [
+            'unza-campus' => 'home.unza-campus',
+            'olympia-church' => 'home.olympia-church', 
+            'online' => 'home.online'
+        ];
+        
+        $viewName = $viewMap[$slug] ?? 'home.show';
+        
+        return view($viewName, ['location' => $location]);
     }
 
     public function getLocationData($slug): JsonResponse

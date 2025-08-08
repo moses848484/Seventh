@@ -60,7 +60,7 @@
                             </p>
                             
                             <h5><i class="bi bi-people text-info"></i> Community</h5>
-                            <p>Families, professionals, and local residents from Olympia and nearby areas</p>
+                            <p>Families, professionals, and local residents</p>
                         </div>
                     </div>
                 </div>
@@ -107,38 +107,12 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li><i class="bi bi-check-circle text-success"></i> Family Worship</li>
-                        <li><i class="bi bi-check-circle text-success"></i> Children's Ministry</li>
-                        <li><i class="bi bi-check-circle text-success"></i> Community Garden</li>
-                        <li><i class="bi bi-check-circle text-success"></i> Food Assistance</li>
-                        <li><i class="bi bi-check-circle text-success"></i> Counseling Services</li>
-                        <li><i class="bi bi-check-circle text-success"></i> Local Outreach</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Family Ministry</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Children's Programs</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Small Groups</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Community Outreach</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Worship Team</li>
                     </ul>
-                </div>
-            </div>
-
-            <!-- Ministries -->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h5 class="mb-0">Weekly Ministries</h5>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <h6>Adult Bible Study</h6>
-                        <small class="text-muted">Tuesdays at 06:30 PM</small>
-                    </div>
-                    <div class="mb-3">
-                        <h6>Youth Group</h6>
-                        <small class="text-muted">Saturdays at 03:00 PM</small>
-                    </div>
-                    <div class="mb-3">
-                        <h6>Women's Ministry</h6>
-                        <small class="text-muted">First Saturday of month at 10:00 AM</small>
-                    </div>
-                    <div class="mb-3">
-                        <h6>Men's Breakfast</h6>
-                        <small class="text-muted">Second Saturday of month at 07:00 AM</small>
-                    </div>
                 </div>
             </div>
 
@@ -148,11 +122,11 @@
                     <h5 class="mb-0">Other Locations</h5>
                 </div>
                 <div class="card-body">
-                    <a href="{{ route('locations.show', 'unza-campus') }}" class="btn btn-outline-secondary btn-block mb-2">
-                        <i class="bi bi-building"></i> UNZA Campus
+                    <a href="{{ route('locations.show', 'olympia-church') }}" class="btn btn-outline-secondary btn-block mb-2">
+                        Olympia Church
                     </a>
                     <a href="{{ route('locations.show', 'online') }}" class="btn btn-outline-secondary btn-block">
-                        <i class="bi bi-laptop"></i> Online Service
+                        Online Service
                     </a>
                 </div>
             </div>
@@ -164,62 +138,26 @@
 @push('scripts')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Initialize map centered on Olympia Church
-    const map = L.map('map').setView([-15.3946, 28.2853], 17);
+    // Initialize map centered on UNZA campus
+    const map = L.map('map').setView([-15.3875, 28.3228], 16);
     
     // Add tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
     
-    // Add marker for Olympia Church
-    const marker = L.marker([-15.3946, 28.2853])
+    // Add marker for UNZA campus
+    const marker = L.marker([-15.3875, 28.3228])
         .addTo(map)
         .bindPopup(`
-            <div style="text-align: center; min-width: 250px;">
-                <h6><strong>Katima Mulilo Road Olympia Church</strong></h6>
-                <p style="margin: 5px 0; color: #666;">Katima Mulilo Road, Olympia Area</p>
+            <div style="text-align: center; min-width: 200px;">
+                <h6><strong>UNZA Great East Road Campus</strong></h6>
+                <p style="margin: 5px 0; color: #666;">Great East Road, University of Zambia</p>
                 <hr style="margin: 10px 0;">
-                <small><strong>Sunday Services:</strong><br>08:30 AM & 10:30 AM<br>
-                <strong>Thursday Service:</strong><br>06:00 PM</small>
-                <hr style="margin: 10px 0;">
-                <small><strong>Phone:</strong> +260 97 234 5678</small>
+                <small><strong>Sunday:</strong> 09:00 AM & 11:00 AM<br>
+                <strong>Wednesday:</strong> 06:00 PM</small>
             </div>
         `)
         .openPopup();
-        
-    // Add church area circle
-    const churchArea = L.circle([-15.3946, 28.2853], {
-        color: 'green',
-        fillColor: '#28a745',
-        fillOpacity: 0.15,
-        radius: 250
-    }).addTo(map);
-    
-    // Add nearby landmarks
-    const landmarks = [
-        {
-            name: 'Olympia Shopping Centre',
-            coords: [-15.3950, 28.2860],
-            icon: '🏪'
-        },
-        {
-            name: 'Olympia Park',
-            coords: [-15.3940, 28.2845],
-            icon: '🌳'
-        }
-    ];
-    
-    landmarks.forEach(landmark => {
-        const landmarkIcon = L.divIcon({
-            html: landmark.icon,
-            iconSize: [20, 20],
-            className: 'landmark-icon'
-        });
-        
-        L.marker(landmark.coords, { icon: landmarkIcon })
-            .addTo(map)
-            .bindPopup(`<small>${landmark.name}</small>`);
-    });
 </script>
 @endpush

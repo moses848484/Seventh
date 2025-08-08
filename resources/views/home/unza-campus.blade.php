@@ -159,13 +159,5 @@
             </div>
         `)
         .openPopup();
-        
-    // Add campus boundary circle
-    const campusCircle = L.circle([-15.3875, 28.3228], {
-        color: 'blue',
-        fillColor: '#3388ff',
-        fillOpacity: 0.1,
-        radius: 200
-    }).addTo(map);
 </script>
 @endpush
