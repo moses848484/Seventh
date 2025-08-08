@@ -6,7 +6,7 @@
         <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
           <div class="carousel-inner h-100">
             <div class="carousel-item active">
-              <img src="images/gvb1.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
+              <img src="images/choir.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
             </div>
 
           </div>
