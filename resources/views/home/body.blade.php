@@ -495,7 +495,7 @@
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column bible-card uniform-height-card">
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                                style="border: none; flex: 1;" allowfullscreen loading="lazy">
+                                style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
                             </iframe>
                         </div>
                     </div>
