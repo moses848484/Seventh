@@ -84,13 +84,13 @@
 
         @media (max-width: 767px) {
             .uniform-height-card {
-                height: 700px;
+                height: 700px !important;
             }
         }
 
         @media (max-width: 576px) {
             .uniform-height-card {
-                height: 600px;
+                height: 600px !important;
             }
         }
 
