@@ -51,7 +51,7 @@
         <div class="card-content">
             <!-- Image Column -->
             <div class="arrival_bg_box4">
-                <img src="images/children.png" alt="Person praying" class="img-fluid1">
+                <img src="images/sda kids.png" alt="Person praying" class="img-fluid1">
             </div>
         </div>
         <!-- Text Column -->
