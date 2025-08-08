@@ -2948,7 +2948,6 @@ div.form_sub .field input[type="email"]:focus {
       max-height: 500px;
       /* Maximum height to limit container height */
       box-shadow: #000;
-      background-color: #000;
       padding: 0;
       /* Remove padding */
       display: flex;
