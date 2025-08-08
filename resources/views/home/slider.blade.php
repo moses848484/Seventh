@@ -34,17 +34,12 @@
                                     </select>
                                 </div>
 
-                                <div class="button-container">
-                                    <a href="{{ route('register') }}" class="btn1">Learn More</a>
-                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- end carousel-item -->
         </div>
-    </div>
 </section>
 
 <style>
