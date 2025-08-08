@@ -322,8 +322,6 @@
             height: auto;
             width: auto;
             object-fit: contain;
-            /* Maintain aspect ratio */
-            margin-bottom: 0.25rem;
         }
 
         .corona-gradient-card #verse-of-the-day {
@@ -344,8 +342,6 @@
             min-height: auto;
             /* Remove default button min-height */
             line-height: 1.2;
-            margin-top: 0.25rem;
-            /* Small margin instead of pushing to bottom */
         }
 
         /* Additional improvements for better compact layout */
@@ -356,7 +352,6 @@
 
         .corona-gradient-card .card-title {
             font-size: 0.9rem;
-            margin-bottom: 0.25rem !important;
         }
 
         /* Responsive adjustments */
