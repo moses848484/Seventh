@@ -7,10 +7,15 @@
     <title>Church Hero Section</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-
     <section class="slider_section position-relative text-white">
         <!-- Background image with gradient overlay -->
         <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
@@ -50,29 +55,47 @@
                                         </div>
 
                                         <!-- Location Dropdown -->
-                                        <div class="location-selector">
-                                            <select class="form-select location-dropdown"
+                                        <div class="location-selector mb-4">
+                                            <select class="form-select location-dropdown" id="locationSelect"
                                                 aria-label="Choose a Location">
-                                                <option selected>Choose a Location</option>
-                                                <option value="main">UNZA Great East Road Campus</option>
-                                                <option value="north">Katima Mulilo Road Olympia Church</option>
+                                                <option value="">Choose a Location</option>
+                                                <option value="unza-campus">UNZA Great East Road Campus</option>
+                                                <option value="olympia-church">Katima Mulilo Road Olympia Church</option>
                                                 <option value="online">Online</option>
                                             </select>
+                                        </div>
+
+                                        <!-- Map Container -->
+                                        <div id="mapContainer" style="display: none;">
+                                            <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;"></div>
+                                            
+                                            <!-- Location Info Card -->
+                                            <div id="locationInfo" class="location-info-card mt-3" style="display: none;">
+                                                <div class="card bg-light">
+                                                    <div class="card-body text-dark">
+                                                        <h5 class="card-title" id="locationName"></h5>
+                                                        <p class="card-text">
+                                                            <small class="text-muted" id="locationAddress"></small>
+                                                        </p>
+                                                        <div id="serviceTimes"></div>
+                                                        <div id="contactInfo" class="mt-2"></div>
+                                                        <a href="#" id="visitLocationBtn" class="btn btn-primary mt-2">Visit Location Page</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> <!-- end carousel-item -->
+                </div>
             </div>
         </div>
     </section>
 
     <style>
-        
-
-        /* Hero Section Fonts and Styling - matching reference image */
+        /* Hero Section Fonts and Styling */
         .hero-title {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             font-size: 4.5rem;
@@ -119,7 +142,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.7);
         }
 
-        /* Location Dropdown Styling - matching reference image */
+        /* Location Dropdown Styling */
         .location-dropdown {
             background-color: rgba(255, 255, 255, 0.95);
             border: none;
@@ -143,6 +166,17 @@
 
         .location-dropdown:hover {
             background-color: #fff;
+        }
+
+        /* Map styling */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+
+        .location-info-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
 
         /* Slider section positioning */
@@ -172,6 +206,10 @@
             .location-section {
                 max-width: 100%;
             }
+
+            #map {
+                height: 250px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -188,10 +226,180 @@
                 padding: 12px 16px;
                 font-size: 0.95rem;
             }
+
+            #map {
+                height: 200px;
+            }
         }
     </style>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        let map;
+        let currentMarker;
+
+        // Location data
+        const locations = {
+            'unza-campus': {
+                name: 'UNZA Great East Road Campus',
+                address: 'Great East Road, University of Zambia, Lusaka, Zambia',
+                coordinates: [-15.3875, 28.3228],
+                serviceTimes: {
+                    'Sunday': '09:00 AM & 11:00 AM',
+                    'Wednesday': '06:00 PM'
+                },
+                contact: {
+                    phone: '+260 97 123 4567',
+                    email: 'unza@church.zm'
+                },
+                slug: 'unza-campus'
+            },
+            'olympia-church': {
+                name: 'Katima Mulilo Road Olympia Church',
+                address: 'Katima Mulilo Road, Olympia, Lusaka, Zambia',
+                coordinates: [-15.3946, 28.2853],
+                serviceTimes: {
+                    'Sunday': '08:30 AM & 10:30 AM',
+                    'Thursday': '06:00 PM'
+                },
+                contact: {
+                    phone: '+260 97 234 5678',
+                    email: 'olympia@church.zm'
+                },
+                slug: 'olympia-church'
+            },
+            'online': {
+                name: 'Online Service',
+                address: 'Available worldwide via live stream',
+                coordinates: null,
+                serviceTimes: {
+                    'Sunday': '09:00 AM & 11:00 AM (CAT)',
+                    'Wednesday': '06:00 PM (CAT)'
+                },
+                contact: {
+                    phone: '+260 97 123 4567',
+                    email: 'online@church.zm',
+                    streamingUrl: 'https://church.zm/live'
+                },
+                slug: 'online'
+            }
+        };
+
+        // Initialize map
+        function initializeMap() {
+            if (map) {
+                map.remove();
+            }
+            
+            // Center map on Lusaka
+            map = L.map('map').setView([-15.3875, 28.3228], 12);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        // Add marker to map
+        function addLocationMarker(location) {
+            if (currentMarker) {
+                map.removeLayer(currentMarker);
+            }
+
+            if (location.coordinates) {
+                currentMarker = L.marker(location.coordinates).addTo(map);
+                
+                const popupContent = `
+                    <div style="text-align: center;">
+                        <h6><strong>${location.name}</strong></h6>
+                        <p style="margin: 5px 0; color: #666;">${location.address}</p>
+                    </div>
+                `;
+                
+                currentMarker.bindPopup(popupContent).openPopup();
+                map.setView(location.coordinates, 15);
+            }
+        }
+
+        // Update location info card
+        function updateLocationInfo(location) {
+            document.getElementById('locationName').textContent = location.name;
+            document.getElementById('locationAddress').textContent = location.address;
+            
+            // Service times
+            const serviceTimesHtml = Object.entries(location.serviceTimes)
+                .map(([day, time]) => `<small><strong>${day}:</strong> ${time}</small>`)
+                .join('<br>');
+            document.getElementById('serviceTimes').innerHTML = serviceTimesHtml;
+            
+            // Contact info
+            let contactHtml = `<small><strong>Phone:</strong> ${location.contact.phone}<br>`;
+            contactHtml += `<strong>Email:</strong> ${location.contact.email}</small>`;
+            if (location.contact.streamingUrl) {
+                contactHtml += `<br><small><strong>Stream:</strong> <a href="${location.contact.streamingUrl}" target="_blank">Watch Live</a></small>`;
+            }
+            document.getElementById('contactInfo').innerHTML = contactHtml;
+            
+            // Visit location button
+            document.getElementById('visitLocationBtn').href = `/locations/${location.slug}`;
+            
+            document.getElementById('locationInfo').style.display = 'block';
+        }
+
+        // Handle location selection
+        document.getElementById('locationSelect').addEventListener('change', function() {
+            const selectedValue = this.value;
+            const mapContainer = document.getElementById('mapContainer');
+            const locationInfo = document.getElementById('locationInfo');
+            
+            if (selectedValue && locations[selectedValue]) {
+                const location = locations[selectedValue];
+                
+                if (location.coordinates) {
+                    // Show map for physical locations
+                    mapContainer.style.display = 'block';
+                    
+                    if (!map) {
+                        initializeMap();
+                    }
+                    
+                    addLocationMarker(location);
+                } else {
+                    // Hide map for online service
+                    mapContainer.style.display = 'block';
+                    if (map) {
+                        map.remove();
+                        map = null;
+                    }
+                    document.getElementById('map').innerHTML = '<div class="d-flex align-items-center justify-content-center h-100 bg-light text-dark rounded"><h5>Online Service - No Physical Location</h5></div>';
+                }
+                
+                updateLocationInfo(location);
+                
+                // Auto-navigate to location page after 2 seconds (optional)
+                // Uncomment the line below if you want automatic navigation
+                // setTimeout(() => window.location.href = `/locations/${location.slug}`, 2000);
+                
+            } else {
+                mapContainer.style.display = 'none';
+                locationInfo.style.display = 'none';
+            }
+        });
+
+        // Handle "Visit Location Page" button click
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id === 'visitLocationBtn') {
+                e.preventDefault();
+                const href = e.target.getAttribute('href');
+                if (href && href !== '#') {
+                    window.location.href = href;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
