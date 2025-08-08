@@ -5,7 +5,45 @@
         <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
-   
+  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 ">
+                            <div class="detail-box">
+                                <h1 class="slidetext">
+                                    Everyone's<br>
+                                    Invited
+                                </h1>
+                                <p class="hero-subtitle mb-5">
+                                    Wherever you are on your journey, there's a place for 
+                                    you at University SDA Church. Here you'll find a welcoming 
+                                    community ready to walk through life with you.
+                                </p>
+                                
+                                <!-- Location Dropdown -->
+                                <div class="location-selector mb-4">
+                                    <select class="form-select location-dropdown" aria-label="Choose a Location">
+                                        <option selected>Choose a Location</option>
+                                        <option value="main">Main Campus</option>
+                                        <option value="north">North Campus</option>
+                                        <option value="south">South Campus</option>
+                                        <option value="online">Online</option>
+                                    </select>
+                                </div>
+
+                                <div class="button-container">
+                                    <a href="{{ route('register') }}" class="btn1">Learn More</a>
+                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end carousel-item -->
+        </div>
+    </div>
 </section>
 
 <style>
@@ -137,5 +175,5 @@
 }
 
 /* Import Inter font */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 </style>
