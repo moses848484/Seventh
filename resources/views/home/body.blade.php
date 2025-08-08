@@ -287,6 +287,12 @@
                 font-size: 0.75rem;
             }
         }
+        @media (max-width: 767px) {
+            .bible-card {
+                height: 700px;
+                /* adjust as needed */
+            }
+        }
     </style>
 </head>
 
