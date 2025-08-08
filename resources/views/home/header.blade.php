@@ -12,6 +12,7 @@
 /* Remove any spacing from the icon wrapper if needed */
 .fas.fa-user-circle {
     margin-right: 0.25rem;
+    margin-bottom: 10px !important;
 }
 
 </style>
