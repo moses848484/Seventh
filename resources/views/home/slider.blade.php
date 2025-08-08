@@ -78,6 +78,7 @@
     font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.1;
+    text-align: left;
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
     color: #ffffff;
@@ -88,6 +89,7 @@
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.6;
+    text-align: left;
     color: rgba(255, 255, 255, 0.95);
     max-width: 700px;
     margin: 0 auto 3rem auto;
