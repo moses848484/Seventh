@@ -125,11 +125,37 @@
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
-    .navbar-toggler.btn {
+
+  .navbar-toggler.btn {
     background-color: white !important;
     border: none !important;
     border-radius: 0 !important;
     color: #000;
+    box-shadow: none !important;
+    /* Remove any box shadow */
+    outline: none !important;
+    /* Remove outline on focus */
+  }
+
+  /* Remove focus and active states that might show borders */
+  .navbar-toggler.btn:focus,
+  .navbar-toggler.btn:active,
+  .navbar-toggler.btn:hover {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: white !important;
+  }
+
+  /* If using Bootstrap, this removes the default navbar-toggler border */
+  .navbar-toggler {
+    border: none !important;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Remove any potential border from the icon itself */
+  .navbar-toggler .mdi-menu {
+    border: none !important;
   }
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -159,16 +185,16 @@
       </a>
     </li>
 
-       <li class="nav-item menu-items {{ request()->is('member_registration') ? 'show' : '' }}">
+    <li class="nav-item menu-items {{ request()->is('member_registration') ? 'show' : '' }}">
       <a class="nav-link" href="{{ url('member_registration') }}">
         <span class="menu-icon">
           <i class="fa-solid fa-user fa-3x"></i>
         </span>
         <span class="menu-title">Member Registration</span>
       </a>
-    </li>  
-    
-        <li class="nav-item menu-items {{ request()->is('member_givings') ? 'active' : '' }}">
+    </li>
+
+    <li class="nav-item menu-items {{ request()->is('member_givings') ? 'active' : '' }}">
       <a class="nav-link" href="{{ url('member_givings') }}">
         <span class="menu-icon">
           <i class="fa-solid fa-sack-dollar"></i>
