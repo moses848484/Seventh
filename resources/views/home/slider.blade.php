@@ -14,7 +14,7 @@
     <section class="slider_section position-relative text-white">
         <!-- Background image with light overlay -->
         <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-            <img src="images/dorca.jpg" alt="church" class="w-100 h-100 object-fit-cover">
+            <img src="images/dorcas.jpg" alt="church" class="w-100 h-100 object-fit-cover">
             <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
         </div>
 
@@ -86,7 +86,7 @@
             line-height: 1.1;
             text-align: left;
             letter-spacing: -0.02em;
-            margin-bottom: 2rem;
+            margin-top: 100px;
             color: #ffffff;
         }
 
@@ -98,6 +98,7 @@
             text-align: left;
             color: rgba(255, 255, 255, 0.95);
             max-width: 700px;
+            margin-top: 100px;
             margin: 0 auto 3rem auto;
         }
 
