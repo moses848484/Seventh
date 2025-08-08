@@ -22,8 +22,8 @@
             <div class="carousel-item active">
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-lg-7 col-md-8 d-flex align-items-center" style="min-height: 100vh;">
-                            <div class="detail-box px-3 px-md-0">
+                        <div class="col-lg-10 col-md-10 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+                            <div class="detail-box text-center px-3 px-md-0">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
                                     Invited
@@ -75,34 +75,37 @@
 /* Hero Section Fonts and Styling - matching reference image */
 .hero-title {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 4.5rem;
+    font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: #ffffff;
 }
 
 .hero-subtitle {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.95);
-    max-width: 620px;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
 }
 
 /* Location Section Styling */
 .location-section {
-    max-width: 500px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .location-icon-text {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -118,9 +121,9 @@
     background-color: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 6px;
-    padding: 14px 18px;
+    padding: 16px 20px;
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #333;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -152,24 +155,19 @@
 /* Responsive Typography */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.75rem;
+        font-size: 3rem;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
     
     .detail-box {
-        text-align: center;
         padding: 2rem 1rem;
     }
     
     .location-section {
         max-width: 100%;
-    }
-    
-    .location-icon-text {
-        justify-content: center;
     }
 }
 
