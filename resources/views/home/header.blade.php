@@ -81,7 +81,7 @@
 
                         @else
                             <li class="nav-item">
-                                <i class="fas fa-user-circle fa-2x"><a class="nav-link" id="logincss"
+                                <i class="fas fa-user-circle fa-3x"><a class="nav-link" id="logincss"
                                         href="{{ url('/redirect') }}">LOG IN</a></i>
 
                             </li>
