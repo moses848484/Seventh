@@ -82,7 +82,7 @@
         .hero-title {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             font-size: 4.5rem;
-            font-weight: 800;
+            font-weight: bolder;
             line-height: 1.1;
             text-align: left;
             letter-spacing: -0.02em;
