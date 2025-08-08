@@ -393,9 +393,7 @@
 
                                 <!-- Verse Content Column -->
                                 <div class="col-6 col-sm-7 col-xl-8 p-0">
-                                    <iframe src="https://www.bible.com/embed/verse-of-the-day"
-                                        style="border:none; width: 100%; height: 80px;" scrolling="no" loading="lazy"
-                                        title="YouVersion Verse of the Day"></iframe>
+                                    <div id="verse-of-the-day" style="color: white;"></div>
                                 </div>
 
                                 <!-- Button Column -->
@@ -403,7 +401,7 @@
                                     <a href="https://www.bible.com/verse-of-the-day" target="_blank"
                                         rel="noopener noreferrer"
                                         class="btn btn-outline-light btn-rounded get-started-btn">
-                                        <span class="d-none d-md-inline">YouVersion Verse Of The Day</span>
+                                        <span class="d-none d-md-inline">Verse Of The Day</span>
                                         <span class="d-md-none">VOTD</span>
                                     </a>
                                 </div>
