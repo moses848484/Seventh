@@ -8,16 +8,6 @@
     padding: 0.25rem 0.5rem;
 }
 
-  .navbar-toggler.btn {
-    background-color: white !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: white;
-    box-shadow: none !important;
-    /* Remove any box shadow */
-    outline: none !important;
-    /* Remove outline on focus */
-  }
 /* Remove any spacing from the icon wrapper if needed */
 .fas.fa-user-circle {
     margin-right: 0.25rem;
