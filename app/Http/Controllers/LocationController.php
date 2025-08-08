@@ -70,27 +70,18 @@ class LocationController extends Controller
     public function show($slug)
     {
         $location = $this->locations[$slug] ?? null;
-        
+
         if (!$location) {
             abort(404, 'Location not found');
         }
 
-        // Route to specific blade files in home folder
-        $viewMap = [
-            'unza-campus' => 'home.unza-campus',
-            'olympia-church' => 'home.olympia-church', 
-            'online' => 'home.online'
-        ];
-        
-        $viewName = $viewMap[$slug] ?? 'home.show';
-        
-        return view($viewName, ['location' => $location]);
+        return view('home.show', ['location' => $location]);
     }
 
     public function getLocationData($slug): JsonResponse
     {
         $location = $this->locations[$slug] ?? null;
-        
+
         if (!$location) {
             return response()->json(['error' => 'Location not found'], 404);
         }
