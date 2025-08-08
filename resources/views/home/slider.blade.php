@@ -67,31 +67,6 @@
     flex-wrap: wrap;
 }
 
-
-.btn1 {
-    background-color: #fff;
-    color: #333;
-}
-
-.btn1:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn5 {
-    background-color: transparent;
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.btn5:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #fff;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
 /* Responsive Typography */
 @media (max-width: 768px) {
     .hero-title {
