@@ -1,24 +1,13 @@
 <style>
     .btn-primary {
-    background-color: white !important;
     border: none !important;
     border-radius: 0 !important;
-    color: #000 !important;
+    color: white !important;
     box-shadow: none !important;
     outline: none !important;
     padding: 0.25rem 0.5rem;
 }
 
-/* Hover, focus, active states */
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary:hover {
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-    background-color: none !important;
-    color: #000 !important;
-}
 
 /* Remove any spacing from the icon wrapper if needed */
 .fas.fa-user-circle {
