@@ -72,7 +72,7 @@
         .grid-margin {
             margin-bottom: 30px;
         }
-        
+
         .stretch-card .card {
             height: 100%;
         }
@@ -287,11 +287,42 @@
                 font-size: 0.75rem;
             }
         }
+
+        /* Reduce Corona Card Height */
+        .corona-gradient-card {
+            padding: 0.5rem;
+            /* less internal padding */
+            max-height: 100px;
+            overflow: hidden;
+        }
+
+        .corona-gradient-card .card-body {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .corona-gradient-card .gradient-corona-img {
+            max-height: 80px;
+            /* shrink image */
+            height: auto;
+        }
+
+        .corona-gradient-card #verse-of-the-day {
+            font-size: 0.9rem;
+            /* reduce verse text size */
+            line-height: 1.2;
+        }
+
+        .corona-gradient-card .get-started-btn {
+            padding: 0.25rem 0.5rem;
+            /* smaller button */
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 
 <body>
-<div class="main-panel">
+    <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
@@ -501,163 +532,164 @@
                     </div>
                 </div>
             </div>
-     </div>
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                University
-                SDA Church 2024</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                Computer Science Dept
-                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
-                    Computer Systems Engineering
-                </a> from University Of Zambia
-            </span>
         </div>
-    </footer>
- 
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                    University
+                    SDA Church 2024</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                    Computer Science Dept
+                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                        class="text-white">
+                        Computer Systems Engineering
+                    </a> from University Of Zambia
+                </span>
+            </div>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- If you're including multiple Biblia widgets, you only need this script tag once -->
-    <script src="//biblia.com/api/logos.biblia.js"></script>
-    <!-- Verse of the Day Script -->
-    <script>
-        function myVotdCallback(data) {
-            var votdContainer = document.getElementById('verse-of-the-day');
-            if (votdContainer && data && data.votd) {
-                // Clean the verse text by removing extra quotes
-                var cleanText = data.votd.text;
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-                // Remove surrounding quotes if they exist
-                if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
-                    cleanText = cleanText.slice(1, -1);
-                }
+        <!-- If you're including multiple Biblia widgets, you only need this script tag once -->
+        <script src="//biblia.com/api/logos.biblia.js"></script>
+        <!-- Verse of the Day Script -->
+        <script>
+            function myVotdCallback(data) {
+                var votdContainer = document.getElementById('verse-of-the-day');
+                if (votdContainer && data && data.votd) {
+                    // Clean the verse text by removing extra quotes
+                    var cleanText = data.votd.text;
 
-                // Remove any double quotes at the beginning or end
-                cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+                    // Remove surrounding quotes if they exist
+                    if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
+                        cleanText = cleanText.slice(1, -1);
+                    }
 
-                // Create a more formatted display without adding extra quotes
-                var verseHTML = `
+                    // Remove any double quotes at the beginning or end
+                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+
+                    // Create a more formatted display without adding extra quotes
+                    var verseHTML = `
                 <div class="verse-content">
                     <p class="mb-1">"${cleanText}"</p>
                     <small class="verse-reference">- ${data.votd.reference}</small>
                 </div>
             `;
-                votdContainer.innerHTML = verseHTML;
-            } else if (votdContainer) {
-                votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
-            }
-        }
-
-        // Error handling for failed script loading
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                var votdContainer = document.getElementById('verse-of-the-day');
-                if (votdContainer && votdContainer.innerHTML.trim() === '') {
-                    votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
-                }
-            }, 5000); // Wait 5 seconds for the script to load
-        });
-    </script>
-
-    <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script>
-        class NotesPlugin {
-            constructor() {
-                this.notes = this.loadNotes();
-                this.init();
-            }
-
-            init() {
-                this.renderNotes();
-                this.bindEvents();
-                this.updateCounter();
-            }
-
-            bindEvents() {
-                // Add note form submission
-                const addForm = document.getElementById('addNoteForm');
-                if (addForm) {
-                    addForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        this.addNote();
-                    });
-                }
-
-                // Search functionality
-                const searchInput = document.getElementById('searchNotes');
-                if (searchInput) {
-                    searchInput.addEventListener('input', (e) => {
-                        this.searchNotes(e.target.value);
-                    });
+                    votdContainer.innerHTML = verseHTML;
+                } else if (votdContainer) {
+                    votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
                 }
             }
 
-            addNote() {
-                const noteTextElement = document.getElementById('noteText');
-                if (!noteTextElement) return;
-                
-                const noteText = noteTextElement.value.trim();
-                if (!noteText) return;
+            // Error handling for failed script loading
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    var votdContainer = document.getElementById('verse-of-the-day');
+                    if (votdContainer && votdContainer.innerHTML.trim() === '') {
+                        votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                    }
+                }, 5000); // Wait 5 seconds for the script to load
+            });
+        </script>
 
-                const note = {
-                    id: Date.now(),
-                    text: noteText,
-                    timestamp: new Date().toLocaleString(),
-                    date: new Date().toISOString()
-                };
+        <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+        <script>
+            class NotesPlugin {
+                constructor() {
+                    this.notes = this.loadNotes();
+                    this.init();
+                }
 
-                this.notes.unshift(note);
-                this.saveNotes();
-                this.renderNotes();
-                this.updateCounter();
+                init() {
+                    this.renderNotes();
+                    this.bindEvents();
+                    this.updateCounter();
+                }
 
-                // Clear form
-                noteTextElement.value = '';
+                bindEvents() {
+                    // Add note form submission
+                    const addForm = document.getElementById('addNoteForm');
+                    if (addForm) {
+                        addForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            this.addNote();
+                        });
+                    }
 
-                // Show success feedback
-                this.showFeedback('Note added successfully!', 'success');
-            }
+                    // Search functionality
+                    const searchInput = document.getElementById('searchNotes');
+                    if (searchInput) {
+                        searchInput.addEventListener('input', (e) => {
+                            this.searchNotes(e.target.value);
+                        });
+                    }
+                }
 
-            deleteNote(id) {
-                if (confirm('Are you sure you want to delete this note?')) {
-                    this.notes = this.notes.filter(note => note.id !== id);
+                addNote() {
+                    const noteTextElement = document.getElementById('noteText');
+                    if (!noteTextElement) return;
+
+                    const noteText = noteTextElement.value.trim();
+                    if (!noteText) return;
+
+                    const note = {
+                        id: Date.now(),
+                        text: noteText,
+                        timestamp: new Date().toLocaleString(),
+                        date: new Date().toISOString()
+                    };
+
+                    this.notes.unshift(note);
                     this.saveNotes();
                     this.renderNotes();
                     this.updateCounter();
-                    this.showFeedback('Note deleted!', 'info');
-                }
-            }
 
-            editNote(id) {
-                const note = this.notes.find(n => n.id === id);
-                if (!note) return;
+                    // Clear form
+                    noteTextElement.value = '';
 
-                const newText = prompt('Edit your note:', note.text);
-                if (newText !== null && newText.trim() !== '') {
-                    note.text = newText.trim();
-                    note.timestamp = new Date().toLocaleString() + ' (edited)';
-                    this.saveNotes();
-                    this.renderNotes();
-                    this.showFeedback('Note updated!', 'success');
-                }
-            }
-
-            renderNotes(notesToRender = this.notes) {
-                const notesList = document.getElementById('notesList');
-                const emptyState = document.getElementById('emptyState');
-                
-                if (!notesList || !emptyState) return;
-
-                if (notesToRender.length === 0) {
-                    notesList.innerHTML = '';
-                    notesList.appendChild(emptyState);
-                    return;
+                    // Show success feedback
+                    this.showFeedback('Note added successfully!', 'success');
                 }
 
-                notesList.innerHTML = notesToRender.map(note => `
+                deleteNote(id) {
+                    if (confirm('Are you sure you want to delete this note?')) {
+                        this.notes = this.notes.filter(note => note.id !== id);
+                        this.saveNotes();
+                        this.renderNotes();
+                        this.updateCounter();
+                        this.showFeedback('Note deleted!', 'info');
+                    }
+                }
+
+                editNote(id) {
+                    const note = this.notes.find(n => n.id === id);
+                    if (!note) return;
+
+                    const newText = prompt('Edit your note:', note.text);
+                    if (newText !== null && newText.trim() !== '') {
+                        note.text = newText.trim();
+                        note.timestamp = new Date().toLocaleString() + ' (edited)';
+                        this.saveNotes();
+                        this.renderNotes();
+                        this.showFeedback('Note updated!', 'success');
+                    }
+                }
+
+                renderNotes(notesToRender = this.notes) {
+                    const notesList = document.getElementById('notesList');
+                    const emptyState = document.getElementById('emptyState');
+
+                    if (!notesList || !emptyState) return;
+
+                    if (notesToRender.length === 0) {
+                        notesList.innerHTML = '';
+                        notesList.appendChild(emptyState);
+                        return;
+                    }
+
+                    notesList.innerHTML = notesToRender.map(note => `
                     <div class="note-item" data-note-id="${note.id}">
                         <div class="note-meta">
                             <i class="fas fa-clock me-1"></i>${note.timestamp}
@@ -673,97 +705,97 @@
                         </div>
                     </div>
                 `).join('');
-            }
-
-            searchNotes(query) {
-                if (!query.trim()) {
-                    this.renderNotes();
-                    return;
                 }
 
-                const filteredNotes = this.notes.filter(note =>
-                    note.text.toLowerCase().includes(query.toLowerCase())
-                );
-
-                this.renderNotes(filteredNotes);
-            }
-
-            updateCounter() {
-                const counter = document.getElementById('notesCounter');
-                if (!counter) return;
-                
-                const count = this.notes.length;
-                counter.textContent = `${count} note${count !== 1 ? 's' : ''}`;
-            }
-
-            loadNotes() {
-                try {
-                    // Using variable storage instead of localStorage to comply with restrictions
-                    if (window.userNotesStorage) {
-                        return window.userNotesStorage;
+                searchNotes(query) {
+                    if (!query.trim()) {
+                        this.renderNotes();
+                        return;
                     }
-                    return [];
-                } catch (error) {
-                    console.error('Error loading notes:', error);
-                    return [];
-                }
-            }
 
-            saveNotes() {
-                try {
-                    // Using variable storage instead of localStorage
-                    window.userNotesStorage = this.notes;
-                } catch (error) {
-                    console.error('Error saving notes:', error);
-                    this.showFeedback('Error saving notes!', 'danger');
-                }
-            }
+                    const filteredNotes = this.notes.filter(note =>
+                        note.text.toLowerCase().includes(query.toLowerCase())
+                    );
 
-            showFeedback(message, type = 'info') {
-                const alertDiv = document.createElement('div');
-                alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
-                alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 1050; min-width: 250px;';
-                alertDiv.innerHTML = `
+                    this.renderNotes(filteredNotes);
+                }
+
+                updateCounter() {
+                    const counter = document.getElementById('notesCounter');
+                    if (!counter) return;
+
+                    const count = this.notes.length;
+                    counter.textContent = `${count} note${count !== 1 ? 's' : ''}`;
+                }
+
+                loadNotes() {
+                    try {
+                        // Using variable storage instead of localStorage to comply with restrictions
+                        if (window.userNotesStorage) {
+                            return window.userNotesStorage;
+                        }
+                        return [];
+                    } catch (error) {
+                        console.error('Error loading notes:', error);
+                        return [];
+                    }
+                }
+
+                saveNotes() {
+                    try {
+                        // Using variable storage instead of localStorage
+                        window.userNotesStorage = this.notes;
+                    } catch (error) {
+                        console.error('Error saving notes:', error);
+                        this.showFeedback('Error saving notes!', 'danger');
+                    }
+                }
+
+                showFeedback(message, type = 'info') {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+                    alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 1050; min-width: 250px;';
+                    alertDiv.innerHTML = `
                     ${message}
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 `;
 
-                document.body.appendChild(alertDiv);
+                    document.body.appendChild(alertDiv);
 
-                // Auto remove after 3 seconds
-                setTimeout(() => {
-                    if (alertDiv.parentNode) {
-                        alertDiv.parentNode.removeChild(alertDiv);
-                    }
-                }, 3000);
+                    // Auto remove after 3 seconds
+                    setTimeout(() => {
+                        if (alertDiv.parentNode) {
+                            alertDiv.parentNode.removeChild(alertDiv);
+                        }
+                    }, 3000);
+                }
+
+                escapeHtml(text) {
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    return div.innerHTML;
+                }
             }
 
-            escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-        }
+            // Initialize the notes plugin when DOM is loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                window.notesPlugin = new NotesPlugin();
 
-        // Initialize the notes plugin when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            window.notesPlugin = new NotesPlugin();
-            
-            // Add keyboard shortcuts
-            document.addEventListener('keydown', (e) => {
-                // Ctrl/Cmd + Enter to add note quickly
-                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                    const noteText = document.getElementById('noteText');
-                    if (noteText && document.activeElement === noteText && noteText.value.trim()) {
-                        const form = document.getElementById('addNoteForm');
-                        if (form) {
-                            form.dispatchEvent(new Event('submit'));
+                // Add keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    // Ctrl/Cmd + Enter to add note quickly
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                        const noteText = document.getElementById('noteText');
+                        if (noteText && document.activeElement === noteText && noteText.value.trim()) {
+                            const form = document.getElementById('addNoteForm');
+                            if (form) {
+                                form.dispatchEvent(new Event('submit'));
+                            }
                         }
                     }
-                }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
