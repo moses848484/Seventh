@@ -288,35 +288,82 @@
             }
         }
 
-        /* Reduce Corona Card Height */
+        /* Reduce Corona Card Height - Improved Version */
         .corona-gradient-card {
             padding: 0.5rem;
-            /* less internal padding */
             max-height: 100px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Better space distribution */
         }
 
         .corona-gradient-card .card-body {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            flex: 1;
+            /* Allow body to take available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .corona-gradient-card .gradient-corona-img {
-            max-height: 80px;
-            /* shrink image */
+            max-height: 60px;
+            /* Reduced further for better proportion */
             height: auto;
+            width: auto;
+            object-fit: contain;
+            /* Maintain aspect ratio */
+            margin-bottom: 0.25rem;
         }
 
         .corona-gradient-card #verse-of-the-day {
-            font-size: 0.9rem;
-            /* reduce verse text size */
+            font-size: 0.85rem;
             line-height: 1.2;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* Limit to 2 lines */
+            -webkit-box-orient: vertical;
         }
 
         .corona-gradient-card .get-started-btn {
             padding: 0.25rem 0.5rem;
-            /* smaller button */
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            min-height: auto;
+            /* Remove default button min-height */
+            line-height: 1.2;
+            margin-top: auto;
+            /* Push button to bottom */
+        }
+
+        /* Additional improvements for better compact layout */
+        .corona-gradient-card * {
+            margin-bottom: 0;
+            /* Reset margins for tighter spacing */
+        }
+
+        .corona-gradient-card .card-title {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .corona-gradient-card {
+                max-height: 90px;
+            }
+
+            .corona-gradient-card .gradient-corona-img {
+                max-height: 50px;
+            }
+
+            .corona-gradient-card #verse-of-the-day {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
