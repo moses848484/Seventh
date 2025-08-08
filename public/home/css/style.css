@@ -886,6 +886,7 @@ div.form_sub .field input[type="email"]:focus {
 .cpy_ h6 {
   margin: 0;
   font-size: 14px;
+  color: #f8f9fa;
 }
 
 .cpy_ .rights {
@@ -965,7 +966,7 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 .university {
-  color: #007bff !important;
+  color: #00aaff !important;
 }
 
 .cpy_ p a {
