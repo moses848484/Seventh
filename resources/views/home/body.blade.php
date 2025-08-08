@@ -178,18 +178,6 @@
             color: #6c757d;
         }
 
-        .footer1 {
-            background: #f8f9fa;
-            padding: 10px 15px;
-            border-radius: 0 0 10px 10px;
-            border-top: 1px solid #dee2e6;
-            flex-shrink: 0;
-        }
-
-        .text-muted2 {
-            color: #6c757d;
-        }
-
         .search-box {
             margin-bottom: 15px;
         }
