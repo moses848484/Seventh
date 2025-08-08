@@ -5,12 +5,12 @@
     </div>
     <!-- Carousel -->
     <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="container py-5">
+                <div class="container ">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 d-flex align-items-center">
-                            <div class="detail-box px-3 px-md-0">
+                        <div class="col-lg-6 col-md-8">
+                            <div class="detail-box">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
                                     Invited
