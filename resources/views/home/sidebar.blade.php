@@ -126,7 +126,15 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
 
-
+  .navbar-toggler.btn {
+    background-color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    /* Remove any box shadow */
+    outline: none !important;
+    /* Remove outline on focus */
+  }
 
 
 </style>
