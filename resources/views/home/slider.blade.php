@@ -14,7 +14,7 @@
     <section class="slider_section position-relative text-white">
         <!-- Background image with light overlay -->
         <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-            <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
+            <img src="images/dorca.jpg" alt="church" class="w-100 h-100 object-fit-cover">
             <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
         </div>
 
