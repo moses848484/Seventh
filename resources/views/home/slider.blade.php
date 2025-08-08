@@ -11,7 +11,7 @@
             <div class="carousel-item active">
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
+                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh; background-color: none;">
                             <div class="detail-box px-3 px-md-0">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>

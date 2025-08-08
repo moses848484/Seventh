@@ -584,9 +584,7 @@ a:focus {
 
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  /* Dark overlay */
-  z-index: 1;
+  display: none !important;
 }
 
 .detail-box {
@@ -597,6 +595,7 @@ a:focus {
 
 .slider_section h1 {
   color: #2c6448;
+  background-color: none !important;
 }
 
 @media (max-width: 768px) {
