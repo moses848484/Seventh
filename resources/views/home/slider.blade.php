@@ -1,75 +1,54 @@
 <section class="slider_section position-relative text-white">
-    <!-- Background image -->
-    <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
-        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100" style="object-fit: cover;">
+    <!-- Background image with dark overlay -->
+    <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
+        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
-    <!-- Content Container -->
-    <div class="hero-content">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
-                    <div class="hero-text-box px-3 px-md-0">
-                        <h1 class="hero-title mb-4">
-                            Everyone's<br>
-                            Invited
-                        </h1>
-                        <p class="hero-subtitle mb-5">
-                            Wherever you are on your journey, there's a place for 
-                            you at University SDA Church. Here you'll find a welcoming 
-                            community ready to walk through life with you.
-                        </p>
-                        
-                        <!-- Location Dropdown -->
-                        <div class="location-selector mb-4">
-                            <select class="form-control location-dropdown" aria-label="Choose a Location">
-                                <option selected>Choose a Location</option>
-                                <option value="main">Main Campus</option>
-                                <option value="north">North Campus</option>
-                                <option value="south">South Campus</option>
-                                <option value="online">Online</option>
-                            </select>
-                        </div>
+    <!-- Carousel -->
+    <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
+                            <div class="detail-box px-3 px-md-0">
+                                <h1 class="hero-title mb-4">
+                                    Everyone's<br>
+                                    Invited
+                                </h1>
+                                <p class="hero-subtitle mb-5">
+                                    Wherever you are on your journey, there's a place for 
+                                    you at University SDA Church. Here you'll find a welcoming 
+                                    community ready to walk through life with you.
+                                </p>
+                                
+                                <!-- Location Dropdown -->
+                                <div class="location-selector mb-4">
+                                    <select class="form-select location-dropdown" aria-label="Choose a Location">
+                                        <option selected>Choose a Location</option>
+                                        <option value="main">Main Campus</option>
+                                        <option value="north">North Campus</option>
+                                        <option value="south">South Campus</option>
+                                        <option value="online">Online</option>
+                                    </select>
+                                </div>
 
-                        <div class="button-container">
-                            <a href="{{ route('register') }}" class="btn1">Learn More</a>
-                            <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
+                                <div class="button-container">
+                                    <a href="{{ route('register') }}" class="btn1">Learn More</a>
+                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- end carousel-item -->
         </div>
     </div>
 </section>
 
 <style>
 /* Hero Section Fonts and Styling */
-.slider_section {
-    background: none !important;
-}
-
-.hero-content {
-    background: none !important;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text-box {
-    background: none !important;
-    backdrop-filter: none !important;
-}
-
-.slider_section::before,
-.slider_section::after,
-.hero-text-box::before,
-.hero-text-box::after,
-.carousel-inner::before,
-.carousel-inner::after,
-.carousel-item::before,
-.carousel-item::after {
-    display: none !important;
-}
-
 .hero-title {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-size: 4rem;
@@ -78,7 +57,6 @@
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    background: none !important;
 }
 
 .hero-subtitle {
@@ -166,7 +144,7 @@
         font-size: 1.125rem;
     }
     
-    .hero-text-box {
+    .detail-box {
         text-align: center;
         padding: 2rem 1rem;
     }
