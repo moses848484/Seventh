@@ -5,14 +5,13 @@
         <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
-    <!-- Carousel -->
-    <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <div class="container py-5">
+            <div class="carousel-item active">
+                <div class="container ">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
-                            <div class="detail-box px-3 px-md-0">
+                        <div class="col-md-9 col-lg-8 ">
+                            <div class="detail-box">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
                                     Invited
