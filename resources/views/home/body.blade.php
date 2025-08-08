@@ -420,26 +420,8 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <iframe width="100%" height="315"
-                                    src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                        <div class="footer1">
-                            <h6 class="text-muted2 font-weight-normal">Prayer Requests</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
                     <!-- Notes Card -->
-                    <div class="col-md-4 grid-margin stretch-card">
+                    <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
                         <div class="card d-flex flex-column notes-card">
                             <div class="notes-header d-flex justify-content-between align-items-center p-3">
                                 <h5 class="mb-0">
@@ -487,36 +469,52 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column bible-card">
-                            <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                                style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                </div>
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <iframe width="100%" height="315"
+                                src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                         </div>
+                        <div class="footer1 text-center">
+                            <h6 class="text-muted2 fw-normal">Welcome</h6>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                    <div class="card d-flex flex-column bible-card">
+                        <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
+                            style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- content-wrapper ends -->
+    <!-- content-wrapper ends -->
 
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                    University
-                    SDA Church 2024</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                    Computer Science Dept
-                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                        class="text-white">
-                        Computer Systems Engineering
-                    </a> from University Of Zambia
-                </span>
-            </div>
-        </footer>
-        <!-- partial -->
+    <!-- partial:partials/_footer.html -->
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                University
+                SDA Church 2024</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                Computer Science Dept
+                <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
+                    Computer Systems Engineering
+                </a> from University Of Zambia
+            </span>
+        </div>
+    </footer>
+    <!-- partial -->
     </div>
     <!-- main-panel ends -->
     </div>
