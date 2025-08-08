@@ -12,7 +12,7 @@
 <section class="slider_section position-relative text-white">
     <!-- Background image with light overlay -->
     <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-        <img src="images/dorcas.jpg" alt="church" class="w-100 h-100 object-fit-cover">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
         <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
     </div>
 
@@ -22,8 +22,8 @@
             <div class="carousel-item active">
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-lg-10 col-md-10 d-flex align-items-start justify-content-end" style="min-height: 100vh; padding-top: 15vh;">
-                            <div class="detail-box text-center px-3 px-md-0" style="margin-right: 5%;"
+                        <div class="col-lg-10 col-md-10 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+                            <div class="detail-box text-center px-3 px-md-0">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
                                     Invited
