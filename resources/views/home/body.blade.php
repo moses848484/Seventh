@@ -366,7 +366,7 @@
             }
 
             .corona-gradient-card #verse-of-the-day {
-                font-size: 0.8rem;
+                font-size: 2px !important;
             }
         }
     </style>
