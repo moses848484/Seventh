@@ -10,7 +10,7 @@
             <div class="carousel-item">
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
+                        <div class="col-lg-6 col-md-9 d-flex align-items-center" style="min-height: 80vh;">
                             <div class="detail-box px-3 px-md-0">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
@@ -171,4 +171,7 @@
             text-align: center;
         }
     }
+
+    /* Import Inter font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 </style>
