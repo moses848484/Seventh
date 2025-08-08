@@ -46,7 +46,7 @@
                                     <!-- Location Section -->
                                     <div class="location-section mb-4">
                                         <div class="location-icon-text mb-3">
-                                            <i class="fa-solid fa-location-crosshairs"></i>
+                                            <i class="bi bi-crosshair2"></i>
                                             <span class="location-text">Find Your Closest Location</span>
                                         </div>
 
@@ -139,7 +139,7 @@
         }
 
         .location-text {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+           
         }
 
         /* Location Dropdown Styling */
