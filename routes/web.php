@@ -7,6 +7,7 @@ use App\Http\Controllers\ScorecardController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\UpdateUserProfileInformationController;
+use App\Http\Controllers\LocationController;
 
 // REMOVE THESE PROBLEMATIC IMPORTS:
 // use App\Models\User\UserController;
@@ -113,8 +114,8 @@ Route::middleware([
 
     Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
-    // Notifications
-    Route::get('/notifications', function () {
-        return view('notify-layout');
-    })->name('notifications');
+    // Location routes
+    Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
+    Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
+    Route::get('/api/locations/{slug}', [LocationController::class, 'getLocationData'])->name('api.locations.show');
 });
