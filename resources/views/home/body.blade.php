@@ -84,13 +84,13 @@
 
         @media (max-width: 767px) {
             .uniform-height-card {
-                height: 350px;
+                height: 700px;
             }
         }
 
         @media (max-width: 576px) {
             .uniform-height-card {
-                height: 300px;
+                height: 600px;
             }
         }
 
@@ -285,12 +285,6 @@
 
             .footer span {
                 font-size: 0.75rem;
-            }
-        }
-        @media (max-width: 767px) {
-            .bible-card {
-                height: 700px !important;
-                /* adjust as needed */
             }
         }
     </style>
