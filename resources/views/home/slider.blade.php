@@ -27,16 +27,10 @@
                                 <div class="location-selector mb-4">
                                     <select class="form-select location-dropdown" aria-label="Choose a Location">
                                         <option selected>Choose a Location</option>
-                                        <option value="main">Main Campus</option>
-                                        <option value="north">North Campus</option>
-                                        <option value="south">South Campus</option>
+                                        <option value="main">UNZA Great East Road Campus</option>
+                                        <option value="north">Katima Mulilo Road Olympia Church</option>
                                         <option value="online">Online</option>
                                     </select>
-                                </div>
-
-                                <div class="button-container">
-                                    <a href="{{ route('register') }}" class="btn1">Learn More</a>
-                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
                                 </div>
                             </div>
                         </div>
