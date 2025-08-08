@@ -288,48 +288,35 @@
             }
         }
 
+        /* Reduce Corona Card Height */
         .corona-gradient-card {
+            padding: 0.5rem;
+            /* less internal padding */
             max-height: 100px;
-            /* limit total card height */
-            padding: 0.5rem 1rem;
-            /* smaller padding */
             overflow: hidden;
-            /* hide overflow if verse is long */
         }
 
         .corona-gradient-card .card-body {
-            padding-top: 0.3rem;
-            padding-bottom: 0.3rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
         }
 
         .corona-gradient-card .gradient-corona-img {
-            max-height: 70px;
-            /* smaller image height */
-            width: auto;
-            object-fit: contain;
+            max-height: 80px;
+            /* shrink image */
+            height: auto;
         }
 
         .corona-gradient-card #verse-of-the-day {
             font-size: 0.9rem;
-            /* slightly smaller text */
-            line-height: 1.1;
-            color: white;
-            white-space: nowrap;
-            /* keep text in one line */
-            overflow: hidden;
-            text-overflow: ellipsis;
-            /* truncate overflow with ... */
+            /* reduce verse text size */
+            line-height: 1.2;
         }
 
         .corona-gradient-card .get-started-btn {
             padding: 0.25rem 0.5rem;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        /* Optional: vertically center content if needed */
-        .corona-gradient-card .row.align-items-center {
-            min-height: 80px;
+            /* smaller button */
+            font-size: 0.8rem;
         }
     </style>
 </head>
