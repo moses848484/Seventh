@@ -7,10 +7,10 @@
     <title>Church Hero Section</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -20,7 +20,9 @@
         <!-- Background image with gradient overlay -->
         <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
             <img src="images/dorcas.jpg" alt="church" class="w-100 h-100" style="object-fit: cover;">
-            <div class="position-absolute w-100 h-100" style="top: 0; left: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); z-index: 1;"></div>
+            <div class="position-absolute w-100 h-100"
+                style="top: 0; left: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); z-index: 1;">
+            </div>
         </div>
 
         <!-- Carousel -->
@@ -44,13 +46,7 @@
                                     <!-- Location Section -->
                                     <div class="location-section mb-4">
                                         <div class="location-icon-text mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-geo-alt me-2" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                                <path
-                                                    d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                                            </svg>
+                                            <i class="fa-solid fa-location-crosshairs"></i>
                                             <span class="location-text">Find Your Closest Location</span>
                                         </div>
 
@@ -60,17 +56,20 @@
                                                 aria-label="Choose a Location">
                                                 <option value="">Choose a Location</option>
                                                 <option value="unza-campus">UNZA Great East Road Campus</option>
-                                                <option value="olympia-church">Katima Mulilo Road Olympia Church</option>
+                                                <option value="olympia-church">Katima Mulilo Road Olympia Church
+                                                </option>
                                                 <option value="online">Online</option>
                                             </select>
                                         </div>
 
                                         <!-- Map Container -->
                                         <div id="mapContainer" style="display: none;">
-                                            <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;"></div>
-                                            
+                                            <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
+                                            </div>
+
                                             <!-- Location Info Card -->
-                                            <div id="locationInfo" class="location-info-card mt-3" style="display: none;">
+                                            <div id="locationInfo" class="location-info-card mt-3"
+                                                style="display: none;">
                                                 <div class="card bg-light">
                                                     <div class="card-body text-dark">
                                                         <h5 class="card-title" id="locationName"></h5>
@@ -79,7 +78,8 @@
                                                         </p>
                                                         <div id="serviceTimes"></div>
                                                         <div id="contactInfo" class="mt-2"></div>
-                                                        <a href="#" id="visitLocationBtn" class="btn btn-primary mt-2">Visit Location Page</a>
+                                                        <a href="#" id="visitLocationBtn"
+                                                            class="btn btn-primary mt-2">Visit Location Page</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -294,10 +294,10 @@
             if (map) {
                 map.remove();
             }
-            
+
             // Center map on Lusaka
             map = L.map('map').setView([-15.3875, 28.3228], 12);
-            
+
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
@@ -311,14 +311,14 @@
 
             if (location.coordinates) {
                 currentMarker = L.marker(location.coordinates).addTo(map);
-                
+
                 const popupContent = `
                     <div style="text-align: center;">
                         <h6><strong>${location.name}</strong></h6>
                         <p style="margin: 5px 0; color: #666;">${location.address}</p>
                     </div>
                 `;
-                
+
                 currentMarker.bindPopup(popupContent).openPopup();
                 map.setView(location.coordinates, 15);
             }
@@ -328,13 +328,13 @@
         function updateLocationInfo(location) {
             document.getElementById('locationName').textContent = location.name;
             document.getElementById('locationAddress').textContent = location.address;
-            
+
             // Service times
             const serviceTimesHtml = Object.entries(location.serviceTimes)
                 .map(([day, time]) => `<small><strong>${day}:</strong> ${time}</small>`)
                 .join('<br>');
             document.getElementById('serviceTimes').innerHTML = serviceTimesHtml;
-            
+
             // Contact info
             let contactHtml = `<small><strong>Phone:</strong> ${location.contact.phone}<br>`;
             contactHtml += `<strong>Email:</strong> ${location.contact.email}</small>`;
@@ -342,30 +342,30 @@
                 contactHtml += `<br><small><strong>Stream:</strong> <a href="${location.contact.streamingUrl}" target="_blank">Watch Live</a></small>`;
             }
             document.getElementById('contactInfo').innerHTML = contactHtml;
-            
+
             // Visit location button
             document.getElementById('visitLocationBtn').href = `/locations/${location.slug}`;
-            
+
             document.getElementById('locationInfo').style.display = 'block';
         }
 
         // Handle location selection
-        document.getElementById('locationSelect').addEventListener('change', function() {
+        document.getElementById('locationSelect').addEventListener('change', function () {
             const selectedValue = this.value;
             const mapContainer = document.getElementById('mapContainer');
             const locationInfo = document.getElementById('locationInfo');
-            
+
             if (selectedValue && locations[selectedValue]) {
                 const location = locations[selectedValue];
-                
+
                 if (location.coordinates) {
                     // Show map for physical locations
                     mapContainer.style.display = 'block';
-                    
+
                     if (!map) {
                         initializeMap();
                     }
-                    
+
                     addLocationMarker(location);
                 } else {
                     // Hide map for online service
@@ -376,13 +376,13 @@
                     }
                     document.getElementById('map').innerHTML = '<div class="d-flex align-items-center justify-content-center h-100 bg-light text-dark rounded"><h5>Online Service - No Physical Location</h5></div>';
                 }
-                
+
                 updateLocationInfo(location);
-                
+
                 // Auto-navigate to location page after 2 seconds (optional)
                 // Uncomment the line below if you want automatic navigation
                 // setTimeout(() => window.location.href = `/locations/${location.slug}`, 2000);
-                
+
             } else {
                 mapContainer.style.display = 'none';
                 locationInfo.style.display = 'none';
@@ -390,7 +390,7 @@
         });
 
         // Handle "Visit Location Page" button click
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target && e.target.id === 'visitLocationBtn') {
                 e.preventDefault();
                 const href = e.target.getAttribute('href');
