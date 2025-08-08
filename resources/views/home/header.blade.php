@@ -6,11 +6,13 @@
     box-shadow: none !important;
     outline: none !important;
     padding: 0.25rem 0.5rem;
+    margin-top: 2px;
 }
 
 /* Remove any spacing from the icon wrapper if needed */
 .fas.fa-user-circle {
     margin-right: 0.25rem;
+    margin-top: 2px;
 }
 
 </style>
