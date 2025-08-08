@@ -289,7 +289,7 @@
         }
         @media (max-width: 767px) {
             .bible-card {
-                height: 700px;
+                height: 700px !important;
                 /* adjust as needed */
             }
         }
