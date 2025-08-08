@@ -24,8 +24,6 @@
    <link href="https://seventh-production.up.railway.app/home/css/responsive.css" rel="stylesheet" />
    <link rel="stylesheet"
       href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
-   <link rel="stylesheet" href="https://seventh-production.up.railway.app/admin/assets/css/style.css" />
-   <link rel="stylesheet" href="https://seventh-production.up.railway.app/admin/assets/css/style1.css" />
    @notifyCss
 </head>
 
@@ -65,5 +63,4 @@
       </div>
    </div>
 </body>
-
 </html>

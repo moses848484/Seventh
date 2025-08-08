@@ -125,6 +125,12 @@
     color: #fff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
+    .navbar-toggler.btn {
+    background-color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #000;
+  }
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
