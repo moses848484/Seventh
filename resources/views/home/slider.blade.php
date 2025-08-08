@@ -1,9 +1,8 @@
 <section class="slider_section position-relative text-white">
-    <!-- Background image with dark overlay -->
+   <!-- Background image -->
     <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
         <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
     </div>
-
     <!-- Carousel -->
     <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
