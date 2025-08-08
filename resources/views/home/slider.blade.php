@@ -22,7 +22,7 @@
                                     you at University SDA Church. Here you'll find a welcoming 
                                     community ready to walk through life with you.
                                 </p>
-                                
+
                                  <div class="button-container">
                                     <a href="{{ route('register') }}" class="btn1">Learn More</a>
                                     <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend
@@ -46,6 +46,7 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-subtitle {
@@ -53,8 +54,9 @@
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     max-width: 500px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 
@@ -63,6 +65,31 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+
+.btn1 {
+    background-color: #fff;
+    color: #333;
+}
+
+.btn1:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn5 {
+    background-color: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn5:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 /* Responsive Typography */
@@ -80,10 +107,6 @@
         padding: 2rem 1rem;
     }
     
-    .location-selector {
-        max-width: 100%;
-    }
-    
     .button-container {
         justify-content: center;
     }
@@ -97,12 +120,6 @@
     .button-container {
         flex-direction: column;
         align-items: center;
-    }
-    
-    .btn1, .btn5 {
-        width: 100%;
-        max-width: 200px;
-        text-align: center;
     }
 }
 
