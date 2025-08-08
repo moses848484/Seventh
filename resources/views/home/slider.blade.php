@@ -1,7 +1,7 @@
 <section class="slider_section">
    <!-- Background image -->
     <div class="slider_bg_box">
-        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
+        <img src="images/dorcas.jpg" alt="" class="w-100 h-100 object-fit-cover">
     </div>
     <!-- Carousel -->
     <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
