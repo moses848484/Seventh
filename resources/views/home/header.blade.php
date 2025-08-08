@@ -6,6 +6,7 @@
     box-shadow: none !important;
     outline: none !important;
     padding: 0.25rem 0.5rem;
+    text-align: center !important;
 }
 
 
@@ -80,8 +81,8 @@
 
                         @else
                             <li class="nav-item">
-                                <i class="fas fa-user-circle fa-2x"><a class="nav-link" id="logincss"
-                                        href="{{ url('/redirect') }}">&nbsp;&nbsp;LOG IN</a></i>
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">LOG IN</a></i>
 
                             </li>
                         @endauth
