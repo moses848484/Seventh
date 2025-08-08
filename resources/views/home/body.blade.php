@@ -22,6 +22,7 @@
             -webkit-text-fill-color: #04AA6D !important;
             /* Changes text color */
         }
+
         /* Floating Label Styles */
         .form-floating {
             position: relative;
@@ -206,24 +207,25 @@
                 /* adjust as needed */
             }
         }
+
         .notes-card {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             border: none;
         }
-        
+
         .notes-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 10px 10px 0 0;
             padding: 15px;
         }
-        
+
         .notes-content {
             max-height: 400px;
             overflow-y: auto;
         }
-        
+
         .note-item {
             background: #f8f9fa;
             border-left: 4px solid #667eea;
@@ -232,75 +234,75 @@
             border-radius: 0 8px 8px 0;
             transition: all 0.3s ease;
         }
-        
+
         .note-item:hover {
             background: #e9ecef;
             transform: translateX(5px);
         }
-        
+
         .note-meta {
             font-size: 0.8rem;
             color: #6c757d;
             margin-bottom: 5px;
         }
-        
+
         .note-text {
             color: #495057;
             margin-bottom: 8px;
         }
-        
+
         .note-actions {
             text-align: right;
         }
-        
+
         .btn-sm {
             padding: 0.25rem 0.5rem;
             font-size: 0.8rem;
         }
-        
+
         .add-note-form {
             background: #fff;
             border-top: 1px solid #dee2e6;
             padding: 15px;
         }
-        
+
         .form-control:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
         }
-        
+
         .btn-primary:hover {
             background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
         }
-        
+
         .empty-state {
             text-align: center;
             padding: 40px 20px;
             color: #6c757d;
         }
-        
+
         .footer1 {
             background: #f8f9fa;
             padding: 10px 15px;
             border-radius: 0 0 10px 10px;
             border-top: 1px solid #dee2e6;
         }
-        
+
         .text-muted2 {
             color: #6c757d;
         }
-        
+
         .search-box {
             margin-bottom: 15px;
         }
-        
+
         .notes-counter {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 2px 8px;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -418,66 +420,13 @@
                         </div>
                     </div>
 
+                    <!-- Notes Card -->
                     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-9">
-                                        <div class="span2"><br />
-                                            <i class="fa fa-money-check-alt fa-3x"></i><br />
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="icon icon-box-success">
-                                            <a class="nav-link" href="{{ url('/redirect') }}">
-                                                <span class="mdi mdi-arrow-right icon-item"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer1">
-                                <h6 class="text-muted2 font-weight-normal">Givings</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card notes-card">
-                    <div class="notes-header d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 class="mb-0">
-                                <i class="fas fa-sticky-note me-2"></i>My Notes
-                            </h5>
-                        </div>
-                        <span class="notes-counter" id="notesCounter">0 notes</span>
-                    </div>
-                    
-                    <div class="card-body p-0">
-                        <!-- Search Box -->
-                        <div class="search-box p-3 pb-0">
-                            <input type="text" class="form-control" id="searchNotes" placeholder="Search notes...">
-                        </div>
-                        
-                        <!-- Notes List -->
-                        <div class="notes-content p-3" id="notesList">
-                            <div class="empty-state" id="emptyState">
-                                <i class="fas fa-clipboard-list fa-3x mb-3"></i>
-                                <p>No notes yet. Add your first note below!</p>
-                            </div>
-                        </div>
-                        
-      <div class="row">
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column notes-card">
-                            <div class="notes-header d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h5 class="mb-0">
-                                        <i class="fas fa-sticky-note me-2"></i>My Notes
-                                    </h5>
-                                </div>
+                            <div class="notes-header d-flex justify-content-between align-items-center p-3">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-sticky-note me-2"></i>My Notes
+                                </h5>
                                 <span class="notes-counter" id="notesCounter">0 notes</span>
                             </div>
 
@@ -489,7 +438,7 @@
                                 </div>
 
                                 <!-- Notes List -->
-                                <div class="notes-content p-3" id="notesList" style="flex: 1;">
+                                <div class="notes-content p-3 flex-grow-1" id="notesList">
                                     <div class="empty-state" id="emptyState">
                                         <i class="fas fa-clipboard-list fa-3x mb-3"></i>
                                         <p>No notes yet. Add your first note below!</p>
@@ -497,7 +446,7 @@
                                 </div>
 
                                 <!-- Add Note Form -->
-                                <div class="add-note-form">
+                                <div class="add-note-form p-3">
                                     <form id="addNoteForm">
                                         <div class="mb-3">
                                             <textarea class="form-control" id="noteText" rows="3"
@@ -520,34 +469,34 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <iframe width="100%" height="315"
-                                    src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div class="footer1 text-center">
-                                <h6 class="text-muted2 fw-normal">Welcome</h6>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-sm-12 grid-margin stretch-card">
-                        <div class="card d-flex flex-column bible-card">
-                            <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                                style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                </div>
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <iframe width="100%" height="315"
+                                src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                             </iframe>
                         </div>
+                        <div class="footer1 text-center">
+                            <h6 class="text-muted2 fw-normal">Welcome</h6>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-12 grid-margin stretch-card">
+                    <div class="card d-flex flex-column bible-card">
+                        <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
+                            style="border: none; min-height: 100%;" allowfullscreen loading="lazy">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- content-wrapper ends -->
 
@@ -576,7 +525,7 @@
 
     <!-- If you’re including multiple Biblia widgets, you only need this script tag once -->
     <script src="//biblia.com/api/logos.biblia.js"></script>
-        <!-- Verse of the Day Script -->
+    <!-- Verse of the Day Script -->
     <script>
         function myVotdCallback(data) {
             var votdContainer = document.getElementById('verse-of-the-day');
@@ -617,7 +566,7 @@
     </script>
 
     <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
-    
+
 </body>
 
 </html>
