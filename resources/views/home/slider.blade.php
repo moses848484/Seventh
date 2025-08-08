@@ -23,20 +23,10 @@
                                     community ready to walk through life with you.
                                 </p>
                                 
-                                <!-- Location Dropdown -->
-                                <div class="location-selector mb-4">
-                                    <select class="form-select location-dropdown" aria-label="Choose a Location">
-                                        <option selected>Choose a Location</option>
-                                        <option value="main">Main Campus</option>
-                                        <option value="north">North Campus</option>
-                                        <option value="south">South Campus</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </div>
-
-                                <div class="button-container">
+                                 <div class="button-container">
                                     <a href="{{ route('register') }}" class="btn1">Learn More</a>
-                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend Online</a>
+                                    <a href="https://www.facebook.com/@universityadventist/" class="btn5">Attend
+                                        Online</a>
                                 </div>
                             </div>
                         </div>
@@ -67,69 +57,12 @@
     max-width: 500px;
 }
 
-/* Location Dropdown Styling */
-.location-selector {
-    max-width: 300px;
-}
-
-.location-dropdown {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.location-dropdown:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-    outline: none;
-}
 
 /* Button Styling Updates */
 .button-container {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-}
-
-.btn1, .btn5 {
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.btn1 {
-    background-color: #fff;
-    color: #333;
-}
-
-.btn1:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn5 {
-    background-color: transparent;
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-.btn5:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #fff;
-    color: #fff;
-    transform: translateY(-2px);
 }
 
 /* Responsive Typography */
