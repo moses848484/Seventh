@@ -1,7 +1,7 @@
 <section class="slider_section position-relative text-white">
     <!-- Background image -->
-    <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
-        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
+    <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
+        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100" style="object-fit: cover;">
     </div>
 
     <!-- Content Container -->
@@ -22,7 +22,7 @@
                         
                         <!-- Location Dropdown -->
                         <div class="location-selector mb-4">
-                            <select class="form-select location-dropdown" aria-label="Choose a Location">
+                            <select class="form-control location-dropdown" aria-label="Choose a Location">
                                 <option selected>Choose a Location</option>
                                 <option value="main">Main Campus</option>
                                 <option value="north">North Campus</option>
