@@ -87,7 +87,7 @@
             text-align: left;
             letter-spacing: -0.02em;
             margin-top: 100px;
-            color: #ffffff;
+            color: #ffffff !important;
         }
 
         .hero-subtitle {
