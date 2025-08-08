@@ -24,6 +24,9 @@
    <link href="https://seventh-production.up.railway.app/home/css/responsive.css" rel="stylesheet" />
    <link rel="stylesheet"
       href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
    @notifyCss
 </head>
 
@@ -63,4 +66,5 @@
       </div>
    </div>
 </body>
+
 </html>
