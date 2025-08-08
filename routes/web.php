@@ -117,5 +117,23 @@ Route::middleware([
     // Location routes
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
+
+    // API route for location data (if needed)
     Route::get('/api/locations/{slug}', [LocationController::class, 'getLocationData'])->name('api.locations.show');
+
+    // Specific named routes (optional - if you want direct routes)
+    Route::get('/unza-campus', function () {
+        return redirect()->route('locations.show', 'unza-campus');
+    })->name('unza.campus');
+
+    Route::get('/olympia-church', function () {
+        return redirect()->route('locations.show', 'olympia-church');
+    })->name('olympia.church');
+
+    Route::get('/online-service', function () {
+        return redirect()->route('locations.show', 'online');
+    })->name('online.service');
+    Route::get('/unza-campus', function () {
+        return app(LocationController::class)->show('unza-campus');
+    });
 });
