@@ -532,7 +532,13 @@
             </span>
         </div>
     </footer>
-    <!-- partial -->
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
