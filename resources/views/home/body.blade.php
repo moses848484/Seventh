@@ -291,7 +291,8 @@
         /* Reduce Corona Card Height - Improved Version */
         .corona-gradient-card {
             padding: 0.5rem;
-            max-height: 100px;
+            max-height: 80px;
+            /* Reduced from 100px to 80px */
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -361,7 +362,8 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .corona-gradient-card {
-                max-height: 90px;
+                max-height: 70px;
+                /* Reduced from 90px to 70px */
             }
 
             .corona-gradient-card .gradient-corona-img {
