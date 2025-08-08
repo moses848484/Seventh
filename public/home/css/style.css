@@ -534,79 +534,7 @@ a:focus {
 }
 
 
-/* End header section */
-.slider_section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
 
-.fa-heart {
-  color: red;
-}
-
-.slider_bg_box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  /* Ensure background stays behind content */
-}
-
-.slider_bg_box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-@media (max-width: 575.98px) {
-  .slider_bg_box {
-    height: 100%;
-    /* Set a reasonable height for the background container */
-  }
-
-  .slider_bg_box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-}
-
-
-
-.detail-box {
-  position: relative;
-  z-index: 2;
-  /* Bring above overlay */
-}
-
-.slider_section h1 {
-  color: #2c6448;
-}
-
-@media (max-width: 768px) {
-  .slider_section h1 {
-    color: #2c6448;
-  }
-
-  .slider_section p {
-    font-size: 1rem;
-  }
-
-  .btn-lg {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-  }
-}
 
 
 /* footer section*/
