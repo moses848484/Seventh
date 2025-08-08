@@ -8,7 +8,7 @@
     <!-- Carousel -->
     <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
