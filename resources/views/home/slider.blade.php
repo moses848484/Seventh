@@ -9,7 +9,7 @@
     <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item">
-                <div class="container">
+                <div class="container py-5">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
                             <div class="detail-box px-3 px-md-0">
@@ -44,24 +44,6 @@
 </section>
 
 <style>
-    .carousel-item {
-        background: none !important;
-    }
-
-    .carousel-item::before,
-    .carousel-item::after {
-        display: none !important;
-    }
-
-    .detail-box {
-        background: none !important;
-    }
-
-    .detail-box::before,
-    .detail-box::after {
-        display: none !important;
-    }
-
     /* Hero Section Fonts and Styling */
     .hero-title {
         font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;

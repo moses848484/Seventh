@@ -24,6 +24,7 @@
    <link href="https://seventh-production.up.railway.app/home/css/responsive.css" rel="stylesheet" />
    <link rel="stylesheet"
       href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
    @notifyCss
 </head>
 
@@ -58,9 +59,11 @@
          <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
          <!-- custom js -->
          <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
          <x-notify::notify />
          @notifyJs
       </div>
    </div>
 </body>
+
 </html>
