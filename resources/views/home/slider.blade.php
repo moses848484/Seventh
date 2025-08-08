@@ -1,4 +1,4 @@
-<section class="slider_section position-relative text-white">
+<section class="slider_section">
    <!-- Background image -->
     <div class="slider_bg_box">
         <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
