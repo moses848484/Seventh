@@ -12,10 +12,10 @@
 <body>
 
     <section class="slider_section position-relative text-white">
-        <!-- Background image with Bootstrap 4 overlay -->
+        <!-- Background image with gradient overlay -->
         <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
             <img src="images/dorcas.jpg" alt="church" class="w-100 h-100" style="object-fit: cover;">
-            <div class="position-absolute w-100 h-100 bg-dark" style="top: 0; left: 0; opacity: 0.6; z-index: 1;"></div>
+            <div class="position-absolute w-100 h-100" style="top: 0; left: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); z-index: 1;"></div>
         </div>
 
         <!-- Carousel -->
