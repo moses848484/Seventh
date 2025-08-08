@@ -21,7 +21,7 @@
             <div class="front text-area6 h-100 overflow-auto">
               <h4 class="heading7">Listen to Songs Here</h4>
               <h5 class="heading6">"We Choose Praise"</h5>
-              <p>
+              <p class="song_text">
                 God is our source of strength and gives us joy in any season of life.
                 These songs are intentional declarations that no matter what life throws at us,
                 we can choose to praise Him.
@@ -185,6 +185,9 @@
   .fa-square-caret-right {
     font-size: 35px;
     color: white;
+  }
+  .song_text {
+    text-align: left;
   }
 </style>
 
