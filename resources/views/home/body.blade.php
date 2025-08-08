@@ -507,11 +507,7 @@
                     </div>
                 </div>
             </div>
-     
-
-    <!-- content-wrapper ends -->
-
-    <!-- partial:partials/_footer.html -->
+     </div>
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
@@ -525,13 +521,7 @@
             </span>
         </div>
     </footer>
-        <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-    </div>
-
+ 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
