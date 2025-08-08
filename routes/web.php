@@ -117,9 +117,4 @@ Route::middleware([
 
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
-    Route::get('/test-location', function() {
-    $controller = new App\Http\Controllers\LocationController();
-    $location = ['name' => 'Test', 'description' => 'Test location'];
-    return view('home.show', ['location' => $location]);
-});
 });
