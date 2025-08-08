@@ -1,16 +1,17 @@
-<section class="slider_section">
-   <!-- Background image -->
-    <div class="slider_bg_box">
-        <img src="images/dorcas.jpg" alt="" class="w-100 h-100 object-fit-cover">
+<section class="slider_section position-relative text-white">
+    <!-- Background image with dark overlay -->
+    <div class="slider_bg_box position-absolute top-0 start-0 w-100 h-100">
+        <img src="images/dorcas.jpg" alt="Happy Woman" class="w-100 h-100 object-fit-cover">
     </div>
+
     <!-- Carousel -->
-    <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container py-5">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="detail-box">
+                        <div class="col-lg-6 col-md-8 d-flex align-items-center" style="min-height: 80vh;">
+                            <div class="detail-box px-3 px-md-0">
                                 <h1 class="hero-title mb-4">
                                     Everyone's<br>
                                     Invited
@@ -57,6 +58,14 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+
+/* Button Styling Updates */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
     .hero-title {
@@ -72,6 +81,9 @@
         padding: 2rem 1rem;
     }
     
+    .button-container {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -79,6 +91,10 @@
         font-size: 2rem;
     }
     
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* Import Inter font */
