@@ -86,7 +86,7 @@
             line-height: 1.1;
             text-align: left;
             letter-spacing: -0.02em;
-            margin-top: 100px;
+            margin-top: -100px;
             color: #ffffff !important;
         }
 
@@ -98,7 +98,7 @@
             text-align: left;
             color: rgba(255, 255, 255, 0.95);
             max-width: 700px;
-            margin-top: 100px;
+            margin-top: -100px;
             margin: 0 auto 3rem auto;
         }
 
