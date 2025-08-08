@@ -1,5 +1,5 @@
 <style>
-    #logincss {
+    .btn-primary {
     background-color: white !important;
     border: none !important;
     border-radius: 0 !important;
@@ -10,9 +10,9 @@
 }
 
 /* Hover, focus, active states */
-#logincss:focus,
-#logincss:active,
-#logincss:hover {
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:hover {
     border: none !important;
     box-shadow: none !important;
     outline: none !important;
