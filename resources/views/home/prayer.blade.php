@@ -1,23 +1,29 @@
 <style>
-    .video-embed {
-        width: 700px;
-        height: 200px;
-        min-height: 400px;
-        margin-left: 30px;
-        margin-top: -30px;
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        /* fixed max size */
+        margin: auto;
+        padding-bottom: 56.25%;
+        /* 16:9 ratio */
+        height: 0;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>
 <section data-testid="dualcontentzone" class="section1">
     <div class="row align-items-center">
         <!-- Video Column -->
         <div class="col-md-6">
-            <div class="arrival_bg_box">
-                <iframe
-                    src="https://www.youtube.com/embed/qzp33k3wJvY?autoplay=0&controls=1&rel=0&showinfo=0&modestbranding=1"
-                    title="University SDA Church Welcome Video" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen class="video-embed">
-                </iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <!-- Text Column -->
