@@ -60,22 +60,28 @@
                     @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex">
+                            <ul class="navbar-nav ml-auto d-none d-md-flex flex-row">
                                 <li class="nav-item">
                                     <x-app-layout class="bg-white">
                                         <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a> </x-app-layout>
+                                                class="sr-only">(current)</span></a>
+                                    </x-app-layout>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- You can add another nav item here if you want next to dashboard -->
+                                    <a class="nav-link" href="#">Another Link</a>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100">
+                            <ul class="navbar-nav d-md-none justify-content-center w-100 flex-row">
                                 <li class="nav-item">
                                     <x-app-layout class="bg-white">
                                         <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a></x-app-layout>
+                                                class="sr-only">(current)</span></a>
+                                    </x-app-layout>
                                 </li>
-
+        
                             </ul>
 
 
