@@ -35,7 +35,7 @@
                                         Invited
                                     </h1>
                                     <p class="hero-subtitle mb-5">
-                                        Wherever you are on your journey, there's a place for you at Life.Church. Here
+                                        Wherever you are on your journey, there's a place for you at UNISDA.Church. Here
                                         you'll find a welcoming community ready to walk through life with you.
                                     </p>
 
@@ -49,15 +49,130 @@
                                             <span class="location-text">&nbsp;&nbsp;Find Your Closest Location</span>
                                         </div>
 
-                                        <div class="location-selector mb-4">
-                                            <select class="form-select location-dropdown" id="locationSelect"
-                                                aria-label="Choose a Location">
-                                                <option value="">Choose a Location</option>
-                                                <option value="unza-campus">UNZA Great East Road Campus</option>
-                                                <option value="olympia-church">UNISDA 25210 Katima Mulilo Road Olympia Church
-                                                </option>
-                                                <option value="online">Online</option>
-                                            </select>
+                                        <div class="location-dropdown-container mb-4">
+                                            <div class="custom-dropdown">
+                                                <div class="dropdown-header" id="dropdownHeader">
+                                                    <span class="dropdown-placeholder">Choose a Location</span>
+                                                    <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                                                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="dropdown-list" id="dropdownList">
+                                                    <div class="dropdown-item" data-value="unza-campus">
+                                                        <div class="location-info">
+                                                            <div class="location-name">UNZA Great East Road Campus</div>
+                                                            <div class="service-section">
+                                                                <div class="service-category">
+                                                                    <span class="service-icon">S</span>
+                                                                    <span class="service-label">SERVICE & LIFEKIDS</span>
+                                                                </div>
+                                                                <div class="service-day">Sunday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">8:30 AM</span>
+                                                                    <span class="time-slot">10:00 AM</span>
+                                                                    <span class="time-slot">11:30 AM</span>
+                                                                    <span class="time-slot">1:00 PM</span>
+                                                                </div>
+                                                                <div class="service-category mt-2">
+                                                                    <span class="service-icon youth">Y</span>
+                                                                    <span class="service-label">SWITCH YOUTH</span>
+                                                                </div>
+                                                                <div class="service-day">Wednesday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">6:00 PM</span>
+                                                                    <span class="time-slot">7:00 PM</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location-address">
+                                                                <svg class="address-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                                                </svg>
+                                                                Great East Road, University of Zambia, Lusaka
+                                                            </div>
+                                                            <div class="location-phone">
+                                                                <svg class="phone-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+                                                                </svg>
+                                                                +260 97 123 4567
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="dropdown-item" data-value="olympia-church">
+                                                        <div class="location-info">
+                                                            <div class="location-name">UNISDA Katima Mulilo Road</div>
+                                                            <div class="service-section">
+                                                                <div class="service-category">
+                                                                    <span class="service-icon">S</span>
+                                                                    <span class="service-label">SERVICE & LIFEKIDS</span>
+                                                                </div>
+                                                                <div class="service-day">Saturday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">8:30 AM</span>
+                                                                    <span class="time-slot">10:30 AM</span>
+                                                                </div>
+                                                                <div class="service-category mt-2">
+                                                                    <span class="service-icon youth">Y</span>
+                                                                    <span class="service-label">SWITCH YOUTH</span>
+                                                                </div>
+                                                                <div class="service-day">Thursday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">6:00 PM</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location-address">
+                                                                <svg class="address-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                                                </svg>
+                                                                25210 Katima Mulilo Road, Olympia, Lusaka
+                                                            </div>
+                                                            <div class="location-phone">
+                                                                <svg class="phone-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+                                                                </svg>
+                                                                260 211 293 525
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="dropdown-item" data-value="online">
+                                                        <div class="location-info">
+                                                            <div class="location-name">Online Service</div>
+                                                            <div class="service-section">
+                                                                <div class="service-category">
+                                                                    <span class="service-icon">S</span>
+                                                                    <span class="service-label">SERVICE & LIFEKIDS</span>
+                                                                </div>
+                                                                <div class="service-day">Sunday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">9:00 AM (CAT)</span>
+                                                                    <span class="time-slot">11:00 AM (CAT)</span>
+                                                                </div>
+                                                                <div class="service-category mt-2">
+                                                                    <span class="service-icon youth">Y</span>
+                                                                    <span class="service-label">SWITCH YOUTH</span>
+                                                                </div>
+                                                                <div class="service-day">Wednesday</div>
+                                                                <div class="service-times">
+                                                                    <span class="time-slot">6:00 PM (CAT)</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="location-address">
+                                                                <svg class="address-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V2a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 8.105V3.383zm-.034 6.878L9.271 8.696 8 9.583 6.728 8.696l-5.694 1.565A1 1 0 0 0 2 11h12a1 1 0 0 0 .966-.739zM1 8.105l4.708-1.897L1 3.383v4.722z"/>
+                                                                </svg>
+                                                                Available worldwide via live stream
+                                                            </div>
+                                                            <div class="location-phone">
+                                                                <svg class="phone-icon" width="12" height="12" fill="currentColor">
+                                                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 9.105V5.383zm-.034 6.878L9.271 9.696 8 10.583 6.728 9.696l-5.694 1.565A1 1 0 0 0 2 12h12a1 1 0 0 0 .966-.739zM1 9.105l4.708-1.897L1 5.383v3.722z"/>
+                                                                </svg>
+                                                                online@church.zm
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div id="mapContainer" style="display: none;">
@@ -132,30 +247,167 @@
             text-underline-offset: 3px;
         }
 
-        /* Location Dropdown Styling */
-        .location-dropdown {
+        /* Custom Dropdown Styling */
+        .custom-dropdown {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .dropdown-header {
             background-color: rgba(255, 255, 255, 0.95);
             border: none;
-            border-radius: 6px;
+            border-radius: 12px;
             padding: 16px 20px;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.1rem;
             font-weight: 500;
             color: #333;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
-            width: 100%;
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
         }
 
-        .location-dropdown:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-            outline: none;
+        .dropdown-header:hover {
             background-color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .location-dropdown:hover {
-            background-color: #fff;
+        .dropdown-arrow {
+            transition: transform 0.3s ease;
+            color: #666;
+        }
+
+        .dropdown-header.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            margin-top: 4px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .dropdown-list.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .service-section {
+            margin-bottom: 12px;
+        }
+
+        .service-category {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .service-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #4a5568;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .service-icon.youth {
+            background-color: #2d3748;
+        }
+
+        .service-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-day {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .service-times {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .time-slot {
+            background-color: #f7f7f7;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #5a5a5a;
+        }
+
+        .location-address,
+        .location-phone {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .address-icon,
+        .phone-icon {
+            margin-right: 8px;
+            color: #888;
         }
 
         /* Map styling */
@@ -200,6 +452,19 @@
             #map {
                 height: 250px;
             }
+
+            .dropdown-item {
+                padding: 16px;
+            }
+
+            .service-times {
+                gap: 6px;
+            }
+
+            .time-slot {
+                font-size: 0.8rem;
+                padding: 3px 8px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -212,13 +477,30 @@
                 font-size: 0.95rem;
             }
 
-            .location-dropdown {
+            .dropdown-header {
                 padding: 12px 16px;
                 font-size: 0.95rem;
             }
 
             #map {
                 height: 200px;
+            }
+
+            .dropdown-item {
+                padding: 14px;
+            }
+
+            .location-name {
+                font-size: 1rem;
+            }
+
+            .service-times {
+                gap: 4px;
+            }
+
+            .time-slot {
+                font-size: 0.75rem;
+                padding: 2px 6px;
             }
         }
     </style>
@@ -237,8 +519,8 @@
                 address: 'Great East Road, University of Zambia, Lusaka, Zambia',
                 coordinates: [-15.3875, 28.3228],
                 serviceTimes: {
-                    'Sunday': '09:00 AM & 11:00 AM',
-                    'Wednesday': '06:00 PM'
+                    'Sunday': '8:30 AM, 10:00 AM, 11:30 AM, 1:00 PM',
+                    'Wednesday': '6:00 PM, 7:00 PM'
                 },
                 contact: {
                     phone: '+260 97 123 4567',
@@ -247,12 +529,12 @@
                 slug: 'unza-campus'
             },
             'olympia-church': {
-                name: 'University Seventh Day Church',
+                name: 'UNISDA Katima Mulilo Road',
                 address: '25210 Katima Mulilo Road, Olympia, Lusaka, Zambia',
                 coordinates: [-15.3946, 28.2853],
                 serviceTimes: {
-                    'Saturday': '08:30 AM & 10:30 AM',
-                    'Thursday': '06:00 PM'
+                    'Saturday': '8:30 AM, 10:30 AM',
+                    'Thursday': '6:00 PM'
                 },
                 contact: {
                     phone: '260 211 293 525',
@@ -265,8 +547,8 @@
                 address: 'Available worldwide via live stream',
                 coordinates: null,
                 serviceTimes: {
-                    'Sunday': '09:00 AM & 11:00 AM (CAT)',
-                    'Wednesday': '06:00 PM (CAT)'
+                    'Sunday': '9:00 AM, 11:00 AM (CAT)',
+                    'Wednesday': '6:00 PM (CAT)'
                 },
                 contact: {
                     phone: '+260 97 123 4567',
@@ -276,6 +558,41 @@
                 slug: 'online'
             }
         };
+
+        // Initialize dropdown functionality
+        function initializeDropdown() {
+            const dropdownHeader = document.getElementById('dropdownHeader');
+            const dropdownList = document.getElementById('dropdownList');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+            dropdownHeader.addEventListener('click', function() {
+                dropdownList.classList.toggle('show');
+                dropdownHeader.classList.toggle('active');
+            });
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const locationName = this.querySelector('.location-name').textContent;
+                    
+                    dropdownHeader.querySelector('.dropdown-placeholder').textContent = locationName;
+                    dropdownList.classList.remove('show');
+                    dropdownHeader.classList.remove('active');
+
+                    if (locations[value]) {
+                        handleLocationSelection(value);
+                    }
+                });
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.custom-dropdown')) {
+                    dropdownList.classList.remove('show');
+                    dropdownHeader.classList.remove('active');
+                }
+            });
+        }
 
         // Initialize map
         function initializeMap() {
@@ -333,8 +650,7 @@
         }
 
         // Handle location selection
-        document.getElementById('locationSelect').addEventListener('change', function () {
-            const selectedValue = this.value;
+        function handleLocationSelection(selectedValue) {
             const mapContainer = document.getElementById('mapContainer');
             const locationInfo = document.getElementById('locationInfo');
 
@@ -367,17 +683,11 @@
                 mapContainer.style.display = 'none';
                 locationInfo.style.display = 'none';
             }
-        });
+        }
 
-        // Handle "Visit Location Page" button click
-        document.addEventListener('click', function (e) {
-            if (e.target && e.target.id === 'visitLocationBtn') {
-                e.preventDefault();
-                const href = e.target.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.href = href;
-                }
-            }
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDropdown();
         });
     </script>
 </body>
