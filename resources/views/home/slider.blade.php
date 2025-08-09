@@ -35,7 +35,7 @@
                                         Invited
                                     </h1>
                                     <p class="hero-subtitle mb-5">
-                                        Wherever you are on your journey, there's a place for you at UNISDA.Church. Here
+                                        Wherever you are on your journey, there's a place for you at Unisda.Church. Here
                                         you'll find a welcoming community ready to walk through life with you.
                                     </p>
 
