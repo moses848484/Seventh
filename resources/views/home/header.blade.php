@@ -60,10 +60,12 @@
                     @if (Route::has('login'))
                         @auth
                             <!-- User Profile/Authentication Dropdown -->
-                            <li class="nav-item dropdown">
+                            <ul class="navbar-nav ml-auto d-none d-md-flex">
+                                 <li class="nav-item">
                                 <x-app-layout class="bg-white">
                                 </x-app-layout>
-                            </li>
+                                </li>
+                            </ul>
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
