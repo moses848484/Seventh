@@ -68,19 +68,66 @@
                                         <div id="mapContainer" style="display: none;">
                                             <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
                                             </div>
+                                        </div>
 
-                                            <!-- Location Info Card -->
-                                            <div id="locationInfo" class="location-info-card mt-3"
-                                                style="display: none;">
-                                                <div class="card bg-light">
-                                                    <div class="card-body text-dark">
-                                                        <h5 class="card-title" id="locationName"></h5>
-                                                        <p class="card-text">
-                                                            <small class="text-muted" id="locationAddress"></small>
-                                                        </p>
-                                                        <div id="serviceTimes"></div>
-                                                        <div id="contactInfo" class="mt-2"></div>
+                                        <!-- Location Info Card -->
+                                        <div id="locationInfoCard" class="location-info-card mt-3" style="display: none;">
+                                            <div class="service-times-card">
+                                                <h3 class="card-title">Service Times</h3>
+                                                
+                                                <div class="service-category mb-4">
+                                                    <div class="category-header">
+                                                        <span class="service-icon">S</span>
+                                                        <span class="service-label">SERVICE & LIFEKIDS</span>
                                                     </div>
+                                                    
+                                                    <div id="serviceSection" class="service-details">
+                                                        <!-- Service times will be populated here -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="service-category mb-4" id="youthSection" style="display: none;">
+                                                    <div class="category-header">
+                                                        <span class="service-icon youth">Y</span>
+                                                        <span class="service-label">SWITCH YOUTH</span>
+                                                    </div>
+                                                    
+                                                    <div id="youthDetails" class="service-details">
+                                                        <!-- Youth service times will be populated here -->
+                                                    </div>
+                                                </div>
+
+                                                <!-- Location Details -->
+                                                <div class="location-details">
+                                                    <div class="location-address" id="locationAddress">
+                                                        <svg class="address-icon" width="12" height="16" fill="currentColor">
+                                                            <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                                        </svg>
+                                                        <span id="addressText"></span>
+                                                    </div>
+                                                    
+                                                    <div class="location-phone" id="locationPhone">
+                                                        <svg class="phone-icon" width="12" height="12" fill="currentColor">
+                                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+                                                        </svg>
+                                                        <span id="phoneText"></span>
+                                                    </div>
+
+                                                    <div class="pastor-info" id="pastorInfo">
+                                                        <div class="pastor-avatar">
+                                                            <img id="pastorImage" src="" alt="Pastor" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                        </div>
+                                                        <div class="pastor-details">
+                                                            <div class="pastor-name" id="pastorName"></div>
+                                                            <div class="pastor-title">Pastor</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="location-button mt-4">
+                                                    <button class="about-location-btn" id="aboutLocationBtn">
+                                                        About Life.Church <span id="locationNameBtn"></span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,6 +211,150 @@
             background-color: #fff;
         }
 
+        /* Service Times Card Styling */
+        .service-times-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            color: #333;
+            text-align: left;
+        }
+
+        .card-title {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-category {
+            margin-bottom: 20px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .service-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #4a5568;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .service-icon.youth {
+            background-color: #2d3748;
+        }
+
+        .service-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-details {
+            margin-left: 34px;
+        }
+
+        .service-day {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .service-times {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .time-slot {
+            background-color: #f7f7f7;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5a5a5a;
+        }
+
+        .location-details {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .location-address,
+        .location-phone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .address-icon,
+        .phone-icon {
+            margin-right: 10px;
+            color: #888;
+        }
+
+        .pastor-info {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .pastor-avatar {
+            margin-right: 12px;
+        }
+
+        .pastor-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+
+        .pastor-title {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .about-location-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .about-location-btn:hover {
+            background-color: #34495e;
+        }
+
         /* Map styling */
         .leaflet-popup-content-wrapper {
             border-radius: 8px;
@@ -206,6 +397,23 @@
             #map {
                 height: 250px;
             }
+
+            .service-times-card {
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .service-times {
+                gap: 6px;
+            }
+
+            .time-slot {
+                font-size: 0.85rem;
+                padding: 4px 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -226,60 +434,118 @@
             #map {
                 height: 200px;
             }
+
+            .service-times-card {
+                padding: 16px;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .service-times {
+                gap: 4px;
+            }
+
+            .time-slot {
+                font-size: 0.8rem;
+                padding: 3px 8px;
+            }
+
+            .pastor-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pastor-avatar {
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
         }
     </style>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Bootstrap JS -->
-
 
     <script>
         let map;
         let currentMarker;
 
-        // Location data
+        // Location data with pastor information
         const locations = {
             'unza-campus': {
-                name: 'UNZA Great East Road Campus',
+                name: 'UNZA Campus',
+                fullName: 'UNZA Great East Road Campus',
                 address: 'Great East Road, University of Zambia, Lusaka, Zambia',
                 coordinates: [-15.3875, 28.3228],
-                serviceTimes: {
-                    'Sunday': '09:00 AM & 11:00 AM',
-                    'Wednesday': '06:00 PM'
+                services: {
+                    main: {
+                        day: 'Sunday',
+                        times: ['8:30 AM', '10:00 AM', '11:30 AM', '1:00 PM']
+                    },
+                    youth: {
+                        day: 'Wednesday',
+                        times: ['6:00 PM', '7:00 PM']
+                    }
                 },
                 contact: {
                     phone: '+260 97 123 4567',
                     email: 'unza@church.zm'
                 },
+                pastor: {
+                    name: 'John Mwamba',
+                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
+                },
                 slug: 'unza-campus'
             },
             'olympia-church': {
-                name: 'Unversity Seventh Day Church',
+                name: 'Katima Mulilo',
+                fullName: 'University Seventh Day Church',
                 address: '25210 Katima Mulilo Road, Olympia, Lusaka, Zambia',
                 coordinates: [-15.3946, 28.2853],
-                serviceTimes: {
-                    'Saturday': '08:30 AM & 10:30 AM',
-                    'Thursday': '06:00 PM'
+                services: {
+                    main: {
+                        day: 'Saturday',
+                        times: ['8:30 AM', '10:30 AM']
+                    },
+                    youth: {
+                        day: 'Thursday',
+                        times: ['6:00 PM']
+                    }
                 },
                 contact: {
                     phone: '260 211 293 525',
                     email: 'olympia@church.zm'
                 },
+                pastor: {
+                    name: 'Sarah Banda',
+                    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face'
+                },
                 slug: 'olympia-church'
             },
             'online': {
-                name: 'Online Service',
+                name: 'Online',
+                fullName: 'Online Service',
                 address: 'Available worldwide via live stream',
                 coordinates: null,
-                serviceTimes: {
-                    'Sunday': '09:00 AM & 11:00 AM (CAT)',
-                    'Wednesday': '06:00 PM (CAT)'
+                services: {
+                    main: {
+                        day: 'Sunday',
+                        times: ['9:00 AM (CAT)', '11:00 AM (CAT)']
+                    },
+                    youth: {
+                        day: 'Wednesday',
+                        times: ['6:00 PM (CAT)']
+                    }
                 },
                 contact: {
                     phone: '+260 97 123 4567',
                     email: 'online@church.zm',
                     streamingUrl: 'https://church.zm/live'
+                },
+                pastor: {
+                    name: 'David Tembo',
+                    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
                 },
                 slug: 'online'
             }
@@ -310,7 +576,7 @@
 
                 const popupContent = `
                     <div style="text-align: center;">
-                        <h6><strong>${location.name}</strong></h6>
+                        <h6><strong>${location.fullName}</strong></h6>
                         <p style="margin: 5px 0; color: #666;">${location.address}</p>
                     </div>
                 `;
@@ -322,30 +588,55 @@
 
         // Update location info card
         function updateLocationInfo(location) {
-            document.getElementById('locationName').textContent = location.name;
-            document.getElementById('locationAddress').textContent = location.address;
+            // Update service section
+            const serviceSection = document.getElementById('serviceSection');
+            serviceSection.innerHTML = `
+                <div class="service-day">${location.services.main.day}</div>
+                <div class="service-times">
+                    ${location.services.main.times.map(time => `<span class="time-slot">${time}</span>`).join('')}
+                </div>
+            `;
 
-            // Service times
-            const serviceTimesHtml = Object.entries(location.serviceTimes)
-                .map(([day, time]) => `<small><strong>${day}:</strong> ${time}</small>`)
-                .join('<br>');
-            document.getElementById('serviceTimes').innerHTML = serviceTimesHtml;
-
-            // Contact info
-            let contactHtml = `<small><strong>Phone:</strong> ${location.contact.phone}<br>`;
-            contactHtml += `<strong>Email:</strong> ${location.contact.email}</small>`;
-            if (location.contact.streamingUrl) {
-                contactHtml += `<br><small><strong>Stream:</strong> <a href="${location.contact.streamingUrl}" target="_blank">Watch Live</a></small>`;
+            // Update youth section
+            const youthSection = document.getElementById('youthSection');
+            const youthDetails = document.getElementById('youthDetails');
+            
+            if (location.services.youth && location.services.youth.times.length > 0) {
+                youthSection.style.display = 'block';
+                youthDetails.innerHTML = `
+                    <div class="service-day">${location.services.youth.day}</div>
+                    <div class="service-times">
+                        ${location.services.youth.times.map(time => `<span class="time-slot">${time}</span>`).join('')}
+                    </div>
+                `;
+            } else {
+                youthSection.style.display = 'none';
             }
-            document.getElementById('contactInfo').innerHTML = contactHtml;
 
+            // Update location details
+            document.getElementById('addressText').textContent = location.address;
+            document.getElementById('phoneText').textContent = location.contact.phone;
+
+            // Update pastor info
+            document.getElementById('pastorImage').src = location.pastor.image;
+            document.getElementById('pastorName').textContent = location.pastor.name;
+
+            // Update button text
+            document.getElementById('locationNameBtn').textContent = location.name;
+
+            // Update button click handler
+            document.getElementById('aboutLocationBtn').onclick = function() {
+                // Navigate to location page or show more details
+                console.log(`Navigate to ${location.slug} page`);
+                // window.location.href = `/locations/${location.slug}`;
+            };
         }
 
         // Handle location selection
         document.getElementById('locationSelect').addEventListener('change', function () {
             const selectedValue = this.value;
             const mapContainer = document.getElementById('mapContainer');
-            const locationInfo = document.getElementById('locationInfo');
+            const locationInfoCard = document.getElementById('locationInfoCard');
 
             if (selectedValue && locations[selectedValue]) {
                 const location = locations[selectedValue];
@@ -366,29 +657,15 @@
                         map.remove();
                         map = null;
                     }
-                    document.getElementById('map').innerHTML = '<div class="d-flex align-items-center justify-content-center h-100 bg-light text-dark rounded"><h5>Online Service - No Physical Location</h5></div>';
+                    document.getElementById('map').innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background-color: #f8f9fa; color: #333; border-radius: 8px;"><h5>Online Service - No Physical Location</h5></div>';
                 }
 
                 updateLocationInfo(location);
-
-                // Auto-navigate to location page after 2 seconds (optional)
-                // Uncomment the line below if you want automatic navigation
-                // setTimeout(() => window.location.href = `/locations/${location.slug}`, 2000);
+                locationInfoCard.style.display = 'block';
 
             } else {
                 mapContainer.style.display = 'none';
-                locationInfo.style.display = 'none';
-            }
-        });
-
-        // Handle "Visit Location Page" button click
-        document.addEventListener('click', function (e) {
-            if (e.target && e.target.id === 'visitLocationBtn') {
-                e.preventDefault();
-                const href = e.target.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.href = href;
-                }
+                locationInfoCard.style.display = 'none';
             }
         });
     </script>
