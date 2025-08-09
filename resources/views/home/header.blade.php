@@ -14,27 +14,6 @@
         margin-right: 0.25rem;
         margin-top: 2px;
     }
-
-    /* Profile container styling for authenticated users */
-    .profile-dashboard-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .profile-dashboard-container .nav-link {
-        margin: 0;
-        padding: 0.5rem 1rem;
-    }
-
-    /* Mobile responsive for authenticated section */
-    @media (max-width: 767px) {
-        .profile-dashboard-container {
-            flex-direction: column;
-            text-align: center;
-            gap: 0.5rem;
-        }
-    }
 </style>
 <header class="header_section">
     <div class="container3">
@@ -80,33 +59,34 @@
 
                     @if (Route::has('login'))
                         @auth
+                            <!-- User Profile/Authentication Dropdown -->
+                            <li class="nav-item dropdown">
+                                <x-app-layout class="bg-white">
+                                </x-app-layout>
+                            </li>
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <!-- User Profile/Authentication Dropdown with Dashboard Link -->
                                 <li class="nav-item">
-                                    <div class="profile-dashboard-container">
-                                        <x-app-layout class="bg-white"></x-app-layout>
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </div>
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
                             <ul class="navbar-nav d-md-none justify-content-center w-100">
                                 <li class="nav-item">
-                                    <div class="profile-dashboard-container">
-                                        <x-app-layout class="bg-white"></x-app-layout>
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </div>
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
+
                             </ul>
+
 
                         @else
                             <li class="nav-item">
                                 <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
                                         href="{{ url('/redirect') }}">LOG IN</a></i>
+
                             </li>
                         @endauth
                     @endif
