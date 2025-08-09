@@ -1,11 +1,25 @@
+<style>
+    .video-embed {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
 <section data-testid="dualcontentzone" class="section1">
     <div class="row align-items-center">
-        <!-- Image Column -->
-        <div class="col-md-6">
-            <div class="arrival_bg_box">
-                <img src="images/happy-girl.jpg" alt="Person praying" class="img-fluid">
-            </div>
-        </div>
+             <!-- Video Column -->
+                <div class="col-md-6">
+                    <div class="arrival_bg_box">
+                        <iframe 
+                            src="https://www.youtube.com/embed/qzp33k3wJvY?autoplay=0&controls=1&rel=0&showinfo=0&modestbranding=1" 
+                            title="University SDA Church Welcome Video" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            class="video-embed">
+                        </iframe>
+                    </div>
+                </div>
         <!-- Text Column -->
         <div class="col-md-6">
             <div class="text-area7 bg text-left text-black">
