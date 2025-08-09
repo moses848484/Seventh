@@ -1,24 +1,25 @@
 <style>
     .btn-primary {
-        border: none !important;
-        border-radius: 0 !important;
-        color: white !important;
-        box-shadow: none !important;
-        outline: none !important;
-        padding: 0.25rem 0.5rem;
-        margin-top: 2px;
-    }
+    border: none !important;
+    border-radius: 0 !important;
+    color: white !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0.25rem 0.5rem;
+    margin-top: 2px;
+}
 
-    /* Remove any spacing from the icon wrapper if needed */
-    .fas.fa-user-circle {
-        margin-right: 0.25rem;
-        margin-top: 2px;
-    }
+/* Remove any spacing from the icon wrapper if needed */
+.fas.fa-user-circle {
+    margin-right: 0.25rem;
+    margin-top: 2px;
+}
+
 </style>
 <header class="header_section">
     <div class="container3">
         <nav class="navbar navbar-expand-md custom_nav-container py-3 px-5">
-            <div class="d-flex align-items-center brand-wrapper">
+              <div class="d-flex align-items-center brand-wrapper">
                 <a href="/" class="navbar-brand mb-0">
                     <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
                 </a>
@@ -60,13 +61,6 @@
                     @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
-                            <!-- User Profile/Authentication Dropdown -->
-                            <ul>
-                                <li class="nav-item dropdown">
-                                    <x-app-layout class="bg-white">
-                                    </x-app-layout>
-                                </li>
-                            </ul>
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
