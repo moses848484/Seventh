@@ -63,8 +63,8 @@
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
-                                    <a class="nav-link" href=""><x-app-layout class="bg-white">
-                                        </x-app-layout><span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href=""><span class="sr-only">(current)</span><x-app-layout>
+                                        </x-app-layout></a>
                                 </li>
                             </ul>
                             <!-- Desktop View -->
