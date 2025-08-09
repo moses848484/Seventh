@@ -150,13 +150,12 @@
     <style>
         /* Fixed Hero Section Layout */
         .slider_section {
-            min-height: 60vh;
+            min-height: 100vh;
             overflow-y: auto;
             z-index: 1;
         }
 
         .detail-box {
-            padding-top: 5vh;
             width: 100%;
             max-width: 800px;
         }
