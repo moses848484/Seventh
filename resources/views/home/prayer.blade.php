@@ -3,7 +3,7 @@
         <!-- Image Column -->
         <div class="col-md-6">
             <div class="arrival_bg_box">
-                <img src="https://www.youtube.com/embed/qzp33k3wJvY" alt="Person praying" class="img-fluid">
+                <img src="images/happy-girl.jpg" alt="Person praying" class="img-fluid">
             </div>
         </div>
         <!-- Text Column -->

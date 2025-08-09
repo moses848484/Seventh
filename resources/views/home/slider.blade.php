@@ -38,7 +38,7 @@
                                             Invited
                                         </h1>
                                         <p class="hero-subtitle mb-5">
-                                            Wherever you are on your journey, there's a place for you at Life.Church.
+                                            Wherever you are on your journey, there's a place for you at UNISDA Church.
                                             Here
                                             you'll find a welcoming community ready to walk through life with you.
                                         </p>
@@ -131,7 +131,7 @@
 
                                                     <div class="location-button mt-4">
                                                         <button class="about-location-btn" id="aboutLocationBtn">
-                                                            About Life.Church <span id="locationNameBtn"></span>
+                                                            About UNISDA Church <span id="locationNameBtn"></span>
                                                         </button>
                                                     </div>
                                                 </div>
