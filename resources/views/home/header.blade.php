@@ -22,7 +22,7 @@
                 <a href="/" class="navbar-brand mb-0">
                     <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
                 </a>
-                <span class="xs">UNISDA.CHURCH</span>
+                <span class="xs">SDA.CHURCH</span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +61,14 @@
                         @auth
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <li class="nav-item">
+                                <!-- User Profile/Authentication Dropdown -->
+                                <li class="nav-item dropdown">
                                     <x-app-layout class="bg-white">
-                                        <a class="nav-link" href="/redirect">GO<span
-                                                class="sr-only">(current)</span></a> </x-app-layout>
+                                    </x-app-layout>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
 
