@@ -410,7 +410,7 @@
             gap: 8px;
             /* space between icon and text */
             margin-bottom: 12px;
-            color: #666;
+            color: #00aaff;
         }
 
         .address-icon,
