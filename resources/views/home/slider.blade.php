@@ -461,6 +461,10 @@
             color: #00aaff !important;
         }
 
+        #phoneText {
+            color: #00aaff !important;
+        }
+
         .about-location-btn {
             background-color: transparent;
             color: #2c3e50;
