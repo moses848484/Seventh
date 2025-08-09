@@ -1,9 +1,16 @@
 <style>
-    .video-embed {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
+.video-embed {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;           /* Increased from 400px */
+    border: none;
+    border-radius: 0;
+    position: absolute;          /* Added this */
+    top: 0;                     /* Added this */
+    left: 0;                    /* Added this */
+    right: 0;                   /* Added this */
+    bottom: 0;                  /* Added this */
+}
 </style>
 <section data-testid="dualcontentzone" class="section1">
     <div class="row align-items-center">
