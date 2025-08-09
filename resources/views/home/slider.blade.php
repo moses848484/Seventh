@@ -411,29 +411,29 @@
             color: #5a5a5a;
         }
 
-        .location-details {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 20px;
-        }
-
-        #addressText {
-            margin-left: 100px;
-        }
-
         .location-address,
         .location-phone {
             display: flex;
             align-items: center;
+            gap: 8px;
+            /* space between icon and text */
             margin-bottom: 12px;
             color: #666;
-
         }
 
         .address-icon,
         .phone-icon {
-            margin-right: 10px;
-            color: #888;
+            flex-shrink: 0;
+            /* prevent icon from squishing */
+            display: inline-block;
+            /* ensure proper rendering */
+            width: 16px;
+            /* slightly larger for clarity */
+            height: 16px;
+            fill: currentColor;
+            /* match text color */
         }
+
 
         .pastor-info {
             display: flex;
