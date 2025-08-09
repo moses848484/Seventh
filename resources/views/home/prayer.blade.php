@@ -4,6 +4,7 @@
         height: 200px;
         min-height: 400px;
         margin-left: 20px;
+        margin-top: -20px;
     }
 </style>
 <section data-testid="dualcontentzone" class="section1">
