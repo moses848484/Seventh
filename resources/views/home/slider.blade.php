@@ -408,7 +408,7 @@
             align-items: center;
             margin-bottom: 12px;
             color: #666;
-            background-color: none !important;
+            margin-left: 100px;
         }
 
         .address-icon,
