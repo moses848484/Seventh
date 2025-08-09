@@ -60,12 +60,14 @@
                     @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <!-- User Profile/Authentication Dropdown -->
+                            <!-- User Profile/Authentication Dropdown -->
+                            <ul>
                                 <li class="nav-item dropdown">
                                     <x-app-layout class="bg-white">
                                     </x-app-layout>
                                 </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
                                             class="sr-only">(current)</span></a>
