@@ -63,7 +63,7 @@
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
                                     <x-app-layout class="bg-white">
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD&nbsp;&nbsp;&nbsp;<span
+                                        <a class="nav-link" href="/redirect">GO<span
                                                 class="sr-only">(current)</span></a> </x-app-layout>
                                 </li>
                             </ul>
