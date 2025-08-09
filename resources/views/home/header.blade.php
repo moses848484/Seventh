@@ -59,14 +59,6 @@
 
                     @if (Route::has('login'))
                         @auth
-                    
-                            <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <li class="nav-item">
-                                    <a class="nav-link" href=""><span class="sr-only">(current)</span><x-app-layout>
-                                        </x-app-layout></a>
-                                </li>
-                            </ul>
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
@@ -89,7 +81,6 @@
                             <li class="nav-item">
                                 <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
                                         href="{{ url('/redirect') }}">LOG IN</a></i>
-
                             </li>
                         @endauth
                     @endif
