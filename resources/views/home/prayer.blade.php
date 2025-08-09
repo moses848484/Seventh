@@ -11,6 +11,12 @@
     right: 0;                   /* Added this */
     bottom: 0;                  /* Added this */
 }
+
+.row {
+    margin: 0;
+    height: 70vh;
+    min-height: 600px;          /* Increased from 500px */
+}
 </style>
 <section data-testid="dualcontentzone" class="section1">
     <div class="row align-items-center">
