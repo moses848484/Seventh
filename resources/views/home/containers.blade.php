@@ -117,7 +117,7 @@
                                 <img src="images/baptism.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="image-slide">
-                                <img src="images/prayer.jpg" alt="Person praying" class="img-fluid1">
+                                <img src="images/baptism-certificate.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="image-slide">
                                 <img src="images/worship.jpg" alt="Person praying" class="img-fluid1">
