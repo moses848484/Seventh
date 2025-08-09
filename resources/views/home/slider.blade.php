@@ -28,17 +28,20 @@
                 <div class="carousel-item active">
                     <div class="container py-5">
                         <div class="row">
-                            <div class="col-lg-10 col-md-10 d-flex align-items-center justify-content-center"
+                            <div class="col-lg-10 col-md-10 d-flex align-items-start justify-content-center"
                                 style="min-height: 100vh;">
                                 <div class="detail-box text-center px-3 px-md-0">
-                                    <h1 class="hero-title mb-4">
-                                        Everyone's<br>
-                                        Invited
-                                    </h1>
-                                    <p class="hero-subtitle mb-5">
-                                        Wherever you are on your journey, there's a place for you at Life.Church. Here
-                                        you'll find a welcoming community ready to walk through life with you.
-                                    </p>
+                                    <!-- Fixed Hero Content Section -->
+                                    <div class="hero-content-section">
+                                        <h1 class="hero-title mb-4">
+                                            Everyone's<br>
+                                            Invited
+                                        </h1>
+                                        <p class="hero-subtitle mb-5">
+                                            Wherever you are on your journey, there's a place for you at Life.Church. Here
+                                            you'll find a welcoming community ready to walk through life with you.
+                                        </p>
+                                    </div>
 
                                     <!-- Location Section -->
                                     <div class="location-section mb-4">
@@ -63,70 +66,73 @@
                                             </select>
                                         </div>
 
-                                        <!-- Map Container -->
-                                        <div id="mapContainer" style="display: none;">
-                                            <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
+                                        <!-- Expandable Content Container -->
+                                        <div class="expandable-content" id="expandableContent">
+                                            <!-- Map Container -->
+                                            <div id="mapContainer" style="display: none;">
+                                                <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Location Info Card -->
-                                        <div id="locationInfoCard" class="location-info-card mt-3" style="display: none;">
-                                            <div class="service-times-card">
-                                                <h3 class="card-title">Service Times</h3>
-                                                
-                                                <div class="service-category mb-4">
-                                                    <div class="category-header">
-                                                        <span class="service-icon">S</span>
-                                                        <span class="service-label">SERVICE & LIFEKIDS</span>
-                                                    </div>
+                                            <!-- Location Info Card -->
+                                            <div id="locationInfoCard" class="location-info-card mt-3" style="display: none;">
+                                                <div class="service-times-card">
+                                                    <h3 class="card-title">Service Times</h3>
                                                     
-                                                    <div id="serviceSection" class="service-details">
-                                                        <!-- Service times will be populated here -->
-                                                    </div>
-                                                </div>
-
-                                                <div class="service-category mb-4" id="youthSection" style="display: none;">
-                                                    <div class="category-header">
-                                                        <span class="service-icon youth">Y</span>
-                                                        <span class="service-label">SWITCH YOUTH</span>
-                                                    </div>
-                                                    
-                                                    <div id="youthDetails" class="service-details">
-                                                        <!-- Youth service times will be populated here -->
-                                                    </div>
-                                                </div>
-
-                                                <!-- Location Details -->
-                                                <div class="location-details">
-                                                    <div class="location-address" id="locationAddress">
-                                                        <svg class="address-icon" width="12" height="16" fill="currentColor">
-                                                            <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                                                        </svg>
-                                                        <span id="addressText"></span>
-                                                    </div>
-                                                    
-                                                    <div class="location-phone" id="locationPhone">
-                                                        <svg class="phone-icon" width="12" height="12" fill="currentColor">
-                                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
-                                                        </svg>
-                                                        <span id="phoneText"></span>
-                                                    </div>
-
-                                                    <div class="pastor-info" id="pastorInfo">
-                                                        <div class="pastor-avatar">
-                                                            <img id="pastorImage" src="" alt="Pastor" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                    <div class="service-category mb-4">
+                                                        <div class="category-header">
+                                                            <span class="service-icon">S</span>
+                                                            <span class="service-label">SERVICE & LIFEKIDS</span>
                                                         </div>
-                                                        <div class="pastor-details">
-                                                            <div class="pastor-name" id="pastorName"></div>
-                                                            <div class="pastor-title">Pastor</div>
+                                                        
+                                                        <div id="serviceSection" class="service-details">
+                                                            <!-- Service times will be populated here -->
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="location-button mt-4">
-                                                    <button class="about-location-btn" id="aboutLocationBtn">
-                                                        About Life.Church <span id="locationNameBtn"></span>
-                                                    </button>
+                                                    <div class="service-category mb-4" id="youthSection" style="display: none;">
+                                                        <div class="category-header">
+                                                            <span class="service-icon youth">Y</span>
+                                                            <span class="service-label">SWITCH YOUTH</span>
+                                                        </div>
+                                                        
+                                                        <div id="youthDetails" class="service-details">
+                                                            <!-- Youth service times will be populated here -->
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Location Details -->
+                                                    <div class="location-details">
+                                                        <div class="location-address" id="locationAddress">
+                                                            <svg class="address-icon" width="12" height="16" fill="currentColor">
+                                                                <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                                            </svg>
+                                                            <span id="addressText"></span>
+                                                        </div>
+                                                        
+                                                        <div class="location-phone" id="locationPhone">
+                                                            <svg class="phone-icon" width="12" height="12" fill="currentColor">
+                                                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+                                                            </svg>
+                                                            <span id="phoneText"></span>
+                                                        </div>
+
+                                                        <div class="pastor-info" id="pastorInfo">
+                                                            <div class="pastor-avatar">
+                                                                <img id="pastorImage" src="" alt="Pastor" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                            </div>
+                                                            <div class="pastor-details">
+                                                                <div class="pastor-name" id="pastorName"></div>
+                                                                <div class="pastor-title">Pastor</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="location-button mt-4">
+                                                        <button class="about-location-btn" id="aboutLocationBtn">
+                                                            About Life.Church <span id="locationNameBtn"></span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,6 +147,26 @@
     </section>
 
     <style>
+        /* Fixed Hero Section Layout */
+        .slider_section {
+            min-height: 100vh;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        .detail-box {
+            padding-top: 5vh;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Hero Content Section - Fixed positioning */
+        .hero-content-section {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 3;
+        }
+
         /* Hero Section Fonts and Styling */
         .hero-title {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -149,7 +175,6 @@
             line-height: 1.1;
             text-align: left;
             letter-spacing: -0.02em;
-            margin-top: -200px;
             color: #ffffff !important;
         }
 
@@ -161,7 +186,6 @@
             text-align: left;
             color: rgba(255, 255, 255, 0.95);
             max-width: 700px;
-            margin-top: -200px;
             margin: 0 auto 3rem auto;
         }
 
@@ -169,6 +193,13 @@
         .location-section {
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Expandable Content Container */
+        .expandable-content {
+            transition: all 0.3s ease;
         }
 
         .location-icon-text {
@@ -438,12 +469,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Slider section positioning */
-        .slider_section {
-            min-height: 100vh;
-            z-index: 1;
-        }
-
         .slider_bg_box img {
             object-fit: cover;
         }
@@ -452,14 +477,21 @@
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
+                margin-bottom: 1rem;
             }
 
             .hero-subtitle {
                 font-size: 1.125rem;
+                margin-bottom: 2rem;
             }
 
             .detail-box {
                 padding: 2rem 1rem;
+                padding-top: 3vh;
+            }
+
+            .hero-content-section {
+                margin-bottom: 2rem;
             }
 
             .location-section {
@@ -490,12 +522,21 @@
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
                 line-height: 1.2;
             }
 
             .hero-subtitle {
-                font-size: 0.95rem;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .detail-box {
+                padding-top: 2vh;
+            }
+
+            .hero-content-section {
+                margin-bottom: 1.5rem;
             }
 
             .location-dropdown {
@@ -538,6 +579,118 @@
             .pastor-avatar {
                 margin-right: 0;
                 margin-bottom: 8px;
+            }
+        }
+
+        /* Fix for Bootstrap utility classes */
+        .position-relative {
+            position: relative !important;
+        }
+
+        .position-absolute {
+            position: absolute !important;
+        }
+
+        .w-100 {
+            width: 100% !important;
+        }
+
+        .h-100 {
+            height: 100% !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .mt-3 {
+            margin-top: 1rem !important;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .py-5 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        .px-3 {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+        .d-flex {
+            display: flex !important;
+        }
+
+        .align-items-start {
+            align-items: flex-start !important;
+        }
+
+        .align-items-center {
+            align-items: center !important;
+        }
+
+        .justify-content-center {
+            justify-content: center !important;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-lg-10 {
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-md-10 {
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+        }
+
+        @media (max-width: 991.98px) {
+            .col-lg-10 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .col-md-10 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .px-md-0 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
         }
     </style>
