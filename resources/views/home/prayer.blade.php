@@ -3,9 +3,8 @@
         width: 500px;
         height: 500px;
         min-height: 500px;
-        margin-top: 12px;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
+        margin-top:500px;
+        margin-left: 500px;
     }
 </style>
 <section data-testid="dualcontentzone" class="section1">
