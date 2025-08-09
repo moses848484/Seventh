@@ -1,10 +1,9 @@
 <style>
     .video-embed {
-        width: 500px;
+        width: 900px;
         height: 500px;
         min-height: 500px;
-        margin-top:500px;
-        margin-left: 500px;
+        margin-left: 200px;
     }
 </style>
 <section data-testid="dualcontentzone" class="section1">
