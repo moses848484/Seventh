@@ -113,7 +113,7 @@
                                                         </div>
 
                                                         <div class="location-phone" id="locationPhone">
-                                                         <i class="fa-solid fa-phone"></i>
+                                                            <i class="fa-solid fa-phone"></i>
                                                             <span id="phoneText"></span>
                                                         </div>
 
@@ -159,6 +159,24 @@
             padding-top: 15vh;
             width: 100%;
             max-width: 800px;
+        }
+
+        /* Medium screens (tablets) */
+        @media (max-width: 992px) {
+            .detail-box {
+                padding-top: 15vh;
+                width: 100%;
+                max-width: 800px;
+            }
+        }
+
+        /* Small screens (phones) */
+        @media (max-width: 576px) {
+            .detail-box {
+                padding-top: 15vh;
+                width: 100%;
+                max-width: 800px;
+            }
         }
 
         /* Hero Content Section - Fixed positioning */
