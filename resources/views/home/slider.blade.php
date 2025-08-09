@@ -410,7 +410,7 @@
             gap: 8px;
             /* space between icon and text */
             margin-bottom: 12px;
-            color: #00aaff;
+            color: #666;
         }
 
         .address-icon,
@@ -457,6 +457,9 @@
             /* center horizontally */
         }
 
+        #addressText .phoneText {
+            color: #00aaff;
+        }
 
         .about-location-btn {
             background-color: transparent;
