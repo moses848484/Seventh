@@ -54,7 +54,7 @@
                                                 aria-label="Choose a Location">
                                                 <option value="">Choose a Location</option>
                                                 <option value="unza-campus">UNZA Great East Road Campus</option>
-                                                <option value="olympia-church">Katima Mulilo Road Olympia Church
+                                                <option value="olympia-church">UNISDA 25210 Katima Mulilo Road Olympia Church
                                                 </option>
                                                 <option value="online">Online</option>
                                             </select>
@@ -247,7 +247,7 @@
                 slug: 'unza-campus'
             },
             'olympia-church': {
-                name: 'Unversity Seventh Day Church',
+                name: 'University Seventh Day Church',
                 address: '25210 Katima Mulilo Road, Olympia, Lusaka, Zambia',
                 coordinates: [-15.3946, 28.2853],
                 serviceTimes: {
