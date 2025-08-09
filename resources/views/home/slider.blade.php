@@ -156,6 +156,7 @@
         }
 
         .detail-box {
+            padding-top: 10vh;
             width: 100%;
             max-width: 800px;
         }
