@@ -459,6 +459,13 @@
             color: #666;
         }
 
+        .location-button {
+            display: flex;
+            justify-content: center;
+            /* center horizontally */
+        }
+
+
         .about-location-btn {
             background-color: transparent;
             color: #2c3e50;
@@ -478,8 +485,8 @@
         }
 
         .about-location-btn:hover {
-            background-color: #2c3e50;
-            color: white;
+            background-color: transparent;
+            color: black;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
         }
