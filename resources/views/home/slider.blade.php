@@ -8,6 +8,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap 4 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
@@ -185,30 +188,103 @@
             text-underline-offset: 3px;
         }
 
+        /* Location Dropdown Container */
+        .dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-focus-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .location-dropdown:focus + .dropdown-focus-ring {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
         /* Location Dropdown Styling */
         .location-dropdown {
             background-color: rgba(255, 255, 255, 0.95);
-            border: none;
-            border-radius: 6px;
-            padding: 16px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 18px 24px;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.1rem;
             font-weight: 500;
-            color: #333;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: #2c3e50;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             width: 100%;
             cursor: pointer;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 48px;
         }
 
         .location-dropdown:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3), 0 8px 24px rgba(0, 0, 0, 0.15);
             outline: none;
             background-color: #fff;
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
         }
 
         .location-dropdown:hover {
             background-color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .location-dropdown option {
+            color: #2c3e50;
+            background-color: #fff;
+            padding: 12px 16px;
+            font-weight: 500;
+            border: none;
+        }
+
+        .location-dropdown option:hover,
+        .location-dropdown option:focus {
+            background-color: #f8f9fa;
+            color: #1a202c;
+        }
+
+        /* Custom dropdown arrow animation */
+        .location-dropdown:focus {
+            background-image: url("data:image/svg+xml;charset=utf-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%233b82f6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        }
+
+        /* Enhanced placeholder styling */
+        .location-dropdown option:first-child {
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* Loading state (optional) */
+        .location-dropdown.loading {
+            background-image: url("data:image/svg+xml;charset=utf-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M10 3v3m6 1-3 1M7 8l-3-1m0 6 3-1m6 1-3-1M10 17v-3'/%3e%3c/svg%3e");
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Service Times Card Styling */
@@ -348,11 +424,11 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            width: 100%;
         }
 
         .about-location-btn:hover {
             background-color: #34495e;
+            color: white;
         }
 
         /* Map styling */
@@ -427,8 +503,14 @@
             }
 
             .location-dropdown {
-                padding: 12px 16px;
-                font-size: 0.95rem;
+                padding: 14px 16px;
+                font-size: 1rem;
+                padding-right: 40px;
+            }
+
+            .location-dropdown:focus,
+            .location-dropdown:hover {
+                transform: translateY(0);
             }
 
             #map {
@@ -464,6 +546,10 @@
         }
     </style>
 
+    <!-- Bootstrap 4 JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
