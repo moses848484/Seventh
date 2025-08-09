@@ -14,6 +14,10 @@
         margin-right: 0.25rem;
         margin-top: 2px;
     }
+    .prof {
+        width: 10px;
+        height: 10px;
+    }
 </style>
 <header class="header_section">
     <div class="container3">
@@ -60,26 +64,18 @@
                     @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex flex-row">
                                 <li class="nav-item">
-                                    <x-app-layout class="bg-white">
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </x-app-layout>
+                                    <x-app-layout class="prof">
+                                        <a class="btn-primary" href="/redirect">GO TO DASHBOARD <span
+                                                class="sr-only">(current)</span></a> </x-app-layout>
                                 </li>
-                            </ul>
 
                             <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100 flex-row">
                                 <li class="nav-item">
                                     <x-app-layout class="bg-white">
                                         <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </x-app-layout>
+                                                class="sr-only">(current)</span></a></x-app-layout>
                                 </li>
-        
-                            </ul>
-
 
                         @else
                             <li class="nav-item">
