@@ -34,6 +34,7 @@
             overflow: hidden;
         }
 
+        /* Slider styles - only for the slider container */
         .slider-container {
             position: relative;
             width: 100%;
@@ -50,12 +51,6 @@
         .slide {
             width: 33.333%;
             height: 100%;
-        }
-
-        .img-fluid1 {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .slider-nav {
@@ -109,6 +104,12 @@
             background: rgba(255, 255, 255, 1);
         }
 
+        .img-fluid1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .text-area {
             flex: 1;
             padding: 2rem;
@@ -155,6 +156,7 @@
             content: "♥";
             color: #e74c3c;
         }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .container-wrapper {
@@ -205,21 +207,21 @@
             </div>
         </div>
 
-        <!-- Second Row with Slider -->
+        <!-- Second Row -->
         <div class="container1">
             <div class="card-content">
-                <!-- Image Column with Slider -->
+                <!-- Image Column -->
                 <div class="arrival_bg_box4">
                     <div class="slider-container">
                         <div class="slider-wrapper" id="sliderWrapper">
                             <div class="slide">
-                                <img src="images/baptism.jpg" alt="Baptism ceremony" class="img-fluid1">
+                                <img src="images/baptism.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="slide">
                                 <img src="images/prayer.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="slide">
-                                <img src="images/worship.jpg" alt="Worship service" class="img-fluid1">
+                                <img src="images/worship.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                         </div>
                         
