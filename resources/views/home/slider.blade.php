@@ -408,7 +408,7 @@
             align-items: center;
             margin-bottom: 12px;
             color: #666;
-            background-color: transparent;
+            background-color: red;
         }
 
         .address-icon,
@@ -442,21 +442,38 @@
         }
 
         .about-location-btn {
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 20px;
+            background-color: transparent;
+            color: #2c3e50;
+            border: 2px solid #2c3e50;
+            border-radius: 25px;
+            padding: 12px 24px;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            text-transform: none;
+            letter-spacing: 0;
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
         }
 
         .about-location-btn:hover {
-            background-color: #34495e;
+            background-color: #2c3e50;
             color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+        }
+
+        .about-location-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(44, 62, 80, 0.15);
+        }
+
+        .about-location-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
         }
 
         /* Map styling */
