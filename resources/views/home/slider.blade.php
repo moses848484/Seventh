@@ -8,13 +8,14 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
     <section class="slider_section position-relative text-white">
+        <!-- Background image with gradient overlay -->
         <div class="slider_bg_box position-absolute w-100 h-100" style="top: 0; left: 0;">
             <img src="images/dorcas.jpg" alt="church" class="w-100 h-100" style="object-fit: cover;">
             <div class="position-absolute w-100 h-100"
@@ -22,6 +23,7 @@
             </div>
         </div>
 
+        <!-- Carousel -->
         <div id="customCarousel1" class="carousel slide position-relative" data-bs-ride="carousel" style="z-index: 2;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -35,10 +37,11 @@
                                         Invited
                                     </h1>
                                     <p class="hero-subtitle mb-5">
-                                        Wherever you are on your journey, there's a place for you at Unisda.Church. Here
+                                        Wherever you are on your journey, there's a place for you at Life.Church. Here
                                         you'll find a welcoming community ready to walk through life with you.
                                     </p>
 
+                                    <!-- Location Section -->
                                     <div class="location-section mb-4">
                                         <div class="location-icon-text mb-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -49,21 +52,24 @@
                                             <span class="location-text">&nbsp;&nbsp;Find Your Closest Location</span>
                                         </div>
 
+                                        <!-- Location Dropdown -->
                                         <div class="location-selector mb-4">
                                             <select class="form-select location-dropdown" id="locationSelect"
                                                 aria-label="Choose a Location">
                                                 <option value="">Choose a Location</option>
                                                 <option value="unza-campus">UNZA Great East Road Campus</option>
-                                                <option value="olympia-church">UNISDA 25210 Katima Mulilo Road Olympia Church
+                                                <option value="olympia-church">Katima Mulilo Road Olympia Church
                                                 </option>
                                                 <option value="online">Online</option>
                                             </select>
                                         </div>
 
+                                        <!-- Map Container -->
                                         <div id="mapContainer" style="display: none;">
                                             <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
                                             </div>
 
+                                            <!-- Location Info Card -->
                                             <div id="locationInfo" class="location-info-card mt-3"
                                                 style="display: none;">
                                                 <div class="card bg-light">
@@ -223,7 +229,9 @@
         }
     </style>
 
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -247,7 +255,7 @@
                 slug: 'unza-campus'
             },
             'olympia-church': {
-                name: 'University Seventh Day Church',
+                name: 'Unversity Seventh Day Church',
                 address: '25210 Katima Mulilo Road, Olympia, Lusaka, Zambia',
                 coordinates: [-15.3946, 28.2853],
                 serviceTimes: {
@@ -330,6 +338,7 @@
                 contactHtml += `<br><small><strong>Stream:</strong> <a href="${location.contact.streamingUrl}" target="_blank">Watch Live</a></small>`;
             }
             document.getElementById('contactInfo').innerHTML = contactHtml;
+
         }
 
         // Handle location selection
@@ -361,7 +370,10 @@
                 }
 
                 updateLocationInfo(location);
-                locationInfo.style.display = 'block';
+
+                // Auto-navigate to location page after 2 seconds (optional)
+                // Uncomment the line below if you want automatic navigation
+                // setTimeout(() => window.location.href = `/locations/${location.slug}`, 2000);
 
             } else {
                 mapContainer.style.display = 'none';
