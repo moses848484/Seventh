@@ -63,17 +63,17 @@
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
                                     <x-app-layout class="bg-white">
-                                    </x-app-layout>
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                                class="sr-only">(current)</span></a> </x-app-layout>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
                             <ul class="navbar-nav d-md-none justify-content-center w-100">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
+                                    <x-app-layout class="bg-white">
+                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                                class="sr-only">(current)</span></a></x-app-layout>
                                 </li>
 
                             </ul>
