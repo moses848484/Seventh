@@ -69,10 +69,6 @@
             background: rgba(255, 255, 255, 1);
         }
 
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
-        }
     </style>
     <div class="container-wrapper">
         <!-- First Row -->
