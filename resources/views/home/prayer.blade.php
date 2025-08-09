@@ -1,16 +1,13 @@
 <style>
 .video-embed {
-  display: flex;
-  /* Use flex to align items */
-  align-items: center;
-  /* Center content vertically */
-  justify-content: center;
-  /* Center content horizontally */
+  max-width: 100%;
+  /* Ensures the image does not exceed the container's width */
   height: 100%;
-  /* Ensure it takes full height of the column */
-  margin-top: 12px;
-  margin-left: -20px !important;
-  margin-right: -20px !important;
+  /* Maintains the aspect ratio */
+  width: 100%;
+  /* Ensures the image scales to fill its container */
+  display: block;
+  /* Removes any default inline spacing or gaps */
 }
 
 </style>
