@@ -1,8 +1,8 @@
 <style>
     .video-embed {
-        width: 700px;
+        width: 750px;
         height: 200px;
-        min-height: 300px;
+        min-height: 350px;
         margin-left: 10px;
     }
 </style>
