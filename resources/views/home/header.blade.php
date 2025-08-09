@@ -14,58 +14,6 @@
         margin-right: 0.25rem;
         margin-top: 2px;
     }
-
-    /* Fix navbar to top */
-    .header_section {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1030;
-        background: white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    /* Add padding to body to account for fixed header */
-    body {
-        padding-top: 80px; /* Adjust this value based on your navbar height */
-    }
-
-    /* Profile container styling for authenticated users */
-    .profile-dashboard-container {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        position: relative;
-    }
-
-    .profile-dashboard-container .nav-link {
-        margin: 0;
-        padding: 0.5rem 1rem;
-        white-space: nowrap;
-    }
-
-    /* Ensure navbar items stay in place */
-    .navbar-nav {
-        position: relative;
-    }
-
-    .navbar-nav .nav-item {
-        position: relative;
-    }
-
-    /* Mobile responsive for authenticated section */
-    @media (max-width: 767px) {
-        .profile-dashboard-container {
-            flex-direction: column;
-            text-align: center;
-            gap: 0.5rem;
-        }
-        
-        body {
-            padding-top: 100px; /* Adjust for mobile navbar height */
-        }
-    }
 </style>
 <header class="header_section">
     <div class="container3">
@@ -111,33 +59,37 @@
 
                     @if (Route::has('login'))
                         @auth
+                    
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <!-- User Profile/Authentication Dropdown with Dashboard Link -->
                                 <li class="nav-item">
-                                    <div class="profile-dashboard-container">
-                                        <x-app-layout class="bg-white"></x-app-layout>
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </div>
+                                    <a class="nav-link" href=""><x-app-layout class="bg-white">
+                                        </x-app-layout><span class="sr-only">(current)</span></a>
+                                </li>
+                            </ul>
+                            <!-- Desktop View -->
+                            <ul class="navbar-nav ml-auto d-none d-md-flex">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
                             <ul class="navbar-nav d-md-none justify-content-center w-100">
                                 <li class="nav-item">
-                                    <div class="profile-dashboard-container">
-                                        <x-app-layout class="bg-white"></x-app-layout>
-                                        <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                                class="sr-only">(current)</span></a>
-                                    </div>
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
+
                             </ul>
+
 
                         @else
                             <li class="nav-item">
                                 <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
                                         href="{{ url('/redirect') }}">LOG IN</a></i>
+
                             </li>
                         @endauth
                     @endif
