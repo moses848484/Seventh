@@ -62,6 +62,8 @@
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
+                                    <x-app-layout class="bg-white">
+                                    </x-app-layout>
                                     <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
                                             class="sr-only">(current)</span></a>
                                 </li>
@@ -79,10 +81,8 @@
 
                         @else
                             <li class="nav-item">
-                                <!-- User Profile/Authentication Dropdown -->
-                                <x-app-layout class="bg-white">
-                                </x-app-layout>
-                                <a class="btn btn-primary" id="logincss" href="{{ url('/redirect') }}">LOG IN</a></i>
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">LOG IN</a></i>
 
                             </li>
                         @endauth
