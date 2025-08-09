@@ -150,7 +150,7 @@
     <style>
         /* Fixed Hero Section Layout */
         .slider_section {
-            min-height: 100vh;
+            min-height: 60vh;
             overflow-y: auto;
             z-index: 1;
         }
