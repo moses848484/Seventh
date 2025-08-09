@@ -534,29 +534,23 @@ a:focus {
 }
 
 
-/* End header section */
 .slider_section {
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh; /* instead of full screen */
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-.fa-heart {
-  color: red;
+.slider_bg_box {
+  height: 60vh; /* match section height */
 }
 
-.slider_bg_box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  /* Ensure background stays behind content */
+.slider_bg_box img {
+  height: 60vh; /* match height */
+  object-fit: cover;
 }
+
 
 .slider_bg_box img {
   width: 100%;
