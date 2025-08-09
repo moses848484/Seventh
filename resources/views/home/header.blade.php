@@ -12,7 +12,7 @@
     /* Remove any spacing from the icon wrapper if needed */
     .fas.fa-user-circle {
         margin-right: 0.25rem;
-        margin-top: 2px;
+        margin-top: 3px;
     }
 </style>
 <header class="header_section">
