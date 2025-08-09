@@ -457,8 +457,8 @@
             /* center horizontally */
         }
 
-        #addressText .phoneText {
-            color: #00aaff;
+        #addressText {
+            color: #00aaff !important;
         }
 
         .about-location-btn {
