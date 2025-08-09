@@ -7,7 +7,7 @@
     <title>Church Hero Section</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-      <!-- Leaflet CSS -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 </head>
@@ -38,7 +38,8 @@
                                             Invited
                                         </h1>
                                         <p class="hero-subtitle mb-5">
-                                            Wherever you are on your journey, there's a place for you at Life.Church. Here
+                                            Wherever you are on your journey, there's a place for you at Life.Church.
+                                            Here
                                             you'll find a welcoming community ready to walk through life with you.
                                         </p>
                                     </div>
@@ -70,32 +71,35 @@
                                         <div class="expandable-content" id="expandableContent">
                                             <!-- Map Container -->
                                             <div id="mapContainer" style="display: none;">
-                                                <div id="map" style="height: 300px; border-radius: 8px; margin-top: 20px;">
+                                                <div id="map"
+                                                    style="height: 300px; border-radius: 8px; margin-top: 20px;">
                                                 </div>
                                             </div>
 
                                             <!-- Location Info Card -->
-                                            <div id="locationInfoCard" class="location-info-card mt-3" style="display: none;">
+                                            <div id="locationInfoCard" class="location-info-card mt-3"
+                                                style="display: none;">
                                                 <div class="service-times-card">
                                                     <h3 class="card-title">Service Times</h3>
-                                                    
+
                                                     <div class="service-category mb-4">
                                                         <div class="category-header">
                                                             <span class="service-icon">S</span>
                                                             <span class="service-label">SERVICE & LIFEKIDS</span>
                                                         </div>
-                                                        
+
                                                         <div id="serviceSection" class="service-details">
                                                             <!-- Service times will be populated here -->
                                                         </div>
                                                     </div>
 
-                                                    <div class="service-category mb-4" id="youthSection" style="display: none;">
+                                                    <div class="service-category mb-4" id="youthSection"
+                                                        style="display: none;">
                                                         <div class="category-header">
                                                             <span class="service-icon youth">Y</span>
                                                             <span class="service-label">SWITCH YOUTH</span>
                                                         </div>
-                                                        
+
                                                         <div id="youthDetails" class="service-details">
                                                             <!-- Youth service times will be populated here -->
                                                         </div>
@@ -104,22 +108,27 @@
                                                     <!-- Location Details -->
                                                     <div class="location-details">
                                                         <div class="location-address" id="locationAddress">
-                                                            <svg class="address-icon" width="12" height="16" fill="currentColor">
-                                                                <path d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                                            <svg class="address-icon" width="12" height="16"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
                                                             </svg>
                                                             <span id="addressText"></span>
                                                         </div>
-                                                        
+
                                                         <div class="location-phone" id="locationPhone">
-                                                            <svg class="phone-icon" width="12" height="12" fill="currentColor">
-                                                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+                                                            <svg class="phone-icon" width="12" height="12"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122L9.98 10.98s-.787.787-1.981.787-4.906-3.525-4.906-4.719.787-1.981.787-1.981l.549-1.804a.678.678 0 0 0-.122-.58L3.654 1.328z" />
                                                             </svg>
                                                             <span id="phoneText"></span>
                                                         </div>
 
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
-                                                                <img id="pastorImage" src="" alt="Pastor" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                                <img id="pastorImage" src="" alt="Pastor"
+                                                                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                                                             </div>
                                                             <div class="pastor-details">
                                                                 <div class="pastor-name" id="pastorName"></div>
@@ -234,7 +243,7 @@
             z-index: -1;
         }
 
-        .location-dropdown:focus + .dropdown-focus-ring {
+        .location-dropdown:focus+.dropdown-focus-ring {
             box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
 
@@ -310,8 +319,13 @@
         }
 
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Service Times Card Styling */
@@ -402,13 +416,17 @@
             padding-top: 20px;
         }
 
+        #addressText {
+            margin-left: 100px;
+        }
+
         .location-address,
         .location-phone {
             display: flex;
             align-items: center;
             margin-bottom: 12px;
             color: #666;
-            margin-left: 100px;
+
         }
 
         .address-icon,
@@ -706,6 +724,7 @@
                 flex: 0 0 100%;
                 max-width: 100%;
             }
+
             .px-md-0 {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
@@ -716,7 +735,7 @@
     <!-- Bootstrap 4 JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-    
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -853,7 +872,7 @@
             // Update youth section
             const youthSection = document.getElementById('youthSection');
             const youthDetails = document.getElementById('youthDetails');
-            
+
             if (location.services.youth && location.services.youth.times.length > 0) {
                 youthSection.style.display = 'block';
                 youthDetails.innerHTML = `
@@ -878,7 +897,7 @@
             document.getElementById('locationNameBtn').textContent = location.name;
 
             // Update button click handler
-            document.getElementById('aboutLocationBtn').onclick = function() {
+            document.getElementById('aboutLocationBtn').onclick = function () {
                 // Navigate to location page or show more details
                 console.log(`Navigate to ${location.slug} page`);
                 // window.location.href = `/locations/${location.slug}`;
