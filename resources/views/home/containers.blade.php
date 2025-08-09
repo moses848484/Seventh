@@ -1,40 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slider</title>
-    <style>
-        .container-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .container1 {
-            display: flex;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .container1:last-child {
-            margin-bottom: 0;
-        }
-
-        .card-content {
-            flex: 1;
-            position: relative;
-        }
-
-        .arrival_bg_box4 {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        /* Slider styles - only for the slider container */
+ <style>
+        /* Slider-specific styles to add to your existing CSS */
         .slider-container {
             position: relative;
             width: 100%;
@@ -104,85 +69,11 @@
             background: rgba(255, 255, 255, 1);
         }
 
-        .img-fluid1 {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .text-area {
-            flex: 1;
-            padding: 2rem;
-            background: #f8f9fa;
-        }
-
-        .spacer-wrapper {
-            padding-top: 1rem;
-        }
-
-        .heading4 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .rich-text3 h6 {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #666;
-            font-weight: normal;
-        }
-
-        .mb-relaxed {
-            margin-bottom: 1.5rem;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .text-black {
-            color: #000;
-        }
-
-        /* Font Awesome icon support */
-        .fa-solid {
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-        }
-
-        .fa-heart:before {
-            content: "♥";
-            color: #e74c3c;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container-wrapper {
-                padding: 15px;
-            }
-            
-            .container1 {
-                flex-direction: column;
-                margin-bottom: 20px;
-            }
-            
-            .arrival_bg_box4 {
-                height: 300px;
-            }
-            
-            .text-area {
-                padding: 1.5rem;
-            }
-            
-            .heading4 {
-                font-size: 2rem;
-            }
+        /* Ensure arrival_bg_box4 has position relative for slider positioning */
+        .arrival_bg_box4 {
+            position: relative;
         }
     </style>
-</head>
-<body>
     <div class="container-wrapper">
         <!-- First Row -->
         <div class="container1">
@@ -207,7 +98,7 @@
             </div>
         </div>
 
-        <!-- Second Row -->
+        <!-- Second Row with Slider -->
         <div class="container1">
             <div class="card-content">
                 <!-- Image Column -->
@@ -250,7 +141,7 @@
                         encouragement as you walk with Jesus. Tap to learn more.
                     </h6>
                 </div>
-            </div>
+                </div>
         </div>
 
         <!-- Third Row -->
@@ -349,5 +240,3 @@
             new ImageSlider();
         });
     </script>
-</body>
-</html>
