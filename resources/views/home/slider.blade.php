@@ -108,11 +108,7 @@
                                                     <!-- Location Details -->
                                                     <div class="location-details">
                                                         <div class="location-address" id="locationAddress">
-                                                            <svg class="address-icon" width="12" height="16"
-                                                                fill="currentColor">
-                                                                <path
-                                                                    d="M6 0C2.7 0 0 2.7 0 6c0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-                                                            </svg>
+                                                            <i class="fa-solid fa-location-dot"></i>
                                                             <span id="addressText"></span>
                                                         </div>
 
@@ -793,8 +789,8 @@
                     email: 'olympia@church.zm'
                 },
                 pastor: {
-                    name: 'Sarah Banda',
-                    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face'
+                    name: 'John Phiri',
+                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
                 },
                 slug: 'olympia-church'
             },
