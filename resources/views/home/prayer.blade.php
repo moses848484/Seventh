@@ -2,8 +2,8 @@
     <div class="row align-items-center">
         <!-- Image Column -->
         <div class="col-md-6">
-            <div class="arrival_bg_box ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/qzp33k3wJvY" title="YouTube video player" allowfullscreen>
+            <div class="arrival_bg_box ratio">
+                <iframe src="https://www.youtube.com/embed/qzp33k3wJvY" class="img-fluid" title="YouTube video player" allowfullscreen>
                 </iframe>
             </div>
         </div>
