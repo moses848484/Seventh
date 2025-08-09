@@ -67,10 +67,6 @@
                                                 class="sr-only">(current)</span></a>
                                     </x-app-layout>
                                 </li>
-                                <li class="nav-item">
-                                    <!-- You can add another nav item here if you want next to dashboard -->
-                                    <a class="nav-link" href="#">Another Link</a>
-                                </li>
                             </ul>
 
                             <!-- Mobile View -->
