@@ -2287,19 +2287,6 @@ div.form_sub .field input[type="email"]:focus {
   /* Ensure it doesn’t interfere with interactions */
 }
 
-/* Gradient effect for mobile screens (max-width: 768px) */
-@media (max-width: 768px) {
-  .arrival_bg_box::before {
-    /* Gradient from bottom to top */
-  }
-}
-
-@media (max-width: 992px) {
-  .arrival_bg_box::before {
-    /* Gradient from bottom to top */
-  }
-}
-
 .arrival_bg_box img {
   display: block;
   /* Ensure image displays as a block element */
