@@ -70,12 +70,8 @@
 </head>
 
 <body>
-    <div class="hero_area">
-        <div class="container-scroller">
             <!-- header section starts -->
             @include('home.header')
-            <!-- end header section -->
-            <div class="main-content">
                 <!-- Hero Section -->
                 <section class="hero-section text-center">
                     <div class="container">
