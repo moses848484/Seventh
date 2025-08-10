@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +82,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container-wrapper">
         <!-- First Row with Slider -->
@@ -94,17 +96,17 @@
                                 <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="image-slide">
-                                <img src="images/baptism-certificate.jpg" alt="Person praying" class="img-fluid1">
+                                <img src="images/preach4.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="image-slide">
-                                <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
+                                <img src="images/preach5.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                         </div>
-                        
+
                         <!-- Navigation buttons -->
                         <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
                         <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
-                        
+
                         <!-- Indicators -->
                         <div class="image-slider-indicators" id="imageSliderIndicators1">
                             <div class="image-slider-indicator active" data-slide="0"></div>
@@ -146,11 +148,11 @@
                                 <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                         </div>
-                        
+
                         <!-- Navigation buttons -->
                         <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
                         <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
-                        
+
                         <!-- Indicators -->
                         <div class="image-slider-indicators" id="imageSliderIndicators2">
                             <div class="image-slider-indicator active" data-slide="0"></div>
@@ -183,20 +185,20 @@
                     <div class="image-slider-container">
                         <div class="image-slider-wrapper" id="imageSliderWrapper3">
                             <div class="image-slide">
+                                <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
+                            </div>
+                            <div class="image-slide">
                                 <img src="images/kids.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                             <div class="image-slide">
-                                <img src="images/baptism-certificate.jpg" alt="Person praying" class="img-fluid1">
-                            </div>
-                            <div class="image-slide">
-                                <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
+                                <img src="images/kids4.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                         </div>
-                        
+
                         <!-- Navigation buttons -->
                         <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
                         <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
-                        
+
                         <!-- Indicators -->
                         <div class="image-slider-indicators" id="imageSliderIndicators3">
                             <div class="image-slider-indicator active" data-slide="0"></div>
@@ -214,7 +216,8 @@
                 </h1>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
-                        SdaKids is the perfect place for children ages birth-6th grade to grow and develop as fully devoted
+                        SdaKids is the perfect place for children ages birth-6th grade to grow and develop as fully
+                        devoted
                         followers of Christ. Find out more.
                     </h6>
                 </div>
@@ -232,59 +235,59 @@
                 this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
                 this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
                 this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
-                
+
                 this.init();
             }
-            
+
             init() {
                 // Add event listeners
                 this.prevBtn.addEventListener('click', () => this.previousSlide());
                 this.nextBtn.addEventListener('click', () => this.nextSlide());
-                
+
                 // Add indicator click events
                 this.indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => this.goToSlide(index));
                 });
-                
+
                 // Add keyboard navigation (only when slider is focused)
                 this.sliderWrapper.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft') this.previousSlide();
                     if (e.key === 'ArrowRight') this.nextSlide();
                 });
-                
+
                 // Make slider focusable for keyboard navigation
                 this.sliderWrapper.setAttribute('tabindex', '0');
-                
+
                 // Optional: Auto-play slider
                 this.startAutoPlay();
             }
-            
+
             nextSlide() {
                 this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
                 this.updateSlider();
             }
-            
+
             previousSlide() {
                 this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
                 this.updateSlider();
             }
-            
+
             goToSlide(slideIndex) {
                 this.currentSlide = slideIndex;
                 this.updateSlider();
             }
-            
+
             updateSlider() {
                 // Move slider
                 const translateX = -this.currentSlide * (100 / this.totalSlides);
                 this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-                
+
                 // Update indicators
                 this.indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === this.currentSlide);
                 });
             }
-            
+
             startAutoPlay() {
                 // Auto-advance every 5 seconds
                 setInterval(() => {
@@ -292,7 +295,7 @@
                 }, 5000);
             }
         }
-        
+
         // Initialize all sliders when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new ContentImageSlider('1');
@@ -301,4 +304,5 @@
         });
     </script>
 </body>
+
 </html>
