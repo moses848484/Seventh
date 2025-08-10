@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
     <link rel="stylesheet"
         href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
         body {
@@ -99,7 +100,7 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: 200px;
         }
 
         .image-slider-wrapper {
@@ -168,39 +169,6 @@
         /* Ensure arrival_bg_box4 has position relative for slider positioning */
         .arrival_bg_box4 {
             position: relative;
-        }
-
-        /* Ensure the image does not exceed its container's width and height */
-        .img-fluid1 {
-            max-width: 100%;
-            /* Ensures the image does not exceed its container's width */
-            height: auto;
-            /* Maintains the aspect ratio of the image */
-            width: 100%;
-            /* Allows the width to adjust automatically */
-            display: block;
-            /* Remove any extra space below the image */
-        }
-
-        /* Optional: Add media queries for further responsiveness */
-        @media (max-width: 1200px) {
-            .img-fluid1 {
-                max-height: 80vh;
-                /* Adjust height to be more responsive */
-                /* Optional: Limit height to viewport height to ensure better fit */
-                margin-left: 0;
-                /* Avoid negative margins */
-            }
-        }
-
-        @media (max-width: 580px) {
-            .img-fluid1 {
-                max-height: 70vh;
-                /* Further adjust height for mobile devices */
-                /* Optional: Reduce height for very small screens */
-                margin-left: 0;
-                /* Avoid negative margins */
-            }
         }
     </style>
 </head>
@@ -490,13 +458,11 @@
             });
         </script>
     </section>
-         <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
-         <!-- popper js -->
-         <script src="https://seventh-production.up.railway.app/home/js/popper.min.js"></script>
-         <!-- bootstrap js -->
-         <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
-         <!-- custom js -->
-         <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
+
+    <!-- Font Awesome + Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
