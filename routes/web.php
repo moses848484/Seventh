@@ -117,4 +117,8 @@ Route::middleware([
 
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
+    // What to Expect route
+    Route::get('/what-to-expect', function () {
+        return view('what-to-expect');
+    })->name('what-to-expect');
 });
