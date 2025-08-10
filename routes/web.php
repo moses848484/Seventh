@@ -9,15 +9,15 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\UpdateUserProfileInformationController;
 use App\Http\Controllers\LocationController;
 
-// REMOVE THESE PROBLEMATIC IMPORTS:
-// use App\Models\User\UserController;
-// use Illuminate\Foundation\Auth\User as Authenticatable;
-// use Illuminate\Foundation\Auth;
-
 // Public routes (no authentication required)
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/member_registration', [HomeController::class, 'member_registration'])->name('member_registration');
 Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_members');
+
+// What to Expect route - publicly accessible (MOVED OUTSIDE MIDDLEWARE GROUP)
+Route::get('/what-to-expect', function () {
+    return view('home.what-to-expect');
+})->name('what-to-expect');
 
 // Protected routes with middleware
 Route::middleware([
@@ -26,11 +26,9 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-
     // routes/web.php
     Route::put('/user/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('user-profile-information.update');
     Route::delete('/user/profile-photo', [App\Http\Controllers\ProfilePhotoController::class, 'destroy'])->name('profile-photo.remove')->middleware(['auth']);
-
 
     // All your existing routes (now properly protected)
     Route::get('/redirect', [HomeController::class, 'redirect']);
@@ -114,11 +112,6 @@ Route::middleware([
 
     Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
-
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
-    // What to Expect route - publicly accessible
-    Route::get('/what-to-expect', function () {
-        return view('home.what-to-expect');
-    })->name('what-to-expect');
 });
