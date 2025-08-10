@@ -16,6 +16,12 @@ class HomeController extends Controller
         return view('home.userpage');
     }
 
+    // Add this method for What to Expect page
+    public function whatToExpect()
+    {
+        return view('home.what-to-expect');
+    }
+
     public function redirect()
     {
         // Check if the user is authenticated
