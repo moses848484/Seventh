@@ -215,7 +215,8 @@
                 <h1 class="heading4 text-section_header3 mb-relaxed">
                     Sabbath School
                 </h1>
-                <div class="spacer-wrapper pb-very_relaxed"></div>
+                <!-- Space between heading and text -->
+                <div class="spacer-wrapper pb-relaxed"></div>
                 <div class="spacer-wrapper pb-relaxed"></div>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
