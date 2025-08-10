@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,27 +82,52 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container-wrapper">
-        <!-- First Row -->
-        <div class="container1">
-            <div class="card-content">
-                <!-- Image Column -->
-                <div class="arrival_bg_box4">
-                    <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
+<!-- First Row with Slider -->
+        <div class="container-wrapper">
+            <div class="container1">
+                <div class="card-content">
+                    <!-- Image Column -->
+                    <div class="arrival_bg_box4">
+                        <div class="image-slider-container">
+                            <div class="image-slider-wrapper" id="imageSliderWrapper">
+                                <div class="image-slide">
+                                    <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/preach4.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/preach5.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                            </div>
+
+                            <!-- Navigation buttons -->
+                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
+                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
+
+                            <!-- Indicators -->
+                            <div class="image-slider-indicators" id="imageSliderIndicators">
+                                <div class="image-slider-indicator active" data-slide="0"></div>
+                                <div class="image-slider-indicator" data-slide="1"></div>
+                                <div class="image-slider-indicator" data-slide="2"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Text Column -->
-            <div class="text-area bg text-left text-black">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h1 class="heading4 text-section_header3 mb-relaxed">
-                    What is Truth?
-                </h1>
-                <div class="rich-text3 text-paragraph_large mb-relaxed">
-                    <h6>
-                        Jesus says the truth will set us free, but what is truth? And how can it set us free? Learn
-                        more with this 5-day Plan, The Truth Will Set You Free.
-                    </h6>
+                <!-- Text Column -->
+                <div class="text-area bg text-left text-black">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                        What is Truth?
+                    </h1>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed">
+                        <h6>
+                            Jesus says the truth will set us free, but what is truth? And how can it set us free? Learn
+                            more with this 5-day Plan, The Truth Will Set You Free.
+                        </h6>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,11 +149,11 @@
                                 <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
                             </div>
                         </div>
-                        
+
                         <!-- Navigation buttons -->
                         <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
                         <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
-                        
+
                         <!-- Indicators -->
                         <div class="image-slider-indicators" id="imageSliderIndicators">
                             <div class="image-slider-indicator active" data-slide="0"></div>
@@ -152,29 +178,52 @@
             </div>
         </div>
 
-        <!-- Third Row -->
+<!-- Third Row with Slider -->
         <div class="container1">
             <div class="card-content">
                 <!-- Image Column -->
                 <div class="arrival_bg_box4">
-                    <img src="images/kids.jpg" alt="Person praying" class="img-fluid1">
+                    <div class="image-slider-container">
+                        <div class="image-slider-wrapper" id="imageSliderWrapper">
+                            <div class="image-slide">
+                                <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
+                            </div>
+                            <div class="image-slide">
+                                <img src="images/kids.jpg" alt="Person praying" class="img-fluid1">
+                            </div>
+                            <div class="image-slide">
+                                <img src="images/kids4.jpg" alt="Person praying" class="img-fluid1">
+                            </div>
+                        </div>
+
+                        <!-- Navigation buttons -->
+                        <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
+                        <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
+
+                        <!-- Indicators -->
+                        <div class="image-slider-indicators" id="imageSliderIndicators">
+                            <div class="image-slider-indicator active" data-slide="0"></div>
+                            <div class="image-slider-indicator" data-slide="1"></div>
+                            <div class="image-slider-indicator" data-slide="2"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Text Column -->
             <div class="text-area bg text-left text-black">
                 <div class="spacer-wrapper pt-very_relaxed"></div>
                 <h1 class="heading4 text-section_header3 mb-relaxed">
-                    Kids <i class="fa-solid fa-heart"></i> SdaKids!
+                    SdaKids!
                 </h1>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
-                        SdaKids is the perfect place for children ages birth-6th grade to grow and develop as fully devoted
+                        SdaKids is the perfect place for children ages birth-6th grade to grow and develop as fully
+                        devoted
                         followers of Christ. Find out more.
                     </h6>
                 </div>
             </div>
         </div>
-    </div>
 
     <script>
         class ContentImageSlider {
@@ -185,59 +234,59 @@
                 this.prevBtn = document.getElementById('imageSliderPrevBtn');
                 this.nextBtn = document.getElementById('imageSliderNextBtn');
                 this.indicators = document.querySelectorAll('.image-slider-indicator');
-                
+
                 this.init();
             }
-            
+
             init() {
                 // Add event listeners
                 this.prevBtn.addEventListener('click', () => this.previousSlide());
                 this.nextBtn.addEventListener('click', () => this.nextSlide());
-                
+
                 // Add indicator click events
                 this.indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => this.goToSlide(index));
                 });
-                
+
                 // Add keyboard navigation (only when slider is focused)
                 this.sliderWrapper.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft') this.previousSlide();
                     if (e.key === 'ArrowRight') this.nextSlide();
                 });
-                
+
                 // Make slider focusable for keyboard navigation
                 this.sliderWrapper.setAttribute('tabindex', '0');
-                
+
                 // Optional: Auto-play slider
                 this.startAutoPlay();
             }
-            
+
             nextSlide() {
                 this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
                 this.updateSlider();
             }
-            
+
             previousSlide() {
                 this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
                 this.updateSlider();
             }
-            
+
             goToSlide(slideIndex) {
                 this.currentSlide = slideIndex;
                 this.updateSlider();
             }
-            
+
             updateSlider() {
                 // Move slider
                 const translateX = -this.currentSlide * (100 / this.totalSlides);
                 this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-                
+
                 // Update indicators
                 this.indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === this.currentSlide);
                 });
             }
-            
+
             startAutoPlay() {
                 // Auto-advance every 5 seconds
                 setInterval(() => {
@@ -245,11 +294,12 @@
                 }, 5000);
             }
         }
-        
+
         // Initialize slider when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new ContentImageSlider();
         });
     </script>
 </body>
+
 </html>
