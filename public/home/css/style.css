@@ -2247,7 +2247,7 @@ div.form_sub .field input[type="email"]:focus {
 
 @media (max-width: 580px) {
   .img-fluid1 {
-    max-height: 70vh;
+    max-height: 80vh;
     /* Further adjust height for mobile devices */
     /* Optional: Reduce height for very small screens */
     margin-left: 0;
