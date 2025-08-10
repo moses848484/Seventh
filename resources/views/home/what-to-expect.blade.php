@@ -27,7 +27,6 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 80px 0;
-            margin-top: 20px;
         }
 
         .expectation-card {
@@ -63,7 +62,7 @@
         }
 
         p, small {
-            color: #555;
+            color: white;
         }
     </style>
 </head>
@@ -72,7 +71,7 @@
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 mb-4">What to Expect</h1>
+            <h1 class="display-4 mb-4">What to Expect</h1><br>
             <p class="lead">Your first visit to University SDA Church - we're excited to welcome you!</p>
         </div>
     </section>
