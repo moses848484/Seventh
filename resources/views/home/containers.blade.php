@@ -170,7 +170,8 @@
                 </h1>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
-                        “ Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot
+                        “ Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the
+                        Spirit, he cannot
                         enter into the kingdom of God.” ~ John 3:5
                     </h6>
                 </div>
@@ -214,6 +215,8 @@
                 <h1 class="heading4 text-section_header3 mb-relaxed">
                     Sabbath School
                 </h1>
+                <div class="spacer-wrapper pb-very_relaxed"></div>
+                <div class="spacer-wrapper pb-relaxed"></div>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
                         “ But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is
