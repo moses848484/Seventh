@@ -46,9 +46,6 @@
                     <a href="{{ route('register') }}" class="btn3">
                         What to Expect
                     </a>
-                    <a href="{{ route('register') }}" class="btn4">
-                        <i class="fa-solid fa-location-dot"></i>&nbsp;Find a Location
-                    </a>
                 </div>
                 <div class="spacer-wrapper pt-normal"></div>
             </div>
