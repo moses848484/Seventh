@@ -29,7 +29,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.6);
             color: white;
             border: none;
             width: 50px;
@@ -42,7 +42,7 @@
         }
 
         .image-slider-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .image-slider-prev {
@@ -217,7 +217,7 @@
                 </h1>
                 <!-- Space between heading and text -->
                 <div class="spacer-wrapper pb-relaxed"></div>
-                <div class="spacer-wrapper pb-relaxed"></div>
+             
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
                         “ But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is
