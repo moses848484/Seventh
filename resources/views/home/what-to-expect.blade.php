@@ -100,18 +100,18 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            height: 800px;
+            height: 100%;
         }
 
         .image-slider-wrapper {
             display: flex;
-            width: 300%;
+            width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
 
         .image-slide {
-            width: 33.333%;
+             width: 100%;
             height: 100%;
         }
 
