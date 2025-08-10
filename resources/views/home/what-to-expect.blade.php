@@ -1,175 +1,124 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>What to Expect - SDA Church</title>
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
-    <link rel="stylesheet"
-        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
-        /* Adjust card width and spacing */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            margin-top: 90px;
+        }
+
         .expectation-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
             height: 100%;
-            max-width: 95%;
-            /* wider cards */
-            margin: auto;
-            /* center */
         }
 
         .expectation-card:hover {
             transform: translateY(-5px);
         }
 
-        /* Heading and text colors */
-        .expectation-card h4 {
-            color: #000;
-            /* black headings */
-            font-weight: 600;
-        }
-
-        .expectation-card p,
-        .expectation-card small {
-            color: #6c757d;
-            /* gray text */
-        }
-
-        /* Equal height cards in a row */
-        .expectation-row {
+        .expectation-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
-            /* spacing between cards */
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
         }
 
-        /* Responsive stacking */
-        @media (max-width: 768px) {
-            .expectation-row {
-                flex-direction: column;
-                align-items: center;
-            }
+        h4, h3, h2 {
+            color: #000;
+        }
 
-            .expectation-card {
-                max-width: 100%;
-            }
+        p, small {
+            color: #555;
         }
     </style>
-
 </head>
-
 <body>
-    <div class="hero_area">
-        <div class="container-scroller">
-            <!-- header section starts -->
-            @include('home.header')
-            <!-- end header section -->
-            <div class="main-content">
-                <!-- Hero Section -->
-                <section class="hero-section text-center">
-                    <div class="container">
-                        <h1 class="display-4 mb-4">What to Expect</h1>
-                        <p class="lead">Your first visit to University SDA Church - we're excited to welcome you!</p>
-                    </div>
-                </section>
 
-                <!-- Main Content -->
-                <section class="py-5">
-                    <div class="container">
-                        <!-- Welcome Message -->
-                        <div class="row mb-5">
-                            <div class="col-lg-8 mx-auto text-center">
-                                <h2 class="mb-4">We're Glad You're Coming!</h2>
-                                <p class="lead text-muted">
-                                    Whether this is your first time visiting a church or you're familiar with church
-                                    services,
-                                    we want you to feel comfortable and know what to expect when you visit University
-                                    SDA Church.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="expectation-row">
-                            <div class="col-md-4">
-                                <div class="expectation-card text-center">
-                                    <div class="expectation-icon">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <h4>Service Times</h4>
-                                    <p><strong>Sabbath School:</strong> 9:30 AM</p>
-                                    <p><strong>Worship Service:</strong> 11:00 AM</p>
-                                    <p><strong>Prayer Meeting:</strong> Wed 7:00 PM</p>
-                                    <small>Services last 60-90 min</small>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="expectation-card text-center">
-                                    <div class="expectation-icon">
-                                        <i class="fas fa-users"></i>
-                                    </div>
-                                    <h4>Friendly Atmosphere</h4>
-                                    <p>Our greeters will welcome you at the door and help you find your way. Our
-                                        community is warm and welcoming!</p>
-                                    <small>Feel free to introduce yourself</small>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="expectation-card text-center">
-                                    <div class="expectation-icon">
-                                        <i class="fas fa-tshirt"></i>
-                                    </div>
-                                    <h4>Come As You Are</h4>
-                                    <p>Dress comfortably! You'll see everything from casual to business attire. What
-                                        matters most is that you're here.</p>
-                                    <small>No dress code required</small>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Call to Action -->
-                        <div class="row mt-5 mb-5">
-                            <div class="col-lg-8 mx-auto text-center">
-                                <div class="bg-light p-5 rounded">
-                                    <h3>Ready to Visit?</h3>
-                                    <p class="lead">We can't wait to meet you and welcome you into our church family!
-                                    </p>
-                                    <a href="{{ url('/') }}" class="btn btn-primary btn-lg mr-3">Back to Home</a>
-                                    <a href="mailto:info@universitysda.church"
-                                        class="btn btn-outline-primary btn-lg">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- footer start -->
-            @include('home.footer')
-            <!-- footer end -->
-
-            <script src="https://seventh-production.up.railway.app/home/js/jquery-3.4.1.min.js"></script>
-            <script src="https://seventh-production.up.railway.app/home/js/popper.min.js"></script>
-            <script src="https://seventh-production.up.railway.app/home/js/bootstrap.js"></script>
-            <script src="https://seventh-production.up.railway.app/home/js/custom.js"></script>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">What to Expect</h1>
+            <p class="lead">Your first visit to University SDA Church - we're excited to welcome you!</p>
         </div>
-    </div>
-</body>
+    </section>
 
+    <!-- Expectation Cards -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Service Times</h4>
+                        <p><strong>Sabbath School:</strong> 9:30 AM</p>
+                        <p><strong>Worship Service:</strong> 11:00 AM</p>
+                        <p><strong>Prayer Meeting:</strong> Wed 7:00 PM</p>
+                        <small>Services last 60-90 min</small>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Friendly Atmosphere</h4>
+                        <p>Our greeters will welcome you at the door and help you find your way. Our
+                            community is warm and welcoming!</p>
+                        <small>Feel free to introduce yourself</small>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h4>Come As You Are</h4>
+                        <p>Dress comfortably! You'll see everything from casual to business attire. What
+                            matters most is that you're here.</p>
+                        <small>No dress code required</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Awesome + Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
