@@ -96,15 +96,11 @@
             }
         }
 
+        /* Image Slider-specific styles - using unique class names */
         .image-slider-container {
             position: relative;
             width: 100%;
-            max-width: 1000px;
-            margin: auto;
-            padding-bottom: 56.25%;
-            /* 16:9 ratio */
-            height: 0;
-            overflow: hidden;
+            height: 600px;
         }
 
         .image-slider-wrapper {
@@ -114,13 +110,9 @@
             transition: transform 0.5s ease-in-out;
         }
 
-        .image-slide img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .image-slide {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 300px;
         }
 
         .image-slider-nav {
@@ -178,6 +170,7 @@
         .arrival_bg_box4 {
             position: relative;
         }
+
     </style>
 </head>
 
