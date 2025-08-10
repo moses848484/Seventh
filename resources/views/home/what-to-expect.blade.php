@@ -100,7 +100,7 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 300px;
         }
 
         .image-slider-wrapper {
@@ -111,8 +111,8 @@
         }
 
         .image-slide {
-            width: 100%;
-            height: 300px;
+            width: 33.333%;
+            height: 100%;
         }
 
         .image-slider-nav {
@@ -170,7 +170,6 @@
         .arrival_bg_box4 {
             position: relative;
         }
-
     </style>
 </head>
 
