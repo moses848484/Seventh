@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
@@ -27,6 +28,12 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 80px 0;
+        }
+
+        .hero-section .container h1,
+        .hero-section .container p.lead {
+            display: block;
+            width: 100%;
         }
 
         .expectation-card {
@@ -57,21 +64,29 @@
             color: white;
         }
 
-        h4, h3, h2 {
+        h4,
+        h3,
+        h2 {
             color: #000;
         }
 
-        p, small {
+        p,
+        small {
+            color: #555;
+        }
+
+        .lead {
             color: white;
         }
     </style>
 </head>
+
 <body>
     @include('home.header')
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 mb-4">What to Expect</h1><br>
+            <h1 class="display-4 mb-4">What to Expect</h1>
             <p class="lead">Your first visit to University SDA Church - we're excited to welcome you!</p>
         </div>
     </section>
@@ -129,4 +144,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
