@@ -109,7 +109,7 @@
             .image-slider-container {
                 position: relative;
                 width: 100%;
-                height: 200px;
+                height: 600px;
             }
         }
 
