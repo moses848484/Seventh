@@ -6,11 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed Image Slider</title>
     <style>
+        /* Basic layout styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .container1 {
+            display: flex;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .card-content {
+            flex: 1;
+            position: relative;
+        }
+
+        .text-area {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .heading4 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .rich-text3 h6 {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        .img-fluid1 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* Image Slider-specific styles - using unique class names */
         .image-slider-container {
             position: relative;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         .image-slider-wrapper {
@@ -76,69 +128,69 @@
             background: rgba(255, 255, 255, 1);
         }
 
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
         .arrival_bg_box4 {
             position: relative;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 
 <body>
-<!-- First Row with Slider -->
-        <div class="container-wrapper">
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper">
-                                <div class="image-slide">
-                                    <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/preach4.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/preach5.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h1 class="heading4 text-section_header3 mb-relaxed">
-                        What is Truth?
-                    </h1>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <h6>
-                            Jesus says the truth will set us free, but what is truth? And how can it set us free? Learn
-                            more with this 5-day Plan, The Truth Will Set You Free.
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Second Row with Slider -->
+    <!-- First Row with Slider -->
+    <div class="container-wrapper">
         <div class="container1">
             <div class="card-content">
                 <!-- Image Column -->
                 <div class="arrival_bg_box4">
                     <div class="image-slider-container">
-                        <div class="image-slider-wrapper" id="imageSliderWrapper">
+                        <div class="image-slider-wrapper" id="imageSliderWrapper1">
+                            <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
+                        </div>
+                        <div class="image-slide">
+                            <img src="images/preach4.jpg" alt="Person praying" class="img-fluid1">
+                        </div>
+                        <div class="image-slide">
+                            <img src="images/preach5.jpg" alt="Person praying" class="img-fluid1">
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                    <button class="image-slider-nav image-slider-prev" data-slider="1">‹</button>
+                    <button class="image-slider-nav image-slider-next" data-slider="1">›</button>
+
+                    <!-- Indicators -->
+                    <div class="image-slider-indicators">
+                        <div class="image-slider-indicator active" data-slide="0" data-slider="1"></div>
+                        <div class="image-slider-indicator" data-slide="1" data-slider="1"></div>
+                        <div class="image-slider-indicator" data-slide="2" data-slider="1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Text Column -->
+        <div class="text-area">
+            <h1 class="heading4">
+                What is Truth?
+            </h1>
+            <div class="rich-text3">
+                <h6>
+                    Jesus says the truth will set us free, but what is truth? And how can it set us free? Learn
+                    more with this 5-day Plan, The Truth Will Set You Free.
+                </h6>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Second Row with Slider -->
+    <div class="container-wrapper">
+        <div class="container1">
+            <div class="card-content">
+                <!-- Image Column -->
+                <div class="arrival_bg_box4">
+                    <div class="image-slider-container">
+                        <div class="image-slider-wrapper" id="imageSliderWrapper2">
                             <div class="image-slide">
                                 <img src="images/baptism.jpg" alt="Person praying" class="img-fluid1">
                             </div>
@@ -151,25 +203,24 @@
                         </div>
 
                         <!-- Navigation buttons -->
-                        <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
-                        <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
+                        <button class="image-slider-nav image-slider-prev" data-slider="2">‹</button>
+                        <button class="image-slider-nav image-slider-next" data-slider="2">›</button>
 
                         <!-- Indicators -->
-                        <div class="image-slider-indicators" id="imageSliderIndicators">
-                            <div class="image-slider-indicator active" data-slide="0"></div>
-                            <div class="image-slider-indicator" data-slide="1"></div>
-                            <div class="image-slider-indicator" data-slide="2"></div>
+                        <div class="image-slider-indicators">
+                            <div class="image-slider-indicator active" data-slide="0" data-slider="2"></div>
+                            <div class="image-slider-indicator" data-slide="1" data-slider="2"></div>
+                            <div class="image-slider-indicator" data-slide="2" data-slider="2"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Text Column -->
-            <div class="text-area bg text-left text-black">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h1 class="heading4 text-section_header3 mb-relaxed">
+            <div class="text-area">
+                <h1 class="heading4">
                     Seek Answers, Find Life.
                 </h1>
-                <div class="rich-text3 text-paragraph_large mb-relaxed">
+                <div class="rich-text3">
                     <h6>
                         Check out finds.university SDA.church for spiritual resources to give you helpful, hopeful
                         encouragement as you walk with Jesus. Tap to learn more.
@@ -177,14 +228,16 @@
                 </div>
             </div>
         </div>
+    </div>
 
-<!-- Third Row with Slider -->
+    <!-- Third Row with Slider -->
+    <div class="container-wrapper">
         <div class="container1">
             <div class="card-content">
                 <!-- Image Column -->
                 <div class="arrival_bg_box4">
                     <div class="image-slider-container">
-                        <div class="image-slider-wrapper" id="imageSliderWrapper">
+                        <div class="image-slider-wrapper" id="imageSliderWrapper3">
                             <div class="image-slide">
                                 <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
                             </div>
@@ -197,48 +250,50 @@
                         </div>
 
                         <!-- Navigation buttons -->
-                        <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn">‹</button>
-                        <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn">›</button>
+                        <button class="image-slider-nav image-slider-prev" data-slider="3">‹</button>
+                        <button class="image-slider-nav image-slider-next" data-slider="3">›</button>
 
                         <!-- Indicators -->
-                        <div class="image-slider-indicators" id="imageSliderIndicators">
-                            <div class="image-slider-indicator active" data-slide="0"></div>
-                            <div class="image-slider-indicator" data-slide="1"></div>
-                            <div class="image-slider-indicator" data-slide="2"></div>
+                        <div class="image-slider-indicators">
+                            <div class="image-slider-indicator active" data-slide="0" data-slider="3"></div>
+                            <div class="image-slider-indicator" data-slide="1" data-slider="3"></div>
+                            <div class="image-slider-indicator" data-slide="2" data-slider="3"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Text Column -->
-            <div class="text-area bg text-left text-black">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h1 class="heading4 text-section_header3 mb-relaxed">
+            <div class="text-area">
+                <h1 class="heading4">
                     SdaKids!
                 </h1>
-                <div class="rich-text3 text-paragraph_large mb-relaxed">
+                <div class="rich-text3">
                     <h6>
                         SdaKids is the perfect place for children ages birth-6th grade to grow and develop as fully
-                        devoted
-                        followers of Christ. Find out more.
+                        devoted followers of Christ. Find out more.
                     </h6>
                 </div>
             </div>
         </div>
+    </div>
 
     <script>
         class ContentImageSlider {
-            constructor() {
+            constructor(sliderId) {
+                this.sliderId = sliderId;
                 this.currentSlide = 0;
                 this.totalSlides = 3;
-                this.sliderWrapper = document.getElementById('imageSliderWrapper');
-                this.prevBtn = document.getElementById('imageSliderPrevBtn');
-                this.nextBtn = document.getElementById('imageSliderNextBtn');
-                this.indicators = document.querySelectorAll('.image-slider-indicator');
+                this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
+                this.prevBtn = document.querySelector(`[data-slider="${sliderId}"].image-slider-prev`);
+                this.nextBtn = document.querySelector(`[data-slider="${sliderId}"].image-slider-next`);
+                this.indicators = document.querySelectorAll(`[data-slider="${sliderId}"].image-slider-indicator`);
 
                 this.init();
             }
 
             init() {
+                if (!this.sliderWrapper || !this.prevBtn || !this.nextBtn) return;
+
                 // Add event listeners
                 this.prevBtn.addEventListener('click', () => this.previousSlide());
                 this.nextBtn.addEventListener('click', () => this.nextSlide());
@@ -248,7 +303,7 @@
                     indicator.addEventListener('click', () => this.goToSlide(index));
                 });
 
-                // Add keyboard navigation (only when slider is focused)
+                // Add keyboard navigation
                 this.sliderWrapper.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft') this.previousSlide();
                     if (e.key === 'ArrowRight') this.nextSlide();
@@ -295,9 +350,11 @@
             }
         }
 
-        // Initialize slider when DOM is loaded
+        // Initialize sliders when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            new ContentImageSlider();
+            new ContentImageSlider(1);
+            new ContentImageSlider(2);
+            new ContentImageSlider(3);
         });
     </script>
 </body>
