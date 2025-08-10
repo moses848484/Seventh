@@ -59,7 +59,7 @@
     </style>
 </head>
 <body>
-
+ @include('home.header')
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
