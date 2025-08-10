@@ -451,20 +451,20 @@ a:focus {
     width: 24px;
     height: 24px;
   }
-  
+
   .custom_nav-container .navbar-toggler span {
     width: 18px;
     height: 2px;
   }
-  
+
   .custom_nav-container .navbar-toggler span::before {
     top: -5px;
   }
-  
+
   .custom_nav-container .navbar-toggler span::after {
     top: 5px;
   }
-  
+
   .navbar-toggler {
     right: 10px;
   }
@@ -2237,21 +2237,25 @@ div.form_sub .field input[type="email"]:focus {
 /* Optional: Add media queries for further responsiveness */
 @media (max-width: 1200px) {
   .img-fluid1 {
-    max-height: 100vh;
-    /* Adjust height to be more responsive */
-    /* Optional: Limit height to viewport height to ensure better fit */
-    margin-left: 0;
-    /* Avoid negative margins */
+    max-width: 100%;
+    /* Ensures the image does not exceed its container's width */
+    height: auto;
+    /* Maintains the aspect ratio of the image */
+    width: 100%;
+    /* Allows the width to adjust automatically */
+    display: block;
   }
 }
 
 @media (max-width: 580px) {
   .img-fluid1 {
-    max-height: 80vh;
-    /* Further adjust height for mobile devices */
-    /* Optional: Reduce height for very small screens */
-    margin-left: 0;
-    /* Avoid negative margins */
+    max-width: 100%;
+    /* Ensures the image does not exceed its container's width */
+    height: auto;
+    /* Maintains the aspect ratio of the image */
+    width: 100%;
+    /* Allows the width to adjust automatically */
+    display: block;
   }
 }
 
@@ -2524,21 +2528,25 @@ div.form_sub .field input[type="email"]:focus {
 
 /* Image container for cards */
 .arrival_bg_box4 {
-    width: 100%;
-    height: 250px; /* Fixed height for consistency */
-    overflow: hidden;
-    border-radius: 0;
-    display: flex;
-    align-items: center;  /* Vertically center image if aspect ratio differs */
-    justify-content: center; /* Horizontally center */
+  width: 100%;
+  height: 250px;
+  /* Fixed height for consistency */
+  overflow: hidden;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  /* Vertically center image if aspect ratio differs */
+  justify-content: center;
+  /* Horizontally center */
 }
 
 /* Image styles */
 .arrival_bg_box4 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop and fill without distortion */
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Crop and fill without distortion */
+  display: block;
 }
 
 /* Text Area */
@@ -2847,12 +2855,17 @@ div.form_sub .field input[type="email"]:focus {
 
 
 .col-md-7 {
-    flex: 0 0 100% !important; /* Take full width */
-    max-width: 100% !important; /* Ensure no limit */
-    padding: 0; /* Remove padding if needed */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
+  flex: 0 0 100% !important;
+  /* Take full width */
+  max-width: 100% !important;
+  /* Ensure no limit */
+  padding: 0;
+  /* Remove padding if needed */
+  display: flex;
+  align-items: center;
+  /* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
 }
 
 
