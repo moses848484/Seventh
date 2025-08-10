@@ -239,13 +239,13 @@
                         <div class="image-slider-container">
                             <div class="image-slider-wrapper" id="imageSliderWrapper1">
                                 <div class="image-slide">
-                                    <img src="images/preacher.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/fellowship.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/preach4.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/preach5.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
 
