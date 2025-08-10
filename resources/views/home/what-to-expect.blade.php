@@ -100,7 +100,17 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            height: 300%;
+            height: 300px;
+        }
+
+
+        /* Optional smaller adjustments on mobile */
+        @media (max-width: 576px) {
+            .image-slider-container {
+                position: relative;
+                width: 100%;
+                height: 200px;
+            }
         }
 
         .image-slider-wrapper {
