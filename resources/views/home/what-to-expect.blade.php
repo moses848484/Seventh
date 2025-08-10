@@ -103,6 +103,41 @@
             height: 300px;
         }
 
+        /* Ensure the image does not exceed its container's width and height */
+        .image-slider-container {
+            max-width: 100%;
+            /* Ensures the image does not exceed its container's width */
+            height: auto;
+            /* Maintains the aspect ratio of the image */
+            width: 100%;
+            /* Allows the width to adjust automatically */
+            display: block;
+            /* Remove any extra space below the image */
+        }
+
+        /* Optional: Add media queries for further responsiveness */
+        @media (max-width: 1200px) {
+            .image-slider-container {
+                max-height: 100vh;
+                height: 300px;
+                /* Adjust height to be more responsive */
+                /* Optional: Limit height to viewport height to ensure better fit */
+                margin-left: 0;
+                /* Avoid negative margins */
+            }
+        }
+
+        @media (max-width: 580px) {
+            .image-slider-container {
+                max-height: 80vh;
+                height: 300px;
+                /* Further adjust height for mobile devices */
+                /* Optional: Reduce height for very small screens */
+                margin-left: 0;
+                /* Avoid negative margins */
+            }
+        }
+
         .image-slider-wrapper {
             display: flex;
             width: 300%;
@@ -169,255 +204,6 @@
         /* Ensure arrival_bg_box4 has position relative for slider positioning */
         .arrival_bg_box4 {
             position: relative;
-        }
-
-       /* Responsive breakpoints with orientation support */
-        @media (max-width: 1024px) {
-            .container-wrapper {
-                padding: 30px 15px;
-            }
-            
-            .container1 {
-                gap: 30px;
-                margin-bottom: 50px;
-            }
-            
-            .image-slider-container {
-                height: 350px;
-            }
-            
-            .heading4 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container1 {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin-bottom: 40px;
-                text-align: center;
-                min-height: auto;
-            }
-            
-            .image-slider-container {
-                height: 300px;
-            }
-            
-            .text-area {
-                padding: 25px;
-            }
-            
-            .heading4 {
-                font-size: 1.6rem;
-            }
-            
-            .rich-text3 h6 {
-                font-size: 1rem;
-            }
-            
-            .image-slider-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            
-            .image-slider-prev {
-                left: 5px;
-            }
-            
-            .image-slider-next {
-                right: 5px;
-            }
-            
-            .image-slider-indicator {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container-wrapper {
-                padding: 20px 10px;
-            }
-            
-            .container1 {
-                gap: 20px;
-                margin-bottom: 30px;
-            }
-            
-            .image-slider-container {
-                height: 250px;
-            }
-            
-            .text-area {
-                padding: 20px;
-            }
-            
-            .heading4 {
-                font-size: 1.4rem;
-                margin-bottom: 15px;
-            }
-            
-            .rich-text3 h6 {
-                font-size: 0.95rem;
-            }
-            
-            .image-slider-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 14px;
-            }
-            
-            .image-slider-indicators {
-                bottom: 10px;
-                gap: 6px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-section {
-                padding: 60px 0;
-            }
-            
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-            
-            .image-slider-container {
-                height: 220px;
-                border-radius: 8px;
-            }
-            
-            .text-area {
-                padding: 15px;
-                border-radius: 8px;
-            }
-            
-            .heading4 {
-                font-size: 1.3rem;
-            }
-            
-            .rich-text3 h6 {
-                font-size: 0.9rem;
-                line-height: 1.5;
-            }
-        }
-
-        /* LANDSCAPE ORIENTATION FIXES */
-        
-        /* Mobile landscape - reduce slider height significantly */
-        @media screen and (max-height: 600px) and (orientation: landscape) {
-            .image-slider-container {
-                height: 180px !important;
-            }
-            
-            .container1 {
-                gap: 20px;
-                margin-bottom: 30px;
-            }
-            
-            .text-area {
-                padding: 20px;
-            }
-            
-            .hero-section {
-                padding: 40px 0;
-            }
-        }
-
-        /* Very short landscape screens */
-        @media screen and (max-height: 500px) and (orientation: landscape) {
-            .image-slider-container {
-                height: 150px !important;
-            }
-            
-            .container1 {
-                gap: 15px;
-                margin-bottom: 25px;
-            }
-            
-            .text-area {
-                padding: 15px;
-            }
-            
-            .heading4 {
-                font-size: 1.3rem;
-                margin-bottom: 10px;
-            }
-            
-            .hero-section {
-                padding: 30px 0;
-            }
-            
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Ultra-short landscape (like phone landscape) */
-        @media screen and (max-height: 450px) and (orientation: landscape) {
-            .image-slider-container {
-                height: 120px !important;
-            }
-            
-            .container1 {
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-            
-            .text-area {
-                padding: 10px;
-            }
-            
-            .heading4 {
-                font-size: 1.2rem;
-                margin-bottom: 8px;
-            }
-            
-            .rich-text3 h6 {
-                font-size: 0.85rem;
-                line-height: 1.4;
-            }
-            
-            .hero-section {
-                padding: 20px 0;
-            }
-            
-            .hero-section h1 {
-                font-size: 1.6rem;
-            }
-            
-            .image-slider-nav {
-                width: 30px;
-                height: 30px;
-                font-size: 12px;
-            }
-            
-            .image-slider-indicators {
-                bottom: 5px;
-            }
-            
-            .image-slider-indicator {
-                width: 8px;
-                height: 8px;
-            }
-        }
-
-        /* Alternative approach: Flexible height based on viewport */
-        @media screen and (orientation: landscape) and (max-width: 1024px) {
-            .image-slider-container {
-                height: min(40vh, 300px);
-                min-height: 120px;
-            }
-        }
-
-        /* Ensure images still look good in landscape */
-        @media screen and (orientation: landscape) {
-            .img-fluid1 {
-                object-fit: cover;
-                object-position: center;
-            }
         }
     </style>
 </head>
