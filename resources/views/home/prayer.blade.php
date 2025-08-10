@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="btn-box">
-                    <a href="{{ route('what-to-expect') }}" class="btn3">
+                    <a href="{{ url('what-to-expect') }}" class="btn3">
                         What to Expect
                     </a>
                 </div>
