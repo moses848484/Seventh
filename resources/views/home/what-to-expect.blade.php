@@ -44,6 +44,12 @@
         .navbar-toggler {
             border: none;
             padding: 0.25rem 0.5rem;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            /* Remove any box shadow */
+            outline: none !important;
+            /* Remove outline on focus */
         }
 
         .custom-toggler-icon {
@@ -54,12 +60,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            border: none !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            /* Remove any box shadow */
-            outline: none !important;
-            /* Remove outline on focus */
+
         }
 
 
