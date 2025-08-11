@@ -107,20 +107,12 @@
         .image-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
-            background-color: #f8f9fa;
         }
 
-        /* Desktop: use contain to show full image without cropping */
+        /* Desktop: use cover for better fill, similar to mobile */
         @media (min-width: 768px) {
-            .image-slide img {
-                object-fit: contain;
-            }
-        }
-
-        /* Mobile: can use cover for better mobile display if needed */
-        @media (max-width: 767px) {
             .image-slide img {
                 object-fit: cover;
             }
@@ -291,9 +283,9 @@
         }
 
         /* Card layout adjustments */
-        @media (min-width: 768px) {
+        @media (min-width: 768px) and (max-width: 1199px) {
             .content-card .row {
-                height: 500px;
+                height: 700px;
             }
             
             .image-slider-container {
@@ -304,7 +296,34 @@
 
         @media (min-width: 1200px) {
             .content-card .row {
-                height: 550px;
+                height: 1200px !important;
+                min-height: 1200px !important;
+            }
+            
+            .image-slider-container {
+                padding-bottom: 0 !important;
+                height: 100% !important;
+                min-height: 600px !important;
+            }
+            
+            .text-content-area {
+                padding: 40px;
+            }
+
+            .card-body-custom {
+                min-height: 1200px !important;
+            }
+        }
+
+        /* Extra large screens */
+        @media (min-width: 1400px) {
+            .content-card .row {
+                height: 1400px !important;
+                min-height: 1400px !important;
+            }
+
+            .card-body-custom {
+                min-height: 1400px !important;
             }
         }
 
