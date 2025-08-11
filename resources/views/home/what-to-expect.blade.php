@@ -296,8 +296,8 @@
 
         @media (min-width: 1200px) {
             .content-card .row {
-                height: 200px !important;
-                min-height: 200px !important;
+                height: 400px !important;
+                min-height: 400px !important;
             }
             
             .image-slider-container {
