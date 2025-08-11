@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
-        body {
+ body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -72,8 +72,10 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.4), 
+                rgba(0, 0, 0, 0.4)
+            ), url('images/fellow1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -114,15 +116,15 @@
                 min-height: 400px;
                 background-attachment: scroll;
             }
-
+            
             .hero-section h1 {
                 font-size: 2.5rem;
             }
-
+            
             .hero-section .lead {
                 font-size: 1.2rem;
             }
-
+            
             .hero-content {
                 padding: 0 1rem;
             }
@@ -132,7 +134,7 @@
             .hero-section h1 {
                 font-size: 2rem;
             }
-
+            
             .hero-section .lead {
                 font-size: 1.1rem;
             }
