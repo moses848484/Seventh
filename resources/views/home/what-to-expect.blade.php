@@ -179,8 +179,8 @@
     <!-- Hero Section -->
     <section class="hero-section text-center py-5">
         <div class="container">
-            <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
             <h1 class="display-4 mb-4">You’re welcome here.</h1>
+              <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
             <p class="lead">At UNISDA Church, you’ll find a safe place to explore your beliefs and connect with others.
             </p>
         </div>
