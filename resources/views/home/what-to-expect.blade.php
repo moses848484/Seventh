@@ -23,7 +23,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eeaa8 0%, #764ba296 100%);
             color: white;
             padding: 80px 0;
         }
@@ -195,10 +195,10 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <h4>Service Times</h4>
-                        <p><strong>Sabbath School:</strong> 9:30 AM</p>
-                        <p><strong>Worship Service:</strong> 11:00 AM</p>
-                        <p><strong>Prayer Meeting:</strong> Wed 7:00 PM</p>
-                        <small>Services last 60-90 min</small>
+                        <p><strong>First Main Service:</strong> 7:30 AM</p>
+                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
+                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
+                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
                     </div>
                 </div>
 
