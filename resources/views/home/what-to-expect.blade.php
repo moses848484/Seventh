@@ -296,7 +296,7 @@
 
         @media (min-width: 1200px) {
             .content-card .row {
-                height: 1200px !important;
+                height: 800px !important;
                 min-height: 800px !important;
             }
             
