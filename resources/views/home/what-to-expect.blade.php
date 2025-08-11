@@ -177,10 +177,12 @@
     @include('home.header')
 
     <!-- Hero Section -->
-    <section class="hero-section text-center">
+    <section class="hero-section text-center py-5">
         <div class="container">
-            <h1 class="display-4 mb-4">What to Expect</h1>
-            <p class="lead">Your first visit to University SDA Church - we're excited to welcome you!</p>
+            <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
+            <h1 class="display-4 mb-4">You’re welcome here.</h1>
+            <p class="lead">At UNISDA Church, you’ll find a safe place to explore your beliefs and connect with others.
+            </p>
         </div>
     </section>
 
@@ -203,7 +205,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                 <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-users"></i>
