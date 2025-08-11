@@ -41,13 +41,34 @@
             z-index: 1000;
         }
 
+        /* Custom toggler button styling */
         .navbar-toggler {
             border: none;
-            padding: 0.25rem 0.5rem;
+            padding: 4px 8px;
+            background: transparent;
         }
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Custom down arrow icon */
+        .custom-toggler-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .custom-toggler-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #333;
+        }
+
+        /* Rotate arrow when expanded */
+        .navbar-toggler:not(.collapsed) .custom-toggler-icon {
+            transform: rotate(180deg);
         }
 
         .navbar-brand {
@@ -287,10 +308,16 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">About Us</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Custom toggler button with down arrow -->
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="custom-toggler-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </div>
             </button>
+            
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -360,7 +387,8 @@
             </h4>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                 <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as you
+                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
+                    you
                     are? Wherever you are on your journey, there’s a place for you here.
                 </p>
             </div>
