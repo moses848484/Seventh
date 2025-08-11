@@ -53,6 +53,21 @@
             color: white;
         }
 
+        /* target small devices in landscape: make expectation columns 48% wide */
+        @media (orientation: landscape) and (max-width: 900px) {
+            .expectation-col {
+                flex: 0 0 48%;
+                max-width: 48%;
+                margin-right: 4%;
+            }
+
+            /* remove bottom margin when side-by-side */
+            .expectation-card {
+                margin-bottom: 0;
+            }
+        }
+
+
         /* Responsive Card Container - Using same approach as notes card */
         .content-card {
             background: white;
@@ -369,7 +384,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <!-- Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 d-flex expectation-col">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-clock"></i>
@@ -383,7 +398,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 d-flex expectation-col">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-users"></i>
@@ -396,7 +411,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 d-flex expectation-col">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-tshirt"></i>
