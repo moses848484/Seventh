@@ -285,7 +285,7 @@
         /* Card layout adjustments */
         @media (min-width: 768px) and (max-width: 1199px) {
             .content-card .row {
-                height: 700px;
+                height: 500px;
             }
             
             .image-slider-container {
@@ -303,7 +303,7 @@
             .image-slider-container {
                 padding-bottom: 0 !important;
                 height: 100% !important;
-                min-height: 600px !important;
+                min-height: 400px !important;
             }
             
             .text-content-area {
@@ -311,7 +311,7 @@
             }
 
             .card-body-custom {
-                min-height: 800px !important;
+                min-height: 400px !important;
             }
         }
 
