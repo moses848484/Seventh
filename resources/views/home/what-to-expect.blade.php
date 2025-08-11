@@ -291,6 +291,11 @@
             .content-card .row {
                 height: 600px;
             }
+
+             .image-slider-container {
+                padding-bottom: 0;
+                height: 100%;
+            }
         }
 
         @media (max-width: 767px) {
