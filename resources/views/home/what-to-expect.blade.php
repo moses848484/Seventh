@@ -297,7 +297,7 @@
         @media (min-width: 1200px) {
             .content-card .row {
                 height: 1200px !important;
-                min-height: 1200px !important;
+                min-height: 800px !important;
             }
             
             .image-slider-container {
@@ -311,15 +311,15 @@
             }
 
             .card-body-custom {
-                min-height: 1200px !important;
+                min-height: 800px !important;
             }
         }
 
         /* Extra large screens */
         @media (min-width: 1400px) {
             .content-card .row {
-                height: 1400px !important;
-                min-height: 1400px !important;
+                height: 800px !important;
+                min-height: 800px !important;
             }
 
             .card-body-custom {
