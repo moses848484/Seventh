@@ -323,7 +323,7 @@
             }
 
             .card-body-custom {
-                min-height: 1400px !important;
+                min-height: 800px !important;
             }
         }
 
