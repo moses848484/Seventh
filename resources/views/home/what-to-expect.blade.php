@@ -41,34 +41,13 @@
             z-index: 1000;
         }
 
-        /* Custom toggler button styling */
         .navbar-toggler {
             border: none;
-            padding: 4px 8px;
-            background: transparent;
+            padding: 0.25rem 0.5rem;
         }
 
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-
-        /* Custom down arrow icon */
-        .custom-toggler-icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .custom-toggler-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: #333;
-        }
-
-        /* Rotate arrow when expanded */
-        .navbar-toggler:not(.collapsed) .custom-toggler-icon {
-            transform: rotate(180deg);
+        .navbar-toggler-icon {
+            background-image: url("<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>");
         }
 
         .navbar-brand {
@@ -308,16 +287,10 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">About Us</a>
-            <!-- Custom toggler button with down arrow -->
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="custom-toggler-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10l5 5 5-5z"/>
-                    </svg>
-                </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -376,6 +349,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Text Column -->
@@ -387,8 +361,7 @@
             </h4>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                 <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
-                    you
+                    UNISDA Church started with a simple idea: What if there were a church where you could just come as you
                     are? Wherever you are on your journey, there’s a place for you here.
                 </p>
             </div>
