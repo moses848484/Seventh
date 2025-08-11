@@ -189,7 +189,7 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <!-- Card 1 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-clock"></i>
@@ -203,7 +203,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-users"></i>
@@ -216,7 +216,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="col-12 col-sm-6 col-md-4 d-flex">
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-tshirt"></i>
