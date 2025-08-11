@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
- body {
+        body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
@@ -72,10 +72,8 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(
-                rgba(0, 0, 0, 0.4), 
-                rgba(0, 0, 0, 0.4)
-            ), url('images/fellow1.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)), url('images/fellow1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -116,15 +114,15 @@
                 min-height: 400px;
                 background-attachment: scroll;
             }
-            
+
             .hero-section h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-section .lead {
                 font-size: 1.2rem;
             }
-            
+
             .hero-content {
                 padding: 0 1rem;
             }
@@ -134,7 +132,7 @@
             .hero-section h1 {
                 font-size: 2rem;
             }
-            
+
             .hero-section .lead {
                 font-size: 1.1rem;
             }
@@ -353,6 +351,35 @@
             </div>
         </div>
     </section>
+
+    <!-- Text Column -->
+    <div class="col-12">
+        <div class="text-area12 bg text-left text-black">
+            <div class="spacer-wrapper pt-very_relaxed"></div>
+            <h4 class="heading3 text-section_header mb-relaxed">
+                Need A Prayer?
+            </h4>
+            <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                <p>
+                    There are times when life is overwhelming, and all we have are questions. In those moments,
+                    hope can feel far away. The great thing about prayer is that it shifts our perspective
+                    toward the One who stands ready to listen. No matter what you’re facing, we’d love to pray
+                    with you!
+                </p>
+            </div>
+
+            <div class="btn-box3">
+                <a href="{{ route('register') }}" class="btn4">
+                    <i class="fa-solid fa-hands-praying"></i>&nbsp;Ask for prayer
+                </a>
+            </div>
+        </div>
+        <div class="spacer-wrapper pt-normal"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+
 
     <!-- Expectation Cards -->
     <section class="py-5">
