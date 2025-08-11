@@ -18,22 +18,117 @@
 
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f8f9fa;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #333 !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #666 !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #333 !important;
+        }
+
+        /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #667eeaa8 0%, #764ba296 100%);
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.4), 
+                rgba(0, 0, 0, 0.4)
+            ), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: white;
-            padding: 80px 0;
         }
 
-        .hero-section .container h1,
-        .hero-section .container p.lead {
-            display: block;
-            width: 100%;
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
         }
 
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero-section .lead {
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+                min-height: 400px;
+                background-attachment: scroll;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section .lead {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Original styles for other sections */
         .expectation-card {
             background: white;
             border-radius: 15px;
@@ -44,7 +139,6 @@
             flex-direction: column;
             height: 100%;
             margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
         }
 
         .expectation-card:hover {
@@ -64,15 +158,18 @@
             color: white;
         }
 
-        h4,
-        h3,
-        h2 {
+        h4, h3, h2 {
             color: #000;
         }
 
-        p,
-        small {
+        p, small {
             color: #555;
+        }
+
+        /* Content section for demonstration */
+        .content-section {
+            padding: 80px 0;
+            background: #f8f9fa;
         }
 
         .lead {
@@ -176,13 +273,69 @@
 <body>
     @include('home.header')
 
-    <!-- Hero Section -->
-    <section class="hero-section text-center py-5">
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <h1 class="display-4 mb-4">You’re welcome here.</h1>
-              <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
-            <p class="lead">At UNISDA Church, you’ll find a safe place to explore your beliefs and connect with others.
-            </p>
+            <a class="navbar-brand" href="#">About Us</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">What to Expect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Our Beliefs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>You're welcome here.</h1>
+            <p class="lead">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.</p>
+        </div>
+    </section>
+
+    <!-- Demo Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="expectation-card">
+                        <div class="expectation-icon">
+                            ♥
+                        </div>
+                        <h4>Welcoming Community</h4>
+                        <p>Join a community that celebrates diversity and embraces everyone with open arms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expectation-card">
+                        <div class="expectation-icon">
+                            ★
+                        </div>
+                        <h4>Spiritual Growth</h4>
+                        <p>Discover meaningful ways to grow in your faith through worship, study, and fellowship.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expectation-card">
+                        <div class="expectation-icon">
+                            ✓
+                        </div>
+                        <h4>Safe Space</h4>
+                        <p>Experience a judgment-free environment where questions are welcomed and faith is nurtured.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
