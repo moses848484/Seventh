@@ -3,10 +3,9 @@
         position: relative;
         width: 100%;
         max-width: 1000px;
-        /* fixed max size */
         margin: auto;
         padding-bottom: 56.25%;
-        /* 16:9 ratio */
+        /* 16:9 by default */
         height: 0;
     }
 
@@ -16,6 +15,16 @@
         left: 0;
         width: 100%;
         height: 100%;
+    }
+
+    /* On mobile portrait, make video taller like image slider */
+    @media (max-width: 767px) {
+        .video-container {
+            padding-bottom: 0;
+            /* remove 16:9 ratio */
+            height: 300px;
+            /* match slider height */
+        }
     }
 </style>
 <section data-testid="dualcontentzone" class="section1">
