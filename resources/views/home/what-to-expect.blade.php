@@ -278,12 +278,18 @@
         /* Card layout adjustments */
         @media (min-width: 768px) {
             .content-card .row {
-                height: 400px;
+                height: 500px;
             }
             
             .image-slider-container {
                 padding-bottom: 0;
                 height: 100%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .content-card .row {
+                height: 600px;
             }
         }
 
