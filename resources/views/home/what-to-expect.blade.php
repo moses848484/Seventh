@@ -84,7 +84,8 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
@@ -199,15 +200,15 @@
             .content-card {
                 margin-bottom: 1.5rem;
             }
-            
+
             .text-content-area {
                 padding: 15px;
             }
-            
+
             .content-title {
                 font-size: 1.1rem;
             }
-            
+
             .image-slider-nav {
                 width: 35px;
                 height: 35px;
@@ -235,7 +236,8 @@
             }
 
             .image-slider-container {
-                padding-bottom: 60%; /* Adjust aspect ratio for mobile */
+                padding-bottom: 60%;
+                /* Adjust aspect ratio for mobile */
             }
 
             .image-slider-nav {
@@ -287,7 +289,7 @@
             .content-card .row {
                 height: 500px;
             }
-            
+
             .image-slider-container {
                 padding-bottom: 0;
                 height: 100%;
@@ -299,13 +301,13 @@
                 height: 400px !important;
                 min-height: 400px !important;
             }
-            
+
             .image-slider-container {
                 padding-bottom: 0 !important;
                 height: 100% !important;
                 min-height: 400px !important;
             }
-            
+
             .text-content-area {
                 padding: 40px;
             }
@@ -333,11 +335,16 @@
             }
         }
 
-        h4, h3, h2, .content-title {
+        h4,
+        h3,
+        h2,
+        .content-title {
             color: #000;
         }
 
-        p, small, .content-text {
+        p,
+        small,
+        .content-text {
             color: #555;
         }
 
@@ -348,6 +355,7 @@
 </head>
 
 <body>
+    @include('home.header')
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
@@ -441,9 +449,11 @@
                             <div class="text-content-area">
                                 <h3 class="content-title">More Like Jesus</h3>
                                 <div class="content-text">
-                                    <p><strong>"And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You have sent."</strong></p>
+                                    <p><strong>"And this is eternal life, that they may know You, the only true God, and
+                                            Jesus Christ whom You have sent."</strong></p>
                                     <p><em>~ John 17:3</em></p>
-                                    <p>Join us in our journey to become more like Jesus through fellowship, worship, and spiritual growth.</p>
+                                    <p>Join us in our journey to become more like Jesus through fellowship, worship, and
+                                        spiritual growth.</p>
                                 </div>
                             </div>
                         </div>
@@ -468,7 +478,8 @@
                                         <img src="images/baptism.jpg" alt="Baptism" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="images/baptism-certificate.jpg" alt="Baptism Certificate" loading="lazy">
+                                        <img src="images/baptism-certificate.jpg" alt="Baptism Certificate"
+                                            loading="lazy">
                                     </div>
                                     <div class="image-slide">
                                         <img src="images/certificate.jpg" alt="Certificate" loading="lazy">
@@ -488,9 +499,12 @@
                             <div class="text-content-area">
                                 <h3 class="content-title">Baptism</h3>
                                 <div class="content-text">
-                                    <p><strong>"Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God."</strong></p>
+                                    <p><strong>"Jesus answered, Verily, verily, I say unto thee, Except a man be born of
+                                            water and of the Spirit, he cannot enter into the kingdom of God."</strong>
+                                    </p>
                                     <p><em>~ John 3:5</em></p>
-                                    <p>Take the next step in your spiritual journey through baptism, a beautiful symbol of new life in Christ.</p>
+                                    <p>Take the next step in your spiritual journey through baptism, a beautiful symbol
+                                        of new life in Christ.</p>
                                 </div>
                             </div>
                         </div>
@@ -535,9 +549,11 @@
                             <div class="text-content-area">
                                 <h3 class="content-title">Sabbath School</h3>
                                 <div class="content-text">
-                                    <p><strong>"But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven."</strong></p>
+                                    <p><strong>"But Jesus said, Suffer little children, and forbid them not, to come
+                                            unto me: for of such is the kingdom of heaven."</strong></p>
                                     <p><em>~ Matthew 19:14</em></p>
-                                    <p>Our Sabbath School provides age-appropriate Bible study for all members of the family, fostering spiritual growth in a nurturing environment.</p>
+                                    <p>Our Sabbath School provides age-appropriate Bible study for all members of the
+                                        family, fostering spiritual growth in a nurturing environment.</p>
                                 </div>
                             </div>
                         </div>
