@@ -84,7 +84,7 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 70%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
@@ -278,21 +278,10 @@
         /* Card layout adjustments */
         @media (min-width: 768px) {
             .content-card .row {
-                height: 500px;
+                height: 400px;
             }
             
             .image-slider-container {
-                padding-bottom: 0;
-                height: 100%;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .content-card .row {
-                height: 600px;
-            }
-
-             .image-slider-container {
                 padding-bottom: 0;
                 height: 100%;
             }
