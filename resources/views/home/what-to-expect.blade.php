@@ -25,7 +25,7 @@
         /* Orange separator line */
         .orange-separator {
             height: 4px;
-            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            background: #e4af00;
             width: 100%;
             margin: 0;
             padding: 0;
