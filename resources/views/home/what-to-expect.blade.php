@@ -80,7 +80,7 @@
         }
 
         /* Optional smaller adjustments on mobile */
-        @media (max-width: 576px) {
+        @media (max-width: 800px) {
             .expectation-card {
                 padding: 20px;
             }
