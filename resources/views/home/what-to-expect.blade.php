@@ -318,12 +318,12 @@
         /* Extra large screens */
         @media (min-width: 1400px) {
             .content-card .row {
-                height: 200px !important;
-                min-height: 200px !important;
+                height: 400px !important;
+                min-height: 400px !important;
             }
 
             .card-body-custom {
-                min-height: 200px !important;
+                min-height: 400px !important;
             }
         }
 
