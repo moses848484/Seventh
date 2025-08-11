@@ -72,10 +72,8 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(
-                rgba(0, 0, 0, 0.4), 
-                rgba(0, 0, 0, 0.4)
-            ), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -116,15 +114,15 @@
                 min-height: 400px;
                 background-attachment: scroll;
             }
-            
+
             .hero-section h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-section .lead {
                 font-size: 1.2rem;
             }
-            
+
             .hero-content {
                 padding: 0 1rem;
             }
@@ -134,7 +132,7 @@
             .hero-section h1 {
                 font-size: 2rem;
             }
-            
+
             .hero-section .lead {
                 font-size: 1.1rem;
             }
@@ -142,6 +140,47 @@
 
         .lead {
             color: white;
+        }
+
+        .expectation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom: 1.5rem;
+            /* Added margin-bottom here for spacing */
+        }
+
+        .expectation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expectation-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        h4,
+        h3,
+        h2 {
+            color: #000;
+        }
+
+        p,
+        small {
+            color: #555;
         }
 
         /* Optional smaller adjustments on mobile */
@@ -248,7 +287,8 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">About Us</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -271,7 +311,8 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1>You're welcome here.</h1>
-            <p class="lead">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.</p>
+            <p class="lead">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.
+            </p>
         </div>
     </section>
 
@@ -303,7 +344,8 @@
                             ✓
                         </div>
                         <h4>Safe Space</h4>
-                        <p>Experience a judgment-free environment where questions are welcomed and faith is nurtured.</p>
+                        <p>Experience a judgment-free environment where questions are welcomed and faith is nurtured.
+                        </p>
                     </div>
                 </div>
             </div>
