@@ -296,8 +296,8 @@
 
         @media (min-width: 1200px) {
             .content-card .row {
-                height: 800px !important;
-                min-height: 800px !important;
+                height: 200px !important;
+                min-height: 200px !important;
             }
             
             .image-slider-container {
@@ -318,12 +318,12 @@
         /* Extra large screens */
         @media (min-width: 1400px) {
             .content-card .row {
-                height: 800px !important;
-                min-height: 800px !important;
+                height: 200px !important;
+                min-height: 200px !important;
             }
 
             .card-body-custom {
-                min-height: 800px !important;
+                min-height: 200px !important;
             }
         }
 
