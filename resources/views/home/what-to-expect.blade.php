@@ -84,7 +84,7 @@
         .image-slider-container {
             position: relative;
             width: 100%;
-            padding-bottom: 70%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
@@ -107,8 +107,23 @@
         .image-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
+            background-color: #f8f9fa;
+        }
+
+        /* Desktop: use contain to show full image without cropping */
+        @media (min-width: 768px) {
+            .image-slide img {
+                object-fit: contain;
+            }
+        }
+
+        /* Mobile: can use cover for better mobile display if needed */
+        @media (max-width: 767px) {
+            .image-slide img {
+                object-fit: cover;
+            }
         }
 
         /* Navigation buttons - responsive positioning */
@@ -278,12 +293,18 @@
         /* Card layout adjustments */
         @media (min-width: 768px) {
             .content-card .row {
-                height: 400px;
+                height: 500px;
             }
             
             .image-slider-container {
                 padding-bottom: 0;
                 height: 100%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .content-card .row {
+                height: 550px;
             }
         }
 
