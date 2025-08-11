@@ -5,23 +5,33 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>What to Expect - SDA Church</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f8f9fa;
-            padding: 20px 0;
         }
 
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 80px 0;
-            margin-bottom: 40px;
+        }
+
+        .hero-section .container h1,
+        .hero-section .container p.lead {
+            display: block;
+            width: 100%;
         }
 
         .expectation-card {
@@ -34,6 +44,7 @@
             flex-direction: column;
             height: 100%;
             margin-bottom: 1.5rem;
+            /* Added margin-bottom here for spacing */
         }
 
         .expectation-card:hover {
@@ -53,49 +64,49 @@
             color: white;
         }
 
-        /* Responsive Card Container - Using same approach as notes card */
-        .content-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: none;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 2rem;
-            overflow: hidden;
+        h4,
+        h3,
+        h2 {
+            color: #000;
         }
 
-        .card-header-custom {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        p,
+        small {
+            color: #555;
+        }
+
+        .lead {
             color: white;
-            padding: 15px 20px;
-            border-radius: 15px 15px 0 0;
-            flex-shrink: 0;
         }
 
-        .card-body-custom {
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
+        /* Optional smaller adjustments on mobile */
+        @media (max-width: 576px) {
+            .expectation-card {
+                padding: 20px;
+            }
+
+            .expectation-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+            }
         }
 
-        /* Image Slider Container - Responsive like notes card */
+        /* Image Slider-specific styles - using unique class names */
         .image-slider-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
+            height: 300px;
         }
 
         .image-slider-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: flex;
             width: 300%;
             height: 100%;
-            display: flex;
             transition: transform 0.5s ease-in-out;
         }
 
@@ -104,43 +115,24 @@
             height: 100%;
         }
 
-        .image-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Desktop: use cover for better fill, similar to mobile */
-        @media (min-width: 768px) {
-            .image-slide img {
-                object-fit: cover;
-            }
-        }
-
-        /* Navigation buttons - responsive positioning */
         .image-slider-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.6);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
             z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .image-slider-nav:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: translateY(-50%) scale(1.1);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .image-slider-prev {
@@ -174,180 +166,16 @@
             background: rgba(255, 255, 255, 1);
         }
 
-        /* Text content area - responsive like notes card */
-        .text-content-area {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .content-title {
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .content-text {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Responsive breakpoints - matching notes card approach */
-        @media (max-width: 1200px) {
-            .content-card {
-                margin-bottom: 1.5rem;
-            }
-            
-            .text-content-area {
-                padding: 15px;
-            }
-            
-            .content-title {
-                font-size: 1.1rem;
-            }
-            
-            .image-slider-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .expectation-card {
-                padding: 20px;
-            }
-
-            .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .content-title {
-                font-size: 1rem;
-            }
-
-            .text-content-area {
-                padding: 15px;
-            }
-
-            .image-slider-container {
-                padding-bottom: 60%; /* Adjust aspect ratio for mobile */
-            }
-
-            .image-slider-nav {
-                width: 30px;
-                height: 30px;
-                font-size: 12px;
-            }
-
-            .image-slider-prev {
-                left: 5px;
-            }
-
-            .image-slider-next {
-                right: 5px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .text-content-area {
-                padding: 10px;
-            }
-
-            .content-title {
-                font-size: 0.95rem;
-                margin-bottom: 10px;
-            }
-
-            .content-text {
-                font-size: 0.85rem;
-            }
-
-            .image-slider-container {
-                padding-bottom: 65%;
-            }
-
-            .image-slider-indicators {
-                bottom: 10px;
-                gap: 6px;
-            }
-
-            .image-slider-indicator {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        /* Card layout adjustments */
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .content-card .row {
-                height: 500px;
-            }
-            
-            .image-slider-container {
-                padding-bottom: 0;
-                height: 100%;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .content-card .row {
-                height: 400px !important;
-                min-height: 400px !important;
-            }
-            
-            .image-slider-container {
-                padding-bottom: 0 !important;
-                height: 100% !important;
-                min-height: 400px !important;
-            }
-            
-            .text-content-area {
-                padding: 40px;
-            }
-
-            .card-body-custom {
-                min-height: 400px !important;
-            }
-        }
-
-        /* Extra large screens */
-        @media (min-width: 1400px) {
-            .content-card .row {
-                height: 400px !important;
-                min-height: 400px !important;
-            }
-
-            .card-body-custom {
-                min-height: 400px !important;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .content-card .row {
-                flex-direction: column;
-            }
-        }
-
-        h4, h3, h2, .content-title {
-            color: #000;
-        }
-
-        p, small, .content-text {
-            color: #555;
-        }
-
-        .lead {
-            color: white;
+        /* Ensure arrival_bg_box4 has position relative for slider positioning */
+        .arrival_bg_box4 {
+            position: relative;
         }
     </style>
 </head>
 
 <body>
+    @include('home.header')
+
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
@@ -402,292 +230,239 @@
             </div>
         </div>
 
-        <!-- Responsive Content Cards with Image Sliders -->
-        <div class="container mt-5">
-            <!-- First Content Card -->
-            <div class="content-card">
-                <div class="card-header-custom">
-                    <h5 class="mb-0">
-                        <i class="fas fa-heart me-2"></i>Annual Theme ~ More Like Jesus
-                    </h5>
-                </div>
-                <div class="card-body-custom">
-                    <div class="row g-0 h-100">
-                        <!-- Image Column -->
-                        <div class="col-md-6">
-                            <div class="image-slider-container">
-                                <div class="image-slider-wrapper" id="imageSliderWrapper1">
-                                    <div class="image-slide">
-                                        <img src="images/fellowship.jpg" alt="Fellowship" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/fellow1.jpg" alt="Fellowship" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/fellow1.jpg" alt="Fellowship" loading="lazy">
-                                    </div>
+        <div class="container-wrapper">
+            <!-- First Row with Slider -->
+            <div class="container1">
+                <div class="card-content">
+                    <!-- Image Column -->
+                    <div class="arrival_bg_box4">
+                        <div class="image-slider-container">
+                            <div class="image-slider-wrapper" id="imageSliderWrapper1">
+                                <div class="image-slide">
+                                    <img src="images/fellowship.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
-                                <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
-                                <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
-                                <div class="image-slider-indicators" id="imageSliderIndicators1">
-                                    <div class="image-slider-indicator active" data-slide="0"></div>
-                                    <div class="image-slider-indicator" data-slide="1"></div>
-                                    <div class="image-slider-indicator" data-slide="2"></div>
+                                <div class="image-slide">
+                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
-                        </div>
-                        <!-- Text Column -->
-                        <div class="col-md-6">
-                            <div class="text-content-area">
-                                <h3 class="content-title">More Like Jesus</h3>
-                                <div class="content-text">
-                                    <p><strong>"And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You have sent."</strong></p>
-                                    <p><em>~ John 17:3</em></p>
-                                    <p>Join us in our journey to become more like Jesus through fellowship, worship, and spiritual growth.</p>
-                                </div>
+
+                            <!-- Navigation buttons -->
+                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
+                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
+
+                            <!-- Indicators -->
+                            <div class="image-slider-indicators" id="imageSliderIndicators1">
+                                <div class="image-slider-indicator active" data-slide="0"></div>
+                                <div class="image-slider-indicator" data-slide="1"></div>
+                                <div class="image-slider-indicator" data-slide="2"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Second Content Card -->
-            <div class="content-card">
-                <div class="card-header-custom">
-                    <h5 class="mb-0">
-                        <i class="fas fa-water me-2"></i>Baptism
-                    </h5>
-                </div>
-                <div class="card-body-custom">
-                    <div class="row g-0 h-100">
-                        <!-- Image Column -->
-                        <div class="col-md-6">
-                            <div class="image-slider-container">
-                                <div class="image-slider-wrapper" id="imageSliderWrapper2">
-                                    <div class="image-slide">
-                                        <img src="images/baptism.jpg" alt="Baptism" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/baptism-certificate.jpg" alt="Baptism Certificate" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/certificate.jpg" alt="Certificate" loading="lazy">
-                                    </div>
-                                </div>
-                                <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
-                                <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
-                                <div class="image-slider-indicators" id="imageSliderIndicators2">
-                                    <div class="image-slider-indicator active" data-slide="0"></div>
-                                    <div class="image-slider-indicator" data-slide="1"></div>
-                                    <div class="image-slider-indicator" data-slide="2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Text Column -->
-                        <div class="col-md-6">
-                            <div class="text-content-area">
-                                <h3 class="content-title">Baptism</h3>
-                                <div class="content-text">
-                                    <p><strong>"Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God."</strong></p>
-                                    <p><em>~ John 3:5</em></p>
-                                    <p>Take the next step in your spiritual journey through baptism, a beautiful symbol of new life in Christ.</p>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Text Column -->
+                <div class="text-area bg text-left text-black">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                        Annual Theme ~ More Like Jesus
+                    </h1>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed">
+                        <h6>
+                            “And this is eternal life, that they may know You, the only true God, and Jesus Christ whom
+                            You
+                            have sent.” ~ John 17:3
+                        </h6>
                     </div>
                 </div>
             </div>
 
-            <!-- Third Content Card -->
-            <div class="content-card">
-                <div class="card-header-custom">
-                    <h5 class="mb-0">
-                        <i class="fas fa-child me-2"></i>Sabbath School
-                    </h5>
+            <!-- Second Row with Slider -->
+            <div class="container1">
+                <div class="card-content">
+                    <!-- Image Column -->
+                    <div class="arrival_bg_box4">
+                        <div class="image-slider-container">
+                            <div class="image-slider-wrapper" id="imageSliderWrapper2">
+                                <div class="image-slide">
+                                    <img src="images/baptism.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/baptism-certificate.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                            </div>
+
+                            <!-- Navigation buttons -->
+                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
+                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
+
+                            <!-- Indicators -->
+                            <div class="image-slider-indicators" id="imageSliderIndicators2">
+                                <div class="image-slider-indicator active" data-slide="0"></div>
+                                <div class="image-slider-indicator" data-slide="1"></div>
+                                <div class="image-slider-indicator" data-slide="2"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body-custom">
-                    <div class="row g-0 h-100">
-                        <!-- Image Column -->
-                        <div class="col-md-6">
-                            <div class="image-slider-container">
-                                <div class="image-slider-wrapper" id="imageSliderWrapper3">
-                                    <div class="image-slide">
-                                        <img src="images/kids3.jpg" alt="Children" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/kids.jpg" alt="Children" loading="lazy">
-                                    </div>
-                                    <div class="image-slide">
-                                        <img src="images/kids4.jpg" alt="Children" loading="lazy">
-                                    </div>
+                <!-- Text Column -->
+                <div class="text-area bg text-left text-black">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                        Baptism
+                    </h1>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed">
+                        <h6>
+                            “ Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the
+                            Spirit, he cannot
+                            enter into the kingdom of God.” ~ John 3:5
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Row with Slider -->
+            <div class="container1">
+                <div class="card-content">
+                    <!-- Image Column -->
+                    <div class="arrival_bg_box4">
+                        <div class="image-slider-container">
+                            <div class="image-slider-wrapper" id="imageSliderWrapper3">
+                                <div class="image-slide">
+                                    <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
-                                <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
-                                <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
-                                <div class="image-slider-indicators" id="imageSliderIndicators3">
-                                    <div class="image-slider-indicator active" data-slide="0"></div>
-                                    <div class="image-slider-indicator" data-slide="1"></div>
-                                    <div class="image-slider-indicator" data-slide="2"></div>
+                                <div class="image-slide">
+                                    <img src="images/kids.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Text Column -->
-                        <div class="col-md-6">
-                            <div class="text-content-area">
-                                <h3 class="content-title">Sabbath School</h3>
-                                <div class="content-text">
-                                    <p><strong>"But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven."</strong></p>
-                                    <p><em>~ Matthew 19:14</em></p>
-                                    <p>Our Sabbath School provides age-appropriate Bible study for all members of the family, fostering spiritual growth in a nurturing environment.</p>
+                                <div class="image-slide">
+                                    <img src="images/kids4.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
+
+                            <!-- Navigation buttons -->
+                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
+                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
+
+                            <!-- Indicators -->
+                            <div class="image-slider-indicators" id="imageSliderIndicators3">
+                                <div class="image-slider-indicator active" data-slide="0"></div>
+                                <div class="image-slider-indicator" data-slide="1"></div>
+                                <div class="image-slider-indicator" data-slide="2"></div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <!-- Text Column -->
+                <div class="text-area bg text-left text-black">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                        Sabbath School
+                    </h1>
+                    <!-- Space between heading and text -->
+                    <div class="spacer-wrapper pb-relaxed"></div>
+
+                    <div class="rich-text3 text-paragraph_large mb-relaxed">
+                        <h6>
+                            “ But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such
+                            is
+                            the kingdom of heaven..” ~ Mathew 19:14
+                        </h6>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- footer start -->
+        @include('home.footer')
+        <!-- footer end -->
+        <script>
+            class ContentImageSlider {
+                constructor(sliderId) {
+                    this.sliderId = sliderId;
+                    this.currentSlide = 0;
+                    this.totalSlides = 3;
+                    this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
+                    this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
+                    this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
+                    this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
+
+                    this.init();
+                }
+
+                init() {
+                    // Add event listeners
+                    this.prevBtn.addEventListener('click', () => this.previousSlide());
+                    this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                    // Add indicator click events
+                    this.indicators.forEach((indicator, index) => {
+                        indicator.addEventListener('click', () => this.goToSlide(index));
+                    });
+
+                    // Add keyboard navigation (only when slider is focused)
+                    this.sliderWrapper.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowLeft') this.previousSlide();
+                        if (e.key === 'ArrowRight') this.nextSlide();
+                    });
+
+                    // Make slider focusable for keyboard navigation
+                    this.sliderWrapper.setAttribute('tabindex', '0');
+
+                    // Optional: Auto-play slider
+                    this.startAutoPlay();
+                }
+
+                nextSlide() {
+                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                    this.updateSlider();
+                }
+
+                previousSlide() {
+                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                    this.updateSlider();
+                }
+
+                goToSlide(slideIndex) {
+                    this.currentSlide = slideIndex;
+                    this.updateSlider();
+                }
+
+                updateSlider() {
+                    // Move slider
+                    const translateX = -this.currentSlide * (100 / this.totalSlides);
+                    this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
+
+                    // Update indicators
+                    this.indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === this.currentSlide);
+                    });
+                }
+
+                startAutoPlay() {
+                    // Auto-advance every 5 seconds
+                    setInterval(() => {
+                        this.nextSlide();
+                    }, 5000);
+                }
+            }
+
+            // Initialize all sliders when DOM is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                new ContentImageSlider('1');
+                new ContentImageSlider('2');
+                new ContentImageSlider('3');
+            });
+        </script>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script>
-        class ContentImageSlider {
-            constructor(sliderId) {
-                this.sliderId = sliderId;
-                this.currentSlide = 0;
-                this.totalSlides = 3;
-                this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
-                this.autoPlayInterval = null;
-
-                this.init();
-            }
-
-            init() {
-                if (!this.sliderWrapper || !this.prevBtn || !this.nextBtn) {
-                    console.error(`Slider ${this.sliderId} elements not found`);
-                    return;
-                }
-
-                // Add event listeners
-                this.prevBtn.addEventListener('click', () => {
-                    this.stopAutoPlay();
-                    this.previousSlide();
-                    this.startAutoPlay();
-                });
-
-                this.nextBtn.addEventListener('click', () => {
-                    this.stopAutoPlay();
-                    this.nextSlide();
-                    this.startAutoPlay();
-                });
-
-                // Add indicator click events
-                this.indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => {
-                        this.stopAutoPlay();
-                        this.goToSlide(index);
-                        this.startAutoPlay();
-                    });
-                });
-
-                // Add keyboard navigation
-                this.sliderWrapper.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') {
-                        this.stopAutoPlay();
-                        this.previousSlide();
-                        this.startAutoPlay();
-                    }
-                    if (e.key === 'ArrowRight') {
-                        this.stopAutoPlay();
-                        this.nextSlide();
-                        this.startAutoPlay();
-                    }
-                });
-
-                // Make slider focusable
-                this.sliderWrapper.setAttribute('tabindex', '0');
-
-                // Pause auto-play on hover
-                const container = this.sliderWrapper.closest('.content-card');
-                if (container) {
-                    container.addEventListener('mouseenter', () => this.stopAutoPlay());
-                    container.addEventListener('mouseleave', () => this.startAutoPlay());
-                }
-
-                // Start auto-play
-                this.startAutoPlay();
-            }
-
-            nextSlide() {
-                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                this.updateSlider();
-            }
-
-            previousSlide() {
-                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                this.updateSlider();
-            }
-
-            goToSlide(slideIndex) {
-                this.currentSlide = slideIndex;
-                this.updateSlider();
-            }
-
-            updateSlider() {
-                if (!this.sliderWrapper) return;
-
-                // Move slider
-                const translateX = -this.currentSlide * (100 / this.totalSlides);
-                this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                // Update indicators
-                this.indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === this.currentSlide);
-                });
-            }
-
-            startAutoPlay() {
-                this.stopAutoPlay();
-                this.autoPlayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 5000);
-            }
-
-            stopAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                    this.autoPlayInterval = null;
-                }
-            }
-        }
-
-        // Initialize all sliders when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const sliders = [];
-            for (let i = 1; i <= 3; i++) {
-                sliders.push(new ContentImageSlider(i.toString()));
-            }
-
-            // Global cleanup on page unload
-            window.addEventListener('beforeunload', () => {
-                sliders.forEach(slider => slider.stopAutoPlay());
-            });
-        });
-
-        // Handle window resize for better responsiveness
-        window.addEventListener('resize', () => {
-            // Force a reflow to ensure proper sizing
-            const sliders = document.querySelectorAll('.image-slider-wrapper');
-            sliders.forEach(slider => {
-                const transform = slider.style.transform;
-                slider.style.transform = '';
-                // Force reflow
-                slider.offsetHeight;
-                slider.style.transform = transform;
-            });
-        });
-    </script>
+    <!-- Font Awesome + Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
