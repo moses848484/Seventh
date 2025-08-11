@@ -22,12 +22,23 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
+        /* Orange separator line */
+        .orange-separator {
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         /* Navigation */
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
         }
 
         .navbar-toggler {
@@ -73,6 +84,7 @@
             justify-content: center;
             text-align: center;
             color: white;
+            margin-top: 0;
         }
 
         .hero-content {
@@ -126,50 +138,6 @@
             .hero-section .lead {
                 font-size: 1.1rem;
             }
-        }
-
-        /* Original styles for other sections */
-        .expectation-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
-        }
-
-        .expectation-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .expectation-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        h4, h3, h2 {
-            color: #000;
-        }
-
-        p, small {
-            color: #555;
-        }
-
-        /* Content section for demonstration */
-        .content-section {
-            padding: 80px 0;
-            background: #f8f9fa;
         }
 
         .lead {
@@ -273,8 +241,11 @@
 <body>
     @include('home.header')
 
-<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <!-- Orange Separator Line -->
+    <div class="orange-separator"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">About Us</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
