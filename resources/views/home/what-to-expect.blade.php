@@ -378,13 +378,13 @@
                             <div class="image-slider-container">
                                 <div class="image-slider-wrapper" id="imageSliderWrapper1">
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/667eea/ffffff?text=Fellowship+1" alt="Fellowship" loading="lazy">
+                                        <img src="images/fellowship.jpg" alt="Fellowship" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/764ba2/ffffff?text=Fellowship+2" alt="Fellowship" loading="lazy">
+                                        <img src="images/fellow1.jpg" alt="Fellowship" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/5a6fd8/ffffff?text=Fellowship+3" alt="Fellowship" loading="lazy">
+                                        <img src="images/fellow1.jpg" alt="Fellowship" loading="lazy">
                                     </div>
                                 </div>
                                 <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
@@ -425,13 +425,13 @@
                             <div class="image-slider-container">
                                 <div class="image-slider-wrapper" id="imageSliderWrapper2">
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/4dabf7/ffffff?text=Baptism+1" alt="Baptism" loading="lazy">
+                                        <img src="images/baptism.jpg" alt="Baptism" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/339af0/ffffff?text=Baptism+2" alt="Baptism Certificate" loading="lazy">
+                                        <img src="images/baptism-certificate.jpg" alt="Baptism Certificate" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/228be6/ffffff?text=Certificate" alt="Certificate" loading="lazy">
+                                        <img src="images/certificate.jpg" alt="Certificate" loading="lazy">
                                     </div>
                                 </div>
                                 <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
@@ -472,13 +472,13 @@
                             <div class="image-slider-container">
                                 <div class="image-slider-wrapper" id="imageSliderWrapper3">
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/ffd43b/000000?text=Kids+1" alt="Children" loading="lazy">
+                                        <img src="images/kids3.jpg" alt="Children" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/fab005/000000?text=Kids+2" alt="Children" loading="lazy">
+                                        <img src="images/kids.jpg" alt="Children" loading="lazy">
                                     </div>
                                     <div class="image-slide">
-                                        <img src="https://via.placeholder.com/600x400/f59f00/000000?text=Kids+3" alt="Children" loading="lazy">
+                                        <img src="images/kids4.jpg" alt="Children" loading="lazy">
                                     </div>
                                 </div>
                                 <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
