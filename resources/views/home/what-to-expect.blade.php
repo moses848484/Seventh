@@ -68,6 +68,7 @@
             font-weight: bold;
             color: #333 !important;
             font-size: 1.5rem;
+            margin-left: 10px;
         }
 
         .navbar-nav .nav-link {
