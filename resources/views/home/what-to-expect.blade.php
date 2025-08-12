@@ -72,7 +72,7 @@
         }
 
         .navbar-nav .nav-link {
-            color: #666 !important;
+            color: #848484 !important;
             font-weight: 500;
             margin: 0 1rem;
             transition: color 0.3s ease;
@@ -82,10 +82,14 @@
             color: #333 !important;
         }
 
-        .second-nav {
-            font-size: 20px;
-            color: #555 !important;
+        .navbar-nav .nav-link.second-nav {
+            color: gray !important;
         }
+
+        .navbar-nav .nav-link.second-nav:hover {
+            color: darkgray !important;
+        }
+
 
         /* Hero Section */
         .hero-section {
