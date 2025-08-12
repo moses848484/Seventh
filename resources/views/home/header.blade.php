@@ -1,91 +1,186 @@
-<style>
-    .btn-primary {
-        border: none !important;
-        border-radius: 0 !important;
-        color: white !important;
-        box-shadow: none !important;
-        outline: none !important;
-        padding: 0.25rem 0.5rem;
-        margin-top: 2px;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNISDA Church</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .header_section {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    /* Remove any spacing from the icon wrapper if needed */
-    .fas.fa-user-circle {
-        margin-right: 0.25rem;
-        margin-top: 3px;
-    }
-</style>
-<header class="header_section">
-    <div class="container3">
-        <nav class="navbar navbar-expand-md custom_nav-container py-3 px-5">
-            <div class="d-flex align-items-center brand-wrapper">
-                <a href="/" class="navbar-brand mb-0">
-                    <img src="images/sda3.png" class="sda_logo8" alt="Dashboard Logo">
-                </a>
-                <span class="xs">UNISDA CHURCH</span>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE <span
-                                class="sr-only">(current)</span></a>
-                    </li>
+        .custom_nav-container {
+            padding: 1rem 2rem;
+        }
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">MEDIA <span class="sr-only">(current)</span></a>
-                    </li>
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">WHO WE ARE &nbsp;<span
-                                class="sr-only">(current)</span></a>
-                    </li>
+        .sda_logo8 {
+            height: 40px;
+            width: auto;
+        }
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">GIVE &nbsp;<span class="sr-only">(current)</span></a>
-                    </li>
+        .xs {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+            margin: 0;
+        }
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">LOCATIONS&nbsp;<span class="sr-only">(current)</span></a>
-                    </li>
+        .navbar-nav .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s ease;
+        }
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">WORSHIP &nbsp;<span class="sr-only">(current)</span></a>
-                    </li>
+        .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+        }
 
+        /* Login button styling */
+        .login-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-                    @if (Route::has('login'))
-                        @auth
-                            <!-- Desktop View -->
-                            <ul class="navbar-nav ml-auto d-none d-md-flex">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
+        .btn-login {
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-                            <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
+        .btn-login:hover {
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+        }
 
-                            </ul>
+        .btn-dashboard {
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
 
+        .btn-dashboard:hover {
+            background-color: #1e7e34;
+            color: white;
+            text-decoration: none;
+        }
 
-                        @else
-                            <li class="nav-item">
-                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                        href="{{ url('/redirect') }}">LOG IN</a></i>
-                            </li>
-                        @endauth
-                    @endif
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
+        /* Mobile responsiveness */
+        @media (max-width: 767px) {
+            .custom_nav-container {
+                padding: 0.5rem 1rem;
+            }
+            
+            .navbar-nav {
+                margin-top: 1rem;
+            }
+            
+            .navbar-nav .nav-item {
+                text-align: center;
+                margin: 0.25rem 0;
+            }
+        }
+
+        /* Navbar toggler styling */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body>
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md custom_nav-container">
+                <div class="brand-wrapper">
+                    <a href="/" class="navbar-brand">
+                        <img src="images/sda3.png" class="sda_logo8" alt="UNISDA Church Logo">
+                    </a>
+                    <span class="xs">UNISDA CHURCH</span>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#media">MEDIA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">WHO WE ARE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#give">GIVE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#locations">LOCATIONS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#worship">WORSHIP</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Authentication section -->
+                    <ul class="navbar-nav">
+                        <!-- Replace this section with your Laravel authentication logic -->
+                        <!-- For authenticated users: -->
+                        <!-- <li class="nav-item">
+                            <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
+                        </li> -->
+                        
+                        <!-- For guest users: -->
+                        <li class="nav-item">
+                            <a class="btn-login" href="/redirect">
+                                <i class="fas fa-user-circle"></i>
+                                LOG IN
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
