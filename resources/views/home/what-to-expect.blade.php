@@ -294,7 +294,7 @@
             position: relative;
         }
         .text-paragraph_large {
-            margin-top: 50px !important;
+            margin-top: 5px !important;
         }
     </style>
 </head>
