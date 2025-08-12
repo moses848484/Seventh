@@ -127,6 +127,7 @@
         }
     </style>
 </head>
+
     <header class="header_section">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md custom_nav-container">
@@ -164,35 +165,34 @@
                         </li>
                     </ul>
                     
-                     @if (Route::has('login'))
+                    <!-- Authentication section -->
+                    @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
+                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100">
+                            <ul class="navbar-nav d-md-none justify-content-center w-100 mt-3">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
-                                            class="sr-only">(current)</span></a>
+                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
                                 </li>
-
                             </ul>
-
-
                         @else
-                            <li class="nav-item">
-                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
-                                        href="{{ url('/redirect') }}">LOG IN</a></i>
-                            </li>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="btn-login" href="{{ url('/redirect') }}">
+                                        <i class="fas fa-user-circle"></i>
+                                        LOG IN
+                                    </a>
+                                </li>
+                            </ul>
                         @endauth
                     @endif
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
+                </div>
+            </nav>
+        </div>
+    </header>
