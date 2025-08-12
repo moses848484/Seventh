@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         .header_section {
-            background-color: #4a7c59;
+            background-color: #2c6448;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
@@ -55,7 +55,7 @@
         }
 
         .btn-login {
-            background-color: #007bff;
+            background-color: none;
             border: none;
             border-radius: 4px;
             color: white;
@@ -71,13 +71,13 @@
         }
 
         .btn-login:hover {
-            background-color: #0056b3;
-            color: white;
+            background-color: none;
+            color: #e4af00;
             text-decoration: none;
         }
 
         .btn-dashboard {
-            background-color: #28a745;
+            background-color: #2c6448;
             border: none;
             border-radius: 4px;
             color: white;
@@ -91,7 +91,7 @@
         }
 
         .btn-dashboard:hover {
-            background-color: #1e7e34;
+            background-color: #2c6448;
             color: white;
             text-decoration: none;
         }
