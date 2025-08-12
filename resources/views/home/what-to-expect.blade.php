@@ -474,15 +474,14 @@
                 <!-- Text Column -->
                 <div class="text-area bg text-left text-black">
                     <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h1 class="heading4 text-section_header3 mb-relaxed">
-                        Annual Theme ~ More Like Jesus
-                    </h1>
+                    <h4 class="heading4 text-section_header3 mb-relaxed">
+                        Fellowship Bands
+                    </h4>
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <h6>
-                            “And this is eternal life, that they may know You, the only true God, and Jesus Christ whom
-                            You
-                            have sent.” ~ John 17:3
-                        </h6>
+                        <p>
+                            These are small groups of fellow believers that brand off during sabbath school in
+                            designated band names to learn more about the word of GOD.
+                        </p>
                     </div>
                 </div>
             </div>
