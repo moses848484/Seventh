@@ -332,11 +332,12 @@
     </section>
 
     <!-- Demo Content Section -->
-    <section class="content-section">
+       <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="expectation-card">
+            <div class="row justify-content-center text-center">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
@@ -344,8 +345,8 @@
                         <p>Join our Friday vespers and Sabbath worship.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="expectation-card">
+               <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
                            <i class="fa-solid fa-circle-nodes"></i>
                         </div>
@@ -353,8 +354,8 @@
                         <p>A place for young people to connect with peers</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="expectation-card">
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
                            <i class="fa-solid fa-user-graduate"></i>
                         </div>
