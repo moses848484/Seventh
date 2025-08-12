@@ -8,12 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         .header_section {
-            background-color: #fff;
+            background-color: #4a7c59;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .custom_nav-container {
-            padding: 1rem 2rem;
+            padding: 0.75rem 2rem;
         }
 
         .brand-wrapper {
@@ -30,19 +30,21 @@
         .xs {
             font-weight: 600;
             font-size: 1.1rem;
-            color: #333;
+            color: white;
             margin: 0;
         }
 
         .navbar-nav .nav-link {
-            color: #333 !important;
+            color: white !important;
             font-weight: 500;
             padding: 0.5rem 1rem !important;
             transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #007bff !important;
+            color: #ffd700 !important;
         }
 
         /* Login button styling */
@@ -64,6 +66,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn-login:hover {
@@ -116,7 +120,7 @@
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
     </style>
 </head>
@@ -137,7 +141,7 @@
                 </button>
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav ml-3">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE</a>
                         </li>
@@ -159,7 +163,7 @@
                     </ul>
                     
                     <!-- Authentication section -->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Replace this section with your Laravel authentication logic -->
                         <!-- For authenticated users: -->
                         <!-- <li class="nav-item">
