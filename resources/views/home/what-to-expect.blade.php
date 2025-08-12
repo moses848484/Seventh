@@ -293,7 +293,12 @@
         .arrival_bg_box4 {
             position: relative;
         }
+
         .text-paragraph_large {
+            margin-top: 10px !important;
+        }
+
+        .text-section_header3 {
             margin-top: 10px !important;
         }
     </style>
