@@ -75,14 +75,15 @@
             color: #666 !important;
             font-weight: 500;
             margin: 0 1rem;
-            font-size: 12px !important;
-            border: none;
-            font-family: 'Montserrat', sans-serif !important;
             transition: color 0.3s ease;
         }
 
         .navbar-nav .nav-link:hover {
             color: #333 !important;
+        }
+
+        .second-nav {
+            font-size: 20px;
         }
 
         /* Hero Section */
@@ -312,13 +313,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Who We Are</a>
+                        <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
