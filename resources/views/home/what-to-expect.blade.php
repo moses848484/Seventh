@@ -530,13 +530,12 @@
                 <div class="text-area bg text-left text-black">
                     <div class="spacer-wrapper pt-very_relaxed"></div>
                     <h1 class="heading4 text-section_header3 mb-relaxed">
-                        Baptism
+                        Community Service
                     </h1>
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
                         <h6>
-                            “ Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the
-                            Spirit, he cannot
-                            enter into the kingdom of God.” ~ John 3:5
+                            Join the various ministries including but not limited to Dorcas or AMO and clubs to help
+                            serve the community around us.
                         </h6>
                     </div>
                 </div>
@@ -577,16 +576,15 @@
                 <div class="text-area bg text-left text-black">
                     <div class="spacer-wrapper pt-very_relaxed"></div>
                     <h1 class="heading4 text-section_header3 mb-relaxed">
-                        Sabbath School
+                        Children Ministries
                     </h1>
                     <!-- Space between heading and text -->
                     <div class="spacer-wrapper pb-relaxed"></div>
 
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
                         <h6>
-                            “ But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such
-                            is
-                            the kingdom of heaven..” ~ Mathew 19:14
+                            Teaching kids about God. We’re dedicated to partnering with parents to lead children to
+                            become fully devoted followers of Christ.
                         </h6>
                     </div>
                 </div>

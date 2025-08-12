@@ -124,8 +124,8 @@
                 </h1>
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
-                        “And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You
-                        have sent.” ~ John 17:3
+                        “ And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You
+                        have sent. ” ~ John 17:3
                     </h6>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                     <h6>
                         “ Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the
                         Spirit, he cannot
-                        enter into the kingdom of God.” ~ John 3:5
+                        enter into the kingdom of God. ” ~ John 3:5
                     </h6>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                 <div class="rich-text3 text-paragraph_large mb-relaxed">
                     <h6>
                         “ But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is
-                        the kingdom of heaven..” ~ Mathew 19:14
+                        the kingdom of heaven.. ” ~ Mathew 19:14
                     </h6>
                 </div>
             </div>
