@@ -75,7 +75,7 @@
             color: #666 !important;
             font-weight: 500;
             margin: 0 1rem;
-            font-size: 1.5rem;
+            font-size: 20px !important;
             transition: color 0.3s ease;
         }
 
