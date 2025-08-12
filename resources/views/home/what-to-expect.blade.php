@@ -294,7 +294,7 @@
             position: relative;
         }
         .text-section_header3 {
-            margin-top: 5px;
+            margin-top: 50px !important;
         }
     </style>
 </head>
