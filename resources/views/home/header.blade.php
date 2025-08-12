@@ -200,5 +200,23 @@
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Close mobile menu when clicking on nav links
+        $(document).ready(function() {
+            $('.navbar-nav .nav-link, .btn-login, .btn-dashboard').on('click', function() {
+                if ($('.navbar-toggler').is(':visible')) {
+                    $('.navbar-collapse').collapse('hide');
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.navbar').length) {
+                    $('.navbar-collapse').collapse('hide');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
