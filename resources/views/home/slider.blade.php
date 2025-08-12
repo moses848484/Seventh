@@ -117,6 +117,14 @@
                                                             <span id="phoneText"></span>
                                                         </div>
 
+                                                        <!-- Added Email Section -->
+                                                        <div class="location-email" id="locationEmail">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="email-icon" viewBox="0 0 16 16">
+                                                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                                                            </svg>
+                                                            <span id="emailText"></span>
+                                                        </div>
+
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
                                                                 <img id="pastorImage" src="" alt="Pastor"
@@ -425,7 +433,8 @@
         }
 
         .location-address,
-        .location-phone {
+        .location-phone,
+        .location-email {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -435,7 +444,8 @@
         }
 
         .address-icon,
-        .phone-icon {
+        .phone-icon,
+        .email-icon {
             flex-shrink: 0;
             /* prevent icon from squishing */
             display: inline-block;
@@ -483,6 +493,10 @@
         }
 
         #phoneText {
+            color: #00aaff !important;
+        }
+
+        #emailText {
             color: #00aaff !important;
         }
 
@@ -786,7 +800,7 @@
                 address: 'Great East Road, University of Zambia, Lusaka, Zambia',
                 coordinates: [-15.3875, 28.3228],
                 services: {
-                    Verspers: {
+                    main: {
                         day: 'Wednesday',
                         times: ['8:30 AM', '10:00 AM', '11:30 AM', '1:00 PM']
                     },
@@ -923,6 +937,7 @@
             // Update location details
             document.getElementById('addressText').textContent = location.address;
             document.getElementById('phoneText').textContent = location.contact.phone;
+            document.getElementById('emailText').textContent = location.contact.email;
 
             // Update pastor info
             document.getElementById('pastorImage').src = location.pastor.image;
