@@ -71,17 +71,11 @@
             margin-left: 10px;
         }
 
-        .nav-item {
-            font-weight: bold;
-            color: #333 !important;
-            font-size: 1.5rem;
-            margin-left: 10px;
-        }
-
         .navbar-nav .nav-link {
             color: #666 !important;
             font-weight: 500;
             margin: 0 1rem;
+            font-size: 1.5rem;
             transition: color 0.3s ease;
         }
 
@@ -339,7 +333,7 @@
     </section>
 
     <!-- Demo Content Section -->
-    <section class="py-5">
+       <section class="py-5">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <!-- Card 1 -->
@@ -352,10 +346,10 @@
                         <p>Join our Friday vespers and Sabbath worship.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
+               <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-circle-nodes"></i>
+                           <i class="fa-solid fa-circle-nodes"></i>
                         </div>
                         <h4>Youth Ministries</h4>
                         <p>A place for young people to connect with peers</p>
@@ -364,7 +358,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
+                           <i class="fa-solid fa-user-graduate"></i>
                         </div>
                         <h4>Campus Ministries</h4>
                         <p>Join the Public Campus Ministries (PCM) if you are a college/university student
