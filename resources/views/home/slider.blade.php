@@ -85,7 +85,7 @@
                                                     <div class="service-category mb-4">
                                                         <div class="category-header">
                                                             <span class="service-icon">S</span>
-                                                            <span class="service-label">SERVICE & LIFEKIDS</span>
+                                                            <span class="service-label">SERVICE</span>
                                                         </div>
 
                                                         <div id="serviceSection" class="service-details">
@@ -96,8 +96,8 @@
                                                     <div class="service-category mb-4" id="youthSection"
                                                         style="display: none;">
                                                         <div class="category-header">
-                                                            <span class="service-icon youth">Y</span>
-                                                            <span class="service-label">SWITCH YOUTH</span>
+                                                            <span class="service-icon youth">PCM</span>
+                                                            <span class="service-label">VERSPERS</span>
                                                         </div>
 
                                                         <div id="youthDetails" class="service-details">
