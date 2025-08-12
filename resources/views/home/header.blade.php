@@ -57,7 +57,7 @@
             background-color: none;
             border: none;
             border-radius: 4px;
-            color: white;
+            color: white !important;
             padding: 0.5rem 1rem;
             text-decoration: none;
             font-weight: 500;
@@ -71,7 +71,7 @@
 
         .btn-login:hover {
             background-color: none;
-            color: #e4af00;
+            color: #e4af00 !important;
             text-decoration: none;
         }
 
@@ -126,8 +126,6 @@
         }
     </style>
 </head>
-
-  
             <nav class="navbar navbar-expand-md custom_nav-container">
                 <div class="brand-wrapper">
                     <a href="/" class="navbar-brand">
