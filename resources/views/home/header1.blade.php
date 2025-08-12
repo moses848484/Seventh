@@ -69,7 +69,7 @@
     <nav class="navbar p-0 fixed-top d-flex flex-row">
         <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <!-- Logo (responsive visibility) -->
-            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="index.html">
+            <a class="navbar-brand brand-logo-mini d-none d-md-flex align-items-center" href="/redirect">
                 <img id="logo-img" src="admin/assets/images/faces/sda3.png" class="img-fluid"
                     style="max-height: 40px; width: auto; display: block;" alt="logo" />
             </a>

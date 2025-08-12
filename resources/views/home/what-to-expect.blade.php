@@ -84,6 +84,7 @@
 
         .second-nav {
             font-size: 20px;
+            color: #555 !important;
         }
 
         /* Hero Section */
