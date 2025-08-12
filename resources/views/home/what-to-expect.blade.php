@@ -478,6 +478,7 @@
                     <h4 class="heading4 text-section_header3 mb-relaxed">
                         Fellowship Bands
                     </h4>
+                     <div class="spacer-wrapper pt-very_relaxed"></div>
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
                         <p>
                             These are small groups of fellow believers that brand off during sabbath school in
