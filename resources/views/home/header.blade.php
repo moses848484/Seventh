@@ -127,8 +127,7 @@
     </style>
 </head>
 
-    <header class="header_section">
-        <div class="container-fluid">
+  
             <nav class="navbar navbar-expand-md custom_nav-container">
                 <div class="brand-wrapper">
                     <a href="/" class="navbar-brand">
@@ -193,5 +192,4 @@
                     @endif
                 </div>
             </nav>
-        </div>
-    </header>
+
