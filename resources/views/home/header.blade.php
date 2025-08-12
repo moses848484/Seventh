@@ -9,7 +9,6 @@
     <style>
         .header_section {
             background-color: #2c6448;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .custom_nav-container {
