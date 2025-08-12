@@ -85,6 +85,9 @@
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: inline-block;
         }
 
         .btn-dashboard:hover {
@@ -163,21 +166,32 @@
                     </ul>
                     
                     <!-- Authentication section -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Replace this section with your Laravel authentication logic -->
-                        <!-- For authenticated users: -->
-                        <!-- <li class="nav-item">
-                            <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
-                        </li> -->
-                        
-                        <!-- For guest users: -->
-                        <li class="nav-item">
-                            <a class="btn-login" href="/redirect">
-                                <i class="fas fa-user-circle"></i>
-                                LOG IN
-                            </a>
-                        </li>
-                    </ul>
+                    @if (Route::has('login'))
+                        @auth
+                            <!-- Desktop View -->
+                            <ul class="navbar-nav ml-auto d-none d-md-flex">
+                                <li class="nav-item">
+                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
+                                </li>
+                            </ul>
+
+                            <!-- Mobile View -->
+                            <ul class="navbar-nav d-md-none justify-content-center w-100 mt-3">
+                                <li class="nav-item">
+                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
+                                </li>
+                            </ul>
+                        @else
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="btn-login" href="{{ url('/redirect') }}">
+                                        <i class="fas fa-user-circle"></i>
+                                        LOG IN
+                                    </a>
+                                </li>
+                            </ul>
+                        @endauth
+                    @endif
                 </div>
             </nav>
         </div>
