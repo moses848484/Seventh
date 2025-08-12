@@ -117,6 +117,11 @@
                                                             <span id="phoneText"></span>
                                                         </div>
 
+                                                        <div class="location-email" id="locationEmail">
+                                                            <i class="fa-solid fa-envelope"></i>
+                                                            <span id="emailText"></span>
+                                                        </div>
+
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
                                                                 <img id="pastorImage" src="" alt="Pastor"
@@ -786,8 +791,8 @@
                 address: 'Great East Road, University of Zambia, Lusaka, Zambia',
                 coordinates: [-15.3875, 28.3228],
                 services: {
-                    main: {
-                        day: 'Sunday',
+                    Verspers: {
+                        day: 'Wednesday',
                         times: ['8:30 AM', '10:00 AM', '11:30 AM', '1:00 PM']
                     },
                     youth: {
@@ -797,7 +802,7 @@
                 },
                 contact: {
                     phone: '+260 97 123 4567',
-                    email: 'unza@church.zm'
+                    email: 'unzapcmtechnical@gmail.com',
                 },
                 pastor: {
                     name: 'John Mwamba',
@@ -923,6 +928,7 @@
             // Update location details
             document.getElementById('addressText').textContent = location.address;
             document.getElementById('phoneText').textContent = location.contact.phone;
+            document.getElementById('emailText').textContent = location.contact.email;
 
             // Update pastor info
             document.getElementById('pastorImage').src = location.pastor.image;
