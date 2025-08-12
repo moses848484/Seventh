@@ -117,11 +117,6 @@
                                                             <span id="phoneText"></span>
                                                         </div>
 
-                                                        <div class="location-email" id="locationEmail">
-                                                            <i class="fa-solid fa-envelope"></i>
-                                                            <span id="emailText"></span>
-                                                        </div>
-
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
                                                                 <img id="pastorImage" src="" alt="Pastor"
@@ -802,7 +797,7 @@
                 },
                 contact: {
                     phone: '+260 97 123 4567',
-                    email: 'unzapcmtechnical@gmail.com',
+                    email: 'unza@church.zm'
                 },
                 pastor: {
                     name: 'John Mwamba',
@@ -928,7 +923,6 @@
             // Update location details
             document.getElementById('addressText').textContent = location.address;
             document.getElementById('phoneText').textContent = location.contact.phone;
-            document.getElementById('emailText').textContent = location.contact.email;
 
             // Update pastor info
             document.getElementById('pastorImage').src = location.pastor.image;
