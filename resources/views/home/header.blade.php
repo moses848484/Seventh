@@ -127,7 +127,6 @@
         }
     </style>
 </head>
-<body>
     <header class="header_section">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md custom_nav-container">
@@ -138,10 +137,10 @@
                     <span class="xs">UNISDA CHURCH</span>
                 </div>
                 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-3">
@@ -165,58 +164,35 @@
                         </li>
                     </ul>
                     
-                    <!-- Authentication section -->
-                    @if (Route::has('login'))
+                     @if (Route::has('login'))
                         @auth
                             <!-- Desktop View -->
                             <ul class="navbar-nav ml-auto d-none d-md-flex">
                                 <li class="nav-item">
-                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
 
                             <!-- Mobile View -->
-                            <ul class="navbar-nav d-md-none justify-content-center w-100 mt-3">
+                            <ul class="navbar-nav d-md-none justify-content-center w-100">
                                 <li class="nav-item">
-                                    <a class="btn-dashboard" href="/redirect">GO TO DASHBOARD</a>
+                                    <a class="nav-link" href="/redirect">GO TO DASHBOARD <span
+                                            class="sr-only">(current)</span></a>
                                 </li>
+
                             </ul>
+
+
                         @else
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a class="btn-login" href="{{ url('/redirect') }}">
-                                        <i class="fas fa-user-circle"></i>
-                                        LOG IN
-                                    </a>
-                                </li>
-                            </ul>
+                            <li class="nav-item">
+                                <i class="fas fa-user-circle fa-2x"><a class="btn btn-primary" id="logincss"
+                                        href="{{ url('/redirect') }}">LOG IN</a></i>
+                            </li>
                         @endauth
                     @endif
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Close mobile menu when clicking on nav links
-        $(document).ready(function() {
-            $('.navbar-nav .nav-link, .btn-login, .btn-dashboard').on('click', function() {
-                if ($('.navbar-toggler').is(':visible')) {
-                    $('.navbar-collapse').collapse('hide');
-                }
-            });
-            
-            // Close mobile menu when clicking outside
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('.navbar').length) {
-                    $('.navbar-collapse').collapse('hide');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
