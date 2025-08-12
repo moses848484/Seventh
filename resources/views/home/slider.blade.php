@@ -173,9 +173,12 @@
         /* Small screens (phones) */
         @media (max-width: 576px) {
             .detail-box {
-                padding-top: 15vh !important;;
-                width: 100% !important;;
-                max-width: 800px !important;;
+                padding-top: 15vh !important;
+                ;
+                width: 100% !important;
+                ;
+                max-width: 800px !important;
+                ;
             }
         }
 
@@ -753,6 +756,14 @@
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
+        }
+
+        .text-paragraph_large {
+            margin-top: 10px !important;
+        }
+
+        .text-section_header3 {
+            margin-top: 10px !important;
         }
     </style>
 
