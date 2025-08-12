@@ -338,28 +338,28 @@
                 <div class="col-md-4">
                     <div class="expectation-card">
                         <div class="expectation-icon">
-                            ♥
+                            <i class="fa-solid fa-book-open"></i>
                         </div>
-                        <h4>Welcoming Community</h4>
-                        <p>Join a community that celebrates diversity and embraces everyone with open arms.</p>
+                        <h4>Weekly Services</h4>
+                        <p>Join our Friday vespers and Sabbath worship.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="expectation-card">
                         <div class="expectation-icon">
-                            ★
+                           <i class="fa-solid fa-circle-nodes"></i>
                         </div>
-                        <h4>Spiritual Growth</h4>
-                        <p>Discover meaningful ways to grow in your faith through worship, study, and fellowship.</p>
+                        <h4>Youth Ministries</h4>
+                        <p>A place for young people to connect with peers</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="expectation-card">
                         <div class="expectation-icon">
-                            ✓
+                           <i class="fa-solid fa-user-graduate"></i>
                         </div>
-                        <h4>Safe Space</h4>
-                        <p>Experience a judgment-free environment where questions are welcomed and faith is nurtured.
+                        <h4>Campus Ministries</h4>
+                        <p>Join the Public Campus Ministries (PCM) if you are a college/university student
                         </p>
                     </div>
                 </div>
