@@ -83,10 +83,10 @@
                                                     <h3 class="card-title">Service Times</h3>
 
                                                     <div class="service-category mb-4">
-                                                        <div class="category-header">
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
                                                                     <img src="images/pcm.jpg" alt="Service Icon"
+                                                                        class="service-icon youth"
                                                                         style="width: 35px; height: 35px;">
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
@@ -102,6 +102,7 @@
                                                         style="display: none;">
                                                         <div class="category-header">
                                                             <img src="images/pcm.jpg" alt="Service Icon"
+                                                                class="service-icon youth"
                                                                 style="width: 35px; height: 35px;">
                                                             <span class="service-label">SERVICE</span>
                                                         </div>
