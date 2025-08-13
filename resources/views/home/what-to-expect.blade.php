@@ -77,7 +77,10 @@
             font-weight: 500;
             margin: 0 1rem;
             transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 15px !important;
         }
+
 
         .navbar-nav .nav-link:hover {
             color: #333 !important;
@@ -89,6 +92,17 @@
 
         .navbar-nav .nav-link.second-nav:hover {
             color: black !important;
+        }
+
+        .navbar-nav .nav-link.second-nav.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #000;
+            border-radius: 2px 2px 0 0;
         }
 
 
@@ -330,7 +344,7 @@
                         <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">What to Expect</a>
+                        <a class="nav-link second-nav active" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="#">Our Beliefs</a>
@@ -684,6 +698,24 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple navigation active state handler
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link.second-nav');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
