@@ -480,7 +480,8 @@
             align-items: center;
             margin: 16px 0;
             padding: 12px;
-            border-radius: 8px;
+            border-left: none;
+            border-right: none;
             border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
