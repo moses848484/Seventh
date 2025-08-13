@@ -92,8 +92,6 @@
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
                                                             </div>
-
-                                                            <span class="service-label">SERVICE</span>
                                                         </div>
 
                                                         <div id="serviceSection" class="service-details">
