@@ -485,7 +485,7 @@
                                     <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/fellow.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
 
