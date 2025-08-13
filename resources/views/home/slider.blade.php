@@ -357,85 +357,90 @@
 
         /* Service Times Card Styling */
         .service-times-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            padding: 24px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
             color: #333;
             text-align: left;
+            border: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .card-title {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 32px;
+            text-align: left;
+            letter-spacing: -0.02em;
         }
 
         .service-category {
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         .category-header {
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .service-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background-color: #4a5568;
+            background-color: #1a1a1a;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 12px;
+            letter-spacing: -0.5px;
         }
 
         .service-icon.youth {
-            background-color: #2d3748;
+            background-color: #1a1a1a;
         }
 
         .service-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #4a5568;
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a1a1a;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .service-details {
-            margin-left: 34px;
+            margin-left: 0;
         }
 
         .service-day {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
         }
 
         .service-times {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
         .time-slot {
-            background-color: #f7f7f7;
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #5a5a5a;
+            background-color: #f5f5f5;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #666;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            letter-spacing: -0.01em;
         }
 
         .location-address,
