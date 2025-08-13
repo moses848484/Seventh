@@ -116,8 +116,8 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 900;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+            font-weight: 900 !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -359,7 +359,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1>You're welcome here.</h1>
+            <h4>You're welcome here.</h4>
             <p class="lead">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.
             </p>
         </div>
@@ -551,14 +551,14 @@
                 <!-- Text Column -->
                 <div class="text-area bg text-left text-black">
                     <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                    <h4 class="heading4 text-section_header3 mb-relaxed">
                         Community Service
-                    </h1>
+                    </h4>
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <h6>
+                        <p>
                             Join the various ministries including but not limited to Dorcas or AMO and clubs to help
                             serve the community around us.
-                        </h6>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -597,17 +597,17 @@
                 <!-- Text Column -->
                 <div class="text-area bg text-left text-black">
                     <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h1 class="heading4 text-section_header3 mb-relaxed">
+                    <h4 class="heading4 text-section_header3 mb-relaxed">
                         Children Ministries
-                    </h1>
+                    </h4>
                     <!-- Space between heading and text -->
                     <div class="spacer-wrapper pb-relaxed"></div>
 
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <h6>
+                        <p>
                             Teaching kids about God. We’re dedicated to partnering with parents to lead children to
                             become fully devoted followers of Christ.
-                        </h6>
+                        </p>
                     </div>
                 </div>
             </div>
