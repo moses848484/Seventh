@@ -102,8 +102,9 @@
                                                     <div class="service-category mb-4" id="youthSection"
                                                         style="display: none;">
                                                         <div class="category-header">
-                                                            <span class="service-icon youth">PCM</span>
-                                                            <span class="service-label">VERSPERS</span>
+                                                            <img src="images/pcm.jpg" class="service-icon"
+                                                                alt="Service Icon" style="width: 35px; height: 35px;">
+                                                            <span class="service-label">SERVICE</span>
                                                         </div>
 
                                                         <div id="youthDetails" class="service-details">
@@ -370,7 +371,6 @@
             font-weight: 800;
             color: #1a1a1a;
             margin-bottom: 32px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
             text-align: left;
             letter-spacing: -0.02em;
         }
@@ -379,7 +379,6 @@
             margin-bottom: 32px;
             padding-bottom: 24px;
             position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .service-category::after {
@@ -407,7 +406,6 @@
             height: 28px;
             border-radius: 50%;
             background-color: #1a1a1a;
-            border: 1px solid rgba(0, 0, 0, 0.08);
             color: white;
             display: flex;
             align-items: center;
@@ -493,7 +491,6 @@
             padding: 12px;
             background-color: #f8f9fa;
             border-radius: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .pastor-avatar {
