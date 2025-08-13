@@ -85,10 +85,10 @@
                                                     <div class="service-category mb-4">                            
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
-                                                                    <img src="images/pcm.jpg"
+                                                                    <img src="images/sda3.jpg"
                                                                         alt="Service Icon" class="service-icon"
                                                                         style="width: 24px; height: 24px;">
-                                                                    <span class="service-label">SERVICE</span>
+                                                                    <span class="service-label"> MAIN SERVICE</span>
                                                                 </div>
                                                             </div>
                                               
@@ -104,7 +104,7 @@
                                                                     <img src="images/pcm.jpg"
                                                                         alt="Service Icon" class="service-icon"
                                                                         style="width: 24px; height: 24px;">
-                                                                    <span class="service-label">SERVICE</span>
+                                                                    <span class="service-label">VERSPERS</span>
                                                                 </div>
 
                                                         <div id="youthDetails" class="service-details">
