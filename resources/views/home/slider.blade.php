@@ -480,9 +480,8 @@
             align-items: center;
             margin: 16px 0;
             padding: 12px;
-            border-left: none;
-            border-right: none;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .pastor-avatar {
