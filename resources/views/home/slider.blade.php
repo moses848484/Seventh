@@ -376,6 +376,13 @@
 
         .service-category {
             margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .service-category:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .category-header {
