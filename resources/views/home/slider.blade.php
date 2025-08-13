@@ -98,8 +98,7 @@
                                                 <div class="service-category mb-4" id="youthSection"
                                                     style="display: none;">
                                                     <div class="category-header">
-                                                          <img src="images/pcm.jpg" alt="Service Icon"
-                                                                class="service-icon">
+                                                        <span class="service-icon youth">PCM</span>
                                                         <span class="service-label">VERSPERS</span>
                                                     </div>
 
@@ -381,8 +380,8 @@
         }
 
         .service-icon {
-            width: 50px;
-            height: 50px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background-color: #4a5568;
             color: white;
