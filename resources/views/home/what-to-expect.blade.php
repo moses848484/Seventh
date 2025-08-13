@@ -116,7 +116,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif !important;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             font-weight: 900 !important;
             display: flex;
             align-items: center;
@@ -358,9 +358,9 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h4>You're welcome here.</h4>
-            <p class="lead">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.
+        <div class="hero-content mb-4">
+            <h1>You're welcome here.</h1>
+            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.
             </p>
         </div>
     </section>
