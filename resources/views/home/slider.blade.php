@@ -86,9 +86,9 @@
                                                         <div class="category-header">
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
-                                                                    <img src="images/pcm.jpg"
+                                                                    <img src="images/pcm.jpg" class="service-icon"
                                                                         alt="Service Icon"
-                                                                        style="width: 24px; height: 24px;">
+                                                                        style="width: 35px; height: 35px;">&nbsp;&nbsp;
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
                                                             </div>
