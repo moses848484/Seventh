@@ -82,8 +82,7 @@
                                                 <div class="service-times-card">
                                                     <h3 class="card-title">Service Times</h3>
 
-                                                    <div class="service-category mb-4">
-                                                        <div class="category-header">
+                                                    <div class="service-category mb-4">                            
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
                                                                     <img src="images/pcm.jpg"
@@ -92,8 +91,6 @@
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
                                                             </div>
-
-                                                            <span class="service-label">SERVICE</span>
                                                         </div>
 
                                                         <div id="serviceSection" class="service-details">
