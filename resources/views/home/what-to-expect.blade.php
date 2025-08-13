@@ -19,7 +19,7 @@
     <style>
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
         }
 
         /* Orange separator line */
@@ -116,6 +116,8 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 900;
             display: flex;
             align-items: center;
             justify-content: center;
