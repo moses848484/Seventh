@@ -35,8 +35,8 @@
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 1000;
