@@ -83,11 +83,9 @@
                                                     <h3 class="card-title">Service Times</h3>
 
                                                     <div class="service-category mb-4">
-                                                        <div class="category-header">
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
-                                                                    <img src="images/pcm.jpg" class="service-icon"
-                                                                        alt="Service Icon"
+                                                                    <img src="images/pcm.jpg" alt="Service Icon"
                                                                         style="width: 35px; height: 35px;">
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
@@ -102,8 +100,8 @@
                                                     <div class="service-category mb-4" id="youthSection"
                                                         style="display: none;">
                                                         <div class="category-header">
-                                                            <img src="images/pcm.jpg" class="service-icon"
-                                                                alt="Service Icon" style="width: 35px; height: 35px;">
+                                                            <img src="images/pcm.jpg" alt="Service Icon"
+                                                                style="width: 35px; height: 35px;">
                                                             <span class="service-label">SERVICE</span>
                                                         </div>
 
@@ -378,21 +376,12 @@
         .service-category {
             margin-bottom: 32px;
             padding-bottom: 24px;
-            position: relative;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .service-category::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: #e5e7eb;
-        }
-
-        .service-category:last-of-type::after {
-            display: block;
+        .service-category:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .category-header {
