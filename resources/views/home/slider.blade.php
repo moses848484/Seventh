@@ -481,6 +481,7 @@
             margin: 16px 0;
             padding: 12px;
             border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .pastor-avatar {
