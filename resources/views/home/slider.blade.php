@@ -84,63 +84,62 @@
 
                                                     <div class="service-category mb-4">
                                                         <div class="category-header">
-                                                            <img src="images/pcm.jpg" alt="Service Icon"
-                                                                class="service-icon">
+                                                            <span class="service-icon">S</span>
                                                             <span class="service-label">SERVICE</span>
                                                         </div>
-                                                    </div>
 
-                                                    <div id="serviceSection" class="service-details">
-                                                        <!-- Service times will be populated here -->
-                                                    </div>
-                                                </div>
-
-                                                <div class="service-category mb-4" id="youthSection"
-                                                    style="display: none;">
-                                                    <div class="category-header">
-                                                        <span class="service-icon youth">PCM</span>
-                                                        <span class="service-label">VERSPERS</span>
-                                                    </div>
-
-                                                    <div id="youthDetails" class="service-details">
-                                                        <!-- Youth service times will be populated here -->
-                                                    </div>
-                                                </div>
-
-                                                <!-- Location Details -->
-                                                <div class="location-details">
-                                                    <div class="location-address" id="locationAddress">
-                                                        <i class="fa-solid fa-location-dot"></i>
-                                                        <span id="addressText"></span>
-                                                    </div>
-
-                                                    <div class="location-phone" id="locationPhone">
-                                                        <i class="fa-solid fa-phone"></i>
-                                                        <span id="phoneText"></span>
-                                                    </div>
-
-                                                    <!-- Added Email Section -->
-                                                    <div class="location-email" id="locationEmail">
-                                                        <i class="fa-solid fa-envelope"></i>
-                                                        <span id="emailText"></span>
-                                                    </div>
-
-                                                    <div class="pastor-info" id="pastorInfo">
-                                                        <div class="pastor-avatar">
-                                                            <img id="pastorImage" src="" alt="Pastor"
-                                                                style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
-                                                        </div>
-                                                        <div class="pastor-details">
-                                                            <div class="pastor-name" id="pastorName"></div>
-                                                            <div class="pastor-title">Pastor</div>
+                                                        <div id="serviceSection" class="service-details">
+                                                            <!-- Service times will be populated here -->
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="location-button mt-4">
-                                                    <button class="about-location-btn" id="aboutLocationBtn">
-                                                        About UNISDA Church <span id="locationNameBtn"></span>
-                                                    </button>
+                                                    <div class="service-category mb-4" id="youthSection"
+                                                        style="display: none;">
+                                                        <div class="category-header">
+                                                            <span class="service-icon youth">PCM</span>
+                                                            <span class="service-label">VERSPERS</span>
+                                                        </div>
+
+                                                        <div id="youthDetails" class="service-details">
+                                                            <!-- Youth service times will be populated here -->
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Location Details -->
+                                                    <div class="location-details">
+                                                        <div class="location-address" id="locationAddress">
+                                                            <i class="fa-solid fa-location-dot"></i>
+                                                            <span id="addressText"></span>
+                                                        </div>
+
+                                                        <div class="location-phone" id="locationPhone">
+                                                            <i class="fa-solid fa-phone"></i>
+                                                            <span id="phoneText"></span>
+                                                        </div>
+
+                                                        <!-- Added Email Section -->
+                                                        <div class="location-email" id="locationEmail">
+                                                           <i class="fa-solid fa-envelope"></i>
+                                                            <span id="emailText"></span>
+                                                        </div>
+
+                                                        <div class="pastor-info" id="pastorInfo">
+                                                            <div class="pastor-avatar">
+                                                                <img id="pastorImage" src="" alt="Pastor"
+                                                                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                            </div>
+                                                            <div class="pastor-details">
+                                                                <div class="pastor-name" id="pastorName"></div>
+                                                                <div class="pastor-title">Pastor</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="location-button mt-4">
+                                                        <button class="about-location-btn" id="aboutLocationBtn">
+                                                            About UNISDA Church <span id="locationNameBtn"></span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +150,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
