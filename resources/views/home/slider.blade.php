@@ -85,7 +85,7 @@
                                                     <div class="service-category mb-4">                            
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
-                                                                    <img src="images/sda3.jpg"
+                                                                    <img src="images/sda3.png"
                                                                         alt="Service Icon" class="service-icon"
                                                                         style="width: 24px; height: 24px;">
                                                                     <span class="service-label"> MAIN SERVICE</span>
