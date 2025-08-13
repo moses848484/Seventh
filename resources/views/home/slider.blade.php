@@ -377,12 +377,21 @@
         .service-category {
             margin-bottom: 32px;
             padding-bottom: 24px;
-            border-bottom: 1px solid #e5e7eb;
+            position: relative;
         }
 
-        .service-category:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
+        .service-category::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e5e7eb;
+        }
+
+        .service-category:last-of-type::after {
+            display: block;
         }
 
         .category-header {
