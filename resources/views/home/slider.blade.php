@@ -84,7 +84,15 @@
 
                                                     <div class="service-category mb-4">
                                                         <div class="category-header">
-                                                            <span class="service-icon">S</span>
+                                                            <div class="service-category mb-4">
+                                                                <div class="category-header">
+                                                                    <img src="images/pcm.jpg"
+                                                                        alt="Service Icon"
+                                                                        style="width: 24px; height: 24px;">
+                                                                    <span class="service-label">SERVICE</span>
+                                                                </div>
+                                                            </div>
+
                                                             <span class="service-label">SERVICE</span>
                                                         </div>
 
@@ -119,7 +127,7 @@
 
                                                         <!-- Added Email Section -->
                                                         <div class="location-email" id="locationEmail">
-                                                           <i class="fa-solid fa-envelope"></i>
+                                                            <i class="fa-solid fa-envelope"></i>
                                                             <span id="emailText"></span>
                                                         </div>
 
