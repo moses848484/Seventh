@@ -525,13 +525,13 @@
                         <div class="image-slider-container">
                             <div class="image-slider-wrapper" id="imageSliderWrapper2">
                                 <div class="image-slide">
-                                    <img src="images/baptism.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/community2.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/baptism-certificate.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/community.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/certificate.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/community1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
 
@@ -571,13 +571,13 @@
                         <div class="image-slider-container">
                             <div class="image-slider-wrapper" id="imageSliderWrapper3">
                                 <div class="image-slide">
+                                    <img src="images/kids5.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
+                                    <img src="images/sdakids.jpg" alt="Person praying" class="img-fluid1">
+                                </div>
+                                <div class="image-slide">
                                     <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/kids.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/kids4.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
 
