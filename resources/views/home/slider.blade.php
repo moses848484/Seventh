@@ -85,9 +85,9 @@
                                                     <div class="service-category mb-4">                            
                                                             <div class="service-category mb-4">
                                                                 <div class="category-header">
-                                                                    <img src="images/sda2.png"
+                                                                    <img src="images/sda3.png"
                                                                         alt="Service Icon" class="service-icon"
-                                                                        style="width: 24px; height: 24px;">
+                                                                        style="width: 28px; height: 28px;">
                                                                     <span class="service-label"> MAIN SERVICE</span>
                                                                 </div>
                                                             </div>
@@ -103,7 +103,7 @@
                                                         <div class="category-header">
                                                                     <img src="images/pcm.jpg"
                                                                         alt="Service Icon" class="service-icon"
-                                                                        style="width: 24px; height: 24px;">
+                                                                        style="width: 28px; height: 28px;">
                                                                     <span class="service-label">VERSPERS</span>
                                                                 </div>
 
@@ -396,7 +396,7 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background-color: #1a1a1a;
+            background-color: #ffffffff;
             color: white;
             display: flex;
             align-items: center;
