@@ -525,13 +525,13 @@
                         <div class="image-slider-container">
                             <div class="image-slider-wrapper" id="imageSliderWrapper2">
                                 <div class="image-slide">
-                                    <img src="images/community2.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/Community2.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/community.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/Community.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                                 <div class="image-slide">
-                                    <img src="images/community1.jpg" alt="Person praying" class="img-fluid1">
+                                    <img src="images/Community1.jpg" alt="Person praying" class="img-fluid1">
                                 </div>
                             </div>
 
