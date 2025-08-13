@@ -101,9 +101,11 @@
                                                     <div class="service-category mb-4" id="youthSection"
                                                         style="display: none;">
                                                         <div class="category-header">
-                                                            <span class="service-icon youth">PCM</span>
-                                                            <span class="service-label">VERSPERS</span>
-                                                        </div>
+                                                                    <img src="images/pcm.jpg"
+                                                                        alt="Service Icon" class="service-icon"
+                                                                        style="width: 24px; height: 24px;">
+                                                                    <span class="service-label">SERVICE</span>
+                                                                </div>
 
                                                         <div id="youthDetails" class="service-details">
                                                             <!-- Youth service times will be populated here -->
