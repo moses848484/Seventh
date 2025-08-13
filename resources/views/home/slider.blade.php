@@ -480,7 +480,6 @@
             align-items: center;
             margin: 16px 0;
             padding: 12px;
-            background-color: #f8f9fa;
             border-radius: 8px;
         }
 
