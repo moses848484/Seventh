@@ -91,7 +91,7 @@
                                                                     <span class="service-label">SERVICE</span>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                              
 
                                                         <div id="serviceSection" class="service-details">
                                                             <!-- Service times will be populated here -->
