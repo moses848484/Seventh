@@ -98,7 +98,8 @@
                                                 <div class="service-category mb-4" id="youthSection"
                                                     style="display: none;">
                                                     <div class="category-header">
-                                                        <span class="service-icon youth">PCM</span>
+                                                          <img src="images/pcm.jpg" alt="Service Icon"
+                                                                class="service-icon">
                                                         <span class="service-label">VERSPERS</span>
                                                     </div>
 
