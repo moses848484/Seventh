@@ -84,11 +84,11 @@
         }
 
         .navbar-nav .nav-link.second-nav {
-            color: gray !important;
+            color: darkgray !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: darkgray !important;
+            color: black !important;
         }
 
 
