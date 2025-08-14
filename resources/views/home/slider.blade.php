@@ -133,7 +133,7 @@
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
                                                                 <img id="pastorImage" src="" alt="Pastor"
-                                                                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
                                                             </div>
                                                             <div class="pastor-details">
                                                                 <div class="pastor-name" id="pastorName"></div>
