@@ -137,7 +137,7 @@
                                                             </div>
                                                             <div class="pastor-details">
                                                                 <div class="pastor-name" id="pastorName"></div>
-                                                                <div class="pastor-title">Pastor</div>
+                                                                <div class="pastor-title">Associate Pastor</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -818,12 +818,12 @@
                 coordinates: [-15.3875, 28.3228],
                 services: {
                     main: {
-                        day: 'Wednesday',
-                        times: ['8:30 AM', '10:00 AM', '11:30 AM', '1:00 PM']
+                        day: 'Saturday',
+                        times: ['7:30 AM', '9:00 AM', '11:00 AM', '2:30 PM']
                     },
                     youth: {
                         day: 'Wednesday',
-                        times: ['6:00 PM', '7:00 PM']
+                        times: ['8:00 PM', '9:00 PM']
                     }
                 },
                 contact: {
@@ -831,8 +831,8 @@
                     email: 'unza@church.zm'
                 },
                 pastor: {
-                    name: 'John Mwamba',
-                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
+                    name: 'Mawuse Michello',
+                    image: 'images/preach4.jpg'
                 },
                 slug: 'unza-campus'
             },
