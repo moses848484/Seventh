@@ -72,8 +72,7 @@
     }
 
     .sermons-clean:hover {
-        color: #ffffff !important;
-        background: rgba(255, 255, 255, 0.1) !important;
+        color: #e4af00 !important;
         text-decoration: none;
     }
 </style>
