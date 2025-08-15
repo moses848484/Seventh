@@ -361,9 +361,10 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h1>You're welcome here.</h1>
-            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with
-                others.
+            <h4>Our Mission</h4>
+            <h1>To lead people to become fully devoted followers of Christ.</h1>
+            <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
+                everything we do.
             </p>
         </div>
     </section>
@@ -410,13 +411,31 @@
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
-                Everyone’s Invited
+                About Us
             </h4>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                 <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
-                    you
-                    are? Wherever you are on your journey, there’s a place for you here.
+                    The University SDA Church was founded by a small group of Seventh-day Adventist believers among the
+                    university staff and students. Established by Pastor A. Walubita in 1980, the church initially
+                    worshiped at Munali Secondary School near the University of Zambia (UNZA) Great East Road Campus.
+                    The growing membership, consisting mainly of university staff and students, eventually relocated to
+                    lecture theatres on the Great East Road Campus. By 1989, the group had grown and was officially
+                    organized into the “University of Zambia SDA Church,” with an initial membership of 85.
+
+                    Over the next 11 years, the church experienced numerous blessings and miracles, including moving to
+                    different locations and raising funds for a permanent home. On October 7th, 2000, the church
+                    worshipped for the first time at 25210 Katima Mulilo Road, initially in a temporary structure with
+                    plans for a larger building. By September 2008, the new church building was completed, and the first
+                    music crusade was held, resulting in nine baptisms in the newly constructed baptistery. The church
+                    was dedicated on November 30th, 2008.
+
+                    Since the dedication, the University SDA Church has seen substantial growth in its membership,
+                    continuing its mission to spread the gospel of Jesus Christ within the community. The church has
+                    become a vibrant and dynamic part of the neighborhood, with ongoing activities and outreach to share
+                    their faith and support the local community.
+
+                    Interested visitors are welcome to join and find more details about the church’s activities and
+                    services.
                 </p>
             </div>
         </div>
@@ -710,7 +729,7 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                   // e.preventDefault();
+                    // e.preventDefault();
 
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
