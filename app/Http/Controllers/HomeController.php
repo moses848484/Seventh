@@ -22,10 +22,13 @@ class HomeController extends Controller
         return view('home.what-to-expect');
     }
 
-       // Add this method for Who we are page
     public function whoWeAre()
     {
-        return view('home.who-we-are');
+        return view('who-we-are');
+    }
+    public function ourBeliefs()
+    {
+        return view('our-beliefs');
     }
 
     public function redirect()

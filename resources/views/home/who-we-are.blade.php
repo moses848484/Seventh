@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
+    <title>Who We Are - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -48,9 +48,7 @@
             border: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
-            /* Remove any box shadow */
             outline: none !important;
-            /* Remove outline on focus */
         }
 
         .custom-toggler-icon {
@@ -61,9 +59,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-
         }
-
 
         .navbar-brand {
             font-weight: bold;
@@ -80,7 +76,6 @@
             position: relative;
             padding-bottom: 15px !important;
         }
-
 
         .navbar-nav .nav-link:hover {
             color: #333 !important;
@@ -101,12 +96,10 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            /* 80% of link width */
             height: 3px;
             background-color: #000;
             border-radius: 2px 2px 0 0;
         }
-
 
         /* Hero Section */
         .hero-section {
@@ -114,7 +107,7 @@
             height: 70vh;
             min-height: 500px;
             background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/fellow1.jpg');
+                    rgba(0, 0, 0, 0.4)), url('images/church-history.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -148,6 +141,123 @@
             line-height: 1.6;
             opacity: 0.95;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        /* Content sections */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .history-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .history-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e4af00;
+            margin-bottom: 1rem;
+        }
+
+        .mission-vision-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 100%;
+        }
+
+        .mission-icon, .vision-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .mission-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .vision-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        /* Leadership section */
+        .leadership-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        .leader-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-title {
+            color: #666;
+            margin-bottom: 1rem;
         }
 
         /* Responsive adjustments */
@@ -169,167 +279,20 @@
             .hero-content {
                 padding: 0 1rem;
             }
-        }
 
-        @media (max-width: 576px) {
-            .hero-section h1 {
+            .section-title {
                 font-size: 2rem;
             }
 
-            .hero-section .lead {
-                font-size: 1.1rem;
+            .content-section {
+                padding: 60px 0;
             }
-        }
-
-        .lead {
-            color: white;
-        }
-
-        .expectation-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
-        }
-
-        .expectation-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .expectation-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        h4,
-        h3,
-        h2 {
-            color: #000;
-        }
-
-        p,
-        small {
-            color: #555;
-        }
-
-        /* Optional smaller adjustments on mobile */
-        @media (max-width: 800px) {
-            .expectation-card {
-                padding: 20px;
-            }
-
-            .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            h4 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Image Slider-specific styles - using unique class names */
-        .image-slider-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-        }
-
-        .image-slider-wrapper {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image-slide {
-            width: 33.333%;
-            height: 100%;
-        }
-
-        .image-slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.6);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-slider-nav:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-slider-prev {
-            left: 10px;
-        }
-
-        .image-slider-next {
-            right: 10px;
-        }
-
-        .image-slider-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .image-slider-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-slider-indicator.active {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
-        }
-
-        .text-paragraph_large {
-            margin-top: 10px !important;
-        }
-
-        .text-section_header3 {
-            margin-top: 10px !important;
         }
     </style>
 </head>
 
 <body>
-   
+    @include('home.header')
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -345,13 +308,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -360,364 +323,178 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content mb-4">
-            <h1>You're welcome here.</h1>
-            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with
-                others.
-            </p>
+        <div class="hero-content">
+            <h1>Who We Are</h1>
+            <p class="lead">Discover our story, mission, and the people who make UNISDA Church a welcoming community for all.</p>
         </div>
     </section>
 
-    <!-- Demo Content Section -->
-    <section class="py-5">
+    <!-- Our Story Section -->
+    <section class="content-section">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-                        <h4>Weekly Services</h4>
-                        <p>Join our Friday vespers and Sabbath worship.</p>
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">From humble beginnings to a thriving community of faith</p>
+            
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="history-card">
+                        <div class="history-year">Our Beginning</div>
+                        <p>UNISDA Church was founded with a vision to create a place where people from all walks of life could come together in worship, fellowship, and service. Our journey began when a small group of dedicated believers saw the need for a church that truly embodied the message of love, acceptance, and spiritual growth.</p>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-circle-nodes"></i>
-                        </div>
-                        <h4>Youth Ministries</h4>
-                        <p>A place for young people to connect with peers</p>
+                    
+                    <div class="history-card">
+                        <div class="history-year">Growing Together</div>
+                        <p>Over the years, our congregation has grown not just in numbers, but in diversity and strength. We've welcomed students, families, young professionals, and seniors, creating a rich tapestry of experiences and perspectives that enriches our worship and community life.</p>
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <h4>Campus Ministries</h4>
-                        <p>Join the Public Campus Ministries (PCM) if you are a college/university student
-                        </p>
+                    
+                    <div class="history-card">
+                        <div class="history-year">Today</div>
+                        <p>Today, UNISDA Church stands as a beacon of hope in our community. We continue to uphold our founding principles while adapting to meet the needs of our modern congregation. Our doors remain open to all who seek spiritual growth, community, and purpose.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Text Column -->
-    <div class="col-12">
-        <div class="text-area12 bg text-left text-black">
-            <div class="spacer-wrapper pt-very_relaxed"></div>
-            <h4 class="heading3 text-section_header mb-relaxed">
-                Everyone’s Invited
-            </h4>
-            <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
-                    you
-                    are? Wherever you are on your journey, there’s a place for you here.
-                </p>
-            </div>
-        </div>
-        <div class="spacer-wrapper pt-normal"></div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-    <!-- Expectation Cards -->
-    <section class="py-5">
+    <!-- Mission & Vision Section -->
+    <section class="content-section mission-vision-section">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-clock"></i>
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-heart"></i>
                         </div>
-                        <h4>Service Times</h4>
-                        <p><strong>First Main Service:</strong> 7:30 AM</p>
-                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
-                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
-                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
+                        <h3>Our Mission</h3>
+                        <p>To create a welcoming community where people can explore their faith, grow spiritually, and serve others with love and compassion. We strive to be a place where everyone can come as they are and find acceptance, purpose, and hope.</p>
                     </div>
                 </div>
+                <div class="col-md-6 mb-4">
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To be a transformative force in our community, spreading love, hope, and healing through our actions and worship. We envision a world where faith bridges differences and brings people together in unity and service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
+    <!-- Leadership Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <p class="section-subtitle">Meet the dedicated individuals who guide our spiritual journey</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="leadership-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="leader-name">Pastor John Smith</div>
+                        <div class="leader-title">Senior Pastor</div>
+                        <p>Leading our congregation with wisdom and compassion for over 10 years, Pastor Smith brings a heart for service and a passion for teaching God's word.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="leadership-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="leader-name">Dr. Sarah Johnson</div>
+                        <div class="leader-title">Associate Pastor</div>
+                        <p>Dr. Johnson oversees our youth and campus ministries, bringing fresh perspectives and innovative approaches to ministry.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="leadership-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="leader-name">Elder Michael Davis</div>
+                        <div class="leader-title">Church Elder</div>
+                        <p>A pillar of our community for many years, Elder Davis provides guidance and support to our various ministry programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="content-section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="text-center">
+                        <div class="mission-icon mx-auto mb-3">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>Service</h4>
+                        <p>We believe in serving our community and those in need with genuine love and dedication.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="text-center">
+                        <div class="vision-icon mx-auto mb-3">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
+                        <h4>Community</h4>
+                        <p>Building strong relationships and fostering a sense of belonging for everyone who walks through our doors.</p>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-tshirt"></i>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="text-center">
+                        <div class="mission-icon mx-auto mb-3">
+                            <i class="fas fa-book-open"></i>
                         </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
+                        <h4>Growth</h4>
+                        <p>Encouraging continuous spiritual growth and learning in a supportive environment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="text-center">
+                        <div class="vision-icon mx-auto mb-3">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h4>Peace</h4>
+                        <p>Promoting peace, understanding, and unity in our diverse community and beyond.</p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="container-wrapper">
-            <!-- First Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper1">
-                                <div class="image-slide">
-                                    <img src="images/fellowship.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators1">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Fellowship Bands
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            These are small groups of fellow believers that brand off during sabbath school in
-                            designated band names to learn more about the word of GOD.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper2">
-                                <div class="image-slide">
-                                    <img src="images/Community2.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators2">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Community Service
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Join the various ministries including but not limited to Dorcas or AMO and clubs to help
-                            serve the community around us.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper3">
-                                <div class="image-slide">
-                                    <img src="images/kids5.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/sdakids.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators3">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Children Ministries
-                    </h4>
-                    <!-- Space between heading and text -->
-                    <div class="spacer-wrapper pb-relaxed"></div>
-
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Teaching kids about God. We’re dedicated to partnering with parents to lead children to
-                            become fully devoted followers of Christ.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <script>
-            class ContentImageSlider {
-                constructor(sliderId) {
-                    this.sliderId = sliderId;
-                    this.currentSlide = 0;
-                    this.totalSlides = 3;
-                    this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                    this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                    this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                    this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
-
-                    this.init();
-                }
-
-                init() {
-                    // Add event listeners
-                    this.prevBtn.addEventListener('click', () => this.previousSlide());
-                    this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-                    // Add indicator click events
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => this.goToSlide(index));
-                    });
-
-                    // Add keyboard navigation (only when slider is focused)
-                    this.sliderWrapper.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') this.previousSlide();
-                        if (e.key === 'ArrowRight') this.nextSlide();
-                    });
-
-                    // Make slider focusable for keyboard navigation
-                    this.sliderWrapper.setAttribute('tabindex', '0');
-
-                    // Optional: Auto-play slider
-                    this.startAutoPlay();
-                }
-
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                previousSlide() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                goToSlide(slideIndex) {
-                    this.currentSlide = slideIndex;
-                    this.updateSlider();
-                }
-
-                updateSlider() {
-                    // Move slider
-                    const translateX = -this.currentSlide * (100 / this.totalSlides);
-                    this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                    // Update indicators
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.classList.toggle('active', index === this.currentSlide);
-                    });
-                }
-
-                startAutoPlay() {
-                    // Auto-advance every 5 seconds
-                    setInterval(() => {
-                        this.nextSlide();
-                    }, 5000);
-                }
-            }
-
-            // Initialize all sliders when DOM is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                new ContentImageSlider('1');
-                new ContentImageSlider('2');
-                new ContentImageSlider('3');
-            });
-        </script>
     </section>
+
     <!-- footer start -->
     @include('home.footer')
     <!-- footer end -->
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Simple navigation active state handler
+        // Navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.nav-link.second-nav');
+            const currentPath = window.location.pathname;
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                });
+                // Remove active class from all links first
+                link.classList.remove('active');
+                
+                // Add active class to current page link
+                if (link.getAttribute('href') === currentPath || 
+                    (currentPath.includes('who-we-are') && link.textContent.trim() === 'Who We Are')) {
+                    link.classList.add('active');
+                }
             });
         });
     </script>
