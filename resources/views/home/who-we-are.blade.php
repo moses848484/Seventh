@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,12 +7,6 @@
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Our Leadership - SDA Church</title>
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
-    <link rel="stylesheet"
-        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
@@ -106,8 +99,7 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/who.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -172,23 +164,28 @@
             margin: 0 auto;
         }
 
-        /* Leadership Container */
+        /* FIXED: Leadership Container - Force side by side layout */
         .leadership-flex-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
             gap: 4rem;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            flex-wrap: nowrap; /* Prevent wrapping on larger screens */
         }
 
         /* Leadership Cards */
         .leadership-card {
             text-align: center;
-            margin-bottom: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            flex: 1;
+            max-width: 450px;
+            min-width: 300px;
         }
 
         .leader-image-container {
@@ -302,10 +299,21 @@
         }
 
         /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .leadership-flex-container {
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .leadership-flex-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
                 gap: 2rem;
+            }
+
+            .leadership-card {
+                max-width: 100%;
             }
 
             .hero-section {
@@ -391,22 +399,17 @@
             }
         }
 
-        h4,
-        h3,
-        h2 {
+        h4, h3, h2 {
             color: #000;
         }
 
-        p,
-        small {
+        p, small {
             color: #555;
         }
     </style>
 </head>
 
 <body>
-    @include('home.header')
-
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -421,13 +424,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Leadership</a>
+                        <a class="nav-link second-nav" href="#">Our Leadership</a>
                     </li>
                 </ul>
             </div>
@@ -450,7 +453,7 @@
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h2>Our Story</h2>
-            <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+            <div class="rich-text3 text-paragraph_large mb-relaxed">
                 <p>
                     When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
                     Seventh-day Adventist believers from the University of Zambia staff and students.
@@ -509,9 +512,6 @@
         </div>
     </section>
 
-    <!-- footer start -->
-    @include('home.footer')
-    <!-- footer end -->
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -533,5 +533,4 @@
         });
     </script>
 </body>
-
 </html>
