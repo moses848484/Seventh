@@ -107,7 +107,7 @@
             height: 70vh;
             min-height: 500px;
             background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/who.jpg');
+                    rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -172,22 +172,27 @@
             margin: 0 auto;
         }
 
-        /* Leadership Grid */
+        /* Leadership Grid - FIXED */
         .leadership-grid {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+        }
+
+        .leadership-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: flex-start;
         }
 
         .leader-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .row.justify-content-center {
-            gap: 20px;
+            flex: 0 0 auto;
+            max-width: 400px;
         }
 
         .leader-image-container {
@@ -261,6 +266,7 @@
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
         }
 
         /* Our Story Section */
@@ -335,6 +341,11 @@
 
             .leadership-grid {
                 padding: 30px 15px;
+            }
+
+            .leadership-row {
+                flex-direction: column;
+                gap: 30px;
             }
 
             .leader-image-container {
@@ -414,7 +425,10 @@
 </head>
 
 <body>
-    @include('home.header')
+    <!-- Simulated header placeholder -->
+    <div style="height: 60px; background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #666;">Header Placeholder</span>
+    </div>
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -430,13 +444,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Leadership</a>
+                        <a class="nav-link second-nav" href="#">Our Leadership</a>
                     </li>
                 </ul>
             </div>
@@ -448,7 +462,7 @@
         <div class="hero-content mb-4">
             <h1 class="mission">Our Mission</h1>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
-            <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
+            <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
                 everything we do.
             </p>
         </div>
@@ -481,46 +495,50 @@
         <div class="spacer-wrapper pt-normal"></div>
     </div>
 
+    <!-- Leadership Section Header -->
+    <div class="leadership-header">
+        <h1>Our Leadership</h1>
+        <p>Our Directional Leadership Team works together to shape the vision and direction of our church.</p>
+    </div>
+
     <!-- Leadership Section -->
     <div class="leadership-grid">
-        <div class="row justify-content-center d-flex flex-wrap">
-            <div class="col-12 col-md-6 col-lg-6 mb-4">
-                <div class="leader-card">
-                    <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="Craig Groeschel" class="leader-image">
-                        <div class="leader-overlay">
-                            <h3 class="leader-name">Craig Groeschel</h3>
-                            <p class="leader-position">Senior Pastor</p>
-                        </div>
+        <div class="leadership-row">
+            <div class="leader-card">
+                <div class="leader-image-container">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        alt="Craig Groeschel" class="leader-image">
+                    <div class="leader-overlay">
+                        <h3 class="leader-name">Craig Groeschel</h3>
+                        <p class="leader-position">Senior Pastor</p>
                     </div>
-                    <div class="leader-button-container">
-                        <button class="get-to-know-btn">Get to Know Craig</button>
-                    </div>
+                </div>
+                <div class="leader-button-container">
+                    <a href="#" class="get-to-know-btn">Get to Know Craig</a>
                 </div>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-6 mb-4">
-                <div class="leader-card">
-                    <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="Bobby Gruenewald" class="leader-image">
-                        <div class="leader-overlay">
-                            <h3 class="leader-name">Bobby Gruenewald</h3>
-                            <p class="leader-position">Pastor, Innovation Leader</p>
-                        </div>
+            <div class="leader-card">
+                <div class="leader-image-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        alt="Bobby Gruenewald" class="leader-image">
+                    <div class="leader-overlay">
+                        <h3 class="leader-name">Bobby Gruenewald</h3>
+                        <p class="leader-position">Pastor, Innovation Leader</p>
                     </div>
-                    <div class="leader-button-container">
-                        <button class="get-to-know-btn">Get to Know Bobby</button>
-                    </div>
+                </div>
+                <div class="leader-button-container">
+                    <a href="#" class="get-to-know-btn">Get to Know Bobby</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- footer start -->
-    @include('home.footer')
-    <!-- footer end -->
+    <!-- Simulated footer placeholder -->
+    <div style="height: 100px; background: #333; display: flex; align-items: center; justify-content: center; margin-top: 40px;">
+        <span style="color: white;">Footer Placeholder</span>
+    </div>
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -532,6 +550,7 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
+                    e.preventDefault();
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
 
