@@ -142,22 +142,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com/@universityadventist/">ATTEND ONLINE</a>
+                            <a class="nav-link" href="/">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#media">MEDIA</a>
+                            <a class="nav-link" href="#media">ATTEND ONLINE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">WHO WE ARE</a>
+                            <a class="nav-link" href="#about">MEDIA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#give">GIVE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#locations">LOCATIONS</a>
+                            <a class="nav-link" href="{{ route('what-to-expect') }}">WHAT TO EXPECT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#worship">WORSHIP</a>
+                            <a class="nav-link" href="#worship">CONTACT US</a>
                         </li>
                     </ul>
                     
