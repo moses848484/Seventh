@@ -114,7 +114,7 @@
             height: 70vh;
             min-height: 500px;
             background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/fellow1.jpg');
+                    rgba(0, 0, 0, 0.4)), url('images/who.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
