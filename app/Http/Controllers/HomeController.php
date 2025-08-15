@@ -24,11 +24,11 @@ class HomeController extends Controller
 
     public function whoWeAre()
     {
-        return view('who-we-are');
+        return view('home.who-we-are');
     }
     public function ourBeliefs()
     {
-        return view('our-beliefs');
+        return view('home.our-beliefs');
     }
 
     public function redirect()
