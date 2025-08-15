@@ -57,6 +57,15 @@
             max-width: none;
         }
     }
+
+    .create-new-button .btn {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        /* Remove any box shadow */
+        outline: none !important;
+        /* Remove outline on focus */
+    }
 </style>
 
 <!-- Notification Container - Position at top -->
@@ -80,7 +89,7 @@
                     style="max-height: 35px; width: auto; display: block;" alt="logo" />
             </a>
 
-      
+
 
 
             <ul class="navbar-nav navbar-nav-right">
@@ -229,7 +238,7 @@
                     </div>
                 </li>
                 <!-- User Profile/Authentication Dropdown -->
-                       <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <x-app-layout class="bg-white">
                     </x-app-layout>
                 </li>
