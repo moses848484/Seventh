@@ -710,7 +710,7 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    e.preventDefault();
+                   // e.preventDefault();
 
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
