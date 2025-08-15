@@ -179,6 +179,12 @@
             padding: 40px 20px;
         }
 
+        .row.justify-content-center.d-flex.flex-wrap {
+            gap: 20px;
+            /* This adds space between the cards */
+        }
+
+        /* Updated Leader Card Styling */
         .leader-card {
             display: flex;
             flex-direction: column;
@@ -186,10 +192,7 @@
             margin-bottom: 2rem;
         }
 
-        .row.justify-content-center {
-            gap: 20px;
-        }
-
+        /* Other CSS remains the same */
         .leader-image-container {
             position: relative;
             width: 300px;
@@ -198,6 +201,27 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* ... rest of your CSS */
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+
+            /* The col-md-6 class now ensures they are side-by-side on screens 768px and up */
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            /* The col-12 class ensures they stack on extra-small screens */
+            .col-12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
         }
 
         .leader-image-container:hover {
@@ -446,9 +470,10 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h1 class="mission">Our Leadership</h1>
-            <h1>Guiding Our Church with Vision and Purpose</h1>
-            <p class="lead mb-4">Our Directional Leadership Team works together to shape the vision and direction of our church community.
+            <h1 class="mission">Our Mission</h1>
+            <h1>To lead people to become fully devoted followers of Christ.</h1>
+            <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
+                everything we do.
             </p>
         </div>
     </section>
@@ -482,12 +507,12 @@
 
     <!-- Leadership Section -->
     <div class="leadership-grid">
-        <div class="row justify-content-center no-gutters">
-            <!-- Craig Groeschel -->
-            <div class="col-lg-6 col-md-6 mb-4">
+        <div class="row justify-content-center d-flex flex-wrap">
+            <div class="col-12 col-md-6 col-lg-6 mb-4">
                 <div class="leader-card">
                     <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Craig Groeschel" class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Craig Groeschel" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Craig Groeschel</h3>
                             <p class="leader-position">Senior Pastor</p>
@@ -499,11 +524,11 @@
                 </div>
             </div>
 
-            <!-- Bobby Gruenewald -->
-            <div class="col-lg-6 col-md-6 mb-4">
+            <div class="col-12 col-md-6 col-lg-6 mb-4">
                 <div class="leader-card">
                     <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bobby Gruenewald" class="leader-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Bobby Gruenewald" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Bobby Gruenewald</h3>
                             <p class="leader-position">Pastor, Innovation Leader</p>
