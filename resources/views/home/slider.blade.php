@@ -82,16 +82,16 @@
                                                 <div class="service-times-card">
                                                     <h3 class="card-title">Service Times</h3>
 
-                                                    <div class="service-category mb-4">                            
-                                                            <div class="service-category mb-4">
-                                                                <div class="category-header">
-                                                                    <img src="images/sda3.png"
-                                                                        alt="Service Icon" class="service-icon"
-                                                                        style="width: 28px; height: 28px;">
-                                                                    <span class="service-label"> MAIN SERVICE</span>
-                                                                </div>
+                                                    <div class="service-category mb-4">
+                                                        <div class="service-category mb-4">
+                                                            <div class="category-header">
+                                                                <img src="images/sda3.png" alt="Service Icon"
+                                                                    class="service-icon"
+                                                                    style="width: 28px; height: 28px;">
+                                                                <span class="service-label"> MAIN SERVICE</span>
                                                             </div>
-                                              
+                                                        </div>
+
 
                                                         <div id="serviceSection" class="service-details">
                                                             <!-- Service times will be populated here -->
@@ -101,11 +101,10 @@
                                                     <div class="service-category mb-4" id="youthSection"
                                                         style="display: none;">
                                                         <div class="category-header">
-                                                                    <img src="images/pcm.jpg"
-                                                                        alt="Service Icon" class="service-icon"
-                                                                        style="width: 28px; height: 28px;">
-                                                                    <span class="service-label">VERSPERS</span>
-                                                                </div>
+                                                            <img src="images/pcm.jpg" alt="Service Icon"
+                                                                class="service-icon" style="width: 28px; height: 28px;">
+                                                            <span class="service-label">VERSPERS</span>
+                                                        </div>
 
                                                         <div id="youthDetails" class="service-details">
                                                             <!-- Youth service times will be populated here -->
@@ -133,7 +132,7 @@
                                                         <div class="pastor-info" id="pastorInfo">
                                                             <div class="pastor-avatar">
                                                                 <img id="pastorImage" src="" alt="Pastor"
-                                                                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                                                    style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover;">
                                                             </div>
                                                             <div class="pastor-details">
                                                                 <div class="pastor-name" id="pastorName"></div>
@@ -857,7 +856,7 @@
                 },
                 pastor: {
                     name: 'John Phiri',
-                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
+                    image: 'images/preach4.jpg'
                 },
                 slug: 'olympia-church'
             },
@@ -868,12 +867,12 @@
                 coordinates: null,
                 services: {
                     main: {
-                        day: 'Sunday',
-                        times: ['9:00 AM (CAT)', '11:00 AM (CAT)']
+                        day: 'Saturday',
+                        times: ['7:30 AM', '9:00 AM', '11:00 AM', '2:30 PM']
                     },
                     youth: {
                         day: 'Wednesday',
-                        times: ['6:00 PM (CAT)']
+                        times: ['8:00 PM', '9:00 PM']
                     }
                 },
                 contact: {
