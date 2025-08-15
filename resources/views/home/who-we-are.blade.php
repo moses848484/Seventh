@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -140,7 +141,7 @@
         }
 
         .mission {
-            font-size: medium !important;
+            font-size: large !important;
         }
 
         /* Leadership Header */
@@ -171,10 +172,11 @@
             justify-content: center;
             align-items: flex-start;
             gap: 4rem;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
-            flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+            flex-wrap: nowrap;
+            /* Prevent wrapping on larger screens */
         }
 
         /* Leadership Cards */
@@ -183,9 +185,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1;
-            max-width: 450px;
-            min-width: 300px;
+            width: 400px;
+            /* Fixed width instead of flex */
+            flex-shrink: 0;
+            /* Prevent shrinking */
         }
 
         .leader-image-container {
@@ -399,17 +402,21 @@
             }
         }
 
-        h4, h3, h2 {
+        h4,
+        h3,
+        h2 {
             color: #000;
         }
 
-        p, small {
+        p,
+        small {
             color: #555;
         }
     </style>
 </head>
 
 <body>
+    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -424,13 +431,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#">Who We Are</a>
+                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Our Leadership</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -511,7 +518,8 @@
             </div>
         </div>
     </section>
-
+    <!-- footer start -->
+    @include('home.footer')
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -533,4 +541,5 @@
         });
     </script>
 </body>
+
 </html>
