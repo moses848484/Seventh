@@ -174,12 +174,12 @@
 
         /* Leadership Container */
         .leadership-flex-container {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            flex-wrap: wrap;
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Leadership Cards */
@@ -189,7 +189,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 0 1 400px;
         }
 
         .leader-image-container {
@@ -305,9 +304,8 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .leadership-flex-container {
+                grid-template-columns: 1fr;
                 gap: 2rem;
-                flex-direction: column;
-                align-items: center;
             }
 
             .hero-section {
