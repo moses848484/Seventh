@@ -325,6 +325,10 @@
         .text-section_header3 {
             margin-top: 10px !important;
         }
+
+        .mission {
+            font-size: larger;
+        }
     </style>
 </head>
 
@@ -361,7 +365,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h1>Our Mission</h1>
+            <h1 class="mission">Our Mission</h1>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
             <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
                 everything we do.
@@ -414,29 +418,25 @@
                 About Us
             </h4>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                <h2>Our Story</h2>
+
                 <p>
-                    The University SDA Church was founded by a small group of Seventh-day Adventist believers among the
-                    university staff and students. Established by Pastor A. Walubita in 1980, the church initially
-                    worshiped at Munali Secondary School near the University of Zambia (UNZA) Great East Road Campus.
-                    The growing membership, consisting mainly of university staff and students, eventually relocated to
-                    lecture theatres on the Great East Road Campus. By 1989, the group had grown and was officially
-                    organized into the “University of Zambia SDA Church,” with an initial membership of 85.
-
-                    Over the next 11 years, the church experienced numerous blessings and miracles, including moving to
-                    different locations and raising funds for a permanent home. On October 7th, 2000, the church
-                    worshipped for the first time at 25210 Katima Mulilo Road, initially in a temporary structure with
-                    plans for a larger building. By September 2008, the new church building was completed, and the first
-                    music crusade was held, resulting in nine baptisms in the newly constructed baptistery. The church
-                    was dedicated on November 30th, 2008.
-
-                    Since the dedication, the University SDA Church has seen substantial growth in its membership,
-                    continuing its mission to spread the gospel of Jesus Christ within the community. The church has
-                    become a vibrant and dynamic part of the neighborhood, with ongoing activities and outreach to share
-                    their faith and support the local community.
-
-                    Interested visitors are welcome to join and find more details about the church’s activities and
-                    services.
+                    When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
+                    Seventh-day Adventist believers from the University of Zambia staff and students.
                 </p>
+
+                <p>
+                    From worshiping in classrooms and borrowed spaces, we grew into a vibrant church family.
+                    In 2000, we found our home on Katima Mulilo Road, and by 2008, our permanent building was
+                    completed and dedicated to God’s service.
+                </p>
+
+                <p>
+                    Today, we’re a thriving, Christ-centered community committed to sharing the gospel and
+                    serving our neighborhood. Our doors are always open to anyone seeking to worship, grow,
+                    and belong.
+                </p>
+
             </div>
         </div>
         <div class="spacer-wrapper pt-normal"></div>
