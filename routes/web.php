@@ -20,9 +20,7 @@ Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('wh
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 
 // Route for Our Beliefs
-Route::get('/our-beliefs', function () {
-    return view('our-beliefs');
-})->name('our-beliefs');
+Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
 
 // Protected routes with middleware
 Route::middleware([
