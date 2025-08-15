@@ -22,6 +22,12 @@ class HomeController extends Controller
         return view('home.what-to-expect');
     }
 
+       // Add this method for Who we are page
+    public function whoWeAre()
+    {
+        return view('home.who-we-are');
+    }
+
     public function redirect()
     {
         // Check if the user is authenticated

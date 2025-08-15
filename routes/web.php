@@ -16,6 +16,7 @@ Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_
 
 // What to Expect route - publicly accessible (MOVED OUTSIDE MIDDLEWARE GROUP)
 Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('what-to-expect');
+Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 
 // Protected routes with middleware
 Route::middleware([

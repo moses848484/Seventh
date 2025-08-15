@@ -345,7 +345,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav active" href="#">What to Expect</a>
