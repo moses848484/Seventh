@@ -17,9 +17,7 @@ Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_
 // What to Expect route - publicly accessible (MOVED OUTSIDE MIDDLEWARE GROUP)
 Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('what-to-expect');
 // Route for Who We Are
-Route::get('/who-we-are', function () {
-    return view('who-we-are');
-})->name('who-we-are');
+Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 
 // Route for Our Beliefs
 Route::get('/our-beliefs', function () {
