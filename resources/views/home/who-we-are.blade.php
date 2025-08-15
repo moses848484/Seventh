@@ -2,16 +2,16 @@
 <html>
 
 <head>
-       <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>What to Expect - SDA Church</title>
-   
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
-
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
     <link rel="stylesheet"
         href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -106,7 +106,7 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/who.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -171,37 +171,32 @@
             margin: 0 auto;
         }
 
-        /* FIXED: Leadership Container - Force side by side layout */
+        /* FIXED: Leadership Container - Proper side by side layout */
         .leadership-flex-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 4rem;
-            max-width: 1000px;
+            gap: 3rem;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
-            flex-wrap: nowrap;
-            /* Prevent wrapping on larger screens */
         }
 
-        /* Leadership Cards */
+        /* Leadership Cards - Fixed sizing */
         .leadership-card {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 400px;
-            /* Fixed width instead of flex */
+            width: 450px;
             flex-shrink: 0;
-            /* Prevent shrinking */
         }
 
         .leader-image-container {
             position: relative;
             width: 100%;
-            max-width: 400px;
-            height: 400px;
+            height: 500px;
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -221,24 +216,25 @@
             right: 0;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
-            padding: 40px 20px 20px;
+            padding: 60px 30px 30px;
             text-align: left;
         }
 
         .leader-name {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             font-weight: bold;
-            margin: 0 0 0.3rem 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin: 0 0 0.5rem 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             color: white;
+            line-height: 1.1;
         }
 
         .leader-position {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin: 0;
             opacity: 0.9;
             font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             color: white;
         }
 
@@ -246,22 +242,22 @@
             background: transparent;
             border: 2px solid #333;
             color: #333;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 15px 35px;
+            border-radius: 30px;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            margin-top: auto;
+            margin-top: 10px;
         }
 
         .get-to-know-btn:hover {
             background: #333;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             text-decoration: none;
         }
 
@@ -308,9 +304,35 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .leadership-flex-container {
                 gap: 2rem;
+            }
+            
+            .leadership-card {
+                width: 400px;
+            }
+            
+            .leader-image-container {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .leadership-flex-container {
+                gap: 1.5rem;
+            }
+            
+            .leadership-card {
+                width: 350px;
+            }
+            
+            .leader-image-container {
+                height: 400px;
+            }
+            
+            .leader-name {
+                font-size: 2.2rem;
             }
         }
 
@@ -318,11 +340,12 @@
             .leadership-flex-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 2rem;
+                gap: 3rem;
             }
 
             .leadership-card {
-                max-width: 100%;
+                width: 100%;
+                max-width: 400px;
             }
 
             .hero-section {
@@ -352,20 +375,20 @@
             }
 
             .leader-image-container {
-                height: 250px;
+                height: 350px;
             }
 
             .leader-name {
-                font-size: 1.3rem;
+                font-size: 2rem;
             }
 
             .leader-position {
-                font-size: 0.8rem;
+                font-size: 1.1rem;
             }
 
             .get-to-know-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
+                padding: 12px 30px;
+                font-size: 0.95rem;
             }
 
             .text-area12 h2 {
@@ -387,16 +410,20 @@
             }
 
             .leader-image-container {
-                height: 220px;
+                height: 300px;
             }
 
             .leader-name {
-                font-size: 1.2rem;
+                font-size: 1.6rem;
+            }
+
+            .leader-position {
+                font-size: 1rem;
             }
 
             .get-to-know-btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
+                padding: 10px 25px;
+                font-size: 0.9rem;
             }
 
             .text-area12 {
@@ -408,21 +435,17 @@
             }
         }
 
-        h4,
-        h3,
-        h2 {
+        h4, h3, h2 {
             color: #000;
         }
 
-        p,
-        small {
+        p, small {
             color: #555;
         }
     </style>
 </head>
 
 <body>
-    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -437,13 +460,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -499,7 +522,7 @@
                 <!-- Leader 1 -->
                 <div class="leadership-card">
                     <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
                             alt="Craig Groeschel" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Craig Groeschel</h3>
@@ -512,7 +535,7 @@
                 <!-- Leader 2 -->
                 <div class="leadership-card">
                     <div class="leader-image-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
                             alt="Bobby Gruenewald" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Bobby Gruenewald</h3>
@@ -524,8 +547,7 @@
             </div>
         </div>
     </section>
-    <!-- footer start -->
-    @include('home.footer')
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
