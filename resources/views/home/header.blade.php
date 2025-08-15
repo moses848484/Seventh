@@ -154,7 +154,7 @@
                             <a class="nav-link" href="#give">GIVE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('what-to-expect') }}">WHAT TO EXPECT</a>
+                            <a class="nav-link" href="{{ route('what-to-expect') }}">WHO WE ARE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#worship">CONTACT US</a>

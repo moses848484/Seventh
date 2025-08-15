@@ -325,6 +325,10 @@
         .text-section_header3 {
             margin-top: 10px !important;
         }
+
+        .mission {
+            color: white;
+        }
     </style>
 </head>
 
@@ -361,7 +365,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h4>Our Mission</h4>
+            <h4 class="heading4 text-section_header3 mb-relaxed mission">Our Mission</h4>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
             <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
                 everything we do.
