@@ -329,7 +329,7 @@
 </head>
 
 <body>
-    @include('home.header')
+   
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
