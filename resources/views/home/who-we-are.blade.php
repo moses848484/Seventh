@@ -179,12 +179,6 @@
             padding: 40px 20px;
         }
 
-        .row.justify-content-center.d-flex.flex-wrap {
-            gap: 20px;
-            /* This adds space between the cards */
-        }
-
-        /* Updated Leader Card Styling */
         .leader-card {
             display: flex;
             flex-direction: column;
@@ -192,7 +186,10 @@
             margin-bottom: 2rem;
         }
 
-        /* Other CSS remains the same */
+        .row.justify-content-center {
+            gap: 20px;
+        }
+
         .leader-image-container {
             position: relative;
             width: 300px;
@@ -201,27 +198,6 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* ... rest of your CSS */
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-
-            /* The col-md-6 class now ensures they are side-by-side on screens 768px and up */
-            .col-md-6 {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
-
-        @media (max-width: 576px) {
-
-            /* The col-12 class ensures they stack on extra-small screens */
-            .col-12 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
         }
 
         .leader-image-container:hover {
