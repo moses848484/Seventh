@@ -855,8 +855,8 @@
                     email: 'olympia@church.zm'
                 },
                 pastor: {
-                    name: 'John Phiri',
-                    image: 'images/preach4.jpg'
+                    name: 'Japhet R. Fakazi',
+                    image: 'images/preach7.jpg'
                 },
                 slug: 'olympia-church'
             },
@@ -881,8 +881,8 @@
                     streamingUrl: 'https://church.zm/live'
                 },
                 pastor: {
-                    name: 'David Tembo',
-                    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
+                    name: 'Japhet R. Fakazi',
+                    image: 'images/preach7.jpg'
                 },
                 slug: 'online'
             }
