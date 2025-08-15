@@ -863,7 +863,7 @@
             'online': {
                 name: 'Online',
                 fullName: 'Online Service',
-                address: 'Available worldwide via live stream',
+                address: 'https://www.youtube.com/@unisda/featured',
                 coordinates: null,
                 services: {
                     main: {
