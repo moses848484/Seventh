@@ -148,7 +148,7 @@
         }
 
         .mission {
-            font-size:medium;
+            font-size: medium !important;
         }
 
         /* Leadership Header */
