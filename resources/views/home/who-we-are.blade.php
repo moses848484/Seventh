@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
+    <title>Our Leadership - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -48,9 +48,7 @@
             border: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
-            /* Remove any box shadow */
             outline: none !important;
-            /* Remove outline on focus */
         }
 
         .custom-toggler-icon {
@@ -61,9 +59,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-
         }
-
 
         .navbar-brand {
             font-weight: bold;
@@ -80,7 +76,6 @@
             position: relative;
             padding-bottom: 15px !important;
         }
-
 
         .navbar-nav .nav-link:hover {
             color: #333 !important;
@@ -101,12 +96,10 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            /* 80% of link width */
             height: 3px;
             background-color: #000;
             border-radius: 2px 2px 0 0;
         }
-
 
         /* Hero Section */
         .hero-section {
@@ -150,6 +143,168 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
+        .lead {
+            color: white;
+        }
+
+        .mission {
+            font-size: large;
+        }
+
+        /* Leadership Header */
+        .leadership-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: #fff;
+        }
+
+        .leadership-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .leadership-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Leadership Grid */
+        .leadership-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .leader-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .row.justify-content-center {
+            gap: 20px;
+        }
+
+        .leader-image-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .leader-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .leader-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .leader-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .leader-position {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .leader-button-container {
+            margin-top: 1.5rem;
+        }
+
+        .get-to-know-btn {
+            background: transparent;
+            border: 2px solid #333;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .get-to-know-btn:hover {
+            background: #333;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Our Story Section */
+        .text-area12 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .text-area12 h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .rich-text3 {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .rich-text3 p {
+            margin-bottom: 1.5rem;
+        }
+
+        .spacer-wrapper {
+            height: 20px;
+        }
+
+        .pt-very_relaxed {
+            padding-top: 2rem;
+        }
+
+        .pt-normal {
+            padding-top: 1rem;
+        }
+
+        .mb-relaxed {
+            margin-bottom: 1.5rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-section {
@@ -169,6 +324,40 @@
             .hero-content {
                 padding: 0 1rem;
             }
+
+            .leadership-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .leadership-header p {
+                font-size: 1rem;
+            }
+
+            .leadership-grid {
+                padding: 30px 15px;
+            }
+
+            .leader-image-container {
+                width: 280px;
+                height: 370px;
+            }
+
+            .leader-name {
+                font-size: 1.6rem;
+            }
+
+            .leader-position {
+                font-size: 0.9rem;
+            }
+
+            .get-to-know-btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .text-area12 h2 {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -179,40 +368,36 @@
             .hero-section .lead {
                 font-size: 1.1rem;
             }
-        }
 
-        .lead {
-            color: white;
-        }
+            .leadership-grid {
+                padding: 20px 10px;
+            }
 
-        .expectation-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
-        }
+            .leadership-header {
+                padding: 40px 15px 30px;
+            }
 
-        .expectation-card:hover {
-            transform: translateY(-5px);
-        }
+            .leader-image-container {
+                width: 250px;
+                height: 330px;
+            }
 
-        .expectation-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: white;
+            .leader-name {
+                font-size: 1.4rem;
+            }
+
+            .get-to-know-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .text-area12 {
+                padding: 30px 15px;
+            }
+
+            .text-area12 h2 {
+                font-size: 1.8rem;
+            }
         }
 
         h4,
@@ -224,110 +409,6 @@
         p,
         small {
             color: #555;
-        }
-
-        /* Optional smaller adjustments on mobile */
-        @media (max-width: 800px) {
-            .expectation-card {
-                padding: 20px;
-            }
-
-            .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            h4 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Image Slider-specific styles - using unique class names */
-        .image-slider-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-        }
-
-        .image-slider-wrapper {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image-slide {
-            width: 33.333%;
-            height: 100%;
-        }
-
-        .image-slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.6);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-slider-nav:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-slider-prev {
-            left: 10px;
-        }
-
-        .image-slider-next {
-            right: 10px;
-        }
-
-        .image-slider-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .image-slider-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-slider-indicator.active {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
-        }
-
-        .text-paragraph_large {
-            margin-top: 10px !important;
-        }
-
-        .text-section_header3 {
-            margin-top: 10px !important;
-        }
-
-        .mission {
-            font-size: larger;
         }
     </style>
 </head>
@@ -352,10 +433,10 @@
                         <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Leadership</a>
                     </li>
                 </ul>
             </div>
@@ -365,24 +446,19 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h1 class="mission">Our Mission</h1>
-            <h1>To lead people to become fully devoted followers of Christ.</h1>
-            <p class="lead mb-4">That’s how we’re able to make a difference. And it’s the driving force behind
-                everything we do.
+            <h1 class="mission">Our Leadership</h1>
+            <h1>Guiding Our Church with Vision and Purpose</h1>
+            <p class="lead mb-4">Our Directional Leadership Team works together to shape the vision and direction of our church community.
             </p>
         </div>
     </section>
 
-    <!-- Text Column -->
+    <!-- Our Story Section -->
     <div class="col-12">
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
-            <h4 class="heading3 text-section_header mb-relaxed">
-                About Us
-            </h4>
+            <h2>Our Story</h2>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                <h2>Our Story</h2>
-
                 <p>
                     When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
                     Seventh-day Adventist believers from the University of Zambia staff and students.
@@ -391,201 +467,56 @@
                 <p>
                     From worshiping in classrooms and borrowed spaces, we grew into a vibrant church family.
                     In 2000, we found our home on Katima Mulilo Road, and by 2008, our permanent building was
-                    completed and dedicated to God’s service.
+                    completed and dedicated to God's service.
                 </p>
 
                 <p>
-                    Today, we’re a thriving, Christ-centered community committed to sharing the gospel and
+                    Today, we're a thriving, Christ-centered community committed to sharing the gospel and
                     serving our neighborhood. Our doors are always open to anyone seeking to worship, grow,
                     and belong.
                 </p>
-
             </div>
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-    </div>
-    </div>
-    </div>
 
-
-        <div class="container-wrapper">
-            <!-- First Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper1">
-                                <div class="image-slide">
-                                    <img src="images/fellowship.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators1">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
+    <!-- Leadership Section -->
+    <div class="leadership-grid">
+        <div class="row justify-content-center no-gutters">
+            <!-- Craig Groeschel -->
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="leader-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Craig Groeschel" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Craig Groeschel</h3>
+                            <p class="leader-position">Senior Pastor</p>
                         </div>
                     </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Fellowship Bands
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            These are small groups of fellow believers that brand off during sabbath school in
-                            designated band names to learn more about the word of GOD.
-                        </p>
+                    <div class="leader-button-container">
+                        <button class="get-to-know-btn">Get to Know Craig</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Third Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper3">
-                                <div class="image-slide">
-                                    <img src="images/kids5.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/sdakids.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators3">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
+            <!-- Bobby Gruenewald -->
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="leader-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Bobby Gruenewald" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Bobby Gruenewald</h3>
+                            <p class="leader-position">Pastor, Innovation Leader</p>
                         </div>
                     </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Children Ministries
-                    </h4>
-                    <!-- Space between heading and text -->
-                    <div class="spacer-wrapper pb-relaxed"></div>
-
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Teaching kids about God. We’re dedicated to partnering with parents to lead children to
-                            become fully devoted followers of Christ.
-                        </p>
+                    <div class="leader-button-container">
+                        <button class="get-to-know-btn">Get to Know Bobby</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-
-        <script>
-            class ContentImageSlider {
-                constructor(sliderId) {
-                    this.sliderId = sliderId;
-                    this.currentSlide = 0;
-                    this.totalSlides = 3;
-                    this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                    this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                    this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                    this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
-
-                    this.init();
-                }
-
-                init() {
-                    // Add event listeners
-                    this.prevBtn.addEventListener('click', () => this.previousSlide());
-                    this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-                    // Add indicator click events
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => this.goToSlide(index));
-                    });
-
-                    // Add keyboard navigation (only when slider is focused)
-                    this.sliderWrapper.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') this.previousSlide();
-                        if (e.key === 'ArrowRight') this.nextSlide();
-                    });
-
-                    // Make slider focusable for keyboard navigation
-                    this.sliderWrapper.setAttribute('tabindex', '0');
-
-                    // Optional: Auto-play slider
-                    this.startAutoPlay();
-                }
-
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                previousSlide() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                goToSlide(slideIndex) {
-                    this.currentSlide = slideIndex;
-                    this.updateSlider();
-                }
-
-                updateSlider() {
-                    // Move slider
-                    const translateX = -this.currentSlide * (100 / this.totalSlides);
-                    this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                    // Update indicators
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.classList.toggle('active', index === this.currentSlide);
-                    });
-                }
-
-                startAutoPlay() {
-                    // Auto-advance every 5 seconds
-                    setInterval(() => {
-                        this.nextSlide();
-                    }, 5000);
-                }
-            }
-
-            // Initialize all sliders when DOM is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                new ContentImageSlider('1');
-                new ContentImageSlider('2');
-                new ContentImageSlider('3');
-            });
-        </script>
-    </section>
     <!-- footer start -->
     @include('home.footer')
     <!-- footer end -->
@@ -600,8 +531,6 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    // e.preventDefault();
-
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
 
