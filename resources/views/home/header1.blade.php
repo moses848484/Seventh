@@ -58,13 +58,31 @@
         }
     }
 
-    .create-new-button .btn {
+    .sermons-clean {
+        background: none !important;
         border: none !important;
+        color: #ffffff !important;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 12px;
         border-radius: 0 !important;
         box-shadow: none !important;
-        /* Remove any box shadow */
         outline: none !important;
-        /* Remove outline on focus */
+        transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .sermons-clean:hover {
+        color: #e0e0e0 !important;
+        background: none !important;
+        text-decoration: none;
+        opacity: 0.8;
+    }
+
+    .sermons-clean:focus,
+    .sermons-clean:active {
+        box-shadow: none !important;
+        outline: none !important;
+        background: none !important;
     }
 </style>
 
@@ -94,8 +112,8 @@
 
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item dropdown d-none d-lg-block">
-                    <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                        data-toggle="dropdown" aria-expanded="false" href="#">Sermons</a>
+                    <a class="nav-link sermons-clean" id="createbuttonDropdown" data-toggle="dropdown"
+                        aria-expanded="false" href="#">Sermons</a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                         aria-labelledby="createbuttonDropdown">
                         <h6 class="p-3 mb-0 text-center">Watch Now</h6>
