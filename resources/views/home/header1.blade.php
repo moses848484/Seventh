@@ -64,25 +64,17 @@
         color: #ffffff !important;
         font-weight: 500;
         text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 0 !important;
+        padding: 8px 16px;
+        border-radius: 6px !important;
         box-shadow: none !important;
         outline: none !important;
-        transition: color 0.3s ease, opacity 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .sermons-clean:hover {
-        color: #e0e0e0 !important;
-        background: none !important;
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
         text-decoration: none;
-        opacity: 0.8;
-    }
-
-    .sermons-clean:focus,
-    .sermons-clean:active {
-        box-shadow: none !important;
-        outline: none !important;
-        background: none !important;
     }
 </style>
 
