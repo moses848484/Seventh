@@ -373,43 +373,6 @@
         </div>
     </section>
 
-    <!-- Demo Content Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-                        <h4>Weekly Services</h4>
-                        <p>Join our Friday vespers and Sabbath worship.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-circle-nodes"></i>
-                        </div>
-                        <h4>Youth Ministries</h4>
-                        <p>A place for young people to connect with peers</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <h4>Campus Ministries</h4>
-                        <p>Join the Public Campus Ministries (PCM) if you are a college/university student
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Text Column -->
     <div class="col-12">
         <div class="text-area12 bg text-left text-black">
@@ -445,52 +408,6 @@
     </div>
     </div>
 
-
-    <!-- Expectation Cards -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Service Times</h4>
-                        <p><strong>First Main Service:</strong> 7:30 AM</p>
-                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
-                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
-                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container-wrapper">
             <!-- First Row with Slider -->
@@ -534,52 +451,6 @@
                         <p>
                             These are small groups of fellow believers that brand off during sabbath school in
                             designated band names to learn more about the word of GOD.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper2">
-                                <div class="image-slide">
-                                    <img src="images/Community2.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators2">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Community Service
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Join the various ministries including but not limited to Dorcas or AMO and clubs to help
-                            serve the community around us.
                         </p>
                     </div>
                 </div>
