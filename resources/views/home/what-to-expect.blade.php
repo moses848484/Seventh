@@ -94,12 +94,14 @@
             color: black !important;
         }
 
-        .navbar-nav .nav-link.second-nav.active::after {
+        .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            /* 80% of link width */
             height: 3px;
             background-color: #000;
             border-radius: 2px 2px 0 0;
@@ -360,7 +362,8 @@
     <section class="hero-section">
         <div class="hero-content mb-4">
             <h1>You're welcome here.</h1>
-            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with others.
+            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with
+                others.
             </p>
         </div>
     </section>
