@@ -844,11 +844,11 @@
                 services: {
                     main: {
                         day: 'Saturday',
-                        times: ['8:30 AM', '10:30 AM']
+                        times: ['7:30 AM', '9:00 AM', '11:00 AM', '2:30 PM']
                     },
                     youth: {
-                        day: 'Thursday',
-                        times: ['6:00 PM']
+                        day: 'Wednesday',
+                        times: ['8:00 PM', '9:00 PM']
                     }
                 },
                 contact: {
