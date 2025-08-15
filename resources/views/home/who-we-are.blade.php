@@ -107,7 +107,7 @@
             height: 70vh;
             min-height: 500px;
             background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+                    rgba(0, 0, 0, 0.4)), url('images/who.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -172,42 +172,34 @@
             margin: 0 auto;
         }
 
-        /* Leadership Grid - FIXED */
-        .leadership-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .leadership-row {
+        /* Leadership Container */
+        .leadership-flex-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
-            align-items: flex-start;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .leader-card {
+        /* Leadership Cards */
+        .leadership-card {
+            text-align: center;
+            margin-bottom: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 0 0 auto;
-            max-width: 400px;
+            flex: 0 1 400px;
         }
 
         .leader-image-container {
             position: relative;
-            width: 300px;
+            width: 100%;
+            max-width: 400px;
             height: 400px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .leader-image-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
         }
 
         .leader-image {
@@ -225,26 +217,24 @@
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
             padding: 40px 20px 20px;
-            text-align: center;
+            text-align: left;
         }
 
         .leader-name {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: bold;
-            margin: 0 0 0.5rem 0;
+            margin: 0 0 0.3rem 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: white;
         }
 
         .leader-position {
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin: 0;
             opacity: 0.9;
             font-style: italic;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .leader-button-container {
-            margin-top: 1.5rem;
+            color: white;
         }
 
         .get-to-know-btn {
@@ -259,6 +249,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin-top: auto;
         }
 
         .get-to-know-btn:hover {
@@ -313,6 +304,12 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            .leadership-flex-container {
+                gap: 2rem;
+                flex-direction: column;
+                align-items: center;
+            }
+
             .hero-section {
                 height: 60vh;
                 min-height: 400px;
@@ -339,26 +336,16 @@
                 font-size: 1rem;
             }
 
-            .leadership-grid {
-                padding: 30px 15px;
-            }
-
-            .leadership-row {
-                flex-direction: column;
-                gap: 30px;
-            }
-
             .leader-image-container {
-                width: 280px;
-                height: 370px;
+                height: 250px;
             }
 
             .leader-name {
-                font-size: 1.6rem;
+                font-size: 1.3rem;
             }
 
             .leader-position {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             .get-to-know-btn {
@@ -380,21 +367,16 @@
                 font-size: 1.1rem;
             }
 
-            .leadership-grid {
-                padding: 20px 10px;
-            }
-
             .leadership-header {
                 padding: 40px 15px 30px;
             }
 
             .leader-image-container {
-                width: 250px;
-                height: 330px;
+                height: 220px;
             }
 
             .leader-name {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .get-to-know-btn {
@@ -425,10 +407,7 @@
 </head>
 
 <body>
-    <!-- Simulated header placeholder -->
-    <div style="height: 60px; background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
-        <span style="color: #666;">Header Placeholder</span>
-    </div>
+    @include('home.header')
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -444,13 +423,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#">Who We Are</a>
+                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Our Leadership</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Leadership</a>
                     </li>
                 </ul>
             </div>
@@ -495,50 +474,46 @@
         <div class="spacer-wrapper pt-normal"></div>
     </div>
 
-    <!-- Leadership Section Header -->
-    <div class="leadership-header">
-        <h1>Our Leadership</h1>
-        <p>Our Directional Leadership Team works together to shape the vision and direction of our church.</p>
-    </div>
-
     <!-- Leadership Section -->
-    <div class="leadership-grid">
-        <div class="leadership-row">
-            <div class="leader-card">
-                <div class="leader-image-container">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                        alt="Craig Groeschel" class="leader-image">
-                    <div class="leader-overlay">
-                        <h3 class="leader-name">Craig Groeschel</h3>
-                        <p class="leader-position">Senior Pastor</p>
-                    </div>
-                </div>
-                <div class="leader-button-container">
-                    <a href="#" class="get-to-know-btn">Get to Know Craig</a>
-                </div>
+    <section class="py-5">
+        <div class="container">
+            <div class="leadership-header">
+                <h1>Our Leadership</h1>
+                <p>Our Directional Leadership Team works together to shape the vision and direction of Life.Church.</p>
             </div>
-
-            <div class="leader-card">
-                <div class="leader-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                        alt="Bobby Gruenewald" class="leader-image">
-                    <div class="leader-overlay">
-                        <h3 class="leader-name">Bobby Gruenewald</h3>
-                        <p class="leader-position">Pastor, Innovation Leader</p>
+            <div class="leadership-flex-container">
+                <!-- Leader 1 -->
+                <div class="leadership-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Craig Groeschel" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Craig Groeschel</h3>
+                            <p class="leader-position">Senior Pastor</p>
+                        </div>
                     </div>
+                    <button class="get-to-know-btn">Get to Know Craig</button>
                 </div>
-                <div class="leader-button-container">
-                    <a href="#" class="get-to-know-btn">Get to Know Bobby</a>
+
+                <!-- Leader 2 -->
+                <div class="leadership-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Bobby Gruenewald" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Bobby Gruenewald</h3>
+                            <p class="leader-position">Pastor, Innovation Leader</p>
+                        </div>
+                    </div>
+                    <button class="get-to-know-btn">Get to Know Bobby</button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Simulated footer placeholder -->
-    <div style="height: 100px; background: #333; display: flex; align-items: center; justify-content: center; margin-top: 40px;">
-        <span style="color: white;">Footer Placeholder</span>
-    </div>
-
+    <!-- footer start -->
+    @include('home.footer')
+    <!-- footer end -->
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -550,7 +525,6 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    e.preventDefault();
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
 
