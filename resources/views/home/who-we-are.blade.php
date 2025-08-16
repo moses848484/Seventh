@@ -127,7 +127,7 @@
         }
 
         .hero-section h1 {
-            font-size: 10.5rem;
+            font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -475,7 +475,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4">
-            <h1 class="mission">Our Mission</h1>
+            <h2>Our Mission</h2>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
             <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
                 everything we do.
