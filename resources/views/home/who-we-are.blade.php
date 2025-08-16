@@ -176,7 +176,7 @@
             gap: 12rem;
             max-width: 900px;
             margin: 0 auto;
-            padding: 0px 0px 60px;
+            padding: 20px 0px 60px;
         }
 
         /* Leadership Cards */
@@ -395,7 +395,7 @@
             }
 
             .leadership-flex-container {
-                padding: 0 1rem;
+                padding: 10px 0px 40px;
                 gap: 1.5rem;
             }
 
