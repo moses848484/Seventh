@@ -171,7 +171,7 @@
             margin: 0 auto;
         }
 
-        /* FIXED: Leadership Container - Force side by side layout */
+        /* UPDATED: Leadership Container - Better responsive layout */
         .leadership-flex-container {
             display: flex;
             flex-direction: row;
@@ -181,8 +181,6 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
-            flex-wrap: nowrap;
-            /* Prevent wrapping on larger screens */
         }
 
         /* Leadership Cards */
@@ -191,10 +189,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 400px;
-            /* Fixed width instead of flex */
-            flex-shrink: 0;
-            /* Prevent shrinking */
+            flex: 1;
+            max-width: 400px;
+            min-width: 300px;
         }
 
         .leader-image-container {
@@ -314,15 +311,24 @@
             }
         }
 
+        /* UPDATED: Mobile breakpoint - Stack vertically on tablets and mobile */
         @media (max-width: 768px) {
             .leadership-flex-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 2rem;
+                gap: 3rem;
             }
 
             .leadership-card {
                 max-width: 100%;
+                width: 100%;
+                min-width: unset;
+            }
+
+            .leader-image-container {
+                max-width: 350px;
+                height: 350px;
+                margin: 0 auto 1.5rem;
             }
 
             .hero-section {
@@ -351,21 +357,17 @@
                 font-size: 1rem;
             }
 
-            .leader-image-container {
-                height: 250px;
-            }
-
             .leader-name {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
             }
 
             .leader-position {
-                font-size: 0.8rem;
+                font-size: 1rem;
             }
 
             .get-to-know-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
+                padding: 12px 30px;
+                font-size: 1rem;
             }
 
             .text-area12 h2 {
@@ -373,6 +375,7 @@
             }
         }
 
+        /* UPDATED: Smaller mobile screens */
         @media (max-width: 576px) {
             .hero-section h1 {
                 font-size: 2rem;
@@ -386,17 +389,27 @@
                 padding: 40px 15px 30px;
             }
 
+            .leadership-flex-container {
+                padding: 0 1rem;
+                gap: 2rem;
+            }
+
             .leader-image-container {
-                height: 220px;
+                max-width: 280px;
+                height: 280px;
             }
 
             .leader-name {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+            }
+
+            .leader-position {
+                font-size: 0.9rem;
             }
 
             .get-to-know-btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
+                padding: 10px 25px;
+                font-size: 0.9rem;
             }
 
             .text-area12 {
@@ -422,7 +435,6 @@
 </head>
 
 <body>
-    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -437,13 +449,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -524,8 +536,7 @@
             </div>
         </div>
     </section>
-    <!-- footer start -->
-    @include('home.footer')
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
