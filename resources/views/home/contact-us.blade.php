@@ -428,21 +428,23 @@
     <!-- Text Column -->
     <div class="py-5">
         <div class="container">
-        <div class="text-area12 bg text-left text-black">
-            <div class="spacer-wrapper pt-very_relaxed"></div>
-            <h4 class="heading3 text-section_header mb-relaxed">
-                How can we help?
-            </h4>
-            <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                <p>
-                    Thanks for getting in touch with us. We look forward to getting to know you better! To get you to
-                    the team who can best serve you, here are some of the areas we connect people to most frequently.
-                </p>
+            <div class="text-area12 bg text-left text-black">
+                <div class="spacer-wrapper pt-very_relaxed"></div>
+                <h4 class="heading3 text-section_header mb-relaxed">
+                    How can we help?
+                </h4>
+                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                    <p>
+                        Thanks for getting in touch with us. We look forward to getting to know you better! To get you
+                        to
+                        the team who can best serve you, here are some of the areas we connect people to most
+                        frequently.
+                    </p>
+                </div>
             </div>
+            <div class="spacer-wrapper pt-normal"></div>
         </div>
-        <div class="spacer-wrapper pt-normal"></div>
     </div>
-</div>
     <!-- Updated Demo Content Section -->
     <section class="py-5">
         <div class="container">
@@ -451,11 +453,14 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon teal">
-                            <i class="fa-solid fa-book-open"></i>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
                         </div>
                         <div class="demo-card-content">
-                            <h4>Weekly Services</h4>
-                            <p>Join our Friday vespers and Sabbath worship.</p>
+                            <h4>Giving Help</h4>
+                            <p>We’re grateful for your generosity! We’d love to share more about what it means to tithe,
+                                where your gifts go, and answer any questions you have about giving at Life.Church.</p>
+                            <p>0974752637</p>
+                            <p>giving@unisda.com</p>
                         </div>
                     </div>
                 </div>
@@ -525,84 +530,84 @@
         </div>
     </section>
 
-        <script>
-            class ContentImageSlider {
-                constructor(sliderId) {
-                    this.sliderId = sliderId;
-                    this.currentSlide = 0;
-                    this.totalSlides = 3;
-                    this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                    this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                    this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                    this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
+    <script>
+        class ContentImageSlider {
+            constructor(sliderId) {
+                this.sliderId = sliderId;
+                this.currentSlide = 0;
+                this.totalSlides = 3;
+                this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
+                this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
+                this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
+                this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
 
-                    this.init();
-                }
-
-                init() {
-                    // Add event listeners
-                    this.prevBtn.addEventListener('click', () => this.previousSlide());
-                    this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-                    // Add indicator click events
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => this.goToSlide(index));
-                    });
-
-                    // Add keyboard navigation (only when slider is focused)
-                    this.sliderWrapper.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') this.previousSlide();
-                        if (e.key === 'ArrowRight') this.nextSlide();
-                    });
-
-                    // Make slider focusable for keyboard navigation
-                    this.sliderWrapper.setAttribute('tabindex', '0');
-
-                    // Optional: Auto-play slider
-                    this.startAutoPlay();
-                }
-
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                previousSlide() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                goToSlide(slideIndex) {
-                    this.currentSlide = slideIndex;
-                    this.updateSlider();
-                }
-
-                updateSlider() {
-                    // Move slider
-                    const translateX = -this.currentSlide * (100 / this.totalSlides);
-                    this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                    // Update indicators
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.classList.toggle('active', index === this.currentSlide);
-                    });
-                }
-
-                startAutoPlay() {
-                    // Auto-advance every 5 seconds
-                    setInterval(() => {
-                        this.nextSlide();
-                    }, 5000);
-                }
+                this.init();
             }
 
-            // Initialize all sliders when DOM is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                new ContentImageSlider('1');
-                new ContentImageSlider('2');
-                new ContentImageSlider('3');
-            });
-        </script>
+            init() {
+                // Add event listeners
+                this.prevBtn.addEventListener('click', () => this.previousSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Add indicator click events
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Add keyboard navigation (only when slider is focused)
+                this.sliderWrapper.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.previousSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+
+                // Make slider focusable for keyboard navigation
+                this.sliderWrapper.setAttribute('tabindex', '0');
+
+                // Optional: Auto-play slider
+                this.startAutoPlay();
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            previousSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlider();
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateSlider();
+            }
+
+            updateSlider() {
+                // Move slider
+                const translateX = -this.currentSlide * (100 / this.totalSlides);
+                this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
+
+                // Update indicators
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            startAutoPlay() {
+                // Auto-advance every 5 seconds
+                setInterval(() => {
+                    this.nextSlide();
+                }, 5000);
+            }
+        }
+
+        // Initialize all sliders when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ContentImageSlider('1');
+            new ContentImageSlider('2');
+            new ContentImageSlider('3');
+        });
+    </script>
     </section>
     <!-- footer start -->
     @include('home.footer')
