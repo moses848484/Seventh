@@ -509,9 +509,7 @@
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-
-@include('home.slider')
-
+    
     <!-- Leadership Section -->
     <section class="py-5">
         <div class="container">
