@@ -391,10 +391,9 @@
         }
 
         .service-icon {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 0%;
-            background-color: #ffffffff;
             color: white;
             display: flex;
             align-items: center;
@@ -486,9 +485,9 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon blue">
+                        <div class="demo-card-icon white">
                             <img src="images/sda3.png" alt="Service Icon" class="service-icon"
-                                style="width: 48px; height: 48px;">
+                                style="width: 50px; height: 50px;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Youth Ministries</h4>
