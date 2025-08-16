@@ -509,7 +509,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+            
     <!-- Leadership Section -->
     <section class="py-5">
         <div class="container">
