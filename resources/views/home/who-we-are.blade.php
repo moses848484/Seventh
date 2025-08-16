@@ -395,7 +395,7 @@
             }
 
             .leadership-flex-container {
-                padding: 10px 0px 40px;
+                padding: 15px 0px 40px;
                 gap: 1.5rem;
             }
 

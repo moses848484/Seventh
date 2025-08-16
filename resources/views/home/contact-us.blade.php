@@ -468,7 +468,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon blue">
-                            <i class="fa-solid fa-circle-nodes"></i>
+                            <img src="images/sda3.png" alt="Service Icon">
                         </div>
                         <div class="demo-card-content">
                             <h4>Youth Ministries</h4>
