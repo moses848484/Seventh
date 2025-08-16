@@ -424,7 +424,7 @@
     </nav>
 
     <!-- Text Column -->
-    <div class="col-9 mx-auto mt-5">
+    <div class="py-5">
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
