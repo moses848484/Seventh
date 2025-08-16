@@ -487,29 +487,32 @@
     </section>
 
     <!-- Our Story Section -->
-            <div class="text-area12 bg text-left text-black">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h2>Our Story</h2>
-                <div class="rich-text3 text-paragraph_large mb-relaxed">
-                    <p>
-                        When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
-                        Seventh-day Adventist believers from the University of Zambia staff and students.
-                    </p>
+    <div class="col-12">
+        <div class="text-area12 bg text-left text-black">
+            <div class="spacer-wrapper pt-very_relaxed"></div>
+            <h2>Our Story</h2>
+            <div class="rich-text3 text-paragraph_large mb-relaxed">
+                <p>
+                    When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
+                    Seventh-day Adventist believers from the University of Zambia staff and students.
+                </p>
 
-                    <p>
-                        From worshiping in classrooms and borrowed spaces, we grew into a vibrant church family.
-                        In 2000, we found our home on Katima Mulilo Road, and by 2008, our permanent building was
-                        completed and dedicated to God's service.
-                    </p>
+                <p>
+                    From worshiping in classrooms and borrowed spaces, we grew into a vibrant church family.
+                    In 2000, we found our home on Katima Mulilo Road, and by 2008, our permanent building was
+                    completed and dedicated to God's service.
+                </p>
 
-                    <p>
-                        Today, we're a thriving, Christ-centered community committed to sharing the gospel and
-                        serving our neighborhood. Our doors are always open to anyone seeking to worship, grow,
-                        and belong.
-                    </p>
-                </div>
+                <p>
+                    Today, we're a thriving, Christ-centered community committed to sharing the gospel and
+                    serving our neighborhood. Our doors are always open to anyone seeking to worship, grow,
+                    and belong.
+                </p>
             </div>
-            
+        </div>
+        <div class="spacer-wrapper pt-normal"></div>
+    </div>
+
     <!-- Leadership Section -->
     <section class="py-5">
         <div class="container">
