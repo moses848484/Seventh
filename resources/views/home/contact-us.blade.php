@@ -64,7 +64,6 @@
 
         }
 
-
         .navbar-brand {
             font-weight: bold;
             color: #333 !important;
@@ -80,7 +79,6 @@
             position: relative;
             padding-bottom: 15px !important;
         }
-
 
         .navbar-nav .nav-link:hover {
             color: #333 !important;
@@ -106,7 +104,6 @@
             background-color: #000;
             border-radius: 2px 2px 0 0;
         }
-
 
         .hero-content {
             max-width: 800px;
@@ -165,6 +162,81 @@
             color: white;
         }
 
+        /* Updated Demo Content Cards - matching the reference image */
+        .demo-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            height: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .demo-card-icon.teal {
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
+        }
+
+        .demo-card-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+
+        .demo-card-icon.purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .demo-card-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .demo-card h4 {
+            color: white;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .demo-card p {
+            color: #b3b3b3;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .demo-card .contact-info {
+            color: #22d3ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .demo-card .contact-info:hover {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        /* Original expectation cards remain unchanged */
         .expectation-card {
             background: white;
             border-radius: 15px;
@@ -175,7 +247,6 @@
             flex-direction: column;
             height: 100%;
             margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
         }
 
         .expectation-card:hover {
@@ -208,6 +279,17 @@
 
         /* Optional smaller adjustments on mobile */
         @media (max-width: 800px) {
+            .demo-card {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .demo-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
             .expectation-card {
                 padding: 20px;
             }
@@ -330,7 +412,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link second-nav active" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -341,64 +423,104 @@
         </div>
     </nav>
 
-    <!-- Demo Content Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-                        <h4>Weekly Services</h4>
-                        <p>Join our Friday vespers and Sabbath worship.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-circle-nodes"></i>
-                        </div>
-                        <h4>Youth Ministries</h4>
-                        <p>A place for young people to connect with peers</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <h4>Campus Ministries</h4>
-                        <p>Join the Public Campus Ministries (PCM) if you are a college/university student
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Text Column -->
     <div class="col-12">
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
-                Everyone’s Invited
+                How can we help?
             </h4>
             <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                 <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
-                    you
-                    are? Wherever you are on your journey, there’s a place for you here.
+                    Thanks for getting in touch with us. We look forward to getting to know you better! To get you to
+                    the team who can best serve you, here are some of the areas we connect people to most frequently.
                 </p>
             </div>
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-    </div>
-    </div>
-    </div>
 
+    <!-- Updated Demo Content Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- First Row -->
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon teal">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Weekly Services</h4>
+                            <p>Join our Friday vespers and Sabbath worship.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon blue">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Youth Ministries</h4>
+                            <p>A place for young people to connect with peers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon purple">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Campus Ministries</h4>
+                            <p>Join the Public Campus Ministries (PCM) if you are a college/university student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon teal">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Pastoral Care</h4>
+                            <p>Connect with our pastoral team for spiritual guidance and support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon blue">
+                            <i class="fa-solid fa-bible"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Bible Study</h4>
+                            <p>Join our weekly Bible study sessions and grow deeper in God's word</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="demo-card">
+                        <div class="demo-card-icon purple">
+                            <i class="fa-solid fa-hands-helping"></i>
+                        </div>
+                        <div class="demo-card-content">
+                            <h4>Community Outreach</h4>
+                            <p>Get involved in serving our local community through various ministry programs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Expectation Cards -->
     <section class="py-5">
@@ -434,6 +556,7 @@
                 <!-- Card 3 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
+                        <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fas fa-tshirt"></i>
                         </div>
@@ -581,14 +704,13 @@
 
                     <div class="rich-text3 text-paragraph_large mb-relaxed">
                         <p>
-                            Teaching kids about God. We’re dedicated to partnering with parents to lead children to
+                            Teaching kids about God. We're dedicated to partnering with parents to lead children to
                             become fully devoted followers of Christ.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <script>
             class ContentImageSlider {
@@ -683,7 +805,7 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                   // e.preventDefault();
+                    // e.preventDefault();
 
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
