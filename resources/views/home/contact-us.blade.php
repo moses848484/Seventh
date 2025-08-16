@@ -20,6 +20,8 @@
         body {
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: #c3c3c3ff;
+            background-color: #c3c3c3ff;
         }
 
         /* Orange separator line */
