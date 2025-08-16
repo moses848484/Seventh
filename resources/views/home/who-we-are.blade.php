@@ -533,11 +533,11 @@
                         <img src="images/preach7.jpg"
                             alt="Craig Groeschel" class="leader-image">
                         <div class="leader-overlay">
-                            <h3 class="leader-name">Craig Groeschel</h3>
+                            <h3 class="leader-name">Japhet R. Fakazi</h3>
                             <p class="leader-position">Senior Pastor</p>
                         </div>
                     </div>
-                    <button class="get-to-know-btn">Get to Know Craig</button>
+                    <button class="get-to-know-btn">Get to Know Japhet</button>
                 </div>
 
                 <!-- Leader 2 -->
@@ -546,11 +546,11 @@
                         <img src="images/preach4.jpg"
                             alt="Bobby Gruenewald" class="leader-image">
                         <div class="leader-overlay">
-                            <h3 class="leader-name">Bobby Gruenewald</h3>
-                            <p class="leader-position">Pastor, Innovation Leader</p>
+                            <h3 class="leader-name">Mawuse Michello</h3>
+                            <p class="leader-position">Associate Pastor</p>
                         </div>
                     </div>
-                    <button class="get-to-know-btn">Get to Know Bobby</button>
+                    <button class="get-to-know-btn">Get to Know Mawuse</button>
                 </div>
             </div>
         </div>
