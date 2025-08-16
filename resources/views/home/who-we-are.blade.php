@@ -516,7 +516,7 @@
     </div>
 
     <!-- Leadership Section -->
-    <section class="py-5">
+    <section class="py-1">
         <div class="container">
             <div class="leadership-header">
                 <h1>Our Leadership</h1>
