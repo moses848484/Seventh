@@ -171,14 +171,14 @@
             margin: 0 auto;
         }
 
-        /* UPDATED: Leadership Container - Better responsive layout */
+        /* FIXED: Leadership Container - Clean responsive layout */
         .leadership-flex-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 4rem;
-            max-width: 1000px;
+            gap: 3rem;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -189,16 +189,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1;
-            max-width: 400px;
-            min-width: 300px;
+            width: 350px;
+            flex-shrink: 0;
         }
 
         .leader-image-container {
             position: relative;
             width: 100%;
-            max-width: 400px;
-            height: 400px;
+            height: 350px;
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -308,27 +306,34 @@
         @media (max-width: 992px) {
             .leadership-flex-container {
                 gap: 2rem;
+                max-width: 800px;
+            }
+            
+            .leadership-card {
+                width: 300px;
+            }
+            
+            .leader-image-container {
+                height: 300px;
             }
         }
 
-        /* UPDATED: Mobile breakpoint - Stack vertically on tablets and mobile */
+        /* FIXED: Mobile breakpoint - Clean vertical stacking */
         @media (max-width: 768px) {
             .leadership-flex-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 3rem;
+                gap: 2.5rem;
+                padding: 0 1rem;
             }
 
             .leadership-card {
-                max-width: 100%;
                 width: 100%;
-                min-width: unset;
+                max-width: 350px;
             }
 
             .leader-image-container {
-                max-width: 350px;
                 height: 350px;
-                margin: 0 auto 1.5rem;
             }
 
             .hero-section {
@@ -347,6 +352,10 @@
 
             .hero-content {
                 padding: 0 1rem;
+            }
+
+            .leadership-header {
+                padding: 40px 20px 30px;
             }
 
             .leadership-header h1 {
@@ -375,7 +384,7 @@
             }
         }
 
-        /* UPDATED: Smaller mobile screens */
+        /* FIXED: Smaller mobile screens */
         @media (max-width: 576px) {
             .hero-section h1 {
                 font-size: 2rem;
@@ -386,17 +395,21 @@
             }
 
             .leadership-header {
-                padding: 40px 15px 30px;
+                padding: 30px 15px 20px;
             }
 
             .leadership-flex-container {
                 padding: 0 1rem;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+
+            .leadership-card {
+                max-width: 100%;
             }
 
             .leader-image-container {
-                max-width: 280px;
-                height: 280px;
+                max-width: 250px;
+                height: 250px;
             }
 
             .leader-name {
@@ -507,6 +520,8 @@
                 <h1>Our Leadership</h1>
                 <p>Our Directional Leadership Team works together to shape the vision and direction of Life.Church.</p>
             </div>
+        </div>
+        <div class="container">
             <div class="leadership-flex-container">
                 <!-- Leader 1 -->
                 <div class="leadership-card">
