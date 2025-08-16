@@ -424,7 +424,7 @@
     </nav>
 
     <!-- Text Column -->
-    <div class="col-12">
+    <div class="col-8 mx-auto mt-5">
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
@@ -521,7 +521,7 @@
             </div>
         </div>
     </section>
-    
+
         <script>
             class ContentImageSlider {
                 constructor(sliderId) {

@@ -465,6 +465,9 @@
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
@@ -509,7 +512,7 @@
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-    
+
     <!-- Leadership Section -->
     <section class="py-5">
         <div class="container">
