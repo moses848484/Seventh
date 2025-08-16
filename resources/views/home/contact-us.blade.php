@@ -485,7 +485,7 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon white">
+                        <div class="demo-card-icon light">
                             <img src="images/sda3.png" alt="Service Icon" class="service-icon"
                                 style="width: 50px; height: 50px;">
                         </div>
