@@ -487,8 +487,6 @@
     </section>
 
     <!-- Our Story Section -->
-    <div class="py-5">
-        <div class="container">
             <div class="text-area12 bg text-left text-black">
                 <div class="spacer-wrapper pt-very_relaxed"></div>
                 <h2>Our Story</h2>
@@ -511,9 +509,7 @@
                     </p>
                 </div>
             </div>
-            <div class="spacer-wrapper pt-normal"></div>
         </div>
-    </div>
     <!-- Leadership Section -->
     <section class="py-5">
         <div class="container">
