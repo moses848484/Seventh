@@ -177,7 +177,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 10px;
+            gap: 1rem;
             max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
