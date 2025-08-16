@@ -488,9 +488,6 @@
         <div class="spacer-wrapper pt-normal"></div>
     </div>
 
-
-
-    </section>
     <div class="container text-center my-5">
         <!-- Heading -->
         <h2 class="fw-bold">Our Leadership</h2>
@@ -525,6 +522,8 @@
             </div>
         </div>
     </div>
+
+    </section>
     <!-- footer start -->
     @include('home.footer')
     <!-- Font Awesome + Bootstrap JS -->
