@@ -459,13 +459,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">What to Expect</a>
+                        <a class="nav-link second-nav active" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -515,7 +515,8 @@
         <div class="container">
             <div class="leadership-header">
                 <h1>Our Leadership</h1>
-                <p>Our Directional Leadership Team works together to shape the vision and direction of UNISDA Church.</p>
+                <p>Our Directional Leadership Team works together to shape the vision and direction of UNISDA Church.
+                </p>
             </div>
         </div>
         <div class="container">
