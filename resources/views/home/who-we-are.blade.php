@@ -474,13 +474,14 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content mb-4" style="color: white;">
+        <div class="hero-content mb-4 text-white">
             <h2>Our Mission</h2>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
             <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
                 everything we do.
             </p>
         </div>
+
     </section>
 
     <!-- Our Story Section -->
@@ -523,8 +524,7 @@
                 <!-- Leader 1 -->
                 <div class="leadership-card">
                     <div class="leader-image-container">
-                        <img src="images/preach7.jpg"
-                            alt="Craig Groeschel" class="leader-image">
+                        <img src="images/preach7.jpg" alt="Craig Groeschel" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Japhet R. Fakazi</h3>
                             <p class="leader-position">Senior Pastor</p>
@@ -536,8 +536,7 @@
                 <!-- Leader 2 -->
                 <div class="leadership-card">
                     <div class="leader-image-container">
-                        <img src="images/preach4.jpg"
-                            alt="Bobby Gruenewald" class="leader-image">
+                        <img src="images/preach4.jpg" alt="Bobby Gruenewald" class="leader-image">
                         <div class="leader-overlay">
                             <h3 class="leader-name">Mawuse Michello</h3>
                             <p class="leader-position">Associate Pastor</p>
