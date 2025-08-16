@@ -389,6 +389,25 @@
         .text-section_header3 {
             margin-top: 10px !important;
         }
+
+        .service-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #ffffffff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .service-icon.youth {
+            background-color: #1a1a1a;
+        }
     </style>
 </head>
 
@@ -468,7 +487,8 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon blue">
-                            <img src="images/sda3.png" alt="Service Icon">
+                            <img src="images/sda3.png" alt="Service Icon" class="service-icon"
+                                style="width: 28px; height: 28px;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Youth Ministries</h4>
