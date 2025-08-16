@@ -176,7 +176,7 @@
             gap: 12rem;
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0px 0px 60px;
         }
 
         /* Leadership Cards */
