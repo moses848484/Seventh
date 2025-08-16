@@ -308,11 +308,11 @@
                 gap: 6rem;
                 max-width: 1200px;
             }
-            
+
             .leadership-card {
                 width: 300px;
             }
-            
+
             .leader-image-container {
                 height: 400px;
             }
@@ -448,6 +448,7 @@
 </head>
 
 <body>
+    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -551,7 +552,8 @@
             </div>
         </div>
     </section>
-
+    <!-- footer start -->
+    @include('home.footer')
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
