@@ -108,26 +108,6 @@
         }
 
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/fellow1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 900 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 0;
-        }
-
         .hero-content {
             max-width: 800px;
             padding: 0 2rem;
