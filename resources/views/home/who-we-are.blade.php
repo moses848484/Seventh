@@ -196,7 +196,7 @@
         .leader-image-container {
             position: relative;
             width: 100%;
-            height: 450px;
+            height: 500px;
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 1.5rem;
