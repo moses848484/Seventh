@@ -106,7 +106,7 @@
             position: relative;
             height: 70vh;
             min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/who.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
