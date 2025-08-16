@@ -481,13 +481,6 @@
                 everything we do.
             </p>
         </div>
-
-        <h2>Our Mission</h2>
-        <h1>To lead people to become fully devoted followers of Christ.</h1>
-        <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
-            everything we do.
-        </p>
-        </div>
     </section>
 
     <!-- Our Story Section -->
