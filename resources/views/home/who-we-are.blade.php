@@ -127,7 +127,7 @@
         }
 
         .hero-section h1 {
-            font-size: 3.5rem;
+            font-size: 10.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -144,10 +144,6 @@
 
         .lead {
             color: white;
-        }
-
-        .mission {
-            font-size: larger !important;
         }
 
         /* Leadership Header */
