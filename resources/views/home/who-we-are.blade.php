@@ -475,7 +475,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content mb-4 text-white">
-            <h2>Our Mission</h2>
+            <h5>Our Mission</h2>
             <h1>To lead people to become fully devoted followers of Christ.</h1>
             <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
                 everything we do.
