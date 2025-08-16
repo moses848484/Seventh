@@ -341,16 +341,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content mb-4">
-            <h1>You're welcome here.</h1>
-            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with
-                others.
-            </p>
-        </div>
-    </section>
-
     <!-- Demo Content Section -->
     <section class="py-5">
         <div class="container">
