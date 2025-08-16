@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Our Leadership - SDA Church</title>
+    <title>What to Expect - SDA Church</title>
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
