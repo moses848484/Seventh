@@ -350,6 +350,9 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav active" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>

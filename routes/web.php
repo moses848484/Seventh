@@ -18,7 +18,8 @@ Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_
 Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('what-to-expect');
 // Route for Who We Are
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
-
+// Route for Our Beliefs
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 // Route for Our Beliefs
 Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
 
