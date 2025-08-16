@@ -488,41 +488,41 @@
         <div class="spacer-wrapper pt-normal"></div>
     </div>
 
-    <div class="container text-center my-5">
-        <!-- Heading -->
-        <h2 class="fw-bold">Our Leadership</h2>
-        <p class="text-muted mb-5">
-            Our Directional Leadership Team works together to shape the vision and direction of Life.Church.
-        </p>
-
-        <!-- Leadership Cards -->
-        <div class="row justify-content-center">
-            <!-- Craig -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="craig.jpg" class="card-img-top rounded-3" alt="Craig Groeschel">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient">
-                        <h5 class="fw-bold text-white">Craig Groeschel</h5>
-                        <p class="text-white-50">Senior Pastor</p>
-                    </div>
-                </div>
-                <button class="btn btn-outline-dark mt-3">Get to Know Craig</button>
+    <!-- Leadership Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="leadership-header">
+                <h1>Our Leadership</h1>
+                <p>Our Directional Leadership Team works together to shape the vision and direction of Life.Church.</p>
             </div>
-
-            <!-- Bobby -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="bobby.jpg" class="card-img-top rounded-3" alt="Bobby Gruenewald">
-                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient">
-                        <h5 class="fw-bold text-white">Bobby Gruenewald</h5>
-                        <p class="text-white-50">Pastor, Innovation Leader</p>
+            <div class="leadership-flex-container">
+                <!-- Leader 1 -->
+                <div class="leadership-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Craig Groeschel" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Craig Groeschel</h3>
+                            <p class="leader-position">Senior Pastor</p>
+                        </div>
                     </div>
+                    <button class="get-to-know-btn">Get to Know Craig</button>
                 </div>
-                <button class="btn btn-outline-dark mt-3">Get to Know Bobby</button>
+
+                <!-- Leader 2 -->
+                <div class="leadership-card">
+                    <div class="leader-image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                            alt="Bobby Gruenewald" class="leader-image">
+                        <div class="leader-overlay">
+                            <h3 class="leader-name">Bobby Gruenewald</h3>
+                            <p class="leader-position">Pastor, Innovation Leader</p>
+                        </div>
+                    </div>
+                    <button class="get-to-know-btn">Get to Know Bobby</button>
+                </div>
             </div>
         </div>
-    </div>
-
     </section>
     <!-- footer start -->
     @include('home.footer')
