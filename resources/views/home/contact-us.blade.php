@@ -425,6 +425,7 @@
 
     <!-- Text Column -->
     <div class="py-5">
+        <div class="container">
         <div class="text-area12 bg text-left text-black">
             <div class="spacer-wrapper pt-very_relaxed"></div>
             <h4 class="heading3 text-section_header mb-relaxed">
@@ -439,7 +440,7 @@
         </div>
         <div class="spacer-wrapper pt-normal"></div>
     </div>
-
+</div>
     <!-- Updated Demo Content Section -->
     <section class="py-5">
         <div class="container">
