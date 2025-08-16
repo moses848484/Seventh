@@ -166,7 +166,7 @@
 
         /* Updated Demo Content Cards - matching the reference image */
         .demo-card {
-            background: #2a2a2a;
+            background: #ffffffff;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -189,6 +189,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             font-size: 28px;
             color: white;
             flex-shrink: 0;
