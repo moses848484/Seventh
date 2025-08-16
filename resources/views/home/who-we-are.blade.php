@@ -440,6 +440,9 @@
         small {
             color: #555;
         }
+        h5 {
+            font-size: large;
+        }
     </style>
 </head>
 
