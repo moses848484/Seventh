@@ -515,7 +515,7 @@
         <div class="container">
             <div class="leadership-header">
                 <h1>Our Leadership</h1>
-                <p>Our Directional Leadership Team works together to shape the vision and direction of Life.Church.</p>
+                <p>Our Directional Leadership Team works together to shape the vision and direction of UNISDA Church.</p>
             </div>
         </div>
         <div class="container">
