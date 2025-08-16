@@ -418,38 +418,6 @@
         small {
             color: #555;
         }
-
-        .card-img-overlay {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-            border-radius: 0.5rem;
-        }
-
-        .card {
-            border: none;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-
-        .btn-custom {
-            border: 1px solid #000;
-            border-radius: 50px;
-            padding: 10px 20px;
-            background: #fff;
-            width: 100%;
-            /* full width inside the column */
-        }
-
-        .btn-custom:hover {
-            background: #000;
-            color: #fff;
-        }
-
-        /* Make all card heights the same */
-        .equal-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
     </style>
 </head>
 
@@ -522,42 +490,38 @@
 
     <div class="container text-center my-5">
         <!-- Heading -->
-        <h2 class="font-weight-bold">Our Leadership</h2>
+        <h2 class="fw-bold">Our Leadership</h2>
         <p class="text-muted mb-5">
             Our Directional Leadership Team works together to shape the vision and direction of Life.Church.
         </p>
 
         <!-- Leadership Cards -->
-        <div class="row">
+        <div class="row justify-content-center">
             <!-- Craig -->
-            <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="equal-card w-100">
-                    <div class="card shadow-sm flex-grow-1">
-                        <img src="craig.jpg" class="card-img-top" alt="Craig Groeschel">
-                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                            <h5 class="font-weight-bold text-white">Craig Groeschel</h5>
-                            <p class="text-white-50">Senior Pastor</p>
-                        </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="craig.jpg" class="card-img-top rounded-3" alt="Craig Groeschel">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient">
+                        <h5 class="fw-bold text-white">Craig Groeschel</h5>
+                        <p class="text-white-50">Senior Pastor</p>
                     </div>
-                    <button class="btn btn-custom mt-3">Get to Know Craig</button>
                 </div>
+                <button class="btn btn-outline-dark mt-3">Get to Know Craig</button>
             </div>
 
             <!-- Bobby -->
-            <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex">
-                <div class="equal-card w-100">
-                    <div class="card shadow-sm flex-grow-1">
-                        <img src="bobby.jpg" class="card-img-top" alt="Bobby Gruenewald">
-                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                            <h5 class="font-weight-bold text-white">Bobby Gruenewald</h5>
-                            <p class="text-white-50">Pastor, Innovation Leader</p>
-                        </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="bobby.jpg" class="card-img-top rounded-3" alt="Bobby Gruenewald">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end bg-gradient">
+                        <h5 class="fw-bold text-white">Bobby Gruenewald</h5>
+                        <p class="text-white-50">Pastor, Innovation Leader</p>
                     </div>
-                    <button class="btn btn-custom mt-3">Get to Know Bobby</button>
                 </div>
+                <button class="btn btn-outline-dark mt-3">Get to Know Bobby</button>
             </div>
         </div>
-    </div>
+
 
     </section>
     <!-- footer start -->
