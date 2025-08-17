@@ -531,6 +531,7 @@
     </div>
     </div>
     </div>
+    </div>
     </section>
     <!-- footer start -->
     @include('home.footer')
