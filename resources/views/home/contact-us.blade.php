@@ -2,7 +2,7 @@
 <html>
 
 <head>
-       <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
@@ -471,9 +471,8 @@
                 <!-- First Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon light">
-                            <img src="images/sda3.png" alt="Service Icon" class="service-icon"
-                                style="width: 50px; height: 50px;">
+                        <div class="demo-card-icon teal">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
