@@ -469,7 +469,7 @@
     <!-- Text Column -->
     <div class="py-5">
         <div class="container">
-            <div class="text-area12 bg text-left text-black">
+            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
                 <div class="spacer-wrapper pt-very_relaxed"></div>
                 <h4 class="heading3 text-section_header mb-relaxed">
                     How can we help?
