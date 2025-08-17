@@ -35,6 +35,11 @@ class HomeController extends Controller
         return view('home.our-beliefs');
     }
 
+     public function connectWithOurTeam()
+    {
+        return view('connect-with-our-team');
+    }
+
     public function redirect()
     {
         // Check if the user is authenticated

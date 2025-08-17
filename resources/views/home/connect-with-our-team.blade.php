@@ -18,11 +18,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        body {
+        /* Ensure full height layout */
+        html, body {
+            height: 100%;
             margin: 0;
+        }
+
+        body {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main content wrapper to push footer down */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-area {
+            flex: 1;
         }
 
         /* Orange separator line */
@@ -470,139 +489,76 @@
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
             transform: translateY(-2px);
         }
+
+        /* Footer positioning */
+        .main-content {
+            flex: 1;
+        }
     </style>
 </head>
 
 <body>
+    <div class="main-content">
+        @include('home.header')
 
-    @include('home.header')
+        <!-- Orange Separator Line -->
+        <div class="orange-separator"></div>
 
-    <!-- Orange Separator Line -->
-    <div class="orange-separator"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="#">About Us</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="custom-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('contact-us') }}">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Text Column -->
-    <div class="py-5">
-        <div class="container">
-            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h4 class="heading3 text-section_header mb-relaxed">
-                    How can we help?
-                </h4>
-                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                    <p>
-                        Thanks for getting in touch with us. We look forward to getting to know you better! To get you
-                        to the team who can best serve you, here are some of the areas we connect people to most
-                        frequently.
-                    </p>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">About Us</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="custom-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="spacer-wrapper pt-normal"></div>
+        </nav>
+
+        <!-- Text Column -->
+        <div class="py-5">
+            <div class="container">
+                <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h4 class="heading3 text-section_header mb-relaxed">
+                        Coming Soon
+                    </h4>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                        <p>
+                            Our beliefs page is currently under construction. Please check back soon to learn more about
+                            our foundational beliefs and doctrines.
+                        </p>
+                        <p>
+                            In the meantime, feel free to explore our other pages or contact us if you have any specific
+                            questions about our faith and practices.
+                        </p>
+                    </div>
+                </div>
+                <div class="spacer-wrapper pt-normal"></div>
+            </div>
         </div>
+        </div>
+        </div>
+        </div>
+        </section>
     </div>
 
-    <!-- Updated Demo Content Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <!-- First Row -->
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon teal">
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Giving Help</h4>
-                            <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
-                                where your gifts go, and answer any questions you have about giving at Life.Church.</p>
-                            <p class="phone">0974752637</p>
-                            <a class="email" href="{{ route('our-beliefs') }}">giving@unisda.com</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon light">
-                            <img src="images/sda3.png" alt="Service Icon" class="service-icon"
-                                style="width: 50px; height: 50px;">
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Unisda Church Careers</h4>
-                            <p>We’re excited you’re interested in joining the Unisda Church team! Want to learn more
-                                about
-                                what it’s like to work at Unisda Church? Curious about our open roles? We’d love to tell
-                                you more.</p>
-                            <p class="phone">Explore Careers at Unisda Church.</p>
-                            <a class="phone" href="{{ route('our-beliefs') }}">careers@unisda.com</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Second Row -->
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon purple">
-                            <i class="fa-solid fa-hands-praying"></i>
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Prayer Needs</h4>
-                            <p>We would be honored to pray with you! We’ve got teams passionate about doing just that,
-                                so please share how we can be praying for you this week.</p>
-                            <a class="phone" href="{{ route('our-beliefs') }}">Share Your Prayer Request</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third Row -->
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon blue">
-                            <i class="fa-solid fa-bible"></i>
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Unisdagroups</h4>
-                            <p>Join a group bible study session and grow deeper in God's word</p>
-                            <a class="phone" href="{{ route('our-beliefs') }}">View Unisdagroups details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="btn-box3">
-                    <a href="{{ route('connect-with-our-team') }}" class="btn9-method2"></a>
-                        <i class="fa-regular fa-comment-dots"></i>Connect With Our Team
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
     <!-- footer start -->
     @include('home.footer')
 
