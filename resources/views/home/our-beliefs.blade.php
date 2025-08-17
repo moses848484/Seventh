@@ -15,11 +15,14 @@
     <link rel="stylesheet"
         href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
         body {
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: #c3c3c3ff;
+            background-color: #f8f9fa;
         }
 
         /* Orange separator line */
@@ -101,25 +104,6 @@
             border-radius: 2px 2px 0 0;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/who.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 900 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 0;
-        }
-
         .hero-content {
             max-width: 800px;
             padding: 0 2rem;
@@ -142,196 +126,8 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .lead {
-            color: white;
-        }
-
-        /* Leadership Header */
-        .leadership-header {
-            text-align: center;
-            padding: 40px 20px 60px;
-            background-color: #fff;
-        }
-
-        .leadership-header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .leadership-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* FIXED: Leadership Container - Clean responsive layout */
-        .leadership-flex-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 12rem;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px 0px 60px;
-        }
-
-        /* Leadership Cards */
-        .leadership-card {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 350px;
-            flex-shrink: 0;
-        }
-
-        .leader-image-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-        }
-
-        .leader-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .leader-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 40px 20px 20px;
-            text-align: left;
-        }
-
-        .leader-name {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin: 0 0 0.3rem 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-
-        .leader-position {
-            font-size: 1.1rem;
-            margin: 0;
-            opacity: 0.9;
-            font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-
-        .get-to-know-btn {
-            background: transparent;
-            border: 2px solid #333;
-            color: #333;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: auto;
-        }
-
-        .get-to-know-btn:hover {
-            background: #333;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
-        }
-
-        /* Our Story Section */
-        .text-area12 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fff;
-        }
-
-        .text-area12 h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            text-align: center;
-        }
-
-        .rich-text3 {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-        }
-
-        .rich-text3 p {
-            margin-bottom: 1.5rem;
-        }
-
-        .spacer-wrapper {
-            height: 20px;
-        }
-
-        .pt-very_relaxed {
-            padding-top: 2rem;
-        }
-
-        .pt-normal {
-            padding-top: 1rem;
-        }
-
-        .mb-relaxed {
-            margin-bottom: 1.5rem;
-        }
-
         /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .leadership-flex-container {
-                gap: 6rem;
-                max-width: 1200px;
-            }
-
-            .leadership-card {
-                width: 300px;
-            }
-
-            .leader-image-container {
-                height: 400px;
-            }
-        }
-
-        /* FIXED: Mobile breakpoint - Clean vertical stacking */
         @media (max-width: 768px) {
-            .leadership-flex-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 2.5rem;
-                padding: 0 1rem;
-            }
-
-            .leadership-card {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .leader-image-container {
-                height: 350px;
-            }
-
             .hero-section {
                 height: 60vh;
                 min-height: 400px;
@@ -349,38 +145,8 @@
             .hero-content {
                 padding: 0 1rem;
             }
-
-            .leadership-header {
-                padding: 40px 20px 30px;
-            }
-
-            .leadership-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .leadership-header p {
-                font-size: 1rem;
-            }
-
-            .leader-name {
-                font-size: 1.8rem;
-            }
-
-            .leader-position {
-                font-size: 1rem;
-            }
-
-            .get-to-know-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .text-area12 h2 {
-                font-size: 2rem;
-            }
         }
 
-        /* FIXED: Smaller mobile screens */
         @media (max-width: 576px) {
             .hero-section h1 {
                 font-size: 2rem;
@@ -389,62 +155,287 @@
             .hero-section .lead {
                 font-size: 1.1rem;
             }
+        }
 
-            .leadership-header {
-                padding: 30px 15px 20px;
-            }
+        .lead {
+            color: white;
+        }
 
-            .leadership-flex-container {
-                padding: 15px 0px 40px;
-                gap: 1.5rem;
-            }
+        /* Updated Demo Content Cards - with repositioned text */
+        .demo-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            height: 100%;
+            margin-bottom: 1.5rem;
+        }
 
-            .leadership-card {
-                max-width: 100%;
-            }
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
 
-            .leader-image-container {
-                max-width: 250px;
-                height: 250px;
-            }
+        .demo-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 28px;
+            color: white;
+            flex-shrink: 0;
+        }
 
-            .leader-name {
-                font-size: 1.5rem;
-            }
+        .demo-card-icon.teal {
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
+        }
 
-            .leader-position {
-                font-size: 0.9rem;
-            }
+        .demo-card-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
 
-            .get-to-know-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
+        .demo-card-icon.purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
 
-            .text-area12 {
-                padding: 30px 15px;
-            }
+        .demo-card-content {
+            flex: 1;
+            text-align: left;
+            /* Keep text left-aligned */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Move text higher */
+            padding: 0;
+            /* Remove vertical padding completely */
+            margin-top: -15px;
+            /* Pull text up slightly */
+        }
 
-            .text-area12 h2 {
-                font-size: 1.8rem;
-            }
+        .demo-card h4 {
+            color: #333;
+            /* Changed from white to dark */
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: left;
+            /* Keep left-aligned */
+            margin-top: 0;
+            /* Remove default top margin */
+        }
+
+        .demo-card p {
+            color: #666;
+            /* Changed from light gray to darker gray for better readability */
+            margin: 5px 0;
+            /* Reduced margin between paragraphs */
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+            /* Keep left-aligned */
+        }
+
+        .demo-card .contact-info {
+            color: #22d3ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .demo-card .contact-info:hover {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        /* Original expectation cards remain unchanged */
+        .expectation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .expectation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expectation-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
         }
 
         h4,
         h3,
         h2 {
-            color: #000;
+            color: #333;
         }
 
         p,
         small {
             color: #555;
         }
+
+        .text-area12 h4 {
+            color: #333;
+        }
+
+        .text-area12 p {
+            color: #666;
+        }
+
+        /* Optional smaller adjustments on mobile */
+        @media (max-width: 800px) {
+            .demo-card {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .demo-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .expectation-card {
+                padding: 20px;
+            }
+
+            .expectation-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Image Slider-specific styles - using unique class names */
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .image-slider-wrapper {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .image-slide {
+            width: 33.333%;
+            height: 100%;
+        }
+
+        .image-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.6);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .image-slider-nav:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .image-slider-prev {
+            left: 10px;
+        }
+
+        .image-slider-next {
+            right: 10px;
+        }
+
+        .image-slider-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .image-slider-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-slider-indicator.active {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Ensure arrival_bg_box4 has position relative for slider positioning */
+        .arrival_bg_box4 {
+            position: relative;
+        }
+
+        .text-paragraph_large {
+            margin-top: 10px !important;
+        }
+
+        .text-section_header3 {
+            margin-top: 10px !important;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 0%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 0px;
+            letter-spacing: -0.5px;
+        }
+
+        .service-icon.youth {
+            background-color: #1a1a1a;
+        }
     </style>
 </head>
 
 <body>
+
     @include('home.header')
+
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -464,7 +455,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -475,89 +466,31 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content mb-4 text-white">
-            <h5 class="h2 font-weight-bold">Our Mission</h5>
-            <h1>To lead people to become fully devoted followers of Christ.</h1>
-            <p class="lead mb-4">That's how we're able to make a difference. And it's the driving force behind
-                everything we do.
-            </p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <div class="col-12">
+    <!-- Text Column -->
+    <div class="py-5">
         <div class="container">
-            <div class="text-area12 bg text-left text-black">
+            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
                 <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h2>Our Story</h2>
-                <div class="rich-text3 text-paragraph_large mb-relaxed">
+                <h4 class="heading3 text-section_header mb-relaxed">
+                    Coming Soon
+                </h4>
+                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                     <p>
-                        When the University SDA Church began in 1980, Pastor A. Walubita gathered a small group of
-                        Seventh-day Adventist believers from the University of Zambia staff and students.
-                    </p>
-
-                    <p>
-                        From worshiping in classrooms and borrowed spaces, we grew into a vibrant church family.
-                        In 2000, we found our home on Katima Mulilo Road, and by 2008, our permanent building was
-                        completed and dedicated to God's service.
-                    </p>
-
-                    <p>
-                        Today, we're a thriving, Christ-centered community committed to sharing the gospel and
-                        serving our neighborhood. Our doors are always open to anyone seeking to worship, grow,
-                        and belong.
+                        ...
                     </p>
                 </div>
             </div>
+            <div class="spacer-wrapper pt-normal"></div>
         </div>
-        <div class="spacer-wrapper pt-normal"></div>
     </div>
-
-    <!-- Leadership Section -->
-    <section class="py-1">
-        <div class="container">
-            <div class="leadership-header">
-                <h1>Our Leadership</h1>
-                <p>Our Directional Leadership Team works together to shape the vision and direction of UNISDA Church.
-                </p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="leadership-flex-container">
-                <!-- Leader 1 -->
-                <div class="leadership-card">
-                    <div class="leader-image-container">
-                        <img src="images/preach7.jpg" alt="Craig Groeschel" class="leader-image">
-                        <div class="leader-overlay">
-                            <h3 class="leader-name">Japhet R. Fakazi</h3>
-                            <p class="leader-position">Senior Pastor</p>
-                        </div>
-                    </div>
-                    <button class="get-to-know-btn">Get to Know Japhet</button>
-                </div>
-
-                <!-- Leader 2 -->
-                <div class="leadership-card">
-                    <div class="leader-image-container">
-                        <img src="images/preach4.jpg" alt="Bobby Gruenewald" class="leader-image">
-                        <div class="leader-overlay">
-                            <h3 class="leader-name">Mawuse Michello</h3>
-                            <p class="leader-position">Associate Pastor</p>
-                        </div>
-                    </div>
-                    <button class="get-to-know-btn">Get to Know Mawuse</button>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- footer start -->
     @include('home.footer')
+    
     <!-- Font Awesome + Bootstrap JS -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         // Simple navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
