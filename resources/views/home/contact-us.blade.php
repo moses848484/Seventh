@@ -209,8 +209,9 @@
             text-align: left; /* Keep text left-aligned */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            padding: 10px 0; /* Add some vertical padding */
+            justify-content: flex-start; /* Move text higher */
+            padding: 0; /* Remove vertical padding completely */
+            margin-top: -5px; /* Pull text up slightly */
         }
 
         .demo-card h4 {
