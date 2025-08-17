@@ -214,7 +214,7 @@
             /* Move text higher */
             padding: 0;
             /* Remove vertical padding completely */
-            margin-top: -5px;
+            margin-top: -9px;
             /* Pull text up slightly */
         }
 
@@ -573,11 +573,7 @@
     </section>
     <!-- footer start -->
     @include('home.footer')
-    <!-- Footer placeholder -->
-    <div style="background: #333; color: white; padding: 20px; text-align: center; margin-top: 50px;">
-        <p>SDA Church Footer</p>
-    </div>
-
+    
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
