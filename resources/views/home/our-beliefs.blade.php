@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
+    <title>Our Beliefs - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -18,11 +18,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
+        }
+
+        body {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
         }
 
         /* Orange separator line */
@@ -207,38 +218,28 @@
         .demo-card-content {
             flex: 1;
             text-align: left;
-            /* Keep text left-aligned */
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            /* Move text higher */
             padding: 0;
-            /* Remove vertical padding completely */
             margin-top: -15px;
-            /* Pull text up slightly */
         }
 
         .demo-card h4 {
             color: #333;
-            /* Changed from white to dark */
             font-weight: 600;
             font-size: 1.4rem;
             margin-bottom: 15px;
             text-align: left;
-            /* Keep left-aligned */
             margin-top: 0;
-            /* Remove default top margin */
         }
 
         .demo-card p {
             color: #666;
-            /* Changed from light gray to darker gray for better readability */
             margin: 5px 0;
-            /* Reduced margin between paragraphs */
             line-height: 1.6;
             font-size: 1rem;
             text-align: left;
-            /* Keep left-aligned */
         }
 
         .demo-card .contact-info {
@@ -301,6 +302,51 @@
             color: #666;
         }
 
+        /* Content area styling */
+        .content-section {
+            min-height: 60vh;
+            padding: 4rem 0;
+        }
+
+        /* Footer styling */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px 0;
+            margin-top: auto;
+        }
+
+        .footer h5 {
+            color: #e4af00;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer p,
+        .footer li {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #e4af00;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
         /* Optional smaller adjustments on mobile */
         @media (max-width: 800px) {
             .demo-card {
@@ -327,81 +373,10 @@
             h4 {
                 font-size: 1.25rem;
             }
-        }
 
-        /* Image Slider-specific styles - using unique class names */
-        .image-slider-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-        }
-
-        .image-slider-wrapper {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image-slide {
-            width: 33.333%;
-            height: 100%;
-        }
-
-        .image-slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.6);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-slider-nav:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-slider-prev {
-            left: 10px;
-        }
-
-        .image-slider-next {
-            right: 10px;
-        }
-
-        .image-slider-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .image-slider-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-slider-indicator.active {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
+            .content-section {
+                padding: 2rem 0;
+            }
         }
 
         .text-paragraph_large {
@@ -433,8 +408,10 @@
 </head>
 
 <body>
-
-    @include('home.header')
+    <!-- Header placeholder -->
+    <div style="background: #333; color: white; padding: 10px; text-align: center;">
+        <h3>SDA Church Header</h3>
+    </div>
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -450,53 +427,90 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav active" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Text Column -->
-    <div class="py-5">
-        <div class="container">
-            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h4 class="heading3 text-section_header mb-relaxed">
-                    Coming Soon
-                </h4>
-                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                    <p>
-                        ...
-                    </p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Section -->
+        <div class="content-section">
+            <div class="container">
+                <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h4 class="heading3 text-section_header mb-relaxed">
+                        Coming Soon
+                    </h4>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                        <p>
+                            Our beliefs page is currently under construction. Please check back soon to learn more about our foundational beliefs and doctrines.
+                        </p>
+                        <p>
+                            In the meantime, feel free to explore our other pages or contact us if you have any specific questions about our faith and practices.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="spacer-wrapper pt-normal"></div>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    <!-- footer start -->
-    @include('home.footer')
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>SDA Church</h5>
+                    <p>Building faith, fostering community, and serving others in the love of Christ.</p>
+                    <div class="d-flex">
+                        <a href="#" class="mr-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="mr-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="mr-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Who We Are</a></li>
+                        <li><a href="#">What to Expect</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Our Beliefs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ministries</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Youth Ministry</a></li>
+                        <li><a href="#">Campus Ministry</a></li>
+                        <li><a href="#">Bible Study</a></li>
+                        <li><a href="#">Community Outreach</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Lusaka, Zambia</p>
+                    <p><i class="fas fa-phone mr-2"></i> 0974752637</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@unisda.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SDA Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
