@@ -448,8 +448,7 @@
         }
 
         .btn4 {
-            background: linear-gradient(135deg, #667eea, #764ba2) !important;
-            /* ... enhanced styling */
+            
         }
     </style>
 </head>
