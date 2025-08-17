@@ -455,7 +455,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -483,10 +483,11 @@
             <div class="spacer-wrapper pt-normal"></div>
         </div>
     </div>
+    </div>
     </section>
     <!-- footer start -->
     @include('home.footer')
-    
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
