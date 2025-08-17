@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Our Beliefs - SDA Church</title>
+    <title>What to Expect - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -18,23 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        html,
         body {
-            height: 100%;
             margin: 0;
-        }
-
-        body {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
             background-color: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .main-content {
-            flex: 1;
         }
 
         /* Orange separator line */
@@ -137,6 +125,351 @@
             opacity: 0.95;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+                min-height: 400px;
+                background-attachment: scroll;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1.2rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        .lead {
+            color: white;
+        }
+
+        /* Updated Demo Content Cards - with repositioned text */
+        .demo-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            height: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 28px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .demo-card-icon.teal {
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
+        }
+
+        .demo-card-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+
+        .demo-card-icon.purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .demo-card-content {
+            flex: 1;
+            text-align: left;
+            /* Keep text left-aligned */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Move text higher */
+            padding: 0;
+            /* Remove vertical padding completely */
+            margin-top: -15px;
+            /* Pull text up slightly */
+        }
+
+        .demo-card h4 {
+            color: #333;
+            /* Changed from white to dark */
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: left;
+            /* Keep left-aligned */
+            margin-top: 0;
+            /* Remove default top margin */
+        }
+
+        .demo-card p {
+            color: #666;
+            /* Changed from light gray to darker gray for better readability */
+            margin: 5px 0;
+            /* Reduced margin between paragraphs */
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+            /* Keep left-aligned */
+        }
+
+        .demo-card .contact-info {
+            color: #22d3ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .demo-card .contact-info:hover {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        /* Original expectation cards remain unchanged */
+        .expectation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .expectation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expectation-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        h4,
+        h3,
+        h2 {
+            color: #333;
+        }
+
+        p,
+        small {
+            color: #555;
+        }
+
+        .text-area12 h4 {
+            color: #333;
+        }
+
+        .text-area12 p {
+            color: #666;
+        }
+
+        /* Optional smaller adjustments on mobile */
+        @media (max-width: 800px) {
+            .demo-card {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .demo-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .expectation-card {
+                padding: 20px;
+            }
+
+            .expectation-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Image Slider-specific styles - using unique class names */
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .image-slider-wrapper {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .image-slide {
+            width: 33.333%;
+            height: 100%;
+        }
+
+        .image-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.6);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .image-slider-nav:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .image-slider-prev {
+            left: 10px;
+        }
+
+        .image-slider-next {
+            right: 10px;
+        }
+
+        .image-slider-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .image-slider-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-slider-indicator.active {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Ensure arrival_bg_box4 has position relative for slider positioning */
+        .arrival_bg_box4 {
+            position: relative;
+        }
+
+        .text-paragraph_large {
+            margin-top: 10px !important;
+        }
+
+        .text-section_header3 {
+            margin-top: 10px !important;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 0%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 0px;
+            letter-spacing: -0.5px;
+        }
+
+        .service-icon.youth {
+            background-color: #1a1a1a;
+        }
+
+        .phone {
+            color: #00aaff !important;
+        }
+
+        .email {
+            color: #00aaff !important;
+        }
+
+        .btn-box3 {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+            background-color: white !important;
+        }
+
+        .btn9-method2 {
+            background: #ffffff !important;
+            color: rgb(0, 0, 0) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 12px 24px;
+            border-radius: 30px !important;
+            border: 2px solid #ffffffff !important;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn9-method2 i {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .btn9-method2:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -164,41 +497,41 @@
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Content Section -->
-        <div class="content-section">
-            <div class="container">
-                <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading3 text-section_header mb-relaxed">
-                        Coming Soon
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                        <p>
-                            Our beliefs page is currently under construction. Please check back soon to learn more about
-                            our foundational beliefs and doctrines.
-                        </p>
-                        <p>
-                            In the meantime, feel free to explore our other pages or contact us if you have any specific
-                            questions about our faith and practices.
-                        </p>
-                    </div>
+    <!-- Text Column -->
+    <div class="py-5">
+        <div class="container">
+            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
+                <div class="spacer-wrapper pt-very_relaxed"></div>
+                <h4 class="heading3 text-section_header mb-relaxed">
+                    Coming Soon
+                </h4>
+                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                    <p>
+                        Our beliefs page is currently under construction. Please check back soon to learn more about
+                        our foundational beliefs and doctrines.
+                    </p>
+                    <p>
+                        In the meantime, feel free to explore our other pages or contact us if you have any specific
+                        questions about our faith and practices.
+                    </p>
                 </div>
             </div>
+            <div class="spacer-wrapper pt-normal"></div>
         </div>
-    </main>
-
+    </div>
+    </div>
+    </div>
+    </section>
     <!-- footer start -->
     @include('home.footer')
 
