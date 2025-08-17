@@ -134,6 +134,14 @@
             line-height: 1.2;
         }
 
+           .hero-section h5 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
         .hero-section .lead {
             font-size: 1.4rem;
             font-weight: 400;
