@@ -214,7 +214,7 @@
             /* Move text higher */
             padding: 0;
             /* Remove vertical padding completely */
-            margin-top: -9px;
+            margin-top: -15px;
             /* Pull text up slightly */
         }
 
