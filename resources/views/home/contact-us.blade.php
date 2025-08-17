@@ -595,7 +595,7 @@
                 </div>
 
                 <div class="btn-box3">
-                    <a href="{{ route('connect-with-our-team') }}" class="btn9-method2"></a>
+                    <a href="{{ route('connect-with-our-team') }}" class="btn9-method2">
                         <i class="fa-regular fa-comment-dots"></i>Connect With Our Team
                     </a>
                 </div>
