@@ -509,7 +509,7 @@
                             <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
                                 where your gifts go, and answer any questions you have about giving at Life.Church.</p>
                             <p class="phone">0974752637</p>
-                            <p class="email">giving@unisda.com</p>
+                            <a class="email" href="{{ route('our-beliefs') }}">giving@unisda.com</a>
                         </div>
                     </div>
                 </div>
@@ -527,7 +527,7 @@
                                 what it’s like to work at Unisda Church? Curious about our open roles? We’d love to tell
                                 you more.</p>
                             <p class="phone">Explore Careers at Unisda Church.</p>
-                            <p class="email">careers@unisda.com</p>
+                           <a class="phone" href="{{ route('our-beliefs') }}">careers@unisda.com</a>
                         </div>
                     </div>
                 </div>
