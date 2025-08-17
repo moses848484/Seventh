@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
         }
@@ -408,10 +409,8 @@
 </head>
 
 <body>
-    <!-- Header placeholder -->
-    <div style="background: #333; color: white; padding: 10px; text-align: center;">
-        <h3>SDA Church Header</h3>
-    </div>
+
+    @include('home.header')
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -455,10 +454,12 @@
                     </h4>
                     <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                         <p>
-                            Our beliefs page is currently under construction. Please check back soon to learn more about our foundational beliefs and doctrines.
+                            Our beliefs page is currently under construction. Please check back soon to learn more about
+                            our foundational beliefs and doctrines.
                         </p>
                         <p>
-                            In the meantime, feel free to explore our other pages or contact us if you have any specific questions about our faith and practices.
+                            In the meantime, feel free to explore our other pages or contact us if you have any specific
+                            questions about our faith and practices.
                         </p>
                     </div>
                 </div>
@@ -466,50 +467,8 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>SDA Church</h5>
-                    <p>Building faith, fostering community, and serving others in the love of Christ.</p>
-                    <div class="d-flex">
-                        <a href="#" class="mr-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="mr-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="mr-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Who We Are</a></li>
-                        <li><a href="#">What to Expect</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Our Beliefs</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Ministries</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Youth Ministry</a></li>
-                        <li><a href="#">Campus Ministry</a></li>
-                        <li><a href="#">Bible Study</a></li>
-                        <li><a href="#">Community Outreach</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i> Lusaka, Zambia</p>
-                    <p><i class="fas fa-phone mr-2"></i> 0974752637</p>
-                    <p><i class="fas fa-envelope mr-2"></i> info@unisda.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 SDA Church. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- footer start -->
+    @include('home.footer')
 
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
