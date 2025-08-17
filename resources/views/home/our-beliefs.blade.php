@@ -483,8 +483,8 @@
             <div class="spacer-wrapper pt-normal"></div>
         </div>
     </div>
-    </div>
     </section>
+    </div>
     <!-- footer start -->
     @include('home.footer')
 
