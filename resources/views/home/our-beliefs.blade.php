@@ -18,11 +18,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        body {
+        /* Ensure full height layout */
+        html, body {
+            height: 100%;
             margin: 0;
+        }
+
+        body {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main content wrapper to push footer down */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-area {
+            flex: 1;
         }
 
         /* Orange separator line */
@@ -470,69 +489,76 @@
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
             transform: translateY(-2px);
         }
+
+        /* Footer positioning */
+        .main-content {
+            flex: 1;
+        }
     </style>
 </head>
 
 <body>
+    <div class="main-content">
+        @include('home.header')
 
-    @include('home.header')
+        <!-- Orange Separator Line -->
+        <div class="orange-separator"></div>
 
-    <!-- Orange Separator Line -->
-    <div class="orange-separator"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="#">About Us</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="custom-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Text Column -->
-    <div class="py-5">
-        <div class="container">
-            <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
-                <div class="spacer-wrapper pt-very_relaxed"></div>
-                <h4 class="heading3 text-section_header mb-relaxed">
-                    Coming Soon
-                </h4>
-                <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                    <p>
-                        Our beliefs page is currently under construction. Please check back soon to learn more about
-                        our foundational beliefs and doctrines.
-                    </p>
-                    <p>
-                        In the meantime, feel free to explore our other pages or contact us if you have any specific
-                        questions about our faith and practices.
-                    </p>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">About Us</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="custom-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="spacer-wrapper pt-normal"></div>
+        </nav>
+
+        <!-- Text Column -->
+        <div class="py-5">
+            <div class="container">
+                <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
+                    <div class="spacer-wrapper pt-very_relaxed"></div>
+                    <h4 class="heading3 text-section_header mb-relaxed">
+                        Coming Soon
+                    </h4>
+                    <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
+                        <p>
+                            Our beliefs page is currently under construction. Please check back soon to learn more about
+                            our foundational beliefs and doctrines.
+                        </p>
+                        <p>
+                            In the meantime, feel free to explore our other pages or contact us if you have any specific
+                            questions about our faith and practices.
+                        </p>
+                    </div>
+                </div>
+                <div class="spacer-wrapper pt-normal"></div>
+            </div>
         </div>
+        </div>
+        </div>
+        </div>
+        </section>
     </div>
-    </div>
-    </div>
-    </div>
-    </section>
+
     <!-- footer start -->
     @include('home.footer')
 
