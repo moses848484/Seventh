@@ -445,10 +445,11 @@
             width: 100% !important;
             margin-top: 30px !important;
             margin-bottom: 30px !important;
+            border: none !important;
         }
 
         .btn4 {
-            
+           background-color: white !important; 
         }
     </style>
 </head>
@@ -576,7 +577,7 @@
 
                 <div class="btn-box3">
                     <a href="{{ route('register') }}" class="btn4">
-                        <i class="fa-solid fa-hands-praying"></i>&nbsp;Ask for prayer
+                        <i class="fa-regular fa-comment-dots"></i>&nbsp;Ask for prayer
                     </a>
                 </div>
 
