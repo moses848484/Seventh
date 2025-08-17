@@ -461,7 +461,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link second-nav active" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -519,8 +519,13 @@
                                 style="width: 50px; height: 50px;">
                         </div>
                         <div class="demo-card-content">
-                            <h4>Youth Ministries</h4>
-                            <p>A place for young people to connect with peers</p>
+                            <h4>Unisda Church Careers</h4>
+                            <p>We’re excited you’re interested in joining the Unisda Church team! Want to learn more
+                                about
+                                what it’s like to work at Unisda Church? Curious about our open roles? We’d love to tell
+                                you more.</p>
+                            <p class="phone">Explore Careers at Life.Church/p>
+                            <p class="email">careers@unisda.com</p>
                         </div>
                     </div>
                 </div>
@@ -579,7 +584,7 @@
     </section>
     <!-- footer start -->
     @include('home.footer')
-    
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
