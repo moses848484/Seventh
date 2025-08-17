@@ -25,7 +25,7 @@ Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-bel
 // Route for Connect With Our Team
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
 
-
+Route::post('/connect-with-our-team', [HomeController::class, 'submitContactForm'])->name('connect-with-our-team.submit');
 // Protected routes with middleware
 Route::middleware([
     'auth:sanctum',

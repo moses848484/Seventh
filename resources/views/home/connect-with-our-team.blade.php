@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
+    <title>Connect With Our Team - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -18,30 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        /* Ensure full height layout */
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
         body {
+            margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
             background-color: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Main content wrapper to push footer down */
-        .main-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content-area {
-            flex: 1;
         }
 
         /* Orange separator line */
@@ -123,175 +104,62 @@
             border-radius: 2px 2px 0 0;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 2;
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
-        }
-
-        .hero-section .lead {
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.6;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 60vh;
-                min-height: 400px;
-                background-attachment: scroll;
-            }
-
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1.2rem;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1.1rem;
-            }
-        }
-
-        .lead {
-            color: white;
-        }
-
-        /* Updated Demo Content Cards - with repositioned text */
-        .demo-card {
-            background: #ffffff;
+        .contact-form {
+            background: white;
             border-radius: 15px;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            height: 100%;
-            margin-bottom: 1.5rem;
+            margin: 20px 0;
         }
 
-        .demo-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .demo-card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            font-size: 28px;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .demo-card-icon.teal {
-            background: linear-gradient(135deg, #4ade80, #22d3ee);
-        }
-
-        .demo-card-icon.blue {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-        }
-
-        .demo-card-icon.purple {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-        }
-
-        .demo-card-content {
-            flex: 1;
-            text-align: left;
-            /* Keep text left-aligned */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            /* Move text higher */
-            padding: 0;
-            /* Remove vertical padding completely */
-            margin-top: -15px;
-            /* Pull text up slightly */
-        }
-
-        .demo-card h4 {
+        .form-group label {
             color: #333;
-            /* Changed from white to dark */
-            font-weight: 600;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            text-align: left;
-            /* Keep left-aligned */
-            margin-top: 0;
-            /* Remove default top margin */
-        }
-
-        .demo-card p {
-            color: #666;
-            /* Changed from light gray to darker gray for better readability */
-            margin: 5px 0;
-            /* Reduced margin between paragraphs */
-            line-height: 1.6;
-            font-size: 1rem;
-            text-align: left;
-            /* Keep left-aligned */
-        }
-
-        .demo-card .contact-info {
-            color: #22d3ee;
-            text-decoration: none;
             font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        .demo-card .contact-info:hover {
-            color: #0ea5e9;
-            text-decoration: none;
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
         }
 
-        /* Original expectation cards remain unchanged */
-        .expectation-card {
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin: 20px 0;
         }
 
-        .expectation-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .expectation-icon {
+        .contact-icon {
             width: 60px;
             height: 60px;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -301,18 +169,7 @@
             color: white;
         }
 
-        h4,
-        h3,
-        h2 {
-            color: #333;
-        }
-
-        p,
-        small {
-            color: #555;
-        }
-
-        .text-area12 h4 {
+        .text-area12 h2, .text-area12 h4 {
             color: #333;
         }
 
@@ -320,244 +177,168 @@
             color: #666;
         }
 
-        /* Optional smaller adjustments on mobile */
-        @media (max-width: 800px) {
-            .demo-card {
+        @media (max-width: 768px) {
+            .contact-form, .contact-info-card {
                 padding: 20px;
-                gap: 15px;
+                margin: 15px 0;
             }
-
-            .demo-card-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-
-            .expectation-card {
-                padding: 20px;
-            }
-
-            .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            h4 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Image Slider-specific styles - using unique class names */
-        .image-slider-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-        }
-
-        .image-slider-wrapper {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image-slide {
-            width: 33.333%;
-            height: 100%;
-        }
-
-        .image-slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.6);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-slider-nav:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-slider-prev {
-            left: 10px;
-        }
-
-        .image-slider-next {
-            right: 10px;
-        }
-
-        .image-slider-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .image-slider-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-slider-indicator.active {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
-        }
-
-        .text-paragraph_large {
-            margin-top: 10px !important;
-        }
-
-        .text-section_header3 {
-            margin-top: 10px !important;
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 0%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
-            margin-right: 0px;
-            letter-spacing: -0.5px;
-        }
-
-        .service-icon.youth {
-            background-color: #1a1a1a;
-        }
-
-        .phone {
-            color: #00aaff !important;
-        }
-
-        .email {
-            color: #00aaff !important;
-        }
-
-        .btn-box3 {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            width: 100% !important;
-            margin-top: 30px !important;
-            margin-bottom: 30px !important;
-            background-color: white !important;
-        }
-
-        .btn9-method2 {
-            background: #ffffff !important;
-            color: rgb(0, 0, 0) !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 12px 24px;
-            border-radius: 30px !important;
-            border: 2px solid #ffffffff !important;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn9-method2 i {
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .btn9-method2:hover {
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Footer positioning */
-        .main-content {
-            flex: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="main-content">
-        @include('home.header')
 
-        <!-- Orange Separator Line -->
-        <div class="orange-separator"></div>
+    @include('home.header')
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-custom">
-            <div class="container">
-                <a class="navbar-brand" href="#">About Us</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="custom-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav active" href="{{ route('our-beliefs') }}">Our Beliefs</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Orange Separator Line -->
+    <div class="orange-separator"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">About Us</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="custom-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav active" href="{{ route('connect-with-our-team') }}">Connect With Our Team</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Text Column -->
-        <div class="py-5">
-            <div class="container">
-                <div class="text-area12 text-left text-black p-4 rounded" style="background-color: white !important;">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading3 text-section_header mb-relaxed">
-                        Coming Soon
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                        <p>
-                            Our beliefs page is currently under construction. Please check back soon to learn more about
-                            our foundational beliefs and doctrines.
-                        </p>
-                        <p>
-                            In the meantime, feel free to explore our other pages or contact us if you have any specific
-                            questions about our faith and practices.
-                        </p>
+    <!-- Header Section -->
+    <div class="py-5">
+        <div class="container">
+            <div class="text-area12 text-center text-black p-4 rounded" style="background-color: white !important;">
+                <h2 class="mb-4">Connect With Our Team</h2>
+                <p class="lead">We'd love to hear from you! Whether you have questions, need prayer, or want to get more involved in our church community, our team is here to help.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form and Info Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8 mb-4">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Send us a message</h4>
+                        <form action="#" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="first_name">First Name *</label>
+                                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_name">Last Name *</label>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select class="form-control" id="subject" name="subject" required>
+                                    <option value="">Select a topic...</option>
+                                    <option value="prayer_request">Prayer Request</option>
+                                    <option value="giving_help">Giving Help</option>
+                                    <option value="career_inquiry">Career Inquiry</option>
+                                    <option value="groups">Unisdagroups</option>
+                                    <option value="general_inquiry">General Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        I'd like to receive updates and newsletters from Unisda Church
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
                     </div>
                 </div>
-                <div class="spacer-wrapper pt-normal"></div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h5>Call Us</h5>
+                        <p>+260 974 752 637<br>Available Monday - Friday<br>9:00 AM - 5:00 PM</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h5>Email Us</h5>
+                        <p>info@unisda.com<br>We'll respond within 24 hours</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h5>Visit Us</h5>
+                        <p>Unisda Church<br>Lusaka, Zambia<br>Sunday Services: 9:00 AM & 11:00 AM</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h5>Office Hours</h5>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: After Services</p>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </section>
-    </div>
+    </section>
 
     <!-- footer start -->
     @include('home.footer')
@@ -580,6 +361,12 @@
                     this.classList.add('active');
                 });
             });
+        });
+
+        // Form submission handler (you can customize this)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
         });
     </script>
 </body>

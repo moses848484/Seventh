@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         return view('home.who-we-are');
     }
-     public function contactUs()
+    public function contactUs()
     {
         return view('home.contact-us');
     }
@@ -35,9 +35,37 @@ class HomeController extends Controller
         return view('home.our-beliefs');
     }
 
-     public function connectWithOurTeam()
+    public function connectWithOurTeam()
     {
-        return view('connect-with-our-team');
+        return view('home.connect-with-our-team');
+    }
+
+
+    public function submitContactForm(Request $request)
+    {
+        // Validate the form data
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:1000',
+            'newsletter' => 'nullable|boolean'
+        ]);
+
+        // Here you can:
+        // 1. Save to database
+        // 2. Send email notification
+        // 3. Send auto-response email
+
+        // Example: Save to a contacts table (you'll need to create this)
+        // Contact::create($validated);
+
+        // Example: Send email notification
+        // Mail::to('admin@unisda.com')->send(new ContactFormMail($validated));
+
+        return back()->with('success', 'Thank you for your message! We will get back to you soon.');
     }
 
     public function redirect()
@@ -59,7 +87,7 @@ class HomeController extends Controller
             $singlesCount = members::where('marital', 'single')->count();
             $marriedCount = members::where('marital', 'married')->count();
             $divorcedCount = members::where('marital', 'divorced')->count();
-            
+
             // Show welcome notification only once per session
             $welcomeKey = 'welcomed_user_' . Auth::id();
             if (!session()->has($welcomeKey)) {
@@ -67,7 +95,7 @@ class HomeController extends Controller
                 notify()->success('Welcome, ' . $user->name . '!');
                 session([$welcomeKey => true]);
             }
-          
+
             return view('admin.home', [
                 'data' => $data,
                 'users' => $users,
@@ -87,7 +115,7 @@ class HomeController extends Controller
                 notify()->success('Welcome, ' . $user->name . '!');
                 session([$welcomeKey => true]);
             }
-            
+
             return view('home.memberhome');
         }
     }
@@ -107,7 +135,7 @@ class HomeController extends Controller
             $data = members::all();
             $memberCount = members::count();
             $membersCount = members::where('registeras', 'member')->count();
-            $visitorCount = members::where('registeras', 'visitor')->count();             
+            $visitorCount = members::where('registeras', 'visitor')->count();
             $singlesCount = members::where('marital', 'single')->count();
             $marriedCount = members::where('marital', 'married')->count();
             $divorcedCount = members::where('marital', 'divorced')->count();
