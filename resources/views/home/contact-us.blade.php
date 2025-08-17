@@ -15,13 +15,14 @@
     <link rel="stylesheet"
         href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
         body {
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             color: #c3c3c3ff;
-            background-color: #c3c3c3ff;
+            background-color: #f8f9fa;
         }
 
         /* Orange separator line */
@@ -50,9 +51,7 @@
             border: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
-            /* Remove any box shadow */
             outline: none !important;
-            /* Remove outline on focus */
         }
 
         .custom-toggler-icon {
@@ -63,7 +62,6 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-
         }
 
         .navbar-brand {
@@ -101,7 +99,6 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            /* 80% of link width */
             height: 3px;
             background-color: #000;
             border-radius: 2px 2px 0 0;
@@ -164,9 +161,9 @@
             color: white;
         }
 
-        /* Updated Demo Content Cards - matching the reference image */
+        /* Updated Demo Content Cards - with repositioned text */
         .demo-card {
-            background: #ffffffff;
+            background: #ffffff;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -209,23 +206,28 @@
 
         .demo-card-content {
             flex: 1;
-            text-align: left;
+            text-align: left; /* Keep text left-aligned */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            padding: 10px 0; /* Add some vertical padding */
         }
 
         .demo-card h4 {
-            color: white;
+            color: #333; /* Changed from white to dark */
             font-weight: 600;
             font-size: 1.4rem;
             margin-bottom: 15px;
-            text-align: left;
+            text-align: left; /* Keep left-aligned */
+            margin-top: 0; /* Remove default top margin */
         }
 
         .demo-card p {
-            color: #b3b3b3;
-            margin: 0;
+            color: #666; /* Changed from light gray to darker gray for better readability */
+            margin: 5px 0; /* Reduced margin between paragraphs */
             line-height: 1.6;
             font-size: 1rem;
-            text-align: left;
+            text-align: left; /* Keep left-aligned */
         }
 
         .demo-card .contact-info {
@@ -272,12 +274,20 @@
         h4,
         h3,
         h2 {
-            color: #000;
+            color: #333;
         }
 
         p,
         small {
             color: #555;
+        }
+
+        .text-area12 h4 {
+            color: #333;
+        }
+
+        .text-area12 p {
+            color: #666;
         }
 
         /* Optional smaller adjustments on mobile */
@@ -412,7 +422,10 @@
 </head>
 
 <body>
-    @include('home.header')
+    <!-- Header placeholder -->
+    <div style="background: #333; color: white; padding: 10px; text-align: center;">
+        <h3>SDA Church Header</h3>
+    </div>
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -428,16 +441,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav active" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -455,8 +468,7 @@
                 <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
                     <p>
                         Thanks for getting in touch with us. We look forward to getting to know you better! To get you
-                        to
-                        the team who can best serve you, here are some of the areas we connect people to most
+                        to the team who can best serve you, here are some of the areas we connect people to most
                         frequently.
                     </p>
                 </div>
@@ -464,6 +476,7 @@
             <div class="spacer-wrapper pt-normal"></div>
         </div>
     </div>
+
     <!-- Updated Demo Content Section -->
     <section class="py-5">
         <div class="container">
@@ -476,7 +489,7 @@
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
-                            <p>We’re grateful for your generosity! We’d love to share more about what it means to tithe,
+                            <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
                                 where your gifts go, and answer any questions you have about giving at Life.Church.</p>
                             <p>0974752637</p>
                             <p>giving@unisda.com</p>
@@ -486,9 +499,8 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon light">
-                            <img src="images/sda3.png" alt="Service Icon" class="service-icon"
-                                style="width: 50px; height: 50px;">
+                        <div class="demo-card-icon teal" style="background: #333;">
+                            <span style="font-size: 12px; font-weight: bold;">SDA</span>
                         </div>
                         <div class="demo-card-content">
                             <h4>Youth Ministries</h4>
@@ -550,92 +562,15 @@
         </div>
     </section>
 
-    <script>
-        class ContentImageSlider {
-            constructor(sliderId) {
-                this.sliderId = sliderId;
-                this.currentSlide = 0;
-                this.totalSlides = 3;
-                this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
+    <!-- Footer placeholder -->
+    <div style="background: #333; color: white; padding: 20px; text-align: center; margin-top: 50px;">
+        <p>SDA Church Footer</p>
+    </div>
 
-                this.init();
-            }
-
-            init() {
-                // Add event listeners
-                this.prevBtn.addEventListener('click', () => this.previousSlide());
-                this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-                // Add indicator click events
-                this.indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => this.goToSlide(index));
-                });
-
-                // Add keyboard navigation (only when slider is focused)
-                this.sliderWrapper.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') this.previousSlide();
-                    if (e.key === 'ArrowRight') this.nextSlide();
-                });
-
-                // Make slider focusable for keyboard navigation
-                this.sliderWrapper.setAttribute('tabindex', '0');
-
-                // Optional: Auto-play slider
-                this.startAutoPlay();
-            }
-
-            nextSlide() {
-                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                this.updateSlider();
-            }
-
-            previousSlide() {
-                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                this.updateSlider();
-            }
-
-            goToSlide(slideIndex) {
-                this.currentSlide = slideIndex;
-                this.updateSlider();
-            }
-
-            updateSlider() {
-                // Move slider
-                const translateX = -this.currentSlide * (100 / this.totalSlides);
-                this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                // Update indicators
-                this.indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === this.currentSlide);
-                });
-            }
-
-            startAutoPlay() {
-                // Auto-advance every 5 seconds
-                setInterval(() => {
-                    this.nextSlide();
-                }, 5000);
-            }
-        }
-
-        // Initialize all sliders when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new ContentImageSlider('1');
-            new ContentImageSlider('2');
-            new ContentImageSlider('3');
-        });
-    </script>
-    </section>
-    <!-- footer start -->
-    @include('home.footer')
-    <!-- footer end -->
     <!-- Font Awesome + Bootstrap JS -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
         // Simple navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
@@ -643,8 +578,6 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    // e.preventDefault();
-
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
 
