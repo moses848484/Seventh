@@ -547,19 +547,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon teal">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Pastoral Care</h4>
-                            <p>Connect with our pastoral team for spiritual guidance and support</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third Row -->
+                      <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon blue">
@@ -568,18 +556,7 @@
                         <div class="demo-card-content">
                             <h4>Bible Study</h4>
                             <p>Join our weekly Bible study sessions and grow deeper in God's word</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="demo-card">
-                        <div class="demo-card-icon purple">
-                            <i class="fa-solid fa-hands-helping"></i>
-                        </div>
-                        <div class="demo-card-content">
-                            <h4>Community Outreach</h4>
-                            <p>Get involved in serving our local community through various ministry programs</p>
+                            <a class="phone" href="{{ route('our-beliefs') }}">View Bible Study details</a>
                         </div>
                     </div>
                 </div>
