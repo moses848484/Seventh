@@ -920,6 +920,42 @@ div.form_sub .field input[type="email"]:focus {
   /* Remove underline from links */
 }
 
+/* X (Twitter) Icon - Black/Dark theme */
+.fa-square-x-twitter {
+  color: #000000;
+}
+
+/* Alternative X Twitter colors */
+.fa-x-twitter {
+  color: #000000;
+}
+
+/* Instagram Icon - Classic gradient represented as solid color */
+.fa-instagram {
+  color: #E4405F;
+  /* Instagram's primary brand color */
+}
+
+/* Instagram with gradient effect (if supported) */
+.fa-instagram.gradient {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover effects */
+.fa-square-x-twitter:hover,
+.fa-x-twitter:hover {
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.fa-instagram:hover {
+  color: #C13584;
+  transition: color 0.3s ease;
+}
+
 .social-icon {
   color: #007bff;
   /* Icon color */

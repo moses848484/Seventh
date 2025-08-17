@@ -10,7 +10,7 @@
         <i class="fa-brands fa-facebook"></i>
         </a>
         <a href="https://twitter.com" target="_blank" class="social-icon">
-        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
         </a>
         <a href="https://instagram.com" target="_blank" class="social-icon">
         <i class="fa-brands fa-instagram"></i>
