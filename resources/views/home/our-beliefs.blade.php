@@ -309,45 +309,6 @@
             padding: 4rem 0;
         }
 
-        /* Footer styling */
-        .footer {
-            background: #333;
-            color: white;
-            padding: 40px 0 20px 0;
-            margin-top: auto;
-        }
-
-        .footer h5 {
-            color: #e4af00;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .footer p,
-        .footer li {
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        .footer a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #e4af00;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #555;
-            margin-top: 30px;
-            padding-top: 20px;
-            text-align: center;
-            color: #999;
-        }
-
         /* Optional smaller adjustments on mobile */
         @media (max-width: 800px) {
             .demo-card {
