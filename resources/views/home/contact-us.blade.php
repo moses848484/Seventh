@@ -449,11 +449,13 @@
         }
 
         .btn9 {
-            background-color: white !important;
+            background: #ffffff !important;
             /* Example background color */
             color: rgb(0, 0, 0) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 7px 20px;
             border-radius: 30px !important;
+            border: 2px solid white !important;
             display: inline-flex;
             width: auto;
             text-decoration: none;
