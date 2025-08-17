@@ -587,7 +587,7 @@
                             <i class="fa-solid fa-bible"></i>
                         </div>
                         <div class="demo-card-content">
-                            <h4>Unisdagroups/h4>
+                            <h4>Unisdagroups</h4>
                             <p>Join a group bible study session and grow deeper in God's word</p>
                             <a class="phone" href="{{ route('our-beliefs') }}">View Unisdagroups details</a>
                         </div>
