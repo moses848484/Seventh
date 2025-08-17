@@ -560,6 +560,13 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="btn-box3">
+                <a href="{{ route('register') }}" class="btn4">
+                    <i class="fa-solid fa-hands-praying"></i>&nbsp;Ask for prayer
+                </a>
+            </div>
+            
             </div>
         </div>
     </section>
