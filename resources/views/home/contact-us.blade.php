@@ -454,7 +454,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             padding: 12px 24px;
             border-radius: 30px !important;
-            border: 2px solid white !important;
+            border: 2px solid #e0e0e0 !important;
             display: inline-block;
             text-decoration: none;
             font-size: 1.2rem;
@@ -595,7 +595,7 @@
                 </div>
 
                 <div class="btn-box3">
-                    <a href="{{ route('register') }}" class="btn9">
+                    <a href="{{ route('register') }}" class="btn9-method2">
                         <i class="fa-regular fa-comment-dots"></i>&nbsp;Ask for prayer
                     </a>
                 </div>
