@@ -437,6 +437,20 @@
         .email {
             color: #00aaff !important;
         }
+
+        .btn-box3 {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+        }
+
+        .btn4 {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            /* ... enhanced styling */
+        }
     </style>
 </head>
 
@@ -527,7 +541,7 @@
                                 what it’s like to work at Unisda Church? Curious about our open roles? We’d love to tell
                                 you more.</p>
                             <p class="phone">Explore Careers at Unisda Church.</p>
-                           <a class="phone" href="{{ route('our-beliefs') }}">careers@unisda.com</a>
+                            <a class="phone" href="{{ route('our-beliefs') }}">careers@unisda.com</a>
                         </div>
                     </div>
                 </div>
@@ -547,7 +561,7 @@
                     </div>
                 </div>
 
-                      <!-- Third Row -->
+                <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon blue">
@@ -562,11 +576,11 @@
                 </div>
 
                 <div class="btn-box3">
-                <a href="{{ route('register') }}" class="btn4">
-                    <i class="fa-solid fa-hands-praying"></i>&nbsp;Ask for prayer
-                </a>
-            </div>
-            
+                    <a href="{{ route('register') }}" class="btn4">
+                        <i class="fa-solid fa-hands-praying"></i>&nbsp;Ask for prayer
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
