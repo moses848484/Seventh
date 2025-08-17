@@ -429,6 +429,14 @@
         .service-icon.youth {
             background-color: #1a1a1a;
         }
+
+        .phone {
+            color: #00aaff !important;
+        }
+        
+        .email {
+            color: #00aaff !important;
+        }
     </style>
 </head>
 
