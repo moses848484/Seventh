@@ -445,11 +445,19 @@
             width: 100% !important;
             margin-top: 30px !important;
             margin-bottom: 30px !important;
-            border: none !important;
+            background-color: white !important;
         }
 
-        .btn4 {
-           background-color: white !important; 
+        .btn9 {
+            background-color: white !important;
+            /* Example background color */
+            color: rgb(0, 0, 0) !important;
+            padding: 7px 20px;
+            border-radius: 30px !important;
+            display: inline-flex;
+            width: auto;
+            text-decoration: none;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -576,7 +584,7 @@
                 </div>
 
                 <div class="btn-box3">
-                    <a href="{{ route('register') }}" class="btn4">
+                    <a href="{{ route('register') }}" class="btn9">
                         <i class="fa-regular fa-comment-dots"></i>&nbsp;Ask for prayer
                     </a>
                 </div>
