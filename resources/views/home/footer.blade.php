@@ -13,10 +13,13 @@
         <i class="fa-brands fa-square-x-twitter"></i>
         </a>
         <a href="https://instagram.com" target="_blank" class="social-icon">
-        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+        </a>
+           <a href="https://instagram.com" target="_blank" class="social-icon">
+        <i class="fa-brands fa-square-whatsapp"></i>
         </a>
         <a href="https://linkedin.com" target="_blank" class="social-icon">
-        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-square-linkedin"></i>
         </a>
     </div>
 </div>
