@@ -448,18 +448,27 @@
             background-color: white !important;
         }
 
-        .btn9 {
+        .btn9-method2 {
             background: #ffffff !important;
-            /* Example background color */
             color: rgb(0, 0, 0) !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 7px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 12px 24px;
             border-radius: 30px !important;
-            border: 2px solid white !important;
-            display: inline-flex;
-            width: auto;
+            border: 2px solid #e0e0e0 !important;
+            display: inline-block;
             text-decoration: none;
             font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn9-method2 i {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .btn9-method2:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
         }
     </style>
 </head>
