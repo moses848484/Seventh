@@ -508,8 +508,8 @@
                             <h4>Giving Help</h4>
                             <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
                                 where your gifts go, and answer any questions you have about giving at Life.Church.</p>
-                            <p>0974752637</p>
-                            <p>giving@unisda.com</p>
+                            <p class="phone">0974752637</p>
+                            <p class="email">giving@unisda.com</p>
                         </div>
                     </div>
                 </div>
@@ -542,6 +542,7 @@
                             <h4>Prayer Needs</h4>
                             <p>We would be honored to pray with you! We’ve got teams passionate about doing just that,
                                 so please share how we can be praying for you this week.</p>
+                            <a class="phone" href="{{ route('our-beliefs') }}">Share Your Prayer Request</a>
                         </div>
                     </div>
                 </div>
