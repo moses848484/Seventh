@@ -433,7 +433,7 @@
         .phone {
             color: #00aaff !important;
         }
-        
+
         .email {
             color: #00aaff !important;
         }
@@ -536,11 +536,12 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon purple">
-                            <i class="fa-solid fa-user-graduate"></i>
+                            <i class="fa-solid fa-hands-praying"></i>
                         </div>
                         <div class="demo-card-content">
-                            <h4>Campus Ministries</h4>
-                            <p>Join the Public Campus Ministries (PCM) if you are a college/university student</p>
+                            <h4>Prayer Needs</h4>
+                            <p>We would be honored to pray with you! We’ve got teams passionate about doing just that,
+                                so please share how we can be praying for you this week.</p>
                         </div>
                     </div>
                 </div>
