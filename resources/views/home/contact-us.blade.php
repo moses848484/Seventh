@@ -429,12 +429,6 @@
         .service-icon.youth {
             background-color: #1a1a1a;
         }
-        .phone {
-            color: #00aaff !important;
-        }
-        .email {
-            color: #00aaff !important;
-        }
     </style>
 </head>
 
@@ -506,8 +500,8 @@
                             <h4>Giving Help</h4>
                             <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
                                 where your gifts go, and answer any questions you have about giving at Life.Church.</p>
-                            <p class="phone">0974752637</p>
-                            <p class="email">giving@unisda.com</p>
+                            <p>0974752637</p>
+                            <p>giving@unisda.com</p>
                         </div>
                     </div>
                 </div>
@@ -524,7 +518,7 @@
                                 about
                                 what it’s like to work at Unisda Church? Curious about our open roles? We’d love to tell
                                 you more.</p>
-                            <p class="phone">Explore Careers at Life.Church/p>
+                            <p class="phone">Explore Careers at Unisda Church.</p>
                             <p class="email">careers@unisda.com</p>
                         </div>
                     </div>
