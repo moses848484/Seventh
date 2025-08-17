@@ -912,7 +912,7 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 .social-icon {
-  color: #333;
+  color: #007bff;
   /* Icon color */
   font-size: 18px;
   /* Adjust icon size */
@@ -921,7 +921,7 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 .social-icon {
-  color: #333;
+  color: #007bff;
   /* Icon color */
   font-size: 28px;
   /* Adjust icon size */
@@ -930,7 +930,7 @@ div.form_sub .field input[type="email"]:focus {
 }
 
 .social-icon:hover {
-  color: #007bff;
+  color: #005ec2;
   /* Change color on hover */
 }
 
