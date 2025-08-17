@@ -206,29 +206,39 @@
 
         .demo-card-content {
             flex: 1;
-            text-align: left; /* Keep text left-aligned */
+            text-align: left;
+            /* Keep text left-aligned */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Move text higher */
-            padding: 0; /* Remove vertical padding completely */
-            margin-top: -5px; /* Pull text up slightly */
+            justify-content: flex-start;
+            /* Move text higher */
+            padding: 0;
+            /* Remove vertical padding completely */
+            margin-top: -5px;
+            /* Pull text up slightly */
         }
 
         .demo-card h4 {
-            color: #333; /* Changed from white to dark */
+            color: #333;
+            /* Changed from white to dark */
             font-weight: 600;
             font-size: 1.4rem;
             margin-bottom: 15px;
-            text-align: left; /* Keep left-aligned */
-            margin-top: 0; /* Remove default top margin */
+            text-align: left;
+            /* Keep left-aligned */
+            margin-top: 0;
+            /* Remove default top margin */
         }
 
         .demo-card p {
-            color: #666; /* Changed from light gray to darker gray for better readability */
-            margin: 5px 0; /* Reduced margin between paragraphs */
+            color: #666;
+            /* Changed from light gray to darker gray for better readability */
+            margin: 5px 0;
+            /* Reduced margin between paragraphs */
             line-height: 1.6;
             font-size: 1rem;
-            text-align: left; /* Keep left-aligned */
+            text-align: left;
+            /* Keep left-aligned */
         }
 
         .demo-card .contact-info {
@@ -423,10 +433,8 @@
 </head>
 
 <body>
-    <!-- Header placeholder -->
-    <div style="background: #333; color: white; padding: 10px; text-align: center;">
-        <h3>SDA Church Header</h3>
-    </div>
+
+    @include('home.header')
 
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
@@ -500,8 +508,9 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon teal" style="background: #333;">
-                            <span style="font-size: 12px; font-weight: bold;">SDA</span>
+                        <div class="demo-card-icon light">
+                            <img src="images/sda3.png" alt="Service Icon" class="service-icon"
+                                style="width: 50px; height: 50px;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Youth Ministries</h4>
@@ -562,7 +571,8 @@
             </div>
         </div>
     </section>
-
+    <!-- footer start -->
+    @include('home.footer')
     <!-- Footer placeholder -->
     <div style="background: #333; color: white; padding: 20px; text-align: center; margin-top: 50px;">
         <p>SDA Church Footer</p>
@@ -571,7 +581,7 @@
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Simple navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
