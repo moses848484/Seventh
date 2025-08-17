@@ -429,6 +429,12 @@
         .service-icon.youth {
             background-color: #1a1a1a;
         }
+        .phone {
+            color: #00aaff !important;
+        }
+        .email {
+            color: #00aaff !important;
+        }
     </style>
 </head>
 
@@ -500,8 +506,8 @@
                             <h4>Giving Help</h4>
                             <p>We're grateful for your generosity! We'd love to share more about what it means to tithe,
                                 where your gifts go, and answer any questions you have about giving at Life.Church.</p>
-                            <p>0974752637</p>
-                            <p>giving@unisda.com</p>
+                            <p class="phone">0974752637</p>
+                            <p class="email">giving@unisda.com</p>
                         </div>
                     </div>
                 </div>
