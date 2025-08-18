@@ -12,9 +12,7 @@ class ContactController extends Controller
 {
     public function contactUs()
     {
-        return view('home.contact-with-our-team', [
-            'title' => 'Contact Us',
-            'description' => 'Get in touch with our team for any inquiries or support.',
+        return view('home.connect-with-our-team', [
         ]);
     }
 
