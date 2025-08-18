@@ -25,10 +25,7 @@ Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-u
 Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
 // Route for Connect With Our Team
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
-// Route for Contact Us
-Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact');
-// Route for Contact Us form submission 
-Route::post('/conect-with-our-team', [ContactController::class, 'submitContactForm'])->name('conect-with-our-team.submit');
+
 
 // Protected routes with middleware
 Route::middleware([
