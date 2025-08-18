@@ -37,13 +37,14 @@
         }
 
         .form-container {
-            max-width: 600px;
-            width: 90%;
+            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             background: white;
             padding: 60px 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
         }
 
         .header-section {
@@ -103,17 +104,19 @@
         .form-control {
             border: 1px solid #dee2e6;
             border-radius: 4px;
-            padding: 12px 15px;
+            padding: 15px 20px;
             font-size: 16px;
             transition: all 0.2s ease;
             width: 100%;
-            background-color: #fff;
+            background-color: #f8f9fa;
+            box-sizing: border-box;
         }
 
         .form-control:focus {
             border-color: #4fc3f7;
             outline: none;
             box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
+            background-color: #fff;
         }
 
         .form-control::placeholder {
@@ -124,9 +127,10 @@
             cursor: pointer;
             background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 12px center;
+            background-position: right 18px center;
             background-size: 16px;
-            padding-right: 40px;
+            padding-right: 50px;
+            background-color: #f8f9fa;
         }
 
         textarea.form-control {
@@ -140,7 +144,7 @@
 
         .input-icon i {
             position: absolute;
-            left: 15px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
             color: #6c757d;
@@ -148,7 +152,7 @@
         }
 
         .input-icon .form-control {
-            padding-left: 45px;
+            padding-left: 50px;
         }
 
         .submit-btn {
@@ -205,7 +209,7 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .form-container {
-                width: 95%;
+                width: 100%;
                 padding: 40px 25px;
             }
 
@@ -224,7 +228,7 @@
 
         @media (max-width: 480px) {
             .form-container {
-                width: 98%;
+                width: 100%;
                 padding: 30px 20px;
             }
 
