@@ -380,65 +380,35 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Auto-hide success messages after 5 seconds
-            const successAlert = document.querySelector('.alert-success');
-            if (successAlert) {
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Auto-hide success messages after 5 seconds
+        const successAlert = document.querySelector('.alert-success');
+        if (successAlert) {
+            setTimeout(() => {
+                successAlert.style.opacity = '0';
                 setTimeout(() => {
-                    successAlert.style.opacity = '0';
-                    setTimeout(() => {
-                        successAlert.remove();
-                    }, 300);
-                }, 5000);
-            }
+                    successAlert.remove();
+                }, 300);
+            }, 5000);
+        }
 
-            // Form validation feedback
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function (e) {
-
-                const requiredFields = form.querySelectorAll('[required]');
-                let isValid = true;
-
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        field.style.borderColor = '#e74c3c';
-                        isValid = false;
-                    } else {
-                        field.style.borderColor = '#dee2e6';
-                    }
-                });
-
-                if (isValid) {
-                    // Show success message
-                    const alert = document.querySelector('.alert-success');
-                    alert.style.display = 'block';
-                    form.reset();
-                } else {
-                    // Scroll to first invalid field
-                    const firstInvalid = form.querySelector('[style*="border-color: rgb(231, 76, 60)"]');
-                    if (firstInvalid) {
-                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        firstInvalid.focus();
-                    }
-                }
+        // Focus effects for icon boxes
+        const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
+        inputsWithIcons.forEach(input => {
+            input.addEventListener('focus', function () {
+                this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
+                this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
             });
 
-            // Focus effects for icon boxes
-            const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
-            inputsWithIcons.forEach(input => {
-                input.addEventListener('focus', function () {
-                    this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
-                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
-                });
-
-                input.addEventListener('blur', function () {
-                    this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
-                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
-                });
+            input.addEventListener('blur', function () {
+                this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
+                this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
             });
         });
-    </script>
+    });
+</script>
+
 </body>
 
 </html>
