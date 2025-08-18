@@ -42,8 +42,7 @@
             margin: 0 auto;
             background: white;
             padding: 60px 40px;
-            border-radius: 2px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
             box-shadow: none;
             border: none;
         }
@@ -287,6 +286,8 @@
 </head>
 
 <body>
+    @include('home.header')
+
     <div class="main-content">
         <div class="form-container">
             <!-- Header Section -->
@@ -390,6 +391,8 @@
             </form>
         </div>
     </div>
+
+    @include('home.footer')
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
