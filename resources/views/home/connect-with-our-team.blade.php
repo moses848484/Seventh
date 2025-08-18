@@ -125,6 +125,7 @@
 
         select.form-control {
             cursor: pointer;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
             background-color: #f8f9fa;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -169,7 +170,7 @@
             border-left: none;
         }
 
-        .input-with-icon .form-control:focus + .icon-box,
+        .input-with-icon .form-control:focus+.icon-box,
         .input-with-icon:focus-within .icon-box {
             border-color: #4fc3f7;
             background-color: #f0f9ff;
@@ -304,25 +305,17 @@
 
             <!-- Contact Form -->
             <form action="#" method="POST">
-                
+
                 <!-- First Name -->
                 <div class="form-group">
                     <label for="first_name">Your First Name <span class="required">*</span></label>
-                    <input type="text" 
-                           class="form-control" 
-                           id="first_name" 
-                           name="first_name" 
-                           required>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
                 </div>
 
                 <!-- Last Name -->
                 <div class="form-group">
                     <label for="last_name">Your Last Name <span class="required">*</span></label>
-                    <input type="text" 
-                           class="form-control" 
-                           id="last_name" 
-                           name="last_name" 
-                           required>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
                 </div>
 
                 <!-- Email with Icon Box -->
@@ -332,11 +325,7 @@
                         <div class="icon-box">
                             <i class="fa-regular fa-envelope"></i>
                         </div>
-                        <input type="email" 
-                               class="form-control" 
-                               id="email" 
-                               name="email" 
-                               required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
 
@@ -347,10 +336,7 @@
                         <div class="icon-box">
                             <i class="fa-solid fa-phone"></i>
                         </div>
-                        <input type="tel" 
-                               class="form-control" 
-                               id="phone" 
-                               name="phone">
+                        <input type="tel" class="form-control" id="phone" name="phone">
                     </div>
                 </div>
 
@@ -372,11 +358,8 @@
                 <!-- Question/Message -->
                 <div class="form-group">
                     <label for="message">Your Question <span class="required">*</span></label>
-                    <textarea class="form-control" 
-                              id="message" 
-                              name="message" 
-                              placeholder="Tell us how we can help you..."
-                              required></textarea>
+                    <textarea class="form-control" id="message" name="message"
+                        placeholder="Tell us how we can help you..." required></textarea>
                 </div>
 
                 <!-- Submit Button -->
@@ -397,7 +380,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Auto-hide success messages after 5 seconds
             const successAlert = document.querySelector('.alert-success');
             if (successAlert) {
@@ -411,9 +394,9 @@
 
             // Form validation feedback
             const form = document.querySelector('form');
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault(); // Prevent actual submission for demo
-                
+
                 const requiredFields = form.querySelectorAll('[required]');
                 let isValid = true;
 
@@ -444,12 +427,12 @@
             // Focus effects for icon boxes
             const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
             inputsWithIcons.forEach(input => {
-                input.addEventListener('focus', function() {
+                input.addEventListener('focus', function () {
                     this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
                     this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
                 });
-                
-                input.addEventListener('blur', function() {
+
+                input.addEventListener('blur', function () {
                     this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
                     this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
                 });
