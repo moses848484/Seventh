@@ -42,7 +42,8 @@
             margin: 0 auto;
             background: white;
             padding: 60px 40px;
-            border-radius: 0;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             box-shadow: none;
             border: none;
         }
@@ -138,21 +139,43 @@
             min-height: 120px;
         }
 
-        .input-icon {
-            position: relative;
+        /* New icon with input styling */
+        .input-with-icon {
+            display: flex;
+            align-items: stretch;
         }
 
-        .input-icon i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
+        .icon-box {
+            width: 50px;
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-box i {
             color: #6c757d;
             font-size: 16px;
         }
 
-        .input-icon .form-control {
-            padding-left: 50px;
+        .input-with-icon .form-control {
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+            flex: 1;
+        }
+
+        .input-with-icon .form-control:focus {
+            border-left: none;
+        }
+
+        .input-with-icon .form-control:focus + .icon-box,
+        .input-with-icon:focus-within .icon-box {
+            border-color: #4fc3f7;
+            background-color: #f0f9ff;
         }
 
         .submit-btn {
@@ -255,13 +278,15 @@
             .main-content {
                 padding: 10px 0;
             }
+
+            .icon-box {
+                width: 45px;
+            }
         }
     </style>
 </head>
 
 <body>
-    @include('home.header')
-
     <div class="main-content">
         <div class="form-container">
             <!-- Header Section -->
@@ -273,113 +298,98 @@
                 <p class="page-subtitle">Have a question? Need pastoral care? Connect with us!</p>
             </div>
 
-                <!-- Success/Error Messages -->
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+            <!-- Success/Error Messages -->
+            <div class="alert alert-success" style="display: none;">
+                Your message has been sent successfully!
+            </div>
 
-                @if($errors->any())
-                    <div class="alert alert-danger">
-                        <ul style="margin: 0; padding-left: 20px;">
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            <!-- Contact Form -->
+            <form action="#" method="POST">
+                
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="first_name">Your First Name <span class="required">*</span></label>
+                    <input type="text" 
+                           class="form-control" 
+                           id="first_name" 
+                           name="first_name" 
+                           required>
+                </div>
 
-                <!-- Contact Form -->
-                <form action="{{ route('connect-with-our-team') }}" method="POST">
-                    @csrf
-                    
-                    <!-- First Name -->
-                    <div class="form-group">
-                        <label for="first_name">Your First Name <span class="required">*</span></label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="first_name" 
-                               name="first_name" 
-                               value="{{ old('first_name') }}"
-                               required>
-                    </div>
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="last_name">Your Last Name <span class="required">*</span></label>
+                    <input type="text" 
+                           class="form-control" 
+                           id="last_name" 
+                           name="last_name" 
+                           required>
+                </div>
 
-                    <!-- Last Name -->
-                    <div class="form-group">
-                        <label for="last_name">Your Last Name <span class="required">*</span></label>
-                        <input type="text" 
-                               class="form-control" 
-                               id="last_name" 
-                               name="last_name" 
-                               value="{{ old('last_name') }}"
-                               required>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <div class="input-icon">
+                <!-- Email with Icon Box -->
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <div class="icon-box">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" 
-                                   class="form-control" 
-                                   id="email" 
-                                   name="email" 
-                                   value="{{ old('email') }}"
-                                   required>
                         </div>
+                        <input type="email" 
+                               class="form-control" 
+                               id="email" 
+                               name="email" 
+                               required>
                     </div>
+                </div>
 
-                    <!-- Phone -->
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <div class="input-icon">
+                <!-- Phone with Icon Box -->
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <div class="input-with-icon">
+                        <div class="icon-box">
                             <i class="fa-solid fa-phone"></i>
-                            <input type="tel" 
-                                   class="form-control" 
-                                   id="phone" 
-                                   name="phone" 
-                                   value="{{ old('phone') }}">
                         </div>
+                        <input type="tel" 
+                               class="form-control" 
+                               id="phone" 
+                               name="phone">
                     </div>
+                </div>
 
-                    <!-- Campus/Subject -->
-                    <div class="form-group">
-                        <label for="subject">Campus <span class="required">*</span></label>
-                        <select class="form-control" id="subject" name="subject" required>
-                            <option value="">Select an option...</option>
-                            <option value="prayer_request" {{ old('subject') == 'prayer_request' ? 'selected' : '' }}>Prayer Request</option>
-                            <option value="giving_help" {{ old('subject') == 'giving_help' ? 'selected' : '' }}>Giving Help</option>
-                            <option value="career_inquiry" {{ old('subject') == 'career_inquiry' ? 'selected' : '' }}>Career Inquiry</option>
-                            <option value="groups" {{ old('subject') == 'groups' ? 'selected' : '' }}>Unisdagroups</option>
-                            <option value="general_inquiry" {{ old('subject') == 'general_inquiry' ? 'selected' : '' }}>General Inquiry</option>
-                            <option value="pastoral_care" {{ old('subject') == 'pastoral_care' ? 'selected' : '' }}>Pastoral Care</option>
-                            <option value="other" {{ old('subject') == 'other' ? 'selected' : '' }}>Other</option>
-                        </select>
-                    </div>
+                <!-- Campus/Subject -->
+                <div class="form-group">
+                    <label for="subject">Campus <span class="required">*</span></label>
+                    <select class="form-control" id="subject" name="subject" required>
+                        <option value="">Select an option...</option>
+                        <option value="prayer_request">Prayer Request</option>
+                        <option value="giving_help">Giving Help</option>
+                        <option value="career_inquiry">Career Inquiry</option>
+                        <option value="groups">Unisdagroups</option>
+                        <option value="general_inquiry">General Inquiry</option>
+                        <option value="pastoral_care">Pastoral Care</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
 
-                    <!-- Question/Message -->
-                    <div class="form-group">
-                        <label for="message">Your Question <span class="required">*</span></label>
-                        <textarea class="form-control" 
-                                  id="message" 
-                                  name="message" 
-                                  placeholder="Tell us how we can help you..."
-                                  required>{{ old('message') }}</textarea>
-                    </div>
+                <!-- Question/Message -->
+                <div class="form-group">
+                    <label for="message">Your Question <span class="required">*</span></label>
+                    <textarea class="form-control" 
+                              id="message" 
+                              name="message" 
+                              placeholder="Tell us how we can help you..."
+                              required></textarea>
+                </div>
 
-                    <!-- Submit Button -->
-                    <div class="btn-container">
-                        <button type="submit" class="submit-btn">
-                            <i class="fa-regular fa-paper-plane"></i>
-                            Send Question
-                        </button>
-                    </div>
-                </form>
+                <!-- Submit Button -->
+                <div class="btn-container">
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        Send Question
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-
-    @include('home.footer')
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -401,6 +411,8 @@
             // Form validation feedback
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual submission for demo
+                
                 const requiredFields = form.querySelectorAll('[required]');
                 let isValid = true;
 
@@ -413,8 +425,12 @@
                     }
                 });
 
-                if (!isValid) {
-                    e.preventDefault();
+                if (isValid) {
+                    // Show success message
+                    const alert = document.querySelector('.alert-success');
+                    alert.style.display = 'block';
+                    form.reset();
+                } else {
                     // Scroll to first invalid field
                     const firstInvalid = form.querySelector('[style*="border-color: rgb(231, 76, 60)"]');
                     if (firstInvalid) {
@@ -422,6 +438,20 @@
                         firstInvalid.focus();
                     }
                 }
+            });
+
+            // Focus effects for icon boxes
+            const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
+            inputsWithIcons.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
+                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
+                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
+                });
             });
         });
     </script>
