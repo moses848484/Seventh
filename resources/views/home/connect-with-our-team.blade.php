@@ -304,7 +304,8 @@
             </div>
 
             <!-- Contact Form -->
-            <form action="#" method="POST">
+            <form action="{{ route('contact.submit') }}" method="POST">
+                @csrf
 
                 <!-- First Name -->
                 <div class="form-group">
@@ -395,7 +396,6 @@
             // Form validation feedback
             const form = document.querySelector('form');
             form.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent actual submission for demo
 
                 const requiredFields = form.querySelectorAll('[required]');
                 let isValid = true;
