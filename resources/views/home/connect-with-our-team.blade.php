@@ -126,10 +126,11 @@
         select.form-control {
             cursor: pointer;
             background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 16px;
+            padding-right: 50px;
             background-color: #f8f9fa;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
         }
 
         textarea.form-control {
