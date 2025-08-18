@@ -125,12 +125,10 @@
 
         select.form-control {
             cursor: pointer;
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23495057' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 18px center;
-            background-size: 16px;
-            padding-right: 50px;
             background-color: #f8f9fa;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         textarea.form-control {
@@ -332,7 +330,7 @@
                     <label for="email">Email <span class="required">*</span></label>
                     <div class="input-with-icon">
                         <div class="icon-box">
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class="fa-regular fa-envelope"></i>
                         </div>
                         <input type="email" 
                                class="form-control" 
@@ -356,9 +354,9 @@
                     </div>
                 </div>
 
-                <!-- Campus/Subject -->
+                <!-- Subject -->
                 <div class="form-group">
-                    <label for="subject">Campus <span class="required">*</span></label>
+                    <label for="subject">Regarding <span class="required">*</span></label>
                     <select class="form-control" id="subject" name="subject" required>
                         <option value="">Select an option...</option>
                         <option value="prayer_request">Prayer Request</option>
