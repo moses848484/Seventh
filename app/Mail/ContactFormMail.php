@@ -8,11 +8,11 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactAutoReplyMail extends Mailable
+class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact; // hold the submitted contact data
+    public $contact;
 
     /**
      * Create a new message instance.
@@ -28,7 +28,7 @@ class ContactAutoReplyMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Thank you for contacting us!',
+            subject: 'New Contact Form Submission',
         );
     }
 
@@ -38,13 +38,10 @@ class ContactAutoReplyMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact_auto_reply',
+            view: 'emails.contact_form_notification',
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     */
     public function attachments(): array
     {
         return [];

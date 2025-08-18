@@ -5,13 +5,16 @@
     <title>Auto Reply</title>
 </head>
 <body>
-    <p>Hi {{ $first_name }} {{ $last_name }},</p>
+    <p>Dear {{ $contact['first_name'] }},</p>
 
-    <p>Thank you for reaching out regarding <strong>{{ $subject }}</strong>.</p>
+    <p>Thank you for reaching out to us! We have received your message and will get back to you as soon as possible.</p>
 
-    <p>We have received your message and one of our team members will get back to you soon.</p>
+    <p><strong>Your Message:</strong></p>
+    <blockquote>
+        {{ $contact['message'] }}
+    </blockquote>
 
-    <p>Best regards,<br>
-    SDA Church Support Team</p>
+    <p>Kind regards,<br>
+    The UniSDA Team</p>
 </body>
 </html>
