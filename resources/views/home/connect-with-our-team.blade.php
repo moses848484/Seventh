@@ -323,7 +323,7 @@
                     <label for="email">Email <span class="required">*</span></label>
                     <div class="input-with-icon">
                         <div class="icon-box">
-                            <i class="fa-regular fa-envelope"></i>
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
