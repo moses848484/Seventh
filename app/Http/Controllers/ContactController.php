@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function contactUs()
     {
-        return view('home.connect-with-our-team', [
+        return view('home.contact-us', [
         ]);
     }
 
