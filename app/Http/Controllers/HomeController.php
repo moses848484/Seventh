@@ -39,35 +39,6 @@ class HomeController extends Controller
     {
         return view('home.connect-with-our-team');
     }
-
-
-    public function submitContactForm(Request $request)
-    {
-        // Validate the form data
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string|max:1000',
-            'newsletter' => 'nullable|boolean'
-        ]);
-
-        // Here you can:
-        // 1. Save to database
-        // 2. Send email notification
-        // 3. Send auto-response email
-
-        // Example: Save to a contacts table (you'll need to create this)
-        // Contact::create($validated);
-
-        // Example: Send email notification
-        // Mail::to('admin@unisda.com')->send(new ContactFormMail($validated));
-
-        return back()->with('success', 'Thank you for your message! We will get back to you soon.');
-    }
-
     public function redirect()
     {
         // Check if the user is authenticated

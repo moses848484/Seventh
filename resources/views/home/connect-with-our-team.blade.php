@@ -342,7 +342,7 @@
 
                 <!-- Subject -->
                 <div class="form-group">
-                    <label for="subject">Regarding <span class="required">*</span></label>
+                    <label for="subject">Subject <span class="required">*</span></label>
                     <select class="form-control" id="subject" name="subject" required>
                         <option value="">Select an option...</option>
                         <option value="prayer_request">Prayer Request</option>
