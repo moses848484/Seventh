@@ -20,19 +20,25 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: #f8f9fa;
             color: #495057;
+            min-height: 100vh;
         }
 
         .main-content {
             min-height: 100vh;
             background-color: #f8f9fa;
-            padding: 80px 0;
+            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .form-container {
             max-width: 600px;
+            width: 90%;
             margin: 0 auto;
             background: white;
             padding: 60px 40px;
@@ -199,7 +205,7 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .form-container {
-                margin: 0 15px;
+                width: 95%;
                 padding: 40px 25px;
             }
 
@@ -212,13 +218,13 @@
             }
 
             .main-content {
-                padding: 40px 0;
+                padding: 20px 0;
             }
         }
 
         @media (max-width: 480px) {
             .form-container {
-                margin: 0 10px;
+                width: 98%;
                 padding: 30px 20px;
             }
 
@@ -241,6 +247,10 @@
                 width: 100%;
                 padding: 16px 20px;
             }
+
+            .main-content {
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
@@ -249,16 +259,15 @@
     @include('home.header')
 
     <div class="main-content">
-        <div class="container">
-            <div class="form-container">
-                <!-- Header Section -->
-                <div class="header-section">
-                    <div class="icon-circle">
-                        <i class="fa-regular fa-comment-dots"></i>
-                    </div>
-                    <h1 class="page-title">Connect With Our Team</h1>
-                    <p class="page-subtitle">Have a question? Need pastoral care? Connect with us!</p>
+        <div class="form-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="icon-circle">
+                    <i class="fa-regular fa-comment-dots"></i>
                 </div>
+                <h1 class="page-title">Connect With Our Team</h1>
+                <p class="page-subtitle">Have a question? Need pastoral care? Connect with us!</p>
+            </div>
 
                 <!-- Success/Error Messages -->
                 @if(session('success'))
@@ -363,7 +372,6 @@
                         </button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 
