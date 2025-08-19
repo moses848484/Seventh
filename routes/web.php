@@ -27,8 +27,12 @@ Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam
 Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
-Route::get('/prayers', [PrayerController::class, 'prayerRequest'])->name('prayer');
-Route::post('/prayers', [PrayerController::class, 'submitPrayerForm'])->name('prayer.submit');
+// Prayer routes
+Route::get('/prayers', [PrayerController::class, 'index'])->name('prayers');
+Route::get('/prayers/create', [PrayerController::class, 'create'])->name('prayers.create');
+Route::post('/prayers', [PrayerController::class, 'store'])->name('prayers.store');
+Route::get('/prayers/thankyou', [PrayerController::class, 'thankyou'])->name('prayers.thankyou');
+Route::get('/prayers/wall', [PrayerController::class, 'wall'])->name('prayers.wall');
 
 // Protected routes with middleware
 Route::middleware([
@@ -125,4 +129,7 @@ Route::middleware([
 
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
+
+    Route::get('/prayers/{prayer}', [PrayerController::class, 'show'])->name('prayers.show');
+    Route::patch('/prayers/{prayer}/status', [PrayerController::class, 'updateStatus'])->name('prayers.updateStatus');
 });

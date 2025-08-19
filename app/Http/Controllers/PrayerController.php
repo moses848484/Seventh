@@ -2,38 +2,87 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Prayer;
+use App\Http\Requests\PrayerRequest;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class PrayerController extends Controller
 {
-    public function prayerRequest()
+    /**
+     * Display the prayer request form
+     */
+    public function index(): View
     {
-        return view('home.prayers', [
-        ]);
+        return view('prayers.create');
     }
 
-    public function submitPrayerForm(Request $request)
+    /**
+     * Show the prayer request form
+     */
+    public function create(): View
+    {
+        return view('prayers.create');
+    }
+
+    /**
+     * Store a new prayer request
+     */
+    public function store(PrayerRequest $request): RedirectResponse
+    {
+        // The validation is automatically handled by PrayerRequest
+        Prayer::create($request->validated());
+
+        return redirect()->route('prayers.thankyou')
+            ->with('success', 'Your prayer request has been submitted. We will be praying for you!');
+    }
+
+    /**
+     * Display thank you page
+     */
+    public function thankyou(): View
+    {
+        return view('prayers.thankyou');
+    }
+
+    /**
+     * Display public prayer wall (optional feature)
+     */
+    public function wall(): View
+    {
+        $prayers = Prayer::public()
+            ->recent()
+            ->latest()
+            ->paginate(10);
+
+        return view('prayers.wall', compact('prayers'));
+    }
+
+    /**
+     * Show specific prayer request (admin only)
+     */
+    public function show(Prayer $prayer): View
+    {
+        return view('prayers.show', compact('prayer'));
+    }
+
+    /**
+     * Update prayer status (admin only)
+     */
+    public function updateStatus(Request $request, Prayer $prayer): RedirectResponse
     {
         $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string|max:1000',
-            'newsletter' => 'nullable|boolean',
+            'status' => 'required|in:pending,praying,answered,closed',
+            'admin_notes' => 'nullable|string',
         ]);
 
-        // Save
-        Contact::create($validated);
+        if ($validated['status'] === 'praying' && !$prayer->prayed_at) {
+            $validated['prayed_at'] = now();
+        }
 
-        // Notify admin
-        Mail::to('moses.blake.simataa@gmail.com')->send(new ContactFormMail($validated));
+        $prayer->update($validated);
 
-        // Auto-reply
-        Mail::to($validated['email'])->send(new ContactAutoReplyMail($validated));
-
-        return back()->with('success', 'Thank you for your message! We will get back to you soon.');
+        return back()->with('success', 'Prayer status updated successfully.');
     }
 }
