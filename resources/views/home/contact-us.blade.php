@@ -568,8 +568,9 @@
                 <!-- Second Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon purple">
-                            <i class="fa-solid fa-hands-praying"></i>
+                        <div class="demo-card-icon light">
+                            <img src="images/praying_hands.png" alt="Service Icon" class="service-icon"
+                                style="width: 50px; height: 50px; color: yellow;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Prayer Needs</h4>
