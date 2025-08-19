@@ -27,6 +27,9 @@ Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam
 Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
+Route::get('/prayers', [PrayerController::class, 'prayerRequest'])->name('prayer');
+Route::post('/prayers', [PrayerController::class, 'submitPrayerForm'])->name('prayer.submit');
+
 // Protected routes with middleware
 Route::middleware([
     'auth:sanctum',
