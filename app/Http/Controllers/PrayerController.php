@@ -14,7 +14,7 @@ class PrayerController extends Controller
     public function index()
     {
         $prayers = Prayer::orderBy('created_at', 'desc')->paginate(10);
-        return view('prayers.index', compact('prayers'));
+        return view('home.index1', compact('prayers'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PrayerController extends Controller
      */
     public function create()
     {
-        return view('prayers.create');
+        return view('home.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class PrayerController extends Controller
      */
     public function show(Prayer $prayer)
     {
-        return view('prayers.show', compact('prayer'));
+        return view('home.show', compact('prayer'));
     }
 
     /**
@@ -75,7 +75,7 @@ class PrayerController extends Controller
      */
     public function thankyou()
     {
-        return view('prayers.thankyou');
+        return view('home.thankyou');
     }
 
     /**
