@@ -8,21 +8,12 @@ use App\Models\Prayer;
 class PrayerController extends Controller
 {
     /**
-     * Display a listing of the prayers (if needed).
-     */
-    public function index()
-    {
-        $prayers = Prayer::latest()->get();
-        return view('home.index', compact('prayers')); 
-        // adjust if your index file has a different name
-    }
-
-    /**
      * Show the form for creating a new prayer request.
      */
     public function create()
     {
-        return view('home.create'); // FIXED path
+         return view('home.create', [
+        ]);
     }
 
     /**
@@ -52,7 +43,8 @@ class PrayerController extends Controller
      */
     public function thankyou()
     {
-        return view('home.thankyou'); // FIXED path
+         return view('home.thankyou', [
+        ]);
     }
 
     /**
@@ -65,6 +57,7 @@ class PrayerController extends Controller
             ->latest()
             ->get();
 
-        return view('home.wall', compact('prayers')); // FIXED path
+         return view('home.wall', [
+        ]);
     }
 }
