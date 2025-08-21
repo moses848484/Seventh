@@ -28,11 +28,10 @@ Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contac
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 // Prayer routes
-Route::get('/prayers', [PrayerController::class, 'index'])->name('prayers');
-Route::get('/prayers/create', [PrayerController::class, 'create'])->name('prayers.create');
-Route::post('/prayers', [PrayerController::class, 'store'])->name('prayers.store');
-Route::get('/prayers/thankyou', [PrayerController::class, 'thankyou'])->name('prayers.thankyou');
-Route::get('/prayers/wall', [PrayerController::class, 'wall'])->name('prayers.wall');
+Route::get('/create', [PrayerController::class, 'create'])->name('create');
+Route::post('/store', [PrayerController::class, 'store'])->name('prayers.store');
+Route::get('/thanyou', [PrayerController::class, 'thankyou'])->name('thankyou');
+Route::get('/wall', [PrayerController::class, 'wall'])->name('wall');
 
 // Protected routes with middleware
 Route::middleware([

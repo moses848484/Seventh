@@ -44,7 +44,7 @@ class PrayerController extends Controller
 
         Prayer::create($validated);
 
-        return redirect()->route('prayers.thankyou');
+        return redirect()->route('home.thankyou');
     }
 
     /**
