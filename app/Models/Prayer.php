@@ -16,27 +16,46 @@ class Prayer extends Model
         'phone',
         'request_type',
         'prayer_request',
-        'is_private',
         'is_urgent',
-        'status',
-        'admin_notes',
-        'prayed_at',
+        'is_private',
+        'status'
     ];
 
     protected $casts = [
-        'is_private' => 'boolean',
         'is_urgent' => 'boolean',
-        'prayed_at' => 'datetime',
+        'is_private' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
 
     /**
-     * Scope for public prayers only
+     * Get the formatted created date
      */
-    public function scopePublic($query)
+    public function getFormattedDateAttribute()
     {
-        return $query->where('is_private', false);
+        return $this->created_at->format('M j, Y \a\t g:i A');
+    }
+
+    /**
+     * Get the status badge color
+     */
+    public function getStatusBadgeColorAttribute()
+    {
+        return match($this->status) {
+            'pending' => 'warning',
+            'approved' => 'success',
+            'answered' => 'primary',
+            'archived' => 'secondary',
+            default => 'secondary'
+        };
+    }
+
+    /**
+     * Get the formatted request type
+     */
+    public function getFormattedRequestTypeAttribute()
+    {
+        return ucfirst(str_replace('_', ' ', $this->request_type));
     }
 
     /**
@@ -48,40 +67,26 @@ class Prayer extends Model
     }
 
     /**
-     * Scope for recent prayers (within last 30 days)
+     * Scope for public prayers
      */
-    public function scopeRecent($query)
+    public function scopePublic($query)
     {
-        return $query->where('created_at', '>=', Carbon::now()->subDays(30));
+        return $query->where('is_private', false);
     }
 
     /**
-     * Get formatted request type
+     * Scope for private prayers
      */
-    public function getFormattedRequestTypeAttribute()
+    public function scopePrivate($query)
     {
-        return ucfirst(str_replace('_', ' ', $this->request_type));
+        return $query->where('is_private', true);
     }
 
     /**
-     * Get status badge class for UI
+     * Scope by status
      */
-    public function getStatusBadgeClassAttribute()
+    public function scopeByStatus($query, $status)
     {
-        return match($this->status) {
-            'pending' => 'badge-warning',
-            'praying' => 'badge-info',
-            'answered' => 'badge-success',
-            'closed' => 'badge-secondary',
-            default => 'badge-light'
-        };
-    }
-
-    /**
-     * Check if prayer is recent (within 7 days)
-     */
-    public function isRecent()
-    {
-        return $this->created_at->diffInDays(now()) <= 7;
+        return $query->where('status', $status);
     }
 }

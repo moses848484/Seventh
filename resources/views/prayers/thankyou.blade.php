@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Prayer Submitted - SDA Church</title>
+    <title>Prayer Request Submitted - SDA Church</title>
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
@@ -16,25 +19,39 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
+            flex-direction: column;
         }
 
-        .thankyou-container {
+        .orange-separator {
+            height: 4px;
+            background: #e4af00;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .thank-you-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .thank-you-card {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             padding: 60px 40px;
             text-align: center;
             max-width: 600px;
-            margin: 20px;
+            width: 100%;
         }
 
-        .thankyou-icon {
+        .thank-you-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #28a745, #20c997);
+            background: linear-gradient(135deg, #4ade80, #22d3ee);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -46,38 +63,46 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(34, 211, 238, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+            }
         }
 
-        .thankyou-container h1 {
+        .thank-you-card h1 {
             color: #333;
-            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 20px;
+            font-size: 2.5rem;
         }
 
-        .thankyou-container p {
+        .thank-you-card p {
             color: #666;
             font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .btn-home {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
             color: white;
-            padding: 12px 30px;
+            padding: 15px 40px;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            margin: 10px;
         }
 
         .btn-home:hover {
@@ -87,81 +112,49 @@
             text-decoration: none;
         }
 
-        .btn-secondary {
-            background: #6c757d;
-            border: none;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-2px);
-            color: white;
-            text-decoration: none;
-        }
-
-        .prayer-verse {
+        .prayer-info {
             background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 5px;
-            font-style: italic;
-        }
-
-        .prayer-verse p {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .prayer-verse cite {
-            font-weight: 600;
-            color: #667eea;
-            font-style: normal;
-        }
-
-        .next-steps {
-            background: #e3f2fd;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 25px;
-            margin-top: 30px;
-            text-align: left;
+            margin: 30px 0;
+            border-left: 4px solid #22d3ee;
         }
 
-        .next-steps h4 {
-            color: #1976d2;
+        .prayer-info h4 {
+            color: #333;
             font-weight: 600;
             margin-bottom: 15px;
         }
 
-        .next-steps ul {
-            color: #555;
-            margin-bottom: 0;
+        .prayer-info ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
-        .next-steps li {
-            margin-bottom: 8px;
+        .prayer-info li {
+            color: #666;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .prayer-info li i {
+            color: #22d3ee;
+            margin-right: 10px;
+            width: 20px;
         }
 
         @media (max-width: 768px) {
-            .thankyou-container {
+            .thank-you-card {
                 padding: 40px 25px;
-                margin: 10px;
             }
             
-            .thankyou-container h1 {
+            .thank-you-card h1 {
                 font-size: 2rem;
             }
             
-            .thankyou-icon {
+            .thank-you-icon {
                 width: 80px;
                 height: 80px;
                 font-size: 32px;
@@ -171,48 +164,41 @@
 </head>
 
 <body>
-    <div class="thankyou-container">
-        <div class="thankyou-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        
-        <h1>Prayer Request Received</h1>
-        
-        <p><strong>Thank you for allowing us to pray with you!</strong></p>
-        
-        <p>Your prayer request has been submitted successfully. Our pastoral team and prayer ministry will begin praying for your request immediately.</p>
+    @include('home.header')
 
-        <div class="prayer-verse">
-            <p>"Therefore I tell you, whatever you ask for in prayer, believe that you have received it, and it will be yours."</p>
-            <cite>Mark 11:24 (NIV)</cite>
-        </div>
+    <!-- Orange Separator Line -->
+    <div class="orange-separator"></div>
 
-        <div class="next-steps">
-            <h4><i class="fas fa-heart text-danger"></i> What Happens Next?</h4>
-            <ul>
-                <li><i class="fas fa-praying-hands text-primary"></i> Our prayer team will begin praying for your request today</li>
-                <li><i class="fas fa-phone text-success"></i> If you provided contact information, someone may reach out to offer additional support</li>
-                <li><i class="fas fa-users text-info"></i> If not marked private, your request will be shared with our prayer ministry for continued prayer</li>
-                <li><i class="fas fa-calendar text-warning"></i> We'll continue to pray for your request in the coming weeks</li>
-            </ul>
-        </div>
-
-        <div class="mt-4">
-            <a href="{{ route('home') ?? '/' }}" class="btn-home">
+    <!-- Thank You Section -->
+    <div class="thank-you-container">
+        <div class="thank-you-card">
+            <div class="thank-you-icon">
+                <i class="fas fa-praying-hands"></i>
+            </div>
+            
+            <h1>Thank You!</h1>
+            <p>Your prayer request has been received and we are honored to pray with you. Our prayer ministry team will be lifting up your request in prayer.</p>
+            
+            <div class="prayer-info">
+                <h4><i class="fas fa-heart text-danger"></i> What Happens Next?</h4>
+                <ul>
+                    <li><i class="fas fa-pray"></i> Our pastoral team will pray for your request</li>
+                    <li><i class="fas fa-shield-alt"></i> Your request will be kept confidential</li>
+                    <li><i class="fas fa-users"></i> If not marked private, our prayer ministry will join in prayer</li>
+                    <li><i class="fas fa-envelope"></i> You may receive a follow-up if you provided contact information</li>
+                </ul>
+            </div>
+            
+            <p><strong>"The prayer of a righteous person is powerful and effective."</strong><br>
+               <em>James 5:16</em></p>
+            
+            <a href="/" class="btn-home">
                 <i class="fas fa-home"></i> Return to Home
             </a>
-            <a href="{{ route('prayers.create') }}" class="btn-secondary">
-                <i class="fas fa-plus"></i> Submit Another Prayer
-            </a>
-        </div>
-
-        <div class="mt-4">
-            <small class="text-muted">
-                Need immediate assistance? Contact our pastoral care team at 
-                <strong>0974752637</strong> or <strong>prayers@unisda.com</strong>
-            </small>
         </div>
     </div>
+
+    @include('home.footer')
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
