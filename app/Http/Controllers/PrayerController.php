@@ -4,106 +4,67 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prayer;
-use Illuminate\Support\Facades\Validator;
 
 class PrayerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the prayers (if needed).
      */
     public function index()
     {
-        $prayers = Prayer::orderBy('created_at', 'desc')->paginate(10);
-        return view('home.index1', compact('prayers'));
+        $prayers = Prayer::latest()->get();
+        return view('home.index', compact('prayers')); 
+        // adjust if your index file has a different name
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new prayer request.
      */
     public function create()
     {
-        return view('home.create');
+        return view('home.create'); // FIXED path
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created prayer request in storage.
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'request_type' => 'required|string|in:personal,family,health,financial,spiritual,other',
-            'prayer_request' => 'required|string|min:10|max:2000',
-            'is_urgent' => 'boolean',
-            'is_private' => 'boolean'
+        $validated = $request->validate([
+            'name'           => 'required|string|max:255',
+            'email'          => 'nullable|email|max:255',
+            'phone'          => 'nullable|string|max:20',
+            'request_type'   => 'required|string|max:100',
+            'prayer_request' => 'required|string',
+            'is_urgent'      => 'nullable|boolean',
+            'is_private'     => 'nullable|boolean',
         ]);
 
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
+        $validated['status'] = 'pending'; // default
 
-        try {
-            Prayer::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-                'request_type' => $request->request_type,
-                'prayer_request' => $request->prayer_request,
-                'is_urgent' => $request->has('is_urgent') ? 1 : 0,
-                'is_private' => $request->has('is_private') ? 1 : 0,
-                'status' => 'pending'
-            ]);
+        Prayer::create($validated);
 
-            return redirect()->route('prayers.thankyou')->with('success', 'Your prayer request has been submitted successfully!');
-        } catch (\Exception $e) {
-            return back()->with('error', 'There was an error submitting your prayer request. Please try again.')->withInput();
-        }
+        return redirect()->route('prayers.thankyou');
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Prayer $prayer)
-    {
-        return view('home.show', compact('prayer'));
-    }
-
-    /**
-     * Show the thank you page.
+     * Thank you page after submission.
      */
     public function thankyou()
     {
-        return view('home.thankyou');
+        return view('home.thankyou'); // FIXED path
     }
 
     /**
-     * Show the prayer wall (public prayers).
+     * Public prayer wall page.
      */
     public function wall()
     {
-        $prayers = Prayer::where('is_private', 0)
-                        ->where('status', 'approved')
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(12);
-        
-        return view('prayers.wall', compact('prayers'));
-    }
+        $prayers = Prayer::where('is_private', false)
+            ->where('status', 'approved')
+            ->latest()
+            ->get();
 
-    /**
-     * Update the status of a prayer request.
-     */
-    public function updateStatus(Request $request, Prayer $prayer)
-    {
-        $request->validate([
-            'status' => 'required|string|in:pending,approved,answered,archived'
-        ]);
-
-        $prayer->update([
-            'status' => $request->status
-        ]);
-
-        return back()->with('success', 'Prayer status updated successfully!');
+        return view('home.wall', compact('prayers')); // FIXED path
     }
 }
