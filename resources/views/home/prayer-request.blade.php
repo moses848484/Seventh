@@ -358,7 +358,7 @@
 
                 <!-- Question/Message -->
                 <div class="form-group">
-                    <label for="message">Your Question <span class="required">*</span></label>
+                    <label for="message">Send Prayer Request <span class="required">*</span></label>
                     <textarea class="form-control" id="message" name="message"
                         placeholder="Tell us how we can help you..." required></textarea>
                 </div>
