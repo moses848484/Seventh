@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,20 +12,14 @@ return new class extends Migration
     {
         Schema::create('prayers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
             $table->string('phone')->nullable();
-            $table->enum('request_type', ['personal', 'family', 'health', 'financial', 'spiritual', 'other']);
-            $table->text('prayer_request');
-            $table->boolean('is_urgent')->default(false);
-            $table->boolean('is_private')->default(false);
-            $table->enum('status', ['pending', 'approved', 'answered', 'archived'])->default('pending');
+            $table->string('subject');
+            $table->text('message');
+            $table->boolean('newsletter')->default(false);
             $table->timestamps();
-            
-            // Indexes for better performance
-            $table->index(['status', 'created_at']);
-            $table->index(['is_private', 'status']);
-            $table->index('is_urgent');
         });
     }
 
