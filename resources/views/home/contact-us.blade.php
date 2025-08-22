@@ -426,6 +426,20 @@
             letter-spacing: -0.5px;
         }
 
+        .service-icon1 {
+            width: 50px;
+            height: 50px;
+            border-radius: 0%;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 0px;
+            letter-spacing: -0.5px;
+        }
+
         .service-icon.youth {
             background-color: #1a1a1a;
         }
@@ -534,9 +548,9 @@
                 <!-- First Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                      <div class="demo-card-icon light">
-                            <img src="images/giving.png" alt="Service Icon" class="service-icon"
-                                style="width:50px; height:50px; filter: invert(82%) sepia(100%) saturate(482%) hue-rotate(1deg) brightness(100%) contrast(101%);">
+                        <div class="demo-card-icon dark">
+                            <img src="images/giving.png" alt="Service Icon" class="service-icon1"
+                                style="width:50px; height:50px;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
@@ -586,9 +600,9 @@
                 <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon light">
-                            <img src="images/group.jpg" alt="Service Icon" class="service-icon"
-                                style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
+                        <div class="demo-card-icon dark">
+                            <img src="images/group.jpg" alt="Service Icon" class="service-icon1"
+                                style="width:50px; height:50px;">
                         </div>
                         <div class="demo-card-content">
                             <h4>Unisdagroups</h4>
