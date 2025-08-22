@@ -304,7 +304,7 @@
             </div>
 
             <!-- Contact Form -->
-            <form action="{{ route('contact.submit') }}" method="POST">
+            <form action="{{ route('prayer.submit') }}" method="POST">
                 @csrf
 
                 <!-- First Name -->

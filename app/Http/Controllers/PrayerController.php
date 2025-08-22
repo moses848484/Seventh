@@ -16,7 +16,7 @@ class PrayerController extends Controller
         ]);
     }
 
-    public function submitContactForm(Request $request)
+    public function submitPrayerForm(Request $request)
     {
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
