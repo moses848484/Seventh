@@ -27,16 +27,14 @@ Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('wh
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
+Route::get('/pray-to-god', [HomeController::class, 'prayToGod'])->name('pray-to-god');
 
 // Contact Us (Public Form)
 Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 // Prayer (Public Form, similar to Contact Us)
-Route::get('/prayer/create', [PrayerController::class, 'create'])->name('prayer.create');
-Route::post('/prayer/create', [PrayerController::class, 'store'])->name('prayer.submit');
-Route::get('/prayer/thankyou', [PrayerController::class, 'thankyou'])->name('prayer.thankyou');
-Route::get('/prayer/wall', [PrayerController::class, 'wall'])->name('prayer.wall');
+
 
 // Locations
 Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
