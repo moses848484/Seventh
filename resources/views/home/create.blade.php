@@ -150,7 +150,136 @@
 <body>
     @include('home.header')
 
-   
+    <!-- Orange Separator Line -->
+    <div class="orange-separator"></div>
+
+    <!-- Prayer Hero Section -->
+    <div class="prayer-hero">
+        <div class="container">
+            <h1><i class="fas fa-praying-hands"></i> Prayer Request</h1>
+            <p>We believe in the power of prayer and would be honored to pray with you</p>
+        </div>
+    </div>
+
+    <!-- Prayer Form Section -->
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="prayer-form-container">
+                    <!-- Prayer Information -->
+                    <div class="prayer-info">
+                        <h4><i class="fas fa-heart text-danger"></i> How We Pray Together</h4>
+                        <p class="mb-2">Your prayer request will be:</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Prayed for by our pastoral team</li>
+                            <li><i class="fas fa-check text-success"></i> Kept confidential and treated with respect</li>
+                            <li><i class="fas fa-check text-success"></i> Shared only with our prayer ministry (unless marked private)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Prayer Request Form -->
+                    <form method="POST" action="{{ route('prayer.store') }}">
+                        @csrf
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Your Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                                           id="name" name="name" value="{{ old('name') }}" required>
+                                    @error('name')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" 
+                                           id="email" name="email" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control @error('phone') is-invalid @enderror" 
+                                           id="phone" name="phone" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="request_type">Prayer Category <span class="required">*</span></label>
+                                    <select class="form-control @error('request_type') is-invalid @enderror" 
+                                            id="request_type" name="request_type" required>
+                                        <option value="">Select a category</option>
+                                        <option value="personal" {{ old('request_type') == 'personal' ? 'selected' : '' }}>Personal</option>
+                                        <option value="family" {{ old('request_type') == 'family' ? 'selected' : '' }}>Family</option>
+                                        <option value="health" {{ old('request_type') == 'health' ? 'selected' : '' }}>Health</option>
+                                        <option value="financial" {{ old('request_type') == 'financial' ? 'selected' : '' }}>Financial</option>
+                                        <option value="spiritual" {{ old('request_type') == 'spiritual' ? 'selected' : '' }}>Spiritual</option>
+                                        <option value="other" {{ old('request_type') == 'other' ? 'selected' : '' }}>Other</option>
+                                    </select>
+                                    @error('request_type')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prayer_request">Your Prayer Request <span class="required">*</span></label>
+                            <textarea class="form-control @error('prayer_request') is-invalid @enderror" 
+                                      id="prayer_request" name="prayer_request" rows="6" 
+                                      placeholder="Please share what you'd like us to pray for..." required>{{ old('prayer_request') }}</textarea>
+                            @error('prayer_request')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <small class="form-text text-muted">Minimum 10 characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="1" id="is_urgent" name="is_urgent"
+                                       {{ old('is_urgent') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_urgent">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i> This is an urgent prayer request
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="1" id="is_private" name="is_private"
+                                       {{ old('is_private') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_private">
+                                    <i class="fas fa-lock text-info"></i> Keep this prayer request private (pastoral team only)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="privacy-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <strong>Privacy Promise:</strong> We respect your privacy and will never share your personal information. 
+                            Your prayer request will only be shared with our trusted prayer ministry team unless you mark it as private.
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-prayer">
+                                <i class="fas fa-paper-plane"></i> Submit Prayer Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @include('home.footer')
 
