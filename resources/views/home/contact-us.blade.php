@@ -568,7 +568,7 @@
                 <!-- Second Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon light">
+                        <div class="demo-card-icon orange">
                             <i class="fa-solid fa-hands-praying"></i>
                         </div>
                         <div class="demo-card-content">
@@ -583,7 +583,7 @@
                 <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon blue">
+                        <div class="demo-card-icon warning">
                             <i class="fa-solid fa-bible"></i>
                         </div>
                         <div class="demo-card-content">
