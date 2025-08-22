@@ -33,7 +33,7 @@ Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contac
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 // Prayer (Public Form, similar to Contact Us)
-Route::get('/prayer', [PrayerController::class, 'create'])->name('prayer.form');
+Route::get('/prayer', [PrayerController::class, 'create'])->name('prayer.create');
 Route::post('/prayer', [PrayerController::class, 'store'])->name('prayer.submit');
 Route::get('/prayer/thankyou', [PrayerController::class, 'thankyou'])->name('prayer.thankyou');
 Route::get('/prayer/wall', [PrayerController::class, 'wall'])->name('prayer.wall');
