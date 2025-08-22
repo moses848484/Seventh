@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prayer;
+use App\Mail\PrayerRequestMail;
+use App\Mail\PrayerAutoReplyMail;
+use Illuminate\Support\Facades\Mail;
 
 class PrayerController extends Controller
 {
@@ -12,8 +15,7 @@ class PrayerController extends Controller
      */
     public function create()
     {
-         return view('home.create', [
-        ]);
+         return view('prayers.create');
     }
 
     /**
@@ -33,9 +35,18 @@ class PrayerController extends Controller
 
         $validated['status'] = 'pending'; // default
 
+        // Save prayer request
         Prayer::create($validated);
 
-        return redirect()->route('home.thankyou');
+        // Send notification email to admin
+        Mail::to('moses.blake.simataa@gmail.com')->send(new PrayerRequestMail($validated));
+
+        // Send auto-reply to requester if email provided
+        if (!empty($validated['email'])) {
+            Mail::to($validated['email'])->send(new PrayerAutoReplyMail($validated));
+        }
+
+        return redirect()->route('prayer.thankyou')->with('success', 'Thank you for your prayer request! We will be praying for you.');
     }
 
     /**
@@ -43,8 +54,7 @@ class PrayerController extends Controller
      */
     public function thankyou()
     {
-         return view('home.thankyou', [
-        ]);
+         return view('prayers.thankyou');
     }
 
     /**
@@ -57,7 +67,6 @@ class PrayerController extends Controller
             ->latest()
             ->get();
 
-         return view('home.wall', [
-        ]);
+         return view('prayers.wall', compact('prayers'));
     }
 }

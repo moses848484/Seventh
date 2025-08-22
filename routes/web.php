@@ -9,6 +9,7 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\UpdateUserProfileInformationController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PrayerController; // Added missing import
 
 // Public routes (no authentication required)
 Route::get('/', [HomeController::class, 'index']);
@@ -27,11 +28,13 @@ Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam
 Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
-// Prayer routes
-Route::get('/create', [PrayerController::class, 'create'])->name('create');
-Route::post('/store', [PrayerController::class, 'store'])->name('prayers.store');
-Route::get('/thanyou', [PrayerController::class, 'thankyou'])->name('thankyou');
-Route::get('/wall', [PrayerController::class, 'wall'])->name('wall');
+// Public Prayer routes (Fixed)
+Route::prefix('prayer')->group(function () {
+    Route::get('/create', [PrayerController::class, 'create'])->name('prayer.create');
+    Route::post('/store', [PrayerController::class, 'store'])->name('prayer.store');
+    Route::get('/thankyou', [PrayerController::class, 'thankyou'])->name('prayer.thankyou'); // Fixed typo
+    Route::get('/wall', [PrayerController::class, 'wall'])->name('prayer.wall');
+});
 
 // Protected routes with middleware
 Route::middleware([
@@ -129,6 +132,10 @@ Route::middleware([
     Route::get('/locations', [LocationController::class, 'index'])->name('locations.index');
     Route::get('/locations/{slug}', [LocationController::class, 'show'])->name('locations.show');
 
-    Route::get('/prayers/{prayer}', [PrayerController::class, 'show'])->name('prayers.show');
-    Route::patch('/prayers/{prayer}/status', [PrayerController::class, 'updateStatus'])->name('prayers.updateStatus');
+    // Admin Prayer Management routes (protected)
+    Route::prefix('admin/prayers')->group(function () {
+        Route::get('/', [PrayerController::class, 'index'])->name('admin.prayers.index');
+        Route::get('/{prayer}', [PrayerController::class, 'show'])->name('prayers.show');
+        Route::patch('/{prayer}/status', [PrayerController::class, 'updateStatus'])->name('prayers.updateStatus');
+    });
 });
