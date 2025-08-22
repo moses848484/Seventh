@@ -430,9 +430,10 @@
             width: 50px;
             height: 50px;
             border-radius: 0%;
-            color: black;
+            color: green;
             display: flex;
             align-items: center;
+            background-color: white;
             justify-content: center;
             font-size: 10px;
             font-weight: 700;
@@ -549,7 +550,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon light">
-                            <img src="images/giving.png" alt="Service Icon" class="service-icon"
+                            <img src="images/giving.png" alt="Service Icon" class="service-icon1"
                                 style="width:50px; height:50px;">
                         </div>
                         <div class="demo-card-content">
