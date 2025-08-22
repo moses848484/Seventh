@@ -570,7 +570,8 @@
                     <div class="demo-card">
                         <div class="demo-card-icon light">
                             <img src="images/praying_hands.png" alt="Service Icon" class="service-icon"
-                                style="width:50px; height:50px; filter: brightness(0) saturate(100%) invert(87%) sepia(88%) saturate(502%) hue-rotate(2deg) brightness(105%) contrast(101%);">
+                                style="width:50px; height:50px; filter: brightness(0) saturate(100%) invert(92%) sepia(66%) saturate(6423%) hue-rotate(1deg) brightness(100%) contrast(102%);">
+
 
                         </div>
                         <div class="demo-card-content">
