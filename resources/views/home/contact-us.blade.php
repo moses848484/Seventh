@@ -568,8 +568,10 @@
                 <!-- Second Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon orange">
-                            <i class="fa-solid fa-hands-praying"></i>
+                        <div class="demo-card-icon light">
+                            <img src="images/praying_hands.png" alt="Service Icon" class="service-icon"
+                                style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
+
                         </div>
                         <div class="demo-card-content">
                             <h4>Prayer Needs</h4>
@@ -583,7 +585,7 @@
                 <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon warning">
+                        <div class="demo-card-icon blue">
                             <i class="fa-solid fa-bible"></i>
                         </div>
                         <div class="demo-card-content">
