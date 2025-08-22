@@ -291,8 +291,9 @@
         <div class="form-container">
             <!-- Header Section -->
             <div class="header-section">
-                <div class="icon-circle">
-                    <i class="fa-regular fa-comment-dots"></i>
+                <div class="icon-circle light">
+                    <img src="images/praying_hands.png" alt="Service Icon" class="service-icon"
+                        style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
                 </div>
                 <h1 class="page-title">Connect With Our Team</h1>
                 <p class="page-subtitle">Have a question? Need pastoral care? Connect with us!</p>
@@ -380,34 +381,34 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Auto-hide success messages after 5 seconds
-        const successAlert = document.querySelector('.alert-success');
-        if (successAlert) {
-            setTimeout(() => {
-                successAlert.style.opacity = '0';
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Auto-hide success messages after 5 seconds
+            const successAlert = document.querySelector('.alert-success');
+            if (successAlert) {
                 setTimeout(() => {
-                    successAlert.remove();
-                }, 300);
-            }, 5000);
-        }
+                    successAlert.style.opacity = '0';
+                    setTimeout(() => {
+                        successAlert.remove();
+                    }, 300);
+                }, 5000);
+            }
 
-        // Focus effects for icon boxes
-        const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
-        inputsWithIcons.forEach(input => {
-            input.addEventListener('focus', function () {
-                this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
-                this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
-            });
+            // Focus effects for icon boxes
+            const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
+            inputsWithIcons.forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.querySelector('.icon-box').style.borderColor = '#4fc3f7';
+                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#f0f9ff';
+                });
 
-            input.addEventListener('blur', function () {
-                this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
-                this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
+                input.addEventListener('blur', function () {
+                    this.parentElement.querySelector('.icon-box').style.borderColor = '#dee2e6';
+                    this.parentElement.querySelector('.icon-box').style.backgroundColor = '#e9ecef';
+                });
             });
         });
-    });
-</script>
+    </script>
 
 </body>
 
