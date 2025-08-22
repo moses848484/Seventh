@@ -29,7 +29,7 @@ Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-bel
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
 
 // Contact Us (Public Form)
-Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact.form');
+Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
 
 // Prayer (Public Form, similar to Contact Us)
