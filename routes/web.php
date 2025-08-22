@@ -27,12 +27,10 @@ Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('wh
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
-Route::get('/pray-to-god', [HomeController::class, 'prayToGod'])->name('pray-to-god');
 
 // Contact Us (Public Form)
 Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submitContactForm'])->name('contact.submit');
-Route::post('/pray-to-god', [ContactController::class, 'submitPrayerForm'])->name('prayer.submit');
 
 // Prayer (Public Form, similar to Contact Us)
 
