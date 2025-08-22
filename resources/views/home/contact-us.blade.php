@@ -430,10 +430,10 @@
             width: 50px;
             height: 50px;
             border-radius: 0%;
-            color: green;
+            color: green !important;
             display: flex;
             align-items: center;
-            background-color: white;
+            background-color: white !important;
             justify-content: center;
             font-size: 10px;
             font-weight: 700;
