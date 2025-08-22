@@ -535,7 +535,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon teal">
-                            <i class="fa-solid fa-hand-holding-heart fa-2x"></i>
+                            <i class="fa-solid fa-hand-holding-heart fa-1.5x"></i>
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
@@ -586,7 +586,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
                         <div class="demo-card-icon blue">
-                            <i class="fa-solid fa-bible fa-2x"></i>
+                            <i class="fa-solid fa-bible fa-1.5x"></i>
                         </div>
                         <div class="demo-card-content">
                             <h4>Unisdagroups</h4>
