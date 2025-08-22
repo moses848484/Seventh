@@ -534,8 +534,9 @@
                 <!-- First Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon teal">
-                            <i class="fa-solid fa-hand-holding-heart fa-1.5x"></i>
+                      <div class="demo-card-icon light">
+                            <img src="images/giving.png" alt="Service Icon" class="service-icon"
+                                style="width:50px; height:50px; filter: invert(82%) sepia(100%) saturate(482%) hue-rotate(1deg) brightness(100%) contrast(101%);">
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
@@ -585,8 +586,9 @@
                 <!-- Third Row -->
                 <div class="col-lg-6 mb-4">
                     <div class="demo-card">
-                        <div class="demo-card-icon blue">
-                            <i class="fa-solid fa-bible fa-1.5x"></i>
+                        <div class="demo-card-icon light">
+                            <img src="images/group.jpg" alt="Service Icon" class="service-icon"
+                                style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
                         </div>
                         <div class="demo-card-content">
                             <h4>Unisdagroups</h4>
