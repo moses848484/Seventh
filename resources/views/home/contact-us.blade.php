@@ -577,7 +577,7 @@
                             <h4>Prayer Needs</h4>
                             <p>We would be honored to pray with you! We’ve got teams passionate about doing just that,
                                 so please share how we can be praying for you this week.</p>
-                            <a class="phone" href="{{ route('pray-to-god') }}">Share Your Prayer Request</a>
+                            <a class="phone" href="{{ route('our-beliefs') }}">Share Your Prayer Request</a>
                         </div>
                     </div>
                 </div>
