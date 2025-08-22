@@ -40,6 +40,11 @@ class HomeController extends Controller
         return view('home.connect-with-our-team');
     }
 
+       public function prayerRequest()
+    {
+        return view('home.prayer-request');
+    }
+
 
     public function submitContactForm(Request $request)
     {
