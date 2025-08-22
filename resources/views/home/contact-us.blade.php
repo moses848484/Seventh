@@ -536,8 +536,7 @@
                     <div class="demo-card">
                         <div class="demo-card-icon light">
                             <img src="images/giving.png" alt="Service Icon" class="service-icon"
-                                style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
-
+                                style="width:50px; height:50px; filter: brightness(0);">
                         </div>
                         <div class="demo-card-content">
                             <h4>Giving Help</h4>
