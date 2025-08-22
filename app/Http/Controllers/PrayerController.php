@@ -15,7 +15,8 @@ class PrayerController extends Controller
      */
     public function create()
     {
-         return view('prayer.create');
+          return view('prayer.create', [
+        ]);
     }
 
     /**
