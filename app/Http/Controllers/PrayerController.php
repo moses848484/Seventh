@@ -15,7 +15,7 @@ class PrayerController extends Controller
      */
     public function create()
     {
-         return view('prayers.create');
+         return view('prayer.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class PrayerController extends Controller
      */
     public function thankyou()
     {
-         return view('prayers.thankyou');
+         return view('prayer.thankyou');
     }
 
     /**
@@ -67,6 +67,6 @@ class PrayerController extends Controller
             ->latest()
             ->get();
 
-         return view('prayers.wall', compact('prayers'));
+         return view('prayer.wall', compact('prayers'));
     }
 }
