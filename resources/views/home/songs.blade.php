@@ -14,9 +14,6 @@
       </div>
 
       <!-- Right Column (Flip Card) -->
-      <div class="container-wrapper">
-        <div class="container12">
-          <div class="row align-items-stretch">
             <!-- Left Column (Image Carousel) -->
             <div class="col-md-6 mb-4 mb-md-0">
               <div class="flip-container h-100" id="flipContainer">
@@ -72,9 +69,7 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
 <!-- STYLES -->
 <style>
   .text-area6 {
