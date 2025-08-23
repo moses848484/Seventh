@@ -19,62 +19,57 @@
           <div class="flipper h-100 position-relative">
 
             <!-- FRONT: Audio Player -->
-            <!-- FRONT: Audio Player -->
+            center download songs <!-- FRONT: Audio Player -->
             <div class="front text-area6 d-flex flex-column overflow-auto p-3">
               <h4 class="heading7 mb-3 fs-5 text-center">Download and Listen to Songs Here</h4>
+              <div class="btn-row mb-3 d-flex flex-wrap gap-2"> <button class="btn7" onclick="playTrack()">🎧 Listen
+                  Now</button> <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View
+                  Songs</button> </div <h5 id="trackTitle" class="text1 mt-3 fs-6">Now Playing:</h5>
+              <audio id="audioPlayer" class="w-100" controls>
+                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
 
-              <div class="btn-row mb-3 d-flex flex-wrap gap-2 justify-content-center">
-                <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+              <div class="music-controls mt-3 d-flex gap-2">
+                <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i
+                    class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtn">
+                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i
+                    class="fa-solid fa-square-caret-right"></i></button>
               </div>
+
+              <!-- Swipe indicators -->
+              <div class="swipe-indicator left" id="swipeLeft">←</div>
+              <div class="swipe-indicator right" id="swipeRight">→</div>
             </div>
 
-            <h5 id="trackTitle" class="text1 mt-3 fs-6">Now Playing:</h5>
-            <audio id="audioPlayer" class="w-100" controls>
-              <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
+            <!-- BACK: Song List -->
+            <div class="back text-area6 h-100 overflow-auto p-3">
+              <h4 class="text1 mt-2">🎵 Available Songs</h4>
+              <div id="trackList" class="track-list"></div>
 
-            <div class="music-controls mt-3 d-flex gap-2">
-              <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i
-                  class="fa-solid fa-square-caret-left"></i></button>
-              <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtn">
-                <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-              </button>
-              <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i
-                  class="fa-solid fa-square-caret-right"></i></button>
+              <h5 id="trackTitleBack" class="text1 mt-3 fs-6">Now Playing:</h5>
+              <div class="music-controls mt-2 d-flex gap-2">
+                <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i
+                    class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtnBack">
+                  <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i
+                    class="fa-solid fa-square-caret-right"></i></button>
+              </div>
+
+              <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
 
-            <!-- Swipe indicators -->
-            <div class="swipe-indicator left" id="swipeLeft">←</div>
-            <div class="swipe-indicator right" id="swipeRight">→</div>
           </div>
-
-          <!-- BACK: Song List -->
-          <div class="back text-area6 h-100 overflow-auto p-3">
-            <h4 class="text1 mt-2">🎵 Available Songs</h4>
-            <div id="trackList" class="track-list"></div>
-
-            <h5 id="trackTitleBack" class="text1 mt-3 fs-6">Now Playing:</h5>
-            <div class="music-controls mt-2 d-flex gap-2">
-              <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i
-                  class="fa-solid fa-square-caret-left"></i></button>
-              <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtnBack">
-                <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
-              </button>
-              <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i
-                  class="fa-solid fa-square-caret-right"></i></button>
-            </div>
-
-            <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
-          </div>
-
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
 </div>
 
 <!-- CSS -->
