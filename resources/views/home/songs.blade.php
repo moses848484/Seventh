@@ -29,7 +29,7 @@
               </div>
             </div>
 
-            <h5 id="trackTitle" class="text1">Now Playing:</h5>
+            <h5 id="trackTitle" class="text1 mt-5 fs-6">Now Playing:</h5>
             <audio id="audioPlayer" class="w-100" controls>
               <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
               Your browser does not support the audio element.
