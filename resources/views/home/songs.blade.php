@@ -1,195 +1,83 @@
-<div class="container-wrapper">
-  <div class="container12">
-    <div class="row align-items-stretch">
+<div class="container-wrapper py-4">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
       <!-- Left Column (Image Carousel) -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
-          <div class="carousel-inner h-100 position-relative">
-            <div class="carousel-item active">
-              <img src="images/choir.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
+      <div class="col-md-6">
+        <div id="imageCarousel" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+              <img src="images/choir.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Choir Image">
             </div>
-
           </div>
         </div>
       </div>
 
-      <!-- Right Column (Flip Card) -->
-            <!-- Left Column (Image Carousel) -->
-            <div class="col-md-6 mb-4 mb-md-0">
-              <div class="flip-container h-100" id="flipContainer">
-                <div class="flipper h-100 position-relative">
-                  <!-- FRONT -->
-                  <div class="front text-area6 h-100 overflow-auto">
-                    <h4 class="heading7">Download and Listen to Songs Here</h4>
+      <!-- Right Column (Flip Card / Music Player) -->
+      <div class="col-md-6">
+        <div class="flip-container h-100" id="flipContainer">
+          <div class="flipper h-100 position-relative">
+            <!-- FRONT -->
+            <div class="front text-area6 d-flex flex-column overflow-auto">
+              <h4 class="heading7 mb-3">Download and Listen to Songs Here</h4>
+              <div class="btn-row mb-3">
+                <button class="btn7 me-2" onclick="playTrack()">🎧 Listen Now</button>
+                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+              </div>
 
-                    <div class="btn-row mb-3">
-                      <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-                      <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
-                    </div>
+              <h5 id="trackTitle" class="text1 mt-3">Now Playing:</h5>
+              <audio id="audioPlayer" class="w-100" controls>
+                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
 
-                    <h5 id="trackTitle" class="text1">Now Playing:</h5>
-                    <audio id="audioPlayer" style="width: 100%;" controls>
-                      <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-
-                    <div class="music-controls mt-3">
-                      <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                          class="fa-solid fa-square-caret-left"></i></button>
-                      <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
-                        <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-                      </button>
-                      <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                          class="fa-solid fa-square-caret-right"></i></button>
-                    </div>
-                  </div>
-
-                  <!-- BACK -->
-                  <div class="back text-area6 h-100 overflow-auto">
-                    <h4 class="text1 mt-2">🎵 Available Songs</h4>
-                    <div id="trackList" class="track-list"></div>
-
-                    <!-- Back-side Controls -->
-                    <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
-                    <div class="music-controls mt-2">
-                      <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                          class="fa-solid fa-square-caret-left"></i></button>
-                      <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
-                        <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
-                      </button>
-                      <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                          class="fa-solid fa-square-caret-right"></i></button>
-                    </div>
-
-                    <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
-                  </div>
-                </div>
+              <div class="music-controls mt-3 d-flex gap-2">
+                <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtn">
+                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
               </div>
             </div>
+
+            <!-- BACK -->
+            <div class="back text-area6 d-flex flex-column overflow-auto">
+              <h4 class="text1 mt-2 mb-3">🎵 Available Songs</h4>
+              <div id="trackList" class="track-list flex-grow-1 overflow-auto"></div>
+
+              <h5 id="trackTitleBack" class="text1 mt-3">Now Playing:</h5>
+              <div class="music-controls mt-2 d-flex gap-2">
+                <button onclick="prevTrack()" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-square-caret-left"></i></button>
+                <button onclick="playTrack()" class="btn btn-outline-light btn-sm" id="playPauseBtnBack">
+                  <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
+                </button>
+                <button onclick="nextTrack()" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-square-caret-right"></i></button>
+              </div>
+
+              <button class="btn7 mt-3 align-self-start" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-<!-- STYLES -->
+<!-- Styles -->
 <style>
-  .text-area6 {
-    background: rgba(248, 249, 250, 0.11);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    color: white;
-  }
-
-  .btn7 {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 30px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn7:hover {
-    background-color: #ddd;
-  }
-
-  .text1 {
-    color: #fff;
-    margin: 25px;
-  }
-
-  .track-list {
-    margin-top: 15px;
-  }
-
-  .track-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    color: white;
-  }
-
-  .track-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .track-item.active {
-    font-weight: bold;
-    text-decoration: underline;
-    background-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .track-title {
-    flex: 1;
-  }
-
-  .track-icon {
-    margin-left: 10px;
-  }
-
-  .carousel {
-    margin-top: 14px;
-  }
-
-  .flip-container {
-    perspective: 1000px;
-    margin-top: -30px;
-    width: 100%;
-  }
-
-  .flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .flip-container.flip .flipper {
-    transform: rotateY(180deg);
-  }
-
-  .front,
-  .back {
-    backface-visibility: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-  }
-
-  .object-fit-cover {
-    object-fit: cover;
-  }
-
-  .fa-circle-play,
-  .fa-circle-pause {
-    font-size: 50px;
-    color: white;
-  }
-
-  .fa-square-caret-left,
-  .fa-square-caret-right {
-    font-size: 35px;
-    color: white;
-  }
-
-  .song_text {
-    text-align: left;
-  }
+.container-wrapper { background: #000; min-height: 100vh; }
+.object-fit-cover { object-fit: cover; }
+.text-area6 { background: rgba(248, 249, 250, 0.1); padding: 25px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); color: white; height: 100%; }
+.btn7 { background-color: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; transition: 0.3s; }
+.btn7:hover { background-color: #ddd; }
+.flip-container { perspective: 1000px; height: 100%; }
+.flipper { transition: 0.6s; transform-style: preserve-3d; position: relative; height: 100%; }
+.flip-container.flip .flipper { transform: rotateY(180deg); }
+.front, .back { backface-visibility: hidden; position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: flex; flex-direction: column; }
+.back { transform: rotateY(180deg); }
+.track-list { flex-grow: 1; overflow-y: auto; margin-top: 10px; }
+.music-controls i { font-size: 1.5rem; }
 </style>
+
 
 <!-- SCRIPT -->
 <script>
