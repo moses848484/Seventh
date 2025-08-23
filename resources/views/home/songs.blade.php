@@ -584,25 +584,18 @@
         const tracks = [
             { 
                 title: "I'm Not Gonna Worry", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+                file: "{{ asset('music/Gaither Vocal Band - Im Not Gonna Worry [Live] ft. Gaither Vocal Band.mp3') }}",
                 artist: "Gaither Vocal Band",
                 album: "Gospel Classics",
-                cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop"
+                cover: "images/gvb1.jpg"
             },
             { 
                 title: "When I Cry", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-04.wav",
+                file: "{{ asset('music/Bill When I Cry.mp3') }}",
                 artist: "Bill Gaither",
                 album: "Inspirational Songs",
                 cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
             },
-            { 
-                title: "Amazing Grace", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
-                artist: "Traditional",
-                album: "Hymns of Faith",
-                cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
-            }
         ];
 
         let currentTrack = 0;
