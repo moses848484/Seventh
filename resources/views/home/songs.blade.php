@@ -1,250 +1,524 @@
-<div class="container-wrapper">
-  <div class="container12">
-    <div class="row align-items-stretch">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="music-player-wrapper">
+  <div class="container-fluid">
+    <div class="row g-4 align-items-stretch min-vh-100">
+      
       <!-- Left Column (Image Carousel) -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <div id="imageCarousel" class="carousel slide image-carousel-container" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="images/choir.jpg" class="d-block w-100 carousel-image" alt="First Image">
+      <div class="col-lg-6">
+        <div class="image-section">
+          <div id="imageCarousel" class="carousel slide image-carousel-container">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/choir.jpg" class="carousel-image" alt="Choir Performance">
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right Column (Flip Card) -->
-      <div class="col-md-6">
-        <div class="flip-container h-100" id="flipContainer">
-          <div class="flipper h-100 position-relative">
-            <!-- FRONT -->
-            <div class="front text-area6 h-100 overflow-auto">
-              <h4 class="heading7 text-center">Download and Listen to Songs Here</h4>
+      <!-- Right Column (Music Player) -->
+      <div class="col-lg-6">
+        <div class="flip-container" id="flipContainer">
+          <div class="flipper">
+            
+            <!-- FRONT - Main Player -->
+            <div class="front player-section">
+              <div class="player-content">
+                
+                <div class="header-section text-center mb-4">
+                  <h2 class="main-title">Download and Listen to Songs Here</h2>
+                </div>
+                
+                <div class="now-playing-section text-center mb-4">
+                  <h4 id="trackTitle" class="track-title">Now Playing: I'm Not Gonna Worry</h4>
+                </div>
+                
+                <!-- Audio Player and View Songs Container -->
+                <div class="audio-container mb-4">
+                  <div class="audio-player-wrapper">
+                    <audio id="audioPlayer" controls class="custom-audio">
+                      <source id="audioSource" src="music/Bill When I Cry.mp3" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                  <button class="view-songs-btn" id="viewSongsBtn">
+                    <i class="fa-solid fa-list"></i> View Songs
+                  </button>
+                </div>
 
-              <h5 id="trackTitle" class="text1">Now Playing:</h5>
-              
-              <!-- Audio Player and View Songs Button Container -->
-              <div class="audio-controls-container">
-                <audio id="audioPlayer" controls>
-                  <source id="audioSource" src="music/Bill When I Cry.mp3" type="audio/mpeg">
-                  Your browser does not support the audio element.
-                </audio>
-                <button class="btn7 view-songs-btn" id="viewSongsBtn">
-                  <i class="fa-solid fa-eye"></i> View Songs
-                </button>
-              </div>
-
-              <div class="music-controls mt-3">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-left"></i></button>
-                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
-                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-                </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-right"></i></button>
+                <!-- Custom Music Controls -->
+                <div class="custom-controls text-center">
+                  <button onclick="prevTrack()" class="control-btn" title="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+                  <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtn" title="Play/Pause">
+                    <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                  </button>
+                  <button onclick="nextTrack()" class="control-btn" title="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                </div>
+                
               </div>
             </div>
 
-            <!-- BACK -->
-            <div class="back text-area6 h-100 overflow-auto">
-              <h4 class="text1 mt-2">🎵 Available Songs</h4>
-              <div id="trackList" class="track-list"></div>
+            <!-- BACK - Song List -->
+            <div class="back player-section">
+              <div class="player-content">
+                
+                <div class="header-section text-center mb-4">
+                  <h2 class="main-title">🎵 Available Songs</h2>
+                </div>
+                
+                <div class="track-list-container">
+                  <div id="trackList" class="track-list"></div>
+                </div>
+                
+                <!-- Back Controls -->
+                <div class="now-playing-section text-center mb-3">
+                  <h5 id="trackTitleBack" class="track-title-small">Now Playing: I'm Not Gonna Worry</h5>
+                </div>
+                
+                <div class="custom-controls text-center mb-4">
+                  <button onclick="prevTrack()" class="control-btn" title="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+                  <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtnBack" title="Play/Pause">
+                    <i class="fa-solid fa-play" id="playPauseIconBack"></i>
+                  </button>
+                  <button onclick="nextTrack()" class="control-btn" title="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                </div>
 
-              <!-- Back-side Controls -->
-              <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
-              <div class="music-controls mt-2">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-left"></i></button>
-                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
-                  <i class="fa-solid fa-circle-pause" id="playPauseIconBack"></i>
-                </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-right"></i></button>
+                <div class="text-center">
+                  <button class="back-btn" id="backBtn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Player
+                  </button>
+                </div>
+                
               </div>
-
-              <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
+            
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
 
-<!-- STYLES -->
 <style>
-  /* Image carousel styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #5d8a66 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.music-player-wrapper {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Image Section Styling */
+.image-section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-carousel-container {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Player Section Styling */
+.player-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.player-content {
+  padding: 40px;
+  width: 100%;
+}
+
+/* Typography */
+.main-title {
+  color: #2d5a27;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.track-title {
+  color: #4a7c59;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.track-title-small {
+  color: #4a7c59;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* Audio Container */
+.audio-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.audio-player-wrapper {
+  flex: 1;
+  min-width: 280px;
+}
+
+.custom-audio {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+}
+
+.custom-audio::-webkit-media-controls-panel {
+  background-color: #f8f9fa;
+  border-radius: 25px;
+}
+
+/* View Songs Button */
+.view-songs-btn {
+  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+  white-space: nowrap;
+}
+
+.view-songs-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
+  background: linear-gradient(135deg, #5d8a66 0%, #4a7c59 100%);
+}
+
+/* Custom Controls */
+.custom-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.control-btn {
+  background: rgba(74, 124, 89, 0.1);
+  border: 2px solid #4a7c59;
+  color: #4a7c59;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background: #4a7c59;
+  color: white;
+  transform: scale(1.1);
+}
+
+.play-btn {
+  width: 80px;
+  height: 80px;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(74, 124, 89, 0.4);
+}
+
+/* Back Button */
+.back-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Track List */
+.track-list-container {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: rgba(248, 249, 250, 0.5);
+  padding: 10px;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 124, 89, 0.1);
+}
+
+.track-item:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.track-item.active {
+  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.track-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.track-icon {
+  margin-left: 15px;
+  font-size: 1.1rem;
+}
+
+.download-button {
+  color: #4a7c59;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.download-button:hover {
+  background: #4a7c59;
+  color: white;
+}
+
+.track-item.active .download-button {
+  color: white;
+}
+
+.track-item.active .download-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Flip Animation */
+.flip-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+}
+
+.flipper {
+  transition: 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .music-player-wrapper {
+    padding: 15px;
+  }
+  
   .image-carousel-container {
-    height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    margin-bottom: 20px;
   }
-
+  
   .carousel-image {
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
+    height: 300px;
   }
-
-  .text-area6 {
-    background: rgba(248, 249, 250, 0.11);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    color: white;
+  
+  .player-content {
+    padding: 30px 25px;
   }
-
-  .btn7 {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 30px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
+  
+  .main-title {
+    font-size: 1.5rem;
   }
+}
 
-  .btn7:hover {
-    background-color: #ddd;
-  }
-
-  /* New styles for audio controls container */
-  .audio-controls-container {
-    display: flex;
-    align-items: center;
+@media (max-width: 768px) {
+  .audio-container {
+    flex-direction: column;
     gap: 15px;
-    flex-wrap: wrap;
   }
-
-  .audio-controls-container audio {
-    flex: 1;
-    min-width: 200px;
-  }
-
+  
   .view-songs-btn {
-    margin-top: 0 !important;
-    white-space: nowrap;
+    width: 100%;
+    max-width: 280px;
   }
-
-  .text1 {
-    color: #fff;
-    margin: 25px;
+  
+  .image-carousel-container {
+    height: 250px;
   }
-
-  .track-list {
-    margin-top: 15px;
+  
+  .carousel-image {
+    height: 250px;
   }
-
-  .track-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    color: white;
+  
+  .custom-controls {
+    gap: 15px;
   }
-
-  .track-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
   }
-
-  .track-item.active {
-    font-weight: bold;
-    text-decoration: underline;
-    background-color: rgba(255, 255, 255, 0.08);
+  
+  .play-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
   }
+}
 
+@media (max-width: 576px) {
+  .music-player-wrapper {
+    padding: 10px;
+  }
+  
+  .player-content {
+    padding: 25px 20px;
+  }
+  
+  .main-title {
+    font-size: 1.3rem;
+  }
+  
   .track-title {
-    flex: 1;
+    font-size: 1.1rem;
   }
+  
+  .image-carousel-container {
+    height: 200px;
+  }
+  
+  .carousel-image {
+    height: 200px;
+  }
+}
 
-  .track-icon {
-    margin-left: 10px;
-  }
+/* Scrollbar Styling */
+.track-list-container::-webkit-scrollbar {
+  width: 6px;
+}
 
-  .flip-container {
-    perspective: 1000px;
-    margin-top: -30px;
-    width: 100%;
-  }
+.track-list-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
 
-  .flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+.track-list-container::-webkit-scrollbar-thumb {
+  background: #4a7c59;
+  border-radius: 3px;
+}
 
-  .flip-container.flip .flipper {
-    transform: rotateY(180deg);
-  }
-
-  .front,
-  .back {
-    backface-visibility: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-  }
-
-  .object-fit-cover {
-    object-fit: cover;
-  }
-
-  .fa-circle-play,
-  .fa-circle-pause {
-    font-size: 50px;
-    color: white;
-  }
-
-  .fa-square-caret-left,
-  .fa-square-caret-right {
-    font-size: 35px;
-    color: white;
-  }
-
-  .song_text {
-    text-align: left;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .image-carousel-container {
-      height: 250px;
-    }
-    
-    .carousel-image {
-      height: 250px;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .audio-controls-container {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    
-    .view-songs-btn {
-      margin-top: 10px !important;
-    }
-  }
+.track-list-container::-webkit-scrollbar-thumb:hover {
+  background: #5d8a66;
+}
 </style>
 
-<!-- FontAwesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<!-- SCRIPT -->
 <script>
   const tracks = [
     {
@@ -302,8 +576,9 @@
   }
 
   function updatePlayIcon(isPlaying) {
-    if (playPauseIcon) playPauseIcon.className = isPlaying ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play';
-    if (playPauseIconBack) playPauseIconBack.className = isPlaying ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play';
+    const iconClass = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+    if (playPauseIcon) playPauseIcon.className = iconClass;
+    if (playPauseIconBack) playPauseIconBack.className = iconClass;
   }
 
   function displayAvailableTracks() {
@@ -315,24 +590,27 @@
       trackDiv.classList.add('track-item');
       if (index === currentTrack) trackDiv.classList.add('active');
 
+      const infoWrapper = document.createElement('div');
+      infoWrapper.style.display = 'flex';
+      infoWrapper.style.alignItems = 'center';
+      infoWrapper.style.flex = '1';
+
       const titleSpan = document.createElement('span');
       titleSpan.className = 'track-title';
       titleSpan.textContent = track.title;
 
       const icon = document.createElement('i');
-      icon.className = (index === currentTrack && !audio.paused) ? 'fa fa-pause' : 'fa fa-play';
-      icon.classList.add('track-icon');
+      icon.className = (index === currentTrack && !audio.paused) ? 'fa fa-pause track-icon' : 'fa fa-play track-icon';
 
-      const infoWrapper = document.createElement('div');
-      infoWrapper.className = 'track-info-wrapper';
       infoWrapper.appendChild(titleSpan);
       infoWrapper.appendChild(icon);
 
       const downloadLink = document.createElement('a');
       downloadLink.href = track.file;
-      downloadLink.download = '';
+      downloadLink.download = track.title + '.mp3';
       downloadLink.className = 'download-button';
       downloadLink.innerHTML = '<i class="fa-solid fa-download"></i>';
+      downloadLink.onclick = (e) => e.stopPropagation();
 
       trackDiv.appendChild(infoWrapper);
       trackDiv.appendChild(downloadLink);
@@ -351,6 +629,7 @@
     });
   }
 
+  // Event Listeners
   document.getElementById("viewSongsBtn").addEventListener("click", () => {
     document.getElementById("flipContainer").classList.add("flip");
     displayAvailableTracks();
@@ -363,6 +642,7 @@
   window.addEventListener('DOMContentLoaded', () => {
     loadTrack(currentTrack);
     updatePlayIcon(false);
+    displayAvailableTracks();
   });
 
   audio.addEventListener('ended', nextTrack);
@@ -376,3 +656,7 @@
     displayAvailableTracks();
   });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
