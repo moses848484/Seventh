@@ -14,53 +14,60 @@
       </div>
 
       <!-- Right Column (Flip Card) -->
-      <div class="col-md-6">
-        <div class="flip-container h-100" id="flipContainer">
-          <div class="flipper h-100 position-relative">
-            <!-- FRONT -->
-            <div class="front text-area6 h-100 overflow-auto">
-              <h4 class="heading7">Download and Listen to Songs Here</h4>
+      <div class="container-wrapper">
+        <div class="container12">
+          <div class="row align-items-stretch">
+            <!-- Left Column (Image Carousel) -->
+            <div class="col-md-6 mb-4 mb-md-0">
+              <div class="flip-container h-100" id="flipContainer">
+                <div class="flipper h-100 position-relative">
+                  <!-- FRONT -->
+                  <div class="front text-area6 h-100 overflow-auto">
+                    <h4 class="heading7">Download and Listen to Songs Here</h4>
 
-              <div class="btn-row mb-3">
-                <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+                    <div class="btn-row mb-3">
+                      <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
+                      <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
+                    </div>
+
+                    <h5 id="trackTitle" class="text1">Now Playing:</h5>
+                    <audio id="audioPlayer" style="width: 100%;" controls>
+                      <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio>
+
+                    <div class="music-controls mt-3">
+                      <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
+                          class="fa-solid fa-square-caret-left"></i></button>
+                      <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
+                        <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
+                      </button>
+                      <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
+                          class="fa-solid fa-square-caret-right"></i></button>
+                    </div>
+                  </div>
+
+                  <!-- BACK -->
+                  <div class="back text-area6 h-100 overflow-auto">
+                    <h4 class="text1 mt-2">🎵 Available Songs</h4>
+                    <div id="trackList" class="track-list"></div>
+
+                    <!-- Back-side Controls -->
+                    <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
+                    <div class="music-controls mt-2">
+                      <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
+                          class="fa-solid fa-square-caret-left"></i></button>
+                      <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
+                        <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
+                      </button>
+                      <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
+                          class="fa-solid fa-square-caret-right"></i></button>
+                    </div>
+
+                    <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                  </div>
+                </div>
               </div>
-
-              <h5 id="trackTitle" class="text1">Now Playing:</h5>
-              <audio id="audioPlayer" style="width: 100%;" controls>
-                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
-
-              <div class="music-controls mt-3">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-left"></i></button>
-                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtn">
-                  <i class="fa-solid fa-circle-play" id="playPauseIcon"></i>
-                </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-right"></i></button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="back text-area6 h-100 overflow-auto">
-              <h4 class="text1 mt-2">🎵 Available Songs</h4>
-              <div id="trackList" class="track-list"></div>
-
-              <!-- Back-side Controls -->
-              <h5 id="trackTitleBack" class="text1">Now Playing:</h5>
-              <div class="music-controls mt-2">
-                <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-left"></i></button>
-                <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
-                  <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
-                </button>
-                <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
-                    class="fa-solid fa-square-caret-right"></i></button>
-              </div>
-
-              <button class="btn7 mt-4" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
             </div>
           </div>
         </div>
@@ -68,7 +75,6 @@
     </div>
   </div>
 </div>
-
 <!-- STYLES -->
 <style>
   .text-area6 {
@@ -133,14 +139,14 @@
     margin-left: 10px;
   }
 
-.carousel {
-  margin-top: 15px;
-}
+  .carousel {
+    margin-top: 17px;
+  }
 
   .flip-container {
     perspective: 1000px;
     margin-top: -30px;
-    margin-left: -15px;
+    margin-left: 25px;
     width: 100%;
   }
 
@@ -185,6 +191,7 @@
     font-size: 35px;
     color: white;
   }
+
   .song_text {
     text-align: left;
   }
