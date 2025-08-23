@@ -134,12 +134,12 @@
   }
 
 .carousel {
-  margin-top: -30px;
+  margin-top: 10px;
 }
 
   .flip-container {
     perspective: 1000px;
-    margin-top: 10px;
+    margin-top: -30px;
     width: 100%;
   }
 
