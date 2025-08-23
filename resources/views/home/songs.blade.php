@@ -4,7 +4,7 @@
       <!-- Left Column (Image Carousel) -->
       <div class="col-md-6 mb-4 mb-md-0">
         <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
-          <div class="carousel-inner h-100">
+          <div class="carousel-inner h-100 position-relative">
             <div class="carousel-item active">
               <img src="images/choir.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
             </div>
@@ -132,6 +132,10 @@
   .track-icon {
     margin-left: 10px;
   }
+
+.carousel {
+  margin-top: -30px;
+}
 
   .flip-container {
     perspective: 1000px;
