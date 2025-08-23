@@ -6,137 +6,25 @@
   <title>Music Player</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-<div class="music-player-wrapper">
-  <div class="container-fluid">
-    <!-- 🔹 Use align-items-stretch so both columns align in height -->
-    <div class="row g-4 align-items-stretch justify-content-center">
-      
-      <!-- Left Column (Image Carousel) -->
-      <div class="col-lg-5 col-md-6">
-        <div class="image-section h-100">
-          <div id="imageCarousel" class="carousel slide image-carousel-container h-100">
-            <div class="carousel-inner h-100">
-              <div class="carousel-item active h-100">
-                <img src="images/choir.jpg" class="carousel-image h-100 w-100" alt="Choir Performance">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column (Music Player) -->
-      <div class="col-lg-5 col-md-6">
-        <div class="flip-container h-100" id="flipContainer">
-          <div class="flipper h-100">
-            
-            <!-- FRONT - Main Player -->
-            <div class="front player-section h-100">
-              <div class="player-content">
-
-                <div class="header-section text-center mb-3">
-                  <h2 class="main-title">Download and Listen to Songs Here</h2>
-                </div>
-                
-                <div class="now-playing-section text-center mb-3">
-                  <h4 id="trackTitle" class="track-title">Now Playing: I'm Not Gonna Worry</h4>
-                </div>
-                
-                <div class="audio-container mb-3">
-                  <div class="audio-player-wrapper">
-                    <audio id="audioPlayer" controls class="custom-audio">
-                      <source id="audioSource" src="music/Bill When I Cry.mp3" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-                    
-                    <div class="integrated-controls">
-                      <button onclick="prevTrack()" class="control-btn" title="Previous">
-                        <i class="fa-solid fa-backward-step"></i>
-                      </button>
-                      <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtn" title="Play/Pause">
-                        <i class="fa-solid fa-play" id="playPauseIcon"></i>
-                      </button>
-                      <button onclick="nextTrack()" class="control-btn" title="Next">
-                        <i class="fa-solid fa-forward-step"></i>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <button class="view-songs-btn" id="viewSongsBtn">
-                    <i class="fa-solid fa-list"></i> View Songs
-                  </button>
-                </div>
-                
-              </div>
-            </div>
-
-            <!-- BACK - Song List -->
-            <div class="back player-section h-100">
-              <div class="player-content">
-                
-                <div class="header-section text-center mb-3">
-                  <h2 class="main-title">🎵 Available Songs</h2>
-                </div>
-                
-                <div class="track-list-container">
-                  <div id="trackList" class="track-list"></div>
-                </div>
-                
-                <div class="now-playing-section text-center mb-2">
-                  <h5 id="trackTitleBack" class="track-title-small">Now Playing: I'm Not Gonna Worry</h5>
-                </div>
-                
-                <div class="integrated-controls mb-3">
-                  <button onclick="prevTrack()" class="control-btn" title="Previous">
-                    <i class="fa-solid fa-backward-step"></i>
-                  </button>
-                  <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtnBack" title="Play/Pause">
-                    <i class="fa-solid fa-play" id="playPauseIconBack"></i>
-                  </button>
-                  <button onclick="nextTrack()" class="control-btn" title="Next">
-                    <i class="fa-solid fa-forward-step"></i>
-                  </button>
-                </div>
-
-                <div class="text-center">
-                  <button class="back-btn" id="backBtn">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Player
-                  </button>
-                </div>
-                
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-<style>
+  <style>
 /* General Wrapper */
 .music-player-wrapper {
   background: linear-gradient(135deg, #1e7e34 0%, #28a745 50%, #34ce57 100%);
-  padding: 25px;
+  padding: 30px;
   border-radius: 20px;
-  margin: 30px auto;
+  margin: 0;
   max-width: 100%;
   box-shadow: 0 20px 40px rgba(30, 126, 52, 0.2);
-  position: relative;
   overflow: hidden;
 }
 
 /* Image Section */
 .image-carousel-container {
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  background: white;
+  height: 100%;
 }
 
 .carousel-image {
@@ -146,23 +34,117 @@
 
 /* Player Section */
 .player-section {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .player-content {
-  padding: 20px;
   width: 100%;
+}
+
+/* Headings */
+.main-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.track-title {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Custom Controls */
+.integrated-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.play-btn {
+  font-size: 1.6rem;
+  padding: 14px 18px;
+  background: #28a745;
+}
+
+.play-btn:hover {
+  background: #34ce57;
+}
+
+/* View Songs Button */
+.view-songs-btn, .back-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view-songs-btn:hover, .back-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Song List */
+.track-list {
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: 0.3s;
+}
+
+.track-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.track-item.active {
+  background: #28a745;
 }
 
 /* Flip Animation */
 .flip-container {
   perspective: 1000px;
+  width: 100%;
+  height: 100%;
 }
 
 .flipper {
@@ -189,7 +171,74 @@
 .back {
   transform: rotateY(180deg);
 }
-</style>
+  </style>
+</head>
+<body>
+
+<div class="music-player-wrapper">
+  <div class="container-fluid">
+    <div class="row g-4 align-items-stretch justify-content-center">
+      
+      <!-- Left Column (Image Carousel) -->
+      <div class="col-lg-6 col-md-6">
+        <div class="image-section h-100">
+          <div id="imageCarousel" class="carousel slide image-carousel-container h-100">
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100">
+                <img src="images/choir.jpg" class="carousel-image h-100 w-100" alt="Choir Performance">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (Music Player) -->
+      <div class="col-lg-6 col-md-6">
+        <div class="flip-container h-100" id="flipContainer">
+          <div class="flipper h-100">
+            
+            <!-- FRONT - Main Player -->
+            <div class="front player-section h-100">
+              <div class="player-content text-center">
+                <h2 class="main-title">Download and Listen to Songs Here</h2>
+                <h4 id="trackTitle" class="track-title">Now Playing: I'm Not Gonna Worry</h4>
+                
+                <div class="integrated-controls">
+                  <button onclick="prevTrack()" class="control-btn" title="Previous">
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+                  <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtn" title="Play/Pause">
+                    <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                  </button>
+                  <button onclick="nextTrack()" class="control-btn" title="Next">
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                </div>
+
+                <button class="view-songs-btn mt-3" id="viewSongsBtn">
+                  <i class="fa-solid fa-list"></i> View Songs
+                </button>
+              </div>
+            </div>
+
+            <!-- BACK - Song List -->
+            <div class="back player-section h-100">
+              <div class="player-content">
+                <h2 class="main-title text-center">🎵 Available Songs</h2>
+                <div id="trackList" class="track-list"></div>
+                <button class="back-btn mt-3 d-block mx-auto" id="backBtn">
+                  <i class="fa-solid fa-arrow-left"></i> Back to Player
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <script>
   const tracks = [
@@ -198,19 +247,14 @@
   ];
 
   let currentTrack = 0;
-  const audio = document.getElementById('audioPlayer');
-  const source = document.getElementById('audioSource');
+  const audio = new Audio(tracks[0].file);
   const trackTitle = document.getElementById('trackTitle');
-  const trackTitleBack = document.getElementById('trackTitleBack');
   const playPauseIcon = document.getElementById('playPauseIcon');
-  const playPauseIconBack = document.getElementById('playPauseIconBack');
 
   function loadTrack(index) {
     currentTrack = index;
-    source.src = tracks[index].file;
-    audio.load();
+    audio.src = tracks[index].file;
     trackTitle.textContent = "Now Playing: " + tracks[index].title;
-    if (trackTitleBack) trackTitleBack.textContent = "Now Playing: " + tracks[index].title;
     displayAvailableTracks();
   }
 
@@ -239,9 +283,7 @@
   }
 
   function updatePlayIcon(isPlaying) {
-    const iconClass = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
-    if (playPauseIcon) playPauseIcon.className = iconClass;
-    if (playPauseIconBack) playPauseIconBack.className = iconClass;
+    playPauseIcon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
   }
 
   function displayAvailableTracks() {
@@ -251,42 +293,12 @@
       const trackDiv = document.createElement('div');
       trackDiv.classList.add('track-item');
       if (index === currentTrack) trackDiv.classList.add('active');
-
-      const infoWrapper = document.createElement('div');
-      infoWrapper.style.display = 'flex';
-      infoWrapper.style.alignItems = 'center';
-      infoWrapper.style.flex = '1';
-
-      const titleSpan = document.createElement('span');
-      titleSpan.className = 'track-title';
-      titleSpan.textContent = track.title;
-
-      const icon = document.createElement('i');
-      icon.className = (index === currentTrack && !audio.paused) ? 'fa fa-pause track-icon' : 'fa fa-play track-icon';
-
-      infoWrapper.appendChild(titleSpan);
-      infoWrapper.appendChild(icon);
-
-      const downloadLink = document.createElement('a');
-      downloadLink.href = track.file;
-      downloadLink.download = track.title + '.mp3';
-      downloadLink.className = 'download-button';
-      downloadLink.innerHTML = '<i class="fa-solid fa-download"></i>';
-      downloadLink.onclick = (e) => e.stopPropagation();
-
-      trackDiv.appendChild(infoWrapper);
-      trackDiv.appendChild(downloadLink);
-
+      trackDiv.innerHTML = `<span>${track.title}</span>`;
       trackDiv.onclick = () => {
-        if (index === currentTrack) {
-          playTrack();
-        } else {
-          loadTrack(index);
-          audio.play();
-          updatePlayIcon(true);
-        }
+        loadTrack(index);
+        audio.play();
+        updatePlayIcon(true);
       };
-
       trackList.appendChild(trackDiv);
     });
   }
@@ -303,12 +315,9 @@
   window.addEventListener('DOMContentLoaded', () => {
     loadTrack(currentTrack);
     updatePlayIcon(false);
-    displayAvailableTracks();
   });
 
   audio.addEventListener('ended', nextTrack);
-  audio.addEventListener('play', () => { updatePlayIcon(true); displayAvailableTracks(); });
-  audio.addEventListener('pause', () => { updatePlayIcon(false); displayAvailableTracks(); });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
