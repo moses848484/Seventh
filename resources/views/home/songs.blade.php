@@ -11,7 +11,7 @@
 
 <div class="music-player-wrapper">
   <div class="container-fluid">
-    <div class="row g-4 align-items-stretch min-vh-100">
+    <div class="row g-2 align-items-stretch min-vh-100">
       
       <!-- Left Column (Image Carousel) -->
       <div class="col-lg-6">
@@ -50,22 +50,23 @@
                       <source id="audioSource" src="music/Bill When I Cry.mp3" type="audio/mpeg">
                       Your browser does not support the audio element.
                     </audio>
+                    
+                    <!-- Custom Music Controls integrated below audio -->
+                    <div class="integrated-controls">
+                      <button onclick="prevTrack()" class="control-btn" title="Previous">
+                        <i class="fa-solid fa-backward-step"></i>
+                      </button>
+                      <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtn" title="Play/Pause">
+                        <i class="fa-solid fa-play" id="playPauseIcon"></i>
+                      </button>
+                      <button onclick="nextTrack()" class="control-btn" title="Next">
+                        <i class="fa-solid fa-forward-step"></i>
+                      </button>
+                    </div>
                   </div>
+                  
                   <button class="view-songs-btn" id="viewSongsBtn">
                     <i class="fa-solid fa-list"></i> View Songs
-                  </button>
-                </div>
-
-                <!-- Custom Music Controls -->
-                <div class="custom-controls text-center">
-                  <button onclick="prevTrack()" class="control-btn" title="Previous">
-                    <i class="fa-solid fa-backward-step"></i>
-                  </button>
-                  <button onclick="playTrack()" class="control-btn play-btn" id="playPauseBtn" title="Play/Pause">
-                    <i class="fa-solid fa-play" id="playPauseIcon"></i>
-                  </button>
-                  <button onclick="nextTrack()" class="control-btn" title="Next">
-                    <i class="fa-solid fa-forward-step"></i>
                   </button>
                 </div>
                 
@@ -89,7 +90,7 @@
                   <h5 id="trackTitleBack" class="track-title-small">Now Playing: I'm Not Gonna Worry</h5>
                 </div>
                 
-                <div class="custom-controls text-center mb-4">
+                <div class="integrated-controls mb-4">
                   <button onclick="prevTrack()" class="control-btn" title="Previous">
                     <i class="fa-solid fa-backward-step"></i>
                   </button>
@@ -126,14 +127,18 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #5d8a66 100%);
+  background: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
 }
 
 .music-player-wrapper {
-  min-height: 100vh;
+  background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #5d8a66 100%);
+  min-height: 80vh;
   padding: 20px;
+  border-radius: 20px;
+  margin: 40px 20px;
+  box-shadow: 0 20px 40px rgba(45, 90, 39, 0.3);
 }
 
 /* Image Section Styling */
@@ -147,7 +152,7 @@ body {
 .image-carousel-container {
   width: 100%;
   max-width: 600px;
-  height: 400px;
+  height: 350px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -156,49 +161,51 @@ body {
 
 .carousel-image {
   width: 100%;
-  height: 400px;
+  height: 350px;
   object-fit: cover;
   object-position: center;
 }
 
 /* Player Section Styling */
 .player-section {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  min-height: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 350px;
   display: flex;
   align-items: center;
 }
 
 .player-content {
-  padding: 40px;
+  padding: 30px;
   width: 100%;
 }
 
 /* Typography */
 .main-title {
-  color: #2d5a27;
+  color: white;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .track-title {
-  color: #4a7c59;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .track-title-small {
-  color: #4a7c59;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Audio Container */
@@ -213,6 +220,20 @@ body {
 .audio-player-wrapper {
   flex: 1;
   min-width: 280px;
+  position: relative;
+}
+
+/* Integrated controls styling */
+.integrated-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 
 .custom-audio {
@@ -231,121 +252,126 @@ body {
 
 /* View Songs Button */
 .view-songs-btn {
-  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
-  color: white;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d5a27;
   border: none;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 25px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
+  backdrop-filter: blur(10px);
 }
 
 .view-songs-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
-  background: linear-gradient(135deg, #5d8a66 0%, #4a7c59 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: white;
 }
 
 /* Custom Controls */
-.custom-controls {
+.custom-controls, .integrated-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .control-btn {
-  background: rgba(74, 124, 89, 0.1);
-  border: 2px solid #4a7c59;
-  color: #4a7c59;
-  width: 60px;
-  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
 .control-btn:hover {
-  background: #4a7c59;
-  color: white;
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
 }
 
 .play-btn {
-  width: 80px;
-  height: 80px;
-  font-size: 1.8rem;
-  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
-  color: white;
+  width: 65px;
+  height: 65px;
+  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d5a27;
   border: none;
-  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .play-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(74, 124, 89, 0.4);
+  background: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Back Button */
 .back-btn {
-  background: #6c757d;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  border: none;
-  padding: 12px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 25px;
   border-radius: 25px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .back-btn:hover {
-  background: #5a6268;
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
 }
 
 /* Track List */
 .track-list-container {
-  max-height: 300px;
+  max-height: 200px;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-radius: 10px;
-  background: rgba(248, 249, 250, 0.5);
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  backdrop-filter: blur(5px);
 }
 
 .track-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
-  margin-bottom: 8px;
-  background: white;
-  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(74, 124, 89, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .track-item:hover {
-  background: #f8f9fa;
+  background: white;
   transform: translateX(5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .track-item.active {
-  background: linear-gradient(135deg, #4a7c59 0%, #5d8a66 100%);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   font-weight: 600;
+  backdrop-filter: blur(10px);
 }
 
 .track-title {
@@ -359,16 +385,16 @@ body {
 }
 
 .download-button {
-  color: #4a7c59;
+  color: #2d5a27;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 5px;
   transition: all 0.3s ease;
   margin-left: 10px;
 }
 
 .download-button:hover {
-  background: #4a7c59;
+  background: #2d5a27;
   color: white;
 }
 
@@ -384,7 +410,7 @@ body {
 .flip-container {
   perspective: 1000px;
   width: 100%;
-  height: 100%;
+  height: 350px;
 }
 
 .flipper {
@@ -501,21 +527,21 @@ body {
 
 /* Scrollbar Styling */
 .track-list-container::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .track-list-container::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
 }
 
 .track-list-container::-webkit-scrollbar-thumb {
-  background: #4a7c59;
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 }
 
 .track-list-container::-webkit-scrollbar-thumb:hover {
-  background: #5d8a66;
+  background: rgba(255, 255, 255, 0.5);
 }
 </style>
 
