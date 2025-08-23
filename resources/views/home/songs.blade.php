@@ -138,7 +138,7 @@
   .flip-container {
     perspective: 1000px;
     width: 100%;
-    margin-top: -20px;
+    margin-top: -30px;
   }
 
   .flipper {
