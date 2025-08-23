@@ -174,13 +174,16 @@
         }
 
         .spotify-btn.secondary {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+            background: #f8f9fa;
+            color: #333333;
+            border: 1px solid #e0e0e0;
         }
 
         .spotify-btn.secondary:hover {
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+            background: #e8f5e8;
+            border-color: #1db954;
+            color: #1db954;
+            box-shadow: 0 10px 25px rgba(29, 185, 84, 0.2);
         }
 
         /* Now Playing */
