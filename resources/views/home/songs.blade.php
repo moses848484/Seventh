@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #191414 0%, #2d1b3d 35%, #1db954 100%);
+            background: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -42,9 +42,9 @@
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            background: #f8f9fa;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
         }
 
         .album-art {
@@ -63,7 +63,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
             padding: 2rem;
             color: white;
         }
@@ -81,12 +81,11 @@
 
         /* Player Section */
         .player-section {
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(20px);
+            background: #ffffff;
             border-radius: 24px;
             padding: 2.5rem;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
             position: relative;
             overflow: hidden;
         }
@@ -191,7 +190,7 @@
         }
 
         .track-info {
-            color: white;
+            color: #333333;
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -230,9 +229,9 @@
         }
 
         .control-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            color: white;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            color: #666666;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -241,11 +240,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
         }
 
         .control-btn:hover {
-            background: rgba(29, 185, 84, 0.3);
+            background: #e8f5e8;
+            border-color: #1db954;
+            color: #1db954;
             transform: scale(1.1);
         }
 
@@ -263,7 +263,7 @@
 
         /* Track List */
         .track-list-header {
-            color: white;
+            color: #333333;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
@@ -276,6 +276,8 @@
             flex: 1;
             overflow-y: auto;
             margin-bottom: 2rem;
+            max-height: 400px;
+            min-height: 300px;
         }
 
         .track-item {
@@ -283,21 +285,24 @@
             align-items: center;
             padding: 1rem;
             margin-bottom: 0.5rem;
-            background: rgba(255,255,255,0.05);
+            background: #f8f9fa;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
+            border: 1px solid #e0e0e0;
         }
 
         .track-item:hover {
-            background: rgba(255,255,255,0.1);
+            background: #e8f5e8;
             transform: translateX(5px);
+            border-color: #c8e6c9;
         }
 
         .track-item.active {
-            background: rgba(29, 185, 84, 0.2);
+            background: #e8f5e8;
             border-left-color: #1db954;
+            border-color: #1db954;
         }
 
         .track-info-wrapper {
@@ -308,7 +313,7 @@
         }
 
         .track-number {
-            color: rgba(255,255,255,0.6);
+            color: #666666;
             font-weight: 600;
             min-width: 20px;
         }
@@ -318,7 +323,7 @@
         }
 
         .track-title-text {
-            color: white;
+            color: #333333;
             font-weight: 500;
         }
 
@@ -328,7 +333,7 @@
         }
 
         .track-icon {
-            color: rgba(255,255,255,0.6);
+            color: #666666;
             margin-left: auto;
             margin-right: 1rem;
         }
@@ -338,9 +343,9 @@
         }
 
         .download-button {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: none;
+            background: #f8f9fa;
+            color: #666666;
+            border: 1px solid #e0e0e0;
             padding: 8px 12px;
             border-radius: 20px;
             cursor: pointer;
@@ -352,6 +357,7 @@
 
         .download-button:hover {
             background: #1db954;
+            color: white;
             transform: scale(1.05);
         }
 
@@ -388,7 +394,7 @@
         .progress-container {
             width: 100%;
             height: 4px;
-            background: rgba(255,255,255,0.2);
+            background: #e0e0e0;
             border-radius: 2px;
             margin: 1rem 0;
             overflow: hidden;
@@ -434,7 +440,7 @@
         }
 
         .track-list::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.1);
+            background: #f0f0f0;
             border-radius: 4px;
         }
 
@@ -680,7 +686,7 @@
                         <div class="track-number">${(index + 1).toString().padStart(2, '0')}</div>
                         <div>
                             <div class="track-title-text">${track.title}</div>
-                            <div style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">${track.artist}</div>
+                            <div style="color: #666666; font-size: 0.9rem;">${track.artist}</div>
                         </div>
                         <i class="track-icon ${index === currentTrack && !audio.paused ? 'fa fa-pause' : 'fa fa-play'}"></i>
                     </div>
