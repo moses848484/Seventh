@@ -295,8 +295,8 @@
                     <img src="images/praying_hands.png" alt="Service Icon" class="service-icon"
                         style="width:50px; height:50px; filter: invert(82%) sepia(98%) saturate(462%) hue-rotate(1deg) brightness(100%) contrast(101%);">
                 </div>
-                <h1 class="page-title">Connect With Our Team</h1>
-                <p class="page-subtitle">Have a question? Need pastoral care? Connect with us!</p>
+                <h1 class="page-title">Ask for Prayer</h1>
+                <p class="page-subtitle">We'd love to pray with you.</p>
             </div>
 
             <!-- Success/Error Messages -->
