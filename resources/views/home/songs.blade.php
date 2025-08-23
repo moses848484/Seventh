@@ -3,12 +3,11 @@
     <div class="row align-items-stretch">
       <!-- Left Column (Image Carousel) -->
       <div class="col-md-6 mb-4 mb-md-0">
-        <div id="imageCarousel" class="carousel slide h-100" data-ride="carousel">
-          <div class="carousel-inner h-100">
+        <div id="imageCarousel" class="carousel slide image-carousel-container" data-ride="carousel">
+          <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/choir.jpg" class="d-block w-100 img-fluid object-fit-cover" alt="First Image">
+              <img src="images/choir.jpg" class="d-block w-100 carousel-image" alt="First Image">
             </div>
-
           </div>
         </div>
       </div>
@@ -19,18 +18,20 @@
           <div class="flipper h-100 position-relative">
             <!-- FRONT -->
             <div class="front text-area6 h-100 overflow-auto">
-              <h4 class="heading7">Download and Listen to Songs Here</h4>
-
-              <div class="btn-row mb-3">
-                <button class="btn7" onclick="playTrack()">🎧 Listen Now</button>
-                <button class="btn7" id="viewSongsBtn"><i class="fa-solid fa-eye"></i> View Songs</button>
-              </div>
+              <h4 class="heading7 text-center">Download and Listen to Songs Here</h4>
 
               <h5 id="trackTitle" class="text1">Now Playing:</h5>
-              <audio id="audioPlayer" style="width: 100%;" controls>
-                <source id="audioSource" src="{{ asset('music/Bill When I Cry.mp3') }}" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
+              
+              <!-- Audio Player and View Songs Button Container -->
+              <div class="audio-controls-container">
+                <audio id="audioPlayer" controls>
+                  <source id="audioSource" src="music/Bill When I Cry.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+                <button class="btn7 view-songs-btn" id="viewSongsBtn">
+                  <i class="fa-solid fa-eye"></i> View Songs
+                </button>
+              </div>
 
               <div class="music-controls mt-3">
                 <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
@@ -54,7 +55,7 @@
                 <button onclick="prevTrack()" class="btn btn-outline-white btn-sm"><i
                     class="fa-solid fa-square-caret-left"></i></button>
                 <button onclick="playTrack()" class="btn btn-outline-white btn-sm" id="playPauseBtnBack">
-                  <i class="fa-solid fa-circle-play" id="playPauseIconBack"></i>
+                  <i class="fa-solid fa-circle-pause" id="playPauseIconBack"></i>
                 </button>
                 <button onclick="nextTrack()" class="btn btn-outline-white btn-sm"><i
                     class="fa-solid fa-square-caret-right"></i></button>
@@ -71,6 +72,20 @@
 
 <!-- STYLES -->
 <style>
+  /* Image carousel styling */
+  .image-carousel-container {
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-image {
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
+
   .text-area6 {
     background: rgba(248, 249, 250, 0.11);
     padding: 30px;
@@ -93,6 +108,24 @@
 
   .btn7:hover {
     background-color: #ddd;
+  }
+
+  /* New styles for audio controls container */
+  .audio-controls-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .audio-controls-container audio {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .view-songs-btn {
+    margin-top: 0 !important;
+    white-space: nowrap;
   }
 
   .text1 {
@@ -180,21 +213,47 @@
     font-size: 35px;
     color: white;
   }
+
   .song_text {
     text-align: left;
   }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .image-carousel-container {
+      height: 250px;
+    }
+    
+    .carousel-image {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .audio-controls-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .view-songs-btn {
+      margin-top: 10px !important;
+    }
+  }
 </style>
+
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- SCRIPT -->
 <script>
   const tracks = [
     {
       title: "I'm Not Gonna Worry",
-      file: "{{ asset('music/Gaither Vocal Band - Im Not Gonna Worry [Live] ft. Gaither Vocal Band.mp3') }}"
+      file: "music/Gaither Vocal Band - Im Not Gonna Worry [Live] ft. Gaither Vocal Band.mp3"
     },
     {
       title: "When I Cry",
-      file: "{{ asset('music/Bill When I Cry.mp3') }}"
+      file: "music/Bill When I Cry.mp3"
     },
   ];
 
@@ -289,8 +348,6 @@
       };
 
       trackList.appendChild(trackDiv);
-
-
     });
   }
 
