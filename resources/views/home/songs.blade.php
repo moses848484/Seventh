@@ -584,21 +584,21 @@
         const tracks = [
             { 
                 title: "I'm Not Gonna Worry", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+                file: "{{ asset('music/Gaither Vocal Band - Im Not Gonna Worry [Live] ft. Gaither Vocal Band.mp3') }}",
                 artist: "Gaither Vocal Band",
                 album: "Gospel Classics",
                 cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop"
             },
             { 
                 title: "When I Cry", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-04.wav",
+                file: "{{ asset('music/Bill When I Cry.mp3') }}",
                 artist: "Bill Gaither",
                 album: "Inspirational Songs",
                 cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
             },
             { 
                 title: "When The Time Comes", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
+                file: "{{ asset('music/Heritage Singers ⧸ ＂When The Time Comes＂') }}",
                 artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
@@ -606,7 +606,7 @@
 
                      { 
                 title: "It takes your everything to serve the Lord with Lyrics", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
+                file: "{{ asset('music/It takes your everything to serve the Lord with Lyrics - Duane Hamilton (Heritage Singers) 4K') }}",
                 artist: "Heritage Singers - Duane Hamilton",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
@@ -614,7 +614,7 @@
 
                  { 
                 title: "Little Flowers", 
-                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
+                file: "{{ asset('music/Heritage Singers ⧸ ＂Little Flowers＂') }}",
                 artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
