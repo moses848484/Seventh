@@ -602,7 +602,7 @@
                 artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
-            }
+            },
 
                      { 
                 title: "It takes your everything to serve the Lord with Lyrics", 
@@ -610,7 +610,7 @@
                 artist: "Heritage Singers - Duane Hamilton",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
-            }
+            },
 
                  { 
                 title: "Little Flowers", 
