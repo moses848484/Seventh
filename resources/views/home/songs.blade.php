@@ -597,9 +597,25 @@
                 cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
             },
             { 
-                title: "Amazing Grace", 
+                title: "When The Time Comes", 
                 file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
-                artist: "Traditional",
+                artist: "Heritage Singers",
+                album: "Hymns of Faith",
+                cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
+            }
+
+                     { 
+                title: "It takes your everything to serve the Lord with Lyrics", 
+                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
+                artist: "Heritage Singers - Duane Hamilton",
+                album: "Hymns of Faith",
+                cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
+            }
+
+                 { 
+                title: "Little Flowers", 
+                file: "https://www.soundjay.com/misc/sounds/bell-ringing-03.wav",
+                artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
             }
