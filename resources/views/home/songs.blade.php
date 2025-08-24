@@ -598,7 +598,7 @@
             },
             { 
                 title: "When The Time Comes", 
-                file: "{{ asset('music/Heritage Singers ⧸ ＂When The Time Comes＂') }}",
+                file: "{{ asset('music/Heritage Singers - When The Time Comes.mp3') }}",
                 artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
@@ -606,7 +606,7 @@
 
                      { 
                 title: "It takes your everything to serve the Lord with Lyrics", 
-                file: "{{ asset('music/It takes your everything to serve the Lord with Lyrics - Duane Hamilton (Heritage Singers) 4K') }}",
+                file: "{{ asset('music/It takes your everything to serve the Lord with - Heritage Singers.mp3') }}",
                 artist: "Heritage Singers - Duane Hamilton",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
@@ -614,7 +614,7 @@
 
                  { 
                 title: "Little Flowers", 
-                file: "{{ asset('music/Heritage Singers ⧸ ＂Little Flowers＂') }}",
+                file: "{{ asset('music/Heritage Singers - Little Flowers.mp3') }}",
                 artist: "Heritage Singers",
                 album: "Hymns of Faith",
                 cover: "https://images.unsplash.com/photo-1571974599782-87624638275c?w=600&h=600&fit=crop"
