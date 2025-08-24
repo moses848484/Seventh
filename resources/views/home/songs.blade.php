@@ -587,21 +587,21 @@
                 file: "{{ asset('music/Gaither Vocal Band - Im Not Gonna Worry [Live] ft. Gaither Vocal Band.mp3') }}",
                 artist: "Gaither Vocal Band",
                 album: "Gospel Classics",
-                cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop"
+                cover: "images/gvb1.jpg"
             },
             { 
                 title: "When I Cry", 
                 file: "{{ asset('music/Bill When I Cry.mp3') }}",
                 artist: "Bill Gaither",
                 album: "Inspirational Songs",
-                cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
+                cover: "images/gvb2.jpg"
             },
             { 
                 title: "When The Time Comes", 
                 file: "{{ asset('music/Heritage Singers - When The Time Comes.mp3') }}",
                 artist: "Heritage Singers",
                 album: "Inspirational Songs",
-                cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
+                cover: "images/herritage.jpg"
             },
 
                      { 
@@ -609,7 +609,7 @@
                 file: "{{ asset('music/It takes your everything to serve the Lord with - Heritage Singers.mp3') }}",
                 artist: "Heritage Singers - Duane Hamilton",
                 album: "Inspirational Songs",
-                cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
+                cover: "images/reunion.jpg"
             },
 
                  { 
@@ -617,7 +617,7 @@
                 file: "{{ asset('music/Heritage Singers - Little Flowers.mp3') }}",
                 artist: "Heritage Singers",
                 album: "Inspirational Songs",
-                cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=600&fit=crop"
+                cover: "images/reunion.jpg"
             }
         ];
 
