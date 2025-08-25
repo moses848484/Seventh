@@ -37,7 +37,7 @@
             padding: 0;
         }
 
-        /* Navbar */
+        /* Navigation */
         .navbar-custom {
             background: #f8f9fa !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -51,29 +51,36 @@
             color: #555 !important;
             font-weight: 500;
             margin: 0 1rem;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #333 !important;
+            position: relative;
+            /* Essential for positioning the pseudo-element */
+            padding-bottom: 8px;
+            /* Add space for the bar */
         }
 
+        .navbar-nav .nav-link:hover {
+            color: #000 !important;
+        }
+
+        /* Removes the default styling that might cause issues */
         .navbar-nav .nav-link.second-nav {
-            color: darkgray !important;
+            color: #555 !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
             color: black !important;
         }
 
-        .nav-link.second-nav.active::after {
+        /* This is the key change: it applies the bar only to the .active class */
+        .navbar-nav .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
+            /* Adjust as needed */
             height: 3px;
-            background-color: #000;
-            border-radius: 2px 2px 0 0;
+            background-color: #e4af00;
         }
 
         .navbar-toggler {
@@ -285,24 +292,29 @@
         /* Sidebar - Updated styles to match the image */
         .sidebar {
             width: 400px;
-            background: #1c1c1c; /* Dark background color */
+            background: #1c1c1c;
+            /* Dark background color */
             overflow-y: auto;
             flex-shrink: 0;
             color: #fff;
-            padding: 20px; /* Add padding to the whole sidebar */
+            padding: 20px;
+            /* Add padding to the whole sidebar */
         }
 
         .sidebar-header {
-            display: none; /* Hide header as per the new design */
+            display: none;
+            /* Hide header as per the new design */
         }
 
         /* Updated Sidebar Content - New Sections */
         .sidebar-content {
-            padding: 0; /* Remove padding since the main sidebar now has it */
+            padding: 0;
+            /* Remove padding since the main sidebar now has it */
         }
 
         .sidebar-card {
-            background: #2b2b2b; /* Card background color */
+            background: #2b2b2b;
+            /* Card background color */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 15px;
@@ -361,7 +373,8 @@
         }
 
         .login-prompt p i {
-            color: #ff9800; /* Icon color from the image */
+            color: #ff9800;
+            /* Icon color from the image */
             margin-right: 8px;
             font-size: 1.2rem;
         }
@@ -406,7 +419,8 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 10px; /* Adjust spacing */
+            margin-top: 10px;
+            /* Adjust spacing */
         }
 
         .request-prayer-btn:hover {
@@ -502,29 +516,29 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">Streaming Live/a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="custom-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-           <ul class="navbar-nav ml-auto">
-                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
-                    </li>
-                </ul>
-            </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="custom-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        </li>
+                    </ul>
+                </div>
         </div>
     </nav>
 
@@ -533,7 +547,8 @@
             <div class="video-section">
                 <div class="video-wrapper">
                     <iframe id="youtube-player"
-                        src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0" frameborder="0"
+                        src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
@@ -583,7 +598,8 @@
                     </div>
 
                     <div class="login-prompt">
-                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church Online!</p>
+                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church
+                            Online!</p>
                         <button class="login-btn">Log In</button>
                         <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
                     </div>
@@ -635,7 +651,7 @@
         setTimeout(hideStreamOverlay, 3000);
 
         // Mute button functionality
-        document.getElementById('muteBtn').addEventListener('click', function() {
+        document.getElementById('muteBtn').addEventListener('click', function () {
             this.classList.toggle('active');
             const icon = this.querySelector('i');
             if (this.classList.contains('active')) {
@@ -646,7 +662,7 @@
         });
 
         // Fullscreen functionality
-        document.getElementById('fullscreenBtn').addEventListener('click', function() {
+        document.getElementById('fullscreenBtn').addEventListener('click', function () {
             const videoSection = document.querySelector('.video-section');
             if (document.fullscreenElement) {
                 document.exitFullscreen();
@@ -658,11 +674,11 @@
         });
 
         // Navigation active state handler
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.nav-link.second-nav');
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
@@ -684,7 +700,7 @@
         setInterval(updateViewerCount, 15000); // Update every 15 seconds
 
         // Add keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             switch (e.key) {
                 case ' ':
                     e.preventDefault();
@@ -700,12 +716,12 @@
         });
 
         // Prayer and commitment button interactions
-        document.querySelector('.request-prayer-btn').addEventListener('click', function() {
+        document.querySelector('.request-prayer-btn').addEventListener('click', function () {
             alert('Thank you for your prayer request. Our team will pray for you.');
         });
 
         // Login button functionality
-        document.querySelector('.login-btn').addEventListener('click', function() {
+        document.querySelector('.login-btn').addEventListener('click', function () {
             alert('Login functionality would be implemented here.');
         });
     </script>
