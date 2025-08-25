@@ -94,11 +94,18 @@
             background-position: center;
         }
 
+        /* New wrapper to handle the main content area */
+        .main-content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+
         /* Main container */
         .stream-container {
             flex: 1;
             display: flex;
-            min-height: 100vh;
             min-height: 0;
         }
 
@@ -107,7 +114,6 @@
             flex: 1;
             position: relative;
             background: #eee;
-            min-height: 100vh;
             width: 100%;
         }
 
@@ -115,7 +121,7 @@
         #youtube-player {
             width: 100%;
             height: 100%;
-            min-height: 100vh;
+            min-height: 100%;
         }
 
         /* Stream Overlay */
@@ -279,7 +285,6 @@
         /* Sidebar */
         .sidebar {
             width: 400px;
-            min-height: 100vh;
             background: rgba(0, 0, 0, 0.95);
             overflow-y: auto;
             flex-shrink: 0;
@@ -462,7 +467,7 @@
                 min-height: 60vh;
             }
         }
-
+        
         .fa-eye {
             color: white;
         }
@@ -503,98 +508,100 @@
         </div>
     </nav>
 
-    <div class="stream-container">
-        <div class="video-section">
-            <div class="video-wrapper">
-                <iframe id="youtube-player"
-                    src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+    <div class="main-content-wrapper">
+        <div class="stream-container">
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <iframe id="youtube-player"
+                        src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
 
-                <div class="stream-overlay" id="streamOverlay">
-                    <div>
-                        <h1>Welcome to UNISDA Church</h1>
-                        <p>The service will begin soon.</p>
-                        <div style="margin-bottom: 2rem;">
-                            <svg width="80" height="40" viewBox="0 0 200 100" fill="white">
-                                <text x="10" y="50" font-family="Arial, sans-serif" font-size="24"
-                                    font-weight="bold">UNISDA</text>
-                            </svg>
+                    <div class="stream-overlay" id="streamOverlay">
+                        <div>
+                            <h1>Welcome to UNISDA Church</h1>
+                            <p>The service will begin soon.</p>
+                            <div style="margin-bottom: 2rem;">
+                                <svg width="80" height="40" viewBox="0 0 200 100" fill="white">
+                                    <text x="10" y="50" font-family="Arial, sans-serif" font-size="24"
+                                        font-weight="bold">UNISDA</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="stream-status">
-                    <div class="live-indicator"></div>
-                    <span class="live">LIVE</span>
-                    <span class="live">- 0:00:02</span>
-                </div>
+                    <div class="stream-status">
+                        <div class="live-indicator"></div>
+                        <span class="live">LIVE</span>
+                        <span class="live">- 0:00:02</span>
+                    </div>
 
-                <div class="viewer-count">
-                    <i class="fas fa-eye"></i>
-                    <span class="live">127</span>
+                    <div class="viewer-count">
+                        <i class="fas fa-eye"></i>
+                        <span class="live">127</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h3>Church Experience</h3>
-                <button class="close-sidebar" onclick="closeSidebar()">×</button>
-            </div>
-            <div class="sidebar-content">
-                <div class="login-prompt">
-                    <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
-                    <button class="login-btn">Log In</button>
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Church Experience</h3>
+                    <button class="close-sidebar" onclick="closeSidebar()">×</button>
                 </div>
+                <div class="sidebar-content">
+                    <div class="login-prompt">
+                        <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
+                        <button class="login-btn">Log In</button>
+                    </div>
 
-                <div class="commitment-section">
-                    <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
-                    <p>Let us know by raising your hand.</p>
-                    <button class="raise-hand-btn">
-                        <span>✋</span>
-                        Raise Hand
-                    </button>
-                </div>
+                    <div class="commitment-section">
+                        <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
+                        <p>Let us know by raising your hand.</p>
+                        <button class="raise-hand-btn">
+                            <span>✋</span>
+                            Raise Hand
+                        </button>
+                    </div>
 
-                <div class="prayer-section">
-                    <h3><i class="fas fa-heart"></i> Request Prayer</h3>
-                    <p>Our prayer team is here for you.</p>
-                    <button class="prayer-btn">Request Prayer</button>
-                </div>
+                    <div class="prayer-section">
+                        <h3><i class="fas fa-heart"></i> Request Prayer</h3>
+                        <p>Our prayer team is here for you.</p>
+                        <button class="prayer-btn">Request Prayer</button>
+                    </div>
 
-                <div class="quick-actions">
-                    <button class="quick-action">
-                        <i class="fas fa-comments"></i>
-                        <div>Feed</div>
-                    </button>
-                    <button class="quick-action">
-                        <i class="fas fa-praying-hands"></i>
-                        <div>Pray</div>
-                    </button>
-                    <button class="quick-action">
-                        <i class="fas fa-calendar"></i>
-                        <div>Schedule</div>
-                    </button>
-                    <button class="quick-action">
-                        <i class="fas fa-sticky-note"></i>
-                        <div>Notes</div>
-                    </button>
-                    <button class="quick-action">
-                        <i class="fas fa-book"></i>
-                        <div>Bible</div>
-                    </button>
-                    <button class="quick-action">
-                        <i class="fas fa-share"></i>
-                        <div>Share</div>
-                    </button>
+                    <div class="quick-actions">
+                        <button class="quick-action">
+                            <i class="fas fa-comments"></i>
+                            <div>Feed</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fas fa-praying-hands"></i>
+                            <div>Pray</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fas fa-calendar"></i>
+                            <div>Schedule</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fas fa-sticky-note"></i>
+                            <div>Notes</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fas fa-book"></i>
+                            <div>Bible</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fas fa-share"></i>
+                            <div>Share</div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
+    @include('home.footer')
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -609,7 +616,7 @@
         setTimeout(hideStreamOverlay, 3000);
 
         // Mute button functionality
-        document.getElementById('muteBtn').addEventListener('click', function () {
+        document.getElementById('muteBtn').addEventListener('click', function() {
             this.classList.toggle('active');
             const icon = this.querySelector('i');
             if (this.classList.contains('active')) {
@@ -620,7 +627,7 @@
         });
 
         // Fullscreen functionality
-        document.getElementById('fullscreenBtn').addEventListener('click', function () {
+        document.getElementById('fullscreenBtn').addEventListener('click', function() {
             const videoSection = document.querySelector('.video-section');
             if (document.fullscreenElement) {
                 document.exitFullscreen();
@@ -632,11 +639,11 @@
         });
 
         // Navigation active state handler
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link.second-nav');
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
@@ -658,7 +665,7 @@
         setInterval(updateViewerCount, 15000); // Update every 15 seconds
 
         // Add keyboard shortcuts
-        document.addEventListener('keydown', function (e) {
+        document.addEventListener('keydown', function(e) {
             switch (e.key) {
                 case ' ':
                     e.preventDefault();
@@ -674,11 +681,11 @@
         });
 
         // Prayer and commitment button interactions
-        document.querySelector('.prayer-btn').addEventListener('click', function () {
+        document.querySelector('.prayer-btn').addEventListener('click', function() {
             alert('Thank you for your prayer request. Our team will pray for you.');
         });
 
-        document.querySelector('.raise-hand-btn').addEventListener('click', function () {
+        document.querySelector('.raise-hand-btn').addEventListener('click', function() {
             this.style.background = '#d4a000';
             this.innerHTML = '<span>✋</span> Hand Raised!';
             setTimeout(() => {
@@ -688,11 +695,10 @@
         });
 
         // Login button functionality
-        document.querySelector('.login-btn').addEventListener('click', function () {
+        document.querySelector('.login-btn').addEventListener('click', function() {
             alert('Login functionality would be implemented here.');
         });
     </script>
-    @include('home.footer')
 </body>
 
 </html>
