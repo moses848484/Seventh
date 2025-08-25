@@ -105,13 +105,16 @@
             flex: 1;
             position: relative;
             background: #eee;
-            min-height: 0;
+            min-height: 100vh;
+            width: calc(100% - 400px);
+            /* Account for sidebar width */
         }
 
         .video-wrapper,
         #youtube-player {
             width: 100%;
             height: 100%;
+            min-height: 100vh;
         }
 
         #youtube-player {
