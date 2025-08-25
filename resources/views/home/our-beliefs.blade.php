@@ -19,7 +19,8 @@
 
     <style>
         /* Ensure full height layout */
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
         }
@@ -515,6 +516,9 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
+                            <a class="nav-link second-nav" href="{{ route('attend-online') }}">Attend Online</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                         </li>
                         <li class="nav-item">
@@ -553,10 +557,10 @@
                 <div class="spacer-wrapper pt-normal"></div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </section>
+    </div>
+    </div>
+    </div>
+    </section>
     </div>
 
     <!-- footer start -->
