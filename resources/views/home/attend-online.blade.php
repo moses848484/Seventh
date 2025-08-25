@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
+    <title>Attend Online - UNISDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -20,6 +20,8 @@
         body {
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: white;
         }
 
         /* Orange separator line */
@@ -33,47 +35,24 @@
 
         /* Navigation */
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             padding-top: 10px !important;
             padding-bottom: 10px !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1000;
         }
 
-        .navbar-toggler {
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border: none !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            /* Remove any box shadow */
-            outline: none !important;
-            /* Remove outline on focus */
-        }
-
-        .custom-toggler-icon {
-            display: inline-block;
-            width: 1.5em;
-            height: 1.5em;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="black" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-
-        }
-
-
         .navbar-brand {
             font-weight: bold;
-            color: #333 !important;
+            color: #fff !important;
             font-size: 1.5rem;
             margin-left: 15px;
         }
 
         .navbar-nav .nav-link {
-            color: #848484 !important;
+            color: #ccc !important;
             font-weight: 500;
             margin: 0 1rem;
             transition: color 0.3s ease;
@@ -81,17 +60,16 @@
             padding-bottom: 15px !important;
         }
 
-
         .navbar-nav .nav-link:hover {
-            color: #333 !important;
+            color: #fff !important;
         }
 
         .navbar-nav .nav-link.second-nav {
-            color: darkgray !important;
+            color: #ccc !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: black !important;
+            color: #fff !important;
         }
 
         .nav-link.second-nav.active::after {
@@ -101,236 +79,455 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            /* 80% of link width */
             height: 3px;
-            background-color: #000;
+            background-color: #e4af00;
             border-radius: 2px 2px 0 0;
         }
 
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.4)), url('images/fellow1.jpg');
-            background-size: cover;
+        .custom-toggler-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="white" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
-            background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 900 !important;
+        }
+
+        /* Main Stream Container */
+        .stream-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Video Player Section */
+        .video-section {
+            position: relative;
+            flex: 1;
+            background: #000;
+            min-height: 60vh;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 60vh;
+        }
+
+        #youtube-player {
+            width: 100%;
+            height: 100%;
+            min-height: 60vh;
+        }
+
+        /* Stream Overlay */
+        .stream-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             text-align: center;
-            color: white;
-            margin-top: 0;
+            z-index: 10;
+            transition: opacity 0.3s ease;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 2;
+        .stream-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .hero-section h1 {
+        .stream-overlay h1 {
             font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-section .lead {
+        .stream-overlay p {
             font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.6;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 60vh;
-                min-height: 400px;
-                background-attachment: scroll;
+        .church-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Stream Status */
+        .stream-status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
             }
 
-            .hero-section h1 {
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Viewer Count */
+        .viewer-count {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 60px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .stream-title {
+            flex: 1;
+        }
+
+        .stream-title h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .stream-subtitle {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        .stream-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .action-btn.active {
+            background: #667eea;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 400px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-content {
+            padding: 20px;
+        }
+
+        .close-sidebar {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Prayer Request Section */
+        .prayer-section {
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .prayer-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .prayer-section p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .prayer-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .prayer-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        /* Commitment Section */
+        .commitment-section {
+            background: rgba(228, 175, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .commitment-section h3 {
+            color: #e4af00;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .raise-hand-btn {
+            background: #e4af00;
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+
+        .raise-hand-btn:hover {
+            background: #d4a000;
+            transform: translateY(-2px);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quick-action {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+        }
+
+        .quick-action:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .quick-action i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Login Prompt */
+        .login-prompt {
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .login-btn {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+            }
+
+            .stream-overlay h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-section .lead {
+            .stream-overlay p {
                 font-size: 1.2rem;
             }
 
-            .hero-content {
-                padding: 0 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-section h1 {
-                font-size: 2rem;
+            .control-panel {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
 
-            .hero-section .lead {
-                font-size: 1.1rem;
-            }
-        }
-
-        .lead {
-            color: white;
-        }
-
-        .expectation-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
-        }
-
-        .expectation-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .expectation-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        h4,
-        h3,
-        h2 {
-            color: #000;
-        }
-
-        p,
-        small {
-            color: #555;
-        }
-
-        /* Optional smaller adjustments on mobile */
-        @media (max-width: 800px) {
-            .expectation-card {
-                padding: 20px;
+            .stream-actions {
+                justify-content: center;
             }
 
-            .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+            .video-wrapper {
+                min-height: 50vh;
             }
 
-            h4 {
-                font-size: 1.25rem;
+            #youtube-player {
+                min-height: 50vh;
             }
-        }
-
-        /* Image Slider-specific styles - using unique class names */
-        .image-slider-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-        }
-
-        .image-slider-wrapper {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .image-slide {
-            width: 33.333%;
-            height: 100%;
-        }
-
-        .image-slider-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.6);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-slider-nav:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .image-slider-prev {
-            left: 10px;
-        }
-
-        .image-slider-next {
-            right: 10px;
-        }
-
-        .image-slider-indicators {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .image-slider-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-slider-indicator.active {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        /* Ensure arrival_bg_box4 has position relative for slider positioning */
-        .arrival_bg_box4 {
-            position: relative;
-        }
-
-        .text-paragraph_large {
-            margin-top: 10px !important;
-        }
-
-        .text-section_header3 {
-            margin-top: 10px !important;
         }
     </style>
 </head>
 
 <body>
-    @include('home.header')
-
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -344,7 +541,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
@@ -353,7 +550,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -364,367 +561,269 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content mb-4">
-            <h1>You're welcome here.</h1>
-            <p class="lead mb-4">At UNISDA Church, you'll find a safe place to explore your beliefs and connect with
-                others.
-            </p>
-        </div>
-    </section>
+    <!-- Main Stream Container -->
+    <div class="stream-container">
+        <!-- Video Section -->
+        <div class="video-section">
+            <div class="video-wrapper">
+                <!-- YouTube Player -->
+                <iframe id="youtube-player"
+                    src="https://www.youtube.com/embed/live_stream?channel=UCYourChannelID&autoplay=0&mute=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
 
-    <!-- Demo Content Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-book-open"></i>
+                <!-- Stream Overlay (shows before stream starts) -->
+                <div class="stream-overlay" id="streamOverlay">
+                    <div>
+                        <h1>Welcome to UNISDA Church</h1>
+                        <p>The service will begin soon.</p>
+                        <div style="margin-bottom: 2rem;">
+                            <svg width="80" height="40" viewBox="0 0 200 100" fill="white">
+                                <text x="10" y="50" font-family="Arial, sans-serif" font-size="24"
+                                    font-weight="bold">UNISDA</text>
+                            </svg>
                         </div>
-                        <h4>Weekly Services</h4>
-                        <p>Join our Friday vespers and Sabbath worship.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-circle-nodes"></i>
-                        </div>
-                        <h4>Youth Ministries</h4>
-                        <p>A place for young people to connect with peers</p>
-                    </div>
+
+                <!-- Stream Status -->
+                <div class="stream-status">
+                    <div class="live-indicator"></div>
+                    <span>LIVE</span>
+                    <span>- 0:00:02</span>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <h4>Campus Ministries</h4>
-                        <p>Join the Public Campus Ministries (PCM) if you are a college/university student
-                        </p>
+
+                <!-- Viewer Count -->
+                <div class="viewer-count">
+                    <i class="fas fa-eye"></i>
+                    <span>127</span>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <div class="stream-title">
+                        <h2>Sabbath Morning Service</h2>
+                        <div class="stream-subtitle">Saturday Service • UNISDA Church</div>
+                    </div>
+                    <div class="stream-actions">
+                        <button class="action-btn" id="muteBtn" title="Mute/Unmute">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <button class="action-btn" title="Closed Captions">
+                            <i class="fas fa-closed-captioning"></i>
+                        </button>
+                        <button class="action-btn" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <button class="action-btn" id="fullscreenBtn" title="Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Text Column -->
-    <div class="col-12">
-        <div class="text-area12 bg text-left text-black">
-            <div class="spacer-wrapper pt-very_relaxed"></div>
-            <h4 class="heading3 text-section_header mb-relaxed">
-                Everyone’s Invited
-            </h4>
-            <div class="rich-text3 text-paragraph_large mb-relaxed" data-testid="lc-rich-text-component">
-                <p>
-                    UNISDA Church started with a simple idea: What if there were a church where you could just come as
-                    you
-                    are? Wherever you are on your journey, there’s a place for you here.
-                </p>
-            </div>
-        </div>
-        <div class="spacer-wrapper pt-normal"></div>
-    </div>
-    </div>
-    </div>
     </div>
 
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Church Experience</h3>
+            <button class="close-sidebar" onclick="closeSidebar()">×</button>
+        </div>
+        <div class="sidebar-content">
+            <!-- Login Prompt -->
+            <div class="login-prompt">
+                <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
+                <button class="login-btn">Log In</button>
+            </div>
 
-    <!-- Expectation Cards -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Service Times</h4>
-                        <p><strong>First Main Service:</strong> 7:30 AM</p>
-                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
-                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
-                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
-                    </div>
-                </div>
+            <!-- Commitment Section -->
+            <div class="commitment-section">
+                <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
+                <p>Let us know by raising your hand.</p>
+                <button class="raise-hand-btn">
+                    <span>✋</span>
+                    Raise Hand
+                </button>
+            </div>
 
-                <!-- Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
-                    </div>
-                </div>
+            <!-- Prayer Request -->
+            <div class="prayer-section">
+                <h3><i class="fas fa-heart"></i> Request Prayer</h3>
+                <p>Our prayer team is here for you.</p>
+                <button class="prayer-btn">Request Prayer</button>
+            </div>
 
-                <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
-                    </div>
-                </div>
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="quick-action">
+                    <i class="fas fa-comments"></i>
+                    <div>Feed</div>
+                </button>
+                <button class="quick-action">
+                    <i class="fas fa-praying-hands"></i>
+                    <div>Pray</div>
+                </button>
+                <button class="quick-action">
+                    <i class="fas fa-calendar"></i>
+                    <div>Schedule</div>
+                </button>
+                <button class="quick-action">
+                    <i class="fas fa-sticky-note"></i>
+                    <div>Notes</div>
+                </button>
+                <button class="quick-action">
+                    <i class="fas fa-book"></i>
+                    <div>Bible</div>
+                </button>
+                <button class="quick-action">
+                    <i class="fas fa-share"></i>
+                    <div>Share</div>
+                </button>
             </div>
         </div>
+    </div>
 
-        <div class="container-wrapper">
-            <!-- First Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper1">
-                                <div class="image-slide">
-                                    <img src="images/fellowship.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/fellow.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn1">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn1">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators1">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Fellowship Bands
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            These are small groups of fellow believers that brand off during sabbath school in
-                            designated band names to learn more about the word of GOD.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper2">
-                                <div class="image-slide">
-                                    <img src="images/Community2.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/Community1.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn2">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn2">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators2">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Community Service
-                    </h4>
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Join the various ministries including but not limited to Dorcas or AMO and clubs to help
-                            serve the community around us.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third Row with Slider -->
-            <div class="container1">
-                <div class="card-content">
-                    <!-- Image Column -->
-                    <div class="arrival_bg_box4">
-                        <div class="image-slider-container">
-                            <div class="image-slider-wrapper" id="imageSliderWrapper3">
-                                <div class="image-slide">
-                                    <img src="images/kids5.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/sdakids.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                                <div class="image-slide">
-                                    <img src="images/kids3.jpg" alt="Person praying" class="img-fluid1">
-                                </div>
-                            </div>
-
-                            <!-- Navigation buttons -->
-                            <button class="image-slider-nav image-slider-prev" id="imageSliderPrevBtn3">‹</button>
-                            <button class="image-slider-nav image-slider-next" id="imageSliderNextBtn3">›</button>
-
-                            <!-- Indicators -->
-                            <div class="image-slider-indicators" id="imageSliderIndicators3">
-                                <div class="image-slider-indicator active" data-slide="0"></div>
-                                <div class="image-slider-indicator" data-slide="1"></div>
-                                <div class="image-slider-indicator" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Text Column -->
-                <div class="text-area bg text-left text-black">
-                    <div class="spacer-wrapper pt-very_relaxed"></div>
-                    <h4 class="heading4 text-section_header3 mb-relaxed">
-                        Children Ministries
-                    </h4>
-                    <!-- Space between heading and text -->
-                    <div class="spacer-wrapper pb-relaxed"></div>
-
-                    <div class="rich-text3 text-paragraph_large mb-relaxed">
-                        <p>
-                            Teaching kids about God. We’re dedicated to partnering with parents to lead children to
-                            become fully devoted followers of Christ.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-items">
+            <a href="#" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>Feed</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-praying-hands"></i>
+                <span>Pray</span>
+            </a>
+            <a href="#" class="nav-item" onclick="openSidebar()">
+                <i class="fas fa-th"></i>
+                <span>More</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Schedule</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Bible</span>
+            </a>
         </div>
+    </div>
 
-
-        <script>
-            class ContentImageSlider {
-                constructor(sliderId) {
-                    this.sliderId = sliderId;
-                    this.currentSlide = 0;
-                    this.totalSlides = 3;
-                    this.sliderWrapper = document.getElementById(`imageSliderWrapper${sliderId}`);
-                    this.prevBtn = document.getElementById(`imageSliderPrevBtn${sliderId}`);
-                    this.nextBtn = document.getElementById(`imageSliderNextBtn${sliderId}`);
-                    this.indicators = document.querySelectorAll(`#imageSliderIndicators${sliderId} .image-slider-indicator`);
-
-                    this.init();
-                }
-
-                init() {
-                    // Add event listeners
-                    this.prevBtn.addEventListener('click', () => this.previousSlide());
-                    this.nextBtn.addEventListener('click', () => this.nextSlide());
-
-                    // Add indicator click events
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => this.goToSlide(index));
-                    });
-
-                    // Add keyboard navigation (only when slider is focused)
-                    this.sliderWrapper.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') this.previousSlide();
-                        if (e.key === 'ArrowRight') this.nextSlide();
-                    });
-
-                    // Make slider focusable for keyboard navigation
-                    this.sliderWrapper.setAttribute('tabindex', '0');
-
-                    // Optional: Auto-play slider
-                    this.startAutoPlay();
-                }
-
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                previousSlide() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.updateSlider();
-                }
-
-                goToSlide(slideIndex) {
-                    this.currentSlide = slideIndex;
-                    this.updateSlider();
-                }
-
-                updateSlider() {
-                    // Move slider
-                    const translateX = -this.currentSlide * (100 / this.totalSlides);
-                    this.sliderWrapper.style.transform = `translateX(${translateX}%)`;
-
-                    // Update indicators
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.classList.toggle('active', index === this.currentSlide);
-                    });
-                }
-
-                startAutoPlay() {
-                    // Auto-advance every 5 seconds
-                    setInterval(() => {
-                        this.nextSlide();
-                    }, 5000);
-                }
-            }
-
-            // Initialize all sliders when DOM is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                new ContentImageSlider('1');
-                new ContentImageSlider('2');
-                new ContentImageSlider('3');
-            });
-        </script>
-    </section>
-    <!-- footer start -->
-    @include('home.footer')
-    <!-- footer end -->
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // Simple navigation active state handler
+        // Sidebar functionality
+        function openSidebar() {
+            document.getElementById('sidebar').classList.add('active');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('active');
+        }
+
+        // Stream overlay toggle (simulating stream start)
+        function hideStreamOverlay() {
+            document.getElementById('streamOverlay').classList.add('hidden');
+        }
+
+        // Simulate stream starting after 3 seconds
+        setTimeout(hideStreamOverlay, 3000);
+
+        // Mute button functionality
+        document.getElementById('muteBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.className = 'fas fa-volume-mute';
+            } else {
+                icon.className = 'fas fa-volume-up';
+            }
+        });
+
+        // Fullscreen functionality
+        document.getElementById('fullscreenBtn').addEventListener('click', function () {
+            const videoSection = document.querySelector('.video-section');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                this.querySelector('i').className = 'fas fa-expand';
+            } else {
+                videoSection.requestFullscreen();
+                this.querySelector('i').className = 'fas fa-compress';
+            }
+        });
+
+        // Navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.nav-link.second-nav');
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                   // e.preventDefault();
-
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
-
                     // Add active class to clicked link
                     this.classList.add('active');
                 });
             });
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function (event) {
+            const sidebar = document.getElementById('sidebar');
+            const moreBtn = event.target.closest('[onclick="openSidebar()"]');
+
+            if (!sidebar.contains(event.target) && !moreBtn && sidebar.classList.contains('active')) {
+                closeSidebar();
+            }
+        });
+
+        // Simulate viewer count changes
+        function updateViewerCount() {
+            const viewerElement = document.querySelector('.viewer-count span');
+            const currentCount = parseInt(viewerElement.textContent);
+            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
+            const newCount = Math.max(50, currentCount + change);
+            viewerElement.textContent = newCount;
+        }
+
+        setInterval(updateViewerCount, 15000); // Update every 15 seconds
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            switch (e.key) {
+                case ' ':
+                    e.preventDefault();
+                    // Toggle play/pause (would need YouTube API)
+                    break;
+                case 'm':
+                    document.getElementById('muteBtn').click();
+                    break;
+                case 'f':
+                    document.getElementById('fullscreenBtn').click();
+                    break;
+                case 'Escape':
+                    closeSidebar();
+                    break;
+            }
+        });
+
+        // Prayer and commitment button interactions
+        document.querySelector('.prayer-btn').addEventListener('click', function () {
+            alert('Thank you for your prayer request. Our team will pray for you.');
+        });
+
+        document.querySelector('.raise-hand-btn').addEventListener('click', function () {
+            this.style.background = '#d4a000';
+            this.innerHTML = '<span>✋</span> Hand Raised!';
+            setTimeout(() => {
+                this.style.background = '#e4af00';
+                this.innerHTML = '<span>✋</span> Raise Hand';
+            }, 3000);
         });
     </script>
 </body>
