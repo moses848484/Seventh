@@ -528,6 +528,8 @@
 </head>
 
 <body>
+
+    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -568,8 +570,7 @@
             <div class="video-wrapper">
                 <!-- YouTube Player -->
                 <iframe id="youtube-player"
-                    src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0"
-                    frameborder="0"
+                    src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
@@ -711,7 +712,8 @@
             </a>
         </div>
     </div>
-
+  <!-- footer start -->
+    @include('home.footer')
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
