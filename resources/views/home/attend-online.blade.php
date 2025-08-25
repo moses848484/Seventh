@@ -61,7 +61,7 @@
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: #fff !important;
+            color: #000 !important;
         }
 
         .nav-link.second-nav.active::after {
@@ -486,21 +486,21 @@
                 <span class="custom-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#">Attend Online</a>
+                     <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
