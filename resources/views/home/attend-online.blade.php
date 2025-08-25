@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
-    <link rel="stylesheet"
-        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
@@ -21,9 +20,8 @@
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             background: #fff;
-            /* White background */
             color: #333;
-            /* Dark gray text */
+            padding-bottom: 80px; /* Add space for bottom navigation */
         }
 
         /* Orange separator line */
@@ -57,8 +55,6 @@
         .navbar-nav .nav-link:hover {
             color: #000 !important;
         }
-
-
 
         .navbar-nav .nav-link.second-nav {
             color: #ccc !important;
@@ -111,7 +107,6 @@
             position: relative;
             flex: 1;
             background: #eee;
-            /* Light gray behind video */
             min-height: 60vh;
         }
 
@@ -143,6 +138,7 @@
             text-align: center;
             z-index: 10;
             transition: opacity 0.3s ease;
+            color: white;
         }
 
         .stream-overlay.hidden {
@@ -183,6 +179,7 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
+            color: white;
         }
 
         .live-indicator {
@@ -220,6 +217,7 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
+            color: white;
         }
 
         /* Control Panel */
@@ -234,6 +232,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 20;
+            color: white;
         }
 
         .stream-title {
@@ -282,20 +281,21 @@
             background: #667eea;
         }
 
-        /* Sidebar */
+        /* Sidebar - FIXED z-index and visibility */
         .sidebar {
             position: fixed;
             right: 0;
             top: 0;
             width: 400px;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(30, 30, 30, 0.98);
+            backdrop-filter: blur(15px);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
             transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 2000; /* Increased z-index to ensure visibility */
             overflow-y: auto;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar.active {
@@ -303,23 +303,44 @@
         }
 
         .sidebar-header {
-            padding: 20px;
+            padding: 25px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .sidebar-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .sidebar-content {
             padding: 20px;
+            color: white;
         }
 
         .close-sidebar {
-            background: none;
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-sidebar:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
         }
 
         /* Prayer Request Section */
@@ -329,6 +350,7 @@
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.3);
         }
 
         .prayer-section h3 {
@@ -340,6 +362,7 @@
         .prayer-section p {
             margin-bottom: 20px;
             opacity: 0.9;
+            color: #ccc;
         }
 
         .prayer-btn {
@@ -365,12 +388,18 @@
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
+            border: 1px solid rgba(228, 175, 0, 0.3);
         }
 
         .commitment-section h3 {
             color: #e4af00;
             margin-bottom: 15px;
             font-size: 1.4rem;
+        }
+
+        .commitment-section p {
+            color: #ccc;
+            margin-bottom: 20px;
         }
 
         .raise-hand-btn {
@@ -423,17 +452,17 @@
             display: block;
         }
 
-        /* Bottom Navigation */
+        /* Bottom Navigation - FIXED positioning */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(30, 30, 30, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 100;
+            z-index: 1500; /* Lower than sidebar but still visible */
         }
 
         .nav-items {
@@ -452,6 +481,7 @@
             text-decoration: none;
             font-size: 0.8rem;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .nav-item:hover {
@@ -473,6 +503,11 @@
             border: 1px solid rgba(102, 126, 234, 0.3);
         }
 
+        .login-prompt p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
         .login-btn {
             background: transparent;
             color: #667eea;
@@ -489,10 +524,36 @@
             color: white;
         }
 
+        /* Footer adjustments */
+        footer {
+            margin-bottom: 0 !important;
+            padding-bottom: 90px !important; /* Add padding to account for bottom nav */
+        }
+
+        /* Sidebar overlay for mobile */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1900;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
+                right: 0;
             }
 
             .stream-overlay h1 {
@@ -520,13 +581,20 @@
             #youtube-player {
                 min-height: 50vh;
             }
+
+            body {
+                padding-bottom: 90px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Header placeholder -->
+    <div style="background: #333; color: white; padding: 15px 0; text-align: center;">
+        <h4>UNISDA Church Header</h4>
+    </div>
 
-    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -541,24 +609,27 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                        <a class="nav-link second-nav active" href="#">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Sidebar Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <!-- Main Stream Container -->
     <div class="stream-container">
@@ -624,7 +695,7 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
+    <!-- Sidebar - FIXED -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Church Experience</h3>
@@ -684,46 +755,53 @@
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation - FIXED -->
     <div class="bottom-nav">
         <div class="nav-items">
-            <a href="#" class="nav-item">
+            <div class="nav-item">
                 <i class="fas fa-comments"></i>
                 <span>Feed</span>
-            </a>
-            <a href="#" class="nav-item">
+            </div>
+            <div class="nav-item">
                 <i class="fas fa-praying-hands"></i>
                 <span>Pray</span>
-            </a>
-            <a href="#" class="nav-item" onclick="openSidebar()">
+            </div>
+            <div class="nav-item" onclick="openSidebar()">
                 <i class="fas fa-th"></i>
                 <span>More</span>
-            </a>
-            <a href="#" class="nav-item">
+            </div>
+            <div class="nav-item">
                 <i class="fas fa-calendar"></i>
                 <span>Schedule</span>
-            </a>
-            <a href="#" class="nav-item">
+            </div>
+            <div class="nav-item">
                 <i class="fas fa-book"></i>
                 <span>Bible</span>
-            </a>
+            </div>
         </div>
     </div>
-    <!-- footer start -->
+
+    <!-- Footer placeholder -->
+  <!-- footer start -->
     @include('home.footer')
+
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Sidebar functionality
+        // Sidebar functionality - FIXED
         function openSidebar() {
             document.getElementById('sidebar').classList.add('active');
+            document.getElementById('sidebarOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
 
         function closeSidebar() {
             document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
         }
 
         // Stream overlay toggle (simulating stream start)
@@ -771,12 +849,14 @@
             });
         });
 
-        // Close sidebar when clicking outside
+        // Close sidebar when clicking outside (but not on bottom nav)
         document.addEventListener('click', function (event) {
             const sidebar = document.getElementById('sidebar');
             const moreBtn = event.target.closest('[onclick="openSidebar()"]');
+            const bottomNav = event.target.closest('.bottom-nav');
+            const sidebarContent = event.target.closest('.sidebar');
 
-            if (!sidebar.contains(event.target) && !moreBtn && sidebar.classList.contains('active')) {
+            if (!sidebarContent && !moreBtn && !bottomNav && sidebar.classList.contains('active')) {
                 closeSidebar();
             }
         });
@@ -812,19 +892,4 @@
         });
 
         // Prayer and commitment button interactions
-        document.querySelector('.prayer-btn').addEventListener('click', function () {
-            alert('Thank you for your prayer request. Our team will pray for you.');
-        });
-
-        document.querySelector('.raise-hand-btn').addEventListener('click', function () {
-            this.style.background = '#d4a000';
-            this.innerHTML = '<span>✋</span> Hand Raised!';
-            setTimeout(() => {
-                this.style.background = '#e4af00';
-                this.innerHTML = '<span>✋</span> Raise Hand';
-            }, 3000);
-        });
-    </script>
-</body>
-
-</html>
+        document.querySelector('.prayer-btn').addEventListener
