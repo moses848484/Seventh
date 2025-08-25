@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
+        html,
         body {
             height: 100%;
             margin: 0;
@@ -61,7 +62,7 @@
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: #000 !important;
+            color: #fff !important;
         }
 
         .nav-link.second-nav.active::after {
@@ -281,160 +282,180 @@
             background: #667eea;
         }
 
-        /* Sidebar */
+        /* Sidebar - Updated styles to match the image */
         .sidebar {
             width: 400px;
-            background: rgba(0, 0, 0, 0.95);
+            background: #1c1c1c; /* Dark background color */
             overflow-y: auto;
             flex-shrink: 0;
-            color: white;
+            color: #fff;
+            padding: 20px; /* Add padding to the whole sidebar */
         }
 
         .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: none; /* Hide header as per the new design */
         }
 
+        /* Updated Sidebar Content - New Sections */
         .sidebar-content {
-            padding: 20px;
+            padding: 0; /* Remove padding since the main sidebar now has it */
         }
 
-        .close-sidebar {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-        }
-
-        /* Prayer Request Section */
-        .prayer-section {
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .prayer-section h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .prayer-section p {
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .prayer-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .prayer-btn:hover {
-            background: #5a6fd8;
-            transform: translateY(-2px);
-        }
-
-        /* Commitment Section */
-        .commitment-section {
-            background: rgba(228, 175, 0, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .commitment-section h3 {
-            color: #e4af00;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .raise-hand-btn {
-            background: #e4af00;
-            color: #000;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 auto;
-        }
-
-        .raise-hand-btn:hover {
-            background: #d4a000;
-            transform: translateY(-2px);
-        }
-
-        /* Quick Actions */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .quick-action {
-            background: rgba(255, 255, 255, 0.1);
+        .sidebar-card {
+            background: #2b2b2b; /* Card background color */
             border-radius: 10px;
             padding: 20px;
+            margin-bottom: 15px;
             text-align: center;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar-card-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #f0f0f0;
+        }
+
+        .sidebar-card-text i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #ccc;
+        }
+
+        .sidebar-card-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #777;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: none;
-            color: white;
         }
 
-        .quick-action:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .sidebar-card-btn:hover {
+            background: #3a3a3a;
+            border-color: #999;
         }
 
-        .quick-action i {
-            font-size: 24px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* Login Prompt */
+        /* Login Prompt - Restyled */
         .login-prompt {
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(102, 126, 234, 0.3);
+            background: #2b2b2b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .login-prompt p {
+            margin: 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .login-prompt p i {
+            color: #ff9800; /* Icon color from the image */
+            margin-right: 8px;
+            font-size: 1.2rem;
         }
 
         .login-btn {
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            padding: 10px 25px;
-            border-radius: 25px;
+            color: #ff9800;
+            border: 1px solid #ff9800;
+            padding: 6px 15px;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .login-btn:hover {
-            background: #667eea;
-            color: white;
+            background: #ff9800;
+            color: #fff;
+        }
+
+        .login-prompt .close-btn {
+            background: none;
+            border: none;
+            color: #777;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Request Prayer Button */
+        .request-prayer-btn {
+            width: 100%;
+            background: #2b2b2b;
+            color: #fff;
+            border: 1px solid #777;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px; /* Adjust spacing */
+        }
+
+        .request-prayer-btn:hover {
+            background: #3a3a3a;
+        }
+
+        /* Quick Actions - Restyled */
+        .quick-actions {
+            display: flex;
+            justify-content: space-around;
+            gap: 0;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .quick-action {
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .quick-action:hover {
+            background: #2b2b2b;
+        }
+
+        .quick-action i {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #999;
+            display: block;
+        }
+
+        .quick-action:hover i {
+            color: #fff;
+        }
+
+        .quick-action div {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .quick-action:hover div {
+            color: #fff;
         }
 
         /* Responsive Design */
@@ -466,7 +487,7 @@
                 min-height: 60vh;
             }
         }
-        
+
         .fa-eye {
             color: white;
         }
@@ -486,7 +507,7 @@
                 <span class="custom-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                     <ul class="navbar-nav ml-auto">
+           <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
                         <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
@@ -544,55 +565,54 @@
             </div>
 
             <div class="sidebar" id="sidebar">
-                <div class="sidebar-header">
-                    <h3>Church Experience</h3>
-                    <button class="close-sidebar" onclick="closeSidebar()">×</button>
-                </div>
                 <div class="sidebar-content">
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-text">
+                            <i class="fa-solid fa-handshake"></i>
+                            Want to change the world? Become a HOST!
+                        </div>
+                        <button class="sidebar-card-btn">Continue</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-text">
+                            <i class="fa-solid fa-users"></i>
+                            Find your people. Join a LifeGroup.
+                        </div>
+                        <button class="sidebar-card-btn">Continue</button>
+                    </div>
+
                     <div class="login-prompt">
-                        <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
+                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church Online!</p>
                         <button class="login-btn">Log In</button>
+                        <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
                     </div>
 
-                    <div class="commitment-section">
-                        <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
-                        <p>Let us know by raising your hand.</p>
-                        <button class="raise-hand-btn">
-                            <span>✋</span>
-                            Raise Hand
-                        </button>
-                    </div>
-
-                    <div class="prayer-section">
-                        <h3><i class="fas fa-heart"></i> Request Prayer</h3>
-                        <p>Our prayer team is here for you.</p>
-                        <button class="prayer-btn">Request Prayer</button>
-                    </div>
+                    <button class="request-prayer-btn">
+                        <i class="fa-regular fa-heart"></i>
+                        Request Prayer
+                    </button>
 
                     <div class="quick-actions">
                         <button class="quick-action">
-                            <i class="fas fa-comments"></i>
+                            <i class="fa-regular fa-message"></i>
                             <div>Feed</div>
                         </button>
                         <button class="quick-action">
-                            <i class="fas fa-praying-hands"></i>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
                             <div>Pray</div>
                         </button>
                         <button class="quick-action">
-                            <i class="fas fa-calendar"></i>
+                            <i class="fa-regular fa-calendar-days"></i>
                             <div>Schedule</div>
                         </button>
                         <button class="quick-action">
-                            <i class="fas fa-sticky-note"></i>
+                            <i class="fa-regular fa-note-sticky"></i>
                             <div>Notes</div>
                         </button>
                         <button class="quick-action">
-                            <i class="fas fa-book"></i>
+                            <i class="fa-solid fa-book-bible"></i>
                             <div>Bible</div>
-                        </button>
-                        <button class="quick-action">
-                            <i class="fas fa-share"></i>
-                            <div>Share</div>
                         </button>
                     </div>
                 </div>
@@ -680,17 +700,8 @@
         });
 
         // Prayer and commitment button interactions
-        document.querySelector('.prayer-btn').addEventListener('click', function() {
+        document.querySelector('.request-prayer-btn').addEventListener('click', function() {
             alert('Thank you for your prayer request. Our team will pray for you.');
-        });
-
-        document.querySelector('.raise-hand-btn').addEventListener('click', function() {
-            this.style.background = '#d4a000';
-            this.innerHTML = '<span>✋</span> Hand Raised!';
-            setTimeout(() => {
-                this.style.background = '#e4af00';
-                this.innerHTML = '<span>✋</span> Raise Hand';
-            }, 3000);
         });
 
         // Login button functionality
