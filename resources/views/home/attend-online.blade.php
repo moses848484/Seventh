@@ -21,7 +21,6 @@
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             background: #fff;
             color: #333;
-            padding-bottom: 80px; /* Add space for bottom navigation */
         }
 
         /* Orange separator line */
@@ -97,9 +96,10 @@
         /* Main Stream Container */
         .stream-container {
             position: relative;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            background: #fff;
         }
 
         /* Video Player Section */
@@ -281,6 +281,78 @@
             background: #667eea;
         }
 
+        /* White space section for bottom nav */
+        .content-section {
+            background: #fff;
+            flex: 0 0 160px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .content-section .service-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content-section h3 {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .content-section p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Bottom Navigation - Now inside stream container */
+        .bottom-nav {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
         /* Sidebar - FIXED z-index and visibility */
         .sidebar {
             position: fixed;
@@ -293,7 +365,7 @@
             border-left: 1px solid rgba(255, 255, 255, 0.1);
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            z-index: 2000; /* Increased z-index to ensure visibility */
+            z-index: 2000;
             overflow-y: auto;
             box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
         }
@@ -452,48 +524,6 @@
             display: block;
         }
 
-        /* Bottom Navigation - FIXED positioning */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(30, 30, 30, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1500; /* Lower than sidebar but still visible */
-        }
-
-        .nav-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-item:hover {
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-item i {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
         /* Login Prompt */
         .login-prompt {
             background: rgba(102, 126, 234, 0.2);
@@ -522,12 +552,6 @@
         .login-btn:hover {
             background: #667eea;
             color: white;
-        }
-
-        /* Footer adjustments */
-        footer {
-            margin-bottom: 0 !important;
-            padding-bottom: 90px !important; /* Add padding to account for bottom nav */
         }
 
         /* Sidebar overlay for mobile */
@@ -582,19 +606,23 @@
                 min-height: 50vh;
             }
 
-            body {
-                padding-bottom: 90px;
+            .content-section {
+                flex: 0 0 140px;
+                padding: 15px;
+            }
+
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .content-section p {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header placeholder -->
-    <div style="background: #333; color: white; padding: 15px 0; text-align: center;">
-        <h4>UNISDA Church Header</h4>
-    </div>
-
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -693,9 +721,43 @@
                 </div>
             </div>
         </div>
+
+        <!-- Content Section (White space with info and bottom nav) -->
+        <div class="content-section">
+            <div class="service-info">
+                <h3>More like Jesus</h3>
+                <p>Sabbath Morning Service • Watch on YouTube • UNISDA Church</p>
+            </div>
+
+            <!-- Bottom Navigation - Now inside content section -->
+            <div class="bottom-nav">
+                <div class="nav-items">
+                    <div class="nav-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Feed</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-praying-hands"></i>
+                        <span>Pray</span>
+                    </div>
+                    <div class="nav-item" onclick="openSidebar()">
+                        <i class="fas fa-th"></i>
+                        <span>More</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Schedule</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span>Bible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Sidebar - FIXED -->
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>Church Experience</h3>
@@ -755,53 +817,23 @@
         </div>
     </div>
 
-    <!-- Bottom Navigation - FIXED -->
-    <div class="bottom-nav">
-        <div class="nav-items">
-            <div class="nav-item">
-                <i class="fas fa-comments"></i>
-                <span>Feed</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-praying-hands"></i>
-                <span>Pray</span>
-            </div>
-            <div class="nav-item" onclick="openSidebar()">
-                <i class="fas fa-th"></i>
-                <span>More</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-calendar"></i>
-                <span>Schedule</span>
-            </div>
-            <div class="nav-item">
-                <i class="fas fa-book"></i>
-                <span>Bible</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer placeholder -->
-  <!-- footer start -->
-    @include('home.footer')
-
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Sidebar functionality - FIXED
+        // Sidebar functionality
         function openSidebar() {
             document.getElementById('sidebar').classList.add('active');
             document.getElementById('sidebarOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeSidebar() {
             document.getElementById('sidebar').classList.remove('active');
             document.getElementById('sidebarOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
         // Stream overlay toggle (simulating stream start)
@@ -841,15 +873,13 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
-                    // Add active class to clicked link
                     this.classList.add('active');
                 });
             });
         });
 
-        // Close sidebar when clicking outside (but not on bottom nav)
+        // Close sidebar when clicking outside
         document.addEventListener('click', function (event) {
             const sidebar = document.getElementById('sidebar');
             const moreBtn = event.target.closest('[onclick="openSidebar()"]');
@@ -865,19 +895,18 @@
         function updateViewerCount() {
             const viewerElement = document.querySelector('.viewer-count span');
             const currentCount = parseInt(viewerElement.textContent);
-            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
+            const change = Math.floor(Math.random() * 10) - 5;
             const newCount = Math.max(50, currentCount + change);
             viewerElement.textContent = newCount;
         }
 
-        setInterval(updateViewerCount, 15000); // Update every 15 seconds
+        setInterval(updateViewerCount, 15000);
 
         // Add keyboard shortcuts
         document.addEventListener('keydown', function (e) {
             switch (e.key) {
                 case ' ':
                     e.preventDefault();
-                    // Toggle play/pause (would need YouTube API)
                     break;
                 case 'm':
                     document.getElementById('muteBtn').click();
@@ -885,11 +914,4 @@
                 case 'f':
                     document.getElementById('fullscreenBtn').click();
                     break;
-                case 'Escape':
-                    closeSidebar();
-                    break;
-            }
-        });
-
-        // Prayer and commitment button interactions
-        document.querySelector('.prayer-btn').addEventListener
+                case '
