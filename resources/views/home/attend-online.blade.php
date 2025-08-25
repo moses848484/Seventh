@@ -344,11 +344,14 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
