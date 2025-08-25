@@ -45,6 +45,10 @@ class HomeController extends Controller
         return view('home.prayer-request');
     }
 
+        public function attendOnline()
+    {
+        return view('home.attend-online');
+    }
 
     public function submitContactForm(Request $request)
     {

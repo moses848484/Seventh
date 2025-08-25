@@ -26,6 +26,7 @@ Route::post('/add_members', [AdminController::class, 'add_members'])->name('add_
 Route::get('/what-to-expect', [HomeController::class, 'whatToExpect'])->name('what-to-expect');
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/our-beliefs', [HomeController::class, 'ourBeliefs'])->name('our-beliefs');
+Route::get('/attend-online', [HomeController::class, 'attendOnline'])->name('attend-online');
 Route::get('/connect-with-our-team', [HomeController::class, 'connectWithOurTeam'])->name('connect-with-our-team');
 Route::get('/prayer-request', [HomeController::class, 'prayerRequest'])->name('prayer-request');
 

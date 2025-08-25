@@ -145,7 +145,7 @@
                             <a class="nav-link" href="/">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#media">ATTEND ONLINE</a>
+                            <a class="nav-link" href="{{ route('attend-online') }}">ATTEND ONLINE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#about">MEDIA</a>
