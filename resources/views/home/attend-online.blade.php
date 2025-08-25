@@ -52,17 +52,16 @@
             font-weight: 500;
             margin: 0 1rem;
         }
-
         .navbar-nav .nav-link:hover {
-            color: #000 !important;
+            color: #333 !important;
         }
 
         .navbar-nav .nav-link.second-nav {
-            color: #ccc !important;
+            color: darkgray !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: #000 !important;
+            color: black !important;
         }
 
         .nav-link.second-nav.active::after {
@@ -73,7 +72,8 @@
             transform: translateX(-50%);
             width: 80%;
             height: 3px;
-            background-color: #e4af00;
+            background-color: #000;
+            border-radius: 2px 2px 0 0;
         }
 
         .navbar-toggler {
