@@ -17,8 +17,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
+        html,
         body {
+            height: 100%;
             margin: 0;
+            display: flex;
+            flex-direction: column;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             background: #fff;
             color: #333;
@@ -33,7 +37,7 @@
             padding: 0;
         }
 
-        /* Navbar background white with gray text */
+        /* Navbar */
         .navbar-custom {
             background: #f8f9fa !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -47,9 +51,6 @@
             color: #555 !important;
             font-weight: 500;
             margin: 0 1rem;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 15px !important;
         }
 
         .navbar-nav .nav-link:hover {
@@ -73,7 +74,6 @@
             width: 80%;
             height: 3px;
             background-color: #e4af00;
-            border-radius: 2px 2px 0 0;
         }
 
         .navbar-toggler {
@@ -94,27 +94,24 @@
             background-position: center;
         }
 
-        /* Main Stream Container - Modified for sidebar layout */
+        /* Main container */
         .stream-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Video Player Section - Modified to take remaining space */
-        .video-section {
-            position: relative;
             flex: 1;
-            background: #eee;
-            min-height: 70vh;
-            width: calc(100% - 400px);
-            /* Account for sidebar width */
+            display: flex;
+            min-height: 0;
         }
 
-        .video-wrapper {
+        .video-section {
+            flex: 1;
             position: relative;
+            background: #eee;
+            min-height: 0;
+        }
+
+        .video-wrapper,
+        #youtube-player {
             width: 100%;
             height: 100%;
-            min-height: 70vh;
         }
 
         #youtube-player {
@@ -280,16 +277,13 @@
             background: #667eea;
         }
 
-        /* Sidebar - Modified to always be visible */
         .sidebar {
-            position: relative;
             width: 400px;
-            min-height: 100vh;
+            min-height: 0;
             background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
             overflow-y: auto;
             flex-shrink: 0;
+            color: white;
         }
 
         .sidebar-header {
@@ -552,6 +546,7 @@
 
 <body>
     @include('home.header')
+
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -687,7 +682,6 @@
 
     <!-- footer start -->
     @include('home.footer')
-
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
