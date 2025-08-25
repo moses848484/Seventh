@@ -105,15 +105,16 @@
             position: relative;
             flex: 1;
             background: #eee;
-            min-height: 100vh;
-            width: calc(100% - 400px); /* Account for sidebar width */
+            min-height: 70vh;
+            width: calc(100% - 400px);
+            /* Account for sidebar width */
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 100vh;
+            min-height: 70vh;
         }
 
         #youtube-player {
@@ -185,6 +186,9 @@
             background: #ff4444;
             border-radius: 50%;
             animation: pulse 2s infinite;
+        }
+        .live {
+            color: white;
         }
 
         @keyframes pulse {
@@ -306,7 +310,8 @@
             color: white;
             font-size: 24px;
             cursor: pointer;
-            display: none; /* Hide close button since sidebar is always open */
+            display: none;
+            /* Hide close button since sidebar is always open */
         }
 
         /* Prayer Request Section */
@@ -415,7 +420,8 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 400px; /* Account for sidebar width */
+            right: 400px;
+            /* Account for sidebar width */
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
@@ -481,11 +487,11 @@
             .sidebar {
                 width: 350px;
             }
-            
+
             .video-section {
                 width: calc(100% - 350px);
             }
-            
+
             .bottom-nav {
                 right: 350px;
             }
@@ -495,19 +501,19 @@
             .stream-container {
                 flex-direction: column;
             }
-            
+
             .sidebar {
                 width: 100%;
                 min-height: auto;
                 order: 2;
             }
-            
+
             .video-section {
                 width: 100%;
                 order: 1;
                 min-height: 60vh;
             }
-            
+
             .video-wrapper {
                 min-height: 60vh;
             }
@@ -515,7 +521,7 @@
             #youtube-player {
                 min-height: 60vh;
             }
-            
+
             .bottom-nav {
                 right: 0;
             }
@@ -538,15 +544,14 @@
                 justify-content: center;
             }
         }
+        .fa-eye {
+            color: white;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Mock header inclusion -->
-    <div style="background: #333; color: white; padding: 1rem; text-align: center;">
-        <h2>UNISDA Church Header</h2>
-    </div>
-    
+    @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -609,39 +614,15 @@
                 <!-- Stream Status -->
                 <div class="stream-status">
                     <div class="live-indicator"></div>
-                    <span>LIVE</span>
-                    <span>- 0:00:02</span>
+                    <span class="live">LIVE</span>
+                    <span class="live">- 0:00:02</span>
                 </div>
 
                 <!-- Viewer Count -->
                 <div class="viewer-count">
                     <i class="fas fa-eye"></i>
-                    <span>127</span>
+                    <span class="live">127</span>
                 </div>
-
-                <!-- Control Panel -->
-                <div class="control-panel">
-                    <div class="stream-title">
-                        <h2>Sabbath Morning Service</h2>
-                        <div class="stream-subtitle">Saturday Service • UNISDA Church</div>
-                    </div>
-                    <div class="stream-actions">
-                        <button class="action-btn" id="muteBtn" title="Mute/Unmute">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
-                        <button class="action-btn" title="Closed Captions">
-                            <i class="fas fa-closed-captioning"></i>
-                        </button>
-                        <button class="action-btn" title="Settings">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                        <button class="action-btn" id="fullscreenBtn" title="Fullscreen">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Sidebar - Always visible -->
         <div class="sidebar" id="sidebar">
@@ -704,32 +685,8 @@
         </div>
     </div>
 
-    <!-- Bottom Navigation - Adjusted for sidebar -->
-    <div class="bottom-nav">
-        <div class="nav-items">
-            <a href="#" class="nav-item">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-calendar"></i>
-                <span>Events</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-book"></i>
-                <span>Resources</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-users"></i>
-                <span>Connect</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Mock footer -->
-    <div style="background: #222; color: white; padding: 2rem; text-align: center; position: relative; z-index: 1001;">
-        <p>&copy; 2024 UNISDA Church. All rights reserved.</p>
-    </div>
+    <!-- footer start -->
+    @include('home.footer')
 
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
