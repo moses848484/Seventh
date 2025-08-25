@@ -44,7 +44,10 @@
         }
 
         .navbar-brand {
+            font-weight: bold;
             color: #333 !important;
+            font-size: 1.5rem;
+            margin-left: 15px;
         }
 
         .navbar-nav .nav-link {
@@ -516,29 +519,29 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">Streaming Live</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="custom-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
-                        </li>
-                    </ul>
-                </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="custom-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
