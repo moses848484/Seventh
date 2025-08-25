@@ -54,7 +54,7 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #000 !important;
+            color: #e4af00; !important;
         }
 
         .navbar-nav .nav-link.second-nav {
@@ -62,7 +62,7 @@
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: #fff !important;
+            color: #e4af00; !important;
         }
 
         .nav-link.second-nav.active::after {
