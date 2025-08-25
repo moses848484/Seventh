@@ -54,7 +54,7 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #e4af00; !important;
+            color: #000 !important;
         }
 
         .navbar-nav .nav-link.second-nav {
@@ -62,7 +62,7 @@
         }
 
         .navbar-nav .nav-link.second-nav:hover {
-            color: #e4af00; !important;
+            color: #000 !important;
         }
 
         .nav-link.second-nav.active::after {
@@ -370,7 +370,7 @@
             background: transparent;
             color: #ff9800;
             border: 1px solid #ff9800;
-            padding: 6px 15px;
+            padding: 8px 25px;
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -501,7 +501,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">Streaming Online</a>
+            <a class="navbar-brand" href="#">About Us</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="custom-toggler-icon"></span>
@@ -583,7 +583,7 @@
                     </div>
 
                     <div class="login-prompt">
-                        <p><i class="fa-solid fa-circle-info"></i> Log in for better online experience</p>
+                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church Online!</p>
                         <button class="login-btn">Log In</button>
                         <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
                     </div>
