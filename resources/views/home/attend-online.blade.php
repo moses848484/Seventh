@@ -568,7 +568,7 @@
             <div class="video-wrapper">
                 <!-- YouTube Player -->
                 <iframe id="youtube-player"
-                    src="https://www.youtube.com/embed/live_stream?channel=UCYourChannelID&autoplay=0&mute=0"
+                    src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
