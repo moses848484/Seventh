@@ -122,7 +122,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item"
-                            href="https://www.youtube.com/@universitysdachurchlusaka7628/">
+                            href="{{ route('attend-online') }}">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon bg-danger text-white rounded-circle">
                                     <i class="fa-brands fa-youtube"></i>
