@@ -98,25 +98,20 @@
         .stream-container {
             flex: 1;
             display: flex;
+            min-height: 100vh;
             min-height: 0;
         }
 
+        /* Video section */
         .video-section {
             flex: 1;
             position: relative;
             background: #eee;
             min-height: 100vh;
-            width: calc(100% - 400px);
-            /* Account for sidebar width */
+            width: 100%;
         }
 
         .video-wrapper,
-        #youtube-player {
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-        }
-
         #youtube-player {
             width: 100%;
             height: 100%;
@@ -187,6 +182,7 @@
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
+
         .live {
             color: white;
         }
@@ -280,9 +276,10 @@
             background: #667eea;
         }
 
+        /* Sidebar */
         .sidebar {
             width: 400px;
-            min-height: 0;
+            min-height: 100vh;
             background: rgba(0, 0, 0, 0.95);
             overflow-y: auto;
             flex-shrink: 0;
@@ -308,7 +305,6 @@
             font-size: 24px;
             cursor: pointer;
             display: none;
-            /* Hide close button since sidebar is always open */
         }
 
         /* Prayer Request Section */
@@ -412,48 +408,6 @@
             display: block;
         }
 
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 400px;
-            /* Account for sidebar width */
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 100;
-        }
-
-        .nav-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-item:hover {
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-item i {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
         /* Login Prompt */
         .login-prompt {
             background: rgba(102, 126, 234, 0.2);
@@ -484,14 +438,6 @@
             .sidebar {
                 width: 350px;
             }
-
-            .video-section {
-                width: calc(100% - 350px);
-            }
-
-            .bottom-nav {
-                right: 350px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -511,36 +457,12 @@
                 min-height: 60vh;
             }
 
-            .video-wrapper {
-                min-height: 60vh;
-            }
-
+            .video-wrapper,
             #youtube-player {
                 min-height: 60vh;
             }
-
-            .bottom-nav {
-                right: 0;
-            }
-
-            .stream-overlay h1 {
-                font-size: 2.5rem;
-            }
-
-            .stream-overlay p {
-                font-size: 1.2rem;
-            }
-
-            .control-panel {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-
-            .stream-actions {
-                justify-content: center;
-            }
         }
+
         .fa-eye {
             color: white;
         }
@@ -550,10 +472,8 @@
 <body>
     @include('home.header')
 
-    <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">About Us</a>
@@ -583,19 +503,15 @@
         </div>
     </nav>
 
-    <!-- Main Stream Container -->
     <div class="stream-container">
-        <!-- Video Section -->
         <div class="video-section">
             <div class="video-wrapper">
-                <!-- YouTube Player -->
                 <iframe id="youtube-player"
                     src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
 
-                <!-- Stream Overlay (shows before stream starts) -->
                 <div class="stream-overlay" id="streamOverlay">
                     <div>
                         <h1>Welcome to UNISDA Church</h1>
@@ -609,33 +525,30 @@
                     </div>
                 </div>
 
-                <!-- Stream Status -->
                 <div class="stream-status">
                     <div class="live-indicator"></div>
                     <span class="live">LIVE</span>
                     <span class="live">- 0:00:02</span>
                 </div>
 
-                <!-- Viewer Count -->
                 <div class="viewer-count">
                     <i class="fas fa-eye"></i>
                     <span class="live">127</span>
                 </div>
+            </div>
+        </div>
 
-        <!-- Sidebar - Always visible -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h3>Church Experience</h3>
                 <button class="close-sidebar" onclick="closeSidebar()">×</button>
             </div>
             <div class="sidebar-content">
-                <!-- Login Prompt -->
                 <div class="login-prompt">
                     <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
                     <button class="login-btn">Log In</button>
                 </div>
 
-                <!-- Commitment Section -->
                 <div class="commitment-section">
                     <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
                     <p>Let us know by raising your hand.</p>
@@ -645,14 +558,12 @@
                     </button>
                 </div>
 
-                <!-- Prayer Request -->
                 <div class="prayer-section">
                     <h3><i class="fas fa-heart"></i> Request Prayer</h3>
                     <p>Our prayer team is here for you.</p>
                     <button class="prayer-btn">Request Prayer</button>
                 </div>
 
-                <!-- Quick Actions -->
                 <div class="quick-actions">
                     <button class="quick-action">
                         <i class="fas fa-comments"></i>
@@ -683,9 +594,7 @@
         </div>
     </div>
 
-    <!-- footer start -->
     @include('home.footer')
-    <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
