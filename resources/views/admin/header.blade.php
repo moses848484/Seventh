@@ -104,7 +104,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item"
-                            href="https://www.youtube.com/@universitysdachurchlusaka7628/">
+                            href="{{ route('attend-online') }}">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon bg-danger text-white rounded-circle">
                                     <i class="fa-brands fa-youtube"></i>
@@ -112,18 +112,6 @@
                             </div>
                             <div class="preview-item-content">
                                 <p class="preview-subject ellipsis mb-1">Youtube Stream</p>
-                            </div>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon instagram-bg rounded-circle">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1">Instagram Stream</p>
                             </div>
                         </a>
 
