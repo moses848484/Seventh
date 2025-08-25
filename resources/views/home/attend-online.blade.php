@@ -20,8 +20,10 @@
         body {
             margin: 0;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            background: #000;
-            color: white;
+            background: #fff;
+            /* White background */
+            color: #333;
+            /* Dark gray text */
         }
 
         /* Orange separator line */
@@ -33,26 +35,18 @@
             padding: 0;
         }
 
-        /* Navigation */
+        /* Navbar background white with gray text */
         .navbar-custom {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            padding-top: 10px !important;
-            padding-bottom: 10px !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1000;
+            background: #f8f9fa !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
-            font-weight: bold;
-            color: #fff !important;
-            font-size: 1.5rem;
-            margin-left: 15px;
+            color: #333 !important;
         }
 
         .navbar-nav .nav-link {
-            color: #ccc !important;
+            color: #555 !important;
             font-weight: 500;
             margin: 0 1rem;
             transition: color 0.3s ease;
@@ -61,8 +55,10 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #fff !important;
+            color: #000 !important;
         }
+
+
 
         .navbar-nav .nav-link.second-nav {
             color: #ccc !important;
@@ -114,7 +110,8 @@
         .video-section {
             position: relative;
             flex: 1;
-            background: #000;
+            background: #eee;
+            /* Light gray behind video */
             min-height: 60vh;
         }
 
@@ -712,7 +709,7 @@
             </a>
         </div>
     </div>
-  <!-- footer start -->
+    <!-- footer start -->
     @include('home.footer')
     <!-- Font Awesome + Bootstrap JS -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
