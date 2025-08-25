@@ -103,7 +103,7 @@
             width: 80%;
             /* 80% of link width */
             height: 3px;
-            background-color: #000;
+            background-color: #e4af00;
             border-radius: 2px 2px 0 0;
         }
 

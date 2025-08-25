@@ -97,7 +97,7 @@
             transform: translateX(-50%);
             width: 80%;
             height: 3px;
-            background-color: #000;
+            background-color: #e4af00;
             border-radius: 2px 2px 0 0;
         }
 
