@@ -32,7 +32,7 @@
         <!-- Video Column -->
         <div class="col-md-6">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/qzp33k3wJvY" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/watch?v=YUyzvduXvgs" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <!-- Text Column -->
