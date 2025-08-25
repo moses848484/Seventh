@@ -509,7 +509,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
            <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
-                        <a class="nav-link second-nav " href="{{ route('attend-online') }}">Attend Online</a>
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
@@ -583,7 +583,7 @@
                     </div>
 
                     <div class="login-prompt">
-                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church Online!</p>
+                        <p><i class="fa-solid fa-circle-info"></i> Log in for better online experience</p>
                         <button class="login-btn">Log In</button>
                         <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
                     </div>
