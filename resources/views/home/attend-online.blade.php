@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
@@ -93,34 +94,32 @@
             background-position: center;
         }
 
-        /* Main Stream Container */
+        /* Main Stream Container - Modified for sidebar layout */
         .stream-container {
-            position: relative;
-            height: 100vh;
             display: flex;
-            flex-direction: column;
-            background: #fff;
+            min-height: 100vh;
         }
 
-        /* Video Player Section */
+        /* Video Player Section - Modified to take remaining space */
         .video-section {
             position: relative;
             flex: 1;
             background: #eee;
-            min-height: 60vh;
+            min-height: 100vh;
+            width: calc(100% - 400px); /* Account for sidebar width */
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 60vh;
+            min-height: 100vh;
         }
 
         #youtube-player {
             width: 100%;
             height: 100%;
-            min-height: 60vh;
+            min-height: 100vh;
         }
 
         /* Stream Overlay */
@@ -138,7 +137,6 @@
             text-align: center;
             z-index: 10;
             transition: opacity 0.3s ease;
-            color: white;
         }
 
         .stream-overlay.hidden {
@@ -179,7 +177,6 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
-            color: white;
         }
 
         .live-indicator {
@@ -217,7 +214,6 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
-            color: white;
         }
 
         /* Control Panel */
@@ -232,7 +228,6 @@
             justify-content: space-between;
             align-items: center;
             z-index: 20;
-            color: white;
         }
 
         .stream-title {
@@ -281,138 +276,37 @@
             background: #667eea;
         }
 
-        /* White space section for bottom nav */
-        .content-section {
-            background: #fff;
-            flex: 0 0 160px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .content-section .service-info {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .content-section h3 {
-            color: #333;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0 0 5px 0;
-        }
-
-        .content-section p {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Bottom Navigation - Now inside stream container */
-        .bottom-nav {
-            background: rgba(30, 30, 30, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .nav-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-item:hover {
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-item i {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        /* Sidebar - FIXED z-index and visibility */
+        /* Sidebar - Modified to always be visible */
         .sidebar {
-            position: fixed;
-            right: 0;
-            top: 0;
+            position: relative;
             width: 400px;
-            height: 100vh;
-            background: rgba(30, 30, 30, 0.98);
-            backdrop-filter: blur(15px);
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            z-index: 2000;
             overflow-y: auto;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .sidebar.active {
-            transform: translateX(0);
+            flex-shrink: 0;
         }
 
         .sidebar-header {
-            padding: 25px 20px;
+            padding: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .sidebar-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 1.3rem;
-            font-weight: 600;
         }
 
         .sidebar-content {
             padding: 20px;
-            color: white;
         }
 
         .close-sidebar {
-            background: rgba(255, 255, 255, 0.1);
+            background: none;
             border: none;
             color: white;
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-sidebar:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
+            display: none; /* Hide close button since sidebar is always open */
         }
 
         /* Prayer Request Section */
@@ -422,7 +316,6 @@
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
-            border: 1px solid rgba(102, 126, 234, 0.3);
         }
 
         .prayer-section h3 {
@@ -434,7 +327,6 @@
         .prayer-section p {
             margin-bottom: 20px;
             opacity: 0.9;
-            color: #ccc;
         }
 
         .prayer-btn {
@@ -460,18 +352,12 @@
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
-            border: 1px solid rgba(228, 175, 0, 0.3);
         }
 
         .commitment-section h3 {
             color: #e4af00;
             margin-bottom: 15px;
             font-size: 1.4rem;
-        }
-
-        .commitment-section p {
-            color: #ccc;
-            margin-bottom: 20px;
         }
 
         .raise-hand-btn {
@@ -524,6 +410,47 @@
             display: block;
         }
 
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 400px; /* Account for sidebar width */
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
         /* Login Prompt */
         .login-prompt {
             background: rgba(102, 126, 234, 0.2);
@@ -531,11 +458,6 @@
             padding: 20px;
             margin-bottom: 20px;
             border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        .login-prompt p {
-            color: #ccc;
-            margin-bottom: 15px;
         }
 
         .login-btn {
@@ -554,29 +476,47 @@
             color: white;
         }
 
-        /* Sidebar overlay for mobile */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1900;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 350px;
+            }
+            
+            .video-section {
+                width: calc(100% - 350px);
+            }
+            
+            .bottom-nav {
+                right: 350px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .stream-container {
+                flex-direction: column;
+            }
+            
             .sidebar {
                 width: 100%;
+                min-height: auto;
+                order: 2;
+            }
+            
+            .video-section {
+                width: 100%;
+                order: 1;
+                min-height: 60vh;
+            }
+            
+            .video-wrapper {
+                min-height: 60vh;
+            }
+
+            #youtube-player {
+                min-height: 60vh;
+            }
+            
+            .bottom-nav {
                 right: 0;
             }
 
@@ -597,32 +537,16 @@
             .stream-actions {
                 justify-content: center;
             }
-
-            .video-wrapper {
-                min-height: 50vh;
-            }
-
-            #youtube-player {
-                min-height: 50vh;
-            }
-
-            .content-section {
-                flex: 0 0 140px;
-                padding: 15px;
-            }
-
-            .content-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .content-section p {
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Mock header inclusion -->
+    <div style="background: #333; color: white; padding: 1rem; text-align: center;">
+        <h2>UNISDA Church Header</h2>
+    </div>
+    
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -655,9 +579,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Sidebar Overlay for mobile -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <!-- Main Stream Container -->
     <div class="stream-container">
@@ -722,99 +643,92 @@
             </div>
         </div>
 
-        <!-- Content Section (White space with info and bottom nav) -->
-        <div class="content-section">
-            <div class="service-info">
-                <h3>More like Jesus</h3>
-                <p>Sabbath Morning Service • Watch on YouTube • UNISDA Church</p>
+        <!-- Sidebar - Always visible -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Church Experience</h3>
+                <button class="close-sidebar" onclick="closeSidebar()">×</button>
             </div>
+            <div class="sidebar-content">
+                <!-- Login Prompt -->
+                <div class="login-prompt">
+                    <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
+                    <button class="login-btn">Log In</button>
+                </div>
 
-            <!-- Bottom Navigation - Now inside content section -->
-            <div class="bottom-nav">
-                <div class="nav-items">
-                    <div class="nav-item">
+                <!-- Commitment Section -->
+                <div class="commitment-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
+                    <p>Let us know by raising your hand.</p>
+                    <button class="raise-hand-btn">
+                        <span>✋</span>
+                        Raise Hand
+                    </button>
+                </div>
+
+                <!-- Prayer Request -->
+                <div class="prayer-section">
+                    <h3><i class="fas fa-heart"></i> Request Prayer</h3>
+                    <p>Our prayer team is here for you.</p>
+                    <button class="prayer-btn">Request Prayer</button>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="quick-action">
                         <i class="fas fa-comments"></i>
-                        <span>Feed</span>
-                    </div>
-                    <div class="nav-item">
+                        <div>Feed</div>
+                    </button>
+                    <button class="quick-action">
                         <i class="fas fa-praying-hands"></i>
-                        <span>Pray</span>
-                    </div>
-                    <div class="nav-item" onclick="openSidebar()">
-                        <i class="fas fa-th"></i>
-                        <span>More</span>
-                    </div>
-                    <div class="nav-item">
+                        <div>Pray</div>
+                    </button>
+                    <button class="quick-action">
                         <i class="fas fa-calendar"></i>
-                        <span>Schedule</span>
-                    </div>
-                    <div class="nav-item">
+                        <div>Schedule</div>
+                    </button>
+                    <button class="quick-action">
+                        <i class="fas fa-sticky-note"></i>
+                        <div>Notes</div>
+                    </button>
+                    <button class="quick-action">
                         <i class="fas fa-book"></i>
-                        <span>Bible</span>
-                    </div>
+                        <div>Bible</div>
+                    </button>
+                    <button class="quick-action">
+                        <i class="fas fa-share"></i>
+                        <div>Share</div>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h3>Church Experience</h3>
-            <button class="close-sidebar" onclick="closeSidebar()">×</button>
+    <!-- Bottom Navigation - Adjusted for sidebar -->
+    <div class="bottom-nav">
+        <div class="nav-items">
+            <a href="#" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Events</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Resources</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Connect</span>
+            </a>
         </div>
-        <div class="sidebar-content">
-            <!-- Login Prompt -->
-            <div class="login-prompt">
-                <p><i class="fas fa-info-circle"></i> Log in to experience the best of UNISDA Church Online!</p>
-                <button class="login-btn">Log In</button>
-            </div>
+    </div>
 
-            <!-- Commitment Section -->
-            <div class="commitment-section">
-                <h3><i class="fas fa-map-marker-alt"></i> I commit my life to Jesus.</h3>
-                <p>Let us know by raising your hand.</p>
-                <button class="raise-hand-btn">
-                    <span>✋</span>
-                    Raise Hand
-                </button>
-            </div>
-
-            <!-- Prayer Request -->
-            <div class="prayer-section">
-                <h3><i class="fas fa-heart"></i> Request Prayer</h3>
-                <p>Our prayer team is here for you.</p>
-                <button class="prayer-btn">Request Prayer</button>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="quick-actions">
-                <button class="quick-action">
-                    <i class="fas fa-comments"></i>
-                    <div>Feed</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fas fa-praying-hands"></i>
-                    <div>Pray</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fas fa-calendar"></i>
-                    <div>Schedule</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fas fa-sticky-note"></i>
-                    <div>Notes</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fas fa-book"></i>
-                    <div>Bible</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fas fa-share"></i>
-                    <div>Share</div>
-                </button>
-            </div>
-        </div>
+    <!-- Mock footer -->
+    <div style="background: #222; color: white; padding: 2rem; text-align: center; position: relative; z-index: 1001;">
+        <p>&copy; 2024 UNISDA Church. All rights reserved.</p>
     </div>
 
     <!-- Font Awesome + Bootstrap JS -->
@@ -823,19 +737,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Sidebar functionality
-        function openSidebar() {
-            document.getElementById('sidebar').classList.add('active');
-            document.getElementById('sidebarOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.getElementById('sidebarOverlay').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
         // Stream overlay toggle (simulating stream start)
         function hideStreamOverlay() {
             document.getElementById('streamOverlay').classList.add('hidden');
@@ -873,40 +774,32 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
                     this.classList.add('active');
                 });
             });
-        });
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', function (event) {
-            const sidebar = document.getElementById('sidebar');
-            const moreBtn = event.target.closest('[onclick="openSidebar()"]');
-            const bottomNav = event.target.closest('.bottom-nav');
-            const sidebarContent = event.target.closest('.sidebar');
-
-            if (!sidebarContent && !moreBtn && !bottomNav && sidebar.classList.contains('active')) {
-                closeSidebar();
-            }
         });
 
         // Simulate viewer count changes
         function updateViewerCount() {
             const viewerElement = document.querySelector('.viewer-count span');
             const currentCount = parseInt(viewerElement.textContent);
-            const change = Math.floor(Math.random() * 10) - 5;
+            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
             const newCount = Math.max(50, currentCount + change);
             viewerElement.textContent = newCount;
         }
 
-        setInterval(updateViewerCount, 15000);
+        setInterval(updateViewerCount, 15000); // Update every 15 seconds
 
         // Add keyboard shortcuts
         document.addEventListener('keydown', function (e) {
             switch (e.key) {
                 case ' ':
                     e.preventDefault();
+                    // Toggle play/pause (would need YouTube API)
                     break;
                 case 'm':
                     document.getElementById('muteBtn').click();
@@ -914,4 +807,28 @@
                 case 'f':
                     document.getElementById('fullscreenBtn').click();
                     break;
-                case '
+            }
+        });
+
+        // Prayer and commitment button interactions
+        document.querySelector('.prayer-btn').addEventListener('click', function () {
+            alert('Thank you for your prayer request. Our team will pray for you.');
+        });
+
+        document.querySelector('.raise-hand-btn').addEventListener('click', function () {
+            this.style.background = '#d4a000';
+            this.innerHTML = '<span>✋</span> Hand Raised!';
+            setTimeout(() => {
+                this.style.background = '#e4af00';
+                this.innerHTML = '<span>✋</span> Raise Hand';
+            }, 3000);
+        });
+
+        // Login button functionality
+        document.querySelector('.login-btn').addEventListener('click', function () {
+            alert('Login functionality would be implemented here.');
+        });
+    </script>
+</body>
+
+</html>
