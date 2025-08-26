@@ -21,14 +21,14 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #0070e0ff;
+            background-color: #f8f9fa;
             color: #495057;
             min-height: 100vh;
         }
 
         .main-content {
             min-height: 100vh;
-            background-color: #006fdeff;
+            background-color: #f8f9fa;
             padding: 40px 0;
             display: flex;
             align-items: center;
@@ -570,7 +570,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background-color: #fff;
+            background-color: #f8f9fa;
         }
 
         .text-area12 h2 {
@@ -998,7 +998,8 @@
                 </div>
             </div>
         </div>
-  </div>
+        </div>
+        </div>
         @include('home.footer')
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
