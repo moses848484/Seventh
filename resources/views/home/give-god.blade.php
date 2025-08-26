@@ -52,8 +52,9 @@
         }
 
         .sda-logo {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: auto;
+            margin: 0 auto 20px;
             display: block;
         }
 
@@ -779,14 +780,14 @@
             flex-shrink: 0;
         }
 
-        /* Make image responsive inside the circle */
         .expectation-icon img {
-            max-width: 70%;
-            /* image never exceeds 70% of circle size */
-            max-height: 70%;
-            /* keeps it centered vertically */
+            width: 70%;
+            /* keep image smaller than the circle */
             height: auto;
+            /* maintain aspect ratio */
             object-fit: contain;
+            /* make sure it fits nicely */
+            display: block;
         }
 
 
