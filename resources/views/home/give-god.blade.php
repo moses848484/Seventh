@@ -981,7 +981,7 @@
                             <li>Add reference <strong>(Tithe/Offering)</strong></li>
                             <li>Confirm with your <strong>PIN</strong></li>
                         </ul>
-                        <small>Finally, enter your PIN to confirm the transaction. </small>
+                        <small class="header1">Finally, enter your PIN to confirm the transaction. </small>
                     </div>
                 </div>
 
