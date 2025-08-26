@@ -965,13 +965,18 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fas fa-clock"></i>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
-                        <h4>Service Times</h4>
-                        <p><strong>First Main Service:</strong> 7:30 AM</p>
-                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
-                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
-                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
+                        <h4>Airtel Money</h4>
+                        <p>Follow the steps below;</p>
+                        <p>Dial <strong>*115#</strong></p>
+                        <p>Select option <strong>4: “make a payment”</strong></p>
+                        <p>Select Option <strong>6: “goods and services”</strong></p>
+                        <p>Select option <strong>1: “enter merchant code”</strong></p>
+                        <p>Enter business name:  <strong>“UNISDA”</strong></p>
+                        <p>Enter the <strong>Amount you are sending</strong></p>
+                        <p>Enter a Reference <strong>(e.g. Tithe/Offering) &</strong></p>
+                        <small>Finally, enter your PIN to confirm the transaction. </small>
                     </div>
                 </div>
 
@@ -979,7 +984,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fas fa-users"></i>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
                         <h4>Friendly Atmosphere</h4>
                         <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
@@ -992,7 +997,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fas fa-tshirt"></i>
+                            <i class="fa-solid fa-credit-card"></i>
                         </div>
                         <h4>Come As You Are</h4>
                         <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
@@ -1003,74 +1008,74 @@
             </div>
         </div>
     </section>
-        @include('home.footer')
+    @include('home.footer')
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Auto-hide success messages after 5 seconds
-                const successAlert = document.querySelector('.alert-success');
-                if (successAlert && successAlert.style.display !== 'none') {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Auto-hide success messages after 5 seconds
+            const successAlert = document.querySelector('.alert-success');
+            if (successAlert && successAlert.style.display !== 'none') {
+                setTimeout(() => {
+                    successAlert.style.opacity = '0';
                     setTimeout(() => {
-                        successAlert.style.opacity = '0';
-                        setTimeout(() => {
-                            successAlert.style.display = 'none';
-                        }, 300);
-                    }, 5000);
-                }
+                        successAlert.style.display = 'none';
+                    }, 300);
+                }, 5000);
+            }
 
-                // Focus effects for icon boxes
-                const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
-                inputsWithIcons.forEach(input => {
-                    input.addEventListener('focus', function () {
-                        const iconBox = this.parentElement.querySelector('.icon-box');
-                        if (iconBox) {
-                            iconBox.style.borderColor = '#28a745';
-                            iconBox.style.backgroundColor = '#f0f9ff';
-                        }
-                    });
-
-                    input.addEventListener('blur', function () {
-                        const iconBox = this.parentElement.querySelector('.icon-box');
-                        if (iconBox) {
-                            iconBox.style.borderColor = '#dee2e6';
-                            iconBox.style.backgroundColor = '#e9ecef';
-                        }
-                    });
+            // Focus effects for icon boxes
+            const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
+            inputsWithIcons.forEach(input => {
+                input.addEventListener('focus', function () {
+                    const iconBox = this.parentElement.querySelector('.icon-box');
+                    if (iconBox) {
+                        iconBox.style.borderColor = '#28a745';
+                        iconBox.style.backgroundColor = '#f0f9ff';
+                    }
                 });
 
-                // Form validation enhancement
-                const form = document.querySelector('form');
-                const requiredFields = form.querySelectorAll('[required]');
-
-                form.addEventListener('submit', function (e) {
-                    let isValid = true;
-
-                    requiredFields.forEach(field => {
-                        if (!field.value.trim()) {
-                            field.style.borderColor = '#dc3545';
-                            isValid = false;
-                        } else {
-                            field.style.borderColor = '#28a745';
-                        }
-                    });
-
-                    if (!isValid) {
-                        e.preventDefault();
-                        // Show error message
-                        let errorAlert = document.querySelector('.alert-danger');
-                        if (!errorAlert) {
-                            errorAlert = document.createElement('div');
-                            errorAlert.className = 'alert alert-danger';
-                            errorAlert.textContent = 'Please fill in all required fields.';
-                            form.insertBefore(errorAlert, form.firstChild);
-                        }
+                input.addEventListener('blur', function () {
+                    const iconBox = this.parentElement.querySelector('.icon-box');
+                    if (iconBox) {
+                        iconBox.style.borderColor = '#dee2e6';
+                        iconBox.style.backgroundColor = '#e9ecef';
                     }
                 });
             });
-        </script>
+
+            // Form validation enhancement
+            const form = document.querySelector('form');
+            const requiredFields = form.querySelectorAll('[required]');
+
+            form.addEventListener('submit', function (e) {
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#dc3545';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#28a745';
+                    }
+                });
+
+                if (!isValid) {
+                    e.preventDefault();
+                    // Show error message
+                    let errorAlert = document.querySelector('.alert-danger');
+                    if (!errorAlert) {
+                        errorAlert = document.createElement('div');
+                        errorAlert.className = 'alert alert-danger';
+                        errorAlert.textContent = 'Please fill in all required fields.';
+                        form.insertBefore(errorAlert, form.firstChild);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
