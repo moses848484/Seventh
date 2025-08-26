@@ -402,343 +402,6 @@
             border-radius: 2px 2px 0 0;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/who.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 900 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 2;
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
-        }
-
-        .hero-section h5 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
-        }
-
-        .hero-section .lead {
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.6;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .lead {
-            color: white;
-        }
-
-        /* Leadership Header */
-        .leadership-header {
-            text-align: center;
-            padding: 40px 20px 60px;
-            background-color: #fff;
-        }
-
-        .leadership-header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .leadership-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* FIXED: Leadership Container - Clean responsive layout */
-        .leadership-flex-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 12rem;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px 0px 60px;
-        }
-
-        /* Leadership Cards */
-        .leadership-card {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 350px;
-            flex-shrink: 0;
-        }
-
-        .leader-image-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-        }
-
-        .leader-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .leader-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 40px 20px 20px;
-            text-align: left;
-        }
-
-        .leader-name {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin: 0 0 0.3rem 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-
-        .leader-position {
-            font-size: 1.1rem;
-            margin: 0;
-            opacity: 0.9;
-            font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            color: white;
-        }
-
-        .get-to-know-btn {
-            background: transparent;
-            border: 2px solid #333;
-            color: #333;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: auto;
-        }
-
-        .get-to-know-btn:hover {
-            background: #333;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
-        }
-
-        /* Our Story Section */
-        .text-area12 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f8f9fa;
-        }
-
-        .text-area12 h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            text-align: center;
-        }
-
-        .rich-text3 {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #555;
-        }
-
-        .rich-text3 p {
-            margin-bottom: 1.5rem;
-        }
-
-        .spacer-wrapper {
-            height: 20px;
-        }
-
-        .pt-very_relaxed {
-            padding-top: 2rem;
-        }
-
-        .pt-normal {
-            padding-top: 1rem;
-        }
-
-        .mb-relaxed {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .leadership-flex-container {
-                gap: 6rem;
-                max-width: 1200px;
-            }
-
-            .leadership-card {
-                width: 300px;
-            }
-
-            .leader-image-container {
-                height: 400px;
-            }
-        }
-
-        /* FIXED: Mobile breakpoint - Clean vertical stacking */
-        @media (max-width: 768px) {
-            .leadership-flex-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 2.5rem;
-                padding: 0 1rem;
-            }
-
-            .leadership-card {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .leader-image-container {
-                height: 350px;
-            }
-
-            .hero-section {
-                height: 60vh;
-                min-height: 400px;
-                background-attachment: scroll;
-            }
-
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1.2rem;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-
-            .leadership-header {
-                padding: 40px 20px 30px;
-            }
-
-            .leadership-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .leadership-header p {
-                font-size: 1rem;
-            }
-
-            .leader-name {
-                font-size: 1.8rem;
-            }
-
-            .leader-position {
-                font-size: 1rem;
-            }
-
-            .get-to-know-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .text-area12 h2 {
-                font-size: 2rem;
-            }
-        }
-
-        /* FIXED: Smaller mobile screens */
-        @media (max-width: 576px) {
-            .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1.1rem;
-            }
-
-            .leadership-header {
-                padding: 30px 15px 20px;
-            }
-
-            .leadership-flex-container {
-                padding: 15px 0px 40px;
-                gap: 1.5rem;
-            }
-
-            .leadership-card {
-                max-width: 100%;
-            }
-
-            .leader-image-container {
-                max-width: 250px;
-                height: 250px;
-            }
-
-            .leader-name {
-                font-size: 1.5rem;
-            }
-
-            .leader-position {
-                font-size: 0.9rem;
-            }
-
-            .get-to-know-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-
-            .text-area12 {
-                padding: 30px 15px;
-            }
-
-            .text-area12 h2 {
-                font-size: 1.8rem;
-            }
-        }
-
         h4,
         h3,
         h2 {
@@ -760,7 +423,7 @@
             flex-direction: column;
             height: 100%;
             margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
+            text-align: left;
         }
 
         .expectation-card:hover {
@@ -775,20 +438,62 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 0 20px 0;
             font-size: 24px;
             color: white;
         }
 
-        h4,
-        h3,
-        h2 {
-            color: #000;
+        .expectation-card h4 {
+            text-align: left;
+            margin-bottom: 15px;
         }
 
-        p,
-        small {
+        .expectation-card .card-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .steps-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
             color: #555;
+            line-height: 1.5;
+        }
+
+        .steps-list li::before {
+            content: '•';
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .steps-list li strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .final-note {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+            padding-left: 0;
+        }
+
+        .py-5 {
+            background-color: #f8f9fa !important;
         }
 
         /* Optional smaller adjustments on mobile */
@@ -806,17 +511,17 @@
             h4 {
                 font-size: 1.25rem;
             }
-        }
 
-        .py-5 {
-            background-color: #f8f9fa !important;
+            .steps-list li {
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    @include('home.header')
+   @include('home.header')
     <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
@@ -831,22 +536,22 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('attend-online') }}">Attend Online</a>
+                        <a class="nav-link second-nav" href="#">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="#">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav" href="#">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('give-god') }}">Give To God</a>
+                        <a class="nav-link second-nav active" href="#">Give To God</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -857,7 +562,7 @@
         <div class="form-container">
             <!-- Header Section -->
             <div class="header-section">
-                <img src="/images/sda.png" class="sda-logo" alt="SDA Logo">
+                <img src="https://via.placeholder.com/80x80/28a745/ffffff?text=SDA" class="sda-logo" alt="SDA Logo">
                 <h1 class="page-title">Give</h1>
             </div>
 
@@ -867,9 +572,7 @@
             </div>
 
             <!-- Giving Form -->
-            <form method="POST" autocomplete="on" action="{{ url('/add_givings') }}">
-                @csrf
-
+            <form method="POST" autocomplete="on" action="#">
                 <!-- Name Fields Row -->
                 <div class="form-row">
                     <div class="form-group">
@@ -938,80 +641,82 @@
                         Give Now
                     </button>
                 </div>
-
-                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                    <div class="form-group" style="margin-top: 30px;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                            <label class="form-check-label" for="terms" style="font-size: 0.9rem; color: #6c757d;">
-                                I agree to the
-                                <a href="{{ route('terms.show') }}" target="_blank" class="text-success">Terms of
-                                    Service</a>
-                                and
-                                <a href="{{ route('policy.show') }}" target="_blank" class="text-success">Privacy Policy</a>
-                            </label>
-                        </div>
-                    </div>
-                @endif
             </form>
         </div>
     </div>
 
-    <!-- Expectation Cards -->
+    <!-- Expectation Cards with List Format -->
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center text-center">
-                <!-- Card 1 -->
+                <!-- Card 1 - Airtel Money -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
                         <h4>Airtel Money</h4>
-                        <p>Follow the steps below;</p>
-                        <p>Dial <strong>*115#</strong></p>
-                        <p>Select option <strong>4: “make a payment”</strong></p>
-                        <p>Select Option <strong>6: “goods and services”</strong></p>
-                        <p>Select option <strong>1: “enter merchant code”</strong></p>
-                        <p>Enter business name:  <strong>“UNISDA”</strong></p>
-                        <p>Enter the <strong>Amount you are sending</strong></p>
-                        <p>Enter a Reference <strong>(e.g. Tithe/Offering) &</strong></p>
-                        <small>Finally, enter your PIN to confirm the transaction. </small>
+                        <p class="card-subtitle">Follow the steps below:</p>
+                        <ul class="steps-list">
+                            <li>Dial <strong>*115#</strong></li>
+                            <li>Select option <strong>4: "make a payment"</strong></li>
+                            <li>Select Option <strong>6: "goods and services"</strong></li>
+                            <li>Select option <strong>1: "enter merchant code"</strong></li>
+                            <li>Enter business name: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>Amount you are sending</strong></li>
+                            <li>Enter a Reference <strong>(e.g. Tithe/Offering)</strong></li>
+                        </ul>
+                        <p class="final-note">Finally, enter your PIN to confirm the transaction.</p>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2 - MTN Money -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
+                        <h4>MTN Money</h4>
+                        <p class="card-subtitle">Follow the steps below:</p>
+                        <ul class="steps-list">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>"Pay Bills"</strong></li>
+                            <li>Select <strong>"Other"</strong></li>
+                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>amount</strong></li>
+                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
+                            <li>Confirm with your <strong>PIN</strong></li>
+                        </ul>
+                        <p class="final-note">Transaction will be processed immediately.</p>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3 - Bank Transfer -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-credit-card"></i>
                         </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
+                        <h4>Bank Transfer</h4>
+                        <p class="card-subtitle">Use the following details:</p>
+                        <ul class="steps-list">
+                            <li>Bank: <strong>Standard Chartered Bank</strong></li>
+                            <li>Account Name: <strong>University SDA Church</strong></li>
+                            <li>Account Number: <strong>0100123456789</strong></li>
+                            <li>Branch Code: <strong>040001</strong></li>
+                            <li>Reference: <strong>Your Name + Tithe/Offering</strong></li>
+                        </ul>
+                        <p class="final-note">Please keep your receipt for records.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+  <!-- footer start -->
     @include('home.footer')
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1051,6 +756,8 @@
             const requiredFields = form.querySelectorAll('[required]');
 
             form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent actual submission for demo
+                
                 let isValid = true;
 
                 requiredFields.forEach(field => {
@@ -1063,7 +770,6 @@
                 });
 
                 if (!isValid) {
-                    e.preventDefault();
                     // Show error message
                     let errorAlert = document.querySelector('.alert-danger');
                     if (!errorAlert) {
@@ -1072,6 +778,11 @@
                         errorAlert.textContent = 'Please fill in all required fields.';
                         form.insertBefore(errorAlert, form.firstChild);
                     }
+                } else {
+                    // Show success message for demo
+                    const successAlert = document.querySelector('.alert-success');
+                    successAlert.style.display = 'block';
+                    successAlert.style.opacity = '1';
                 }
             });
         });
