@@ -768,11 +768,12 @@
         }
 
         .expectation-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
+            width: 80px;
+            height: 80px;
+            background: #ffffffff;
             border-radius: 50%;
             display: flex;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
@@ -811,6 +812,7 @@
         .py-5 {
             background-color: #f8f9fa !important;
         }
+
         .header1 {
             text-align: center;
         }
@@ -968,7 +970,9 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
+
+                            <img src="/images/airtel-logo.png" class="sda-logo" alt="SDA Logo">
+
                         </div>
                         <h4 class="header1">Airtel Money</h4>
                         <p class="header1">Follow the steps below;</p>
@@ -981,7 +985,8 @@
                             <li>Add reference <strong>(Tithe/Offering)</strong></li>
                             <li>Confirm with your <strong>PIN</strong></li>
                         </ul>
-                        <small class="header1">Finally, enter your PIN to confirm the transaction. </small>
+                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
+                        </small>
                     </div>
                 </div>
 
