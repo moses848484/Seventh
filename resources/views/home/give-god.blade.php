@@ -960,10 +960,10 @@
     <!-- Expectation Cards -->
     <section class="py-5">
         <div class="container">
-            <div class="row justify-content-center text-center">
+            <div class="row justify-content-center">
                 <!-- Card 1 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
+                    <div class="expectation-card w-100 text-center">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
@@ -984,31 +984,47 @@
 
                 <!-- Card 2 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
+                    <div class="expectation-card w-100 text-center">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
-                        <div class="expectation-icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
+                        <h4>Airtel Money</h4>
+                        <p>Follow the steps below;</p>
+                        <ul class="steps-list text-start">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>"Pay Bills"</strong></li>
+                            <li>Select <strong>"Other"</strong></li>
+                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>amount</strong></li>
+                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
+                            <li>Confirm with your <strong>PIN</strong></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+
+
+            <!-- Card 3 -->
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100 text-center">
+                        <div class="expectation-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h4>Airtel Money</h4>
+                        <p>Follow the steps below;</p>
+                        <ul class="steps-list text-start">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>"Pay Bills"</strong></li>
+                            <li>Select <strong>"Other"</strong></li>
+                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>amount</strong></li>
+                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
+                            <li>Confirm with your <strong>PIN</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
     </section>
     @include('home.footer')
 
