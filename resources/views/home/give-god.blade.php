@@ -52,8 +52,8 @@
         }
 
         .sda-logo {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             margin: 0 auto 20px;
             display: block;
         }
@@ -768,8 +768,8 @@
         }
 
         .expectation-icon {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             background: #ffffffff;
             border-radius: 50%;
             display: flex;
@@ -799,8 +799,8 @@
             }
 
             .expectation-icon {
-                width: 30px;
-                height: 30px;
+                width: 50px;
+                height: 50px;
                 font-size: 20px;
             }
 
