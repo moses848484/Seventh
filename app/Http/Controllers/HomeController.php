@@ -50,6 +50,11 @@ class HomeController extends Controller
         return view('home.attend-online');
     }
 
+          public function giveGod()
+    {
+        return view('home.give-god');
+    }
+
     public function submitContactForm(Request $request)
     {
         // Validate the form data
