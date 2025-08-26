@@ -325,6 +325,10 @@
         .text-section_header3 {
             margin-top: 10px !important;
         }
+
+           .text-area12 {
+            background-color: #f8f9fa !important;
+        }
     </style>
 </head>
 
