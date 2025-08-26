@@ -749,6 +749,64 @@
         small {
             color: #555;
         }
+
+        .expectation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin-bottom: 1.5rem;
+            /* Added margin-bottom here for spacing */
+        }
+
+        .expectation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expectation-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        h4,
+        h3,
+        h2 {
+            color: #000;
+        }
+
+        p,
+        small {
+            color: #555;
+        }
+
+        /* Optional smaller adjustments on mobile */
+        @media (max-width: 800px) {
+            .expectation-card {
+                padding: 20px;
+            }
+
+            .expectation-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 
@@ -896,74 +954,120 @@
         </div>
     </div>
 
-  @include('home.footer')
+    <!-- Expectation Cards -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Service Times</h4>
+                        <p><strong>First Main Service:</strong> 7:30 AM</p>
+                        <p><strong>Sabbath School:</strong> 9:00 AM</p>
+                        <p><strong>Second Main Service:</strong> 11:00 AM</p>
+                        <small>After lunch, the Continuation of day's program commences: 14:30 PM </small>
+                    </div>
+                </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Friendly Atmosphere</h4>
+                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
+                            and welcoming!</p>
+                        <small>Feel free to introduce yourself</small>
+                    </div>
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Auto-hide success messages after 5 seconds
-            const successAlert = document.querySelector('.alert-success');
-            if (successAlert && successAlert.style.display !== 'none') {
-                setTimeout(() => {
-                    successAlert.style.opacity = '0';
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <div class="expectation-card w-100">
+                        <div class="expectation-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h4>Come As You Are</h4>
+                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
+                            that you're here.</p>
+                        <small>No dress code required</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @include('home.footer')
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Auto-hide success messages after 5 seconds
+                const successAlert = document.querySelector('.alert-success');
+                if (successAlert && successAlert.style.display !== 'none') {
                     setTimeout(() => {
-                        successAlert.style.display = 'none';
-                    }, 300);
-                }, 5000);
-            }
-
-            // Focus effects for icon boxes
-            const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
-            inputsWithIcons.forEach(input => {
-                input.addEventListener('focus', function () {
-                    const iconBox = this.parentElement.querySelector('.icon-box');
-                    if (iconBox) {
-                        iconBox.style.borderColor = '#28a745';
-                        iconBox.style.backgroundColor = '#f0f9ff';
-                    }
-                });
-
-                input.addEventListener('blur', function () {
-                    const iconBox = this.parentElement.querySelector('.icon-box');
-                    if (iconBox) {
-                        iconBox.style.borderColor = '#dee2e6';
-                        iconBox.style.backgroundColor = '#e9ecef';
-                    }
-                });
-            });
-
-            // Form validation enhancement
-            const form = document.querySelector('form');
-            const requiredFields = form.querySelectorAll('[required]');
-
-            form.addEventListener('submit', function (e) {
-                let isValid = true;
-
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        field.style.borderColor = '#dc3545';
-                        isValid = false;
-                    } else {
-                        field.style.borderColor = '#28a745';
-                    }
-                });
-
-                if (!isValid) {
-                    e.preventDefault();
-                    // Show error message
-                    let errorAlert = document.querySelector('.alert-danger');
-                    if (!errorAlert) {
-                        errorAlert = document.createElement('div');
-                        errorAlert.className = 'alert alert-danger';
-                        errorAlert.textContent = 'Please fill in all required fields.';
-                        form.insertBefore(errorAlert, form.firstChild);
-                    }
+                        successAlert.style.opacity = '0';
+                        setTimeout(() => {
+                            successAlert.style.display = 'none';
+                        }, 300);
+                    }, 5000);
                 }
+
+                // Focus effects for icon boxes
+                const inputsWithIcons = document.querySelectorAll('.input-with-icon input');
+                inputsWithIcons.forEach(input => {
+                    input.addEventListener('focus', function () {
+                        const iconBox = this.parentElement.querySelector('.icon-box');
+                        if (iconBox) {
+                            iconBox.style.borderColor = '#28a745';
+                            iconBox.style.backgroundColor = '#f0f9ff';
+                        }
+                    });
+
+                    input.addEventListener('blur', function () {
+                        const iconBox = this.parentElement.querySelector('.icon-box');
+                        if (iconBox) {
+                            iconBox.style.borderColor = '#dee2e6';
+                            iconBox.style.backgroundColor = '#e9ecef';
+                        }
+                    });
+                });
+
+                // Form validation enhancement
+                const form = document.querySelector('form');
+                const requiredFields = form.querySelectorAll('[required]');
+
+                form.addEventListener('submit', function (e) {
+                    let isValid = true;
+
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            field.style.borderColor = '#dc3545';
+                            isValid = false;
+                        } else {
+                            field.style.borderColor = '#28a745';
+                        }
+                    });
+
+                    if (!isValid) {
+                        e.preventDefault();
+                        // Show error message
+                        let errorAlert = document.querySelector('.alert-danger');
+                        if (!errorAlert) {
+                            errorAlert = document.createElement('div');
+                            errorAlert.className = 'alert alert-danger';
+                            errorAlert.textContent = 'Please fill in all required fields.';
+                            form.insertBefore(errorAlert, form.firstChild);
+                        }
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
