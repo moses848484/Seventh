@@ -78,7 +78,7 @@
         .page-title {
             font-size: 2rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #e4af00;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
@@ -796,10 +796,7 @@
             <!-- Header Section -->
             <div class="header-section">
                 <img src="/images/sda.png" class="sda-logo" alt="SDA Logo">
-                <div class="icon-circle">
-                    <i class="fa-solid fa-dollar-sign"></i>
-                </div>
-                <h1 class="page-title">Church Giving</h1>
+                <h1 class="page-title">Give</h1>
                 <p class="page-subtitle">Support our ministry through your generous giving</p>
             </div>
 
@@ -899,22 +896,7 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="d-block text-center text-sm-left d-sm-inline-block">
-                    Copyright © University SDA Church 2024
-                </span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                    Computer Science Dept -
-                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">
-                        Computer Systems Engineering
-                    </a>
-                    from University Of Zambia
-                </span>
-            </div>
-        </div>
-    </footer>
+  @include('home.footer')
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
