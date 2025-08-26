@@ -809,8 +809,7 @@
         }
 
         .py-5 {
-            color: black !important;
-            background-color: aqua !important;
+            background-color: #f8f9fa !important;
         }
     </style>
 </head>
