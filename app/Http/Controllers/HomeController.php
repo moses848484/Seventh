@@ -40,17 +40,17 @@ class HomeController extends Controller
         return view('home.connect-with-our-team');
     }
 
-       public function prayerRequest()
+    public function prayerRequest()
     {
         return view('home.prayer-request');
     }
 
-        public function attendOnline()
+    public function attendOnline()
     {
         return view('home.attend-online');
     }
 
-          public function giveGod()
+    public function giveGod()
     {
         return view('home.give-god');
     }
