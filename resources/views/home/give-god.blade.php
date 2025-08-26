@@ -28,7 +28,7 @@
 
         .main-content {
             min-height: 100vh;
-            background-color: #f8f9fa;
+            background-color: #006fdeff;
             padding: 40px 0;
             display: flex;
             align-items: center;
