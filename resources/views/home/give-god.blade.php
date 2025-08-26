@@ -479,7 +479,7 @@
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('give') }}">give</a>
+                        <a class="nav-link second-nav active" href="{{ route('give-god') }}">give</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
