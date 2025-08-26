@@ -768,8 +768,8 @@
         }
 
         .expectation-icon {
-            width: 80px;
-            height: 80px;
+            width: 100%;
+            height: 100%;
             background: #ffffffff;
             border-radius: 50%;
             display: flex;
@@ -971,7 +971,7 @@
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
 
-                            <img src="/images/airtel-logo.png" class="sda-logo" alt="SDA Logo">
+                            <img src="/images/airtel-logo.png" class="" alt="SDA Logo">
 
                         </div>
                         <h4 class="header1">Airtel Money</h4>
