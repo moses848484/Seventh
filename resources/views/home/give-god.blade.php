@@ -54,7 +54,6 @@
         .sda-logo {
             width: 50px;
             height: 50px;
-            margin: 0 auto 20px;
             display: block;
         }
 
@@ -770,16 +769,25 @@
         .expectation-icon {
             width: 80px;
             height: 80px;
-            background: #ffffffff;
             border-radius: 50%;
+            background: #f8f9fa;
             display: flex;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 24px;
-            color: white;
+            margin: 0 auto 1rem;
+            flex-shrink: 0;
         }
+
+        /* Make image responsive inside the circle */
+        .expectation-icon img {
+            max-width: 70%;
+            /* image never exceeds 70% of circle size */
+            max-height: 70%;
+            /* keeps it centered vertically */
+            height: auto;
+            object-fit: contain;
+        }
+
 
         h4,
         h3,
@@ -792,22 +800,20 @@
             color: #555;
         }
 
-        /* Optional smaller adjustments on mobile */
-        @media (max-width: 800px) {
-            .expectation-card {
-                padding: 20px;
-            }
-
+        @media (max-width: 576px) {
             .expectation-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            h4 {
-                font-size: 1.25rem;
+                width: 60px;
+                height: 60px;
             }
         }
+
+        @media (min-width: 992px) {
+            .expectation-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
 
         .py-5 {
             background-color: #f8f9fa !important;
@@ -970,10 +976,9 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-
-                            <img src="/images/airtel-logo.png" class="sda-logo" alt="SDA Logo">
-
+                            <img src="/images/airtel-logo.png" alt="Airtel Logo">
                         </div>
+
                         <h4 class="header1">Airtel Money</h4>
                         <p class="header1">Follow the steps below;</p>
                         <ul class="steps-list">
