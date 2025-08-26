@@ -811,6 +811,9 @@
         .py-5 {
             background-color: #f8f9fa !important;
         }
+        .header1 {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -963,12 +966,12 @@
             <div class="row justify-content-center">
                 <!-- Card 1 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100 text-center">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
-                        <h4>Airtel Money</h4>
-                        <p>Follow the steps below;</p>
+                        <h4 class="header1">Airtel Money</h4>
+                        <p class="header1">Follow the steps below;</p>
                         <ul class="steps-list">
                             <li>Dial <strong>*303#</strong></li>
                             <li>Select <strong>"Pay Bills"</strong></li>
@@ -984,47 +987,31 @@
 
                 <!-- Card 2 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100 text-center">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
-                        <h4>Airtel Money</h4>
-                        <p>Follow the steps below;</p>
-                        <ul class="steps-list text-start">
-                            <li>Dial <strong>*303#</strong></li>
-                            <li>Select <strong>"Pay Bills"</strong></li>
-                            <li>Select <strong>"Other"</strong></li>
-                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>amount</strong></li>
-                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
-                            <li>Confirm with your <strong>PIN</strong></li>
-                        </ul>
+                        <h4>Friendly Atmosphere</h4>
+                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
+                            and welcoming!</p>
+                        <small>Feel free to introduce yourself</small>
                     </div>
                 </div>
-            </div>
 
-
-            <!-- Card 3 -->
-                <!-- Card 2 -->
+                <!-- Card 3 -->
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100 text-center">
+                    <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <i class="fa-solid fa-credit-card"></i>
                         </div>
-                        <h4>Airtel Money</h4>
-                        <p>Follow the steps below;</p>
-                        <ul class="steps-list text-start">
-                            <li>Dial <strong>*303#</strong></li>
-                            <li>Select <strong>"Pay Bills"</strong></li>
-                            <li>Select <strong>"Other"</strong></li>
-                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>amount</strong></li>
-                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
-                            <li>Confirm with your <strong>PIN</strong></li>
-                        </ul>
+                        <h4>Come As You Are</h4>
+                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
+                            that you're here.</p>
+                        <small>No dress code required</small>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     @include('home.footer')
 
