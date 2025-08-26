@@ -21,7 +21,7 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #0070e0ff;
             color: #495057;
             min-height: 100vh;
         }
