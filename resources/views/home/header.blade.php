@@ -151,7 +151,7 @@
                             <a class="nav-link" href="#about">MEDIA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#give">GIVE</a>
+                            <a class="nav-link" href="{{ route('give-god') }}">GIVE To God</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('who-we-are') }}">WHO WE ARE</a>
