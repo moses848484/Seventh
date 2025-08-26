@@ -768,8 +768,8 @@
         }
 
         .expectation-icon {
-            width: 80px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             background: #ffffffff;
             border-radius: 50%;
             display: flex;
@@ -799,8 +799,8 @@
             }
 
             .expectation-icon {
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
                 font-size: 20px;
             }
 
