@@ -770,7 +770,8 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: #f8f9fa;
+            background: #ffffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
