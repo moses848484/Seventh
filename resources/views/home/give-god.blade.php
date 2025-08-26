@@ -855,7 +855,6 @@
             <div class="header-section">
                 <img src="/images/sda.png" class="sda-logo" alt="SDA Logo">
                 <h1 class="page-title">Give</h1>
-                <p class="page-subtitle">Support our ministry through your generous giving</p>
             </div>
 
             <!-- Success/Error Messages -->
