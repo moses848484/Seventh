@@ -984,14 +984,12 @@
                         <h4 class="header1">Airtel Money</h4>
                         <p class="header1">Follow the steps below;</p>
                         <ul class="steps-list">
-                            <li>Dial <strong>*303#</strong></li>
-                            <li>Select <strong>"Pay Bills"</strong></li>
-                            <li>Select <strong>"Other"</strong></li>
-                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>amount</strong></li>
-                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
-                            <li>Confirm with your <strong>PIN</strong></li>
-                        </ul>
+                            <li>Dial <strong>*115#</strong></li>
+                            <li>Select option <strong>6:"goods and services"</strong></li>
+                            <li>Select option <strong>1: "enter merchant code"</strong></li>
+                            <li>Enter business name: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>Amount you are sending</strong></li>
+                            <li>Enter a reference <strong>(Tithe/Offering)</strong></li>
                         <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
                         </small>
                     </div>
@@ -1001,15 +999,15 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <img src="/images/mtn-icon.png" alt="Airtel Logo">
+                            <img src="/images/mtn-logo-png.png" alt="Airtel Logo">
                         </div>
 
                         <h4 class="header1">MTN Money</h4>
                         <p class="header1">Follow the steps below;</p>
                         <ul class="steps-list">
-                            <li>Dial <strong>*303#</strong></li>
-                            <li>Select <strong>"Pay Bills"</strong></li>
-                            <li>Select <strong>"Other"</strong></li>
+                            <li>Dial <strong>*115#</strong></li>
+                            <li>Select option<strong>3: "Paybill"</strong></li>
+                            <li>Select option<strong>6: "Retail Payment"</strong></li>
                             <li>Enter merchant code: <strong>"UNISDA"</strong></li>
                             <li>Enter the <strong>amount</strong></li>
                             <li>Add reference <strong>(Tithe/Offering)</strong></li>
