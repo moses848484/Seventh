@@ -1001,12 +1001,22 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <img src="/images/mtn-icon.png" alt="Airtel Logo">
                         </div>
-                        <h4>Friendly Atmosphere</h4>
-                        <p>Our greeters will welcome you at the door and help you find your way. Our community is warm
-                            and welcoming!</p>
-                        <small>Feel free to introduce yourself</small>
+
+                        <h4 class="header1">MTN Money</h4>
+                        <p class="header1">Follow the steps below;</p>
+                        <ul class="steps-list">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>"Pay Bills"</strong></li>
+                            <li>Select <strong>"Other"</strong></li>
+                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>amount</strong></li>
+                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
+                            <li>Confirm with your <strong>PIN</strong></li>
+                        </ul>
+                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
+                        </small>
                     </div>
                 </div>
 
@@ -1014,14 +1024,25 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="expectation-card w-100">
                         <div class="expectation-icon">
-                            <i class="fa-solid fa-credit-card"></i>
+                            <img src="/images/credit-card.png" alt="Airtel Logo">
                         </div>
-                        <h4>Come As You Are</h4>
-                        <p>Dress comfortably! You'll see everything from casual to business attire. What matters most is
-                            that you're here.</p>
-                        <small>No dress code required</small>
+
+                        <h4 class="header1">Credit Card</h4>
+                        <p class="header1">Follow the steps below;</p>
+                        <ul class="steps-list">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>"Pay Bills"</strong></li>
+                            <li>Select <strong>"Other"</strong></li>
+                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>amount</strong></li>
+                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
+                            <li>Confirm with your <strong>PIN</strong></li>
+                        </ul>
+                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
+                        </small>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
