@@ -467,13 +467,12 @@
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card corona-gradient-card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between w-100">
-
-                                <!-- Image Column - Left -->
-                                <div class="me-3">
-                                    <img src="images/hands-praying.jpg"
-                                        class="gradient-corona-img img-fluid" alt="Bible Image" loading="lazy">
+                        <div class="card-body py-0 px-0 px-sm-3">
+                            <div class="row align-items-center g-0">
+                                <!-- Image Column - Properly positioned to left -->
+                                <div class="col-3 col-sm-3 col-xl-2">
+                                    <img src="admin/assets/images/bible4.jpg" class="gradient-corona-img img-fluid"
+                                        alt="Bible Image" loading="lazy">
                                 </div>
 
                                 <!-- Verse Content - Center -->
