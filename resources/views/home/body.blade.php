@@ -445,7 +445,7 @@
             width: 100%;
             height: 100%;
             background: url('images/bg-img1.jpg') center/cover no-repeat;
-            filter: blur(5px) brightness(0.7);
+            filter: blur(3px) brightness(0.7);
             /* blur + darken */
             transform: scale(1.1);
             /* prevent edge gaps after blur */
@@ -471,7 +471,7 @@
 
                                 <!-- Image Column - Left -->
                                 <div class="me-3">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                                    <img src="images/hands-praying.jpg"
                                         class="gradient-corona-img img-fluid" alt="Bible Image" loading="lazy">
                                 </div>
 
