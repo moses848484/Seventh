@@ -305,7 +305,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
             pointer-events: none;
         }
 
@@ -323,7 +323,7 @@
             height: 70px;
             object-fit: cover;
             border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             flex-shrink: 0;
         }
 
@@ -337,7 +337,7 @@
             line-height: 1.4;
             margin-bottom: 0.5rem;
             font-style: italic;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .verse-content .verse-reference {
@@ -347,8 +347,8 @@
         }
 
         .corona-gradient-card .get-started-btn {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 25px;
@@ -358,19 +358,19 @@
         }
 
         .corona-gradient-card .get-started-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             color: white;
         }
 
         .loading-verse {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             font-style: italic;
         }
 
         .error-verse {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
 
@@ -436,9 +436,8 @@
                             <div class="row align-items-center h-100 g-0">
                                 <!-- Image Column - Far Left -->
                                 <div class="col-auto pe-3">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
-                                         class="gradient-corona-img img-fluid" 
-                                         alt="Bible Image" loading="lazy">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                                        class="gradient-corona-img img-fluid" alt="Bible Image" loading="lazy">
                                 </div>
 
                                 <!-- Verse Content Column - Takes remaining space -->
@@ -452,10 +451,8 @@
 
                                 <!-- Button Column - Far Right -->
                                 <div class="col-auto ps-3">
-                                    <a href="https://www.bible.com/verse-of-the-day" 
-                                       target="_blank" 
-                                       rel="noopener noreferrer"
-                                       class="btn get-started-btn">
+                                    <a href="https://www.bible.com/verse-of-the-day" target="_blank"
+                                        rel="noopener noreferrer" class="btn get-started-btn">
                                         <span class="d-none d-md-inline">Read More</span>
                                         <span class="d-md-none">More</span>
                                     </a>
@@ -524,7 +521,8 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="span2"><br />
-                                            <i class="fas fa-praying-hands" style='font-size:48px;color:#e4af00;'></i><br />
+                                            <i class="fas fa-praying-hands"
+                                                style='font-size:48px;color:#e4af00;'></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -580,7 +578,8 @@
                             <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
                                 <!-- Search Box -->
                                 <div class="search-box p-3 pb-0">
-                                    <input type="text" class="form-control" id="searchNotes" placeholder="Search notes...">
+                                    <input type="text" class="form-control" id="searchNotes"
+                                        placeholder="Search notes...">
                                 </div>
 
                                 <!-- Notes List -->
@@ -595,7 +594,8 @@
                                 <div class="add-note-form">
                                     <form id="addNoteForm">
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="noteText" rows="2" placeholder="Write your note here..." required></textarea>
+                                            <textarea class="form-control" id="noteText" rows="2"
+                                                placeholder="Write your note here..." required></textarea>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
@@ -648,7 +648,8 @@
                     University SDA Church 2024</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
                     Computer Science Dept
-                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank" class="text-white">
+                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                        class="text-white">
                         Computer Systems Engineering
                     </a> from University Of Zambia
                 </span>
@@ -657,91 +658,47 @@
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <!-- Improved Verse of the Day Script -->
         <script>
-            // Enhanced verse display functionality
-            function displayVerse(verseData) {
-                const votdContainer = document.getElementById('verse-of-the-day');
-                if (!votdContainer) return;
+            document.addEventListener('DOMContentLoaded', function () {
+                const verseElement = document.getElementById('verse-of-the-day');
 
-                if (verseData && verseData.votd) {
-                    // Clean and format the verse text
-                    let cleanText = verseData.votd.text;
-                    
-                    // Remove excessive quotes and clean formatting
-                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
-                    cleanText = cleanText.trim();
+                // Fallback verses
+                const fallbackVerses = [
+                    { text: "The Lord is my shepherd, I lack nothing.", reference: "Psalm 23:1" },
+                    { text: "I can do all this through him who gives me strength.", reference: "Philippians 4:13" },
+                    { text: "Trust in the Lord with all your heart and lean not on your own understanding.", reference: "Proverbs 3:5" },
+                    { text: "For I know the plans I have for you, declares the Lord.", reference: "Jeremiah 29:11" },
+                    { text: "The Lord is my light and my salvation—whom shall I fear?", reference: "Psalm 27:1" }
+                ];
 
-                    // Create formatted HTML
-                    const verseHTML = `
-                        <div class="verse-text">"${cleanText}"</div>
-                        <div class="verse-reference">— ${verseData.votd.reference}</div>
-                    `;
-                    
-                    votdContainer.innerHTML = verseHTML;
-                } else {
-                    useFallbackVerse();
+                function useFallbackVerse() {
+                    const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
+                    verseElement.innerHTML = `
+            <div class="verse-text">"${randomVerse.text}"</div>
+            <div class="verse-reference">— ${randomVerse.reference}</div>
+        `;
                 }
-            }
 
-            // Fallback verses for when API fails
-            const fallbackVerses = [
-                {
-                    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
-                    reference: "Jeremiah 29:11"
-                },
-                {
-                    text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
-                    reference: "Proverbs 3:5-6"
-                },
-                {
-                    text: "I can do all this through him who gives me strength.",
-                    reference: "Philippians 4:13"
-                },
-                {
-                    text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
-                    reference: "Psalm 23:1-2"
-                },
-                {
-                    text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
-                    reference: "Romans 8:28"
-                }
-            ];
-
-            function useFallbackVerse() {
-                const votdContainer = document.getElementById('verse-of-the-day');
-                if (!votdContainer) return;
-
-                // Use a random fallback verse
-                const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
-                const verseHTML = `
-                    <div class="verse-text">"${randomVerse.text}"</div>
-                    <div class="verse-reference">— ${randomVerse.reference}</div>
+                // Try to fetch Verse of the Day from Labs Bible API
+                fetch("https://labs.bible.org/api/?passage=votd&type=json")
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data && data.length > 0) {
+                            const verse = data[0];
+                            verseElement.innerHTML = `
+                    <div class="verse-text">"${verse.text}"</div>
+                    <div class="verse-reference">— ${verse.bookname} ${verse.chapter}:${verse.verse}</div>
                 `;
-                votdContainer.innerHTML = verseHTML;
-            }
-
-            // Legacy callback for Bible Gateway - simplified approach
-            function myVotdCallback(data) {
-                displayVerse(data);
-            }
-
-            // Initialize verse immediately with fallback, then try to load from API
-            document.addEventListener('DOMContentLoaded', function() {
-                // Show fallback verse immediately
-                useFallbackVerse();
-                
-                // Try to load from Bible Gateway API
-                setTimeout(function() {
-                    const script = document.createElement('script');
-                    script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
-                    script.onerror = function() {
-                        console.log('Bible Gateway API unavailable, using fallback verse');
-                    };
-                    document.head.appendChild(script);
-                }, 1000);
+                        } else {
+                            useFallbackVerse();
+                        }
+                    })
+                    .catch(() => {
+                        useFallbackVerse();
+                    });
             });
         </script>
+
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         <script>
