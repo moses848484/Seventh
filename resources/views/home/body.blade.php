@@ -658,51 +658,89 @@
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+        <!-- Improved Verse of the Day Script -->
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const verseElement = document.getElementById('verse-of-the-day');
+            // Enhanced verse display functionality
+            function displayVerse(verseData) {
+                const votdContainer = document.getElementById('verse-of-the-day');
+                if (!votdContainer) return;
 
-                // Fallback verses
-                const fallbackVerses = [
-                    { text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.", reference: "Jeremiah 29:11" },
-                    { text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.", reference: "Proverbs 3:5-6" },
-                    { text: "I can do all this through him who gives me strength.", reference: "Philippians 4:13" },
-                    { text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.", reference: "Psalm 23:1-2" },
-                    { text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.", reference: "Romans 8:28" }
-                ];
+                if (verseData && verseData.votd) {
+                    // Clean and format the verse text
+                    let cleanText = verseData.votd.text;
+                    cleanText = cleanText.replace(/^["']+|["']+$/g, '').trim();
 
-                function useFallbackVerse() {
-                    const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
-                    verseElement.innerHTML = `
-            <div class="verse-text">"${randomVerse.text}"</div>
-            <div class="verse-reference">— ${randomVerse.reference}</div>
+                    // Use the same styled layout as fallback
+                    const verseHTML = `
+            <div class="verse-text">"${cleanText}"</div>
+            <div class="verse-reference">— ${verseData.votd.reference}</div>
         `;
+
+                    votdContainer.innerHTML = verseHTML;
+                } else {
+                    useFallbackVerse();
                 }
+            }
 
-                // Fetch Verse of the Day from labs.bible.org
-                fetch("https://labs.bible.org/api/?passage=votd&type=json")
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.length > 0) {
-                            const verse = data[0];
 
-                            // Clean extra quotes from API text
-                            let cleanText = verse.text.replace(/^["']+|["']+$/g, '').trim();
+            // Fallback verses for when API fails
+            const fallbackVerses = [
+                {
+                    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
+                    reference: "Jeremiah 29:11"
+                },
+                {
+                    text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+                    reference: "Proverbs 3:5-6"
+                },
+                {
+                    text: "I can do all this through him who gives me strength.",
+                    reference: "Philippians 4:13"
+                },
+                {
+                    text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
+                    reference: "Psalm 23:1-2"
+                },
+                {
+                    text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+                    reference: "Romans 8:28"
+                }
+            ];
 
-                            verseElement.innerHTML = `
-                    <div class="verse-text">"${cleanText}"</div>
-                    <div class="verse-reference">— ${verse.bookname} ${verse.chapter}:${verse.verse}</div>
+            function useFallbackVerse() {
+                const votdContainer = document.getElementById('verse-of-the-day');
+                if (!votdContainer) return;
+
+                // Use a random fallback verse
+                const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
+                const verseHTML = `
+                    <div class="verse-text">"${randomVerse.text}"</div>
+                    <div class="verse-reference">— ${randomVerse.reference}</div>
                 `;
-                        } else {
-                            useFallbackVerse();
-                        }
-                    })
-                    .catch(() => {
-                        useFallbackVerse();
-                    });
+                votdContainer.innerHTML = verseHTML;
+            }
+
+            // Legacy callback for Bible Gateway - simplified approach
+            function myVotdCallback(data) {
+                displayVerse(data);
+            }
+
+            // Initialize verse immediately with fallback, then try to load from API
+            document.addEventListener('DOMContentLoaded', function () {
+                // Show fallback verse immediately
+                useFallbackVerse();
+
+                // Try to load from Bible Gateway API
+                setTimeout(function () {
+                    const script = document.createElement('script');
+                    script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
+                    script.onerror = function () {
+                        console.log('Bible Gateway API unavailable, using fallback verse');
+                    };
+                    document.head.appendChild(script);
+                }, 1000);
             });
         </script>
-
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         <script>
