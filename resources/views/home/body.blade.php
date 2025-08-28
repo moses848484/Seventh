@@ -9,12 +9,242 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- New Bootstrap 4 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>View Church Members</title>
 
     <style>
-        
+        /* Floating Label Styles */
+        .form-floating {
+            position: relative;
+        }
+
+        .form-floating input {
+            padding: 1.5rem 0.75rem 1rem 0.75rem;
+        }
+
+        .form-floating label {
+            position: absolute;
+            top: 45%;
+            left: 0.75rem;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            color: #04AA6D;
+            pointer-events: none;
+        }
+
+        .form-floating input:focus+label,
+        .form-floating input:not(:placeholder-shown)+label {
+            top: 25%;
+            transform: translateY(-100%);
+            font-size: 0.8rem;
+            color: #04AA6D;
+            background: white;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            color: #04AA6D;
+        }
+
+        .form-control:focus {
+            border-color: #ced4da;
+            box-shadow: none;
+            color: #04AA6D;
+        }
+
+        /* Notes Card Styles */
+        .notes-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notes-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+        }
+
+        .notes-content {
+            max-height: 150px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .note-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .note-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .note-meta {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .note-text {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .note-actions {
+            text-align: right;
+        }
+
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .add-note-form {
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .notes-card .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        /* Verse Card Styles */
+        .corona-gradient-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .corona-gradient-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg-img1.jpg') center/cover no-repeat;
+            filter: blur(2px) brightness(0.7);
+            transform: scale(1.1);
+            z-index: 0;
+        }
+
+        .corona-gradient-card .card-body {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .gradient-corona-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .verse-content {
+            color: white;
+            flex: 1;
+            text-align: center;
+        }
+
+        .verse-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .verse-reference {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .get-started-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width:768px) {
+            .gradient-corona-img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .verse-text {
+                font-size: 1rem;
+            }
+
+            .get-started-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width:576px) {
+            .gradient-corona-img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .verse-text {
+                font-size: 0.9rem;
+                line-height: 1.3;
+            }
+
+            .verse-reference {
+                font-size: 0.8rem;
+            }
+
+            .get-started-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -337,7 +567,10 @@
             });
         </script>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
+        <!-- New Bootstrap 4 JS + Popper.js + jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
         <script>
             class NotesPlugin {
                 constructor() {
