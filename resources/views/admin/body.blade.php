@@ -376,26 +376,26 @@
                     </div>
                 </div>
             </div>
-        <!-- content-wrapper ends -->
+            <!-- content-wrapper ends -->
 
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                    University
-                    SDA Church 2024</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                    Computer Science Dept
-                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                        class="text-white">
-                        Computer Systems Engineering
-                    </a> from University Of Zambia
-                </span>
-            </div>
-        </footer>
-        <!-- partial -->
-    </div>
-    <!-- main-panel ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                        University
+                        SDA Church 2024</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                        Computer Science Dept
+                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                            class="text-white">
+                            Computer Systems Engineering
+                        </a> from University Of Zambia
+                    </span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
