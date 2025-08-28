@@ -319,12 +319,12 @@
         }
 
         .corona-gradient-card .gradient-corona-img {
-            max-height: 80px;
-            height: auto;
-            width: auto;
-            object-fit: contain;
-            border-radius: 10px;
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-shrink: 0;
         }
 
         .verse-content {
@@ -385,7 +385,8 @@
             }
 
             .corona-gradient-card .gradient-corona-img {
-                max-height: 60px;
+                width: 60px;
+                height: 60px;
             }
 
             .verse-content .verse-text {
@@ -403,6 +404,11 @@
                 min-height: 100px;
             }
 
+            .corona-gradient-card .gradient-corona-img {
+                width: 50px;
+                height: 50px;
+            }
+
             .verse-content .verse-text {
                 font-size: 0.9rem;
                 line-height: 1.3;
@@ -410,6 +416,11 @@
 
             .verse-content .verse-reference {
                 font-size: 0.8rem;
+            }
+
+            .corona-gradient-card .get-started-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -422,16 +433,16 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card corona-gradient-card">
                         <div class="card-body">
-                            <div class="row align-items-center h-100">
-                                <!-- Image Column -->
-                                <div class="col-2 col-md-2">
+                            <div class="row align-items-center h-100 g-0">
+                                <!-- Image Column - Far Left -->
+                                <div class="col-auto pe-3">
                                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
                                          class="gradient-corona-img img-fluid" 
                                          alt="Bible Image" loading="lazy">
                                 </div>
 
-                                <!-- Verse Content Column -->
-                                <div class="col-7 col-md-8">
+                                <!-- Verse Content Column - Takes remaining space -->
+                                <div class="col">
                                     <div class="verse-content">
                                         <div id="verse-of-the-day" class="verse-text">
                                             <span class="loading-verse">Loading today's verse...</span>
@@ -439,8 +450,8 @@
                                     </div>
                                 </div>
 
-                                <!-- Button Column -->
-                                <div class="col-3 col-md-2 text-center">
+                                <!-- Button Column - Far Right -->
+                                <div class="col-auto ps-3">
                                     <a href="https://www.bible.com/verse-of-the-day" 
                                        target="_blank" 
                                        rel="noopener noreferrer"
@@ -669,97 +680,66 @@
                     
                     votdContainer.innerHTML = verseHTML;
                 } else {
-                    votdContainer.innerHTML = '<span class="error-verse">Unable to load today\'s verse</span>';
+                    useFallbackVerse();
                 }
             }
 
             // Fallback verses for when API fails
             const fallbackVerses = [
                 {
-                    text: "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, to give you hope and a future.",
+                    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
                     reference: "Jeremiah 29:11"
                 },
                 {
-                    text: "Trust in the Lord with all your heart and lean not on your own understanding.",
-                    reference: "Proverbs 3:5"
+                    text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+                    reference: "Proverbs 3:5-6"
                 },
                 {
-                    text: "I can do all things through Christ who strengthens me.",
+                    text: "I can do all this through him who gives me strength.",
                     reference: "Philippians 4:13"
                 },
                 {
-                    text: "The Lord is my shepherd, I lack nothing.",
-                    reference: "Psalm 23:1"
+                    text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
+                    reference: "Psalm 23:1-2"
+                },
+                {
+                    text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+                    reference: "Romans 8:28"
                 }
             ];
 
-            // Multiple API approach for better reliability
-            async function loadVerseOfTheDay() {
+            function useFallbackVerse() {
                 const votdContainer = document.getElementById('verse-of-the-day');
-                
-                try {
-                    // Try Bible Gateway first
-                    await new Promise((resolve, reject) => {
-                        const script = document.createElement('script');
-                        script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=handleBibleGatewayVerse';
-                        script.onerror = reject;
-                        
-                        window.handleBibleGatewayVerse = function(data) {
-                            displayVerse(data);
-                            resolve(data);
-                        };
-                        
-                        document.head.appendChild(script);
-                        
-                        // Timeout after 5 seconds
-                        setTimeout(reject, 5000);
-                    });
-                } catch (error) {
-                    console.log('Bible Gateway failed, trying alternative...');
-                    
-                    try {
-                        // Try ESV API as backup
-                        const response = await fetch('https://api.esv.org/v3/passage/text/?q=verse-of-the-day&format=json', {
-                            headers: {
-                                'Authorization': 'Token YOUR_ESV_API_TOKEN'
-                            }
-                        });
-                        
-                        if (response.ok) {
-                            const data = await response.json();
-                            // Handle ESV API response
-                            displayVerse({
-                                votd: {
-                                    text: data.passages[0],
-                                    reference: data.canonical
-                                }
-                            });
-                        } else {
-                            throw new Error('ESV API failed');
-                        }
-                    } catch (esvError) {
-                        console.log('All APIs failed, using fallback verse');
-                        
-                        // Use a random fallback verse
-                        const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
-                        displayVerse({
-                            votd: {
-                                text: randomVerse.text,
-                                reference: randomVerse.reference
-                            }
-                        });
-                    }
-                }
+                if (!votdContainer) return;
+
+                // Use a random fallback verse
+                const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
+                const verseHTML = `
+                    <div class="verse-text">"${randomVerse.text}"</div>
+                    <div class="verse-reference">— ${randomVerse.reference}</div>
+                `;
+                votdContainer.innerHTML = verseHTML;
             }
 
-            // Legacy callback for Bible Gateway
+            // Legacy callback for Bible Gateway - simplified approach
             function myVotdCallback(data) {
                 displayVerse(data);
             }
 
-            // Initialize when page loads
+            // Initialize verse immediately with fallback, then try to load from API
             document.addEventListener('DOMContentLoaded', function() {
-                loadVerseOfTheDay();
+                // Show fallback verse immediately
+                useFallbackVerse();
+                
+                // Try to load from Bible Gateway API
+                setTimeout(function() {
+                    const script = document.createElement('script');
+                    script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
+                    script.onerror = function() {
+                        console.log('Bible Gateway API unavailable, using fallback verse');
+                    };
+                    document.head.appendChild(script);
+                }, 1000);
             });
         </script>
 
