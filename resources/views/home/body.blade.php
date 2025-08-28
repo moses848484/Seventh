@@ -445,7 +445,7 @@
             width: 100%;
             height: 100%;
             background: url('images/bg-img1.jpg') center/cover no-repeat;
-            filter: blur(3px) brightness(0.7);
+            filter: blur(2px) brightness(0.7);
             /* blur + darken */
             transform: scale(1.1);
             /* prevent edge gaps after blur */
