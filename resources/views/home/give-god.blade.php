@@ -982,7 +982,7 @@
                         </div>
 
                         <h4 class="header1">Airtel Money</h4>
-                        <p class="header1">Follow the steps below;</p>
+                        <p class="header1">Follow the steps below:</p>
                         <ul class="steps-list">
                             <li>Dial <strong>*115#</strong></li>
                             <li>Select option <strong>6:"goods and services"</strong></li>
@@ -1003,15 +1003,13 @@
                         </div>
 
                         <h4 class="header1">MTN Money</h4>
-                        <p class="header1">Follow the steps below;</p>
+                        <p class="header1">Follow the steps below:</p>
                         <ul class="steps-list">
                             <li>Dial <strong>*115#</strong></li>
                             <li>Select option<strong>3: "Paybill"</strong></li>
                             <li>Select option<strong>6: "Retail Payment"</strong></li>
-                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>amount</strong></li>
-                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
-                            <li>Confirm with your <strong>PIN</strong></li>
+                            <li>Enter Merchant ID: <strong>"UNISDA"</strong></li>
+                            <li>Enter the <strong>Amount you are sending</strong></li>
                         </ul>
                         <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
                         </small>
@@ -1025,19 +1023,14 @@
                             <img src="/images/credit-card.png" alt="Airtel Logo">
                         </div>
 
-                        <h4 class="header1">Credit Card</h4>
-                        <p class="header1">Follow the steps below;</p>
+                        <h4 class="header1">Standard Chartered Bank/h4>
+                        <p class="header1">Use the bank details below:</p>
                         <ul class="steps-list">
-                            <li>Dial <strong>*303#</strong></li>
-                            <li>Select <strong>"Pay Bills"</strong></li>
-                            <li>Select <strong>"Other"</strong></li>
-                            <li>Enter merchant code: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>amount</strong></li>
-                            <li>Add reference <strong>(Tithe/Offering)</strong></li>
-                            <li>Confirm with your <strong>PIN</strong></li>
+                            <li>Account Name: <strong>University SDA Church</strong></li>
+                            <li>Branch: <strong>Standard Chartered - Manda Hill</strong></li>
+                            <li>Branch Code: <strong>060030</strong></li>
+                            <li>Account No.<strong>0140020061100</strong></li>
                         </ul>
-                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
-                        </small>
                     </div>
                 </div>
 
