@@ -207,39 +207,6 @@
                 /* adjust as needed */
             }
         }
-
-        /* Corona Gradient Card with Blurred Background */
-        .corona-gradient-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            /* smooth edges */
-            color: white;
-            background: rgba(0, 0, 0, 0.4);
-            /* dark overlay fallback */
-        }
-
-        /* Blurred background image */
-        .corona-gradient-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('admin/assets/images/bible4.jpg') center/cover no-repeat !important;
-            filter: blur(12px) brightness(0.7);
-            /* blur + darken */
-            transform: scale(1.1);
-            /* prevent edge gaps after blur */
-            z-index: 0;
-        }
-
-        /* Ensure content sits above blur */
-        .corona-gradient-card .card-body {
-            position: relative;
-            z-index: 1;
-        }
     </style>
 </head>
 
@@ -409,26 +376,26 @@
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
+        <!-- content-wrapper ends -->
 
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                        University
-                        SDA Church 2024</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                        Computer Science Dept
-                        <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
-                            class="text-white">
-                            Computer Systems Engineering
-                        </a> from University Of Zambia
-                    </span>
-                </div>
-            </footer>
-            <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                    University
+                    SDA Church 2024</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
+                    Computer Science Dept
+                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                        class="text-white">
+                        Computer Systems Engineering
+                    </a> from University Of Zambia
+                </span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
