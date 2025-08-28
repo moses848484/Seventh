@@ -1023,7 +1023,7 @@
                             <img src="/images/credit-card.png" alt="Airtel Logo">
                         </div>
 
-                        <h4 class="header1">Standard Chartered Bank/h4>
+                        <h4 class="header1">Standard Chartered Bank</h4>
                         <p class="header1">Use the bank details below:</p>
                         <ul class="steps-list">
                             <li>Account Name: <strong>University SDA Church</strong></li>
