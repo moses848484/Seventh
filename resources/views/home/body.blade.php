@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <link rel="stylesheet" href="css/viewmember.css" type="text/css">
-    <link rel="stylesheet" href="css/fontawesome-free-6.5.2-web/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/viewmember.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('css/fontawesome-free-6.5.2-web/css/all.min.css'); ?>"
+        type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <title>View Church Members</title>
@@ -287,175 +288,86 @@
             }
         }
 
-        /* Improved Verse of the Day Card - Better Layout and Height */
+        /* Reduce Corona Card Height - Improved Version */
         .corona-gradient-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            border: none;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-            min-height: 140px;
+            padding: 0.5rem;
+            max-height: 80px;
+            /* Reduced from 100px to 80px */
             overflow: hidden;
-            position: relative;
-        }
-
-        .corona-gradient-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            align-items: center;
+            /* Center content horizontally */
         }
 
         .corona-gradient-card .card-body {
-            padding: 1.5rem;
-            position: relative;
-            z-index: 2;
-            height: 100%;
+            padding: 0.5rem 0.5rem;
+            flex: 1;
+            /* Allow body to take available space */
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically within card body */
             align-items: center;
+            /* Center content horizontally */
+            text-align: center;
+            /* Center text alignment */
         }
 
         .corona-gradient-card .gradient-corona-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            flex-shrink: 0;
+            max-height: 60px;
+            /* Reduced further for better proportion */
+            height: auto;
+            width: auto;
+            object-fit: contain;
         }
 
-        .verse-content {
-            color: white;
-            flex: 1;
-        }
-
-        .verse-content .verse-text {
-            font-size: 1.1rem;
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .verse-content .verse-reference {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 500;
+        .corona-gradient-card #verse-of-the-day {
+            font-size: 0.85rem;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* Limit to 2 lines */
+            -webkit-box-orient: vertical;
         }
 
         .corona-gradient-card .get-started-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            min-height: auto;
+            /* Remove default button min-height */
+            line-height: 1.2;
         }
 
-        .corona-gradient-card .get-started-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            color: white;
+        /* Additional improvements for better compact layout */
+        .corona-gradient-card * {
+            margin-bottom: 0;
+            /* Reset margins for tighter spacing */
         }
 
-        .loading-verse {
-            color: rgba(255, 255, 255, 0.8);
-            font-style: italic;
-        }
-
-        .error-verse {
-            color: rgba(255, 255, 255, 0.7);
+        .corona-gradient-card .card-title {
             font-size: 0.9rem;
         }
 
-        /* Responsive adjustments for verse card */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .corona-gradient-card {
-                min-height: 120px;
-            }
-
-            .corona-gradient-card .card-body {
-                padding: 1rem;
+                max-height: 70px;
+                /* Reduced from 90px to 70px */
             }
 
             .corona-gradient-card .gradient-corona-img {
-                width: 60px;
-                height: 60px;
+                max-height: 50px;
             }
 
-            .verse-content .verse-text {
-                font-size: 1rem;
+            .corona-gradient-card #verse-of-the-day {
+                font-size: 2px !important;
             }
-
-            .corona-gradient-card .get-started-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .corona-gradient-card {
-                min-height: 100px;
-            }
-
-            .corona-gradient-card .gradient-corona-img {
-                width: 50px;
-                height: 50px;
-            }
-
-            .verse-content .verse-text {
-                font-size: 0.9rem;
-                line-height: 1.3;
-            }
-
-            .verse-content .verse-reference {
-                font-size: 0.8rem;
-            }
-
-            .corona-gradient-card .get-started-btn {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.75rem;
-            }
-        }
-
-        
-        /* Corona Gradient Card with Blurred Background */
-        .corona-gradient-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            /* smooth edges */
-            color: white;
-            background: rgba(0, 0, 0, 0.4);
-            /* dark overlay fallback */
-        }
-
-        /* Blurred background image */
-        .corona-gradient-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/bg-img1.jpg') center/cover no-repeat;
-            filter: blur(2px) brightness(0.7);
-            /* blur + darken */
-            transform: scale(1.1);
-            /* prevent edge gaps after blur */
-            z-index: 0;
-        }
-
-        /* Ensure content sits above blur */
-        .corona-gradient-card .card-body {
-            position: relative;
-            z-index: 1;
         }
     </style>
 </head>
@@ -466,33 +378,30 @@
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card corona-gradient-card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between w-100">
-
-                                <!-- Image Column - Left -->
-                                <div class="me-3">
-                                    <img src="images/hands-praying.jpg"
-                                        class="gradient-corona-img img-fluid" alt="Bible Image" loading="lazy">
+                        <div class="card-body py-0 px-0 px-sm-3">
+                            <div class="row align-items-center g-0">
+                                <!-- Image Column - Properly positioned to left -->
+                                <div class="col-3 col-sm-3 col-xl-2">
+                                    <img src="admin/assets/images/bible4.jpg" class="gradient-corona-img img-fluid"
+                                        alt="Bible Image" loading="lazy">
                                 </div>
 
-                                <!-- Verse Content - Center -->
-                                <div class="verse-content text-center flex-grow-1">
-                                    <div id="verse-of-the-day" class="verse-text">
-                                        <span class="loading-verse">Loading today's verse...</span>
-                                    </div>
+                                <!-- Verse Content Column -->
+                                <div class="col-6 col-sm-7 col-xl-8 p-0">
+                                    <div id="verse-of-the-day" style="color: white;"></div>
                                 </div>
 
-                                <!-- Button - Right -->
-                                <div class="ms-3">
+                                <!-- Button Column -->
+                                <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                                     <a href="https://www.bible.com/verse-of-the-day" target="_blank"
-                                        rel="noopener noreferrer" class="btn get-started-btn">
-                                        <span class="d-none d-md-inline">Read More</span>
-                                        <span class="d-md-none">More</span>
+                                        rel="noopener noreferrer"
+                                        class="btn btn-outline-light btn-rounded get-started-btn">
+                                        <span class="d-none d-md-inline">Bible Verse Of The Day</span>
+                                        <span class="d-md-none">VOTD</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -556,7 +465,7 @@
                                     <div class="col-9">
                                         <div class="span2"><br />
                                             <i class="fas fa-praying-hands"
-                                                style='font-size:48px;color:#e4af00;'></i><br />
+                                                style='font-size:48px;color:#e4af00;)'></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -675,11 +584,11 @@
                 </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
                 <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                    University SDA Church 2024</span>
+                    University
+                    SDA Church 2024</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
                     Computer Science Dept
                     <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
@@ -690,94 +599,52 @@
             </div>
         </footer>
 
+
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <!-- Improved Verse of the Day Script -->
+        <!-- If you're including multiple Biblia widgets, you only need this script tag once -->
+        <script src="//biblia.com/api/logos.biblia.js"></script>
+        <!-- Verse of the Day Script -->
         <script>
-            // Enhanced verse display functionality
-            function displayVerse(verseData) {
-                const votdContainer = document.getElementById('verse-of-the-day');
-                if (!votdContainer) return;
-
-                if (verseData && verseData.votd) {
-                    // Clean and format the verse text
-                    let cleanText = verseData.votd.text;
-
-                    // Remove excessive quotes and clean formatting
-                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
-                    cleanText = cleanText.trim();
-
-                    // Create formatted HTML
-                    const verseHTML = `
-                        <div class="verse-text">"${cleanText}"</div>
-                        <div class="verse-reference">— ${verseData.votd.reference}</div>
-                    `;
-
-                    votdContainer.innerHTML = verseHTML;
-                } else {
-                    useFallbackVerse();
-                }
-            }
-
-            // Fallback verses for when API fails
-            const fallbackVerses = [
-                {
-                    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
-                    reference: "Jeremiah 29:11"
-                },
-                {
-                    text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
-                    reference: "Proverbs 3:5-6"
-                },
-                {
-                    text: "I can do all this through him who gives me strength.",
-                    reference: "Philippians 4:13"
-                },
-                {
-                    text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
-                    reference: "Psalm 23:1-2"
-                },
-                {
-                    text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
-                    reference: "Romans 8:28"
-                }
-            ];
-
-            function useFallbackVerse() {
-                const votdContainer = document.getElementById('verse-of-the-day');
-                if (!votdContainer) return;
-
-                // Use a random fallback verse
-                const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
-                const verseHTML = `
-                    <div class="verse-text">"${randomVerse.text}"</div>
-                    <div class="verse-reference">— ${randomVerse.reference}</div>
-                `;
-                votdContainer.innerHTML = verseHTML;
-            }
-
-            // Legacy callback for Bible Gateway - simplified approach
             function myVotdCallback(data) {
-                displayVerse(data);
+                var votdContainer = document.getElementById('verse-of-the-day');
+                if (votdContainer && data && data.votd) {
+                    // Clean the verse text by removing extra quotes
+                    var cleanText = data.votd.text;
+
+                    // Remove surrounding quotes if they exist
+                    if (cleanText.startsWith('"') && cleanText.endsWith('"')) {
+                        cleanText = cleanText.slice(1, -1);
+                    }
+
+                    // Remove any double quotes at the beginning or end
+                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+
+                    // Create a more formatted display without adding extra quotes
+                    var verseHTML = `
+                <div class="verse-content">
+                    <p class="mb-1">"${cleanText}"</p>
+                    <small class="verse-reference">- ${data.votd.reference}</small>
+                </div>
+            `;
+                    votdContainer.innerHTML = verseHTML;
+                } else if (votdContainer) {
+                    votdContainer.innerHTML = '<p class="mb-0"><em>Loading daily verse...</em></p>';
+                }
             }
 
-            // Initialize verse immediately with fallback, then try to load from API
-            document.addEventListener('DOMContentLoaded', function () {
-                // Show fallback verse immediately
-                useFallbackVerse();
-
-                // Try to load from Bible Gateway API
+            // Error handling for failed script loading
+            window.addEventListener('load', function () {
                 setTimeout(function () {
-                    const script = document.createElement('script');
-                    script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
-                    script.onerror = function () {
-                        console.log('Bible Gateway API unavailable, using fallback verse');
-                    };
-                    document.head.appendChild(script);
-                }, 1000);
+                    var votdContainer = document.getElementById('verse-of-the-day');
+                    if (votdContainer && votdContainer.innerHTML.trim() === '') {
+                        votdContainer.innerHTML = '<p class="mb-0"><em>Daily verse temporarily unavailable</em></p>';
+                    }
+                }, 5000); // Wait 5 seconds for the script to load
             });
         </script>
 
+        <script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         <script>
             class NotesPlugin {
@@ -865,4 +732,121 @@
                     const notesList = document.getElementById('notesList');
                     const emptyState = document.getElementById('emptyState');
 
-                    if (!notesList || !emptyState
+                    if (!notesList || !emptyState) return;
+
+                    if (notesToRender.length === 0) {
+                        notesList.innerHTML = '';
+                        notesList.appendChild(emptyState);
+                        return;
+                    }
+
+                    notesList.innerHTML = notesToRender.map(note => `
+                    <div class="note-item" data-note-id="${note.id}">
+                        <div class="note-meta">
+                            <i class="fas fa-clock me-1"></i>${note.timestamp}
+                        </div>
+                        <div class="note-text">${this.escapeHtml(note.text)}</div>
+                        <div class="note-actions">
+                            <button class="btn btn-outline-primary btn-sm me-1" onclick="notesPlugin.editNote(${note.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="notesPlugin.deleteNote(${note.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                }
+
+                searchNotes(query) {
+                    if (!query.trim()) {
+                        this.renderNotes();
+                        return;
+                    }
+
+                    const filteredNotes = this.notes.filter(note =>
+                        note.text.toLowerCase().includes(query.toLowerCase())
+                    );
+
+                    this.renderNotes(filteredNotes);
+                }
+
+                updateCounter() {
+                    const counter = document.getElementById('notesCounter');
+                    if (!counter) return;
+
+                    const count = this.notes.length;
+                    counter.textContent = `${count} note${count !== 1 ? 's' : ''}`;
+                }
+
+                loadNotes() {
+                    try {
+                        // Using variable storage instead of localStorage to comply with restrictions
+                        if (window.userNotesStorage) {
+                            return window.userNotesStorage;
+                        }
+                        return [];
+                    } catch (error) {
+                        console.error('Error loading notes:', error);
+                        return [];
+                    }
+                }
+
+                saveNotes() {
+                    try {
+                        // Using variable storage instead of localStorage
+                        window.userNotesStorage = this.notes;
+                    } catch (error) {
+                        console.error('Error saving notes:', error);
+                        this.showFeedback('Error saving notes!', 'danger');
+                    }
+                }
+
+                showFeedback(message, type = 'info') {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+                    alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 1050; min-width: 250px;';
+                    alertDiv.innerHTML = `
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+
+                    document.body.appendChild(alertDiv);
+
+                    // Auto remove after 3 seconds
+                    setTimeout(() => {
+                        if (alertDiv.parentNode) {
+                            alertDiv.parentNode.removeChild(alertDiv);
+                        }
+                    }, 3000);
+                }
+
+                escapeHtml(text) {
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    return div.innerHTML;
+                }
+            }
+
+            // Initialize the notes plugin when DOM is loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                window.notesPlugin = new NotesPlugin();
+
+                // Add keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    // Ctrl/Cmd + Enter to add note quickly
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                        const noteText = document.getElementById('noteText');
+                        if (noteText && document.activeElement === noteText && noteText.value.trim()) {
+                            const form = document.getElementById('addNoteForm');
+                            if (form) {
+                                form.dispatchEvent(new Event('submit'));
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>
