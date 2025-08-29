@@ -117,5 +117,10 @@ Route::middleware([
     // Music
     Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
-    // Additional admin routes for Scorecard & Strategic Plan remain unchanged...
+    Route::get('/notes', [NoteController::class, 'index']);
+    Route::post('/notes', [NoteController::class, 'store']);
+    Route::put('/notes/{note}', [NoteController::class, 'update']);
+    Route::delete('/notes/{note}', [NoteController::class, 'destroy']);
+    Route::put('/notes/{note}/pin', [NoteController::class, 'togglePin']);
+
 });
