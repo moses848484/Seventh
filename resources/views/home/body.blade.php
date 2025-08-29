@@ -895,89 +895,188 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
         <script>
-            class NotesPlugin {
-                constructor() {
-                    this.notes = this.loadNotes();
-                    this.init();
-                }
+class NotesPlugin {
+    constructor() {
+        this.notes = [];
+        this.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        this.init();
+    }
 
-                init() {
-                    this.renderNotes();
-                    this.bindEvents();
-                    this.updateCounter();
-                }
+    async init() {
+        await this.loadNotes();
+        this.renderNotes();
+        this.bindEvents();
+        this.updateCounter();
+    }
 
-                bindEvents() {
-                    // Add note form submission
-                    const addForm = document.getElementById('addNoteForm');
-                    if (addForm) {
-                        addForm.addEventListener('submit', (e) => {
-                            e.preventDefault();
-                            this.addNote();
-                        });
-                    }
+    bindEvents() {
+        const addBtn = document.getElementById('addNoteBtn');
+        const searchInput = document.getElementById('searchNotes');
 
-                    // Search functionality
-                    const searchInput = document.getElementById('searchNotes');
-                    if (searchInput) {
-                        searchInput.addEventListener('input', (e) => {
-                            this.searchNotes(e.target.value);
-                        });
-                    }
-                }
+        if (addBtn) addBtn.addEventListener('click', () => this.addNote());
+        if (searchInput) searchInput.addEventListener('input', e => this.searchNotes(e.target.value));
+    }
 
-                addNote() {
-                    const noteTextElement = document.getElementById('noteText');
-                    if (!noteTextElement) return;
+    async loadNotes() {
+        try {
+            const res = await fetch('/notes');
+            this.notes = await res.json();
+        } catch (err) {
+            console.error('Failed to load notes:', err);
+        }
+    }
 
-                    const noteText = noteTextElement.value.trim();
-                    if (!noteText) return;
+    async addNote() {
+        const noteTextElement = document.getElementById('noteText');
+        const noteText = noteTextElement.value.trim();
+        if (!noteText) return;
 
-                    const note = {
-                        id: Date.now(),
-                        text: noteText,
-                        timestamp: new Date().toLocaleString(),
-                        date: new Date().toISOString()
-                    };
+        try {
+            const res = await fetch('/notes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.csrf
+                },
+                body: JSON.stringify({ text: noteText })
+            });
+            const newNote = await res.json();
+            this.notes.unshift(newNote);
+            this.renderNotes();
+            this.updateCounter();
+            noteTextElement.value = '';
+        } catch (err) {
+            console.error('Error saving note:', err);
+        }
+    }
 
-                    this.notes.unshift(note);
-                    this.saveNotes();
-                    this.renderNotes();
-                    this.updateCounter();
+    async deleteNote(id) {
+        if (!confirm('Are you sure?')) return;
 
-                    // Clear form
-                    noteTextElement.value = '';
+        try {
+            await fetch(`/notes/${id}`, {
+                method: 'DELETE',
+                headers: { 'X-CSRF-TOKEN': this.csrf }
+            });
+            this.notes = this.notes.filter(n => n.id !== id);
+            this.renderNotes();
+            this.updateCounter();
+        } catch (err) {
+            console.error('Error deleting note:', err);
+        }
+    }
 
-                    // Show success feedback
-                    this.showFeedback('Note added successfully!', 'success');
-                }
+    async editNote(id) {
+        const note = this.notes.find(n => n.id === id);
+        const newText = prompt('Edit your note:', note.text);
+        if (!newText) return;
 
-                deleteNote(id) {
-                    if (confirm('Are you sure you want to delete this note?')) {
-                        this.notes = this.notes.filter(note => note.id !== id);
-                        this.saveNotes();
-                        this.renderNotes();
-                        this.updateCounter();
-                        this.showFeedback('Note deleted!', 'info');
-                    }
-                }
+        try {
+            const res = await fetch(`/notes/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.csrf
+                },
+                body: JSON.stringify({ text: newText })
+            });
+            const updated = await res.json();
+            Object.assign(note, updated);
+            this.renderNotes();
+        } catch (err) {
+            console.error('Error editing note:', err);
+        }
+    }
 
-                editNote(id) {
-                    const note = this.notes.find(n => n.id === id);
-                    if (!note) return;
+    async togglePin(id) {
+        const note = this.notes.find(n => n.id === id);
+        if (!note) return;
 
-                    const newText = prompt('Edit your note:', note.text);
-                    if (newText !== null && newText.trim() !== '') {
-                        note.text = newText.trim();
-                        note.timestamp = new Date().toLocaleString() + ' (edited)';
-                        this.saveNotes();
-                        this.renderNotes();
-                        this.showFeedback('Note updated!', 'success');
-                    }
-                }
+        try {
+            const res = await fetch(`/notes/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.csrf
+                },
+                body: JSON.stringify({ pinned: !note.pinned })
+            });
+            const updated = await res.json();
+            Object.assign(note, updated);
 
-                renderNotes(notesToRender = this.notes) {
-                    const notesList = document.getElementById('notesList');
-                    const emptyState = document.getElementById('emptyState');
+            // Reorder so pinned notes stay on top
+            this.notes.sort((a, b) => (b.pinned - a.pinned) || (new Date(b.created_at) - new Date(a.created_at)));
+            this.renderNotes();
+            this.updateCounter();
+        } catch (err) {
+            console.error('Error pinning note:', err);
+        }
+    }
 
-                    if (!notesList || !emptyState
+    renderNotes(notesToRender = this.notes) {
+        const notesList = document.getElementById('notesList');
+        const emptyState = document.getElementById('emptyState');
+
+        if (!notesList) return;
+        notesList.innerHTML = '';
+
+        if (!notesToRender.length) {
+            if (emptyState) emptyState.style.display = 'block';
+            return;
+        } else {
+            if (emptyState) emptyState.style.display = 'none';
+        }
+
+        // Sort pinned first, then newest
+        notesToRender.sort((a, b) => (b.pinned - a.pinned) || (new Date(b.created_at) - new Date(a.created_at)));
+
+        notesToRender.forEach(note => {
+            const noteEl = document.createElement('div');
+            noteEl.className = 'note-item';
+
+            noteEl.innerHTML = `
+                <div class="note-meta d-flex justify-content-between">
+                    <span><i class="fas fa-clock"></i> ${new Date(note.created_at).toLocaleString()}</span>
+                    <button class="btn btn-sm ${note.pinned ? 'btn-warning' : 'btn-outline-secondary'} pin-btn">
+                        <i class="fas fa-thumbtack"></i>
+                    </button>
+                </div>
+                <div class="note-text">${note.text}</div>
+                <div class="note-actions">
+                    <button class="btn btn-sm btn-outline-primary me-1 edit-btn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+
+            // Attach actions
+            noteEl.querySelector('.edit-btn').addEventListener('click', () => this.editNote(note.id));
+            noteEl.querySelector('.delete-btn').addEventListener('click', () => this.deleteNote(note.id));
+            noteEl.querySelector('.pin-btn').addEventListener('click', () => this.togglePin(note.id));
+
+            notesList.appendChild(noteEl);
+        });
+    }
+
+    searchNotes(query) {
+        query = query.toLowerCase();
+        const filtered = this.notes.filter(n => n.text.toLowerCase().includes(query));
+        this.renderNotes(filtered);
+    }
+
+    updateCounter() {
+        const counter = document.getElementById('notesCounter');
+        if (counter) {
+            counter.textContent = `${this.notes.length} ${this.notes.length === 1 ? 'note' : 'notes'}`;
+        }
+    }
+}
+
+// Initialize plugin when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new NotesPlugin();
+});
+</script>
