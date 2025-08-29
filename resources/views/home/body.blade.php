@@ -55,362 +55,80 @@
             color: #04AA6D;
         }
 
-        /* Enhanced Notes Card Styles */
+        /* Notes Card Styles */
         .notes-card {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
         }
 
-        .notes-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Enhanced Header */
         .notes-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px 25px;
-            position: relative;
-            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
         }
 
-        @keyframes shimmer {
-
-            0%,
-            100% {
-                transform: rotate(0deg);
-            }
-
-            50% {
-                transform: rotate(180deg);
-            }
-        }
-
-        .notes-header h5 {
-            margin: 0;
-            font-weight: 600;
-            font-size: 1.3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .notes-counter {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Enhanced Search Box */
-        .search-box {
-            padding: 20px 25px 15px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .search-input {
-            border: 2px solid transparent;
-            border-radius: 25px;
-            padding: 12px 20px 12px 45px;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .search-wrapper {
-            position: relative;
-        }
-
-        .search-wrapper::before {
-            content: '\f002';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #667eea;
-            z-index: 3;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Enhanced Notes Content */
         .notes-content {
             max-height: 150px;
             overflow-y: auto;
-            padding: 15px 25px;
-            background: #fff;
             flex: 1;
         }
 
-        .notes-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .notes-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .notes-content::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
-        }
-
-        /* Enhanced Note Items */
         .note-item {
-            background: #fff;
-            border: 1px solid #e9ecef;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            padding: 18px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .note-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
         }
 
         .note-item:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
-        }
-
-        .note-item:hover::before {
-            transform: scaleY(1);
+            background: #e9ecef;
+            transform: translateX(5px);
         }
 
         .note-meta {
-            font-size: 0.75rem;
-            color: #8e9aaf;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .note-meta i {
-            color: #667eea;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 5px;
         }
 
         .note-text {
-            color: #2d3748;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            word-break: break-word;
+            color: #495057;
+            margin-bottom: 8px;
         }
 
         .note-actions {
-            display: flex;
-            gap: 8px;
-            justify-content: flex-end;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            text-align: right;
         }
 
-        .note-item:hover .note-actions {
-            opacity: 1;
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
         }
 
-        /* Enhanced Buttons */
-        .btn-note-action {
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            border-radius: 20px;
-            border: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-edit {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            color: white;
-        }
-
-        .btn-edit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
-            color: white;
-        }
-
-        .btn-delete {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            color: white;
-        }
-
-        .btn-delete:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            color: white;
-        }
-
-        /* Enhanced Add Note Form */
         .add-note-form {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 25px;
-            border-top: 1px solid #e9ecef;
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            padding: 15px;
             flex-shrink: 0;
         }
 
-        .note-textarea {
-            border: 2px solid transparent;
-            border-radius: 15px;
-            padding: 15px 20px;
-            background: white;
-            resize: vertical;
-            min-height: 80px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .note-textarea:focus {
-            outline: none;
+        .notes-card .form-control:focus {
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
         }
 
-        .btn-add-note {
+        .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
-            border-radius: 25px;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
         }
 
-        .btn-add-note:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-            color: white;
-        }
-
-        .auto-save-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #28a745;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .auto-save-indicator i {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        /* Enhanced Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #8e9aaf;
-        }
-
-        .empty-state i {
-            color: #667eea;
-            margin-bottom: 15px;
-            opacity: 0.7;
-        }
-
-        .empty-state p {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Enhanced Footer */
-        .notes-footer {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 15px 25px;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .notes-footer h6 {
-            margin: 0;
-            color: #6c757d;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Feedback Toast */
-        .feedback-toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 20px;
-            border-radius: 25px;
-            color: white;
-            font-weight: 500;
-            font-size: 0.9rem;
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feedback-toast.show {
-            transform: translateX(0);
-        }
-
-        .feedback-toast.success {
-            background: linear-gradient(135deg, #28a745, #20c997);
-        }
-
-        .feedback-toast.info {
-            background: linear-gradient(135deg, #17a2b8, #007bff);
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
         }
 
         /* Verse Card Styles */
@@ -525,30 +243,6 @@
             .get-started-btn {
                 padding: 0.3rem 0.6rem;
                 font-size: 0.75rem;
-            }
-
-            .notes-card {
-                border-radius: 15px;
-            }
-
-            .notes-header,
-            .search-box,
-            .add-note-form {
-                padding: 15px 20px;
-            }
-
-            .notes-content {
-                padding: 10px 20px;
-                max-height: 300px;
-            }
-
-            .note-item {
-                padding: 15px;
-                margin-bottom: 12px;
-            }
-
-            .note-actions {
-                opacity: 1;
             }
         }
     </style>
@@ -692,9 +386,7 @@
                     </div>
                 </div>
 
-                <!-- Enhanced Content Row -->
                 <div class="row">
-                    <!-- Enhanced Notes Card -->
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column notes-card uniform-height-card">
                             <div class="notes-header d-flex justify-content-between align-items-center">
@@ -707,45 +399,41 @@
                             </div>
 
                             <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
-                                <!-- Enhanced Search Box -->
-                                <div class="search-box">
-                                    <div class="search-wrapper">
-                                        <input type="text" class="form-control search-input" id="searchNotes"
-                                            placeholder="Search your notes...">
-                                    </div>
+                                <!-- Search Box -->
+                                <div class="search-box p-3 pb-0">
+                                    <input type="text" class="form-control" id="searchNotes"
+                                        placeholder="Search notes...">
                                 </div>
 
-                                <!-- Enhanced Notes List -->
-                                <div class="notes-content" id="notesList" style="flex: 1;">
+                                <!-- Notes List -->
+                                <div class="notes-content p-3" id="notesList" style="flex: 1;">
                                     <div class="empty-state" id="emptyState">
                                         <i class="fas fa-clipboard-list fa-3x mb-3"></i>
                                         <p>No notes yet. Add your first note below!</p>
                                     </div>
                                 </div>
 
-                                <!-- Enhanced Add Note Form -->
+                                <!-- Add Note Form -->
                                 <div class="add-note-form">
                                     <form id="addNoteForm">
                                         <div class="mb-3">
-                                            <textarea class="form-control note-textarea" id="noteText"
+                                            <textarea class="form-control" id="noteText" rows="2"
                                                 placeholder="Write your note here..." required></textarea>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <div class="auto-save-indicator">
-                                                <i class="fas fa-check-circle"></i>
-                                                <span>Auto-saved</span>
-                                            </div>
-                                            <button type="submit" class="btn btn-add-note">
-                                                <i class="fas fa-plus"></i>
-                                                <span>Add Note</span>
+                                            <small class="text-muted">
+                                                <i class="fas fa-save me-1"></i>Auto-saved
+                                            </small>
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-plus me-1"></i>Add
                                             </button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
 
-                            <div class="notes-footer">
-                                <h6 class="mb-0">Personal Notes</h6>
+                            <div class="footer1 text-center">
+                                <h6 class="text-muted2 font-weight-normal mb-0">Personal Notes</h6>
                             </div>
                         </div>
                     </div>
@@ -884,188 +572,89 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
         <script>
-class NotesPlugin {
-    constructor() {
-        this.notes = [];
-        this.csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        this.init();
-    }
+            class NotesPlugin {
+                constructor() {
+                    this.notes = this.loadNotes();
+                    this.init();
+                }
 
-    async init() {
-        await this.loadNotes();
-        this.renderNotes();
-        this.bindEvents();
-        this.updateCounter();
-    }
+                init() {
+                    this.renderNotes();
+                    this.bindEvents();
+                    this.updateCounter();
+                }
 
-    bindEvents() {
-        const addBtn = document.getElementById('addNoteBtn');
-        const searchInput = document.getElementById('searchNotes');
+                bindEvents() {
+                    // Add note form submission
+                    const addForm = document.getElementById('addNoteForm');
+                    if (addForm) {
+                        addForm.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            this.addNote();
+                        });
+                    }
 
-        if (addBtn) addBtn.addEventListener('click', () => this.addNote());
-        if (searchInput) searchInput.addEventListener('input', e => this.searchNotes(e.target.value));
-    }
+                    // Search functionality
+                    const searchInput = document.getElementById('searchNotes');
+                    if (searchInput) {
+                        searchInput.addEventListener('input', (e) => {
+                            this.searchNotes(e.target.value);
+                        });
+                    }
+                }
 
-    async loadNotes() {
-        try {
-            const res = await fetch('/notes');
-            this.notes = await res.json();
-        } catch (err) {
-            console.error('Failed to load notes:', err);
-        }
-    }
+                addNote() {
+                    const noteTextElement = document.getElementById('noteText');
+                    if (!noteTextElement) return;
 
-    async addNote() {
-        const noteTextElement = document.getElementById('noteText');
-        const noteText = noteTextElement.value.trim();
-        if (!noteText) return;
+                    const noteText = noteTextElement.value.trim();
+                    if (!noteText) return;
 
-        try {
-            const res = await fetch('/notes', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': this.csrf
-                },
-                body: JSON.stringify({ text: noteText })
-            });
-            const newNote = await res.json();
-            this.notes.unshift(newNote);
-            this.renderNotes();
-            this.updateCounter();
-            noteTextElement.value = '';
-        } catch (err) {
-            console.error('Error saving note:', err);
-        }
-    }
+                    const note = {
+                        id: Date.now(),
+                        text: noteText,
+                        timestamp: new Date().toLocaleString(),
+                        date: new Date().toISOString()
+                    };
 
-    async deleteNote(id) {
-        if (!confirm('Are you sure?')) return;
+                    this.notes.unshift(note);
+                    this.saveNotes();
+                    this.renderNotes();
+                    this.updateCounter();
 
-        try {
-            await fetch(`/notes/${id}`, {
-                method: 'DELETE',
-                headers: { 'X-CSRF-TOKEN': this.csrf }
-            });
-            this.notes = this.notes.filter(n => n.id !== id);
-            this.renderNotes();
-            this.updateCounter();
-        } catch (err) {
-            console.error('Error deleting note:', err);
-        }
-    }
+                    // Clear form
+                    noteTextElement.value = '';
 
-    async editNote(id) {
-        const note = this.notes.find(n => n.id === id);
-        const newText = prompt('Edit your note:', note.text);
-        if (!newText) return;
+                    // Show success feedback
+                    this.showFeedback('Note added successfully!', 'success');
+                }
 
-        try {
-            const res = await fetch(`/notes/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': this.csrf
-                },
-                body: JSON.stringify({ text: newText })
-            });
-            const updated = await res.json();
-            Object.assign(note, updated);
-            this.renderNotes();
-        } catch (err) {
-            console.error('Error editing note:', err);
-        }
-    }
+                deleteNote(id) {
+                    if (confirm('Are you sure you want to delete this note?')) {
+                        this.notes = this.notes.filter(note => note.id !== id);
+                        this.saveNotes();
+                        this.renderNotes();
+                        this.updateCounter();
+                        this.showFeedback('Note deleted!', 'info');
+                    }
+                }
 
-    async togglePin(id) {
-        const note = this.notes.find(n => n.id === id);
-        if (!note) return;
+                editNote(id) {
+                    const note = this.notes.find(n => n.id === id);
+                    if (!note) return;
 
-        try {
-            const res = await fetch(`/notes/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': this.csrf
-                },
-                body: JSON.stringify({ pinned: !note.pinned })
-            });
-            const updated = await res.json();
-            Object.assign(note, updated);
+                    const newText = prompt('Edit your note:', note.text);
+                    if (newText !== null && newText.trim() !== '') {
+                        note.text = newText.trim();
+                        note.timestamp = new Date().toLocaleString() + ' (edited)';
+                        this.saveNotes();
+                        this.renderNotes();
+                        this.showFeedback('Note updated!', 'success');
+                    }
+                }
 
-            // Reorder so pinned notes stay on top
-            this.notes.sort((a, b) => (b.pinned - a.pinned) || (new Date(b.created_at) - new Date(a.created_at)));
-            this.renderNotes();
-            this.updateCounter();
-        } catch (err) {
-            console.error('Error pinning note:', err);
-        }
-    }
+                renderNotes(notesToRender = this.notes) {
+                    const notesList = document.getElementById('notesList');
+                    const emptyState = document.getElementById('emptyState');
 
-    renderNotes(notesToRender = this.notes) {
-        const notesList = document.getElementById('notesList');
-        const emptyState = document.getElementById('emptyState');
-
-        if (!notesList) return;
-        notesList.innerHTML = '';
-
-        if (!notesToRender.length) {
-            if (emptyState) emptyState.style.display = 'block';
-            return;
-        } else {
-            if (emptyState) emptyState.style.display = 'none';
-        }
-
-        // Sort pinned first, then newest
-        notesToRender.sort((a, b) => (b.pinned - a.pinned) || (new Date(b.created_at) - new Date(a.created_at)));
-
-        notesToRender.forEach(note => {
-            const noteEl = document.createElement('div');
-            noteEl.className = 'note-item';
-
-            noteEl.innerHTML = `
-                <div class="note-meta d-flex justify-content-between">
-                    <span><i class="fas fa-clock"></i> ${new Date(note.created_at).toLocaleString()}</span>
-                    <button class="btn btn-sm ${note.pinned ? 'btn-warning' : 'btn-outline-secondary'} pin-btn">
-                        <i class="fas fa-thumbtack"></i>
-                    </button>
-                </div>
-                <div class="note-text">${note.text}</div>
-                <div class="note-actions">
-                    <button class="btn btn-sm btn-outline-primary me-1 edit-btn">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="btn btn-sm btn-outline-danger delete-btn">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
-            `;
-
-            // Attach actions
-            noteEl.querySelector('.edit-btn').addEventListener('click', () => this.editNote(note.id));
-            noteEl.querySelector('.delete-btn').addEventListener('click', () => this.deleteNote(note.id));
-            noteEl.querySelector('.pin-btn').addEventListener('click', () => this.togglePin(note.id));
-
-            notesList.appendChild(noteEl);
-        });
-    }
-
-    searchNotes(query) {
-        query = query.toLowerCase();
-        const filtered = this.notes.filter(n => n.text.toLowerCase().includes(query));
-        this.renderNotes(filtered);
-    }
-
-    updateCounter() {
-        const counter = document.getElementById('notesCounter');
-        if (counter) {
-            counter.textContent = `${this.notes.length} ${this.notes.length === 1 ? 'note' : 'notes'}`;
-        }
-    }
-}
-
-// Initialize plugin when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    new NotesPlugin();
-});
-</script>
+                    if (!notesList || !emptyState
