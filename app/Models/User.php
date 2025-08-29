@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Storage; // Add this at the top of your model
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -37,7 +37,6 @@ class User extends Authenticatable
         'two_factor_recovery_codes',
         'two_factor_confirmed_at',
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -91,6 +90,35 @@ class User extends Authenticatable
         return asset('storage/profile-photos/user.jpg');
     }
 
+    /**
+     * Get the user's notes.
+     */
+    public function notes(): HasMany
+    {
+        return $this->hasMany(Note::class)->orderBy('pinned', 'desc')->orderBy('created_at', 'desc');
+    }
 
+    /**
+     * Get the user's pinned notes.
+     */
+    public function pinnedNotes(): HasMany
+    {
+        return $this->hasMany(Note::class)->where('pinned', true)->orderBy('created_at', 'desc');
+    }
 
+    /**
+     * Get count of user's notes.
+     */
+    public function getNotesCountAttribute(): int
+    {
+        return $this->notes()->count();
+    }
+
+    /**
+     * Get count of user's pinned notes.
+     */
+    public function getPinnedNotesCountAttribute(): int
+    {
+        return $this->pinnedNotes()->count();
+    }
 }
