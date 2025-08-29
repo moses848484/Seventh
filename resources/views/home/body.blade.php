@@ -8,18 +8,13 @@
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-free-6.5.2-web/css/all.min.css') }}" type="text/css">
+    <!-- New Bootstrap 4 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>View Church Members</title>
 
     <style>
-        /* Base Styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
         /* Floating Label Styles */
         .form-floating {
             position: relative;
@@ -94,13 +89,20 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
         }
 
         .notes-header h5 {
@@ -347,8 +349,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* Enhanced Empty State */
@@ -492,84 +501,8 @@
             color: white;
         }
 
-        /* Dashboard Cards */
-        .card1 {
-            margin-top: 2rem;
-        }
-
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .span2 {
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .icon-box-success {
-            text-align: center;
-        }
-
-        .footer1 {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-
-        .text-muted2 {
-            color: #6c757d !important;
-            font-weight: 500;
-        }
-
-        .uniform-height-card {
-            height: 100%;
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: #343a40;
-            color: #fff;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        .text-muted1 {
-            color: #adb5bd !important;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .notes-card {
-                border-radius: 15px;
-            }
-
-            .notes-header, .search-box, .add-note-form {
-                padding: 15px 20px;
-            }
-
-            .notes-content {
-                padding: 10px 20px;
-                max-height: 300px;
-            }
-
-            .note-item {
-                padding: 15px;
-                margin-bottom: 12px;
-            }
-
-            .note-actions {
-                opacity: 1;
-            }
-
+        /* Responsive adjustments */
+        @media (max-width:768px) {
             .gradient-corona-img {
                 width: 60px;
                 height: 60px;
@@ -585,7 +518,7 @@
             }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width:576px) {
             .gradient-corona-img {
                 width: 50px;
                 height: 50px;
@@ -604,22 +537,47 @@
                 padding: 0.3rem 0.6rem;
                 font-size: 0.75rem;
             }
+
+            .notes-card {
+                border-radius: 15px;
+            }
+
+            .notes-header,
+            .search-box,
+            .add-note-form {
+                padding: 15px 20px;
+            }
+
+            .notes-content {
+                padding: 10px 20px;
+                max-height: 300px;
+            }
+
+            .note-item {
+                padding: 15px;
+                margin-bottom: 12px;
+            }
+
+            .note-actions {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
+
 <body>
     <div class="main-panel">
         <div class="content-wrapper">
-            <!-- Verse of the Day Card -->
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card corona-gradient-card">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between w-100">
+
                                 <!-- Image Column - Left -->
                                 <div class="me-3">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" class="gradient-corona-img img-fluid"
+                                    <img src="images/hands-praying.jpg" class="gradient-corona-img img-fluid"
                                         alt="Bible Image" loading="lazy">
                                 </div>
 
@@ -640,11 +598,11 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <!-- Dashboard Cards -->
             <div class="card1">
                 <div class="row">
                     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
@@ -653,7 +611,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="span2"><br />
-                                            <i class="fa-solid fa-calendar fa-3x" style="color: #667eea;"></i><br />
+                                            <i class="fa-solid fa-calendar fa-3x"></i><br />
                                         </div>
                                         <div class="d-flex align-items-center align-self-start">
                                         </div>
@@ -679,7 +637,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="span2"><br />
-                                            <i class="fa-solid fa-user-plus fa-3x" style="color: #667eea;"></i><br />
+                                            <i class="fa-solid fa-user-plus fa-3x"></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -703,7 +661,8 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="span2"><br />
-                                            <i class="fas fa-praying-hands fa-3x" style="color: #667eea;"></i><br />
+                                            <i class="fas fa-praying-hands"
+                                                style='font-size:48px;color:#e4af00;'></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -725,7 +684,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="span2"><br />
-                                            <i class="fa fa-money-check-alt fa-3x" style="color: #667eea;"></i><br />
+                                            <i class="fa fa-money-check-alt fa-3x"></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -802,7 +761,6 @@
                         </div>
                     </div>
 
-                    <!-- Video Card -->
                     <div class="col-md-4 grid-margin stretch-card">
                         <div class="card uniform-height-card">
                             <div class="card-body d-flex flex-column">
@@ -819,7 +777,6 @@
                         </div>
                     </div>
 
-                    <!-- Bible Card -->
                     <div class="col-md-4 col-sm-12 grid-margin stretch-card">
                         <div class="card d-flex flex-column bible-card uniform-height-card">
                             <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
@@ -831,7 +788,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
                 <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
@@ -846,10 +802,9 @@
             </div>
         </footer>
 
-        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <!-- Enhanced Verse of the Day Script -->
+        <!-- Improved Verse of the Day Script -->
         <script>
             // Enhanced verse display functionality
             function displayVerse(verseData) {
@@ -935,16 +890,14 @@
             });
         </script>
 
-        <!-- Bootstrap 4 JS + Popper.js + jQuery -->
+        <!-- New Bootstrap 4 JS + Popper.js + jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-
-        <!-- Enhanced Notes Plugin JavaScript -->
         <script>
-            class EnhancedNotesPlugin {
+            class NotesPlugin {
                 constructor() {
-                    this.notes = this.loadNotes() || [];
+                    this.notes = this.loadNotes();
                     this.init();
                 }
 
@@ -971,14 +924,6 @@
                             this.searchNotes(e.target.value);
                         });
                     }
-
-                    // Auto-save simulation
-                    const noteTextArea = document.getElementById('noteText');
-                    if (noteTextArea) {
-                        noteTextArea.addEventListener('input', () => {
-                            this.simulateAutoSave();
-                        });
-                    }
                 }
 
                 addNote() {
@@ -991,7 +936,7 @@
                     const note = {
                         id: Date.now(),
                         text: noteText,
-                        timestamp: this.formatTimestamp(new Date()),
+                        timestamp: new Date().toLocaleString(),
                         date: new Date().toISOString()
                     };
 
@@ -1024,7 +969,7 @@
                     const newText = prompt('Edit your note:', note.text);
                     if (newText !== null && newText.trim() !== '') {
                         note.text = newText.trim();
-                        note.timestamp = this.formatTimestamp(new Date()) + ' (edited)';
+                        note.timestamp = new Date().toLocaleString() + ' (edited)';
                         this.saveNotes();
                         this.renderNotes();
                         this.showFeedback('Note updated!', 'success');
@@ -1035,155 +980,4 @@
                     const notesList = document.getElementById('notesList');
                     const emptyState = document.getElementById('emptyState');
 
-                    if (!notesList) return;
-
-                    if (notesToRender.length === 0) {
-                        notesList.innerHTML = `
-                            <div class="empty-state">
-                                <i class="fas fa-clipboard-list fa-4x"></i>
-                                <p>No notes found.<br>Try adjusting your search or add a new note!</p>
-                            </div>
-                        `;
-                        return;
-                    }
-
-                    const notesHTML = notesToRender.map(note => `
-                        <div class="note-item">
-                            <div class="note-meta">
-                                <i class="fas fa-clock"></i>
-                                <span>${note.timestamp}</span>
-                            </div>
-                            <div class="note-text">${this.escapeHtml(note.text)}</div>
-                            <div class="note-actions">
-                                <button class="btn btn-note-action btn-edit" onclick="notesPlugin.editNote(${note.id})">
-                                    <i class="fas fa-edit"></i>
-                                    <span>Edit</span>
-                                </button>
-                                <button class="btn btn-note-action btn-delete" onclick="notesPlugin.deleteNote(${note.id})">
-                                    <i class="fas fa-trash"></i>
-                                    <span>Delete</span>
-                                </button>
-                            </div>
-                        </div>
-                    `).join('');
-
-                    notesList.innerHTML = notesHTML;
-                }
-
-                searchNotes(query) {
-                    if (!query.trim()) {
-                        this.renderNotes();
-                        return;
-                    }
-
-                    const filteredNotes = this.notes.filter(note =>
-                        note.text.toLowerCase().includes(query.toLowerCase())
-                    );
-
-                    this.renderNotes(filteredNotes);
-                }
-
-                updateCounter() {
-                    const counterElement = document.getElementById('notesCounter');
-                    if (!counterElement) return;
-
-                    const count = this.notes.length;
-                    const text = count === 1 ? '1 note' : `${count} notes`;
-                    counterElement.textContent = text;
-                }
-
-                showFeedback(message, type) {
-                    const toast = document.createElement('div');
-                    toast.className = `feedback-toast ${type}`;
-                    toast.innerHTML = `
-                        <i class="fas fa-${type === 'success' ? 'check' : 'info'}-circle"></i>
-                        <span>${message}</span>
-                    `;
-
-                    document.body.appendChild(toast);
-
-                    setTimeout(() => toast.classList.add('show'), 100);
-
-                    setTimeout(() => {
-                        toast.classList.remove('show');
-                        setTimeout(() => toast.remove(), 300);
-                    }, 3000);
-                }
-
-                simulateAutoSave() {
-                    const indicator = document.querySelector('.auto-save-indicator');
-                    if (!indicator) return;
-
-                    const span = indicator.querySelector('span');
-                    const icon = indicator.querySelector('i');
-
-                    if (span) span.textContent = 'Saving...';
-                    if (icon) {
-                        icon.className = 'fas fa-spinner fa-spin';
-                    }
-
-                    setTimeout(() => {
-                        if (span) span.textContent = 'Auto-saved';
-                        if (icon) {
-                            icon.className = 'fas fa-check-circle';
-                        }
-                    }, 1000);
-                }
-
-                formatTimestamp(date) {
-                    const now = new Date();
-                    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-                    const yesterday = new Date(today - 86400000);
-                    const noteDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-
-                    if (noteDate.getTime() === today.getTime()) {
-                        return `Today, ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-                    } else if (noteDate.getTime() === yesterday.getTime()) {
-                        return `Yesterday, ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
-                    } else {
-                        return date.toLocaleDateString() + ', ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                    }
-                }
-
-                escapeHtml(text) {
-                    const map = {
-                        '&': '&amp;',
-                        '<': '&lt;',
-                        '>': '&gt;',
-                        '"': '&quot;',
-                        "'": '&#039;'
-                    };
-                    return text.replace(/[&<>"']/g, m => map[m]);
-                }
-
-                loadNotes() {
-                    // Since we can't use localStorage in artifacts, we'll use a variable
-                    // In your actual implementation, replace this with localStorage
-                    return this.notes || [];
-                }
-
-                saveNotes() {
-                    // Since we can't use localStorage in artifacts, this is a placeholder
-                    // In your actual implementation, use: localStorage.setItem('churchNotes', JSON.stringify(this.notes));
-                    console.log('Notes would be saved to localStorage:', this.notes);
-                }
-            }
-
-            // Initialize enhanced notes plugin when DOM is loaded
-            let notesPlugin;
-            document.addEventListener('DOMContentLoaded', function() {
-                notesPlugin = new EnhancedNotesPlugin();
-            });
-
-            // Global functions for backward compatibility
-            function editNote(id) {
-                if (notesPlugin) notesPlugin.editNote(id);
-            }
-
-            function deleteNote(id) {
-                if (notesPlugin) notesPlugin.deleteNote(id);
-            }
-        </script>
-    </div>
-</body>
-</html>
+                    if (!notesList || !emptyState
