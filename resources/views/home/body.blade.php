@@ -487,9 +487,10 @@
                         <div class="card d-flex flex-column notes-card uniform-height-card">
                             <div class="notes-header d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="mb-0">
+                                    <h5 class="mb-0 text-white">
                                         <i class="fas fa-sticky-note me-2"></i>My Notes
                                     </h5>
+
                                 </div>
                                 <span class="notes-counter" id="notesCounter">0 notes</span>
                             </div>
@@ -497,7 +498,8 @@
                             <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
                                 <!-- Search Box -->
                                 <div class="search-box p-3 pb-2">
-                                    <input type="text" class="form-control" id="searchNotes" placeholder="Search notes...">
+                                    <input type="text" class="form-control" id="searchNotes"
+                                        placeholder="Search notes...">
                                 </div>
 
                                 <!-- Notes List -->
@@ -512,7 +514,8 @@
                                 <div class="add-note-form">
                                     <form id="addNoteForm">
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="noteText" rows="2" placeholder="Write your note here..." required></textarea>
+                                            <textarea class="form-control" id="noteText" rows="2"
+                                                placeholder="Write your note here..." required></textarea>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
@@ -532,7 +535,8 @@
                     <div class="col-md-4 grid-margin stretch-card">
                         <div class="card uniform-height-card">
                             <div class="card-body d-flex flex-column p-0">
-                                <iframe width="100%" height="100%" style="flex: 1; min-height: 460px; border-radius: 12px 12px 0 0;"
+                                <iframe width="100%" height="100%"
+                                    style="flex: 1; min-height: 460px; border-radius: 12px 12px 0 0;"
                                     src="https://www.youtube.com/embed/ebFLOyYts9g?si=hcZaV3qoqQMAiCxu"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -550,7 +554,8 @@
                         <div class="card d-flex flex-column bible-card uniform-height-card">
                             <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
                                 <iframe src="https://www.bible.com/bible/97/GEN.1.NLT" width="100%" height="100%"
-                                    style="border: none; min-height: 460px; border-radius: 12px 12px 0 0;" allowfullscreen loading="lazy">
+                                    style="border: none; min-height: 460px; border-radius: 12px 12px 0 0;"
+                                    allowfullscreen loading="lazy">
                                 </iframe>
                             </div>
                             <div class="footer1 text-center">
@@ -561,8 +566,8 @@
                 </div>
             </div>
         </div>
-        
-    <footer class="footer">
+
+        <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
                 <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
                     University SDA Church 2024</span>
@@ -576,234 +581,234 @@
             </div>
         </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 
-    <!-- Verse of the Day Script -->
-    <script>
-        // Enhanced verse display functionality
-        function displayVerse(verseData) {
-            const votdContainer = document.getElementById('verse-of-the-day');
-            if (!votdContainer) return;
+        <!-- Verse of the Day Script -->
+        <script>
+            // Enhanced verse display functionality
+            function displayVerse(verseData) {
+                const votdContainer = document.getElementById('verse-of-the-day');
+                if (!votdContainer) return;
 
-            if (verseData && verseData.votd) {
-                // Clean and format the verse text
-                let cleanText = verseData.votd.text;
+                if (verseData && verseData.votd) {
+                    // Clean and format the verse text
+                    let cleanText = verseData.votd.text;
 
-                // Remove excessive quotes and clean formatting
-                cleanText = cleanText.replace(/^["']+|["']+$/g, '');
-                cleanText = cleanText.trim();
+                    // Remove excessive quotes and clean formatting
+                    cleanText = cleanText.replace(/^["']+|["']+$/g, '');
+                    cleanText = cleanText.trim();
 
-                // Create formatted HTML
-                const verseHTML = `
+                    // Create formatted HTML
+                    const verseHTML = `
                     <div class="verse-text">"${cleanText}"</div>
                     <div class="verse-reference">— ${verseData.votd.reference}</div>
                 `;
 
-                votdContainer.innerHTML = verseHTML;
-            } else {
-                useFallbackVerse();
+                    votdContainer.innerHTML = verseHTML;
+                } else {
+                    useFallbackVerse();
+                }
             }
-        }
 
-        // Fallback verses for when API fails
-        const fallbackVerses = [
-            {
-                text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
-                reference: "Jeremiah 29:11"
-            },
-            {
-                text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
-                reference: "Proverbs 3:5-6"
-            },
-            {
-                text: "I can do all this through him who gives me strength.",
-                reference: "Philippians 4:13"
-            },
-            {
-                text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
-                reference: "Psalm 23:1-2"
-            },
-            {
-                text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
-                reference: "Romans 8:28"
-            }
-        ];
+            // Fallback verses for when API fails
+            const fallbackVerses = [
+                {
+                    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
+                    reference: "Jeremiah 29:11"
+                },
+                {
+                    text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+                    reference: "Proverbs 3:5-6"
+                },
+                {
+                    text: "I can do all this through him who gives me strength.",
+                    reference: "Philippians 4:13"
+                },
+                {
+                    text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters.",
+                    reference: "Psalm 23:1-2"
+                },
+                {
+                    text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+                    reference: "Romans 8:28"
+                }
+            ];
 
-        function useFallbackVerse() {
-            const votdContainer = document.getElementById('verse-of-the-day');
-            if (!votdContainer) return;
+            function useFallbackVerse() {
+                const votdContainer = document.getElementById('verse-of-the-day');
+                if (!votdContainer) return;
 
-            // Use a random fallback verse
-            const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
-            const verseHTML = `
+                // Use a random fallback verse
+                const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
+                const verseHTML = `
                 <div class="verse-text">"${randomVerse.text}"</div>
                 <div class="verse-reference">— ${randomVerse.reference}</div>
             `;
-            votdContainer.innerHTML = verseHTML;
-        }
-
-        // Legacy callback for Bible Gateway - simplified approach
-        function myVotdCallback(data) {
-            displayVerse(data);
-        }
-
-        // Initialize verse immediately with fallback, then try to load from API
-        document.addEventListener('DOMContentLoaded', function () {
-            // Show fallback verse immediately
-            useFallbackVerse();
-
-            // Try to load from Bible Gateway API
-            setTimeout(function () {
-                const script = document.createElement('script');
-                script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
-                script.onerror = function () {
-                    console.log('Bible Gateway API unavailable, using fallback verse');
-                };
-                document.head.appendChild(script);
-            }, 1000);
-        });
-    </script>
-
-    <!-- Notes Plugin Script -->
-    <script>
-        class NotesPlugin {
-            constructor() {
-                this.notes = this.loadNotesFromMemory();
-                this.init();
+                votdContainer.innerHTML = verseHTML;
             }
 
-            init() {
-                this.renderNotes();
-                this.bindEvents();
-                this.updateCounter();
+            // Legacy callback for Bible Gateway - simplified approach
+            function myVotdCallback(data) {
+                displayVerse(data);
             }
 
-            bindEvents() {
-                const addForm = document.getElementById('addNoteForm');
-                const searchInput = document.getElementById('searchNotes');
+            // Initialize verse immediately with fallback, then try to load from API
+            document.addEventListener('DOMContentLoaded', function () {
+                // Show fallback verse immediately
+                useFallbackVerse();
 
-                if (addForm) {
-                    addForm.addEventListener('submit', e => {
-                        e.preventDefault();
-                        this.addNote();
+                // Try to load from Bible Gateway API
+                setTimeout(function () {
+                    const script = document.createElement('script');
+                    script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
+                    script.onerror = function () {
+                        console.log('Bible Gateway API unavailable, using fallback verse');
+                    };
+                    document.head.appendChild(script);
+                }, 1000);
+            });
+        </script>
+
+        <!-- Notes Plugin Script -->
+        <script>
+            class NotesPlugin {
+                constructor() {
+                    this.notes = this.loadNotesFromMemory();
+                    this.init();
+                }
+
+                init() {
+                    this.renderNotes();
+                    this.bindEvents();
+                    this.updateCounter();
+                }
+
+                bindEvents() {
+                    const addForm = document.getElementById('addNoteForm');
+                    const searchInput = document.getElementById('searchNotes');
+
+                    if (addForm) {
+                        addForm.addEventListener('submit', e => {
+                            e.preventDefault();
+                            this.addNote();
+                        });
+                    }
+
+                    if (searchInput) {
+                        searchInput.addEventListener('input', e => this.searchNotes(e.target.value));
+                    }
+                }
+
+                loadNotesFromMemory() {
+                    // Use in-memory storage for the session
+                    if (!window.churchNotes) {
+                        window.churchNotes = [];
+                    }
+                    return window.churchNotes;
+                }
+
+                saveNotesToMemory() {
+                    window.churchNotes = this.notes;
+                }
+
+                addNote() {
+                    const noteTextElement = document.getElementById('noteText');
+                    const noteText = noteTextElement.value.trim();
+
+                    if (!noteText) {
+                        this.showError('Please enter a note');
+                        return;
+                    }
+
+                    const newNote = {
+                        id: Date.now(),
+                        text: noteText,
+                        created_at: new Date().toISOString(),
+                        pinned: false
+                    };
+
+                    this.notes.unshift(newNote);
+                    this.saveNotesToMemory();
+                    this.renderNotes();
+                    this.updateCounter();
+                    noteTextElement.value = '';
+                    this.showSuccess('Note added successfully');
+                }
+
+                deleteNote(id) {
+                    if (!confirm('Are you sure you want to delete this note?')) return;
+
+                    this.notes = this.notes.filter(n => n.id !== id);
+                    this.saveNotesToMemory();
+                    this.renderNotes();
+                    this.updateCounter();
+                    this.showSuccess('Note deleted successfully');
+                }
+
+                editNote(id) {
+                    const note = this.notes.find(n => n.id === id);
+                    if (!note) return;
+
+                    const newText = prompt('Edit your note:', note.text);
+                    if (!newText || newText.trim() === note.text) return;
+
+                    note.text = newText.trim();
+                    this.saveNotesToMemory();
+                    this.renderNotes();
+                    this.showSuccess('Note updated successfully');
+                }
+
+                togglePin(id) {
+                    const note = this.notes.find(n => n.id === id);
+                    if (!note) return;
+
+                    note.pinned = !note.pinned;
+                    this.saveNotesToMemory();
+
+                    // Reorder notes - pinned first, then by date
+                    this.notes.sort((a, b) => {
+                        if (a.pinned && !b.pinned) return -1;
+                        if (!a.pinned && b.pinned) return 1;
+                        return new Date(b.created_at) - new Date(a.created_at);
                     });
+
+                    this.renderNotes();
+                    this.updateCounter();
+                    this.showSuccess(note.pinned ? 'Note pinned' : 'Note unpinned');
                 }
 
-                if (searchInput) {
-                    searchInput.addEventListener('input', e => this.searchNotes(e.target.value));
-                }
-            }
+                renderNotes(notesToRender = this.notes) {
+                    const notesList = document.getElementById('notesList');
+                    const emptyState = document.getElementById('emptyState');
 
-            loadNotesFromMemory() {
-                // Use in-memory storage for the session
-                if (!window.churchNotes) {
-                    window.churchNotes = [];
-                }
-                return window.churchNotes;
-            }
+                    if (!notesList) return;
 
-            saveNotesToMemory() {
-                window.churchNotes = this.notes;
-            }
+                    // Clear existing notes
+                    const existingNotes = notesList.querySelectorAll('.note-item');
+                    existingNotes.forEach(note => note.remove());
 
-            addNote() {
-                const noteTextElement = document.getElementById('noteText');
-                const noteText = noteTextElement.value.trim();
-                
-                if (!noteText) {
-                    this.showError('Please enter a note');
-                    return;
-                }
+                    if (!notesToRender.length) {
+                        if (emptyState) emptyState.style.display = 'block';
+                        return;
+                    } else {
+                        if (emptyState) emptyState.style.display = 'none';
+                    }
 
-                const newNote = {
-                    id: Date.now(),
-                    text: noteText,
-                    created_at: new Date().toISOString(),
-                    pinned: false
-                };
+                    // Sort: pinned first, then by created date (newest first)
+                    const sortedNotes = [...notesToRender].sort((a, b) => {
+                        if (a.pinned && !b.pinned) return -1;
+                        if (!a.pinned && b.pinned) return 1;
+                        return new Date(b.created_at) - new Date(a.created_at);
+                    });
 
-                this.notes.unshift(newNote);
-                this.saveNotesToMemory();
-                this.renderNotes();
-                this.updateCounter();
-                noteTextElement.value = '';
-                this.showSuccess('Note added successfully');
-            }
-
-            deleteNote(id) {
-                if (!confirm('Are you sure you want to delete this note?')) return;
-
-                this.notes = this.notes.filter(n => n.id !== id);
-                this.saveNotesToMemory();
-                this.renderNotes();
-                this.updateCounter();
-                this.showSuccess('Note deleted successfully');
-            }
-
-            editNote(id) {
-                const note = this.notes.find(n => n.id === id);
-                if (!note) return;
-
-                const newText = prompt('Edit your note:', note.text);
-                if (!newText || newText.trim() === note.text) return;
-
-                note.text = newText.trim();
-                this.saveNotesToMemory();
-                this.renderNotes();
-                this.showSuccess('Note updated successfully');
-            }
-
-            togglePin(id) {
-                const note = this.notes.find(n => n.id === id);
-                if (!note) return;
-
-                note.pinned = !note.pinned;
-                this.saveNotesToMemory();
-
-                // Reorder notes - pinned first, then by date
-                this.notes.sort((a, b) => {
-                    if (a.pinned && !b.pinned) return -1;
-                    if (!a.pinned && b.pinned) return 1;
-                    return new Date(b.created_at) - new Date(a.created_at);
-                });
-
-                this.renderNotes();
-                this.updateCounter();
-                this.showSuccess(note.pinned ? 'Note pinned' : 'Note unpinned');
-            }
-
-            renderNotes(notesToRender = this.notes) {
-                const notesList = document.getElementById('notesList');
-                const emptyState = document.getElementById('emptyState');
-
-                if (!notesList) return;
-
-                // Clear existing notes
-                const existingNotes = notesList.querySelectorAll('.note-item');
-                existingNotes.forEach(note => note.remove());
-
-                if (!notesToRender.length) {
-                    if (emptyState) emptyState.style.display = 'block';
-                    return;
-                } else {
-                    if (emptyState) emptyState.style.display = 'none';
-                }
-
-                // Sort: pinned first, then by created date (newest first)
-                const sortedNotes = [...notesToRender].sort((a, b) => {
-                    if (a.pinned && !b.pinned) return -1;
-                    if (!a.pinned && b.pinned) return 1;
-                    return new Date(b.created_at) - new Date(a.created_at);
-                });
-
-                sortedNotes.forEach(note => {
-                    const noteEl = document.createElement('div');
-                    noteEl.className = `note-item ${note.pinned ? 'pinned' : ''}`;
-                    noteEl.innerHTML = `
+                    sortedNotes.forEach(note => {
+                        const noteEl = document.createElement('div');
+                        noteEl.className = `note-item ${note.pinned ? 'pinned' : ''}`;
+                        noteEl.innerHTML = `
                         <div class="note-meta">
                             <span><i class="fas fa-clock"></i> ${this.formatDate(note.created_at)}</span>
                             <button class="btn btn-sm ${note.pinned ? 'btn-warning' : 'btn-outline-secondary'} pin-btn" 
