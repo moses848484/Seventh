@@ -294,15 +294,6 @@
             color: #5a6fd8;
         }
 
-        /* Main footer */
-        .footer {
-            background: #343a40;
-            color: white;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 12px;
-        }
-
         .text-white a {
             color: #fff !important;
             text-decoration: none;
