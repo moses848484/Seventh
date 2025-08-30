@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/css/viewmember.css" rel="stylesheet" />
     <title>View Church Members</title>
 
     <style>
@@ -257,7 +257,7 @@
         .footer1 {
             background: #04AA6D;
             padding: 15px;
-            border-top: 1px solid #dee2e6;
+            border-top: 1px solid #04AA6D;
             border-radius: 0 0 12px 12px;
         }
 
