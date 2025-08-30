@@ -6,176 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Church Manager" />
     <meta name="keywords" content="Church, Manager, Member registration, Donation, Tithe Manager" />
-    <meta name="csrf-token" content="demo-csrf-token-123">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-    <!-- Bootstrap 4 CSS -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/addmember.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Church Management Dashboard</title>
+    <title>View Church Members</title>
 
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        /* Main Panel */
-        .main-panel {
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Card Styles */
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .card1 {
-            margin-top: 30px;
-        }
-
-        .card-body {
-            padding: 25px;
-        }
-
-        .footer1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 0 0 12px 12px;
-            text-align: center;
-        }
-
-        .text-muted2 {
-            color: white !important;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        /* Icon Styling */
-        .span2 {
-            text-align: center;
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .icon-box-success {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .icon-box-success:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-link {
-            color: white !important;
-            text-decoration: none;
-        }
-
-        /* Corona Gradient Card Styles */
-        .corona-gradient-card {
+        /* Floating Label Styles */
+        .form-floating {
             position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 120px;
         }
 
-        .corona-gradient-card::before {
-            content: "";
+        .form-floating input {
+            padding: 1.5rem 0.75rem 1rem 0.75rem;
+        }
+
+        .form-floating label {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="25" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="60" cy="15" r="0.8" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="40" r="1.2" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') center/cover;
-            z-index: 0;
+            top: 45%;
+            left: 0.75rem;
+            transform: translateY(-50%);
+            transition: all 0.2s ease-in-out;
+            color: #04AA6D;
+            pointer-events: none;
         }
 
-        .corona-gradient-card .card-body {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            padding: 20px;
+        .form-floating input:focus+label,
+        .form-floating input:not(:placeholder-shown)+label {
+            top: 25%;
+            transform: translateY(-100%);
+            font-size: 0.8rem;
+            color: #04AA6D;
+            background: white;
         }
 
-        .gradient-corona-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            flex-shrink: 0;
-            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-size: 24px;
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            color: #04AA6D;
         }
 
-        .verse-content {
-            color: white;
-            flex: 1;
-            text-align: center;
-            margin: 0 20px;
-        }
-
-        .verse-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            line-height: 1.4;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0.5rem;
-        }
-
-        .verse-reference {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        .get-started-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .get-started-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            color: white;
-            text-decoration: none;
+        .form-control:focus {
+            border-color: #ced4da;
+            box-shadow: none;
+            color: #04AA6D;
         }
 
         /* Notes Card Styles */
@@ -185,6 +61,7 @@
             display: flex;
             flex-direction: column;
             height: 500px;
+            border: none;
         }
 
         .notes-header {
@@ -226,7 +103,7 @@
             color: #6c757d;
             margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
+            justify-content: between;
             align-items: center;
         }
 
@@ -278,17 +155,146 @@
             margin-bottom: 15px;
         }
 
+        /* Verse Card Styles */
+        .corona-gradient-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .corona-gradient-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg-img1.jpg') center/cover no-repeat;
+            filter: blur(2px) brightness(0.7);
+            transform: scale(1.1);
+            z-index: 0;
+        }
+
+        .corona-gradient-card .card-body {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .gradient-corona-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .verse-content {
+            color: white;
+            flex: 1;
+            text-align: center;
+        }
+
+        .verse-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .verse-reference {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .get-started-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        /* Card styling */
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card1 {
+            margin-top: 20px;
+        }
+
         /* Uniform height for cards */
         .uniform-height-card {
             height: 500px;
         }
 
         .bible-card iframe {
-            border-radius: 0 0 12px 12px;
+            border-radius: 12px 12px 0 0;
             min-height: 460px;
         }
 
-        /* Footer */
+        /* Footer styling */
+        .footer1 {
+            background: #f8f9fa;
+            padding: 15px;
+            border-top: 1px solid #dee2e6;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .text-muted2 {
+            color: #6c757d !important;
+            font-size: 0.9rem;
+        }
+
+        .text-muted1 {
+            color: #adb5bd !important;
+        }
+
+        /* Search box */
+        .search-box {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        /* Icon styles */
+        .span2 {
+            text-align: center;
+            color: #667eea;
+        }
+
+        .icon-box-success {
+            text-align: center;
+        }
+
+        .nav-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: #5a6fd8;
+        }
+
+        /* Main footer */
         .footer {
             background: #343a40;
             color: white;
@@ -297,36 +303,13 @@
             border-radius: 12px;
         }
 
-        .text-muted1 {
-            color: #adb5bd !important;
-        }
-
         .text-white a {
             color: #fff !important;
             text-decoration: none;
         }
 
-        /* Toast notifications */
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .custom-toast {
-            min-width: 300px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Search box */
-        .search-box {
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive adjustments */
+        @media (max-width:768px) {
             .gradient-corona-img {
                 width: 60px;
                 height: 60px;
@@ -341,22 +324,21 @@
                 font-size: 0.8rem;
             }
 
-            .notes-card {
+            .notes-card, .uniform-height-card {
                 height: auto;
                 min-height: 400px;
+                margin-bottom: 20px;
             }
 
-            .uniform-height-card {
-                height: auto;
-                min-height: 300px;
+            .main-panel {
+                padding: 10px;
             }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width:576px) {
             .gradient-corona-img {
                 width: 50px;
                 height: 50px;
-                font-size: 18px;
             }
 
             .verse-text {
@@ -373,8 +355,8 @@
                 font-size: 0.75rem;
             }
 
-            .main-panel {
-                padding: 10px;
+            .notes-card, .uniform-height-card {
+                min-height: 350px;
             }
         }
     </style>
@@ -391,9 +373,8 @@
                             <div class="d-flex align-items-center justify-content-between w-100">
                                 <!-- Image Column - Left -->
                                 <div class="me-3">
-                                    <div class="gradient-corona-img">
-                                        <i class="fas fa-pray"></i>
-                                    </div>
+                                    <img src="images/hands-praying.jpg" class="gradient-corona-img img-fluid"
+                                        alt="Bible Image" loading="lazy">
                                 </div>
 
                                 <!-- Verse Content - Center -->
@@ -417,7 +398,7 @@
                 </div>
             </div>
 
-            <!-- Dashboard Cards -->
+            <!-- Main Cards Row -->
             <div class="card1">
                 <div class="row">
                     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
@@ -425,14 +406,16 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-9">
-                                        <div class="span2">
-                                            <i class="fa-solid fa-calendar fa-3x"></i>
+                                        <div class="span2"><br />
+                                            <i class="fa-solid fa-calendar fa-3x"></i><br />
+                                        </div>
+                                        <div class="d-flex align-items-center align-self-start">
                                         </div>
                                     </div>
                                     <div class="col-3">
-                                        <div class="icon-box-success">
-                                            <a class="nav-link" href="#events">
-                                                <i class="fas fa-arrow-right"></i>
+                                        <div class="icon icon-box-success">
+                                            <a class="nav-link" href="{{ url('see_members') }}">
+                                                <span class="mdi mdi-arrow-right icon-item"></span>
                                             </a>
                                         </div>
                                     </div>
@@ -449,14 +432,14 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-9">
-                                        <div class="span2">
-                                            <i class="fa-solid fa-user-plus fa-3x"></i>
+                                        <div class="span2"><br />
+                                            <i class="fa-solid fa-user-plus fa-3x"></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
-                                        <div class="icon-box-success">
-                                            <a class="nav-link" href="#registration">
-                                                <i class="fas fa-arrow-right"></i>
+                                        <div class="icon icon-box-success">
+                                            <a class="nav-link" href="{{ url('member_registration') }}">
+                                                <span class="mdi mdi-arrow-right icon-item"></span>
                                             </a>
                                         </div>
                                     </div>
@@ -473,15 +456,14 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-9">
-                                        <div class="span2">
-                                            <i class="fas fa-praying-hands fa-3x" style='color:#e4af00;'></i>
+                                        <div class="span2"><br />
+                                            <i class="fas fa-praying-hands"
+                                                style='font-size:48px;color:#e4af00;'></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
-                                        <div class="icon-box-success">
-                                            <a class="nav-link" href="#prayers">
-                                                <i class="fas fa-arrow-right"></i>
-                                            </a>
+                                        <div class="icon icon-box-success">
+                                            <span class="mdi mdi-arrow-right icon-item"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -497,14 +479,14 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-9">
-                                        <div class="span2">
-                                            <i class="fa fa-hand-holding-heart fa-3x"></i>
+                                        <div class="span2"><br />
+                                            <i class="fa fa-money-check-alt fa-3x"></i><br />
                                         </div>
                                     </div>
                                     <div class="col-3">
-                                        <div class="icon-box-success">
-                                            <a class="nav-link" href="#givings">
-                                                <i class="fas fa-arrow-right"></i>
+                                        <div class="icon icon-box-success">
+                                            <a class="nav-link" href="{{ url('/redirect') }}">
+                                                <span class="mdi mdi-arrow-right icon-item"></span>
                                             </a>
                                         </div>
                                     </div>
@@ -534,8 +516,7 @@
                             <div class="card-body p-0 d-flex flex-column" style="flex: 1;">
                                 <!-- Search Box -->
                                 <div class="search-box p-3 pb-2">
-                                    <input type="text" class="form-control" id="searchNotes"
-                                        placeholder="Search notes...">
+                                    <input type="text" class="form-control" id="searchNotes" placeholder="Search notes...">
                                 </div>
 
                                 <!-- Notes List -->
@@ -550,12 +531,11 @@
                                 <div class="add-note-form">
                                     <form id="addNoteForm">
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="noteText" rows="2"
-                                                placeholder="Write your note here..." required></textarea>
+                                            <textarea class="form-control" id="noteText" rows="2" placeholder="Write your note here..." required></textarea>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
-                                                <i class="fas fa-save me-1"></i>Saved to server
+                                                <i class="fas fa-save me-1"></i>Saved locally
                                             </small>
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fas fa-plus me-1"></i>Add
@@ -607,22 +587,22 @@
                 <span class="text-muted1 d-block text-center text-sm-left d-sm-inline-block">Copyright ©
                     University SDA Church 2024</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white">
-                    Computer Science Dept - 
-                    <a href="#" class="text-white">Computer Systems Engineering</a> 
-                    from University Of Zambia
+                    Computer Science Dept
+                    <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank"
+                        class="text-white">
+                        Computer Systems Engineering
+                    </a> from University Of Zambia
                 </span>
             </div>
         </footer>
-
-        <!-- Toast Container -->
-        <div class="toast-container" id="toastContainer"></div>
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-    
+
     <!-- Verse of the Day Script -->
     <script>
         // Enhanced verse display functionality
@@ -631,20 +611,26 @@
             if (!votdContainer) return;
 
             if (verseData && verseData.votd) {
+                // Clean and format the verse text
                 let cleanText = verseData.votd.text;
+
+                // Remove excessive quotes and clean formatting
                 cleanText = cleanText.replace(/^["']+|["']+$/g, '');
                 cleanText = cleanText.trim();
 
+                // Create formatted HTML
                 const verseHTML = `
                     <div class="verse-text">"${cleanText}"</div>
                     <div class="verse-reference">— ${verseData.votd.reference}</div>
                 `;
+
                 votdContainer.innerHTML = verseHTML;
             } else {
                 useFallbackVerse();
             }
         }
 
+        // Fallback verses for when API fails
         const fallbackVerses = [
             {
                 text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
@@ -672,6 +658,7 @@
             const votdContainer = document.getElementById('verse-of-the-day');
             if (!votdContainer) return;
 
+            // Use a random fallback verse
             const randomVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
             const verseHTML = `
                 <div class="verse-text">"${randomVerse.text}"</div>
@@ -680,13 +667,17 @@
             votdContainer.innerHTML = verseHTML;
         }
 
+        // Legacy callback for Bible Gateway - simplified approach
         function myVotdCallback(data) {
             displayVerse(data);
         }
 
+        // Initialize verse immediately with fallback, then try to load from API
         document.addEventListener('DOMContentLoaded', function () {
+            // Show fallback verse immediately
             useFallbackVerse();
 
+            // Try to load from Bible Gateway API
             setTimeout(function () {
                 const script = document.createElement('script');
                 script.src = 'https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=myVotdCallback';
@@ -698,17 +689,15 @@
         });
     </script>
 
-    <!-- Enhanced Notes Plugin Script -->
+    <!-- Notes Plugin Script -->
     <script>
         class NotesPlugin {
             constructor() {
-                this.notes = [];
-                this.csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+                this.notes = this.loadNotesFromMemory();
                 this.init();
             }
 
-            async init() {
-                await this.loadNotes();
+            init() {
                 this.renderNotes();
                 this.bindEvents();
                 this.updateCounter();
@@ -730,170 +719,82 @@
                 }
             }
 
-            async loadNotes() {
-                try {
-                    const response = await fetch('/notes', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': this.csrf,
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    this.notes = await response.json();
-                } catch (error) {
-                    console.error('Failed to load notes:', error);
-                    this.showError('Failed to load notes');
-                    this.notes = [];
+            loadNotesFromMemory() {
+                // Use in-memory storage for the session
+                if (!window.churchNotes) {
+                    window.churchNotes = [];
                 }
+                return window.churchNotes;
             }
 
-            async addNote() {
+            saveNotesToMemory() {
+                window.churchNotes = this.notes;
+            }
+
+            addNote() {
                 const noteTextElement = document.getElementById('noteText');
-                const noteText = noteTextElement?.value.trim();
+                const noteText = noteTextElement.value.trim();
                 
                 if (!noteText) {
                     this.showError('Please enter a note');
                     return;
                 }
 
-                try {
-                    const response = await fetch('/notes', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': this.csrf,
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ text: noteText })
-                    });
+                const newNote = {
+                    id: Date.now(),
+                    text: noteText,
+                    created_at: new Date().toISOString(),
+                    pinned: false
+                };
 
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-                    }
-
-                    const newNote = await response.json();
-                    this.notes.unshift(newNote);
-                    this.renderNotes();
-                    this.updateCounter();
-                    noteTextElement.value = '';
-                    this.showSuccess('Note saved successfully');
-                } catch (error) {
-                    console.error('Error saving note:', error);
-                    this.showError('Failed to save note: ' + error.message);
-                }
+                this.notes.unshift(newNote);
+                this.saveNotesToMemory();
+                this.renderNotes();
+                this.updateCounter();
+                noteTextElement.value = '';
+                this.showSuccess('Note added successfully');
             }
 
-            async deleteNote(id) {
+            deleteNote(id) {
                 if (!confirm('Are you sure you want to delete this note?')) return;
 
-                try {
-                    const response = await fetch(`/notes/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': this.csrf,
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-                    }
-
-                    this.notes = this.notes.filter(n => n.id !== id);
-                    this.renderNotes();
-                    this.updateCounter();
-                    this.showSuccess('Note deleted successfully');
-                } catch (error) {
-                    console.error('Error deleting note:', error);
-                    this.showError('Failed to delete note: ' + error.message);
-                }
+                this.notes = this.notes.filter(n => n.id !== id);
+                this.saveNotesToMemory();
+                this.renderNotes();
+                this.updateCounter();
+                this.showSuccess('Note deleted successfully');
             }
 
-            async editNote(id) {
+            editNote(id) {
                 const note = this.notes.find(n => n.id === id);
                 if (!note) return;
 
                 const newText = prompt('Edit your note:', note.text);
                 if (!newText || newText.trim() === note.text) return;
 
-                try {
-                    const response = await fetch(`/notes/${id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': this.csrf,
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ text: newText.trim() })
-                    });
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-                    }
-
-                    const updatedNote = await response.json();
-                    const index = this.notes.findIndex(n => n.id === id);
-                    if (index !== -1) {
-                        this.notes[index] = updatedNote;
-                    }
-                    this.renderNotes();
-                    this.showSuccess('Note updated successfully');
-                } catch (error) {
-                    console.error('Error editing note:', error);
-                    this.showError('Failed to update note: ' + error.message);
-                }
+                note.text = newText.trim();
+                this.saveNotesToMemory();
+                this.renderNotes();
+                this.showSuccess('Note updated successfully');
             }
 
-            async togglePin(id) {
+            togglePin(id) {
                 const note = this.notes.find(n => n.id === id);
                 if (!note) return;
 
-                try {
-                    const response = await fetch(`/notes/${id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': this.csrf,
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ pinned: !note.pinned })
-                    });
+                note.pinned = !note.pinned;
+                this.saveNotesToMemory();
 
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-                    }
+                // Reorder notes - pinned first, then by date
+                this.notes.sort((a, b) => {
+                    if (a.pinned && !b.pinned) return -1;
+                    if (!a.pinned && b.pinned) return 1;
+                    return new Date(b.created_at) - new Date(a.created_at);
+                });
 
-                    const updatedNote = await response.json();
-                    const index = this.notes.findIndex(n => n.id === id);
-                    if (index !== -1) {
-                        this.notes[index] = updatedNote;
-                    }
-
-                    // Reorder notes - pinned first, then by date
-                    this.notes.sort((a, b) => {
-                        if (a.pinned && !b.pinned) return -1;
-                        if (!a.pinned && b.pinned) return 1;
-                        return new Date(b.created_at) - new Date(a.created_at);
-                    });
-
-                    this.renderNotes();
-                    this.updateCounter();
-                    this.showSuccess(updatedNote.pinned ? 'Note pinned' : 'Note unpinned');
-                } catch (error) {
-                    console.error('Error pinning note:', error);
-                    this.showError('Failed to update note: ' + error.message);
-                }
+                this.renderNotes();
+                this.updateCounter();
+                this.showSuccess(note.pinned ? 'Note pinned' : 'Note unpinned');
             }
 
             renderNotes(notesToRender = this.notes) {
@@ -922,13 +823,9 @@
 
                 sortedNotes.forEach(note => {
                     const noteEl = document.createElement('div');
-                    noteEl.className = 'note-item';
-                    if (note.pinned) {
-                        noteEl.classList.add('pinned');
-                    }
-                    
+                    noteEl.className = `note-item ${note.pinned ? 'pinned' : ''}`;
                     noteEl.innerHTML = `
-                        <div class="note-meta d-flex justify-content-between align-items-center">
+                        <div class="note-meta">
                             <span><i class="fas fa-clock"></i> ${this.formatDate(note.created_at)}</span>
                             <button class="btn btn-sm ${note.pinned ? 'btn-warning' : 'btn-outline-secondary'} pin-btn" 
                                     title="${note.pinned ? 'Unpin note' : 'Pin note'}">
@@ -937,116 +834,4 @@
                         </div>
                         <div class="note-text">${this.escapeHtml(note.text)}</div>
                         <div class="note-actions">
-                            <button class="btn btn-sm btn-outline-primary me-1 edit-btn" title="Edit note">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger delete-btn" title="Delete note">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    `;
-
-                    // Attach event listeners
-                    noteEl.querySelector('.edit-btn').addEventListener('click', () => this.editNote(note.id));
-                    noteEl.querySelector('.delete-btn').addEventListener('click', () => this.deleteNote(note.id));
-                    noteEl.querySelector('.pin-btn').addEventListener('click', () => this.togglePin(note.id));
-
-                    notesList.appendChild(noteEl);
-                });
-            }
-
-            searchNotes(query) {
-                const normalizedQuery = query.toLowerCase().trim();
-                
-                if (!normalizedQuery) {
-                    this.renderNotes();
-                    return;
-                }
-
-                const filtered = this.notes.filter(note => 
-                    note.text.toLowerCase().includes(normalizedQuery)
-                );
-                
-                this.renderNotes(filtered);
-            }
-
-            updateCounter() {
-                const counter = document.getElementById('notesCounter');
-                if (counter) {
-                    const pinnedCount = this.notes.filter(n => n.pinned).length;
-                    const totalCount = this.notes.length;
-                    
-                    let text = `${totalCount} ${totalCount === 1 ? 'note' : 'notes'}`;
-                    if (pinnedCount > 0) {
-                        text += ` (${pinnedCount} pinned)`;
-                    }
-                    
-                    counter.textContent = text;
-                }
-            }
-
-            formatDate(dateString) {
-                try {
-                    const date = new Date(dateString);
-                    const now = new Date();
-                    const diffTime = Math.abs(now - date);
-                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-                    if (diffDays === 1) {
-                        return 'Today';
-                    } else if (diffDays === 2) {
-                        return 'Yesterday';
-                    } else if (diffDays <= 7) {
-                        return `${diffDays - 1} days ago`;
-                    } else {
-                        return date.toLocaleDateString();
-                    }
-                } catch (error) {
-                    return 'Unknown date';
-                }
-            }
-
-            escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-
-            showSuccess(message) {
-                this.showToast(message, 'success');
-            }
-
-            showError(message) {
-                this.showToast(message, 'error');
-            }
-
-            showToast(message, type = 'info') {
-                const toast = document.createElement('div');
-                toast.className = `alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show`;
-                toast.style.position = 'fixed';
-                toast.style.top = '20px';
-                toast.style.right = '20px';
-                toast.style.zIndex = '9999';
-                toast.style.minWidth = '300px';
-                
-                toast.innerHTML = `
-                    ${message}
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                `;
-                
-                document.body.appendChild(toast);
-                
-                setTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 3000);
-            }
-        }
-
-        // Initialize when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            new NotesPlugin();
-        });
+                            <button class="
