@@ -93,32 +93,9 @@ class User extends Authenticatable
     /**
      * Get the user's notes.
      */
-    public function notes(): HasMany
+    // In app/Models/User.php
+    public function notes()
     {
-        return $this->hasMany(Note::class)->orderBy('pinned', 'desc')->orderBy('created_at', 'desc');
-    }
-
-    /**
-     * Get the user's pinned notes.
-     */
-    public function pinnedNotes(): HasMany
-    {
-        return $this->hasMany(Note::class)->where('pinned', true)->orderBy('created_at', 'desc');
-    }
-
-    /**
-     * Get count of user's notes.
-     */
-    public function getNotesCountAttribute(): int
-    {
-        return $this->notes()->count();
-    }
-
-    /**
-     * Get count of user's pinned notes.
-     */
-    public function getPinnedNotesCountAttribute(): int
-    {
-        return $this->pinnedNotes()->count();
+        return $this->hasMany(Note::class);
     }
 }

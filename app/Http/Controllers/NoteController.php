@@ -2,21 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Note;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\JsonResponse;
+use App\Models\Note;
 
-class NoteController extends Controller
+class NotesController extends Controller
 {
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
-    }
-
-    public function index(): JsonResponse
-    {
-        $notes = Note::where('user_id', Auth::id())
+        $notes = Note::where('user_id', auth()->id())
                     ->orderBy('pinned', 'desc')
                     ->orderBy('created_at', 'desc')
                     ->get();
@@ -24,57 +17,46 @@ class NoteController extends Controller
         return response()->json($notes);
     }
 
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
-        $validated = $request->validate([
-            'text' => 'required|string|max:1000'
+        $request->validate([
+            'text' => 'required|string|max:1000',
+            'pinned' => 'boolean'
         ]);
 
         $note = Note::create([
-            'user_id' => Auth::id(),
-            'text' => $validated['text'],
-            'pinned' => false
+            'text' => $request->text,
+            'pinned' => $request->pinned ?? false,
+            'user_id' => auth()->id()
         ]);
 
         return response()->json($note, 201);
     }
 
-    public function update(Request $request, Note $note): JsonResponse
+    public function update(Request $request, $id)
     {
-        // Check if user owns this note
-        if ($note->user_id !== Auth::id()) {
-            return response()->json(['error' => 'Unauthorized'], 403);
-        }
+        $note = Note::where('id', $id)
+                   ->where('user_id', auth()->id())
+                   ->firstOrFail();
 
-        $data = [];
-        
-        if ($request->has('text')) {
-            $validated = $request->validate([
-                'text' => 'required|string|max:1000'
-            ]);
-            $data['text'] = $validated['text'];
-        }
-        
-        if ($request->has('pinned')) {
-            $data['pinned'] = $request->boolean('pinned');
-        }
+        $request->validate([
+            'text' => 'sometimes|required|string|max:1000',
+            'pinned' => 'sometimes|boolean'
+        ]);
 
-        if (!empty($data)) {
-            $note->update($data);
-        }
+        $note->update($request->only(['text', 'pinned']));
 
         return response()->json($note);
     }
 
-    public function destroy(Note $note): JsonResponse
+    public function destroy($id)
     {
-        // Check if user owns this note
-        if ($note->user_id !== Auth::id()) {
-            return response()->json(['error' => 'Unauthorized'], 403);
-        }
+        $note = Note::where('id', $id)
+                   ->where('user_id', auth()->id())
+                   ->firstOrFail();
 
         $note->delete();
-        
+
         return response()->json(['message' => 'Note deleted successfully']);
     }
 }

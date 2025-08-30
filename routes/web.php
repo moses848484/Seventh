@@ -117,10 +117,10 @@ Route::middleware([
     // Music
     Route::get('/listen/{filename}', [MusicController::class, 'listen'])->name('listen.music');
 
-// Notes routes
-    Route::get('/notes', [NoteController::class, 'index']);
-    Route::post('/notes', [NoteController::class, 'store']);
-    Route::put('/notes/{note}', [NoteController::class, 'update']);
-    Route::delete('/notes/{note}', [NoteController::class, 'destroy']);
+    // Notes routes
+    Route::get('/api/notes', [NoteController::class, 'index']);
+    Route::post('/api/notes', [NoteController::class, 'store']);
+    Route::put('/api/notes/{note}', [NoteController::class, 'update']); // Changed to use route model binding
+    Route::delete('/api/notes/{note}', [NoteController::class, 'destroy']); // Changed to use route model binding
 
 });

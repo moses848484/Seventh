@@ -1,5 +1,8 @@
 <?php
 
+// app/Models/Note.php
+// Create with: php artisan make:model Note
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,21 +22,14 @@ class Note extends Model
     protected $casts = [
         'pinned' => 'boolean',
         'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
+    /**
+     * Get the user that owns the note.
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function scopePinned($query)
-    {
-        return $query->where('pinned', true);
-    }
-
-    public function scopeUnpinned($query)
-    {
-        return $query->where('pinned', false);
     }
 }
