@@ -314,16 +314,6 @@
                 padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
             }
-
-            .notes-card, .uniform-height-card {
-                height: auto;
-                min-height: 400px;
-                margin-bottom: 20px;
-            }
-
-            .main-panel {
-                padding: 10px;
-            }
         }
 
         @media (max-width:576px) {
@@ -344,10 +334,6 @@
             .get-started-btn {
                 padding: 0.3rem 0.6rem;
                 font-size: 0.75rem;
-            }
-
-            .notes-card, .uniform-height-card {
-                min-height: 350px;
             }
         }
     </style>
