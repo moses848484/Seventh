@@ -275,6 +275,10 @@
             border-bottom: 1px solid #dee2e6;
         }
 
+        .fa-sticky-note {
+            color: #ffffffff;
+        }
+
         /* Icon styles */
         .span2 {
             text-align: center;
