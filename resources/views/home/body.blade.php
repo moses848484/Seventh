@@ -555,7 +555,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
-                                                <i class="fas fa-save me-1"></i>Saved locally
+                                                <i class="fas fa-save me-1"></i>Saved to server
                                             </small>
                                             <button type="submit" class="btn btn-primary btn-sm">
                                                 <i class="fas fa-plus me-1"></i>Add
@@ -703,12 +703,12 @@
         class NotesPlugin {
             constructor() {
                 this.notes = [];
-                this.storageKey = 'church_dashboard_notes';
+                this.csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
                 this.init();
             }
 
             async init() {
-                this.loadNotesFromStorage();
+                await this.loadNotes();
                 this.renderNotes();
                 this.bindEvents();
                 this.updateCounter();
@@ -730,32 +730,30 @@
                 }
             }
 
-            loadNotesFromStorage() {
+            async loadNotes() {
                 try {
-                    const storedNotes = localStorage.getItem(this.storageKey);
-                    if (storedNotes) {
-                        this.notes = JSON.parse(storedNotes);
+                    const response = await fetch('/notes', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrf,
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
+
+                    this.notes = await response.json();
                 } catch (error) {
-                    console.warn('Could not load notes from storage:', error);
+                    console.error('Failed to load notes:', error);
+                    this.showError('Failed to load notes');
                     this.notes = [];
                 }
             }
 
-            saveNotesToStorage() {
-                try {
-                    localStorage.setItem(this.storageKey, JSON.stringify(this.notes));
-                } catch (error) {
-                    console.error('Could not save notes to storage:', error);
-                    this.showError('Failed to save notes to storage');
-                }
-            }
-
-            generateId() {
-                return Date.now().toString(36) + Math.random().toString(36).substr(2);
-            }
-
-            addNote() {
+            async addNote() {
                 const noteTextElement = document.getElementById('noteText');
                 const noteText = noteTextElement?.value.trim();
                 
@@ -765,41 +763,62 @@
                 }
 
                 try {
-                    const newNote = {
-                        id: this.generateId(),
-                        text: noteText,
-                        created_at: new Date().toISOString(),
-                        pinned: false
-                    };
+                    const response = await fetch('/notes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrf,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ text: noteText })
+                    });
 
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+                    }
+
+                    const newNote = await response.json();
                     this.notes.unshift(newNote);
-                    this.saveNotesToStorage();
                     this.renderNotes();
                     this.updateCounter();
                     noteTextElement.value = '';
-                    this.showSuccess('Note added successfully');
+                    this.showSuccess('Note saved successfully');
                 } catch (error) {
-                    console.error('Error adding note:', error);
-                    this.showError('Failed to add note');
+                    console.error('Error saving note:', error);
+                    this.showError('Failed to save note: ' + error.message);
                 }
             }
 
-            deleteNote(id) {
+            async deleteNote(id) {
                 if (!confirm('Are you sure you want to delete this note?')) return;
 
                 try {
+                    const response = await fetch(`/notes/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrf,
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+                    }
+
                     this.notes = this.notes.filter(n => n.id !== id);
-                    this.saveNotesToStorage();
                     this.renderNotes();
                     this.updateCounter();
                     this.showSuccess('Note deleted successfully');
                 } catch (error) {
                     console.error('Error deleting note:', error);
-                    this.showError('Failed to delete note');
+                    this.showError('Failed to delete note: ' + error.message);
                 }
             }
 
-            editNote(id) {
+            async editNote(id) {
                 const note = this.notes.find(n => n.id === id);
                 if (!note) return;
 
@@ -807,22 +826,227 @@
                 if (!newText || newText.trim() === note.text) return;
 
                 try {
+                    const response = await fetch(`/notes/${id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrf,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ text: newText.trim() })
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+                    }
+
+                    const updatedNote = await response.json();
                     const index = this.notes.findIndex(n => n.id === id);
                     if (index !== -1) {
-                        this.notes[index].text = newText.trim();
-                        this.notes[index].updated_at = new Date().toISOString();
-                        this.saveNotesToStorage();
-                        this.renderNotes();
-                        this.showSuccess('Note updated successfully');
+                        this.notes[index] = updatedNote;
                     }
+                    this.renderNotes();
+                    this.showSuccess('Note updated successfully');
                 } catch (error) {
                     console.error('Error editing note:', error);
-                    this.showError('Failed to update note');
+                    this.showError('Failed to update note: ' + error.message);
                 }
             }
 
-            togglePin(id) {
+            async togglePin(id) {
+                const note = this.notes.find(n => n.id === id);
+                if (!note) return;
+
                 try {
+                    const response = await fetch(`/notes/${id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrf,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ pinned: !note.pinned })
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+                    }
+
+                    const updatedNote = await response.json();
                     const index = this.notes.findIndex(n => n.id === id);
                     if (index !== -1) {
-                        this.notes[index].pinned = !this.notes[index].pinne
+                        this.notes[index] = updatedNote;
+                    }
+
+                    // Reorder notes - pinned first, then by date
+                    this.notes.sort((a, b) => {
+                        if (a.pinned && !b.pinned) return -1;
+                        if (!a.pinned && b.pinned) return 1;
+                        return new Date(b.created_at) - new Date(a.created_at);
+                    });
+
+                    this.renderNotes();
+                    this.updateCounter();
+                    this.showSuccess(updatedNote.pinned ? 'Note pinned' : 'Note unpinned');
+                } catch (error) {
+                    console.error('Error pinning note:', error);
+                    this.showError('Failed to update note: ' + error.message);
+                }
+            }
+
+            renderNotes(notesToRender = this.notes) {
+                const notesList = document.getElementById('notesList');
+                const emptyState = document.getElementById('emptyState');
+
+                if (!notesList) return;
+
+                // Clear existing notes
+                const existingNotes = notesList.querySelectorAll('.note-item');
+                existingNotes.forEach(note => note.remove());
+
+                if (!notesToRender.length) {
+                    if (emptyState) emptyState.style.display = 'block';
+                    return;
+                } else {
+                    if (emptyState) emptyState.style.display = 'none';
+                }
+
+                // Sort: pinned first, then by created date (newest first)
+                const sortedNotes = [...notesToRender].sort((a, b) => {
+                    if (a.pinned && !b.pinned) return -1;
+                    if (!a.pinned && b.pinned) return 1;
+                    return new Date(b.created_at) - new Date(a.created_at);
+                });
+
+                sortedNotes.forEach(note => {
+                    const noteEl = document.createElement('div');
+                    noteEl.className = 'note-item';
+                    if (note.pinned) {
+                        noteEl.classList.add('pinned');
+                    }
+                    
+                    noteEl.innerHTML = `
+                        <div class="note-meta d-flex justify-content-between align-items-center">
+                            <span><i class="fas fa-clock"></i> ${this.formatDate(note.created_at)}</span>
+                            <button class="btn btn-sm ${note.pinned ? 'btn-warning' : 'btn-outline-secondary'} pin-btn" 
+                                    title="${note.pinned ? 'Unpin note' : 'Pin note'}">
+                                <i class="fas fa-thumbtack"></i>
+                            </button>
+                        </div>
+                        <div class="note-text">${this.escapeHtml(note.text)}</div>
+                        <div class="note-actions">
+                            <button class="btn btn-sm btn-outline-primary me-1 edit-btn" title="Edit note">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" title="Delete note">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+
+                    // Attach event listeners
+                    noteEl.querySelector('.edit-btn').addEventListener('click', () => this.editNote(note.id));
+                    noteEl.querySelector('.delete-btn').addEventListener('click', () => this.deleteNote(note.id));
+                    noteEl.querySelector('.pin-btn').addEventListener('click', () => this.togglePin(note.id));
+
+                    notesList.appendChild(noteEl);
+                });
+            }
+
+            searchNotes(query) {
+                const normalizedQuery = query.toLowerCase().trim();
+                
+                if (!normalizedQuery) {
+                    this.renderNotes();
+                    return;
+                }
+
+                const filtered = this.notes.filter(note => 
+                    note.text.toLowerCase().includes(normalizedQuery)
+                );
+                
+                this.renderNotes(filtered);
+            }
+
+            updateCounter() {
+                const counter = document.getElementById('notesCounter');
+                if (counter) {
+                    const pinnedCount = this.notes.filter(n => n.pinned).length;
+                    const totalCount = this.notes.length;
+                    
+                    let text = `${totalCount} ${totalCount === 1 ? 'note' : 'notes'}`;
+                    if (pinnedCount > 0) {
+                        text += ` (${pinnedCount} pinned)`;
+                    }
+                    
+                    counter.textContent = text;
+                }
+            }
+
+            formatDate(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    const now = new Date();
+                    const diffTime = Math.abs(now - date);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                    if (diffDays === 1) {
+                        return 'Today';
+                    } else if (diffDays === 2) {
+                        return 'Yesterday';
+                    } else if (diffDays <= 7) {
+                        return `${diffDays - 1} days ago`;
+                    } else {
+                        return date.toLocaleDateString();
+                    }
+                } catch (error) {
+                    return 'Unknown date';
+                }
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            showSuccess(message) {
+                this.showToast(message, 'success');
+            }
+
+            showError(message) {
+                this.showToast(message, 'error');
+            }
+
+            showToast(message, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = `alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show`;
+                toast.style.position = 'fixed';
+                toast.style.top = '20px';
+                toast.style.right = '20px';
+                toast.style.zIndex = '9999';
+                toast.style.minWidth = '300px';
+                
+                toast.innerHTML = `
+                    ${message}
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 3000);
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new NotesPlugin();
+        });
