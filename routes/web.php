@@ -122,6 +122,5 @@ Route::middleware([
     Route::post('/notes', [NoteController::class, 'store']);
     Route::put('/notes/{note}', [NoteController::class, 'update']);
     Route::delete('/notes/{note}', [NoteController::class, 'destroy']);
-    Route::put('/notes/{note}/toggle-pin', [NoteController::class, 'togglePin']);
 
 });
