@@ -267,7 +267,7 @@
         }
 
         .text-muted1 {
-            color: #adb5bd !important;
+            color: #ffffffff !important;
         }
 
         /* Search box */
@@ -286,12 +286,12 @@
         }
 
         .nav-link {
-            color: #667eea;
+            color: #04AA6D;
             text-decoration: none;
         }
 
         .nav-link:hover {
-            color: #5a6fd8;
+            color: #04AA6D;
         }
 
         .text-white a {
