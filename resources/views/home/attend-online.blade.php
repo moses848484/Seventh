@@ -8,8 +8,13 @@
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Attend Online - UNISDA Church</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
         html,
@@ -34,55 +39,51 @@
 
         /* Navigation */
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding-top: 10px !important;
-            padding-bottom: 10px !important;
+            background: #f8f9fa !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1000;
-            min-height: 60px;
         }
 
         .navbar-brand {
             font-weight: bold;
             color: #333 !important;
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-size: 1.5rem;
             margin-left: 15px;
         }
 
         .navbar-nav .nav-link {
-            color: #848484 !important;
+            color: #555 !important;
             font-weight: 500;
             margin: 0 1rem;
-            transition: color 0.3s ease;
             position: relative;
-            padding-bottom: 15px !important;
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            /* Essential for positioning the pseudo-element */
+            padding-bottom: 8px;
+            /* Add space for the bar */
         }
 
         .navbar-nav .nav-link:hover {
-            color: #333 !important;
+            color: #000 !important;
         }
 
+        /* Removes the default styling that might cause issues */
         .navbar-nav .nav-link.second-nav {
-            color: darkgray !important;
+            color: #555 !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
             color: black !important;
         }
 
-        .nav-link.second-nav.active::after {
+        /* This is the key change: it applies the bar only to the .active class */
+        .navbar-nav .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
+            /* Adjust as needed */
             height: 3px;
             background-color: #e4af00;
-            border-radius: 2px 2px 0 0;
         }
 
         .navbar-toggler {
@@ -97,21 +98,21 @@
             display: inline-block;
             width: 1.5em;
             height: 1.5em;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="black" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="white" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Main content wrapper */
+        /* New wrapper to handle the main content area */
         .main-content-wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow: auto;
         }
 
-        /* Stream container */
+        /* Main container */
         .stream-container {
             flex: 1;
             display: flex;
@@ -122,22 +123,15 @@
         .video-section {
             flex: 1;
             position: relative;
-            background: #000;
-            min-height: 400px;
-        }
-
-        .video-wrapper {
-            position: relative;
+            background: #eee;
             width: 100%;
-            height: 100%;
-            min-height: 100%;
         }
 
+        .video-wrapper,
         #youtube-player {
             width: 100%;
             height: 100%;
             min-height: 100%;
-            border: none;
         }
 
         /* Stream Overlay */
@@ -155,7 +149,6 @@
             text-align: center;
             z-index: 10;
             transition: opacity 0.3s ease;
-            padding: 20px;
         }
 
         .stream-overlay.hidden {
@@ -164,22 +157,20 @@
         }
 
         .stream-overlay h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            color: white;
         }
 
         .stream-overlay p {
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            color: white;
         }
 
         .church-logo {
-            width: clamp(80px, 15vw, 120px);
+            width: 120px;
             height: auto;
             margin-bottom: 2rem;
             filter: brightness(0) invert(1);
@@ -188,15 +179,15 @@
         /* Stream Status */
         .stream-status {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 20px;
+            left: 20px;
             background: rgba(0, 0, 0, 0.8);
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             z-index: 20;
         }
 
@@ -213,43 +204,120 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* Viewer Count */
         .viewer-count {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: rgba(0, 0, 0, 0.8);
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             z-index: 20;
         }
 
-        /* Sidebar */
+        /* Control Panel */
+        .control-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 60px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .stream-title {
+            flex: 1;
+        }
+
+        .stream-title h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .stream-subtitle {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        .stream-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .action-btn.active {
+            background: #667eea;
+        }
+
+        /* Sidebar - Updated styles to match the image */
         .sidebar {
             width: 400px;
             background: #1c1c1c;
+            /* Dark background color */
             overflow-y: auto;
             flex-shrink: 0;
             color: #fff;
             padding: 20px;
-            max-height: 100vh;
+            /* Add padding to the whole sidebar */
         }
 
+        .sidebar-header {
+            display: none;
+            /* Hide header as per the new design */
+        }
+
+        /* Updated Sidebar Content - New Sections */
         .sidebar-content {
             padding: 0;
+            /* Remove padding since the main sidebar now has it */
         }
 
         .sidebar-card {
             background: #2b2b2b;
+            /* Card background color */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 15px;
@@ -261,15 +329,14 @@
         }
 
         .sidebar-card-text {
-            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-size: 1.1rem;
             font-weight: 500;
             margin-bottom: 10px;
             color: #f0f0f0;
-            line-height: 1.4;
         }
 
         .sidebar-card-text i {
-            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            font-size: 1.5rem;
             margin-right: 10px;
             color: #ccc;
         }
@@ -283,7 +350,6 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
         }
 
         .sidebar-card-btn:hover {
@@ -291,7 +357,7 @@
             border-color: #999;
         }
 
-        /* Login Prompt */
+        /* Login Prompt - Restyled */
         .login-prompt {
             background: #2b2b2b;
             border-radius: 10px;
@@ -300,23 +366,20 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
         .login-prompt p {
             margin: 0;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            flex: 1;
-            min-width: 200px;
         }
 
         .login-prompt p i {
             color: #ff9800;
+            /* Icon color from the image */
             margin-right: 8px;
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: 1.2rem;
         }
 
         .login-btn {
@@ -328,8 +391,6 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-            white-space: nowrap;
         }
 
         .login-btn:hover {
@@ -341,7 +402,7 @@
             background: none;
             border: none;
             color: #777;
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: 1.2rem;
             cursor: pointer;
             margin-left: 10px;
         }
@@ -362,17 +423,17 @@
             justify-content: center;
             gap: 10px;
             margin-top: 10px;
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            /* Adjust spacing */
         }
 
         .request-prayer-btn:hover {
             background: #3a3a3a;
         }
 
-        /* Quick Actions */
+        /* Quick Actions - Restyled */
         .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            display: flex;
+            justify-content: space-around;
             gap: 0;
             margin-top: 20px;
             border-top: 1px solid #333;
@@ -383,14 +444,11 @@
             background: transparent;
             border: none;
             color: #fff;
-            padding: 10px 5px;
+            padding: 10px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            flex: 1;
         }
 
         .quick-action:hover {
@@ -398,9 +456,10 @@
         }
 
         .quick-action i {
-            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            font-size: 1.4rem;
             margin-bottom: 5px;
             color: #999;
+            display: block;
         }
 
         .quick-action:hover i {
@@ -408,7 +467,7 @@
         }
 
         .quick-action div {
-            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            font-size: 0.8rem;
             color: #999;
         }
 
@@ -416,42 +475,14 @@
             color: #fff;
         }
 
-        .fa-eye {
-            color: white;
-        }
-
-        /* Responsive breakpoints */
-        
-        /* Large tablets and small desktops */
-        @media (max-width: 1200px) {
-            .sidebar {
-                width: 350px;
-                padding: 15px;
-            }
-            
-            .navbar-nav .nav-link {
-                margin: 0 0.3rem;
-            }
-        }
-
-        /* Medium tablets */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .sidebar {
-                width: 320px;
-                padding: 15px;
-            }
-            
-            .sidebar-card {
-                padding: 15px;
-            }
-            
-            .navbar-brand {
-                margin-left: 10px;
+                width: 350px;
             }
         }
 
-        /* Small tablets */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .stream-container {
                 flex-direction: column;
             }
@@ -460,404 +491,34 @@
                 width: 100%;
                 min-height: auto;
                 order: 2;
-                max-height: 50vh;
-                padding: 15px;
             }
 
             .video-section {
                 width: 100%;
                 order: 1;
-                min-height: 50vh;
-                flex: none;
-                height: 50vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 50vh;
-                height: 50vh;
-            }
-            
-            .quick-actions {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 5px;
-            }
-            
-            .quick-action {
-                padding: 8px 3px;
-            }
-        }
-
-        /* Mobile phones - large */
-        @media (max-width: 768px) {
-            .navbar-custom {
-                min-height: 56px;
-            }
-            
-            .navbar-brand {
-                font-size: 1.3rem;
-                margin-left: 10px;
-            }
-            
-            .video-section {
-                min-height: 40vh;
-                height: 40vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 40vh;
-                height: 40vh;
-            }
-            
-            .sidebar {
-                padding: 15px;
-                max-height: 60vh;
-            }
-            
-            .sidebar-card {
-                padding: 15px;
-                margin-bottom: 12px;
-            }
-            
-            .stream-status,
-            .viewer-count {
-                top: 10px;
-                padding: 4px 8px;
-                font-size: 0.8rem;
-            }
-            
-            .stream-status {
-                left: 10px;
-            }
-            
-            .viewer-count {
-                right: 10px;
-            }
-            
-            .login-prompt {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            
-            .login-prompt p {
-                text-align: center;
-                min-width: auto;
-            }
-            
-            .login-btn {
-                width: 100%;
-                padding: 10px 25px;
-            }
-        }
-
-        /* Mobile phones - medium */
-        @media (max-width: 576px) {
-            .navbar-brand {
-                font-size: 1.2rem;
-                margin-left: 5px;
-            }
-            
-            .video-section {
-                min-height: 35vh;
-                height: 35vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 35vh;
-                height: 35vh;
-            }
-            
-            .sidebar {
-                padding: 12px;
-                max-height: 65vh;
-            }
-            
-            .sidebar-card {
-                padding: 12px;
-                margin-bottom: 10px;
-            }
-            
-            .sidebar-card-text {
-                font-size: 1rem;
-                line-height: 1.3;
-            }
-            
-            .sidebar-card-text i {
-                font-size: 1.3rem;
-                margin-right: 8px;
-            }
-            
-            .quick-actions {
-                padding-top: 12px;
-                margin-top: 15px;
-            }
-            
-            .quick-action {
-                padding: 8px 2px;
-            }
-            
-            .quick-action i {
-                font-size: 1.2rem;
-                margin-bottom: 3px;
-            }
-            
-            .quick-action div {
-                font-size: 0.7rem;
-            }
-            
-            .request-prayer-btn {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Mobile phones - small */
-        @media (max-width: 480px) {
-            .navbar-custom {
-                padding: 0.3rem 0.5rem;
-            }
-            
-            .container {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            
-            .navbar-brand {
-                font-size: 1.1rem;
-                margin-left: 0;
-            }
-            
-            .video-section {
-                min-height: 30vh;
-                height: 30vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 30vh;
-                height: 30vh;
-            }
-            
-            .sidebar {
-                padding: 10px;
-                max-height: 70vh;
-            }
-            
-            .sidebar-card {
-                padding: 10px;
-                margin-bottom: 8px;
-            }
-            
-            .sidebar-card-text {
-                font-size: 0.95rem;
-            }
-            
-            .sidebar-card-text i {
-                font-size: 1.2rem;
-                margin-right: 6px;
-            }
-            
-            .sidebar-card-btn {
-                padding: 6px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .login-prompt {
-                padding: 12px;
-            }
-            
-            .login-prompt p {
-                font-size: 0.85rem;
-            }
-            
-            .login-btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-            
-            .request-prayer-btn {
-                padding: 8px;
-                font-size: 0.85rem;
-            }
-            
-            .quick-actions {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2px;
-                padding-top: 10px;
-                margin-top: 10px;
-            }
-            
-            .quick-action {
-                padding: 6px 2px;
-            }
-            
-            .quick-action i {
-                font-size: 1.1rem;
-                margin-bottom: 2px;
-            }
-            
-            .quick-action div {
-                font-size: 0.65rem;
-            }
-            
-            .stream-status,
-            .viewer-count {
-                top: 8px;
-                padding: 3px 6px;
-                font-size: 0.75rem;
-            }
-            
-            .stream-status {
-                left: 8px;
-            }
-            
-            .viewer-count {
-                right: 8px;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 360px) {
-            .video-section {
-                min-height: 25vh;
-                height: 25vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 25vh;
-                height: 25vh;
-            }
-            
-            .sidebar {
-                max-height: 75vh;
-                padding: 8px;
-            }
-            
-            .sidebar-card {
-                padding: 8px;
-                margin-bottom: 6px;
-            }
-            
-            .sidebar-card-text {
-                font-size: 0.9rem;
-            }
-            
-            .quick-actions {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1px;
-            }
-            
-            .quick-action div {
-                font-size: 0.6rem;
-            }
-        }
-
-        /* Landscape orientation adjustments */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .video-section {
                 min-height: 60vh;
-                height: 60vh;
             }
 
             .video-wrapper,
             #youtube-player {
                 min-height: 60vh;
-                height: 60vh;
-            }
-            
-            .sidebar {
-                max-height: 60vh;
             }
         }
 
-        @media (max-height: 500px) and (orientation: landscape) {
-            .video-section {
-                min-height: 70vh;
-                height: 70vh;
-            }
-
-            .video-wrapper,
-            #youtube-player {
-                min-height: 70vh;
-                height: 70vh;
-            }
-            
-            .sidebar {
-                max-height: 70vh;
-                padding: 10px;
-            }
-            
-            .sidebar-card {
-                padding: 8px;
-                margin-bottom: 6px;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .live-indicator {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        /* Ensure proper scrolling on mobile */
-        @media (max-width: 768px) {
-            body {
-                overflow-x: hidden;
-            }
-            
-            .sidebar {
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-        }
-
-        /* Fix navbar collapse on mobile */
-        @media (max-width: 991px) {
-            .navbar-collapse {
-                background: #f8f9fa;
-                margin-top: 10px;
-                padding: 10px;
-                border-radius: 5px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            .navbar-nav .nav-link {
-                padding: 8px 0;
-                margin: 0;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .navbar-nav .nav-link:last-child {
-                border-bottom: none;
-            }
-            
-            .navbar-nav .nav-link.second-nav.active::after {
-                display: none;
-            }
-            
-            .navbar-nav .nav-link.second-nav.active {
-                background-color: #e4af00;
-                color: white !important;
-                border-radius: 5px;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
+        .fa-eye {
+            color: white;
         }
     </style>
 </head>
 
 <body>
+    @include('home.header')
+
     <div class="orange-separator"></div>
 
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">About Us</a>
+            <a class="navbar-brand" href="#">Streaming Live</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="custom-toggler-icon"></span>
@@ -865,22 +526,22 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#attend-online">Attend Online</a>
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#who-we-are">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#what-to-expect">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#contact-us">Contact Us</a>
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#give-god">Give To God</a>
+                        <a class="nav-link second-nav" href="{{ route('give-god') }}">Give To God</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#our-beliefs">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
@@ -981,8 +642,10 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    @include('home.footer')
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Stream overlay toggle (simulating stream start)
@@ -993,9 +656,81 @@
         // Simulate stream starting after 3 seconds
         setTimeout(hideStreamOverlay, 3000);
 
+        // Mute button functionality
+        document.getElementById('muteBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.className = 'fas fa-volume-mute';
+            } else {
+                icon.className = 'fas fa-volume-up';
+            }
+        });
+
+        // Fullscreen functionality
+        document.getElementById('fullscreenBtn').addEventListener('click', function () {
+            const videoSection = document.querySelector('.video-section');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                this.querySelector('i').className = 'fas fa-expand';
+            } else {
+                videoSection.requestFullscreen();
+                this.querySelector('i').className = 'fas fa-compress';
+            }
+        });
+
         // Navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.nav-link.second-nav');
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function (
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Simulate viewer count changes
+        function updateViewerCount() {
+            const viewerElement = document.querySelector('.viewer-count span');
+            const currentCount = parseInt(viewerElement.textContent);
+            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
+            const newCount = Math.max(50, currentCount + change);
+            viewerElement.textContent = newCount;
+        }
+
+        setInterval(updateViewerCount, 15000); // Update every 15 seconds
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            switch (e.key) {
+                case ' ':
+                    e.preventDefault();
+                    // Toggle play/pause (would need YouTube API)
+                    break;
+                case 'm':
+                    document.getElementById('muteBtn').click();
+                    break;
+                case 'f':
+                    document.getElementById('fullscreenBtn').click();
+                    break;
+            }
+        });
+
+        // Prayer and commitment button interactions
+        document.querySelector('.request-prayer-btn').addEventListener('click', function () {
+            alert('Thank you for your prayer request. Our team will pray for you.');
+        });
+
+        // Login button functionality
+        document.querySelector('.login-btn').addEventListener('click', function () {
+            alert('Login functionality would be implemented here.');
+        });
+    </script>
+</body>
+
+</html>
