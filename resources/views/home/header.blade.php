@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         .header_section {
-            background-color: #2c6448;
+            background-color: #2c5530;
         }
 
         .custom_nav-container {

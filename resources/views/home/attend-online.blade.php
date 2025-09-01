@@ -8,54 +8,24 @@
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Attend Online - UNISDA Church</title>
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
         html,
         body {
             height: 100%;
             margin: 0;
-            font-family: 'Montserrat', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             background: #fff;
             color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
-        .header {
-            background: #2c5530;
-            color: white;
-            padding: 15px 0;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header .logo img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .header .logo h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .header .contact-info {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
         }
 
         /* Orange separator line */
@@ -71,97 +41,97 @@
         .navbar-custom {
             background: #f8f9fa !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
         }
 
         .navbar-brand {
             font-weight: bold;
             color: #333 !important;
             font-size: 1.5rem;
-            margin-left: 0;
+            margin-left: 15px;
         }
 
         .navbar-nav .nav-link {
             color: #555 !important;
             font-weight: 500;
-            margin: 0 0.5rem;
+            margin: 0 1rem;
             position: relative;
-            padding: 10px 15px;
-            transition: all 0.3s ease;
+            /* Essential for positioning the pseudo-element */
+            padding-bottom: 8px;
+            /* Add space for the bar */
         }
 
         .navbar-nav .nav-link:hover {
             color: #000 !important;
-            background-color: rgba(228, 175, 0, 0.1);
-            border-radius: 5px;
         }
 
-        .navbar-nav .nav-link.active {
-            color: #000 !important;
-            background-color: rgba(228, 175, 0, 0.15);
-            border-radius: 5px;
+        /* Removes the default styling that might cause issues */
+        .navbar-nav .nav-link.second-nav {
+            color: #555 !important;
         }
 
-        .navbar-nav .nav-link.active::after {
+        .navbar-nav .nav-link.second-nav:hover {
+            color: black !important;
+        }
+
+        /* This is the key change: it applies the bar only to the .active class */
+        .navbar-nav .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
-            bottom: 5px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
+            width: 80%;
+            /* Adjust as needed */
             height: 3px;
             background-color: #e4af00;
-            border-radius: 2px;
         }
 
         .navbar-toggler {
             border: none;
             padding: 0.25rem 0.5rem;
-            border-radius: 5px;
-            background-color: #e4af00;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
         }
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        .custom-toggler-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="white" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-        /* Main Layout Container */
-        .main-layout {
-            display: flex;
-            min-height: calc(100vh - 200px);
-            flex-wrap: wrap;
-        }
-
-        /* Video Section */
-        .video-section {
+        /* New wrapper to handle the main content area */
+        .main-content-wrapper {
             flex: 1;
-            min-width: 0;
-            position: relative;
-            background: #000;
             display: flex;
             flex-direction: column;
+            overflow: auto;
         }
 
-        .video-container {
+        /* Main container */
+        .stream-container {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+        }
+
+        /* Video section */
+        .video-section {
+            flex: 1;
             position: relative;
+            background: #eee;
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background: #000;
         }
 
-        .video-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
+        .video-wrapper,
         #youtube-player {
             width: 100%;
             height: 100%;
-            border: none;
+            min-height: 100%;
         }
 
         /* Stream Overlay */
@@ -171,15 +141,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(44, 85, 48, 0.95), rgba(228, 175, 0, 0.8));
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             text-align: center;
             z-index: 10;
-            transition: opacity 0.5s ease;
-            color: white;
+            transition: opacity 0.3s ease;
         }
 
         .stream-overlay.hidden {
@@ -188,20 +157,20 @@
         }
 
         .stream-overlay h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .stream-overlay p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
 
         .church-logo {
-            width: 100px;
+            width: 120px;
             height: auto;
             margin-bottom: 2rem;
             filter: brightness(0) invert(1);
@@ -210,8 +179,8 @@
         /* Stream Status */
         .stream-status {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 20px;
+            left: 20px;
             background: rgba(0, 0, 0, 0.8);
             padding: 8px 16px;
             border-radius: 20px;
@@ -220,7 +189,6 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
-            color: white;
         }
 
         .live-indicator {
@@ -231,17 +199,29 @@
             animation: pulse 2s infinite;
         }
 
+        .live {
+            color: white;
+        }
+
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* Viewer Count */
         .viewer-count {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: rgba(0, 0, 0, 0.8);
             padding: 8px 16px;
             border-radius: 20px;
@@ -250,105 +230,167 @@
             align-items: center;
             gap: 8px;
             z-index: 20;
-            color: white;
         }
 
-        /* Sidebar */
+        /* Control Panel */
+        .control-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 60px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .stream-title {
+            flex: 1;
+        }
+
+        .stream-title h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .stream-subtitle {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        .stream-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .action-btn.active {
+            background: #667eea;
+        }
+
+        /* Sidebar - Updated styles to match the image */
         .sidebar {
-            width: 380px;
+            width: 400px;
             background: #1c1c1c;
-            color: #fff;
-            padding: 20px;
+            /* Dark background color */
             overflow-y: auto;
             flex-shrink: 0;
-            min-height: 100%;
+            color: #fff;
+            padding: 20px;
+            /* Add padding to the whole sidebar */
+        }
+
+        .sidebar-header {
+            display: none;
+            /* Hide header as per the new design */
+        }
+
+        /* Updated Sidebar Content - New Sections */
+        .sidebar-content {
+            padding: 0;
+            /* Remove padding since the main sidebar now has it */
         }
 
         .sidebar-card {
             background: #2b2b2b;
-            border-radius: 12px;
+            /* Card background color */
+            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
             text-align: center;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-card:hover {
-            background: #323232;
-            border-color: #444;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .sidebar-card-text {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #f0f0f0;
-            line-height: 1.4;
         }
 
         .sidebar-card-text i {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-right: 10px;
-            color: #e4af00;
+            color: #ccc;
         }
 
         .sidebar-card-btn {
             background: transparent;
             color: #fff;
-            border: 1px solid #666;
-            padding: 10px 25px;
-            border-radius: 25px;
+            border: 1px solid #777;
+            padding: 8px 25px;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
         }
 
         .sidebar-card-btn:hover {
-            background: #e4af00;
-            border-color: #e4af00;
-            color: #000;
+            background: #3a3a3a;
+            border-color: #999;
         }
 
-        /* Login Prompt */
+        /* Login Prompt - Restyled */
         .login-prompt {
             background: #2b2b2b;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid #333;
-            flex-wrap: wrap;
         }
 
         .login-prompt p {
             margin: 0;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            flex: 1;
-            min-width: 200px;
         }
 
         .login-prompt p i {
             color: #ff9800;
+            /* Icon color from the image */
             margin-right: 8px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .login-btn {
             background: transparent;
             color: #ff9800;
             border: 1px solid #ff9800;
-            padding: 8px 20px;
+            padding: 8px 25px;
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.85rem;
         }
 
         .login-btn:hover {
@@ -356,14 +398,13 @@
             color: #fff;
         }
 
-        .close-btn {
+        .login-prompt .close-btn {
             background: none;
             border: none;
             color: #777;
             font-size: 1.2rem;
             cursor: pointer;
             margin-left: 10px;
-            padding: 5px;
         }
 
         /* Request Prayer Button */
@@ -371,9 +412,9 @@
             width: 100%;
             background: #2b2b2b;
             color: #fff;
-            border: 1px solid #666;
-            padding: 15px;
-            border-radius: 12px;
+            border: 1px solid #777;
+            padding: 12px;
+            border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -381,130 +422,68 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-top: 10px;
+            /* Adjust spacing */
         }
 
         .request-prayer-btn:hover {
-            background: #e4af00;
-            border-color: #e4af00;
-            color: #000;
+            background: #3a3a3a;
         }
 
-        .request-prayer-btn i {
-            color: #ff6b6b;
-        }
-
-        /* Quick Actions */
+        /* Quick Actions - Restyled */
         .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            display: flex;
+            justify-content: space-around;
+            gap: 0;
+            margin-top: 20px;
             border-top: 1px solid #333;
-            padding-top: 20px;
+            padding-top: 15px;
         }
 
         .quick-action {
             background: transparent;
             border: none;
-            color: #ccc;
-            padding: 15px 10px;
+            color: #fff;
+            padding: 10px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 8px;
+            flex: 1;
         }
 
         .quick-action:hover {
             background: #2b2b2b;
-            color: #fff;
         }
 
         .quick-action i {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
             color: #999;
+            display: block;
         }
 
         .quick-action:hover i {
-            color: #e4af00;
+            color: #fff;
         }
 
         .quick-action div {
             font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2c5530;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer h4 {
-            color: #e4af00;
-            margin-bottom: 15px;
-        }
-
-        .footer p, .footer a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: #e4af00;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-2px);
-            background: #fff;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
             color: #999;
         }
 
+        .quick-action:hover div {
+            color: #fff;
+        }
+
         /* Responsive Design */
-        @media (max-width: 1200px) {
+        @media (max-width: 1024px) {
             .sidebar {
-                width: 320px;
+                width: 350px;
             }
         }
 
-        @media (max-width: 992px) {
-            .main-layout {
+        @media (max-width: 768px) {
+            .stream-container {
                 flex-direction: column;
             }
 
@@ -515,254 +494,161 @@
             }
 
             .video-section {
+                width: 100%;
                 order: 1;
-                min-height: 400px;
+                min-height: 60vh;
             }
 
-            .video-container {
-                padding-bottom: 75%; /* Adjusted for mobile */
-            }
-
-            .quick-actions {
-                grid-template-columns: repeat(5, 1fr);
+            .video-wrapper,
+            #youtube-player {
+                min-height: 60vh;
             }
         }
 
-        @media (max-width: 768px) {
-            .header .contact-info {
-                display: none;
-            }
-
-            .stream-overlay h1 {
-                font-size: 2rem;
-            }
-
-            .stream-overlay p {
-                font-size: 1rem;
-            }
-
-            .navbar-nav .nav-link {
-                margin: 0;
-                padding: 8px 15px;
-            }
-
-            .login-prompt {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
-            .login-prompt p {
-                min-width: auto;
-            }
-
-            .quick-actions {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .video-container {
-                padding-bottom: 56.25%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .sidebar {
-                padding: 15px;
-            }
-
-            .sidebar-card {
-                padding: 15px;
-            }
-
-            .stream-overlay h1 {
-                font-size: 1.5rem;
-            }
-
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .fa-eye {
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <div style="width: 40px; height: 40px; background: #e4af00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2c5530;">U</div>
-                <h2>UNISDA CHURCH</h2>
-            </div>
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +260 123 456 789</span>
-                <span><i class="fas fa-envelope"></i> info@unisdachurch.org</span>
-            </div>
-        </div>
-    </header>
+    @include('home.header')
 
     <div class="orange-separator"></div>
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#">Streaming Live</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="custom-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#attend-online">Attend Online</a>
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#who-we-are">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#what-to-expect">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-us">Contact Us</a>
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#give-god">Give To God</a>
+                        <a class="nav-link second-nav" href="{{ route('give-god') }}">Give To God</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#our-beliefs">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="main-layout">
-        <!-- Video Section -->
-        <div class="video-section">
-            <div class="video-container">
+    <div class="main-content-wrapper">
+        <div class="stream-container">
+            <div class="video-section">
                 <div class="video-wrapper">
                     <iframe id="youtube-player"
                         src="https://www.youtube.com/embed/YUyzvduXvgs?autoplay=0&mute=0&rel=0&showinfo=0"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
 
                     <div class="stream-overlay" id="streamOverlay">
                         <div>
-                            <div class="church-logo" style="width: 80px; height: 80px; background: #e4af00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2c5530; font-size: 24px; margin: 0 auto 20px;">U</div>
                             <h1>Welcome to UNISDA Church</h1>
-                            <p>The service will begin soon. Please wait...</p>
+                            <p>The service will begin soon.</p>
+                            <div style="margin-bottom: 2rem;">
+                                <svg width="80" height="40" viewBox="0 0 200 100" fill="white">
+                                    <text x="10" y="50" font-family="Arial, sans-serif" font-size="24"
+                                        font-weight="bold">UNISDA</text>
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
                     <div class="stream-status">
                         <div class="live-indicator"></div>
-                        <span>LIVE</span>
-                        <span>0:00:02</span>
+                        <span class="live">LIVE</span>
+                        <span class="live">- 0:00:02</span>
                     </div>
 
                     <div class="viewer-count">
                         <i class="fas fa-eye"></i>
-                        <span>127</span>
+                        <span class="live">127</span>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-card">
-                <div class="sidebar-card-text">
-                    <i class="fa-solid fa-handshake"></i>
-                    Want to change the world? Become a HOST!
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-text">
+                            <i class="fa-solid fa-handshake"></i>
+                            Want to change the world? Become a HOST!
+                        </div>
+                        <button class="sidebar-card-btn">Continue</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-text">
+                            <i class="fa-solid fa-users"></i>
+                            Find your people. Join a LifeGroup.
+                        </div>
+                        <button class="sidebar-card-btn">Continue</button>
+                    </div>
+
+                    <div class="login-prompt">
+                        <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church
+                            Online!</p>
+                        <button class="login-btn">Log In</button>
+                        <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+                    </div>
+
+                    <button class="request-prayer-btn">
+                        <i class="fa-regular fa-heart"></i>
+                        Request Prayer
+                    </button>
+
+                    <div class="quick-actions">
+                        <button class="quick-action">
+                            <i class="fa-regular fa-message"></i>
+                            <div>Feed</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <div>Pray</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <div>Schedule</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fa-regular fa-note-sticky"></i>
+                            <div>Notes</div>
+                        </button>
+                        <button class="quick-action">
+                            <i class="fa-solid fa-book-bible"></i>
+                            <div>Bible</div>
+                        </button>
+                    </div>
                 </div>
-                <button class="sidebar-card-btn">Continue</button>
-            </div>
-
-            <div class="sidebar-card">
-                <div class="sidebar-card-text">
-                    <i class="fa-solid fa-users"></i>
-                    Find your people. Join a LifeGroup.
-                </div>
-                <button class="sidebar-card-btn">Continue</button>
-            </div>
-
-            <div class="login-prompt">
-                <p><i class="fa-solid fa-circle-info"></i> Log in to experience the best of UNISDA Church Online!</p>
-                <button class="login-btn">Log In</button>
-                <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
-            </div>
-
-            <button class="request-prayer-btn">
-                <i class="fa-regular fa-heart"></i>
-                Request Prayer
-            </button>
-
-            <div class="quick-actions">
-                <button class="quick-action">
-                    <i class="fa-regular fa-message"></i>
-                    <div>Feed</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    <div>Pray</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <div>Schedule</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fa-regular fa-note-sticky"></i>
-                    <div>Notes</div>
-                </button>
-                <button class="quick-action">
-                    <i class="fa-solid fa-book-bible"></i>
-                    <div>Bible</div>
-                </button>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4>UNISDA Church</h4>
-                    <p>University SDA Church is committed to sharing God's love and building a community of faith.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <p><a href="#">About Us</a></p>
-                    <p><a href="#">Our Beliefs</a></p>
-                    <p><a href="#">Ministries</a></p>
-                    <p><a href="#">Events</a></p>
-                </div>
-                <div>
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Katima Mulilo Road, Lusaka</p>
-                    <p><i class="fas fa-phone"></i> +260 123 456 789</p>
-                    <p><i class="fas fa-envelope"></i> info@unisdachurch.org</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 The University SDA Church. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    @include('home.footer')
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Stream overlay toggle
+        // Stream overlay toggle (simulating stream start)
         function hideStreamOverlay() {
             document.getElementById('streamOverlay').classList.add('hidden');
         }
@@ -770,14 +656,39 @@
         // Simulate stream starting after 3 seconds
         setTimeout(hideStreamOverlay, 3000);
 
+        // Mute button functionality
+        document.getElementById('muteBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.className = 'fas fa-volume-mute';
+            } else {
+                icon.className = 'fas fa-volume-up';
+            }
+        });
+
+        // Fullscreen functionality
+        document.getElementById('fullscreenBtn').addEventListener('click', function () {
+            const videoSection = document.querySelector('.video-section');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                this.querySelector('i').className = 'fas fa-expand';
+            } else {
+                videoSection.requestFullscreen();
+                this.querySelector('i').className = 'fas fa-compress';
+            }
+        });
+
         // Navigation active state handler
         document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.nav-link');
+            const navLinks = document.querySelectorAll('.nav-link.second-nav');
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
+                    // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
                     this.classList.add('active');
                 });
             });
@@ -785,38 +696,39 @@
 
         // Simulate viewer count changes
         function updateViewerCount() {
-            const viewerElement = document.querySelector('.viewer-count span:last-child');
+            const viewerElement = document.querySelector('.viewer-count span');
             const currentCount = parseInt(viewerElement.textContent);
-            const change = Math.floor(Math.random() * 10) - 5;
+            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
             const newCount = Math.max(50, currentCount + change);
             viewerElement.textContent = newCount;
         }
 
-        setInterval(updateViewerCount, 15000);
+        setInterval(updateViewerCount, 15000); // Update every 15 seconds
 
-        // Prayer request button
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            switch (e.key) {
+                case ' ':
+                    e.preventDefault();
+                    // Toggle play/pause (would need YouTube API)
+                    break;
+                case 'm':
+                    document.getElementById('muteBtn').click();
+                    break;
+                case 'f':
+                    document.getElementById('fullscreenBtn').click();
+                    break;
+            }
+        });
+
+        // Prayer and commitment button interactions
         document.querySelector('.request-prayer-btn').addEventListener('click', function () {
             alert('Thank you for your prayer request. Our team will pray for you.');
         });
 
-        // Login functionality
+        // Login button functionality
         document.querySelector('.login-btn').addEventListener('click', function () {
-            alert('Redirecting to login page...');
-        });
-
-        // Sidebar card buttons
-        document.querySelectorAll('.sidebar-card-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Feature coming soon!');
-            });
-        });
-
-        // Quick actions
-        document.querySelectorAll('.quick-action').forEach(action => {
-            action.addEventListener('click', function() {
-                const feature = this.querySelector('div').textContent;
-                alert(`${feature} feature coming soon!`);
-            });
+            alert('Login functionality would be implemented here.');
         });
     </script>
 </body>
