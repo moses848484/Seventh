@@ -8,8 +8,13 @@
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Attend Online - UNISDA Church</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
+    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
+    <link rel="stylesheet"
+        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
         html,
@@ -846,6 +851,9 @@
 </head>
 
 <body>
+
+    @include('home.header')
+
     <div class="orange-separator"></div>
 
     <nav class="navbar navbar-expand-lg navbar-custom">
@@ -858,22 +866,22 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="#attend-online">Attend Online</a>
+                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#who-we-are">Who We Are</a>
+                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#what-to-expect">What to Expect</a>
+                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#contact-us">Contact Us</a>
+                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#give-god">Give To God</a>
+                        <a class="nav-link second-nav" href="{{ route('give-god') }}">Give To God</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="#our-beliefs">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
