@@ -783,9 +783,13 @@
         }
 
         .expectation-icon img {
-            width: 60px;
+            width: 70%;
+            /* keep image smaller than the circle */
             height: auto;
-            margin-bottom: 15px;
+            /* maintain aspect ratio */
+            object-fit: contain;
+            /* make sure it fits nicely */
+            display: block;
         }
 
 
