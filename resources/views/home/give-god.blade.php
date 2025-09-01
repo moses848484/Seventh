@@ -996,7 +996,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                     <div class="expectation-card">
                         <div class="expectation-icon">
-                            <img src="/images/mtn-logo.png" alt="MTN Logo">
+                            <img src="/images/mtn-logo-png.png" alt="MTN Logo">
                         </div>
                         <h4 class="header1">MTN Money</h4>
                         <p class="header1">Steps:</p>
@@ -1015,7 +1015,7 @@
                 <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                     <div class="expectation-card">
                         <div class="expectation-icon">
-                            <img src="/images/zanaco-logo.png" alt="Zanaco Logo">
+                            <img src="/images/credit-card.png" alt="Zanaco Logo">
                         </div>
                         <h4 class="header1">Zanaco Bank</h4>
                         <p class="header1">Steps:</p>
