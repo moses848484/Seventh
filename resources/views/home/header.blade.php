@@ -11,6 +11,11 @@
             background-color: #2c5530;
         }
 
+        .navbar-expand-md {
+             color: #2c5530 !important;
+             background-color: #2c5530 !important;
+        }
+
         .custom_nav-container {
             padding: 0.75rem 2rem;
             color: #2c5530 !important;
