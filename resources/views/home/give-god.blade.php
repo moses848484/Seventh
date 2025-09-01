@@ -751,16 +751,18 @@
         }
 
         .expectation-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin-bottom: 1.5rem;
-            /* Added margin-bottom here for spacing */
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 360px;
+            /* prevents full stretch on large screens */
+        }
+
+        .steps-list {
+            text-align: left;
+            /* left align text */
         }
 
         .expectation-card:hover {
@@ -781,13 +783,9 @@
         }
 
         .expectation-icon img {
-            width: 70%;
-            /* keep image smaller than the circle */
+            width: 60px;
             height: auto;
-            /* maintain aspect ratio */
-            object-fit: contain;
-            /* make sure it fits nicely */
-            display: block;
+            margin-bottom: 15px;
         }
 
 
@@ -970,73 +968,72 @@
         </div>
     </div>
 
-    <!-- Expectation Cards -->
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center">
+
                 <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                    <div class="expectation-card">
                         <div class="expectation-icon">
                             <img src="/images/airtel-logo.png" alt="Airtel Logo">
                         </div>
-
                         <h4 class="header1">Airtel Money</h4>
                         <p class="header1">Follow the steps below:</p>
-                        <ul class="steps-list">
+                        <ul class="steps-list list-unstyled d-inline-block">
                             <li>Dial <strong>*115#</strong></li>
-                            <li>Select option <strong>6:"goods and services"</strong></li>
+                            <li>Select option <strong>6: "goods and services"</strong></li>
                             <li>Select option <strong>1: "enter merchant code"</strong></li>
                             <li>Enter business name: <strong>"UNISDA"</strong></li>
                             <li>Enter the <strong>Amount you are sending</strong></li>
                             <li>Enter a reference <strong>(Tithe/Offering)</strong></li>
-                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
-                        </small>
+                        </ul>
+                        <small class="header1 d-block mt-2">Finally, enter your <strong>PIN</strong> to confirm.</small>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                    <div class="expectation-card">
                         <div class="expectation-icon">
-                            <img src="/images/mtn-logo-png.png" alt="Airtel Logo">
+                            <img src="/images/mtn-logo.png" alt="MTN Logo">
                         </div>
-
                         <h4 class="header1">MTN Money</h4>
-                        <p class="header1">Follow the steps below:</p>
-                        <ul class="steps-list">
-                            <li>Dial <strong>*115#</strong></li>
-                            <li>Select option<strong>3: "Paybill"</strong></li>
-                            <li>Select option<strong>6: "Retail Payment"</strong></li>
-                            <li>Enter Merchant ID: <strong>"UNISDA"</strong></li>
-                            <li>Enter the <strong>Amount you are sending</strong></li>
+                        <p class="header1">Steps:</p>
+                        <ul class="steps-list list-unstyled d-inline-block">
+                            <li>Dial <strong>*303#</strong></li>
+                            <li>Select <strong>“Pay Bill”</strong></li>
+                            <li>Enter business code: <strong>12345</strong></li>
+                            <li>Enter <strong>Amount</strong></li>
+                            <li>Enter a reference <strong>(Donation/Tithe)</strong></li>
                         </ul>
-                        <small class="header1">Finally, Enter your <strong>PIN</strong> to confirm the transaction.
-                        </small>
+                        <small class="header1 d-block mt-2">Finish by entering your <strong>PIN</strong>.</small>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="expectation-card w-100">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                    <div class="expectation-card">
                         <div class="expectation-icon">
-                            <img src="/images/credit-card.png" alt="Airtel Logo">
+                            <img src="/images/zanaco-logo.png" alt="Zanaco Logo">
                         </div>
-
-                        <h4 class="header1">Standard Chartered Bank</h4>
-                        <p class="header1">Use the bank details below:</p>
-                        <ul class="steps-list">
-                            <li>Account Name: <strong>University SDA Church</strong></li>
-                            <li>Branch: <strong>Standard Chartered - Manda Hill</strong></li>
-                            <li>Branch Code: <strong>060030</strong></li>
-                            <li>Account No.<strong>0140020061100</strong></li>
+                        <h4 class="header1">Zanaco Bank</h4>
+                        <p class="header1">Steps:</p>
+                        <ul class="steps-list list-unstyled d-inline-block">
+                            <li>Login to <strong>Internet Banking</strong></li>
+                            <li>Select <strong>“Payments”</strong></li>
+                            <li>Enter beneficiary: <strong>UNISDA</strong></li>
+                            <li>Enter <strong>Amount</strong></li>
+                            <li>Enter a reference <strong>(Offering/Tithe)</strong></li>
                         </ul>
+                        <small class="header1 d-block mt-2">Confirm transaction with your <strong>PIN</strong>.</small>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
     @include('home.footer')
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
