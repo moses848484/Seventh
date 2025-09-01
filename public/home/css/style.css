@@ -199,7 +199,7 @@ a:focus {
 
 /* When navbar is toggled open */
 .custom_nav-container.navbar-expanded {
-  background-color: #2c6448ee !important;
+  background-color: #2c5530 !important;
   /* Consistent green with transparency */
   box-shadow: none !important;
   border: none !important;
