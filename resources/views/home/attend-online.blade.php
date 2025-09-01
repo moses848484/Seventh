@@ -7,14 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>What to Expect - SDA Church</title>
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
-    <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/responsive.css" />
-    <link rel="stylesheet"
-        href="https://seventh-production.up.railway.app/css/fontawesome-free-6.5.2-web/css/all.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>Attend Online - UNISDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         html,
@@ -39,8 +34,13 @@
 
         /* Navigation */
         .navbar-custom {
-            background: #f8f9fa !important;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
             min-height: 60px;
         }
 
@@ -52,27 +52,28 @@
         }
 
         .navbar-nav .nav-link {
-            color: #555 !important;
+            color: #848484 !important;
             font-weight: 500;
-            margin: 0 0.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 15px !important;
             font-size: clamp(0.9rem, 1.5vw, 1rem);
         }
 
         .navbar-nav .nav-link:hover {
-            color: #000 !important;
+            color: #333 !important;
         }
 
         .navbar-nav .nav-link.second-nav {
-            color: #555 !important;
+            color: darkgray !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
             color: black !important;
         }
 
-        .navbar-nav .nav-link.second-nav.active::after {
+        .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -81,6 +82,7 @@
             width: 80%;
             height: 3px;
             background-color: #e4af00;
+            border-radius: 2px 2px 0 0;
         }
 
         .navbar-toggler {
@@ -851,14 +853,11 @@
 </head>
 
 <body>
-
-    @include('home.header')
-
     <div class="orange-separator"></div>
 
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">Streaming Live</a>
+            <a class="navbar-brand" href="#">About Us</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="custom-toggler-icon"></span>
@@ -866,22 +865,22 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                        <a class="nav-link second-nav active" href="#attend-online">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav" href="#who-we-are">Who We Are</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
+                        <a class="nav-link second-nav" href="#what-to-expect">What to Expect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link second-nav" href="#contact-us">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('give-god') }}">Give To God</a>
+                        <a class="nav-link second-nav" href="#give-god">Give To God</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('our-beliefs') }}">Our Beliefs</a>
+                        <a class="nav-link second-nav" href="#our-beliefs">Our Beliefs</a>
                     </li>
                 </ul>
             </div>
