@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+   <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="shortcut icon" href="https://seventh-production.up.railway.app/images/sda3.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Attend Online - UNISDA Church</title>
+    <title>What to Expect - SDA Church</title>
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/bootstrap.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://seventh-production.up.railway.app/home/css/style.css" />
@@ -17,15 +17,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
     <style>
-        html,
-        body {
-            height: 100%;
+                body {
             margin: 0;
-            display: flex;
-            flex-direction: column;
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            background: #fff;
-            color: #333;
         }
 
         /* Orange separator line */
@@ -39,8 +33,32 @@
 
         /* Navigation */
         .navbar-custom {
-            background: #f8f9fa !important;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .custom-toggler-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="black" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .navbar-brand {
@@ -51,57 +69,36 @@
         }
 
         .navbar-nav .nav-link {
-            color: #555 !important;
+            color: #848484 !important;
             font-weight: 500;
             margin: 0 1rem;
+            transition: color 0.3s ease;
             position: relative;
-            /* Essential for positioning the pseudo-element */
-            padding-bottom: 8px;
-            /* Add space for the bar */
+            padding-bottom: 15px !important;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #000 !important;
+            color: #333 !important;
         }
 
-        /* Removes the default styling that might cause issues */
         .navbar-nav .nav-link.second-nav {
-            color: #555 !important;
+            color: darkgray !important;
         }
 
         .navbar-nav .nav-link.second-nav:hover {
             color: black !important;
         }
 
-        /* This is the key change: it applies the bar only to the .active class */
-        .navbar-nav .nav-link.second-nav.active::after {
+        .nav-link.second-nav.active::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            /* Adjust as needed */
             height: 3px;
             background-color: #e4af00;
-        }
-
-        .navbar-toggler {
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            outline: none !important;
-        }
-
-        .custom-toggler-icon {
-            display: inline-block;
-            width: 1.5em;
-            height: 1.5em;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="white" d="M480 224C492.9 224 504.6 231.8 509.6 243.8C514.6 255.8 511.8 269.5 502.7 278.7L342.7 438.7C330.2 451.2 309.9 451.2 297.4 438.7L137.4 278.7C128.2 269.5 125.5 255.8 130.5 243.8C135.5 231.8 147.1 224 160 224L480 224z"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            border-radius: 2px 2px 0 0;
         }
 
         /* New wrapper to handle the main content area */
@@ -513,23 +510,24 @@
 
 <body>
     @include('home.header')
-
+    <!-- Orange Separator Line -->
     <div class="orange-separator"></div>
 
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="#">Streaming Live</a>
+            <a class="navbar-brand" href="#">About Us</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="custom-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link second-nav active" href="{{ route('attend-online') }}">Attend Online</a>
+                      <li class="nav-item">
+                        <a class="nav-link second-nav" href="{{ route('attend-online') }}">Attend Online</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link second-nav" href="{{ route('who-we-are') }}">Who We Are</a>
+                        <a class="nav-link second-nav active" href="{{ route('who-we-are') }}">Who We Are</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('what-to-expect') }}">What to Expect</a>
@@ -537,7 +535,7 @@
                     <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
-                    <li class="nav-item">
+                      <li class="nav-item">
                         <a class="nav-link second-nav" href="{{ route('give-god') }}">Give To God</a>
                     </li>
                     <li class="nav-item">
@@ -733,4 +731,3 @@
     </script>
 </body>
 
-</html>
