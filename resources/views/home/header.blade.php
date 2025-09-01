@@ -13,6 +13,7 @@
 
         .custom_nav-container {
             padding: 0.75rem 2rem;
+            color: #2c5530 !important;
         }
 
         .brand-wrapper {
